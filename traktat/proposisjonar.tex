@@ -108,7 +108,6 @@
 \end{center}
 
 \flowchapter{2 Ikkje alle posisjonar er like sannsynlege}{ikkje alle posisjonar er like sannsynlege}
-
 \mainprop{2}{}{Ikkje alle posisjonar er like sannsynlege.}
 
 \prop{2.01}{t}{At ikkje alle posisjonar er like sannsynlege tyder at noko verkar på fordelinga. Det som verkar, er seleksjonstrykk.}
@@ -152,7 +151,6 @@
 \prop{2.212}{t}{Stilen er eit symptom på underliggjande krefter, ikkje ei årsak.}
 
 \flowchapter{3 Seleksjonstrykka produserer eit landskap}{seleksjonstrykka produserer eit landskap}
-
 \mainprop{3}{}{Seleksjonstrykka spenner ut eit landskap over form\-rommet.}
 
 \prop{3.1}{d}{\textbf{Tilpassingslandskapet} er vektorsummen av alle verksame seleksjons\-trykk.\textsuperscript{3,\,8,\,58} Kvar posisjon held ein verdi; graden av samtidig forløysing for alle trykk.}
@@ -176,7 +174,6 @@
 \prop{3.41}{i}{Isolerte tradisjonar navigerer den same kløfta utan å utveksle eit ord. Uavhengig konvergens stadfestar at attraktoren er reell.}
 
 \flowchapter{4 Landskapet er dynamisk}{landskapet er dynamisk}
-
 \mainprop{4}{}{Landskapet er dynamisk.}
 
 \prop{4.1}{a}{Seleksjonstrykka kviler aldri. Haugar stig, søkk, flyttar seg, deler seg, smeltar saman. Optimal tilpassing er lokal i tid.}
@@ -200,26 +197,29 @@
 \prop{4.512}{t}{Dei fortrengde kompetansane let seg ikkje gjenskape frå læra som fortrengte dei.}
 
 \flowchapter{5 Det finst agentar}{det finst agentar}
-
 \mainprop{5}{}{Verda rommar agentar som responderer på landskapet.}
 
 \prop{5.1}{a}{Kvar klasse har minst eitt system som navigerer landskapet via negativ tilbakekopling.\textsuperscript{62}}
 
-\prop{5.11}{d}{Ein \textbf{agent} er ein operator definert av trippelet måltilstand, avstandsmåling, justeringsmekanisme.\textsuperscript{4,\,7,\,21,\,82,\,83,\,84} Agens krev berre organisering; verken medvit, intensjon eller nervesystem.}
+\prop{5.11}{d}{Ein \textbf{agent} A er eit persistent system definert av tuppelet (m, \msym{π}, \msym{ε}).\textsuperscript{19,\,21,\,83,\,84} m er ein generativ modell over ein delmengd av aksar i formrommet; \msym{π} er politikken som minimerer variasjonell fri energi mellom det m predikerer og det agenten observerer; \msym{ε} er toleranseterskelen for KL-divergens mellom prediksjon og observasjon. Agens krev berre denne strukturen; verken medvit, intensjon eller nervesystem.}
 
 \prop{5.111}{t}{Definisjonen er substrat-uavhengig.\textsuperscript{88,\,89} Eit kvart system som oppfyller vilkåra er ein agent.}
 
-\propcont{Formelt. Agent A := (g, d, \msym{δ}). Det finst ein Lyapunov-funksjon V slik at}
+\prop{5.112}{d}{Agenten har ein \textbf{prediksjonshorisont} \msym{τ(A)} gjeven av kor langt fram i tid m ekstrapolerer før variansen i prediksjonen overstig \msym{ε}. Horisonten er endeleg for alle realiserte agentar; ho set den øvre grensa for kor langt lyskjegla rekk i tid.}
+
+\propcont{Formelt. Agent A := (m, \msym{π}, \msym{ε}). For kvar observasjon o gjeld}
 
 \begin{center}\small
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lp{35mm}@{}}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lp{42mm}@{}}
 \toprule
-V(g) = 0 & Målet er nullpunktet \\[3pt]
-V(x) > 0 for x \msym{≠} g & Alt anna er avstand \\[3pt]
-V er ikkje-aukande langs x\textsubscript{n+1} = \msym{δ}(x\textsubscript{n}) & Systemet nærmar seg målet \\
+D\textsubscript{KL}(p\textsubscript{obs}(o) \msym{∥} p\textsubscript{m,π}(o)) \msym{≤} \msym{ε} & Prediksjonen held seg innanfor toleransen \\[3pt]
+\msym{π} = arg\,min\textsubscript{\msym{π}'} F[m, \msym{π}'] & Politikken minimerer fri energi \\[3pt]
+\msym{τ(A)} = sup\{t : D\textsubscript{KL}(t) \msym{≤} \msym{ε}\} & Horisonten er den fjernaste framtida m yter under terskelen \\
 \bottomrule
 \end{tabular*}
 \end{center}
+
+\propcont{Dei eldre kybernetiske og læringsteoretiske formuleringane (g, d, \msym{δ}) frå Rosenblueth--Wiener--Ashby\textsuperscript{4,\,5,\,7} og frå forsterkingslæring\textsuperscript{82} er spesialtilfelle: målet g svarer til ein prediktiv modell som set probabilitet éin på éin konfigurasjon; avstandsmålinga d svarer til KL-divergensen; justeringsmekanismen \msym{δ} til politikkoppdateringa i \msym{π}. Fire uavhengige tradisjonar konvergerer om same struktur.}
 
 \prop{5.12}{o}{Agens er \textit{stratifisert}: strukturen er stabil, oppløysinga varierer.}
 
@@ -249,9 +249,9 @@ V er ikkje-aukande langs x\textsubscript{n+1} = \msym{δ}(x\textsubscript{n}) & 
 
 \prop{5.211}{t}{Utviding av lyskjegla aktualiserer latente affordansar; innsnevring deaktiverer reelle.\textsuperscript{55,\,70}}
 
-\prop{5.212}{d}{Ei form er i lyskjegla dersom det finst ei handlingsregel slik at informasjonstapet mellom det agenten observerer og det agenten predikerer internt, er under ein terskel \(\varepsilon\).\textsuperscript{86}}
+\prop{5.212}{d}{Ei form \textit{X} er i lyskjegla til agenten A \textit{iff} det finst ein politikk \msym{π}\textsuperscript{*} slik at \(D_{\mathrm{KL}}(X \mid \pi^{*}) \leq \varepsilon_A\). Lyskjegla C(A) er difor mengda av aksar der A held prediksjonen innanfor toleransen; ho fell direkte ut av agentdefinisjonen i 5.11.\textsuperscript{21,\,86}}
 
-\prop{5.213}{t}{Informasjonstapet er eit mål på uvissa introdusert når agentens interne modell vert brukt til å representere observasjonane.}
+\prop{5.213}{t}{Informasjonstapet er eit mål på uvissa introdusert når agentens interne modell vert brukt til å representere observasjonane. Under \(D_{\mathrm{KL}} \leq \varepsilon\) har agenten kausal tilgang til aksen; over, ikkje.}
 
 \prop{5.3}{d}{Konfigurasjonar lukka under union, differanse og transformasjon utgjer ein \textit{formalgebra}.\textsuperscript{11,\,13,\,18}}
 
@@ -286,19 +286,21 @@ V er ikkje-aukande langs x\textsubscript{n+1} = \msym{δ}(x\textsubscript{n}) & 
 
 \prop{5.51}{t}{Kompetanseakkumulering utvider C(A) men garanterer ikkje omhug; agenten kan kjenne fleire aksar utan å justere for dei.}
 
-\prop{5.6}{d}{\textbf{Omhug}\textsuperscript{23,\,68} er mengda av aksar i formrommet agenten \textit{aktivt} representerer og justerer for.}
+\prop{5.6}{d}{\textbf{Omhug} \msym{ω}(A)\textsuperscript{23,\,68} er vektoren \{D\textsubscript{KL}(X\textsubscript{i} \msym{∣} \msym{π}\textsubscript{A})\}\textsubscript{i} over kapasiteten C(A), avskoren ved \msym{ε}\textsubscript{A}. Omhug er ikkje eit tal, men ei fordeling: for kvar akse i kapasiteten seier han kor nær agentens politikk faktisk kjem prediksjonsterskelen.}
 
-\prop{5.601}{t}{Omhug er ikkje kapasitet. Kapasiteten er kor mange aksar agenten \textit{kan} representere; omhugen er kor mange han faktisk representerer.}
+\prop{5.601}{d}{\textbf{Kapasitet} C(A) er mengda av aksar \textit{X} der det finst ein oppnåeleg politikk \msym{π}\textsuperscript{*} slik at \(D_{\mathrm{KL}}(X \mid \pi^{*}) \leq \varepsilon_A\). Kapasiteten set den ytre grensa; omhugen fyller henne ut, akse for akse.}
 
-\prop{5.61}{t}{Omhugen avgjer kor mange aksar lyskjegla rommar. Fleire aksar avdekkjer fleire kompromiss.}
+\prop{5.602}{t}{Skiljet mellom spesialist og generalist er skiljet mellom to \textit{fordelingar} over same vektoren, ikkje mellom to typar agent. Spesialisten har låg KL-divergens på få aksar, høg på resten; generalisten har jamnare fordeling.}
+
+\prop{5.61}{t}{Omhugsvektoren avgjer kor mange og kor djupt aksane lyskjegla rommar. Ein agent kan ha høg kapasitet men trong omhug: mange aksar tilgjengelege, få aktivt justerte. Blindskapen er då per akse, ikkje per agent.}
 
 \prop{5.62}{d}{Kompetanse er evna til å navigere mot stabile posisjonar i landskapet. Kompetansen veks med omhugen. Intelligens er denne kompetansen; omhug er intelligensens innhald.\textsuperscript{23,\,86,\,91}}
 
 \prop{5.621}{d}{Kompetanse er kvantifiserbar. Søkeeffektiviteten \(K = \log_{10}(\tau_{\mathrm{blind}} / \tau_{\mathrm{agent}})\) er talet på storleiksordnar av arbeid agentens politikk sparar relativt til tilfeldig vandring.\textsuperscript{86} \(K = 0\) er fråvær av navigasjon; \(K > 0\) er kompetanse.}
 
-\prop{5.63}{t}{Ein agent utan omhug for ein dimensjon er blind for gradienten langs den aksen. Blindskapen er ikkje nøytral; dei usynlege trykka verkar framleis.}
+\prop{5.63}{t}{Ein agent med låg komponent i \msym{ω}(A) langs ein akse (D\textsubscript{KL} \msym{≈} \msym{ε}) er tilnærma blind for gradienten langs den aksen. Blindskapen er ikkje nøytral; dei urepresenterte trykka verkar framleis.}
 
-\prop{5.631}{t}{Omhugen kan ikkje supplerast i ettertid; den måtte vore der då forma vart navigert.}
+\prop{5.631}{t}{Omhugsvektoren kan ikkje supplerast i ettertid; komponentane måtte vore innanfor terskelen då forma vart navigert.}
 
 \prop{5.65}{d}{\textbf{Liv} er den prosessen der eit system opprettheld og utvidar si eiga lyskjegle over tid.\textsuperscript{85,\,89}}
 
@@ -332,17 +334,20 @@ Form = SG(\,\msym{∇}\textsubscript{C(A)}\, \msym{L}(\textit{c},\,\textit{t}\,)
 
 \prop{5.723}{a}{Likninga lukkar feltet. Fleire lag kan ikkje leggjast til utan å endre strukturen til form\-verda sjølv; færre kan ikkje takast bort utan å forsvinne inn i eit grensetilfelle.}
 
-\flowchapter{6 Forma oppstår mellom agentane}{forma oppstår mellom agentane}
+\prop{5.724}{t}{Formrommet \msym{𝕄} er det \textit{ontologiske} substratet; den epistemiske partisjonen \msym{Π} = (K, C, F) er restsignaturen \{A\textsubscript{i}\} lèt i \msym{𝕄} gjennom verknad av \msym{ℒ}. Dei tre laga (SG, \msym{ℒ}, C(A)) er primitive; fem-komponentdiagrammet er avleidd, ikkje fundamentalt. Ingen lagdeling mellom ontologi og epistemologi kan kollapse utan at lukkingspåstanden i 5.723 fell.}
 
+\flowchapter{6 Forma oppstår mellom agentane}{forma oppstår mellom agentane}
 \mainprop{6}{}{Forma oppstår i feltet mellom agentar.}
 
 \prop{6.01}{d}{Ein \textbf{formgjevar} er ein agent som navigerer formrommet. Cella, bia, treet, handverkaren og ingeniøren er formgjevarar; det er substratet til agensen som varierer, ikkje strukturen.}
 
-\prop{6.02}{d}{Ein \textbf{designar} er ein formgjevar vis måltilstand inkluderer målsetningane til agentar som sjølv ikkje har tilgang til navigasjonsrommet. Differentia specifica er den stilte tilliten; designaren navigerer på vegne av andre som vil leve med forma.}
+\prop{6.02}{d}{Ein \textbf{designar} er ein agent A der C(A) inkluderer minst éin akse \textit{X} slik at \(D_{\mathrm{KL}}(X \mid \pi_A)\) inngår i den generative modellen til minst éin annan agent A'. Ingen kvalitativ skilnad frå andre formgjevarar; designar er ein spesifikk \textit{kapasitets-konfigurasjon}, ikkje ein ontologisk kategori.}
 
-\prop{6.021}{t}{Alle designarar er formgjevarar. Ikkje alle formgjevarar er designarar. Cella navigerer på sine eigne vegner innanfor sin eigen lyskjegle; ho representerer ikkje sine framtidige brukarar fordi ho ikkje har slike. Designaren gjer nettopp det.}
+\prop{6.021}{t}{Alle aktørar i 6.01 (celle, bi, tre, handverkar, ingeniør) testast mot same kriterium. Cella som skil ut eit signalstoff som modifiserer nabocella si generative modell er designar langs den aksen; cella som berre regulerer si eiga membran er det ikkje. Ingen er designar \textit{simpliciter}; alle er designar \textit{langs nokre aksar}, ikkje andre.}
 
-\prop{6.022}{t}{Designaren har kapasitet til å nekte navigasjonen. Andre formgjevarar har ikkje slik kapasitet; cella byggjer det ho byggjer, treet veks der det veks. Ansvaret følgjer av asymmetrien i valfridom, ikkje av ein asymmetri i innsikt.}
+\prop{6.022}{t}{Skiljet designar/ikkje-designar er difor parametrisk: ein funksjon av kor mange aksar i C(A) som oppfyller kriteriet, og kor mange agentar A' som er verknaden påverka. Omgrepet vert meir alvorleg, ikkje mindre; det skuldar å vere designar gjeld for langt fleire system enn profesjonen tradisjonelt har rekna med, og profesjonen sjølv må no vise fram sin eigen kapasitets-konfigurasjon for å telje.}
+
+\prop{6.023}{t}{Ansvarsproblemet følgjer av asymmetrien i verknad, ikkje av ein metafysisk asymmetri i valfridom. Ein agent som oppdagar at ho påverkar andre agentar sine modellar langs aksar ho ikkje har i ω(A), har eit empirisk problem, ikkje eit moralsk.}
 
 \prop{6.1}{t}{Fleire agentar responderer på ulike trykk samstundes. Kvar form er eit \textit{poly-agentisk kompromiss}.\textsuperscript{66,\,67} Ingen einskild agent dikterer morfologien; ho trer fram i skjeringspunktet mellom dei.}
 
@@ -389,6 +394,21 @@ Form = SG(\,\msym{∇}\textsubscript{C(A)}\, \msym{L}(\textit{c},\,\textit{t}\,)
 
 \prop{7.13}{t}{Arkivet er ikkje ei skulding. Det er eit faktum. Same faktumet som gjer geologi leseleg, gjer design leseleg.\textsuperscript{72}}
 
+\prop{7.14}{d}{\textbf{Sviktlatensen} \msym{ρ}\textsubscript{i} = \msym{τ}(X\textsubscript{i}) / \msym{τ}(A) avgjer om sviktsignaturen langs ein akse er leseleg for agenten. \msym{τ}(X\textsubscript{i}) er responstida før konsekvensen manifesterer seg langs aksen; \msym{τ}(A) er agentens prediksjonshorisont (5.112).}
+
+\prop{7.141}{t}{Tre regimer fell ut av ratioen:}
+
+\begin{center}\small
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lp{42mm}@{}}
+\toprule
+\msym{ρ} \msym{≪} 1 & \textit{Internalisert}: konsekvensen ligg godt innanfor horisonten; svikten er synleg innanfrå. \\[3pt]
+\msym{ρ} \msym{∼} 1 & \textit{Leseleg}: konsekvensen ligg på grensa av horisonten; signaturen er observerbar. \\[3pt]
+\msym{ρ} \msym{≫} 1 & \textit{Strukturelt usynleg}: konsekvensen kjem langt etter horisonten; agenten kan ikkje lese signaturen utan ekstern representasjon. \\
+\bottomrule
+\end{tabular*}
+\end{center}
+
+\prop{7.142}{i}{Ergonomi: \msym{ρ} \msym{∼} 10, ryggverk etter ein arbeidsdag let seg lese i forma. Eingongskoppen: \msym{ρ} \msym{∼} 10\textsuperscript{6}, nedbrytinga ligg fire hundre år etter bruken, strukturelt usynleg. Same formalisme; ulik ratio.}
 
 \prop{7.15}{t}{Ein designteori utan omgrep for kognitiv lyskjegle kan ikkje predikera sviktsignatur.\textsuperscript{21,\,70} Ho kan berre registrera han i ettertid.}
 
@@ -398,22 +418,17 @@ Form = SG(\,\msym{∇}\textsubscript{C(A)}\, \msym{L}(\textit{c},\,\textit{t}\,)
 
 \prop{7.153}{t}{Sviktsignaturen er difor ikkje ein empirisk bonus; han er prøvesteinen på at teorien faktisk forklarar form. Ein teori som ikkje predikerer sviktsignatur forklarer ikkje form; ho katalogiserer han.}
 
-\prop{7.2}{a}{Å utvide lyskjegla er ei etisk handling.\textsuperscript{68,\,90} Å snevra ho er å overlevere delar av formverda til krefter ingen representerer.}
+\prop{7.2}{t}{Designhandlinga har empirisk verknad på andre agentar sine generative modellar langs dei aksene som oppfyller kriteriet i 6.02. Dette er ein deskriptiv påstand, ikkje ein normativ; kva som følgjer av han, avheng av agentens eige vurderingsapparat.}
 
-\prop{7.201}{t}{Konsekvensane er borna av dei som lever med forma, ikkje av den som formgav ho.}
+\prop{7.21}{t}{Ei form designa under trong omhug etterlèt ei signatur langs aksane som ikkje vart representerte. Signaturen vert lesbar for observatørar med breiare horisont eller fleire representerte aksar.}
 
-\prop{7.202}{a}{Dersom designaren kunne ha representert fleire aksar men valde å ikkje gjere det, er dei resulterande sviktane tilskrivbare det valet.\textsuperscript{68,\,69}}
+\prop{7.23}{t}{\textbf{Det predikerte sviktrommet} er vektoren (C(A) \msym{∖} ω(A)) vekta med sviktlatensen \{\msym{ρ}\textsubscript{i}\}. Modellen predikerer at forma ber signatur langs desse aksane, med synlegheit avgjord av \msym{ρ}. Om signaturen er relevant for ein gjeven agent, er eit spørsmål agenten stiller når ho les modellen, ikkje eit spørsmål modellen svarar på.}
 
-\prop{7.21}{t}{Designhandlinga har reelle konsekvensar for andre agentar som navigerer det same landskapet.\textsuperscript{68}}
-
-\prop{7.22}{a}{Konsekvensar som ein agent hadde kapasitet til å sjå men valde å ikkje representere, er tilskrivbare det valet.}
-
-\prop{7.23}{t}{Gapet mellom kapasitet og omhug er det etiske rommet i design.\textsuperscript{68} Kapasiteten set den øvre grensa; omhugen avgjer kor mykje av grensa som vert nytta. Det unytta gapet er det forma sviktar langs.}
+\prop{7.24}{t}{Sviktrommet er operasjonelt falsifiserbart. For ei gjeve form F realisert av agent A, skal formens målbare svikt konsentrere seg langs dei aksane der (C(A) \msym{∖} ω(A)) vekta med \msym{ρ} har størst verdi. Dersom sviktmønsteret ikkje korrelerer med dei predikerte aksane, fell påstanden.}
 
 \prop{7.3}{t}{Formverda er det tilfellet som verkar. Navigasjonen held fram.}
 
 \flowchapter{8 Den generative modellen}{den generative modellen}
-
 \mainprop{8}{}{Forma er ei sannsynsfordeling over formrommet.}
 
 \prop{8.1}{d}{Den \textbf{generative modellen} for ei form F realisert av agentar \{A\textsubscript{i}\} som navigerer i eit landskap L med grammatikk SG er:\textsuperscript{86,\,89}}

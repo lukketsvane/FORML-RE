@@ -1,0 +1,140 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[top=1.5cm,bottom=1.5cm,left=2cm,right=2cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+
+\newfontfamily{\symbolfont}{Symbola}[Scale=1.0]
+\newcommand{\g}[1]{{\symbolfont #1}}
+
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+
+\usepackage{microtype}
+\usepackage{array}
+
+\pagestyle{empty}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+
+\newcommand{\gAgent}{\g{▲}}
+\newcommand{\gDesignar}{\g{(▲)}}
+\newcommand{\gForm}{\g{●}}
+\newcommand{\gGrammatikk}{\g{⬢}}
+\newcommand{\gFormrom}{\g{□}}
+\newcommand{\gKlasse}{\g{\{●\}}}
+\newcommand{\gLyskjegle}{\g{◇}}
+\newcommand{\gKonfig}{\g{⁂}}
+\newcommand{\gObjekt}{\g{•}}
+\newcommand{\gOmhug}{\g{☉}}
+\newcommand{\gPartisjon}{\g{◐}}
+\newcommand{\gTrykk}{\g{↘}}
+\newcommand{\gStilart}{\g{(•••)}}
+\newcommand{\gSubstrat}{\g{▽}}
+\newcommand{\gLandskap}{\g{∿}}
+\newcommand{\gTransform}{\g{⬟}}
+\newcommand{\gSirkel}{\g{◯}}
+
+% Seksjonsetikett inline
+\newcommand{\sek}[1]{\textsc{\footnotesize #1}}
+
+\begin{document}
+
+% ==================== TITTEL ====================
+\begin{center}
+{\huge\scshape Formskrift}\\[0.2em]
+{\itshape Alfabet, kompositorreglar og kjerne-likninga}
+\end{center}
+
+\vspace{0.5em}
+\begin{center}\rule{\textwidth}{0.4pt}\end{center}
+\vspace{0.6em}
+
+% ==================== ALFABET ====================
+\begin{center}\sek{Alfabet}\end{center}
+\vspace{0.2em}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}c@{\hspace{0.5em}}l@{\hspace{1.8em}}c@{\hspace{0.5em}}l@{\hspace{1.8em}}c@{\hspace{0.5em}}l@{\hspace{1.8em}}c@{\hspace{0.5em}}l@{}}
+\gAgent       & agent           & \gForm       & form            & \gFormrom     & formrom         & \gLyskjegle   & lyskjegle\\
+\gDesignar    & designar        & \gObjekt     & objekt          & \gGrammatikk  & grammatikk      & \gOmhug       & omhug\\
+\gSubstrat    & substrat        & \gKonfig     & konfigurasjon   & \gLandskap    & landskap        & \gPartisjon   & partisjon\\
+\gTransform   & transformasjon  & \gKlasse     & klasse          & \gTrykk       & trykk           & \gStilart     & stilart\\
+\end{tabular}
+\end{center}
+
+\vspace{0.8em}
+
+% ==================== OPERATORAR ====================
+\begin{center}\sek{Operatorar}\end{center}
+\vspace{0.2em}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}c@{\hspace{0.4em}}l@{\hspace{1em}}c@{\hspace{0.4em}}l@{\hspace{1em}}c@{\hspace{0.4em}}l@{\hspace{1em}}c@{\hspace{0.4em}}l@{\hspace{1em}}c@{\hspace{0.4em}}l@{\hspace{1em}}c@{\hspace{0.4em}}l@{}}
+$\in$             & element       & $\subset$ & delmengd    & $\cap$ & skjering & $=$ & likskap    & $\equiv$ & identitet  & $\rightarrow$ & implikasjon\\
+$\leftrightarrow$ & biimplikasjon & $\triangleright$ & applikasjon & $\nabla$ & gradient & $\sum$ & sum & $|\cdot|$ & storleik & $\mid$ & vilkår\\
+\end{tabular}
+\end{center}
+
+\vspace{0.8em}
+
+% ==================== LOGIKK ====================
+\begin{center}\sek{Logikk}\end{center}
+\vspace{0.2em}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}c@{\hspace{0.5em}}l@{\hspace{1.3em}}c@{\hspace{0.5em}}l@{\hspace{1.3em}}c@{\hspace{0.5em}}l@{\hspace{1.3em}}c@{\hspace{0.5em}}l@{\hspace{1.3em}}c@{\hspace{0.5em}}l@{}}
+$\forall$     & allkvantor & $\exists$ & eksistens & $\nexists$ & negert eksistens & $\wedge$ & konjunksjon & $\vee$ & disjunksjon\\
+$\neg$        & negasjon   & $\therefore$ & slutning & $\because$ & premiss & $\cup$ & union & $\varnothing$ & tom mengd\\
+\end{tabular}
+\end{center}
+
+\vspace{0.8em}
+
+% ==================== KOMPOSITORREGLAR ====================
+\begin{center}\sek{Kompositorreglar}\end{center}
+\vspace{0.2em}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}r@{\hspace{0.4em}}l@{\hspace{1.5em}}r@{\hspace{0.4em}}l@{\hspace{1.5em}}r@{\hspace{0.4em}}l@{\hspace{1.5em}}r@{\hspace{0.4em}}l@{}}
+\textbf{R1} & \gAgent\ $+$ \gSirkel\ $=$ \gDesignar  & \textbf{R3} & \gForm\ $+$ \gSirkel\ $=$ \gPartisjon  & \textbf{R5} & $\{\cdot\}$ $+$ \gForm\ $=$ \gKlasse    & \textbf{R7} & $\nabla$\gLandskap\ $=$ \gTrykk\\
+\textbf{R2} & \gSirkel\ $+$ \gObjekt\ $=$ \gOmhug    & \textbf{R4} & \gObjekt\gObjekt\gObjekt\ $=$ \gKonfig & \textbf{R6} & $(\cdot)$ $+$ \gObjekt\gObjekt\gObjekt\ $=$ \gStilart & \textbf{R8} & \gAgent\ $+$ \gSubstrat\ $\therefore$ \gLyskjegle\\
+\end{tabular}
+\end{center}
+
+\vspace{1em}
+\begin{center}\rule{0.85\textwidth}{0.2pt}\end{center}
+\vspace{0.8em}
+
+% ==================== KJERNE-LIKNINGA ====================
+\begin{center}\sek{Kjerne-likninga}\end{center}
+
+\vspace{0.6em}
+
+\begin{center}
+{\Huge \gForm\ $=$ \gGrammatikk($\nabla$\gLandskap) $\cap$ \gLyskjegle}
+\end{center}
+
+\vspace{0.6em}
+
+\begin{center}
+\begin{minipage}{0.75\textwidth}
+\centering\itshape\small
+Forma er grammatikkens respons på landskapets gradient, projisert på agenten si lyskjegle.
+\end{minipage}
+\end{center}
+
+\vspace{0.8em}
+\begin{center}\rule{\textwidth}{0.4pt}\end{center}
+\vspace{0.3em}
+
+\begin{center}
+\footnotesize
+Seksten glyfar, tolv operatorar, ti logikk-symbol, åtte kompositorreglar. Eitt alfabet for Formlæra.
+\end{center}
+
+\end{document}

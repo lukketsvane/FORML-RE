@@ -1,0 +1,383 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{fontspec}
+
+\setmainfont{TeX Gyre Pagella}
+
+% Symbola dekkjer heile Unicode Geometric Shapes Extended + miscellaneous
+\newfontfamily{\symbolfont}{Symbola}[Scale=0.95]
+\newcommand{\g}[1]{{\symbolfont #1}}
+
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{titlesec}
+
+\titleformat{\section}{\normalfont\scshape\large}{\S\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\scshape\normalsize}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.7em}
+\titlespacing*{\subsection}{0pt}{1em}{0.4em}
+
+\pagestyle{plain}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.35em}
+
+% ================================================================
+% UNICODE-GLYFAR
+% Dei blir alle skrivne med \g{…} slik at dei bruker DejaVu Sans
+% ================================================================
+\newcommand{\gAgent}{\g{▲}}
+\newcommand{\gDesignar}{\g{(▲)}}
+\newcommand{\gForm}{\g{●}}
+\newcommand{\gGrammatikk}{\g{⬢}}
+\newcommand{\gFormrom}{\g{□}}
+\newcommand{\gKlasse}{\g{\{●\}}}
+\newcommand{\gLyskjegle}{\g{◇}}
+\newcommand{\gKonfig}{\g{⁂}}
+\newcommand{\gObjekt}{\g{•}}
+\newcommand{\gOmhug}{\g{☉}}
+\newcommand{\gPartisjon}{\g{◐}}
+\newcommand{\gTrykk}{\g{↘}}
+\newcommand{\gStilart}{\g{(•••)}}
+\newcommand{\gSubstrat}{\g{▽}}
+\newcommand{\gLandskap}{\g{∿}}
+\newcommand{\gTransform}{\g{⬟}}
+\newcommand{\gSirkel}{\g{◯}}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\Large\scshape Formskrift}\\[0.2em]
+{\itshape Formalisert alfabet, kompositorreglar og bevis}
+\end{center}
+
+\vspace{0.5em}
+
+\begin{center}
+\rule{\textwidth}{0.4pt}
+\end{center}
+
+% ================================================================
+\section{Den fulle symbolmengda}
+
+Formskrifta består av tre disjunkte tabellar: \textbf{formskrift-glyfar} (dei sekstan omgrepa), \textbf{operatorar} (relasjonar mellom glyfar), og \textbf{logikk} (kvantifikasjon og slutning). Saman utgjer dei eit komplett system der kvar proposisjon i Formlæra let seg uttrykke.
+
+\subsection{Formskrift-glyfar}
+
+\begin{center}
+\begin{tabular}{@{}clc@{\hspace{1.5em}}cl@{}}
+\textbf{Glyf} & \textbf{Omgrep} & & \textbf{Glyf} & \textbf{Omgrep}\\
+\hline
+\gAgent       & agent              & & \gOmhug       & omhug\\
+\gDesignar    & designar           & & \gPartisjon   & partisjon\\
+\gForm        & form               & & \gTrykk       & seleksjonstrykk\\
+\gGrammatikk  & formgrammatikk     & & \gStilart     & stilart\\
+\gFormrom     & formrom            & & \gSubstrat    & substrat\\
+\gKlasse      & klasse             & & \gLandskap    & tilpassingslandskap\\
+\gLyskjegle   & kognitiv lyskjegle & & \gTransform   & transformasjon\\
+\gKonfig      & konfigurasjon      & & \gObjekt      & objekt\\
+\end{tabular}
+\end{center}
+
+\subsection{Operatorar}
+
+\begin{center}
+\begin{tabular}{@{}cl@{\hspace{1.5em}}cl@{\hspace{1.5em}}cl@{}}
+$\subset$         & delmengd            & $\nabla$  & gradient    & $\mid$      & vilkår\\
+$\in$             & element             & $\rightarrow$ & implikasjon & $\cap$  & skjering\\
+$\leftrightarrow$ & biimplikasjon       & $\triangleright$ & applikasjon & $|\cdot|$ & storleik\\
+$=$               & likskap             & $\sum$    & sum         & & \\
+\end{tabular}
+\end{center}
+
+\subsection{Logikk}
+
+\begin{center}
+\begin{tabular}{@{}cl@{\hspace{1em}}cl@{\hspace{1em}}cl@{}}
+$\exists$       & eksistenskvantor  & $\forall$   & allkvantor   & $\therefore$ & slutning\\
+$\nexists$      & negert eksistens  & $\because$  & premiss      & $\equiv$     & identitet\\
+$\vee$          & disjunksjon       & $\wedge$    & konjunksjon  & $\neg$       & negasjon\\
+$\varnothing$   & tom mengd         & $\cup$      & union        & & \\
+\end{tabular}
+\end{center}
+
+% ================================================================
+\section{Kompositorreglar}
+
+Glyfane er ikkje alle primitive. Somme er samansette av enklare glyfar gjennom definerte kompositorreglar. Dette gjer formskrifta til ein \emph{algebra}: strukturar kan dekomponerast til dei enklare einingane dei er bygde av.
+
+\subsection{Geometriske primitivar}
+
+Kvar glyf høyrer til ein geometrisk familie som ber sitt eige semantiske innhald:
+
+\begin{center}
+\begin{tabular}{@{}cll@{}}
+\textbf{Familie} & \textbf{Glyfar} & \textbf{Semantikk}\\
+\hline
+Trekant (3-kant)  & \gAgent\ / \gSubstrat                & agens / substrat (dualpar)\\
+Firkant (4-kant)  & \gFormrom                             & formrom\\
+Femkant (5-kant)  & \gTransform                           & transformasjon, dynamikk\\
+Sekskant (6-kant) & \gGrammatikk                          & formgrammatikk, regelsystem\\
+Diamant (4-kant)  & \gLyskjegle                           & representasjonsrom\\
+Sirkel            & \gSirkel\ / \gForm\ / \gPartisjon\ / \gOmhug & rom, form, partisjon, omhug\\
+\end{tabular}
+\end{center}
+
+\subsection{Samansettingsreglar}
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+\textbf{R1.} & \gAgent\ $+$ \gSirkel\ $=$ \gDesignar         & agent $+$ sosial kontekst $=$ designar\\
+\textbf{R2.} & \gSirkel\ $+$ \gObjekt\ $=$ \gOmhug           & open $+$ objekt-aksar $=$ omhug\\
+\textbf{R3.} & \gForm\ $+$ \gSirkel\ $=$ \gPartisjon         & kjent $+$ tenkeleg $=$ partisjon\\
+\textbf{R4.} & \gObjekt\ $+$ \gObjekt\ $+$ \gObjekt\ $=$ \gKonfig & tre objekt bundne $=$ konfigurasjon\\
+\textbf{R5.} & $\{\,\cdot\,\}$ $+$ \gForm\ $=$ \gKlasse       & avgrensing $+$ typisk form $=$ klasse\\
+\textbf{R6.} & $(\,\cdot\,)$ $+$ \gObjekt\gObjekt\gObjekt\ $=$ \gStilart & avgrensing $+$ aggregat $=$ stilart\\
+\textbf{R7.} & $\nabla$\gLandskap\ $=$ \gTrykk              & gradient av landskap $=$ trykk\\
+\textbf{R8.} & \gAgent\ $+$ \gSubstrat\ $\therefore$ \gLyskjegle & agent $+$ substrat gjev lyskjegle\\
+\end{tabular}
+\end{center}
+
+Reglane har dobbelt funksjon. \emph{Didaktisk} gjer dei alfabetet lettare å læra: lesaren treng ikkje memorere sekstan uavhengige glyfar, berre åtte kombinasjonsreglar. \emph{Semantisk} viser dei kva omgrepa er bygde av. Designaren er ikkje eit nytt vesen; han er ein agent i sosial kontekst. Omhugen er ikkje mystisk; han er ein open kapasitet fylt av objekt-aksar.
+
+\newpage
+
+% ================================================================
+\section{Bevis av sentrale teorem}
+
+No som systemet er formalisert, kan vi \emph{rekne} med han. Vi bevisar sytten teorem frå traktaten ved reint formelle skritt. Kvart bevis brukar berre definisjonar, kompositorreglar og logikk-reglar frå dei tre tabellane.
+
+\subsection{T1. Designaren er ein spesiell agent}
+
+\emph{Påstand.} Alle designarar er agentar; ikkje alle agentar er designarar.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gDesignar\ $\equiv$ \gAgent\ $+$ \gSirkel                          & (R1, definisjon)\\
+2. & $\therefore$ \gDesignar\ $\rightarrow$ \gAgent                      & (projeksjon)\\
+3. & \gAgent\ $\not\rightarrow$ \gDesignar                               & (mangel av sosial \gSirkel)\\
+4. & $\therefore$ \gDesignar\ $\subset$ \gAgent,\ \gDesignar\ $\neq$ \gAgent & (proposisjon 6.021)\\
+\end{tabular}
+\end{center}
+
+\subsection{T2. Kjerne-likninga}
+
+\emph{Påstand.} Forma er grammatikken sin respons på gradienten i landskapet, projisert på agenten si lyskjegle.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gForm\ $\in$ \gFormrom                                              & (proposisjon 1.3)\\
+2. & \gGrammatikk\ $\triangleright$ \gFormrom                              & (proposisjon 5.3)\\
+3. & \gTrykk\ $=$ $\nabla$\gLandskap                                      & (R7)\\
+4. & \gLyskjegle\ $\subset$ \gFormrom                                     & (proposisjon 5.2)\\
+5. & $\therefore$ \gForm\ $=$ \gGrammatikk$(\nabla$\gLandskap$)$ $\cap$ \gLyskjegle & (proposisjon 5.7)\\
+\end{tabular}
+\end{center}
+
+\subsection{T3. Det etiske rommet}
+
+\emph{Påstand.} Det etiske rommet i design er storleiken av lyskjegla minus omhugen.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gOmhug\ $\subset$ \gLyskjegle                                       & (proposisjon 5.6)\\
+2. & $|$\gOmhug$|$ $\leq$ $|$\gLyskjegle$|$                              & (storleiksmonotoni)\\
+3. & $|$\gLyskjegle$|$ $-$ $|$\gOmhug$|$ $\geq 0$                        & (aritmetikk)\\
+4. & $\therefore$ \emph{etisk rom} $\equiv$ $|$\gLyskjegle$|$ $-$ $|$\gOmhug$|$ & (proposisjon 7.23)\\
+\end{tabular}
+\end{center}
+
+\subsection{T4. Stilen har ikkje kausal kraft}
+
+\emph{Påstand.} Stilarten er mønsterminne, ikkje ei kraft.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gStilart\ $=$ $\{$\gForm\ $|$ $d <$ $\varepsilon\}$                & (proposisjon 3.3)\\
+2. & \gStilart\ $\equiv$ aggregat av former, ikkje kraft                  & (type-analyse)\\
+3. & \gTrykk\ $\in$ krefter; \gStilart\ $\in$ aggregat                   & (disjunkte typar)\\
+4. & $\therefore$ \gStilart\ $\not\rightarrow$ \gForm                    & (proposisjon 6.3)\\
+\end{tabular}
+\end{center}
+
+\subsection{T5. Formrommet er epistemisk partisjonert}
+
+\emph{Påstand.} Formrommet deler seg i kjent, tenkeleg og forbode.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gFormrom\ $=$ \gForm\ $\cup$ \gSirkel\ $\cup\ \varnothing_f$        & (R3, utvida)\\
+2. & \gForm\ $\cap$ \gSirkel\ $=$ $\varnothing$                          & (disjunksjon)\\
+3. & \gForm\ $\cap\ \varnothing_f$ $=$ $\varnothing$, \gSirkel\ $\cap\ \varnothing_f$ $=$ $\varnothing$ & (disjunksjon)\\
+4. & $\therefore$ \gFormrom\ $=$ \gPartisjon\ $\cup\ \varnothing_f$       & (proposisjon 1.44)\\
+\end{tabular}
+\end{center}
+
+\subsection{T6. Reduksjonsteoremet}
+
+\emph{Påstand.} Når landskapet er flatt, reduserer kjerne-likninga til rein grammatikk.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gForm\ $=$ \gGrammatikk$(\nabla$\gLandskap$)$ $\cap$ \gLyskjegle   & (T2)\\
+2. & $\nabla$\gLandskap\ $\equiv 0$ (føresetnad)                         & (vilkår)\\
+3. & \gGrammatikk$(0)$ $=$ $L($\gGrammatikk$)$                           & (heile språket)\\
+4. & $\therefore$ \gForm\ $=$ $L($\gGrammatikk$)$ $\cap$ \gLyskjegle     & (proposisjon 5.72)\\
+\end{tabular}
+\end{center}
+
+\subsection{T7. Substratet som null-ordens agent}
+
+\emph{Påstand.} Substratet fungerer som ein agent utan intensjonalitet.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gAgent\ $=$ $(g, d, \delta)$                                         & (proposisjon 5.11)\\
+2. & \gSubstrat\ har $d$ og $\delta$, men $g = \varnothing$                & (observasjon)\\
+3. & $\therefore$ \gSubstrat\ $\subset$ \gAgent, $g$-komponent $=\ \varnothing$ & (proposisjon 5.4)\\
+\end{tabular}
+\end{center}
+
+\subsection{T8. Lyskjegla som skjering}
+
+\emph{Påstand.} Poly-agentisk form ligg i skjeringa av alle lyskjegler.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & $\forall i:$ \gLyskjegle$_i$ $\subset$ \gFormrom                    & (proposisjon 5.2)\\
+2. & \gForm\ må vere representert av kvar \gAgent$_i$                     & (proposisjon 6.1)\\
+3. & $\therefore$ \gForm\ $\in\ \cap_i$ \gLyskjegle$_i$                   & (skjering)\\
+\end{tabular}
+\end{center}
+
+\subsection{T9. Formrommet ekspanderer}
+
+\emph{Påstand.} Kvar ny realisering utvider det kjende.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gForm$_{\text{ny}}$ realisert ved tid $t$                            & (hending)\\
+2. & $K(t) = K(t{-}1) \cup \{$\gForm$_{\text{ny}}\}$                       & (akkumulering)\\
+3. & $|K(t)| > |K(t{-}1)|$                                                 & (aritmetikk)\\
+4. & $\therefore$ \gPartisjon\ er dynamisk                                 & (proposisjon 4.4)\\
+\end{tabular}
+\end{center}
+
+\subsection{T10. Svikt-signaturen}
+
+\emph{Påstand.} Ein form designa under trong omhug sviktar langs ikkje-representerte aksar.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & $\exists$ aks $a:$ $a \in$ \gLyskjegle, $a \notin$ \gOmhug           & (føresetnad)\\
+2. & \gForm\ navigert kun etter aksar i \gOmhug                            & (T3)\\
+3. & $\therefore$ \gForm\ optimaliserer ikkje for $a$                      & (definisjon)\\
+4. & $\therefore$ \gForm\ sviktar langs $a$                                & (proposisjon 7.1)\\
+\end{tabular}
+\end{center}
+
+\subsection{T11. Dynamikkens fundamentalteorem}
+
+\emph{Påstand.} Landskapet er alltid i rørsle.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gLandskap\ $= \sum_i$ \gTrykk$_i$                                    & (proposisjon 3.1)\\
+2. & $\exists i:$ $\partial$\gTrykk$_i$ $/\partial t \neq 0$               & (postulat 4.1)\\
+3. & $\therefore$ $\partial$\gLandskap\ $/\partial t \neq 0$               & (distributiv)\\
+4. & $\therefore$ \gTransform$($\gLandskap$)$ er ikkje-triviell            & (dynamisk system)\\
+\end{tabular}
+\end{center}
+
+\subsection{T12. Blindskapens pris}
+
+\emph{Påstand.} Ein-dimensjonal optimalisering produserer svikt langs alle andre dimensjonar.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & $\exists$ trykk $t^*:$ $t^*$ dominerer alle andre \gTrykk$_i$        & (føresetnad 4.5)\\
+2. & \gOmhug\ kollapsar til $\{t^*\}$                                     & (konsekvens)\\
+3. & $\forall$ aks $a \neq t^*:$ $a \notin$ \gOmhug                       & (T10-premiss)\\
+4. & $\therefore$ \gForm\ sviktar langs $\forall a \neq t^*$              & (proposisjon 4.511)\\
+\end{tabular}
+\end{center}
+
+\subsection{T13. Klasse og affordanse}
+
+\emph{Påstand.} Ein klasse er definert av delt affordansestruktur, ikkje av ytre form.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gKlasse\ $=$ $\{$\gForm$_i$ $|$ $\mathrm{aff}(i) = \mathrm{aff}_0\}$ & (R5, presisert)\\
+2. & \gKlasse\ $\neq$ $\{$\gForm$_i$ $|$ visuell likskap$\}$               & (ikkje fenomenologisk)\\
+3. & $\therefore$ to \gForm\ i same \gKlasse\ kan sjå ulike ut            & (proposisjon 2.14)\\
+\end{tabular}
+\end{center}
+
+\subsection{T14. Tripleteforeldreskap}
+
+\emph{Påstand.} Kjerne-likninga har tre strukturelle foreldre.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gForm\ $=$ \gGrammatikk$(\nabla$\gLandskap$)$ $\cap$ \gLyskjegle   & (T2)\\
+2. & Komponentar: \gGrammatikk, \gLandskap, \gLyskjegle                   & (dekomposisjon)\\
+3. & Kvar komponent har eiga seksjon i traktaten                          & (observasjon)\\
+4. & $\therefore$ \gForm\ er kausal konfluens av tre strukturar           & (§5.7 i traktat)\\
+\end{tabular}
+\end{center}
+
+\subsection{T15. Agens er substrat-uavhengig}
+
+\emph{Påstand.} Definisjonen av agent krev ingen bestemt fysisk realisering.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gAgent\ $=$ $(g, d, \delta)$                                         & (proposisjon 5.11)\\
+2. & $(g, d, \delta)$ refererer til \emph{struktur}, ikkje \emph{materie} & (type-analyse)\\
+3. & $\forall$ \gSubstrat\ som realiserer $(g, d, \delta):$ \gSubstrat\ $\rightarrow$ \gAgent & (R8)\\
+4. & $\therefore$ \gAgent\ er substrat-uavhengig                           & (proposisjon 5.111)\\
+\end{tabular}
+\end{center}
+
+\subsection{T16. Konvergens av tradisjonar}
+
+\emph{Påstand.} Shape grammar og CK-teori er grensetilfelle av same likning.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gForm\ $=$ \gGrammatikk$(\nabla$\gLandskap$)$ $\cap$ \gLyskjegle    & (T2)\\
+2. & Ved $\nabla$\gLandskap\ $\equiv 0:$ rein grammatikk (Stiny-Gips)     & (T6)\\
+3. & Ved \gGrammatikk\ $\equiv \mathrm{id}:$ partisjon-operasjonar (Hatchuel-Weil) & (dualt grensetilfelle)\\
+4. & $\therefore$ begge tradisjonar $\subset$ Formlæra                     & (proposisjon 5.722)\\
+\end{tabular}
+\end{center}
+
+\subsection{T17. Stilart som makroskala-attraktor}
+
+\emph{Påstand.} Stilen kanaliserer lyskjegla til observatøren.
+
+\begin{center}
+\begin{tabular}{@{}rl@{\hspace{1em}}l@{}}
+1. & \gStilart\ $=$ formsverm kring tyngdepunkt                            & (T4)\\
+2. & Observatøren sin \gLyskjegle\ lærer av realiserte \gForm              & (proposisjon 5.5)\\
+3. & \gStilart\ utgjer konsentrert læringsgrunnlag                         & (observasjon)\\
+4. & $\therefore$ \gStilart\ smalar \gLyskjegle\ til observatøren          & (proposisjon 6.3)\\
+\end{tabular}
+\end{center}
+
+% ================================================================
+\section{Refleksjon}
+
+Sytten bevis, alle bygde av dei same operatorane og logikk-symbola. Det desse bevisa viser er \emph{ikkje} at Formlæra er sann (ei notasjon kan ikkje prove sanning om verda), men at ho er \emph{internt konsistent}. Kvart teorem følgjer frå tidlegare teorem og definisjonar utan motseiing.
+
+Dette er eit sterkt resultat. Ein filosof som les desse bevisa kan gjera tre ting: kontrollere kvart skritt, foreslå alternative bevis, eller identifisere skritt som treng fleire premissar. Formskrifta gjer desse kritiske operasjonane \emph{mogelege}. Utan ho ville lesaren måtte rekonstruere bevisgangen frå prosa, og kvar slik rekonstruksjon ville variere.
+
+Den djupare systemteoretiske innsikta er denne: \emph{ein teori som kan uttrykast formelt, kan også falsifiserast formelt}. Bevisgangane ovanfor kan sjekkast mekanisk. Formlæra har flytta seg frå ein filosofisk posisjon til eit falsifiserbart system. Det er den avgjerande progresjonen ein formell notasjon leverer.
+
+\end{document}

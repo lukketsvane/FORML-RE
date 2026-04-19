@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.27)  18 APR 2026 14:11
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.3.27)  19 APR 2026 19:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -299,6 +299,40 @@ Package fontspec Info:
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
 (fontspec)             <->s*[0.95]"Cambria
 (fontspec)             Math/OT:script=latn;language=dflt;+smcp;"
+
+
+Package fontspec Info: 
+(fontspec)             Segoe UI Symbol scale = 0.90.
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "Segoe UI Symbol/BI" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "Segoe UI Symbol/B" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "Segoe UI Symbol/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Segoe UI Symbol scale = 0.90.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'SegoeUISymbol(0)' created for font 'Segoe
+(fontspec)             UI Symbol' with options [Scale=0.90].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->s*[0.90]"Segoe UI
+(fontspec)             Symbol/OT:script=latn;language=dflt;"
 
 
 (C:\Users\Shadow\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
@@ -786,22 +820,22 @@ File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (traktat.aux)
 \openout1 = `traktat.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 291.
-LaTeX Font Info:    ... okay on input line 291.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 295.
+LaTeX Font Info:    ... okay on input line 295.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -844,71 +878,71 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 291.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 291.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 291.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 291.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 291.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 291.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 291.
-LaTeX Font Info:    Redeclaring math accent \check on input line 291.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 291.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 291.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 291.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 291.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 291.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 295.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 295.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 295.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 295.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 295.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 295.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 295.
+LaTeX Font Info:    Redeclaring math accent \check on input line 295.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 295.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 295.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 295.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 295.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 295.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 291.
+(Font)              `operators' in the math version `normal' on input line 295.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/EBGaramond(0)/m/n on input line 291.
+(Font)                  OT1/cmr/m/n --> TU/EBGaramond(0)/m/n on input line 295.
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 291.
+(Font)              `operators' in the math version `bold' on input line 295.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/EBGaramond(0)/m/n on input line 291
+(Font)                  OT1/cmr/bx/n --> TU/EBGaramond(0)/m/n on input line 295
 .
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/EBGaramond(0)/m/n --> TU/EBGaramond(0)/m/n on input 
-line 291.
+line 295.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/EBGaramond(0)/m/it on input line 29
-1.
+5.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/EBGaramond(0)/b/n on input line 291
+(Font)                  OT1/cmr/bx/n --> TU/EBGaramond(0)/b/n on input line 295
 .
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 291.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 295.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 291.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 295.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/EBGaramond(0)/m/n --> TU/EBGaramond(0)/b/n on input 
-line 291.
+line 295.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/EBGaramond(0)/b/it on input line 2
-91.
+95.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 291.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 295.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 291.
-LaTeX Info: Redefining \microtypecontext on input line 291.
-Package microtype Info: Applying patch `item' on input line 291.
-Package microtype Info: Applying patch `toc' on input line 291.
-Package microtype Info: Applying patch `eqnum' on input line 291.
-Package microtype Info: Applying patch `footnote' on input line 291.
-Package microtype Info: Applying patch `verbatim' on input line 291.
-LaTeX Info: Redefining \microtypesetup on input line 291.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 295.
+LaTeX Info: Redefining \microtypecontext on input line 295.
+Package microtype Info: Applying patch `item' on input line 295.
+Package microtype Info: Applying patch `toc' on input line 295.
+Package microtype Info: Applying patch `eqnum' on input line 295.
+Package microtype Info: Applying patch `footnote' on input line 295.
+Package microtype Info: Applying patch `verbatim' on input line 295.
+LaTeX Info: Redefining \microtypesetup on input line 295.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -985,35 +1019,51 @@ rat-uavhengige \TU/EBGaramond(0)/b/n/10.5 agens-
 
 ) (til-lesaren.tex [2
 
-]) [3
+]
+Underfull \hbox (badness 1845) in paragraph at lines 30--30
+\TU/EBGaramond(0)/m/n/8 omhug er det predikerte
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+[]|\TU/EBGaramond(0)/m/n/8 kjerne-likninga, struktu-
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 32--33
+[]|\TU/EBGaramond(0)/m/n/8 generative modellen, pro-
+ []
+
+) [3
 
 ]
 LaTeX Font Info:    Font shape `TU/CambriaMath(0)/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 331.
+(Font)              scaled to size 7.59998pt on input line 332.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `CambriaMath' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (3.48225pt too wide) in paragraph at lines 346--346
+Overfull \hbox (3.48225pt too wide) in paragraph at lines 350--350
 \TU/EBGaramond(0)/b/n/8 Tilpassingslandskap: \TU/EBGaramond(0)/m/n/8 Vektorsumm
 en av alle verksame seleksjonstrykk over formrommet (Wright,
  []
 
 File: ../figures/fencing.png Graphic file (type bmp)
 <../figures/fencing.png>
-(proposisjonar.tex [4
+[4
 
-]
+] [5] (proposisjonar.tex
 Package microtype Info: Character `156' is missing
 (microtype)             in font `\TU/EBGaramond(0)/b/it/8'.
 (microtype)             Ignoring protrusion settings for this character.
 Package microtype Info: Character `156' is missing
 (microtype)             in font `\TU/EBGaramond(0)/m/it/7.34996'.
 (microtype)             Ignoring protrusion settings for this character.
- [5
+ [6
 
-] [6]
+
+] [7]
 LaTeX Font Info:    Font shape `TU/CambriaMath(0)/m/n' will be
 (Font)              scaled to size 9.97496pt on input line 87.
 
@@ -1022,7 +1072,7 @@ Overfull \hbox (0.93654pt too wide) in paragraph at lines 87--87
 $[]$ Det \TU/EBGaramond(0)/b/n/10.5 kjen-
  []
 
-[7]
+[8]
 Underfull \hbox (badness 10000) in paragraph at lines 100--101
 []|\TU/EBGaramond(0)/b/n/9 Lyskjegle-
  []
@@ -1036,70 +1086,80 @@ LaTeX Font Info:    Font shape `TU/CambriaMath(0)/m/n' will be
 LaTeX Font Info:    Font shape `TU/CambriaMath(0)/b/n' will be
 (Font)              scaled to size 8.54997pt on input line 103.
 
-Overfull \hbox (5.6501pt too wide) in paragraph at lines 118--118
+Overfull \hbox (5.6501pt too wide) in paragraph at lines 117--117
 []\TU/EBGaramond(0)/m/n/10.5 Eit \TU/EBGaramond(0)/b/n/10.5 seleksjonstrykk \TU
 /EBGaramond(0)/m/n/10.5 endrar sannsynsfordelinga i formrommet.$[]$
  []
 
 
-Overfull \hbox (7.40964pt too wide) in paragraph at lines 120--120
+Overfull \hbox (7.40964pt too wide) in paragraph at lines 119--119
 []\TU/EBGaramond(0)/m/n/10.5 Forma er det som står att når trykka har utelukka 
 alt anna.$[]$ 
  []
 
-[8]
-Overfull \hbox (0.43633pt too wide) in paragraph at lines 132--132
+[9]
+Overfull \hbox (0.43633pt too wide) in paragraph at lines 131--131
 []\TU/EBGaramond(0)/m/n/10.5 Minst to seleksjonstrykk peikar i motstridande ret
 ningar. Kvar
  []
 
 
-Overfull \hbox (0.79285pt too wide) in paragraph at lines 136--136
+Overfull \hbox (0.79285pt too wide) in paragraph at lines 135--135
 []\TU/EBGaramond(0)/m/n/10.5 Ein \TU/EBGaramond(0)/b/n/10.5 klasse \TU/EBGaramo
 nd(0)/m/n/10.5 er avgrensa gjennom delt \TU/EBGaramond(0)/m/it/10.5 affordanses
 truktur\TU/EBGaramond(0)/m/n/10.5 .$[]$
  []
 
 
-Overfull \hbox (20.11629pt too wide) in paragraph at lines 142--142
+Overfull \hbox (20.11629pt too wide) in paragraph at lines 141--141
 []\TU/EBGaramond(0)/b/n/10.5 Materialaffordansen \TU/EBGaramond(0)/m/n/10.5 er 
 operasjonane materialet tillèt og hindrar.$[]$
  []
 
 
-Overfull \hbox (2.77835pt too wide) in paragraph at lines 144--144
+Overfull \hbox (2.77835pt too wide) in paragraph at lines 143--143
 []\TU/EBGaramond(0)/m/n/10.5 Stål fanst i hundreår før røyrstolen fordi operasj
 onen mangla.$[]$
  []
 
-[9]
-Overfull \hbox (26.98314pt too wide) in paragraph at lines 158--158
+[10]
+Overfull \hbox (26.98314pt too wide) in paragraph at lines 156--156
 []\TU/EBGaramond(0)/b/n/10.5 Tilpassingslandskapet \TU/EBGaramond(0)/m/n/10.5 e
 r vektorsummen av alle verksame seleksjons-
  []
 
 
-Overfull \hbox (3.43274pt too wide) in paragraph at lines 170--170
+Overfull \hbox (3.43274pt too wide) in paragraph at lines 168--168
 []\TU/EBGaramond(0)/m/n/10.5 Ein \TU/EBGaramond(0)/b/n/10.5 stilart \TU/EBGaram
 ond(0)/m/n/10.5 er forma si \TU/EBGaramond(0)/m/it/10.5 sverming \TU/EBGaramond
 (0)/m/n/10.5 kring eit felles tyngdepunkt.$[]$
  []
 
-[10]
-Overfull \hbox (17.21971pt too wide) in paragraph at lines 194--194
+[11]
+Overfull \hbox (17.21971pt too wide) in paragraph at lines 191--191
 []\TU/EBGaramond(0)/m/n/10.5 Når eitt trykk dominerer, kollapsar landskapet mot
  éin attraktor.$[]$
  []
 
-[11]
-Overfull \hbox (0.30113pt too wide) in paragraph at lines 212--212
-\TU/EBGaramond(0)/m/n/10.5 Formelt. Agent A := (g, d, \TU/CambriaMath(0)/m/n/10
-.5 δ\TU/EBGaramond(0)/m/n/10.5 ). Det finst ein Lyapunov-funksjon
+[12]
+Overfull \hbox (0.99763pt too wide) in paragraph at lines 208--208
+[]\TU/EBGaramond(0)/m/n/10.5 Agenten har ein \TU/EBGaramond(0)/b/n/10.5 prediks
+jonshorisont \TU/CambriaMath(0)/m/n/10.5 τ(A) \TU/EBGaramond(0)/m/n/10.5 gjeven
+ av kor langt
  []
 
+LaTeX Font Info:    Font shape `TU/CambriaMath(0)/m/n' will be
+(Font)              scaled to size 5.69998pt on input line 216.
+
+Overfull \hbox (29.27773pt too wide) in paragraph at lines 222--222
+\TU/EBGaramond(0)/m/n/10.5 d, \TU/CambriaMath(0)/m/n/10.5 δ\TU/EBGaramond(0)/m/
+n/10.5 ) frå Rosenblueth–Wiener–Ashby$[]$ og frå forsterkingslæring$[]$
+ []
+
+[13]
 File: ../figures/termostat-designar.png Graphic file (type bmp)
 <../figures/termostat-designar.png>
-[12]
+
 Overfull \hbox (23.93958pt too wide) in paragraph at lines 242--242
 []\TU/EBGaramond(0)/m/n/10.5 Agenten responderer på gradienten i landskapet, ik
 kje på forma.$[]$
@@ -1117,7 +1177,7 @@ Overfull \hbox (0.72565pt too wide) in paragraph at lines 246--246
 a mang-
  []
 
-
+[14]
 Overfull \hbox (9.32211pt too wide) in paragraph at lines 258--258
 []\TU/EBGaramond(0)/b/n/10.5 Formgrammatikken \TU/EBGaramond(0)/m/n/10.5 utføre
 r diskrete overgangar i denne geome-
@@ -1138,7 +1198,7 @@ Overfull \hbox (0.86157pt too wide) in alignment at lines 263--270
 [] [] [] 
  []
 
-[13]
+
 Overfull \hbox (4.48296pt too wide) in paragraph at lines 273--273
 []\TU/EBGaramond(0)/m/n/10.5 Grammatikkoperasjonen er ein C\TU/CambriaMath(0)/m
 /n/10.5 →\TU/EBGaramond(0)/m/n/10.5 C-partisjon; ho utvidar tan-
@@ -1150,7 +1210,7 @@ Overfull \hbox (1.59901pt too wide) in paragraph at lines 275--275
 et fast-
  []
 
-
+[15]
 Overfull \hbox (1.95813pt too wide) in paragraph at lines 279--279
 \TU/EBGaramond(0)/m/n/10.5 vetoar konfigurasjonar og gjev resonans til andre gj
 ennom ufra-
@@ -1168,66 +1228,59 @@ Overfull \hbox (7.59895pt too wide) in paragraph at lines 283--283
 ing;$[]$ men-
  []
 
-[14]
+
 Overfull \hbox (44.05173pt too wide) in paragraph at lines 285--285
 []\TU/EBGaramond(0)/m/n/10.5 Navigasjonskompetanse akkumulerer seg som struktur
 ert informasjon.$[]$
  []
 
-
-Overfull \hbox (1.44083pt too wide) in paragraph at lines 291--291
-[]\TU/EBGaramond(0)/m/n/10.5 Omhug er ikkje kapasitet. Kapasiteten er kor mange
- aksar agen-
- []
-
-
-Overfull \hbox (48.49666pt too wide) in paragraph at lines 297--297
+[16]
+Overfull \hbox (48.49666pt too wide) in paragraph at lines 299--299
 []\TU/EBGaramond(0)/m/n/10.5 Kompetanse er kvantifiserbar. Søkeeffektiviteten $
 \OML/cmm/m/it/10.95 K \OT1/cmr/m/n/10.95 = [][](\OML/cmm/m/it/10.95 ^^\[]\OT1/c
 mr/m/n/10.95 /\OML/cmm/m/it/10.95 ^^\[]\OT1/cmr/m/n/10.95 )$
  []
 
-[15]
 Package microtype Info: Character `156' is missing
 (microtype)             in font `\TU/EBGaramond(0)/m/it/9'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (22.78116pt too wide) in alignment at lines 314--318
+Overfull \hbox (22.78116pt too wide) in alignment at lines 316--320
 [] [] 
  []
 
-
-Overfull \hbox (10.06834pt too wide) in paragraph at lines 331--331
+[17]
+Overfull \hbox (10.06834pt too wide) in paragraph at lines 333--333
 \TU/EBGaramond(0)/m/n/10.5 av dei to rammeverka åleine systematisk utilstrekkel
 eg. Dei mang-
  []
 
-[16]
-Overfull \hbox (0.37611pt too wide) in paragraph at lines 341--341
-\TU/EBGaramond(0)/m/n/10.5 setningane til agentar som sjølv ikkje har tilgang t
-il navigasjons-
+
+Overfull \hbox (1.57103pt too wide) in paragraph at lines 344--344
+\TU/EBGaramond(0)/m/n/10.5 formgjevarar; designar er ein spesifikk \TU/EBGaramo
+nd(0)/m/it/10.5 kapasitets-konfigurasjon\TU/EBGaramond(0)/m/n/10.5 ,
  []
 
-
-Overfull \hbox (6.90782pt too wide) in paragraph at lines 347--347
+[18]
+Overfull \hbox (6.90782pt too wide) in paragraph at lines 352--352
 []\TU/EBGaramond(0)/m/n/10.5 Fleire agentar responderer på ulike trykk samstund
 es. Kvar form
  []
 
 
-Overfull \hbox (9.38602pt too wide) in paragraph at lines 349--349
+Overfull \hbox (9.38602pt too wide) in paragraph at lines 354--354
 []\TU/EBGaramond(0)/m/n/10.5 Kvart nivå løyser problem kompetent innanfor si ei
 ga lyskjegle.$[]$
  []
 
 
-Overfull \hbox (9.76227pt too wide) in paragraph at lines 353--353
+Overfull \hbox (9.76227pt too wide) in paragraph at lines 358--358
 \TU/EBGaramond(0)/m/n/10.5 petanse og si eiga lyskjegle. Formproduksjon er dist
 ribuert C\TU/CambriaMath(0)/m/n/10.5 ↔\TU/EBGaramond(0)/m/n/10.5 K-
  []
 
 
-Overfull \hbox (3.34412pt too wide) in paragraph at lines 353--353
+Overfull \hbox (3.34412pt too wide) in paragraph at lines 358--358
 \TU/EBGaramond(0)/m/n/10.5 ekspansjon utført av grammatikkoperasjonar over komp
 etanse-
  []
@@ -1235,113 +1288,127 @@ etanse-
 File: ../figures/formgjevarkompetanse/agenthierarki.png Graphic file (type bmp)
 
 <../figures/formgjevarkompetanse/agenthierarki.png>
-[17]
-Overfull \hbox (6.84201pt too wide) in paragraph at lines 365--365
+[19]
+Overfull \hbox (6.84201pt too wide) in paragraph at lines 370--370
 []\TU/EBGaramond(0)/m/n/10.5 Tett samanbinding etablerer globale tilbakekopling
 ssløyfer; heil-
  []
 
 
-Overfull \hbox (0.50838pt too wide) in paragraph at lines 367--367
+Overfull \hbox (0.50838pt too wide) in paragraph at lines 372--372
 []\TU/EBGaramond(0)/m/n/10.5 Ein \TU/EBGaramond(0)/m/it/10.5 stilart \TU/EBGara
 mond(0)/m/n/10.5 manglar kausal kraft;$[]$ han er ikkje ei kraft, men
  []
 
 
-Overfull \hbox (16.28781pt too wide) in paragraph at lines 367--367
+Overfull \hbox (16.28781pt too wide) in paragraph at lines 372--372
 \TU/EBGaramond(0)/m/n/10.5 eit \TU/EBGaramond(0)/m/it/10.5 mønsterminne\TU/EBGa
 ramond(0)/m/n/10.5 . Stilarten fungerer som ein makroskala-attraktor
  []
 
 
-Overfull \hbox (18.17036pt too wide) in paragraph at lines 371--371
+Overfull \hbox (18.17036pt too wide) in paragraph at lines 376--376
 []\TU/EBGaramond(0)/m/n/10.5 For brukaren er stilarten ikkje eit symptom; han e
 r eit grensesnitt.$[]$
  []
 
-[18]
-Overfull \hbox (10.37845pt too wide) in paragraph at lines 379--379
+[20]
+Overfull \hbox (10.37845pt too wide) in paragraph at lines 384--384
 []\TU/EBGaramond(0)/m/n/10.5 Inga form er endeleg. Kvar balanse vert med tida s
 uboptimal.$[]$
  []
 
 
-Overfull \hbox (1.05725pt too wide) in paragraph at lines 393--393
+Overfull \hbox (3.22198pt too wide) in paragraph at lines 397--397
+[]\TU/EBGaramond(0)/b/n/10.5 Sviktlatensen \TU/CambriaMath(0)/m/n/10.5 ρ$[]$ \T
+U/EBGaramond(0)/m/n/10.5 = \TU/CambriaMath(0)/m/n/10.5 τ\TU/EBGaramond(0)/m/n/1
+0.5 (X$[]$) / \TU/CambriaMath(0)/m/n/10.5 τ\TU/EBGaramond(0)/m/n/10.5 (A) avgje
+r om sviktsignaturen langs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
+[]|\TU/EBGaramond(0)/m/it/9 Internalisert\TU/EBGaramond(0)/m/n/9 : konsekvensen
+ ligg
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 406--407
+[]|\TU/EBGaramond(0)/m/it/9 Strukturelt usynleg\TU/EBGaramond(0)/m/n/9 : konsek
+vensen
+ []
+
+[21]
+Overfull \hbox (1.05725pt too wide) in paragraph at lines 413--413
 \TU/EBGaramond(0)/m/n/10.5 predikera sviktsignatur.$[]$ Ho kan berre registrera
  han i etter-
  []
 
 
-Overfull \hbox (6.11208pt too wide) in paragraph at lines 395--395
+Overfull \hbox (6.11208pt too wide) in paragraph at lines 415--415
 []\TU/EBGaramond(0)/m/n/10.5 Prediksjonen krev at teorien namngjev representasj
 onsgrensa.$[]$
  []
 
 
-Overfull \hbox (2.79816pt too wide) in paragraph at lines 397--397
+Overfull \hbox (2.79816pt too wide) in paragraph at lines 417--417
 []\TU/EBGaramond(0)/m/n/10.5 Ein formgrammatikk åleine (5.72 i) genererer det m
 oglege språ-
  []
 
-[19]
-Overfull \hbox (0.29356pt too wide) in paragraph at lines 399--399
+
+Overfull \hbox (0.29356pt too wide) in paragraph at lines 419--419
 []\TU/EBGaramond(0)/m/n/10.5 Sviktsignaturen er difor ikkje ein empirisk bonus;
  han er prøve-
  []
 
-
-Overfull \hbox (3.43513pt too wide) in paragraph at lines 407--407
-[]\TU/EBGaramond(0)/m/n/10.5 Designhandlinga har reelle konsekvensar for andre 
-agentar som
+[22]
+Overfull \hbox (0.17036pt too wide) in paragraph at lines 425--425
+\TU/EBGaramond(0)/m/n/10.5 signaturen er relevant for ein gjeven agent, er eit 
+spørsmål agen-
  []
 
 
-Overfull \hbox (14.45824pt too wide) in paragraph at lines 411--411
-[]\TU/EBGaramond(0)/m/n/10.5 Gapet mellom kapasitet og omhug er det etiske romm
-et i design.$[]$
- []
-
-
-Overfull \hbox (1.6469pt too wide) in paragraph at lines 419--419
+Overfull \hbox (1.6469pt too wide) in paragraph at lines 434--434
 \TU/EBGaramond(0)/m/n/10.5 {A$[]$} som navigerer i eit landskap L med grammatik
 k SG er:$[]$ 
  []
 
 
-Overfull \hbox (34.68086pt too wide) in alignment at lines 422--427
+Overfull \hbox (34.68086pt too wide) in alignment at lines 437--442
 [] [] 
  []
 
-[20]
+[23]
 File: ../figures/formgjevarkompetanse/den-generelle-forma.png Graphic file (typ
 e bmp)
 <../figures/formgjevarkompetanse/den-generelle-forma.png>
-) (fundament.tex [21]
+) (fundament.tex [24]
 Overfull \hbox (7.73141pt too wide) in paragraph at lines 11--27
  [] 
  []
 
-[22
+[25
 
 ]
 Overfull \hbox (1.46416pt too wide) in paragraph at lines 43--60
  [] 
  []
 
-[23]) (etterord.tex [24]
+[26]) (etterord.tex [27]
 Overfull \hbox (4.4927pt too wide) in paragraph at lines 9--10
 \TU/EBGaramond(0)/m/n/9 milliardar menneske i utilstrekkeleg bustad.$[]$ Havbru
 ket: optimert for biomasse, blindt
  []
 
-[25
+[28
 
 ]
 File: ../figures/fish-n-fence.png Graphic file (type bmp)
 <../figures/fish-n-fence.png>
 File: ../figures/fishbones.png Graphic file (type bmp)
 <../figures/fishbones.png>
- [26] [27] [28] [29]
+ [29] [30] [31] [32]
 Overfull \hbox (32.36089pt too wide) in paragraph at lines 92--93
 []\TU/EBGaramond(0)/m/n/9 Desse agentane finst allereie. Mycel-emballasjen erst
 attar polystyren hjå konkrete produsentar.$[]$
@@ -1355,7 +1422,7 @@ ing, fri-programvarebevegelsen,
 
 File: ../figures/larve.png Graphic file (type bmp)
 <../figures/larve.png>
-[30]) (brev.tex [31]
+[33]) (brev.tex [34]
 
 Package fontspec Info: 
 (fontspec)             Font family 'EBGaramond(1)' created for font 'EB
@@ -1392,7 +1459,7 @@ lnum;+pnum;mapping=tex-text;"
 (fontspec)             Garamond/BI/OT:script=latn;language=dflt;letterspace=6;l
 etterspace=4;+lnum;+pnum;+smcp;mapping=tex-text;"
 
-) (omhugsmal.tex [32
+) (omhugsmal.tex [35
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
@@ -1574,37 +1641,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 []|\TU/EBGaramond(0)/m/n/8 Fargekraft; konstituere
  []
 
-) [33
+) [36
 
-] [34
+] [37
 
-] [35]
-Overfull \hbox (2.11163pt too wide) in paragraph at lines 429--429
+] [38]
+Overfull \hbox (2.11163pt too wide) in paragraph at lines 435--435
 \TU/EBGaramond(0)/m/n/8 [57] Fultot, M. & Turvey, M. T. (2019). Von Uexküll’s t
 heory of meaning and Gibson’s organism–
  []
 
-[36]
-Overfull \hbox (1.12067pt too wide) in paragraph at lines 453--453
+[39]
+Overfull \hbox (1.12067pt too wide) in paragraph at lines 459--459
 \TU/EBGaramond(0)/m/n/8 [81] Cussat-Blanc, S., Harrington, K. & Banzhaf, W. (20
 18). Artificial gene regulatory networks—
  []
 
-[37] [38] [39]
-Overfull \hbox (0.57181pt too wide) in paragraph at lines 543--544
+[40] [41] [42]
+Overfull \hbox (0.57181pt too wide) in paragraph at lines 549--550
 \TU/EBGaramond(0)/m/n/8 april 2026). Designfiksasjon-litteraturen stadfestar at
  eksempeleksponering avgrensar kreativ out-
  []
 
-[40]
+[43]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [41]
+ [44] [45]
 File: ../figures/qr.png Graphic file (type bmp)
 <../figures/qr.png>
- [42] [43] (traktat.aux)
+ [46] (traktat.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1617,17 +1684,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 21080 strings out of 402987
- 460658 string characters out of 5448317
- 949444 words of memory out of 5000000
- 49350 multiletter control sequences out of 15000+600000
- 633807 words of font info for 116 fonts, out of 8000000 for 9000
+ 21100 strings out of 402987
+ 461188 string characters out of 5448317
+ 949502 words of memory out of 5000000
+ 49360 multiletter control sequences out of 15000+600000
+ 633904 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 84i,13n,104p,1839b,631s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,104p,1839b,633s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on traktat.pdf (43 pages).
+Output written on traktat.pdf (46 pages).

@@ -48,6 +48,10 @@
 % Cambria Math (alltid present on Windows).
 \newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
 \newcommand{\msym}[1]{{\mathfbfont #1}}
+% Pictographic-symbol fallback — for ⬢ ☉ ◇ ◐ ▲ ▽ ● ◯ ⁂ ∿ ↘ etc.
+% (BMP pictographs absent from Cambria Math).
+\newfontfamily{\picfont}{Segoe UI Symbol}[Scale=0.90]
+\newcommand{\pic}[1]{{\picfont #1}}
 
 % Headings — small caps, centred, generous spacing
 \usepackage{titlesec}
@@ -325,7 +329,7 @@
 \begin{widebody}
 \begin{ordliste}
 \ordlisteentry{Affordanse}{Operasjonane eit materiale tillèt og hindrar (Gibson, 1979). Avgjer kva formoperasjonar som er moglege. [2.2]}
-\ordlisteentry{Agent}{Eit system definert av trippelet (måltilstand, avstandsmåling, justeringsmekanisme). Krev berre organisering; verken medvit, intensjon eller nervesystem (Rosenblueth et al., 1943; Wiener, 1948). [5.11]}
+\ordlisteentry{Agent}{Eit persistent system definert av tuppelet (m, \msym{π}, \msym{ε}): ein generativ modell, ein politikk som minimerer variasjonell fri energi, og ein toleranseterskel for KL-divergens. Har endeleg prediksjonshorisont \msym{τ(A)}. Krev berre denne strukturen; verken medvit, intensjon eller nervesystem (Friston, 2010; Fields \& Levin, 2022). [5.11]}
 \ordlisteentry{C (tankerommet)}{Alle former som er tenkelege men ikkje avgjorte. Svarar til dei opne regionane i formrommet. [1.44]}
 \ordlisteentry{Formalgebra}{Mengda av former lukka under union, differanse og transformasjon. Grunnlaget for formgrammatikken. [1.32]}
 \ordlisteentry{Formgrammatikk}{Trippelet SG = (S, R, \msym{ω}). Reglar som opererer under innleiring; berre den noverande forma avgjer kva som fyrer. [5.3]}
@@ -334,11 +338,11 @@
 \ordlisteentry{Innleiring}{Transformasjonen som viser at éi form finst i ei anna. Avgjer kva grammatikkreglar som kan fyre. [1.32]}
 \ordlisteentry{K (kunnskapsrommet)}{Alle former som er kjende å verke eller svikte. Svarar til dei busette og stadfesta forbodne regionane. [1.44]}
 \ordlisteentry{Kanalisering}{Robustheit mot forstyrringar. Bratte dalveggar = stabil form (Waddington, 1957). [3.2]}
-\ordlisteentry{Kapasitet}{Bredda på lyskjegla; kor mange aksar agenten \textit{kan} representere. Skild frå omhug, som er kor mange han faktisk representerer. [5.6]}
+\ordlisteentry{Kapasitet}{C(A) = mengda av aksar der agenten \textit{kan} halde KL-divergensen under terskelen \msym{ε}. Den ytre grensa for lyskjegla. [5.601]}
 \ordlisteentry{Klasse}{Ei gruppe objekt som deler same affordansestruktur: dei tilbyr same konstellasjon av operasjonar til same konstellasjon av agentar. [2.14]}
 \ordlisteentry{Kognitiv lyskjegle}{Delmengda av formrommet agenten kan representere og manipulere (Fields \& Levin, 2022). [5.2]}
 \ordlisteentry{Multiskala-kompetanse}{Agens opererer samstundes på fleire skalaer, kvar med si eiga lyskjegle og sine eigne grammatikkreglar (Levin, 2022). [6.12]}
-\ordlisteentry{Omhug}{Mengda av aksar i formrommet agenten aktivt justerer for. Omhug er intelligensens innhald; intelligens er omhugen si form. [5.6, 5.61]}
+\ordlisteentry{Omhug}{\msym{ω}(A) = vektoren \{D\textsubscript{KL}(X\textsubscript{i} \msym{∣} \msym{π}\textsubscript{A})\} over kapasiteten. Ei fordeling, ikkje eit tal: kor nær politikken faktisk kjem terskelen per akse. Spesialist og generalist er to profilar av same vektor. [5.6]}
 \ordlisteentry{Generativ modell}{Boltzmann-distribusjon over formrommet som sameinar grammatikk, landskap og lyskjegle i éin probabilistisk formalisme. [8.1]}
 \ordlisteentry{Liv}{Den prosessen der eit system opprettheld og utvidar si eiga lyskjegle over tid (Levin, 2022). [5.65]}
 \ordlisteentry{Seleksjonstrykk}{Ein gradient som endrar sannsynsfordelinga over formrommet (Wright, 1932). [2.1]}
@@ -347,10 +351,12 @@
 \end{ordliste}
 \end{widebody}
 
-\vspace*{\fill}
+\vfill
 \begin{widebody}
 \noindent\includegraphics[width=\linewidth]{fencing.png}
 \end{widebody}
+\vspace*{0pt}
+\clearpage
 
 % Proposisjonar
 \input{proposisjonar}
@@ -501,9 +507,9 @@
 
 \textbf{3.1} Tilpassingslandskapet samlar Wrights [3] adaptive landscape og Waddingtons [7] epigenetiske landskap i éin definisjon. Wright skildra landskapet for populasjonar; Waddington for utviklingsprosessar. Me skildrar det for formverda.
 
-\textbf{3.2} Kanalisering er Waddingtons [7] omgrep for utviklingsrobustheit. I vårt rammeverk tyder det at somme dimensjonar av formrommet er meir robuste enn andre. Empirisk: setehøgd varierer minimalt (CV = 0,07) over 500 år; ornament varierer maksimalt (CV \msym{≈} 1,5). Spreiinga er 128 gonger.
+\textbf{3.2} Kanalisering er Waddingtons [7] omgrep for utviklingsrobustheit. I vårt rammeverk tyder det at somme dimensjonar av formrommet er meir robuste enn andre. Empirisk: setehøgd varierer minimalt (CV = 0,07) over 500 år; ornament varierer maksimalt (CV \msym{≈} 1,5). Spreiinga er 128 gonger. Formelt: kanalisering langs aksen X er identisk med kort \textit{minnehalveringstid} \msym{τ}\textsubscript{mem}(X); ein Ornstein--Uhlenbeck-prosess med raskt relaksasjonsledd operasjonaliserer både 3.2 (bratte dalveggar) og 4.3 (stiavhengigheit med avtagande minne) samstundes. Djupe kanalar har kort \msym{τ}\textsubscript{mem}; grunne kanalar har lang. Parameteren er direkte estimerbar frå tidsseriar av realiseringar.
 
-\textbf{4.3} Stiavhengigheit er Arthurs [14] omgrep for korleis tidlege val låser seinare. I formverda: kvar realisert konfigurasjon deformerer landskapet rundt seg og avgrensar kva nabokonfigurasjonar som er tilgjengelege for den neste agenten.
+\textbf{4.3} Stiavhengigheit er Arthurs [14] omgrep for korleis tidlege val låser seinare. I formverda: kvar realisert konfigurasjon deformerer landskapet rundt seg og avgrensar kva nabokonfigurasjonar som er tilgjengelege for den neste agenten. Minnet er ikkje absolutt; det avtek med rate \msym{τ}\textsubscript{mem}\textsuperscript{\msym{−}1} (jf. notat til 3.2). Lang \msym{τ}\textsubscript{mem} svarer til kumulative tradisjonar; kort \msym{τ}\textsubscript{mem} til felt der kvar generasjon kan starte om att.
 
 \textbf{4.4 / 6.4} Nicheconstruction-teorien [79] formaliserer at organismar (eller agentar) modifiserer dei seleksjonstrykka som verkar på dei sjølv. Påstand 4.4 generaliserer dette til formverda: kvar realisert konfigurasjon endrar tilpassingslandskapet for den neste agenten. Distinksjonen mellom passiv navigasjon og aktiv landskapsutviding er fundamental: stiavhengigheit [14] gjev tids\-mekanismen, nicheconstruction gjev den evolusjonsteoretiske parallellen.
 
@@ -544,7 +550,7 @@
 
 \textbf{6.5} Følgjer av 2.13 (motstridande trykk utelukkar permanent likevekt) og 4.1 (trykka kviler aldri). Saman: ingen balanse er stabil over tid; kvar form er gyldig berre for aktualiseringsaugeblikket.
 
-\textbf{7.2} Proposisjonen er eit postulat (status a), ikkje eit teorem. Den normative påstanden følgjer ikkje frå det formelle apparatet åleine; ho krev ein tilleggspremiss om at designhandlinga har konsekvensar for andre agentar. Denne premissen er parallell til Doctor et al.\ [23] si kopling mellom omhug og normativitet. At premissen ikkje er deduserbar, gjer han ikkje vilkårleg; han gjer han eksplisitt. Posisjonen i seksjon 7 (og ikkje i seksjon 5) er medviten: etikken følgjer strukturelt av kapasitets--omhug-gapet som seksjon 7 namngjev.
+\textbf{7.2} Seksjon 7 er etter endringsplanen rein \textit{deskriptiv}: ho predikerer sviktsignatur, ho foreskriv ingenting. Den normative lesinga (at breiare omhug er ønskeleg, at sviktsignaturen tel som ansvar) er ein bruk av modellen, ikkje ei proposisjon i han. Hume si giljotin står urørt. Normative appellar høyrer heime i etterordet og dei tre breva, der dei alltid har budd; modellen sjølv seier berre kva forma ber signatur av. Designaren som les modellen, vel om signaturen skal tyde noko. Det valet er ein eigenskap ved bruken, ikkje ved teorien.
 
 \textbf{5.6} Distinksjonen mellom omhug og kapasitet er avgjerande. Ein designar med brei kapasitet som likevel berre attenderer til éin akse; til dømes visuell nyheit åleine; viser trong omhug trass i høg kapasitet. Det er omhugen, ikkje kapasiteten, som er leseleg i forma.
 
@@ -556,7 +562,7 @@
 
 \textbf{5.722} Eit domene som tidlegare tilhøyrde einten formgrammatikk eller tanke-kunnskap aleine, tilhøyrer no feltet deira ikkje-degenererte skjering. Praktiske konsekvensar: analysar som siterer berre éin av tradisjonane kvalifiserer seg sjølv som grensetilfelle.
 
-\textbf{7.1--7.2} Proposisjon 7 rommar to distinkte påstandar. Den deskriptive (7.1) kan testast empirisk: dersom former designa under demonstrerbart trong omhug ikkje presterer dårlegare langs urepresenterte aksar enn former designa under brei omhug, er proposisjonen tilbakevist. Den normative (7.2) gjev den deskriptive retning og relevans, men står ikkje og fell med henne.
+\textbf{7.1--7.24} Seksjon 7 er rein deskriptiv etter endringsplanen. Alle proposisjonane der er empirisk testbare: dersom former designa under demonstrerbart trong omhug ikkje ber større svikt langs urepresenterte aksar (vekta med \msym{ρ}) enn former designa under brei omhug, fell seksjonen. Normativiteten; at denne svikten tel; er ikkje innebygd i modellen og er difor heller ikkje falsifiserbar med empiriske verktøy. Ho høyrer heime der ho alltid har budd: i etterordet og breva.
 
 \textbf{7.13} Geologi/biologi/design-parallellen er Bateson [72] sin «pattern that connects»: at same forklaringsmønsteret (mønster i residue ber spor av prosessen som produserte det) gjeld på tvers av domena. Bateson argumenterer for ein «nødvendig einskap» mellom natur og tanke; vi tek ein svakare stilling: same lesningsapparatet kan brukast, utan å hevde ontologisk einskap.
 
@@ -584,6 +590,8 @@
 \textbf{6.121} Watson, Levin \& Buckley [87] formaliserer evolusjonære overgangar i individualitet som djup modellinduksjon: berre djupe, asymmetriske interaksjonar (ikkje berre symmetrisk samspel) produserer kollektive eigenskapar som er ikkje-lineært separable funksjonar av komponentkarakterane. For formverda: tett kopling mellom agentar er ikkje berre ei styrke; ho er det formelle vilkåret for at heilskapen kvalifiserer seg som eigen agent.
 
 \textbf{6.14} Levin \& Gitelman [93] koplar formverda direkte til designpraksis: all design med agentivt materiale krev ei vending frå mikrostyring til samarbeid med kompetente substrat. Geninformasjon er ikkje preskriptiv men «prompts» som vert kreativt tolka på kvar skala. Whiteheads ingression-omgrep [93] gjev eit rammeverk for korleis matematiske strukturar «inngår» i det fysiske gjennom grensesnittet: forma trekk ikkje berre på kontingente seleksjonstrykk, men òg på platoniske regularitetar som vert tilgjengelege ved realisering.
+
+\textbf{7.14} Sviktlatensen \msym{ρ} gjev sviktsignaturen ei kvantitativ lesegrammatikk. Same formalisme bind ergonomi (\msym{ρ} \msym{∼} 10), klimagass-utslepp frå forbruksvarer (\msym{ρ} \msym{∼} 10\textsuperscript{2}\msym{−}10\textsuperscript{3}), mikroplast i havet (\msym{ρ} \msym{∼} 10\textsuperscript{4}) og langsiktig ustabilitet i merksemdsarkitektur (\msym{ρ} \msym{∼} 10\textsuperscript{1}\msym{−}10\textsuperscript{2}). Kva aksar som vert \textit{strukturelt usynlege} for ein gjeven designpraksis, er eit empirisk spørsmål teorien gjer handterleg; svaret gjev sviktsignaturen både retning og magnitude.
 
 \textbf{7.1} Falsifiseringskrav: dersom former designa under demonstrerbart trong omhug ikkje presterer dårlegare langs urepresenterte aksar enn former designa under brei omhug, er proposisjonen tilbakevist.
 

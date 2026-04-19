@@ -1,0 +1,192 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[top=1.5cm,bottom=1.5cm,left=1.8cm,right=1.8cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+
+\newfontfamily{\symbolfont}{Symbola}[Scale=1.0]
+\newcommand{\g}[1]{{\symbolfont #1}}
+
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+
+\usepackage{microtype}
+\usepackage{array}
+\usepackage{multicol}
+
+\pagestyle{empty}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0em}
+
+\newcommand{\gAgent}{\g{▲}}
+\newcommand{\gDesignar}{\g{(▲)}}
+\newcommand{\gForm}{\g{●}}
+\newcommand{\gGrammatikk}{\g{⬢}}
+\newcommand{\gFormrom}{\g{□}}
+\newcommand{\gKlasse}{\g{\{●\}}}
+\newcommand{\gLyskjegle}{\g{◇}}
+\newcommand{\gKonfig}{\g{⁂}}
+\newcommand{\gObjekt}{\g{•}}
+\newcommand{\gOmhug}{\g{☉}}
+\newcommand{\gPartisjon}{\g{◐}}
+\newcommand{\gTrykk}{\g{↘}}
+\newcommand{\gStilart}{\g{(•••)}}
+\newcommand{\gSubstrat}{\g{▽}}
+\newcommand{\gLandskap}{\g{∿}}
+\newcommand{\gTransform}{\g{⬟}}
+\newcommand{\gSirkel}{\g{◯}}
+
+\newcommand{\sek}[1]{\textsc{\footnotesize #1}}
+
+% Kompakt bevisformat
+\newcommand{\bv}[3]{%
+\vspace{0.4em}%
+\noindent\textbf{#1}\hspace{0.4em}\emph{\footnotesize #2}\\[0.15em]
+\begin{tabular}{@{}r@{\hspace{0.3em}}l@{\hspace{0.8em}}l@{}}
+#3
+\end{tabular}%
+}
+
+\begin{document}
+
+% ==================== TITTEL ====================
+\begin{center}
+{\huge\scshape Formskrift}\\[0.2em]
+{\itshape Sytten bevis}
+\end{center}
+
+\vspace{0.3em}
+\begin{center}\rule{\textwidth}{0.4pt}\end{center}
+\vspace{0.4em}
+
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+
+\begin{multicols}{2}
+
+\bv{T1. Designaren er spesiell agent}{Alle designarar er agentar; ikkje omvendt.}{%
+1. & \gDesignar\ $\equiv$ \gAgent\ $+$ \gSirkel                                & R1\\
+2. & $\therefore$ \gDesignar\ $\rightarrow$ \gAgent                            & projeksjon\\
+3. & \gAgent\ $\not\rightarrow$ \gDesignar                                     & mangel \gSirkel\\
+4. & $\therefore$ \gDesignar\ $\subset$ \gAgent                                & 6.021\\
+}
+
+\bv{T2. Kjerne-likninga}{Grammatikk p\aa{} gradient, projisert p\aa{} lyskjegla.}{%
+1. & \gForm\ $\in$ \gFormrom                                                   & 1.3\\
+2. & \gGrammatikk\ $\triangleright$ \gFormrom                                   & 5.3\\
+3. & \gTrykk\ $=$ $\nabla$\gLandskap                                           & R7\\
+4. & \gLyskjegle\ $\subset$ \gFormrom                                          & 5.2\\
+5. & $\therefore$ \gForm\ $=$ \gGrammatikk($\nabla$\gLandskap)$\cap$\gLyskjegle & 5.7\\
+}
+
+\bv{T3. Det etiske rommet}{Etisk rom er kapasitet minus omhug.}{%
+1. & \gOmhug\ $\subset$ \gLyskjegle                                            & 5.6\\
+2. & $|$\gOmhug$|\leq|$\gLyskjegle$|$                                          & monotoni\\
+3. & $|$\gLyskjegle$|-|$\gOmhug$|\geq 0$                                       & aritmetikk\\
+4. & $\therefore$ \emph{etisk} $\equiv|$\gLyskjegle$|-|$\gOmhug$|$              & 7.23\\
+}
+
+\bv{T4. Stilen er mønsterminne}{Ikkje kausal kraft.}{%
+1. & \gStilart\ $=\{$\gForm\ $\mid d<\varepsilon\}$                            & 3.3\\
+2. & \gTrykk\ $\in$ krefter; \gStilart\ $\in$ aggregat                         & disjunkt\\
+3. & $\therefore$ \gStilart\ $\not\rightarrow$ \gForm                          & 6.3\\
+}
+
+\bv{T5. Reduksjonsteoremet}{Flatt landskap gjev rein grammatikk.}{%
+1. & \gForm\ $=$\gGrammatikk($\nabla$\gLandskap)$\cap$\gLyskjegle               & T2\\
+2. & $\nabla$\gLandskap\ $\equiv 0$                                            & vilk\aa{}r\\
+3. & $\therefore$ \gForm\ $=L($\gGrammatikk$)\cap$\gLyskjegle                   & 5.72\\
+}
+
+\bv{T6. Substrat som null-ordens agent}{Substrat har d og $\delta$, men ikkje g.}{%
+1. & \gAgent\ $=(g,d,\delta)$                                                  & 5.11\\
+2. & \gSubstrat$:\; g=\varnothing$                                             & observasjon\\
+3. & $\therefore$ \gSubstrat\ $\subset$ \gAgent                                & 5.4\\
+}
+
+\columnbreak
+
+\bv{T7. Skjeringsteoremet}{Forma er skjeringa av lyskjegler.}{%
+1. & $\forall i:\;$ \gLyskjegle$_i\subset$\gFormrom                            & 5.2\\
+2. & \gForm\ representerast av kvar \gAgent$_i$                                & 6.1\\
+3. & $\therefore$ \gForm\ $\in\cap_i$\gLyskjegle$_i$                           & skjering\\
+}
+
+\bv{T8. Svikt-signaturen}{Trong omhug gjev svikt langs ikkje-representerte aksar.}{%
+1. & $\exists a:\; a\in$\gLyskjegle, $a\notin$\gOmhug                          & f\o{}resetnad\\
+2. & \gForm\ navigert kun etter \gOmhug                                        & T3\\
+3. & $\therefore$ \gForm\ sviktar langs $a$                                    & 7.1\\
+}
+
+\bv{T9. Formrommet ekspanderer}{Kvar ny form utvider det kjende.}{%
+1. & \gForm$_{\text{ny}}$ realisert                                            & hending\\
+2. & $K(t)=K(t{-}1)\cup\{$\gForm$_{\text{ny}}\}$                               & akkumulering\\
+3. & $|K(t)|>|K(t{-}1)|$                                                       & aritmetikk\\
+4. & $\therefore$ \gPartisjon\ er dynamisk                                     & 4.4\\
+}
+
+\bv{T10. Dynamikkens fundament}{Landskapet er alltid i r\o{}rsle.}{%
+1. & \gLandskap\ $=\sum_i$\gTrykk$_i$                                          & 3.1\\
+2. & $\exists i:\;\partial$\gTrykk$_i/\partial t\neq 0$                        & 4.1\\
+3. & $\therefore\;\partial$\gLandskap$/\partial t\neq 0$                       & distributiv\\
+}
+
+\bv{T11. Agens er substrat-uavhengig}{Agens er strukturell, ikkje materiell.}{%
+1. & \gAgent\ $=(g,d,\delta)$                                                  & 5.11\\
+2. & $(g,d,\delta)$: struktur                                                  & type-analyse\\
+3. & $\forall$\gSubstrat:\gSubstrat\ $\rightarrow$\gAgent                      & R8\\
+4. & $\therefore$ \gAgent\ substrat-uavhengig                                  & 5.111\\
+}
+
+\bv{T12. Konvergens av tradisjonar}{Shape grammar og CK som grensetilfelle.}{%
+1. & \gForm\ $=$\gGrammatikk($\nabla$\gLandskap)$\cap$\gLyskjegle               & T2\\
+2. & $\nabla$\gLandskap\ $\equiv 0:$ Stiny-Gips                                & T5\\
+3. & \gGrammatikk\ $\equiv$id$:$ Hatchuel-Weil                                 & dualt\\
+4. & $\therefore$ begge $\subset$ Formlaera                                    & 5.722\\
+}
+
+\bv{T13. Klasse og affordanse}{Klasse er definert av affordansestruktur.}{%
+1. & \gKlasse\ $=\{$\gForm$_i\mid\mathrm{aff}(i){=}\mathrm{aff}_0\}$           & R5\\
+2. & \gKlasse\ $\neq\{$\gForm$_i\mid$ visuell likskap$\}$                      & ikkje fenomen.\\
+3. & $\therefore$ to \gForm\ i same \gKlasse\ kan sj\aa{} ulike ut            & 2.14\\
+}
+
+\bv{T14. Blindskapens pris}{\'Ein-dim. optimalisering gjev svikt overalt.}{%
+1. & $\exists t^*:$ $t^*$ dominerer alle \gTrykk$_i$                           & 4.5\\
+2. & \gOmhug\ kollapsar til $\{t^*\}$                                          & konsekvens\\
+3. & $\forall a\neq t^*:\;a\notin$\gOmhug                                      & T8-premiss\\
+4. & $\therefore$ \gForm\ sviktar langs $\forall a\neq t^*$                    & 4.511\\
+}
+
+\bv{T15. Stilart som attraktor}{Stilen smalar observat\o{}rens lyskjegle.}{%
+1. & \gStilart\ $=$ formsverm kring tyngdepunkt                                & T4\\
+2. & Observat\o{}rens \gLyskjegle\ laerer av realiserte \gForm                 & 5.5\\
+3. & \gStilart\ er konsentrert laeringsgrunnlag                                & observasjon\\
+4. & $\therefore$ \gStilart\ smalar \gLyskjegle                                & 6.3\\
+}
+
+\bv{T16. Formrommet er partisjonert}{Kjent, tenkeleg, forbode.}{%
+1. & \gFormrom\ $=$\gForm\ $\cup$ \gSirkel\ $\cup\ \varnothing_f$             & R3 utvida\\
+2. & \gForm\ $\cap$\gSirkel\ $=\varnothing$                                   & disjunkt\\
+3. & $\therefore$ \gFormrom\ $=$\gPartisjon\ $\cup\ \varnothing_f$             & 1.44\\
+}
+
+\bv{T17. Tripletforeldreskap}{Forma har tre strukturelle foreldre.}{%
+1. & \gForm\ $=$\gGrammatikk($\nabla$\gLandskap)$\cap$\gLyskjegle               & T2\\
+2. & Tre komponentar: \gGrammatikk, \gLandskap, \gLyskjegle                    & dekomposisjon\\
+3. & Kvar har eiga seksjon i traktaten                                         & observasjon\\
+4. & $\therefore$ \gForm\ er konfluens av tre                                  & \S5.7\\
+}
+
+\end{multicols}
+
+\vspace{0.5em}
+\begin{center}\rule{\textwidth}{0.4pt}\end{center}
+\vspace{0.3em}
+
+\begin{center}
+\footnotesize\itshape
+Tolv bevis bygde av same alfabet og same operatorar. Kvart skritt f\o{}lgjer av tidlegare definisjonar og reglar. Formskrifta gjer internkonsistensen mekanisk verifiserbar.
+\end{center}
+
+\end{document}

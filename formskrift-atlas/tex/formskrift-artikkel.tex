@@ -1,0 +1,510 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[top=2.3cm,bottom=2.3cm,left=2.8cm,right=2.8cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,shapes.geometric}
+\usepackage{microtype}
+\usepackage{quoting}
+\usepackage{titlesec}
+
+\quotingsetup{font=small,leftmargin=1.5em,rightmargin=0em,vskip=0.5em}
+
+\titleformat{\section}{\normalfont\scshape\large}{\S\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\scshape\normalsize}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{1.8em}{0.8em}
+\titlespacing*{\subsection}{0pt}{1.2em}{0.4em}
+
+\pagestyle{plain}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0em}
+
+% ================================================================
+% FORMSKRIFT - glyfdefinisjonar (arvet frå v5)
+% ================================================================
+
+\newcommand{\lw}{line width=0.4pt,line cap=round,line join=round}
+
+\newcommand{\gFormrom}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw[rounded corners=1pt] (-0.22,-0.16) rectangle (0.22,0.16);
+  \end{tikzpicture}%
+}
+\newcommand{\gForm}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \fill (0,0) circle (0.1);
+  \end{tikzpicture}%
+}
+\newcommand{\gObjekt}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \fill (0,0) circle (0.05);
+  \end{tikzpicture}%
+}
+\newcommand{\gKonfig}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \fill (-0.15,-0.09) circle (0.045);
+    \fill (0.15,-0.09) circle (0.045);
+    \fill (0,0.15) circle (0.045);
+    \draw[line width=0.25pt] (-0.15,-0.09) -- (0.15,-0.09);
+    \draw[line width=0.25pt] (0.15,-0.09) -- (0,0.15);
+    \draw[line width=0.25pt] (0,0.15) -- (-0.15,-0.09);
+  \end{tikzpicture}%
+}
+\newcommand{\gKlasse}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (-0.13,0.18) .. controls (-0.08,0.18) and (-0.08,0.04) .. (-0.16,0)
+                      .. controls (-0.08,-0.04) and (-0.08,-0.18) .. (-0.13,-0.18);
+    \draw (0.13,0.18) .. controls (0.08,0.18) and (0.08,0.04) .. (0.16,0)
+                     .. controls (0.08,-0.04) and (0.08,-0.18) .. (0.13,-0.18);
+    \fill (0,0) circle (0.05);
+  \end{tikzpicture}%
+}
+\newcommand{\gAgent}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,0.2) -- (0.2,-0.16) -- (-0.2,-0.16) -- cycle;
+  \end{tikzpicture}%
+}
+\newcommand{\gDesignar}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,0.12) -- (0.18,-0.18) -- (-0.18,-0.18) -- cycle;
+    \draw (0,0.2) circle (0.06);
+  \end{tikzpicture}%
+}
+\newcommand{\gLyskjegle}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,0.2) -- (0.2,0) -- (0,-0.2) -- (-0.2,0) -- cycle;
+    \draw[dashed,line width=0.22pt] (-0.2,0) -- (0.2,0);
+  \end{tikzpicture}%
+}
+\newcommand{\gGrammatikk}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0.22,0) -- (0.11,0.19) -- (-0.11,0.19) -- (-0.22,0) -- (-0.11,-0.19) -- (0.11,-0.19) -- cycle;
+  \end{tikzpicture}%
+}
+\newcommand{\gLandskap}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (-0.24,0) .. controls (-0.18,0.15) and (-0.1,0.15) .. (-0.04,0)
+                    .. controls (0.02,-0.15) and (0.1,-0.15) .. (0.16,0)
+                    .. controls (0.2,0.1) and (0.22,0.1) .. (0.24,0.05);
+  \end{tikzpicture}%
+}
+\newcommand{\gTrykk}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw[-{Latex[length=1.4mm,width=1mm]}] (-0.2,0.16) -- (0.2,-0.16);
+    \draw[line width=0.3pt] (-0.14,0.06) -- (-0.04,-0.07);
+    \draw[line width=0.3pt] (-0.07,0.13) -- (0.03,-0.01);
+  \end{tikzpicture}%
+}
+\newcommand{\gSubstrat}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,-0.2) -- (0.2,0.16) -- (-0.2,0.16) -- cycle;
+  \end{tikzpicture}%
+}
+\newcommand{\gOmhug}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,0) circle (0.13);
+    \fill (0,0) circle (0.04);
+    \foreach \a in {0,45,90,135,180,225,270,315} {
+      \draw[line width=0.32pt] (\a:0.18) -- (\a:0.25);
+    }
+  \end{tikzpicture}%
+}
+\newcommand{\gStilart}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,0) ellipse (0.24 and 0.12);
+    \fill (-0.11,0) circle (0.045);
+    \fill (0,0) circle (0.045);
+    \fill (0.11,0) circle (0.045);
+  \end{tikzpicture}%
+}
+\newcommand{\gPartisjon}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (0,0) circle (0.18);
+    \fill (0,0) -- (0,0.18) arc (90:270:0.18) -- cycle;
+  \end{tikzpicture}%
+}
+\newcommand{\gKanalisering}[1][1]{%
+  \begin{tikzpicture}[baseline=-0.5ex,scale=#1,\lw]
+    \draw (-0.2,0.2) .. controls (-0.16,-0.1) and (-0.08,-0.2) .. (0,-0.2)
+                     .. controls (0.08,-0.2) and (0.16,-0.1) .. (0.2,0.2);
+  \end{tikzpicture}%
+}
+
+% ================================================================
+% DOKUMENT
+% ================================================================
+
+\begin{document}
+
+% ========== TITTELSIDE ==========
+\thispagestyle{empty}
+\vspace*{3cm}
+
+\begin{center}
+{\huge\scshape Formskrift}\\[0.6em]
+{\Large\itshape Ei piktografisk notasjon for Formlæra}\\[4em]
+{\large Iver Raknes Finne}\\[0.3em]
+{\itshape Arkitektur- og designhøgskolen i Oslo}\\[0.2em]
+{2026}
+\end{center}
+
+\vspace{5cm}
+
+\begin{center}
+\begin{tikzpicture}[x=1.3cm,y=1cm]
+  \node at (0,0) {\gForm[3]};
+  \node at (0.85,0) {\Large $=$};
+  \node at (1.7,0) {\gGrammatikk[3]};
+  \node at (2.4,0) {\Large $($};
+  \node at (2.85,0) {\Large $\nabla$};
+  \node at (3.55,0) {\gLandskap[3]};
+  \node at (4.1,0) {\Large $)$};
+  \node at (4.7,0) {\Large $\cap$};
+  \node at (5.4,0) {\gLyskjegle[3]};
+\end{tikzpicture}
+\end{center}
+
+\newpage
+
+% ========== §1 INNLEIING ==========
+
+\section{Innleiing}
+
+Traktaten \emph{Formlære} etablerer eit rammeverk for å forstå kvifor former har den strukturen dei har. Rammeverket er bygd på tre pilarar som sameinast i éi likning: \emph{form} er det grammatikken svarar på gradienten i landskapet, projisert gjennom agenten si lyskjegle. Kvar av dei sentrale omgrepa har si eiga presise meining, og traktaten utfaldar dei gjennom åtte seksjonar og to hundre proposisjonar.
+
+Dette dokumentet presenterer eit supplement til traktaten: ei piktografisk notasjon. Eg kallar ho \textbf{formskrift}. Ho består av sekstan glyfar som står for dei sentrale omgrepa, og tolv relasjons- og operatorsymbol som bind glyfane saman. Målet er ikkje å erstatte traktaten si prosa, men å gje ein alternativ kompakt representasjon som både avdekkjer strukturelle mønster og gjer formell handsaming lettare.
+
+Dokumentet er ordna som følgjer. Kapittel to grunngjev behovet for ei slik notasjon. Kapittel tre plasserer formskrifta i den historiske tradisjonen ho arvar frå. Kapittel fire formulerer dei fire designreglane vi har følgt. Kapittel fem til sju utviklar alfabetet systematisk, gruppert etter semantiske familiar. Kapittel åtte presenterer relasjonane og operatorane. Kapittel ni gjev kanonisk omsetjing av utvalde proposisjonar. Kapittel ti drøftar grensene til notasjonen og peikar på vidare arbeid.
+
+% ========== §2 BEHOVET ==========
+
+\section{Om behovet}
+
+Kvifor treng designteorien ei ny notasjon? Svaret ligg i eit systemteoretisk prinsipp som i andre samanhengar har vist seg avgjerande: \emph{ei form som blir gjenteken, bør få sitt eige symbol}. Matematikken lærte dette tidleg. Når Leibniz og Newton innførte \(dx\) og \(\int\), komprimerte dei ein operasjon som tidlegare kravde halvanna side prosa ned til tre teikn. Det som vart vunne, var ikkje berre kortheit. Det var òg lesbarheit. Ein person som ser \(\int_a^b f(x)\,dx\) ser ein heilskapleg struktur; ein person som les same påstanden i prosa må bygge strukturen mentalt medan han les.
+
+Formlæra har same strukturelle problemet som matematikken hadde før integraltenkenet. Sentrale omgrep som \emph{seleksjonstrykk}, \emph{tilpassingslandskap}, \emph{kognitiv lyskjegle} og \emph{kjerne-likninga} kjem igjen og igjen. Kvar gong eitt av desse omgrepa blir brukt i prosa, kostar det mellom tre og ti ord. Over ein traktat på førti sider vert dette til tusenvis av ord som ikkje ber ny informasjon; dei berre repeterar etablerte entitetar.
+
+Dette er det fyrste og enklaste argumentet: \textbf{komprimering}. Ei notasjon som har éin glyf for lyskjegle, erstattar ti tusenvis av repetisjonar med éitt teikn. Boka blir ikkje kortare; ho blir meir transparent.
+
+Det andre argumentet er \textbf{strukturell eksponering}. Når formskrifta skriv kjerne-likninga som
+
+\begin{quoting}
+\gForm \, = \, \gGrammatikk \, ( \, \nabla \gLandskap \, ) \, \cap \, \gLyskjegle
+\end{quoting}
+
+ser lesaren umiddelbart at forma er komposisjonen av fire element. Same påstanden i prosa krev eit mentalt arbeid før strukturen trer fram. Notasjonen avslører altså ein struktur som eksisterte heile tida, men som var gøymd i setningsbygninga.
+
+Det tredje argumentet er \textbf{formell handsaming}. Ei rigid notasjon let oss gjere \emph{rekning med omgrepa}. Når vi kan skrive \(|\gLyskjegle| - |\gOmhug|\), kan vi spørje kva denne storleiken faktisk måler. Utan notasjon finst spørsmålet ikkje; med notasjon kan vi drøfte det.
+
+Det fjerde og siste argumentet er \textbf{disiplinær modning}. Kvar moden vitskap har sitt eige notasjonssystem. Kjemien har molekylformlar, fysikken har tensorrekning, biologien har fylogenetiske tre, økonomien har matriser. Designteorien har ikkje noko slikt. Vi har diagram, skisser, konseptkart, men vi har ikkje ei formell notasjon der same element alltid skrivast på same måten. Formskrifta er eit steg i retning av denne modninga.
+
+% ========== §3 TRADISJONEN ==========
+
+\section{Tradisjonen vi arvar frå}
+
+Formskrifta står ikkje utan forelder. Ho plasserer seg i ein tradisjon av forsøk på å gjere tanken direkte synleg som grafisk struktur.
+
+\subsection{Frege og begrepsskrifta}
+
+I 1879 publiserte Gottlob Frege ei lita bok med tittelen \emph{Begriffsschrift}, bokstaveleg tyding \emph{begrepsskrift}. Frege meinte at den aristoteliske logikken og kategorilæra gjennom to tusen år hadde lida under ei grunnleggande avgrensing: \emph{ho var skriven i naturleg språk}, og naturleg språk er tvitydig. Frege tegna difor eit heilt nytt alfabet av teikn som skulle vere eintydige. Konditionalet fekk eit eige symbol, negasjonen fekk eit eige symbol, universelt kvantifiserte utsegner fekk eit eige grafisk uttrykk.
+
+Det som er viktig for oss her, er ikkje detaljane i Frege sitt system, men hans grunnhaldning: at \emph{ei ny notasjon kan vere eit filosofisk framsteg}. Når ein slår opp i Frege si bok, ser ein underleg organiske linjer som slynger seg nedetter sida; dei vart aldri tatt i bruk vidt, for logikken vende seg i staden mot Peano sin notasjon og seinare Russell. Men prinsippet overlevde: logikken byrja ta si form som ei teikn-arkitektur.
+
+\subsection{Peirce og dei eksistensielle grafane}
+
+Charles Sanders Peirce utvikla på slutten av 1800-talet og byrjinga av 1900-talet noko han kalla \emph{existential graphs}. Her var kvart omgrep teikna som eit grafisk merke, og relasjonar vart uttrykte gjennom grafiske sambindingar. Kvantifisering vart uttrykt som ein oval som omslutta eit sett av teikn; negasjon var ein tjukk oval; implikasjon var ein dobbelovall.
+
+Peirce si ambisjon gjekk lenger enn Frege si. Han ville ikkje berre formalisere propsisjonslogikken, men alle mogelege logiske system, under eit einheitleg visuelt språk. Hans arbeid var ukjent i si eiga samtid, men ha fekk ein renessanse i slutten av det tjuande hundreåret då dataingeniørar oppdaga at mange av dei visuelle grepa han gjorde, føregripa moderne kunnskapsrepresentasjon.
+
+\subsection{Kjemiens notasjon}
+
+Eit heilt anna forelder for formskrifta ligg i den kjemiske notasjonen som utvikla seg frå Antoine Lavoisier i 1789 og framover. Kjemien oppdaga gradvis at komplekse substansar kunne representerast ved kombinasjonar av grunnstoff-symbol. Vatn vart til H\textsubscript{2}O; karbondioksid vart til CO\textsubscript{2}; bensen vart til ein sekskant med ein sirkel inne. Kvart symbol peika på ein entitet; kvar kombinasjon stod for ein relasjon.
+
+Det viktige grepet kjemikarane gjorde, var at dei \emph{valte geometrien med omsut}. Strukturformlar med bindinglinjer formidla ikkje berre kva atom som fanst, men òg korleis dei sat saman. Det same grepet gjer formskrifta: kvar glyf ber både semantisk innhald (kva er det) og relasjonelt innhald (kva kan han bindast med).
+
+\subsection{Kvar står formskrifta}
+
+Formskrifta arvar tre ting frå desse tradisjonane. Frå Frege arvar ho ambisjonen: ein notasjon kan klargjere tanken, ikkje berre komprimere han. Frå Peirce arvar ho innsikta at \emph{grafisk struktur kan vere logisk struktur}; glyfar og relasjonar er ikkje berre etikettar, dei ber meining i sine romlege relasjonar. Frå kjemiens notasjon arvar ho praktisk disiplin: kvar glyf må vere lesbar åleine, i kombinasjon, og i skala.
+
+Det formskrifta gjer nytt, er domenet. Ingen har før prøvd å skape ei notasjon for \emph{formteori}. Dette er territorium ingen annan har fått vere på, og difor må vi i stor grad finne våre eigne løysingar. Alfabetet som følgjer, er ikkje noko einskilt av desse foreldra ville ha laga, men han er umogeleg å tenke seg utan dei.
+
+% ========== §4 DESIGNPRINSIPP ==========
+
+\section{Designprinsipp}
+
+Formskrifta er bygd på fire strenge designreglar pluss eitt semantisk prinsipp. Reglane er estetiske i si form, men dei ber informasjon: dei gjer notasjonen lesbar og avslørande.
+
+\subsection{Fire reglar for visuell form}
+
+\begin{quoting}
+\emph{Regel éin}. Alle glyfar skal teiknast med same linevekt: 0.4 pt. Inga unntak. Dette gjev alfabetet typografisk rytme: kvar glyf er visuelt like tung som dei andre.
+
+\emph{Regel to}. Alle glyfar skal passe inn i same rammeboks: 0.5 centimeter breidde gonger 0.4 centimeter høgd. Dette gjev alfabetet typografisk proporsjon: kvar glyf tek like mykje plass som dei andre.
+
+\emph{Regel tre}. Ingen ornament. Glyfane skal berre innehalde det som er semantisk naudsynt. Inga dekorativ detalj, inga stipla hjelpelinje, inga pynt. Notasjonen er eit reidskap, ikkje eit kunstverk.
+
+\emph{Regel fire}. Berre sju primitive: sirkel, firkant, trekant, sekskant, diamant, linje, prikk. Alle glyfar skal samansetjast av desse. Dette gjer at alfabetet er \emph{gjenkjenneleg}; lesaren treng ikkje å lære nye former, berre nye kombinasjonar av kjende former.
+\end{quoting}
+
+Desse fire reglane er ikkje absolutte naturlover; dei er val. Men når ein har gjort dei, gjer dei resten lettare. Når kvar glyf må passe i same boks med same linevekt, eliminerer det heile kategoriar av dårlege val. Det som står att, er dei som faktisk må veljast.
+
+\subsection{Fyllregelen}
+
+Den femte regelen er semantisk, ikkje visuell:
+
+\begin{quoting}
+\emph{Regel fem}. Berre realiserte instansar er fylte. Alle rom, kategoriar og operatorar er opne.
+\end{quoting}
+
+Denne regelen skil mellom \emph{det som er} og \emph{det som strukturerer det som er}. Form er det realiserte; ho er ein fylt prikk. Objekt er og realisert; han er ein mindre fylt prikk. Alle andre glyfar representerer rom (formrom, lyskjegle), operatorar (grammatikk, seleksjonstrykk) eller klassar (klasse, stilart), og desse er alle opne.
+
+Partisjonsglyfen er halvfylt; dette er ikkje eit brot på regelen, men ei presis uttrykk for kva partisjonen er. Ho deler formrommet i det kjende (fylt) og det tenkelege (open). Halvfyllinga fortel lesaren at han ser ein \emph{tvidelt entitet} før han les etiketten.
+
+Fyllregelen er ikkje ein nødvendig konsekvens av dei fire fyrste. Det er ein separat beslutning. Men konsekvensen er at fyllinga blir \emph{informasjonsberande}: lesaren kan skjøne noko om kva ein glyf er berre ved å sjå fyllinga hans.
+
+\subsection{Ambisjonsnivå}
+
+Formskrifta er ikkje tenkt som ei komplett representasjon av Formlæra. Han er ei \emph{rigid omsetjing av dei omgrepa som let seg omsetje}. Nokre ting i traktaten let seg ikkje uttrykke piktografisk utan tap: normative argument, historiske eksempel, filosofiske refleksjonar. Desse må stå i prosa.
+
+Det formskrifta skal gjere, er å gjere dei formelle entitetane og relasjonane kompakte, lesbare, og formell handsamelege. Det han \emph{ikkje} skal gjere, er å erstatte prosa i det heile. Ambisjonen er avgrensa, men akkurat difor kan han oppfyllast.
+
+% ========== §5 ALFABETET DEL EIN ==========
+
+\section{Alfabetet, del éin: strukturelle omgrep}
+
+Vi utviklar no alfabetet systematisk. Glyfane er grupperte etter semantisk slekt. Dei fyrste er dei mest fundamentale ontologiske primitivane.
+
+\subsection{Form \gForm[1.4]}
+
+\emph{Form} er det sentrale ontologiske omgrepet i traktaten. I proposisjon 1.3 står det: \emph{formrommet til ein klasse er mengda av alle moglege konfigurasjonar for objekt i denne klassen}. Ei form er ein \emph{realisert posisjon} i dette rommet. Han er ikkje sjølv eit rom; han er eit punkt.
+
+Glyfen speglar dette direkte. Han er ein fylt sirkel: ein prikk med definert posisjon og inga indre struktur. Fyllinga seier at forma er realisert; ho er ikkje berre tenkeleg, men faktisk aktualisert. Storleiken er medium: stor nok til å vere tydeleg, liten nok til å markere punkt-karakteren.
+
+\subsection{Formrom \gFormrom[1.4]}
+
+Dersom forma er eit punkt, er \emph{formrommet} rommet som punktet ligg i. Proposisjon 1.3 definerer han som mengda av alle moglege konfigurasjonar. Han er altså ein container, ikkje eit innhald.
+
+Glyfen er ein open rektangulær boks med avrunda hjørner. Rektangelen signaliserer at vi snakkar om eit definert område. Avrundinga skil han frå strikte matematiske boksar og frå brev-kuvertar; dette er eit \emph{topologisk rom} meir enn ein eksakt mengde. Openheita stadfester at han er ein \emph{kategori}, ikkje ein instans.
+
+\subsection{Objekt \gObjekt[1.4]}
+
+I proposisjon 1.2 står: \emph{eit objekt er den enklaste bestanddelen i ein konfigurasjon. Objektet er udeleleg og uforanderleg}. Objekt er ikkje former; dei er mindre enn former; dei er byggjeklossane formene består av.
+
+Glyfen er ein fylt prikk som er mindre enn formglyfen. Denne storleiksskilnaden ber ontologisk tyngd: objektet er realisert (difor fylt), men ligg eitt nivå under forma (difor mindre). Ein lesar som ser ein liten fylt prikk attmed ein større fylt prikk, kan umiddelbart slutta at det fyrste er eit objekt og den andre er ei form.
+
+\subsection{Konfigurasjon \gKonfig[1.4]}
+
+Medan objektet er primitivt og udeleleg, er \emph{konfigurasjonen} ein \emph{relasjonell struktur} av objekt. Proposisjon 1.21 definerer: \emph{ein konfigurasjon er ein bestemt samanheng av objekt. Forma er konfigurasjonens struktur}.
+
+Glyfen viser tre små fylte prikker i ein trekant, saman-bundne av tynne linjer. Prikkene er objekta; linjene er relasjonen mellom dei. Trekanten er vald fordi han er den enklaste stabile geometriske forma: med tre punkt er strukturen entydig definert. Vi kunne ha brukt to punkt, men då ville berre éin relasjon vere synleg; med tre punkt ser lesaren at \emph{det er relasjonelt innhald her}.
+
+\subsection{Klasse \gKlasse[1.4]}
+
+Eit \emph{klasse} er ei samling av former som deler visse eigenskaper. Proposisjon 2.14 definerer: \emph{ein klasse er avgrensa gjennom delt affordansestruktur}. Objekta i klassen tilbyr same operasjonar til same agentar.
+
+Glyfen brukar kløllparantesar med ein sentral fylt prikk. Kløllparantesane er arvet frå matematikkens mengdelære; dei er det universelle teiknet for \emph{samling av element}. Den fylte prikken i sentrum representerer eit typisk medlem av klassen. Samanlikna med ein set-teoretisk notasjon er formskriftens versjon meir økonomisk: éin glyf for heile ideen \emph{samling av former med delt struktur}.
+
+\subsection{Partisjon \gPartisjon[1.4]}
+
+Proposisjon 1.4 og 1.44 innfører ei viktig distinksjon: formrommet deler seg topologisk i tre regionar: dei busette, dei opne, og dei forbodne. Epistemisk svarar dette til partisjonen \((K, C, F)\): kjent, tenkeleg, forbode.
+
+Glyfen er ein halvfylt sirkel. Den fylte halvdelen representerer det kjende; den opne halvdelen representerer det tenkelege. Grensa mellom dei går gjennom sentrum. Dette er det einaste glyfen i alfabetet som er \emph{tvidelt}; fyllregelen braut ikkje, men vart utvida til å uttrykke distinksjonen sjølv. Ein lesar som ser denne glyfen, ser umiddelbart at her er noko som deler seg.
+
+% ========== §6 ALFABETET DEL TO ==========
+
+\section{Alfabetet, del to: representasjon og felt}
+
+Den andre gruppa glyfar dekkjer omgrepa som gjer agens mogleg: kognitiv lyskjegle og formgrammatikk; og omgrepa som utgjer det dynamiske feltet agenten opererer i: landskap, seleksjonstrykk og kanalisering.
+
+\subsection{Kognitiv lyskjegle \gLyskjegle[1.4]}
+
+Omgrepet \emph{kognitiv lyskjegle} er ei vidareutvikling av lyskjegla frå relativitetsteorien. Proposisjon 5.2 definerer: \emph{kognitiv lyskjegle er delmengda av formrommet agenten kan representere og manipulere}. Han har ein diamant-topologi: fortidshorisont nedover, framtidshorisont oppover, romleg rekkjevidde gjennom midten.
+
+Glyfen er ein open diamant. Diamantforma er arvet direkte frå den relativistiske lyskjegla slik Fields og Levin har generalisert han til kognisjon. Openheita stadfester at dette er eit rom (ein region av formrommet), ikkje ein realisert instans. Han er lett å forveksle med formrommet om ein ikkje les nøye, men skilnaden er viktig: formrommet er globalt, mens lyskjegla er eit \emph{lokalt} perspektiv innanfor han.
+
+\subsection{Formgrammatikk \gGrammatikk[1.4]}
+
+Formgrammatikken er det formelle apparatet som genererer moglege former. Proposisjon 5.3 og 5.301 definerer han som trippelet \((S, R, \omega)\) der \(S\) er formrom, \(R\) er reglar, og \(\omega\) er startform.
+
+Glyfen er ein open sekskant. Sekskanten er vald fordi han er \emph{meir struktur} enn ein firkant men \emph{meir abstrakt} enn ein sirkel. Han konnoterer ordna regelsett utan å vere pedagogisk ikonisk. Sekskantar har blitt brukt som symbol for regelsystem i fleire tradisjonar (kjemiens bensenstruktur, geometriske teselasjonar), og formskrifta arvar denne assosiasjonen.
+
+\subsection{Tilpassingslandskap \gLandskap[1.4]}
+
+\emph{Tilpassingslandskapet} er vektorsummen av alle verksame seleksjonstrykk over formrommet. Proposisjon 3.1 gjev den formelle definisjonen. Han er eit kontinuerleg felt; kvart punkt i formrommet har ein verdi.
+
+Glyfen er ei bølgjelinje: tre humpar over ein horisontal akse. Dei organiske kurvene skil han frå dei strukturerte linjene i grammatikken og formrommet. Landskapet er noko \emph{organisk framvokst}, ikkje noko konstruert. Bølgjelinja formidlar dette direkte.
+
+\subsection{Seleksjonstrykk \gTrykk[1.4]}
+
+Eit \emph{seleksjonstrykk} er ein gradient som endrar sannsynsfordelinga over formrommet. Han er ikkje ei kraft, men ei avgrensing av kvar forma ikkje kan vere. Proposisjon 2.1 og 2.011 er dei formelle definisjonane.
+
+Glyfen er ein diagonal pil teikna med tjukkare linevekt enn dei andre glyfane. Tjukkheita er semantisk: han representerer \emph{kraft} i notasjonen, og tjukkare linje signaliserer høgare visuell vekt. Skilnaden i linevekt mellom trykkets pil og implikasjonsteiknet \(\to\) er ikkje tilfeldig; ho er direkte informasjon om kva type relasjon vi har framfor oss.
+
+\subsection{Kanalisering \gKanalisering[1.4]}
+
+\emph{Kanalisering} er robustheit mot forstyrringar, forstått som brattleik på dalveggane i tilpassingslandskapet. Proposisjon 3.2 innfører omgrepet, som er arva frå Waddington si utviklingsbiologi.
+
+Glyfen er ein smal U-form, eller rettare sagt ein potensialbrønn. U-forma signaliserer to ting: at det finst ein dal her, og at dalveggane er bratte. Ein lesar som ser denne glyfen, tenkjer umiddelbart \emph{form fanga i stabil posisjon}. Glyfen er kanskje den mest ikoniske i alfabetet, og det er medviten. Kanalisering er eit omgrep som har ein sterk visuell metafor (valeggen), og formskrifta let metaforen leve.
+
+% ========== §7 ALFABETET DEL TRE ==========
+
+\section{Alfabetet, del tre: agentiske og mønsterlege omgrep}
+
+Den tredje og siste gruppa omfattar omgrepa som gjer at forma blir navigert: agent, designar, substrat og omhug; og den eine glyfen som handlar om framvokste mønster: stilart.
+
+\subsection{Agent \gAgent[1.4]}
+
+Proposisjon 5.11 gjev den mest sentrale definisjonen i traktaten: \emph{ein agent er ein operator definert av trippelet måltilstand, avstandsmåling, justeringsmekanisme}. Agens krev berre organisering; verken medvit, intensjon eller nervesystem.
+
+Glyfen er ein open oppovervend trekant. Trekanten signaliserer \emph{retning}; han peikar mot noko. Openheita stadfester at dette er ein abstrakt operator, ikkje ein realisert instans. Oppovervendinga skil han frå substratglyfen (som er nedovervend); saman utgjer dei eit dualpar som visuelt fortel kven som handlar og kven som er grunnlag.
+
+\subsection{Designar \gDesignar[1.4]}
+
+Ein \emph{designar} er ein agent som navigerer formrommet på vegne av andre. Proposisjon 6.02 definerer: \emph{designaren er ein formgjevar vis måltilstand inkluderer målsetningane til agentar som sjølv ikkje har tilgang til navigasjonsrommet}.
+
+Glyfen består av ein open trekant (som agenten) med ein liten open sirkel plassert rett over toppen. Sirkelen over trekanten representerer \emph{det som agenten navigerer for}; det er dei andre, brukarane, samfunnet. Konstruksjonen er visuelt eksplisitt kompositorisk: designar \(=\) agent \(+\) markør for sosial kontekst.
+
+\subsection{Substrat \gSubstrat[1.4]}
+
+\emph{Substratet} er den fysiske, algoritmiske eller sosiale realisatoren av agensen. Proposisjon 5.4 definerer han som \emph{ein null-ordens agent}. Han vetoar konfigurasjonar og gjev resonans til andre.
+
+Glyfen er ein open nedovervend trekant. Han er visuelt spegelet av agenten. Dette er ikkje tilfelle: substratet og agenten er dualpar i traktaten. Agenten handlar; substratet avgrensar kva som kan handlast. Agenten er oppover; substratet er nedover. Den romlege symmetrien ber ontologisk tyding.
+
+\subsection{Omhug \gOmhug[1.4]}
+
+\emph{Omhug} er mengda av aksar i formrommet agenten aktivt representerer og justerer for. Proposisjon 5.6 og 5.601 definerer han, og proposisjon 7.23 gjer han til det etiske kjernekompromisset.
+
+Glyfen er ein sirkel med ein horisontal og ein vertikal linje gjennom. Linjene representerer aksane agenten representerer; sirkelen er det totale området dei dekkjer. Ein lesar som ser denne glyfen, ser umiddelbart eit siktepunkt: noko som \emph{fokuserer}. Det er kva omhug er. Ikkje berre merksemd, men målretta navigering langs spesifikke dimensjonar.
+
+\subsection{Stilart \gStilart[1.4]}
+
+Proposisjon 3.3 definerer: \emph{ein stilart er formsvermen kring eit felles tyngdepunkt}. Stilen er ein sverm, ikkje ein kategori; grensene er naudsynleg uskarpe.
+
+Glyfen er ein sentralprikk med fire satellittprikker rundt. Sentralprikken er tyngdepunktet; satellittane er individuelle former som ligg nær nok til å tilhøyre svermen. Glyfen er ikoneografisk om nokon i alfabetet; han viser bokstaveleg kva stilart er. Men han er også konsistent med resten: fylte prikker for realiserte former, skisserte relasjonar gjennom romleg nærleik.
+
+\newpage
+
+% ========== §8 RELASJONAR OG OPERATORAR ==========
+
+\section{Relasjonar, operatorar, komposisjon}
+
+Formskrifta brukar tolv symbol som bind glyfane saman til uttrykk. Dei er henta frå mengdelæra og matematikken der det er mogleg, fordi akademiske lesarar kjenner dei alt. Ingen grunn til å oppfinne nye symbol for det som har fungert i hundreår.
+
+\subsection{Fem relasjonar}
+
+\begin{quoting}
+\(\in\) \quad \emph{er eit punkt i}. \quad \gForm \,\(\in\)\, \gFormrom \emph{står for: forma er ein posisjon i formrommet}.
+
+\(\subset\) \quad \emph{er ei delmengd av}. \quad \gLyskjegle \,\(\subset\)\, \gFormrom \emph{står for: lyskjegla er ein delmengd av formrommet}.
+
+\(\triangleright\) \quad \emph{verkar på}. \quad \gTrykk \,\(\triangleright\)\, \gFormrom \emph{står for: trykket verkar på formrommet}.
+
+\(\to\) \quad \emph{impliserer}. Tilsvarar logisk implikasjon.
+
+\(\leftrightarrow\) \quad \emph{er ekvivalent med}. Tilsvarar logisk ekvivalens.
+\end{quoting}
+
+Skilnaden mellom \(\in\), \(\subset\) og \(\triangleright\) er viktig. Fyrste seier at noko er eit \emph{punkt} i noko større; andre seier at noko er ein \emph{region} i noko større; tredje seier at noko \emph{utfører ein operasjon} på noko anna. Lesaren må halde desse skarpe frå kvarandre.
+
+\subsection{Sju operatorar}
+
+\begin{quoting}
+\(\nabla\) \quad \emph{gradient av}. \quad \(\nabla\)\gLandskap \emph{er gradienten av landskapet, altså seleksjonstrykka}.
+
+\(\sum\) \quad \emph{sum over alle}. \quad \(\sum_i \,\)\gTrykk\(_i\) \emph{er summen av alle trykk}.
+
+\(\cap\) \quad \emph{skjering}. \quad \(\cap_i\) \gLyskjegle\(_i\) \emph{er skjeringa av alle lyskjegler}.
+
+\(|\cdot|\) \quad \emph{storleik av}. \quad \(|\)\gLyskjegle\(|\) \emph{er storleiken av lyskjegla, altså kapasiteten}.
+
+\(|\) \quad \emph{gjeven vilkåret}. \quad \gForm \(|\,\nabla\)\gLandskap\(\equiv 0\) \emph{står for: forma, gjeven at landskapet er flatt}.
+
+\(\propto\) \quad \emph{proporsjonal med}. \quad \gKanalisering \(\propto \nabla^2\)\gLandskap.
+
+\(( \cdot )\) \quad \emph{funksjonsapplikasjon}. \quad \gGrammatikk \((\nabla\)\gLandskap\()\) \emph{er grammatikken applisert på trykket}.
+\end{quoting}
+
+\subsection{Komposisjon}
+
+Formskrifta les frå venstre til høgre, som ei matematisk ligning. Paranteser grupperer uttrykk. Relasjonar \((\in, \subset, \triangleright)\) kjem mellom eit element og eit rom. Operatorar \((\nabla, \sum, \cap)\) kjem framfor det dei operererar på.
+
+Samansette uttrykk lesast ved å identifisere det ytste relasjonsteiknet fyrst. I kjerne-likninga
+
+\begin{quoting}
+\gForm \(= \) \gGrammatikk\((\nabla\)\gLandskap\() \cap\) \gLyskjegle
+\end{quoting}
+
+er \(=\) den ytste relasjonen. Høgresida er grammatikken applisert på trykket, skjerja med lyskjegla. Ho les altså: \emph{forma er skjeringa mellom det grammatikken genererer frå trykket, og det lyskjegla kan representere}.
+
+% ========== §9 KANONISK OMSETJING ==========
+
+\section{Kanonisk omsetjing}
+
+Vi utfordrar formskrifta ved å omsetje sentrale proposisjonar frå traktaten. Her er ti utvalde proposisjonar, valde for å illustrere at alfabetet dekker ein vid semantisk spennvidde.
+
+\begin{quoting}
+\textbf{1.3} \qquad \gForm \(\in\) \gFormrom \qquad \emph{Forma er ein posisjon i formrommet.}
+
+\textbf{1.44} \qquad \gFormrom \(=\) \gPartisjon \qquad \emph{Formrommet deler seg i tre regionar: kjent, tenkeleg, forbode.}
+
+\textbf{2.1} \qquad \gTrykk \(\triangleright\) \gFormrom \qquad \emph{Seleksjonstrykket endrar sannsynsfordelinga over formrommet.}
+
+\textbf{3.1} \qquad \gLandskap \(\,=\, \sum_i\) \gTrykk\(_i\) \qquad \emph{Landskapet er vektorsummen av alle verksame trykk.}
+
+\textbf{3.2} \qquad \gKanalisering \(\propto \nabla^2\) \gLandskap \qquad \emph{Kanaliseringa er proporsjonal med krumninga på landskapet.}
+
+\textbf{4.1} \qquad \(\partial\) \gLandskap \(/\partial t \neq 0\) \qquad \emph{Seleksjonstrykka kviler aldri.}
+
+\textbf{5.11} \qquad \gAgent \(= (g, d, \delta)\) \qquad \emph{Ein agent er trippelet måltilstand, avstandsmåling, justeringsmekanisme.}
+
+\textbf{5.7} \qquad \gForm \(=\) \gGrammatikk\((\nabla\)\gLandskap\()\,\cap\,\)\gLyskjegle \qquad \emph{Kjerne-likninga.}
+
+\textbf{6.02} \qquad \gDesignar \(\subset\) \gAgent \qquad \emph{Designaren er ein formgjevar for andre.}
+
+\textbf{7.23} \qquad \emph{etisk rom} \(= |\)\gLyskjegle\(| - |\)\gOmhug\(|\) \qquad \emph{Det etiske rommet er storleiken av lyskjegla minus omhugen.}
+\end{quoting}
+
+Desse ti uttrykka dekker alle åtte seksjonane av traktaten og alle fem kategoriane av omgrep i alfabetet. Dei er alle lesbare på under ti sekund og formidlar presis den same meininga som prosa-versjonen.
+
+% ========== §10 AVSLUTNING ==========
+
+\section{Grenser og avslutning}
+
+Formskrifta har grenser. Ho kan ikkje uttrykke alt. Proposisjonar som ber normative argument, historiske eksempel eller filosofiske refleksjonar, må framleis stå i prosa. Proposisjonen 4.5 som seier at \emph{eineveldande trykk kollapsar landskapet mot éin attraktor}, let seg delvis skrive om til formskrift, men den avgjerande filosofiske poenget at \emph{dette er fråværet av forklaring, ikkje ei forklaring}, forblir prosa. Traktaten har fleire slike proposisjonar. Dei tek ikkje skade av å stå i prosa; dei berre får ikkje eigen grafisk representasjon.
+
+Det som står att som vidare arbeid, er tre ting. Fyrst, \emph{komposisjonsreglar} kan formaliserast meir presist. Vi har etablert at formskrifta les frå venstre til høgre, men vi har ikkje etablert formelle reglar for kva som er gyldige uttrykk. Ein formaliseringsprosess i stil med Backus-Naur-form kunne gjere dette eksplisitt.
+
+Andre, \emph{notasjonen kan utvidast}. Sekstan glyfar dekker dei sentrale omgrepa, men ordlista i traktaten har sytten omgrep; \emph{innleiring} mangla. Fleire glyfar kan introducerast etter behov, men kvar ny glyf aukar minnelasta på lesaren, så utvidingar må rettferdiggjerast nøye.
+
+Tredje, og mest viktig, \emph{praksis}. Formskrifta må brukast. Ho må stå side om side med traktaten, han må brukast i tavleundervisning, han må skrivast i referat og brev. Berre praksis kan avsløre kva som fungerer og kva som ikkje gjer det. Eit alfabet som aldri blir brukt, er ikkje eit alfabet.
+
+\vspace{1em}
+
+Formskrifta er eit verktøy, ikkje eit filosofisk standpunkt. Han er laga for å gjere Formlæra meir lesbar og meir handsamleg. Om han oppnår dette, er han eit bidrag til disiplinens modning. Om ikkje, er han eit eksperiment som kan kastast og erstattast med noko betre. Kvart forsøk bidreg til at vi forstår kva som må til.
+
+Slik står vi med ein notasjon i hand og eit ope spørsmål i framtida: \emph{kva kan denne notasjonen avsløre som prosa ikkje kan}? Svaret vil vi berre finne ved å bruke han.
+
+\vspace{2em}
+
+\begin{center}
+\begin{tikzpicture}[x=0.8cm,y=0.6cm]
+  \node[anchor=center] (f) at (0,0)  {\gForm[1.5]};
+  \node[anchor=center] (m) at (1,0)  {\gFormrom[1.5]};
+  \node[anchor=center] (a) at (2,0)  {\gAgent[1.5]};
+  \node[anchor=center] (c) at (3,0)  {\gLyskjegle[1.5]};
+  \node[anchor=center] (g) at (4,0)  {\gGrammatikk[1.5]};
+  \node[anchor=center] (l) at (5,0)  {\gLandskap[1.5]};
+  \node[anchor=center] (t) at (6,0)  {\gTrykk[1.5]};
+  \node[anchor=center] (s) at (7,0)  {\gSubstrat[1.5]};
+  \node[anchor=center] (o) at (8,0)  {\gOmhug[1.5]};
+  \node[anchor=center] (d) at (9,0)  {\gDesignar[1.5]};
+  \node[anchor=center] (p) at (10,0) {\gPartisjon[1.5]};
+  \node[anchor=center] (k) at (11,0) {\gKanalisering[1.5]};
+\end{tikzpicture}
+\end{center}
+
+\end{document}

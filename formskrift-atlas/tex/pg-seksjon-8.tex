@@ -1,0 +1,114 @@
+\documentclass[a4paper,landscape,9pt]{article}
+
+\usepackage[margin=1cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,shapes.geometric}
+\usepackage{microtype}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.25em}
+
+\tikzset{
+  node-d/.style={draw,fill=black,regular polygon,regular polygon sides=6,minimum size=7mm,inner sep=0pt,text=white,font=\tiny\bfseries},
+  node-a/.style={draw,fill=black!70,regular polygon,regular polygon sides=3,minimum size=7mm,inner sep=0pt,text=white,font=\tiny\bfseries},
+  node-t/.style={draw,circle,minimum size=7mm,inner sep=0pt,line width=0.4pt,font=\tiny},
+  node-o/.style={draw,fill=black!15,rectangle,minimum size=7mm,inner sep=0pt,font=\tiny},
+  node-i/.style={draw,diamond,minimum size=8mm,inner sep=0pt,line width=0.4pt,font=\tiny},
+  impl/.style={-{Latex[length=1.2mm]},line width=0.3pt,black!80},
+  exemp/.style={-{Latex[length=1.2mm]},line width=0.3pt,dashed,black!80},
+  equiv/.style={{Latex[length=1.2mm]}-{Latex[length=1.2mm]},line width=0.5pt,double,double distance=0.7pt},
+  band/.style={font=\scriptsize\scshape,text=black!60},
+  bandline/.style={draw,black!18,line width=0.3pt},
+}
+
+\begin{document}
+
+\begin{center}
+{\large\scshape Proposisjonsgraf, seksjon 8}\hspace{0.8em}{\itshape Forma er ei sannsynsfordeling over formrommet}
+\end{center}
+
+\vspace{-0.6em}
+
+\begin{center}
+\begin{tikzpicture}[x=1.0cm,y=0.85cm]
+
+  \draw[bandline] (-0.3, 0.7)  -- (24, 0.7);
+  \draw[bandline] (-0.3, -1.4) -- (24, -1.4);
+  \draw[bandline] (-0.3, -4.0) -- (24, -4.0);
+  \draw[bandline] (-0.3, -6.5) -- (24, -6.5);
+  \draw[bandline] (-0.3, -8.5) -- (24, -8.5);
+
+  \node[band,anchor=west] at (-0.3, 0.4)  {fordeling  \itshape probabilistisk form};
+  \node[band,anchor=west] at (-0.3, -1.7) {modell  \itshape boltzmann};
+  \node[band,anchor=west] at (-0.3, -4.3) {sameining  \itshape tre komponentar};
+  \node[band,anchor=west] at (-0.3, -6.8) {lukking  \itshape reduksjon};
+
+  % BAND 1: fordeling
+  \node[node-o] (p8)     at (2.5, -0.3)  {8};
+  \draw[impl,opacity=0] (p8) -- (p8);
+
+  % BAND 2: boltzmann-modellen og parametrane
+  \node[node-d] (p81)    at (3, -2.6)    {8.1};
+  \node[node-t] (p811)   at (6, -2.6)    {8.11};
+  \node[node-t] (p812)   at (9, -2.6)    {8.12};
+  \draw[impl] (p8)   -- (p81);
+  \draw[impl] (p81)  -- (p811);
+  \draw[impl] (p811) -- (p812);
+
+  % BAND 3: tre komponentar og deira avhengigheit
+  \node[node-t] (p82)    at (5, -5.2)    {8.2};
+  \node[node-t] (p821)   at (8, -5.2)    {8.21};
+  \draw[impl] (p81)  to[out=-90,in=90] (p82);
+  \draw[impl] (p82)  -- (p821);
+
+  % BAND 4: grensetilfella og den store sameininga
+  \node[node-t] (p83)    at (6, -7.5)    {8.3};
+  \node[node-t] (p831)   at (9, -7.5)    {8.31};
+  \draw[impl] (p81)  to[out=-90,in=90,looseness=1.3] (p83);
+  \draw[impl] (p821) to[bend right=10] (p831);
+  \draw[impl] (p83)  -- (p831);
+
+\end{tikzpicture}
+\end{center}
+
+\vspace{-0.2em}
+
+\hrule
+
+\vspace{0.4em}
+
+\begin{minipage}[t]{0.325\textwidth}
+{\scshape\small Lesing ovanfrå}
+
+Rota \emph{8} er den radikale omdefinisjonen: forma er ikkje eit punkt, ho er \textbf{ei sannsynsfordeling} over formrommet. Ei einskildform er berre ein realisasjon trekt frå denne fordelinga.
+
+Band 2 gjev modellen eksplisitt matematisk form. \emph{8.1} er den store definisjonen: ein Boltzmann-fordeling vekta av agentane sine individuelle estimat av landskapet. \emph{8.11} fastset vektene, \emph{8.12} fastset normaliseringa. Dette er traktaten sitt mest kompakte matematiske uttrykk.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.325\textwidth}
+{\scshape\small Lesing nedover}
+
+Band 3 gjer semantikken til modellen eksplisitt. \emph{8.2} seier at modellen sameinar tre komponentar: grammatikk (\emph{SG}), landskap ($\hat{\mathcal{L}}$) og lyskjegle ($C(A)$). \emph{8.21} legg til at komponentane ikkje er uavhengige; lyskjegla avgrensar språket, landskapet avgrensar det tilgjengelege.
+
+Band 4 er lukkingsteoremet. \emph{8.3} gjev dei to grensetilfella: flatt landskap (rein grammatikk) og triviell grammatikk (rein gradientnavigasjon). \emph{8.31} konkluderer: Formlæra er ei sameining av dei to tradisjonane (Stiny-Gips og Hatchuel-Weil) som formelle grensetilfelle.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.325\textwidth}
+{\scshape\small Strukturelle innsikter}
+
+\emph{Åtte nodar totalt.} Den mest kompakte seksjonen i traktaten. Heile den generative modellen står på under ti proposisjonar.
+
+\emph{Ingen postulat, ingen observasjonar, ingen illustrasjonar.} Berre éin definisjon og sju teorem. Dette er rein matematikk; seksjonen tek ikkje på seg meir risiko enn han treng.
+
+\emph{Lukkinga er metodologisk.} \emph{8.31} stadfester at Formlæra ikkje er eit alternativ til formgrammatikken eller tanke-kunnskapsteorien; ho er ei \textbf{formell sameining}. Dette er traktaten sin teoretiske lukking: feltet har fått sin grammatikk.
+
+\emph{Speglar \emph{5.7}.} \emph{8.1} og \emph{5.7} er dei to syntesepunkta i traktaten. \emph{5.7} er den strukturelle likninga; \emph{8.1} er den probabilistiske. Saman utgjer dei rammeverkets to hovudformer.
+
+\emph{Ingen konfluens i grafen.} Sjølv om \emph{8.1} konseptuelt sameinar tre element, er berre \emph{5.7} knytt til han i denne seksjonen. Dei andre komponentane er allereie etablerte.
+\end{minipage}
+
+\end{document}
