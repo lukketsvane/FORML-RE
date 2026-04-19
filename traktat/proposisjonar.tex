@@ -219,7 +219,7 @@ D\textsubscript{KL}(p\textsubscript{obs}(o) \msym{∥} p\textsubscript{m,π}(o))
 \end{tabular*}
 \end{center}
 
-\propcont{Dei eldre kybernetiske og læringsteoretiske formuleringane (g, d, \msym{δ}) frå Rosenblueth--Wiener--Ashby\textsuperscript{4,\,5,\,7} og frå forsterkingslæring\textsuperscript{82} er spesialtilfelle: målet g svarer til ein prediktiv modell som set probabilitet éin på éin konfigurasjon; avstandsmålinga d svarer til KL-divergensen; justeringsmekanismen \msym{δ} til politikkoppdateringa i \msym{π}. Fire uavhengige tradisjonar konvergerer om same struktur.}
+\propcont{Den eldre kybernetiske formuleringa (g, d, \msym{δ}) frå Rosenblueth--Wiener--Ashby\textsuperscript{4,\,5,\,7} er eit spesialtilfelle der g set probabilitet éin på éin konfigurasjon, d = KL, og \msym{δ} = politikkoppdatering. Fire tradisjonar konvergerer om same struktur.}
 
 \prop{5.12}{o}{Agens er \textit{stratifisert}: strukturen er stabil, oppløysinga varierer.}
 
@@ -288,11 +288,9 @@ D\textsubscript{KL}(p\textsubscript{obs}(o) \msym{∥} p\textsubscript{m,π}(o))
 
 \prop{5.6}{d}{\textbf{Omhug} \msym{ω}(A)\textsuperscript{23,\,68} er vektoren \{D\textsubscript{KL}(X\textsubscript{i} \msym{∣} \msym{π}\textsubscript{A})\}\textsubscript{i} over kapasiteten C(A), avskoren ved \msym{ε}\textsubscript{A}. Omhug er ikkje eit tal, men ei fordeling: for kvar akse i kapasiteten seier han kor nær agentens politikk faktisk kjem prediksjonsterskelen.}
 
-\prop{5.601}{d}{\textbf{Kapasitet} C(A) er mengda av aksar \textit{X} der det finst ein oppnåeleg politikk \msym{π}\textsuperscript{*} slik at \(D_{\mathrm{KL}}(X \mid \pi^{*}) \leq \varepsilon_A\). Kapasiteten set den ytre grensa; omhugen fyller henne ut, akse for akse.}
+\prop{5.601}{d}{\textbf{Kapasitet} C(A) er mengda av aksar \textit{X} der det finst ein oppnåeleg politikk \msym{π}\textsuperscript{*} slik at \(D_{\mathrm{KL}}(X \mid \pi^{*}) \leq \varepsilon_A\). Kapasiteten set den ytre grensa; omhugen fyller henne ut, akse for akse. Spesialist og generalist er to fordelingar av same vektor.}
 
-\prop{5.602}{t}{Skiljet mellom spesialist og generalist er skiljet mellom to \textit{fordelingar} over same vektoren, ikkje mellom to typar agent. Spesialisten har låg KL-divergens på få aksar, høg på resten; generalisten har jamnare fordeling.}
-
-\prop{5.61}{t}{Omhugsvektoren avgjer kor mange og kor djupt aksane lyskjegla rommar. Ein agent kan ha høg kapasitet men trong omhug: mange aksar tilgjengelege, få aktivt justerte. Blindskapen er då per akse, ikkje per agent.}
+\prop{5.61}{t}{Omhugsvektoren avgjer kor djupt aksane lyskjegla rommar. Ein agent kan ha høg kapasitet men trong omhug: mange aksar tilgjengelege, få aktivt justerte. Blindskapen er då per akse, ikkje per agent.}
 
 \prop{5.62}{d}{Kompetanse er evna til å navigere mot stabile posisjonar i landskapet. Kompetansen veks med omhugen. Intelligens er denne kompetansen; omhug er intelligensens innhald.\textsuperscript{23,\,86,\,91}}
 
@@ -345,9 +343,7 @@ Form = SG(\,\msym{∇}\textsubscript{C(A)}\, \msym{L}(\textit{c},\,\textit{t}\,)
 
 \prop{6.021}{t}{Alle aktørar i 6.01 (celle, bi, tre, handverkar, ingeniør) testast mot same kriterium. Cella som skil ut eit signalstoff som modifiserer nabocella si generative modell er designar langs den aksen; cella som berre regulerer si eiga membran er det ikkje. Ingen er designar \textit{simpliciter}; alle er designar \textit{langs nokre aksar}, ikkje andre.}
 
-\prop{6.022}{t}{Skiljet designar/ikkje-designar er difor parametrisk: ein funksjon av kor mange aksar i C(A) som oppfyller kriteriet, og kor mange agentar A' som er verknaden påverka. Omgrepet vert meir alvorleg, ikkje mindre; det skuldar å vere designar gjeld for langt fleire system enn profesjonen tradisjonelt har rekna med, og profesjonen sjølv må no vise fram sin eigen kapasitets-konfigurasjon for å telje.}
-
-\prop{6.023}{t}{Ansvarsproblemet følgjer av asymmetrien i verknad, ikkje av ein metafysisk asymmetri i valfridom. Ein agent som oppdagar at ho påverkar andre agentar sine modellar langs aksar ho ikkje har i ω(A), har eit empirisk problem, ikkje eit moralsk.}
+\prop{6.022}{t}{Skiljet designar/ikkje-designar er parametrisk: ein funksjon av kor mange aksar i C(A) som oppfyller kriteriet, og kor mange agentar som vert påverka. Omgrepet vert meir alvorleg, ikkje mindre; å vere designar gjeld for langt fleire system enn profesjonen har rekna med, og profesjonen sjølv må no vise fram kapasitets-konfigurasjonen sin for å telje. Ansvarsproblemet følgjer av asymmetrien i verknad, ikkje av ein metafysisk asymmetri i valfridom.}
 
 \prop{6.1}{t}{Fleire agentar responderer på ulike trykk samstundes. Kvar form er eit \textit{poly-agentisk kompromiss}.\textsuperscript{66,\,67} Ingen einskild agent dikterer morfologien; ho trer fram i skjeringspunktet mellom dei.}
 
@@ -422,9 +418,7 @@ Form = SG(\,\msym{∇}\textsubscript{C(A)}\, \msym{L}(\textit{c},\,\textit{t}\,)
 
 \prop{7.21}{t}{Ei form designa under trong omhug etterlèt ei signatur langs aksane som ikkje vart representerte. Signaturen vert lesbar for observatørar med breiare horisont eller fleire representerte aksar.}
 
-\prop{7.23}{t}{\textbf{Det predikerte sviktrommet} er vektoren (C(A) \msym{∖} ω(A)) vekta med sviktlatensen \{\msym{ρ}\textsubscript{i}\}. Modellen predikerer at forma ber signatur langs desse aksane, med synlegheit avgjord av \msym{ρ}. Om signaturen er relevant for ein gjeven agent, er eit spørsmål agenten stiller når ho les modellen, ikkje eit spørsmål modellen svarar på.}
-
-\prop{7.24}{t}{Sviktrommet er operasjonelt falsifiserbart. For ei gjeve form F realisert av agent A, skal formens målbare svikt konsentrere seg langs dei aksane der (C(A) \msym{∖} ω(A)) vekta med \msym{ρ} har størst verdi. Dersom sviktmønsteret ikkje korrelerer med dei predikerte aksane, fell påstanden.}
+\prop{7.23}{t}{\textbf{Det predikerte sviktrommet} er vektoren (C(A) \msym{∖} ω(A)) vekta med sviktlatensen \{\msym{ρ}\textsubscript{i}\}. Modellen predikerer at forma ber signatur langs desse aksane; om signaturen er relevant for agenten, er eit spørsmål agenten stiller når ho les modellen, ikkje eit spørsmål modellen svarar på.}
 
 \prop{7.3}{t}{Formverda er det tilfellet som verkar. Navigasjonen held fram.}
 
