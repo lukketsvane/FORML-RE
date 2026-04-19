@@ -42,11 +42,10 @@
   \draw[bandline] (-0.3, -3.8) -- (24.5, -3.8);
   \draw[bandline] (-0.3, -6.3) -- (24.5, -6.3);
   \draw[bandline] (-0.3, -8.6) -- (24.5, -8.6);
-  \draw[bandline] (-0.3, -10.5)-- (24.5, -10.5);
 
   \node[band,anchor=west] at (-0.3, 0.3)  {arkiv  \itshape form er leseleg};
-  \node[band,anchor=west] at (-0.3, -1.6) {prediksjon  \itshape sviktsignatur};
-  \node[band,anchor=west] at (-0.3, -4.1) {etikk  \itshape kapasitet og omhug};
+  \node[band,anchor=west] at (-0.3, -1.6) {sviktlatens  \itshape regimer etter $\rho$};
+  \node[band,anchor=west] at (-0.3, -4.1) {prediksjon  \itshape sviktrom};
   \node[band,anchor=west] at (-0.3, -6.6) {slutt  \itshape formverda verkar};
 
   % BAND 1: arkiv (form er leseleg)
@@ -60,29 +59,30 @@
   \draw[impl] (p711) -- (p712);
   \draw[impl] (p712) -- (p713);
 
-  % BAND 2: prediksjon (sviktsignatur)
-  \node[node-t] (p715)   at (4.5, -2.5)  {7.15};
-  \node[node-t] (p7151)  at (7, -2.5)    {7.151};
-  \node[node-t] (p7152)  at (9.5, -2.5)  {7.152};
-  \node[node-t] (p7153)  at (12, -2.5)   {7.153};
-  \draw[impl] (p71)    -- (p715);
+  % BAND 2: sviktlatens (nytt: \rho-regimer)
+  \node[node-d] (p714)   at (4.5, -2.5)  {7.14};
+  \node[node-t] (p7141)  at (7, -2.5)    {7.141};
+  \node[node-i] (p7142)  at (9.5, -2.5)  {7.142};
+  \node[node-t] (p715)   at (12, -2.5)   {7.15};
+  \node[node-t] (p7151)  at (14.5, -2.5) {7.151};
+  \node[node-t] (p7152)  at (17, -2.5)   {7.152};
+  \node[node-t] (p7153)  at (19.5, -2.5) {7.153};
+  \draw[impl] (p713)   -- (p714);
+  \draw[impl] (p714)   -- (p7141);
+  \draw[exemp] (p7141) -- (p7142);
+  \draw[impl] (p7141)  to[bend right=10] (p715);
   \draw[impl] (p715)   -- (p7151);
   \draw[impl] (p7151)  -- (p7152);
   \draw[impl] (p7152)  -- (p7153);
 
-  % BAND 3: etikk (kapasitet og omhug)
-  \node[node-a] (p72)    at (3, -5)      {7.2};
-  \node[node-t] (p7201)  at (5.5, -5)    {7.201};
-  \node[node-a] (p7202)  at (8, -5)      {7.202};
-  \node[node-t] (p721)   at (10.5, -5)   {7.21};
-  \node[node-a] (p722)   at (13, -5)     {7.22};
-  \node[node-t] (p723)   at (15.5, -5)   {7.23};
+  % BAND 3: predikert sviktrom (rein deskriptiv)
+  \node[node-t] (p72)    at (6, -5)      {7.2};
+  \node[node-t] (p721)   at (9, -5)      {7.21};
+  \node[node-t] (p723)   at (13, -5)     {7.23};
   \draw[impl] (p7)    to[out=-90,in=90,looseness=1.0] (p72);
-  \draw[impl] (p72)   -- (p7201);
-  \draw[impl] (p7201) -- (p7202);
-  \draw[impl] (p72)   to[bend right=22] (p721);
-  \draw[impl] (p721)  -- (p722);
-  \draw[impl] (p722)  -- (p723);
+  \draw[impl] (p72)   -- (p721);
+  \draw[impl] (p721)  -- (p723);
+  \draw[impl] (p714)  to[out=-90,in=90,looseness=0.9] (p723);
 
   % BAND 4: slutt
   \node[node-t] (p73)    at (9, -7.5)    {7.3};
@@ -100,31 +100,31 @@
 \begin{minipage}[t]{0.325\textwidth}
 {\scshape\small Lesing ovanfrå}
 
-Rota \emph{7} seier at forma viser kor langt omhugen rakk. Band 1 etablerer \textbf{arkiv-tesen}: \emph{7.1} seier at forma er eit leseleg arkiv over kompromissets dimensjonalitet. \emph{7.11} til \emph{7.13} gjev han presisjon; arkivet ber signaturen av blindskapen, to former under ulik omhug skil seg langs det eine så han andre, og arkivet er faktum, ikkje skulding.
+Rota \emph{7} seier at forma viser kor langt omhugen rakk. Band 1 etablerer \textbf{arkiv-tesen}: \emph{7.1} seier at forma er eit leseleg arkiv over kompromissets dimensjonalitet. \emph{7.11} til \emph{7.13} gjev han presisjon: arkivet ber signaturen av blindskapen, to former under ulik omhug skil seg langs det eine såg og det andre ikkje, og arkivet er faktum, ikkje skulding.
 
-Band 2 drar konsekvensen for designteorien: utan omgrep for kognitiv lyskjegle kan ein teori ikkje predikera sviktsignatur (\emph{7.15}). Kaskada gjennom \emph{7.151}, \emph{7.152}, \emph{7.153} avsluttar i eit meta-teorem: sviktsignaturen er prøvesteinen på at teorien faktisk forklarar form, ikkje berre katalogiserer han.
+Band 2 innfører \textbf{sviktlatensen} $\rho_i = \tau(X_i)/\tau(A)$ (\emph{7.14}): ratioen mellom responstida langs aksen og agentens prediksjonshorisont. \emph{7.141} definerer tre regimer (internalisert, leseleg, strukturelt usynleg); \emph{7.142} illustrerer (ergonomi: $\rho\sim 10$; eingongskopp: $\rho\sim 10^6$). Resten av bandet (\emph{7.15}--\emph{7.153}) er meta-teoremet om at teorien må predikere sviktsignatur, ikkje berre katalogisere han.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.325\textwidth}
 {\scshape\small Lesing nedover}
 
-Band 3 er traktaten sitt etiske tyngdepunkt, og her finn vi tre postulat på rad (triangla \emph{7.2}, \emph{7.202}, \emph{7.22}). Dette er seksjonens strukturelle særtrekk.
+Band 3 er no \emph{rein deskriptiv}. Endringsplanen flytta dei tre normative postulata (tidlegare 7.2, 7.202, 7.22) ut av traktaten og til etterordet/breva, der den normative tiltalen alltid har budd. Det som står att:
 
-\emph{7.2} postulerer at å utvide lyskjegla er ei etisk handling. Frå han veks to parallelle spor: konsekvensane (\emph{7.201}, som kvalifiserast av postulatet \emph{7.202}) og ansvaret (\emph{7.21}, som kvalifiserast av postulatet \emph{7.22}). Kaskada avsluttar i \emph{7.23}: \textbf{gapet mellom kapasitet og omhug er det etiske rommet i design}.
+\emph{7.2} seier at designhandlinga har empirisk verknad på andre agentars generative modellar. \emph{7.21} seier at ei form designa under trong omhug etterlèt signatur langs dei urepresenterte aksane. \emph{7.23} definerer \textbf{det predikerte sviktrommet}: vektoren $(C(A)\setminus\omega(A))$ vekta med $\{\rho_i\}$. Modellen predikerer; agenten avgjer relevans.
 
-Band 4 er éin node. \emph{7.3} er traktaten sin coda: \emph{formverda er det tilfellet som verkar. Navigasjonen held fram}.
+Band 4 er éin node. \emph{7.3} er traktaten sin coda.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.325\textwidth}
 {\scshape\small Strukturelle innsikter}
 
-\emph{Tre postulat.} Flest i nokon seksjon. Etikken er postulativ, ikkje deduktiv. Dette er filosofisk ærleg: ein kan ikkje utleda normative krav frå ontologi åleine.
+\emph{F2 løyst.} Normativt innhald er flytta ut av modellen; Hume si giljotin står urørt. Modellen er rein prediksjon; bruken er der valet ligg.
 
-\emph{Ingen konfluens.} Hypotesa styrkast: normativ karakterisering treng ikkje syntesepunkt. Postulata står parallelt, ikkje fletta.
+\emph{Ingen postulat.} Frå tre til null. Seksjonen er no kategorisert som \emph{karakterisering} på lik linje med 3 og 4. Sjangerinndelinga kollapsar frå fire til tre.
 
-\emph{Ingen definisjonar og ingen observasjonar.} Null svarte sekskantar, null fylte kvadrat. Band 1 og 2 er reine teorem-kaskadar; band 3 er postulat-kvalifiserte teorem.
+\emph{Ny definisjon.} \emph{7.14} (sviktlatensen) er seksjonens einaste definisjon. Ho gjev prediksjonen kvantitativ struktur.
 
-\emph{Kompositorisk symmetri.} \emph{7.23} speglar \emph{1.131}: begge står som avslutningsteorem i sine band. \emph{7.3} speglar \emph{1}: formverda som det som verkar, mot formverda som det som er tilfelle.
+\emph{Kompositorisk symmetri.} \emph{7.23} speglar \emph{1.131} som avslutningsteorem; \emph{7.3} speglar \emph{1}: formverda som det som verkar, mot formverda som det som er tilfelle.
 
-\emph{Ny sjanger identifisert.} \textit{Normativ karakterisering}: ingen nye entitetar, men fleire postulat. Dette er ein fjerde sjanger i tillegg til oppfinning, karakterisering, og dynamisk karakterisering.
+\emph{Ingen sjanger "normativ karakterisering".} Den fjerde sjangeren er eliminert; symmetrien i atlaset er restituert.
 \end{minipage}
 
 \end{document}

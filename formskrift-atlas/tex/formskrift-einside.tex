@@ -4,7 +4,11 @@
 \usepackage{fontspec}
 \setmainfont{TeX Gyre Pagella}
 
-\newfontfamily{\symbolfont}{Symbola}[Scale=1.0]
+\IfFontExistsTF{Symbola}{%
+  \newfontfamily{\symbolfont}{Symbola}[Scale=1.0]%
+}{%
+  \newfontfamily{\symbolfont}{Segoe UI Symbol}[Scale=0.95]%
+}
 \newcommand{\g}[1]{{\symbolfont #1}}
 
 \usepackage{unicode-math}

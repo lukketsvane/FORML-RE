@@ -6,7 +6,12 @@
 \setmainfont{TeX Gyre Pagella}
 
 % Symbola dekkjer heile Unicode Geometric Shapes Extended + miscellaneous
-\newfontfamily{\symbolfont}{Symbola}[Scale=0.95]
+% Fallback: Segoe UI Symbol (alltid tilgjengeleg på Windows)
+\IfFontExistsTF{Symbola}{%
+  \newfontfamily{\symbolfont}{Symbola}[Scale=0.95]%
+}{%
+  \newfontfamily{\symbolfont}{Segoe UI Symbol}[Scale=0.90]%
+}
 \newcommand{\g}[1]{{\symbolfont #1}}
 
 \usepackage{unicode-math}
