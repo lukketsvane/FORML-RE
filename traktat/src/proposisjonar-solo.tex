@@ -1,0 +1,124 @@
+% Standalone-kompilering av berre proposisjonane.
+% Deler preamble med traktat.tex; manipulerbar utan å skrive heile boka.
+%
+% Kompiler: xelatex proposisjonar-solo.tex
+\documentclass[10pt,oneside]{book}
+
+\usepackage[
+  paperwidth=125mm,
+  paperheight=200mm,
+  top=20mm,
+  bottom=18mm,
+  left=28mm,
+  right=12mm,
+  headheight=12pt,
+  headsep=6mm,
+  footskip=8mm,
+]{geometry}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=nynorsk]{norwegian}
+
+\IfFontExistsTF{EB Garamond}{
+  \setmainfont{EB Garamond}[Numbers={Lining,Proportional}]
+}{
+  \setmainfont{TeX Gyre Pagella}
+}
+\renewcommand{\normalsize}{\fontsize{10.5}{12.5}\selectfont}
+\normalsize
+
+\usepackage{microtype}
+\usepackage{amsmath}
+
+\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
+\newcommand{\msym}[1]{{\mathfbfont #1}}
+\newfontfamily{\picfont}{Segoe UI Symbol}[Scale=0.90]
+\newcommand{\pic}[1]{{\picfont #1}}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\centering\scshape\addfontfeature{LetterSpace=10}\large}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\chapter}{0pt}{2.5em}{2.5em}
+\renewcommand{\thechapter}{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\scshape\leftmark}
+\fancyhead[R]{\small\thepage}
+\fancyheadoffset[L]{16mm}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small\scshape\leftmark}
+  \fancyhead[R]{\small\thepage}
+  \fancyheadoffset[L]{16mm}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\silentchapter}[2]{%
+  \clearpage
+  \markboth{#2}{}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+\newcommand{\flowchapter}[2]{%
+  \par\addvspace{10pt}%
+  \markboth{#2}{}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+
+\usepackage{calc}
+\newlength{\propnumwidth}
+\setlength{\propnumwidth}{13mm}
+\newlength{\propnumgap}
+\setlength{\propnumgap}{2mm}
+
+\usepackage{needspace}
+\newcommand{\prop}[3]{%
+  \needspace{3\baselineskip}%
+  \par\addvspace{3pt}%
+  \noindent\llap{\makebox[\propnumwidth][l]{\textbf{#1}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  #3\par%
+  \addvspace{1pt}%
+}
+\newcommand{\mainprop}[3]{%
+  \par\addvspace{6pt}%
+  \noindent\llap{\makebox[\propnumwidth][l]{{\fontsize{12}{13.5}\selectfont\textbf{#1}}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  #3\par%
+  \addvspace{3pt}%
+}
+\newcommand{\propcont}[1]{%
+  \par\addvspace{1pt}%
+  \noindent #1\par%
+}
+
+\usepackage{graphicx}
+\graphicspath{{../figures/}{../../figures/}}
+\usepackage{caption}
+\captionsetup{font={small,it},labelformat=empty,justification=centering,skip=4pt}
+\usepackage{booktabs}
+
+\widowpenalty=10000
+\clubpenalty=10000
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 0.6pt minus 0.4pt}
+\linespread{1.0}
+
+\usepackage{changepage}
+\newenvironment{widebody}{%
+  \begin{adjustwidth}{-16mm}{0mm}%
+}{%
+  \end{adjustwidth}%
+}
+
+\begin{document}
+\markboth{proposisjonar}{}
+
+\input{proposisjonar}
+
+\end{document}

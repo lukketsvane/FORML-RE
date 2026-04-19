@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv trakta_formae_18.04.2026.pdf pdf/)",
+      "Bash(rm -f traktat.aux traktat.log traktat.pdf)"
+    ]
+  }
+}
