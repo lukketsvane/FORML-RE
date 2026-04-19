@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: unsrtnat.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: references.bib
+Warning--entry type for "trimesh" isn't style-file defined
+--line 148 of file references.bib
+You've used 38 entries,
+            2481 wiz_defined-function locations,
+            749 strings with 9362 characters,
+and the built_in function-call counts, 12759 in all, are:
+= -- 1095
+> -- 522
+< -- 33
++ -- 222
+- -- 146
+* -- 830
+:= -- 2020
+add.period$ -- 114
+call.type$ -- 38
+change.case$ -- 70
+chr.to.int$ -- 38
+cite$ -- 38
+duplicate$ -- 719
+empty$ -- 1290
+format.name$ -- 207
+if$ -- 2739
+int.to.chr$ -- 1
+int.to.str$ -- 39
+missing$ -- 42
+newline$ -- 198
+num.names$ -- 114
+pop$ -- 338
+preamble$ -- 1
+purify$ -- 38
+quote$ -- 0
+skip$ -- 437
+stack$ -- 0
+substring$ -- 499
+swap$ -- 86
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 248
+warning$ -- 0
+while$ -- 109
+width$ -- 0
+write$ -- 486
+(There was 1 warning)

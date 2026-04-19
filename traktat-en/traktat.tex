@@ -1,0 +1,545 @@
+\documentclass[10pt,oneside]{book}
+
+% Page geometry — 125 × 200 mm (Gyldendal 1999 Tractatus format).
+% Wide LEFT margin holds the proposition numbers (marginal numbering style):
+% numbers are \llap'd into this margin so the body text block is a clean
+% rectangle with all lines (including continuation) flush left at the body
+% column. Right margin is narrow (no marginalia on the right).
+% Top includes the running header band; footskip minimal (no footer text).
+\usepackage[
+  paperwidth=125mm,
+  paperheight=200mm,
+  top=20mm,
+  bottom=18mm,
+  left=28mm,
+  right=12mm,
+  headheight=12pt,
+  headsep=6mm,
+  footskip=8mm,
+]{geometry}
+
+% UTF-8 + English
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=british]{english}
+
+% Body font — the digibok is set in Sabon. EB Garamond is the closest
+% free serif with the same general feel; fall back to TeX Gyre Pagella.
+\IfFontExistsTF{EB Garamond}{
+  \setmainfont{EB Garamond}[
+    Numbers={Lining,Proportional},
+    SmallCapsFeatures={LetterSpace=4},
+  ]
+}{
+  \setmainfont{TeX Gyre Pagella}
+}
+% Body size 10.5 pt on 12.5 pt leading (close to Sabon 10.5/12 in the digibok)
+\renewcommand{\normalsize}{\fontsize{10.5}{12.5}\selectfont}
+\normalsize
+
+% Better line breaking (must be loaded after font setup)
+\usepackage{microtype}
+\usepackage{endnotes}
+\let\footnote=\endnote
+\usepackage{amsmath}
+
+% Math-symbol fallback font — EB Garamond lacks ∀ ∃ ∈ ⊆ ⊃ ≠ etc.,
+% so the Python preprocessor wraps them in \msym{...} which uses
+% Cambria Math (always present on Windows).
+\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
+\newcommand{\msym}[1]{{\mathfbfont #1}}
+
+% Headings — small caps, centred, generous spacing
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\centering\scshape\addfontfeature{LetterSpace=10}\large}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\chapter}{0pt}{2.5em}{2.5em}
+
+\titleformat{\section}[block]
+  {\normalfont\centering\scshape\addfontfeature{LetterSpace=6}\normalsize}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\section}{0pt}{2.5em}{1.5em}
+
+\titleformat{\subsection}[block]
+  {\normalfont\scshape\addfontfeature{LetterSpace=2}\small}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.8em}
+
+% Hide chapter numbers (chapters are titled by name)
+\renewcommand{\thechapter}{}
+
+% Running headers — chapter title at left, page number at right, thin rule.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\scshape\leftmark}  % chapter title at left on every page
+\fancyhead[R]{\small\thepage}           % page number at right on every page
+\fancyheadoffset[L]{16mm}               % extend header left over the number margin
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small\scshape\leftmark}
+  \fancyhead[R]{\small\thepage}
+  \fancyheadoffset[L]{16mm}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{titlepage}{
+  \fancyhf{}
+  \fancyheadoffset[L]{0pt}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\silentchapter}[2]{%
+  \clearpage
+  \markboth{#2}{}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+\newcommand{\flowchapter}[2]{%
+  \par\addvspace{10pt}%
+  \markboth{#2}{}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+
+\makeatletter
+\renewcommand\tableofcontents{%
+  \markboth{contents}{}%
+  \begingroup\footnotesize
+  \@starttoc{toc}%
+  \endgroup
+}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \vskip 0pt%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \footnotesize
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \normalfont
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\leaders\hbox{$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+      \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    \endgroup
+  \fi}
+\renewcommand*\l@section{\@dottedtocline{1}{1.0em}{2.0em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.0em}{2.6em}}
+\makeatother
+
+% ─── Proposition environment ──────────────────────────────────────────────
+\usepackage{calc}
+\newlength{\propnumwidth}
+\setlength{\propnumwidth}{13mm}
+\newlength{\propnumgap}
+\setlength{\propnumgap}{2mm}
+
+\newcommand{\prop}[3]{%
+  \needspace{3\baselineskip}%
+  \par\addvspace{3pt}%
+  \noindent\llap{\makebox[\propnumwidth][l]{\textbf{#1}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  #3\par%
+  \addvspace{1pt}%
+}
+\newcommand{\mainprop}[3]{%
+  \par\addvspace{6pt}%
+  \noindent\llap{\makebox[\propnumwidth][l]{{\fontsize{12}{13.5}\selectfont\textbf{#1}}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  #3\par%
+  \addvspace{3pt}%
+}
+
+\newcommand{\propcont}[1]{%
+  \par\addvspace{1pt}%
+  \noindent #1\par%
+}
+
+\newenvironment{overgang}{%
+  \par\addvspace{12pt}%
+  \begingroup\itshape\noindent
+}{%
+  \endgroup\par\addvspace{12pt}%
+}
+
+\newenvironment{ordliste}{%
+  \begingroup\footnotesize\setlength{\parskip}{0.3pt plus 0.1pt}%
+  \linespread{0.92}\selectfont
+}{%
+  \endgroup
+}
+\newcommand{\ordlisteentry}[2]{%
+  \par\addvspace{1.5pt}%
+  \noindent\textbf{#1:} #2\par%
+}
+
+\newenvironment{foreordbody}{%
+  \begingroup\normalsize\setlength{\parskip}{3pt plus 0.5pt}%
+  \linespread{1.0}\selectfont
+}{%
+  \endgroup
+}
+
+\newcommand{\anote}[1]{%
+  \par\addvspace{1pt}%
+  {\footnotesize\linespread{0.93}\selectfont\noindent #1\par}%
+  \addvspace{1pt}%
+}
+
+\newcommand{\refentry}[1]{%
+  \par\addvspace{0pt}%
+  \begingroup\footnotesize\linespread{0.92}\selectfont
+  \noindent\hangindent=4mm\hangafter=1 #1\par%
+  \endgroup
+}
+
+\usepackage{graphicx}
+\usepackage{colortbl}
+\graphicspath{{figures/}{../figures/}{../traktat/figures/}{../../analysis/figures/}}
+\usepackage{caption}
+\captionsetup{
+  font={small,it},
+  labelformat=empty,
+  justification=centering,
+  skip=4pt,
+}
+\usepackage{float}
+\usepackage{booktabs}
+
+\newenvironment{formelblokk}{%
+  \par\addvspace{4pt}%
+  \begingroup\ttfamily\small\leftskip=4mm\noindent
+}{%
+  \endgroup\par\addvspace{4pt}%
+}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\usepackage{needspace}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 0.6pt minus 0.4pt}
+\linespread{1.0}
+
+\usepackage{changepage}
+\newenvironment{widebody}{%
+  \begin{adjustwidth}{-16mm}{0mm}%
+}{%
+  \end{adjustwidth}%
+}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+% Title page
+\thispagestyle{titlepage}
+\markboth{}{}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=north west, inner sep=0] at ([xshift=12mm, yshift=-18mm]current page.north west) {%
+    {\fontsize{36}{40}\selectfont\bfseries FORMLÆRE}%
+  };
+  \node[anchor=north west, inner sep=0] at ([xshift=12mm, yshift=-32mm]current page.north west) {%
+    {\large\itshape A tractatus on form for design and the aesthetic disciplines}%
+  };
+  \node[anchor=center, inner sep=0] at ([yshift=-10mm]current page.center) {%
+    \includegraphics[width=0.86\paperwidth]{cover-stolar.png}%
+  };
+  \node[anchor=south west, inner sep=0] at ([xshift=12mm, yshift=28mm]current page.south west) {%
+    {\small Iver Raknes Finne}%
+  };
+  \node[anchor=south west, inner sep=0] at ([xshift=12mm, yshift=22mm]current page.south west) {%
+    {\footnotesize\itshape iver.raknes.finne@stud.aho.no}%
+  };
+  \node[anchor=south west, inner sep=0] at ([xshift=12mm, yshift=16mm]current page.south west) {%
+    {\footnotesize Oslo School of Architecture and Design\quad\textperiodcentered\quad 2026}%
+  };
+\end{tikzpicture}
+
+% Preface
+\input{preface}
+
+% To the reader (map of the book)
+\input{to-the-reader}
+
+% Glossary
+\silentchapter{Glossary}{glossary}
+\begin{widebody}
+\begin{ordliste}
+\ordlisteentry{Affordance}{The operations a material permits and prevents (Gibson, 1979). Determines which form-operations are possible. [2.2]}
+\ordlisteentry{Agent}{A system defined by the triple (target state, distance metric, adjustment mechanism). Requires only organisation; neither consciousness, intention, nor a nervous system (Rosenblueth et al., 1943; Wiener, 1948). [5.11]}
+\ordlisteentry{C (the conception space)}{All forms that are conceivable but not settled. Corresponds to the open regions in the morphospace. [1.44]}
+\ordlisteentry{Shape algebra}{The set of shapes closed under union, difference, and transformation. The foundation of shape grammar. [1.32]}
+\ordlisteentry{Shape grammar}{The triple SG = (S, R, \msym{ω}). Rules operating under embedding; only the current shape determines which rules fire. [5.3]}
+\ordlisteentry{Morphospace}{The set of all possible configurations for objects in a class. Each axis is a measurable property (Raup, 1966). [1.3]}
+\ordlisteentry{Gradient}{The direction and magnitude of change in the probability distribution over the morphospace. Selection pressure is a gradient, not a rule. [2.1]}
+\ordlisteentry{Embedding}{The transformation showing that one shape exists within another. Determines which grammar rules can fire. [1.32]}
+\ordlisteentry{K (the knowledge space)}{All forms known to work or to fail. Corresponds to the settled and the confirmed forbidden regions. [1.44]}
+\ordlisteentry{Canalization}{Robustness against disturbances. Steep valley walls = stable form (Waddington, 1957). [3.2]}
+\ordlisteentry{Capacity}{The breadth of the light cone; how many axes the agent \textit{can} represent. Distinct from care, which is how many it actually represents. [5.6]}
+\ordlisteentry{Class}{A group of objects sharing the same affordance structure: they offer the same constellation of operations to the same constellation of agents. [2.14]}
+\ordlisteentry{Cognitive light cone}{The subset of the morphospace an agent can represent and manipulate (Fields \& Levin, 2022). [5.2]}
+\ordlisteentry{Multiscale competency}{Agency operates simultaneously at several scales, each with its own light cone and its own grammar rules (Levin, 2022). [6.12]}
+\ordlisteentry{Care}{The set of axes in the morphospace the agent actively adjusts for. Care is the content of intelligence; intelligence is the form of care. [5.6, 5.61]}
+\ordlisteentry{Generative model}{Boltzmann distribution over the morphospace unifying grammar, landscape, and light cone in a single probabilistic formalism. [8.1]}
+\ordlisteentry{Life}{The process whereby a system maintains and expands its own light cone over time (Levin, 2022). [5.65]}
+\ordlisteentry{Selection pressure}{A gradient that modifies the probability distribution over the morphospace (Wright, 1932). [2.1]}
+\ordlisteentry{Substrate}{The physical, algorithmic, or social system that realises the agency. Functions as a zeroth-order agent (Levin, 2022). [5.4]}
+\ordlisteentry{Adaptation landscape}{The vector sum of all active selection pressures across the morphospace (Wright, 1932; Waddington, 1957). [3.1]}
+\end{ordliste}
+\end{widebody}
+
+\vspace*{\fill}
+\begin{widebody}
+\noindent\includegraphics[width=\linewidth]{fencing.png}
+\end{widebody}
+
+% Propositions
+\input{propositions}
+
+% Foundation (empirical grounding for the generative model)
+\input{foundation}
+
+% Afterword
+\input{afterword}
+
+% Three letters to the audiences
+\input{letters}
+
+% Care template: the competency stack from quark to civilisation
+\input{care-template}
+
+% References (numbered, keyed to superscripts in the propositions)
+\silentchapter{References}{references}
+\begin{widebody}
+\refentry{[1] Semper, G. (1860). \textit{Der Stil in den technischen und tektonischen Künsten}. Verlag für Kunst und Wissenschaft.}
+\refentry{[2] Thompson, D'A. W. (1917). \textit{On Growth and Form}. Cambridge University Press.}
+\refentry{[3] Wright, S. (1932). The roles of mutation, inbreeding, crossbreeding, and selection in evolution. \textit{Proc. Sixth Int. Congress of Genetics}, 1, 356--366.}
+\refentry{[4] Rosenblueth, A., Wiener, N. \& Bigelow, J. (1943). Behavior, purpose and teleology. \textit{Philosophy of Science}, 10(1), 18--24.}
+\refentry{[5] Wiener, N. (1948). \textit{Cybernetics}. MIT Press.}
+\refentry{[6] Turing, A. M. (1950). Computing machinery and intelligence. \textit{Mind}, 59(236), 433--460.}
+\refentry{[7] Ashby, W. R. (1956). \textit{An Introduction to Cybernetics}. Chapman \& Hall.}
+\refentry{[8] Waddington, C. H. (1957). \textit{The strategy of the genes}. George Allen \& Unwin.}
+\refentry{[9] Kubler, G. (1962). \textit{The shape of time}. Yale University Press.}
+\refentry{[10] Raup, D. M. (1966). Geometric analysis of shell coiling. \textit{Journal of Paleontology}, 40(5), 1178--1190.}
+\refentry{[11] Stiny, G. \& Gips, J. (1972). Shape grammars and the generative specification of painting and sculpture. \textit{Information Processing 71}, 1460--1465.}
+\refentry{[12] Gibson, J. J. (1979). \textit{The ecological approach to visual perception}. Houghton Mifflin.}
+\refentry{[13] Kauffman, S. A. (1993). \textit{The origins of order}. Oxford University Press.}
+\refentry{[14] Arthur, W. B. (1994). \textit{Increasing returns and path dependence in the economy}. University of Michigan Press.}
+\refentry{[15] Michl, J. (1995). Form follows WHAT? The modernist notion of function as a carte blanche. \textit{1. Designforum Finland Magazine}, 1.}
+\refentry{[16] Hatchuel, A. \& Weil, B. (2003). A new approach of innovative design: An introduction to C-K theory. \textit{Proc. ICED 2003}.}
+\refentry{[17] Hatchuel, A. \& Weil, B. (2009). C-K design theory: An advanced formulation. \textit{Research in Engineering Design}, 19(4), 181--192.}
+\refentry{[18] Stiny, G. (2006). \textit{Shape: Talking about seeing and doing}. MIT Press.}
+\refentry{[19] Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nature Reviews Neuroscience}, 11(2), 127--138.}
+\refentry{[20] Mitteroecker, P. \& Huttegger, S. M. (2009). The concept of morphospaces in evolutionary and developmental biology. \textit{Biological Theory}, 4(1), 54--67.}
+\refentry{[21] Fields, C. \& Levin, M. (2022). Competency in navigating arbitrary spaces. \textit{Entropy}, 24(6), 819.}
+\refentry{[22] Levin, M. (2022). Technological approach to mind everywhere. \textit{Frontiers in Systems Neuroscience}, 16, 768201.}
+\refentry{[23] Doctor, T., Wakefield, E., Pavlic, T. P. \& Levin, M. (2024). Biology, Buddhism, and AI: Care as the driver of intelligence. \textit{Entropy}, 26(4), 352.}
+\refentry{[24] Levin, M. (2025). Living things are not machines (also, they totally are). \textit{Noema Magazine}.}
+\refentry{[25] Trentmann, F. (2016). \textit{Empire of Things: How We Became a World of Consumers}. Allen Lane.}
+\refentry{[26] Pye, D. (1968). \textit{The Nature and Art of Workmanship}. Cambridge University Press.}
+\refentry{[27] Blackiston, D. J., Casey, E. S. \& Bhatt, A. L. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? \textit{PLoS ONE}, 3(3), e1736.}
+\refentry{[28] NOAA Marine Debris Program (2024). Estimated decomposition rates of common marine debris items. National Oceanic and Atmospheric Administration.}
+\refentry{[29] NOAA Global Monitoring Laboratory (2024). Trends in atmospheric carbon dioxide. National Oceanic and Atmospheric Administration.}
+\refentry{[30] FAO \& UNCCD (2024). \textit{Global Soil Partnership}: estimated annual topsoil loss. Food and Agriculture Organization of the United Nations.}
+\refentry{[31] UN-Habitat (2024). \textit{World Cities Report}: 1.8 billion people in inadequate housing. United Nations Human Settlements Programme.}
+\refentry{[32] Biddle, S. (2019--2024). Palantir and ICE reporting series. \textit{The Intercept}. See also Mijente, \textit{Who's Behind ICE?}}
+\refentry{[33] Abraham, Y. (2024). ``Lavender'' and ``Where's Daddy?'': AI-based targeting systems in Gaza. \textit{+972 Magazine / Local Call}. See also ICJ advisory opinion (2024).}
+\refentry{[34] Autoriteit Persoonsgegevens (2020). SyRI judgment; Amnesty International (2021). Toeslagenaffaire: systematic discrimination through algorithmic profiling in Dutch welfare.}
+\refentry{[35] Anthropic (2025). On the biology of a large language model: Probing emotion. Research report. See also Butlin, P. et al. (2023). Consciousness in artificial intelligence. arXiv:2308.08708.}
+\refentry{[36] Biswas, S., Manicka, S., Hoel, E. P. \& Levin, M. (2023). Gene regulatory networks exhibit several kinds of memory. \textit{iScience}, 26(4), 106440.}
+\refentry{[37] Vandenberg, L. N., Adams, D. S. \& Levin, M. (2012). Normalized shape and location of perturbed craniofacial structures in the \textit{Xenopus} tadpole reveal an innate ability to achieve correct morphology. \textit{Developmental Dynamics}, 241(5), 863--878.}
+\refentry{[38] Shomrat, T. \& Levin, M. (2013). An automated training paradigm reveals long-term memory in planarians and its persistence through head regeneration. \textit{Journal of Experimental Biology}, 216(20), 3799--3810.}
+\refentry{[39] Fankhauser, G. (1945). The effects of changes in chromosome number on amphibian development. \textit{Quarterly Review of Biology}, 20(1), 20--78.}
+\refentry{[40] Kriegman, S., Blackiston, D., Levin, M. \& Bongard, J. (2021). Kinematic self-replication in reconfigurable organisms. \textit{Proceedings of the National Academy of Sciences}, 118(49), e2112672118.}
+\refentry{[41] Gumuskaya, G., Srivastava, P., Cooper, B. G., Lesser, H., Semegran, B., Garber, S. \& Levin, M. (2023). Motile living biobots self-construct from adult human somatic progenitor seed cells. \textit{Advanced Science}, 10(34), 2303575.}
+\refentry{[42] UNEP (2024). \textit{Plastics}: annual global production. United Nations Environment Programme. See also Plastics Europe, \textit{Plastics---The Fast Facts 2023}.}
+\refentry{[43] Ellen MacArthur Foundation (2017). \textit{A New Textiles Economy}: average number of times a garment is worn before disposal.}
+\refentry{[44] Richardson, K. et al. (2023). Earth beyond six of nine planetary boundaries. \textit{Science Advances}, 9(37), eadh2458.}
+\refentry{[45] IPBES (2019). \textit{Global Assessment Report on Biodiversity and Ecosystem Services}: approximately 1 million species threatened with extinction.}
+\refentry{[46] WWF (2022). \textit{Living Planet Report 2022}: 69\,\% average decline in monitored wildlife populations since 1970.}
+\refentry{[47] FAO (2022). \textit{Global Forest Resources Assessment}: approximately 10 million hectares of forest lost per year (2015--2020).}
+\refentry{[48] WHO/UNICEF Joint Monitoring Programme (2023). \textit{Progress on household drinking water, sanitation and hygiene}: 2.4 billion people lack basic sanitation.}
+\refentry{[49] UNHCR (2024). \textit{Global Trends: Forced Displacement in 2023}: 120 million people displaced worldwide.}
+\refentry{[50] IPCC (2022). \textit{Climate Change 2022: Impacts, Adaptation and Vulnerability} (AR6 WGII): 3.3--3.6 billion people highly vulnerable to climate change.}
+\refentry{[51] UCDP/PRIO (2024). \textit{Armed Conflict Dataset v24.1}: 56 active state-based armed conflicts in 2023.}
+\refentry{[52] Ecovative Design / GROWN.bio (2024). Mycelium-based packaging and construction materials as polystyrene replacement.}
+\refentry{[53] Riegl, A. (1893). \textit{Stilfragen: Grundlegungen zu einer Geschichte der Ornamentik}. George Siemens.}
+\refentry{[54] Frampton, K. (1995). \textit{Studies in Tectonic Culture: The Poetics of Construction in Nineteenth and Twentieth Century Architecture}. MIT Press.}
+\refentry{[55] Rietveld, E. \& Kiverstein, J. (2014). A rich landscape of affordances. \textit{Ecological Psychology}, 26(4), 325--352.}
+\refentry{[56] Brier, S. (2020). Affordances are signs. \textit{tripleC: Communication, Capitalism \& Critique}, 18(1).}
+\refentry{[57] Fultot, M. \& Turvey, M. T. (2019). Von Uexküll's theory of meaning and Gibson's organism--environment reciprocity. \textit{Ecological Psychology}, 31(4), 289--315.}
+\refentry{[58] Pievani, T. (2013). Adaptive landscapes: A case study of metaphors, models, and synthesis in evolutionary biology. Università degli Studi di Milano-Bicocca.}
+\refentry{[59] Kauffman, S. A. \& Roli, A. (2023). A third transition in science? \textit{Interface Focus}, 13(3).}
+\refentry{[60] Huneman, P. \& Walsh, D. M. (Eds.) (2023). \textit{Evolution ``On Purpose''}. MIT Press.}
+\refentry{[61] Svensson, E. I. \& Connallon, T. (2026). Evolution of adaptation's evil Doppelgänger. \textit{Evolution}.}
+\refentry{[62] Schlosser, M. (2019). Agency. In \textit{The Stanford Encyclopedia of Philosophy}. Metaphysics Research Lab, Stanford University.}
+\refentry{[63] Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nature Reviews Neuroscience}, 11(2), 127--138.}
+\refentry{[64] Niv, Y. (2009). Reinforcement learning in the brain. \textit{Journal of Mathematical Psychology}, 53(3), 139--154.}
+\refentry{[65] Murray, E. A. et al. (2016). \textit{The Evolution of Memory Systems}. Oxford University Press.}
+\refentry{[66] Latour, B. (2005). \textit{Reassembling the Social: An Introduction to Actor-Network-Theory}. Oxford University Press.}
+\refentry{[67] Hutchins, E. (1995). \textit{Cognition in the Wild}. MIT Press.}
+\refentry{[68] Tronto, J. C. (1993). \textit{Moral Boundaries: A Political Argument for an Ethic of Care}. Routledge.}
+\refentry{[69] Dewey, J. (1934). \textit{Art as Experience}. Minton, Balch \& Company.}
+\refentry{[70] Fields, C. \& Levin, M. (2024). Principled limitations on self-representation for generic physical systems. \textit{Entropy}, 26(3), 194.}
+\refentry{[71] Varzi, A. (2016). Mereology. In \textit{The Stanford Encyclopedia of Philosophy}. Metaphysics Research Lab, Stanford University.}
+\refentry{[72] Bateson, G. (1979). \textit{Mind and Nature: A Necessary Unity}. E.P. Dutton.}
+\refentry{[73] Hoffmeyer, J. (2008). Bateson and Peirce on the pattern that connects and the sacred. In \textit{A Legacy for Living Systems}. Springer.}
+\refentry{[74] Le Masson, P., Weil, B. \& Hatchuel, A. (2010). \textit{Strategic Management of Innovation and Design}. Cambridge University Press.}
+\refentry{[75] Kazakçi, A. O. (2015). C-K, an engineering design theory? \textit{Proceedings of the International Conference on Engineering Design}. Design Society.}
+\refentry{[76] Ma, M. (2023). Simulating design theory using LLM agents: A case study of C-K theory. Co-Design Lab, UC Berkeley.}
+\refentry{[77] Michl, J. (1989). On forms following functions and post-modernism. \textit{Pro Forma}, 1, 5--15.}
+\refentry{[78] Michl, J. (2014). A case against the modernist regime in design education. \textit{Archnet-IJAR}, 8(2), 36--46.}
+\refentry{[79] Odling-Smee, F. J., Laland, K. N. \& Feldman, M. W. (2003). \textit{Niche Construction: The Neglected Process in Evolution}. Princeton University Press.}
+\refentry{[80] Norman, D. A. (2013). \textit{The Design of Everyday Things} (Revised ed.). Basic Books.}
+\refentry{[81] Cussat-Blanc, S., Harrington, K. \& Banzhaf, W. (2018). Artificial gene regulatory networks---A review. \textit{Artificial Life}, 24(4).}
+\refentry{[82] Seifert, U., Sealander, P., Marzen, S. \& Levin, M. (2024). Reinforcement learning and developmental biology: A shared computational structure. \textit{BioSystems}, 235, 105107.}
+\refentry{[83] Kirchhoff, M., Parr, T., Palacios, E., Friston, K. \& Kiverstein, J. (2018). The Markov blankets of life: Autonomy, active inference and the free energy principle. \textit{Journal of the Royal Society Interface}, 15(138), 20170792.}
+\refentry{[84] Levin, M. (2023). Darwin's agential materials: Evolutionary implications of multiscale competency in developmental biology. \textit{Cellular and Molecular Life Sciences}, 80(6), 142.}
+\refentry{[85] Levin, M. (2023). Bioelectric networks: The cognitive glue enabling evolutionary scaling from physiology to mind. \textit{Animal Cognition}, 26, 1865--1891.}
+\refentry{[86] Chis-Ciure, R. \& Levin, M. (2025). Cognition all the way down 2.0: Neuroscience beyond neurons in the diverse intelligence era. \textit{Synthese}, 206, 257.}
+\refentry{[87] Watson, R. A., Levin, M. \& Buckley, C. L. (2022). Design for an individual: Connectionist approaches to the evolutionary transitions in individuality. \textit{Frontiers in Ecology and Evolution}, 10, 823588.}
+\refentry{[88] Levin, M. (2025). Artificial intelligences: A bridge toward diverse intelligence and humanity's future. \textit{Advanced Intelligent Systems}, 7, 2401034.}
+\refentry{[89] Fields, C. \& Levin, M. (2025). Life, its origin, and its distribution: A perspective from the Conway--Kochen theorem and the Free Energy Principle. \textit{Communicative \& Integrative Biology}, 18(1), 2466017.}
+\refentry{[90] Doctor, T., Witkowski, O., Colognese, P., Ishihara, Y. \& Levin, M. (2025). Selves as perspectives: From biological life to superintelligence and a Bodhisattva project. Manuscript, Center for the Study of Apparent Selves.}
+\refentry{[91] Sol{\'e}, R., Seoane, L. F., Pla-Mauri, J., Bennett, M. T., Hochberg, M. E. \& Levin, M. (2026). Cognition spaces: Natural, artificial, and hybrid. arXiv:2601.12837.}
+\refentry{[92] Hartl, B., Risi, S. \& Levin, M. (2024). Evolutionary implications of multi-scale intelligence. Preprint.}
+\refentry{[93] Levin, M. \& Gitelman, A. (2025). Designing with diverse intelligence: Interfaces, agential materials, and ingressing minds. SUrF interview.}
+\refentry{[94] Haidt, J. (2024). \textit{The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness}. Penguin Press. See also Twenge, J. M. (2017). \textit{iGen}. Atria Books.}
+\refentry{[95] Haugen, F. (2021). Testimony before U.S. Senate Subcommittee on Consumer Protection; \textit{The Facebook Files}, Wall Street Journal investigation series.}
+\refentry{[96] Cadwalladr, C. \& Graham-Harrison, E. (2018). Revealed: 50 million Facebook profiles harvested for Cambridge Analytica in major data breach. \textit{The Guardian}, 17 March.}
+\refentry{[97] Ovid. \textit{Metamorphoses} III: Echo and Narcissus.}
+\refentry{[98] Rajan, D., Makushok, T., Kalantari, A. et al. (2023). Single-cell analysis of habituation in \textit{Stentor coeruleus}. \textit{Current Biology}, 33, 241--251.}
+\refentry{[99] Boisseau, R. P., Vogel, D. \& Dussutour, A. (2016). Habituation in non-neural organisms: Evidence from slime moulds. \textit{Proceedings of the Royal Society B}, 283, 20160446.}
+\refentry{[100] Netea, M. G., Joosten, L. A. B., Latz, E. et al. (2016). Trained immunity: A program of innate immune memory in health and disease. \textit{Science}, 352(6284), aaf1098.}
+\refentry{[101] Kandel, E. R. (2001). The molecular biology of memory storage: A dialogue between genes and synapses. \textit{Science}, 294(5544), 1030--1038.}
+\refentry{[102] Pavlov, I. P. (1927). \textit{Conditioned Reflexes}. Oxford University Press.}
+\refentry{[103] Friston, K. \& Frith, C. (2015). A duet for one. \textit{Consciousness and Cognition}, 36, 390--405.}
+\refentry{[104] March, J. G. (1991). Exploration and exploitation in organizational learning. \textit{Organization Science}, 2(1), 71--87.}
+\refentry{[105] Kuhn, T. S. (1962). \textit{The Structure of Scientific Revolutions}. University of Chicago Press.}
+\refentry{[106] Wigner, E. P. (1960). The unreasonable effectiveness of mathematics in the natural sciences. \textit{Communications on Pure and Applied Mathematics}, 13(1), 1--14.}
+\refentry{[107] Brandel, J. (2024). Invisible landscapes. \textit{IDEALTID.org}, 17.12.2024. Essay on the interstitium as a fluid-filled organ in connective tissue, reclassified from barrier in 2018.}
+\end{widebody}
+
+\par\addvspace{14pt}
+\markboth{notes}{}
+\addcontentsline{toc}{chapter}{Notes}
+\begin{widebody}
+{\footnotesize
+
+\textbf{1.3} The morphospace was introduced by Raup [10] for shell geometry and generalised by Mitteroecker \& Huttegger [20] for developmental biology. We use it here substrate-independently; the space is defined by properties, not by domain.
+
+\textbf{2.14} Gibson [12] defines affordance as relational; not a property of the object alone, but of the object-in-relation-to-the-agent. We extend this so that the class itself is defined through the affordance constellation. The proposition has been moved from Chapter 1 to Chapter 2 because the affordance structure is operationally tied to selection pressure, not to the ontological ground structure.
+
+\textbf{2.14 (cont.)} The semiotic extension of affordance [56] has its theoretical root in Hoffmeyer's [73] synthesis of Bateson and Peirce. Hoffmeyer places affordance in a chain object → pattern → sign → interpretation; Brier formalises this for the design context. Our use of ``affordance structure'' is close to Gibson [12] (objectively relational), but opens to the semiotic continuation when the class requires it.
+
+\textbf{1.2} The object is indivisible in the sense that further decomposition destroys the causal capacity we are interested in. Below that level, physics continues; but not form-giving. Classical mereology [71] defines the atom formally: that which has no proper parts; our variant is operational: that which has no causally active parts in the chosen class. The distinction is substantial, not terminological: the same physical thing can be an atom in one class and composite in another.
+
+\textbf{5.3} The shape algebra has been developed by Stiny over four decades [11, 13, 18]. The algebra is not a model of shape; it is the syntax of the morphospace. The embedding operation (the agent recognising a subshape inside the whole) is the basis for the grammar rules. That the morphospace is continuous along geometric axes and discrete along material ones is addressed here for the first time.
+
+\textbf{1.44} Concept--knowledge theory has been developed by Hatchuel \& Weil [15, 16] as a formalism for the design process. We identify C with the open regions of the morphospace and K with the settled and confirmed forbidden. The partition is epistemic; it changes with each new realisation.
+
+\textbf{2.1} Selection pressure as gradient (not rule) is Wright's [3] adaptation of evolutionary theory. Michl [15] showed that the functionalist ``rule'' (form follows function) is logically empty. Our formulation; that form is a residue; generalises Michl's insight into a positive framework. ``Residue'' is a simplification; more precisely, form is an equilibrium state in a system where form and pressure are mutually dependent (cf. 4.3). The residue metaphor holds for synchronic analysis; the dynamic analysis requires the equilibrium concept. Trentmann [25] describes the reciprocity of material culture from a historical perspective.
+
+\textbf{3.1} The adaptation landscape unites Wright's [3] adaptive landscape and Waddington's [7] epigenetic landscape in one definition. Wright described the landscape for populations; Waddington for developmental processes. We describe it for the world of forms.
+
+\textbf{3.2} Canalisation is Waddington's [7] term for developmental robustness. In our framework it means that some dimensions of the morphospace are more robust than others. Empirically: seat height varies minimally (CV = 0.07) over 500 years; ornament varies maximally (CV \msym{≈} 1.5). The spread is 128-fold.
+
+\textbf{4.3} Path dependence is Arthur's [14] term for how early choices lock in later ones. In the world of forms: each realised configuration deforms the landscape around it and constrains which neighbouring configurations are available to the next agent.
+
+\textbf{4.4 / 6.4} Niche-construction theory [79] formalises how organisms (or agents) modify the selection pressures acting on them. Proposition 4.4 generalises this to the world of forms: each realised configuration changes the adaptation landscape for the next agent. The distinction between passive navigation and active landscape extension is fundamental: path dependence [14] gives the time mechanism, niche construction gives the evolutionary-theoretic parallel.
+
+\textbf{5.4} The substrate as zeroth-order agent has a parallel in Pye's [26] distinction between \textit{workmanship of risk} (the outcome depends on the maker's competence at every step) and \textit{workmanship of certainty} (the outcome is predetermined by the form, jig, machine). Workmanship of risk lets the substrate speak more loudly; workmanship of certainty dampens the substrate's agency. Both are forms of navigation; they differ in how much of the landscape the substrate itself gets to explore.
+
+\textbf{5.1} A class without a navigating agent is formally possible but empirically empty; it would have zero realised positions and therefore not exist as an observable class.
+
+\textbf{5.11} The agent definition converges from four independent traditions: cybernetics [4, 5, 7], developmental biology [22, 24, 84], machine learning [82], and the free-energy principle [19, 83]. That four domains independently define the same structure (target, measurement, adjustment) confirms that the definition grasps something real. Fields \& Levin [21] put it: the convergence ``dates back at least to Ashby, and includes Maturana and Varela, Pattee, and Rosen''; a historical continuum running from cybernetics via autopoiesis to free energy. Seifert et al. [82] show explicitly that reinforcement learning and developmental biology share the same computational structure: the reward signal is a distance function d, and policy update is the adjustment mechanism δ. Kirchhoff et al. [83] show that Markov blankets formalise the same structure in FEP: the active blanket defines the boundary between agent and environment via exactly this triple. The definition is Turing-complete [6]; any system satisfying (g, d, \msym{δ}) with a convergence guarantee is a universal navigator, irrespective of substrate. Shape grammar is also Turing-complete; Stiny (1975) constructed two independent simulations of Turing machines in the shape-grammar formalism.
+
+\textbf{5.2} Cognitive light cone is Fields \& Levin's [21] generalisation of perceptual boundaries to arbitrary agents. The concept generalises the physical light cone from relativity theory: there is a limit to how much of the morphospace an agent can represent within its own time scale.
+
+\textbf{5.6--5.61} Care as a formal property of agents is from Doctor, Levin et al. [23]. The identity \textit{care = content of intelligence; intelligence = form of care} is our formulation of their insight: that the set of dimensions a system actively adjusts for is the same thing as what we call intelligence.
+
+\textbf{6.12} Multiscale competency is Levin's [22] framework for how biological systems operate agentially at several scales simultaneously. We generalise it to the world of forms: cell, material, tool, maker, market are all agents with their own light cones. Form is the result of their simultaneous navigation.
+
+\textbf{5.61} The proposition is a definition (status d), not a theorem. The identity care = intelligence is a choice of terminology, not an empirical claim. An independent measure of intelligence (for instance navigation efficiency as a function of dim(C(A))) would make the identity testable. Semper [1] was the first to link material technique, form, and cultural meaning in one systematic analysis; the care concept generalises this insight. Thompson [2] showed that biological form follows physical forces; we generalise his insight to all form domains.
+
+\bigskip
+\textbf{Falsification conditions.} Propositions of type \textit{t} (theorem) and \textit{a} (postulate) are falsifiable. Main conditions:
+
+\textbf{2.12} Falsified if one observes a class in which all form variation can be explained by a single factor.
+
+\textbf{2.14} Falsified if usage (not style) predicts more form variation than any other variable within the class.
+
+\textbf{3.12} Falsified if the adaptation function consistently has a single global peak in every class.
+
+\textbf{4.1} Falsified if the landscape is stable over time; if the weights do not change.
+
+\textbf{4.51} Falsified if one-dimensional optimisation produces forms that do not fail along the other dimensions.
+
+\textbf{5.62} Falsified if narrowing the light cone has no negative consequences for the form's robustness.
+
+\textbf{6.1} Falsified if a single agent consistently dictates the morphology of a class.
+
+\textbf{6.3} The style plays, for the world of forms, a role resembling that of the genus in biology; a descriptive category that captures kinship without explaining it. Whether the style carries causal power beyond pattern memory; whether it can canalise navigation actively and not merely passively; is an open question. Falsification experiment: give two groups of designers identical pressures but different style exposure. If style exposure changes form variation significantly beyond the effect of the pressures, the style has causal power beyond pattern memory.
+
+\textbf{6.3} No clean experiment tests style exposure as an independent variable on form variation (as of April 2026). The design-fixation literature confirms that example exposure constrains creative output, but does not isolate style level from example level. The falsification experiment in the 6.3 note is therefore original.
+
+\textbf{6.5} Follows from 2.13 (contradictory pressures preclude permanent equilibrium) and 4.1 (the pressures never rest). Together: no balance is stable over time; each form is valid only for the moment of actualisation.
+
+\textbf{7.2} The proposition is a postulate (status a), not a theorem. The normative claim does not follow from the formal apparatus alone; it requires an additional premise that the design act has consequences for other agents. This premise is parallel to Doctor et al.'s [23] link between care and normativity. That the premise is not deducible does not make it arbitrary; it makes it explicit. The placement in section 7 (and not in section 5) is deliberate: the ethics follows structurally from the capacity--care gap that section 7 names.
+
+\textbf{5.6} The distinction between care and capacity is decisive. A designer of broad capacity who nevertheless attends only to one axis; say, visual novelty alone; shows narrow care despite high capacity. It is care, not capacity, that is legible in the form.
+
+\textbf{5.7} The core equation is a structural schema, not a prediction engine. The analogy is \textit{F = ma} before the force law is known; the equation specifies the form of the explanation, not the explanation itself. Each historical class fills in its own \msym{L}, its own SG, its own C(A), but the schema is shared.
+
+\textbf{5.72} The reduction theorem clarifies the relation to the two source traditions. Stiny-Gips's shape-grammar theory and Hatchuel-Weil's concept-knowledge theory are not two readings of the same process; they are the same process seen under two different collapses. That both traditions have developed independently for four decades without meeting each other is therefore natural: each has made its own limiting case as rich as it can become. Together they do not give one new theory; they give the form of the existing one.
+
+\textbf{5.72 (cont.)} The CK tradition has matured over three decades: from the original papers [16, 17] through the canonical book [74], to reflexive critiques of whether CK is an \textit{engineering} or a more general theory [75], to modern computational experiments with LLM agents [76]. The reduction theorem relates to the whole of this tradition; each step in the CK maturation remains within the same limiting case of the core equation. The parallel maturation on the Stiny side [11, 13, 18] makes the symmetric claim valid: both traditions develop within their own limiting case, not across.
+
+\textbf{5.722} A domain that previously belonged to either shape grammar or concept--knowledge alone now belongs to the field of their non-degenerate intersection. Practical consequences: analyses citing only one of the traditions qualify themselves as limiting cases.
+
+\textbf{7.1--7.2} Proposition 7 contains two distinct claims. The descriptive one (7.1) can be tested empirically: if forms designed under demonstrably narrow care do not perform worse along unrepresented axes than forms designed under broad care, the proposition is refuted. The normative one (7.2) gives the descriptive one direction and relevance, but does not stand or fall with it.
+
+\textbf{7.13} The geology/biology/design parallel is Bateson's [72] ``pattern that connects'': that the same explanatory pattern (pattern in residue carries traces of the process that produced it) applies across domains. Bateson argues for a ``necessary unity'' between nature and mind; we take a weaker stance: the same reading apparatus can be applied, without claiming ontological unity.
+
+\textbf{15, 77, 78} The Michl series covers 25 years: Norwegian roots [77], canonical midpoint [15], English consolidation [78]. Together they constitute the theoretical base for the tractatus's form-follows-function critique. The full bibliography (Michl 1989, 1995, 2002, 2007, 2009, 2014, 2024) is available in \texttt{references.bib}.
+
+\textbf{7.15} The meta-theorem binds 7.1 to 5.722. A failure signature can be read only by a theory that has both a generative layer (to explain what was possible) and a competency layer (to explain what was unrepresented). That no earlier design theory has had both layers is the historical diagnosis the meta-theorem gives.
+
+\textbf{CK critique.} The strongest objection to concept--knowledge theory is that the C space is one-dimensional and that concepts of function and structure are missing. This tractatus addresses both: the morphospace is multidimensional (1.3); affordance structure replaces the function concept (1.31); and shape algebra provides structure (1.32). The reduction theorem (5.72) shows that the objection is not a flaw in concept--knowledge theory, but a diagnosis of the limiting case it represents.
+
+\bigskip
+\textbf{5.212--5.213} The precise information-loss definition of the light cone follows Fields \& Levin [21]: a system is a cognitive agent for a variable if there is a policy \(\pi\) such that the KL divergence \(D_{\mathrm{KL}}(p_{\mathrm{obs}} \| p_{\pi})\) is below the threshold \(\varepsilon\). The definition is operational and substrate-independent.
+
+\textbf{5.65--5.652} The life definition is derived from Levin [22, 24]. To define life as active light-cone maintenance is consistent with classical homeostasis theory (Cannon, 1932) and with the most recent biophysical frameworks for living systems (Friston, 2010 [19]). The definition is falsifiable: it fails if a system that actively maintains its light cone is nonetheless classified as non-living in all relevant domains.
+
+\textbf{8.1} The generative model is a Boltzmann/Gibbs distribution over the morphospace. This form is chosen because it is the unique probability distribution that maximises entropy under energy constraints (Jaynes, 1957). That \(\hat{L}_i\) plays the role of ``energy'' means that each agent's estimate of ``how good a form is'' functions as a free-energy function in Friston's [19] sense. Multiple agents are combined through weighted product form, corresponding to a log-linear combination of the individual preferences.
+
+\textbf{8.3--8.31} The limiting cases in 8.3 correspond exactly to the reduction theorem in 5.72: (i) corresponds to ``pure shape grammar'' and (ii) to ``pure gradient navigation''. Proposition 8.31 is therefore a formal consolidation of 5.721 with explicit reference to the probabilistic formulation in 8.1.
+
+\textbf{5.401} The two-layer structure in the substrate (structure parameters vs. function parameters) is formalised in Hartl, Risi \& Levin [92]. Their simulations show that evolution under noise proceeds significantly faster through functional parameters (MCA) than through direct coding of the target shape. For the world of forms this means that the grammatical layer (rules operating on the configuration) is an adaptive response to noise in the landscape; not merely an expressive convention.
+
+\textbf{5.621} The K metric is Chis-Ciure \& Levin's [86] quantitative operationalisation of competency. The metric is scale-invariant and additive over independent sub-problems. One K unit corresponds to about 3.32 bits of path information. For the world of forms: a designer with K = 3 in a given morphospace saves three orders of magnitude of design work compared to random exploration.
+
+\textbf{5.653} Fields \& Levin [89] show that the Conway--Kochen theorem (2006) and FEP together eliminate any ``bright line'' between cognitive and purely physical systems. All persistent systems formally satisfy the definition of a Bayesian actor. For the world of forms this means that the substrate's agent status is not a metaphor but a physical consequence of persistence itself.
+
+\textbf{6.121} Watson, Levin \& Buckley [87] formalise evolutionary transitions in individuality as deep model induction: only deep, asymmetric interactions (not merely symmetric interplay) produce collective properties that are non-linearly separable functions of the component characters. For the world of forms: tight coupling between agents is not only a strength; it is the formal condition for the whole to qualify as its own agent.
+
+\textbf{6.14} Levin \& Gitelman [93] connect the world of forms directly to design practice: all design with agential material requires a shift from micromanagement to collaboration with competent substrates. Genetic information is not prescriptive but ``prompts'' that are creatively interpreted at every scale. Whitehead's ingression concept [93] provides a framework for how mathematical structures ``enter'' the physical through the interface: form draws not only on contingent selection pressures, but also on Platonic regularities that become available upon realisation.
+
+\textbf{7.1} Falsification requirement: if forms designed under demonstrably narrow care do not perform worse along unrepresented axes than forms designed under broad care, the proposition is refuted.
+
+\textbf{8.1} Falsification requirement: the model fails if a class shows form variation that cannot be decomposed into contributions from \(L(\mathrm{SG})\), \(\hat{L}_i\) and \(C(A_i)\) severally; if grammar, landscape, and light cone together do not predict the distribution better than a simpler model, the framework is superfluous.
+
+}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=south east, inner sep=0] at ([xshift=-12mm, yshift=18mm]current page.south east) {%
+    \includegraphics[width=22mm]{qr.png}%
+  };
+\end{tikzpicture}
+
+\end{widebody}
+
+\end{document}

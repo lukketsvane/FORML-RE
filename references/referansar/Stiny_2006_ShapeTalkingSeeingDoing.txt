@@ -1,0 +1,6 @@
+Title: Shape: Talking about Seeing and Doing
+Author: George Stiny
+Year: 2006
+Publisher: MIT Press
+Summary: 
+Stiny's comprehensive text on shape grammars formalizes how complex forms can be generated from simple initial shapes through the application of recursive, spatial rules. In the FORMLÆRE framework, shape grammars represent the generative engines that explore the morphospace (as implemented in the 3D mutants test). The mathematical operations—addition, substitution, Euclidean transformations (scaling, rotation, translation)—are what enable the formal tracking of style evolution as a path through the topological possibility space.

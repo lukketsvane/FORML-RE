@@ -1,0 +1,122 @@
+% ══════════════════════════════════════════════════════════════
+% Care as Compass — two-column research publication format
+% Target: Design Studies (Elsevier)
+% ══════════════════════════════════════════════════════════════
+
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+% ── Encoding & fonts ──
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext}              % Times Roman — journal standard
+\usepackage{newtxmath}              % Matching math fonts
+\usepackage[final]{microtype}       % Optical margin alignment, protrusion
+
+% ── Page geometry: tight academic layout ──
+\usepackage[
+  top=20mm, bottom=22mm,
+  left=16mm, right=16mm,
+  columnsep=7mm,
+  headsep=8mm, footskip=10mm
+]{geometry}
+
+% ── Line spacing: compact ──
+\usepackage{setspace}
+\setstretch{1.12}                   % Slightly more breathing room
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+
+% ── Section headings: compact, numbered ──
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection.}{0.4em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}{\thesubsubsection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{14pt plus 2pt minus 1pt}{5pt plus 1pt}
+\titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 1pt}{2pt plus 1pt}
+\titlespacing*{\subsubsection}{0pt}{6pt plus 1pt}{2pt}
+
+% ── Citations: APA 7 author-date ──
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[
+  style=apa,
+  backend=biber,
+  sortcites=true,
+  sorting=nyt,
+  uniquename=false,
+  uniquelist=false
+]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{references.bib}
+% Compact bibliography
+\setlength\bibitemsep{0pt}
+\setlength\bibhang{1em}
+\renewcommand*{\bibfont}{\small}
+
+% ── Math ──
+\usepackage{amsmath}
+% amssymb conflicts with newtxmath; newtxmath provides all needed symbols
+\newcommand{\msym}[1]{\ensuremath{#1}}
+
+% ── Figures & tables ──
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{caption}
+\captionsetup{
+  labelfont={bf, small},
+  font={small},
+  skip=4pt,
+  belowskip=2pt,
+  format=plain,
+  justification=justified,
+  singlelinecheck=false
+}
+
+% ── TikZ ──
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, calc, shapes.geometric, decorations.pathreplacing}
+
+% ── Lists: compact ──
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=1.5em, topsep=2pt}
+
+% ── Multicol (for balanced references) ──
+\usepackage{multicol}
+
+% ── Cross-references ──
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue!50!black,
+  urlcolor=blue!60!black
+]{hyperref}
+
+% ── Running head ──
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape Care as Compass}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\footnotesize\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% ── Proposition formatting ──
+\newcommand{\prop}[3]{%
+  \noindent\textbf{#1}\enspace\textit{(#2)}\enspace #3\par\medskip}
+
+% ── Convenience ──
+\newcommand{\formlaere}{\textsc{Forml\ae re}}
+
+% ── Widths for two-column spanning ──
+% Use table* and figure* to span both columns

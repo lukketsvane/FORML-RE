@@ -1,0 +1,40 @@
+\section{Drøfting}
+\label{sec:discussion-nn}
+
+\subsection{Kva teorien forklarer som forgjengarane ikkje gjer}
+
+Teorien gjev sameina forklaringar på fenomen som eksisterande rammeverk adresserer berre delvis eller ikkje i det heile.
+
+\textbf{Kvifor stil predikerer meir enn materiale.} Tilpassingslandskapet forklarer det empiriske funnet direkte: stil er ein stedfortreder for det fulle trykk-settet (minus den klassekonstante affordansen), medan materiale er eitt trykk. Den aggregerte variabelen ber naudsynleg meir informasjon om formvariasjon enn nokon einskildkomponent.
+
+\textbf{Kvifor stilar er gradientar, ikkje klynger.} Hadde stilar vore pålagde av eksterne kategoriske krefter, ville dei produsert diskrete klynger i morforommet. Dei negative silhouette-skårane ($-0{,}338$) stadfestar at stilar er gradientfenomen: kontinuerlege overlappande fordelingar produserte av agentar som navigerer eit delt men skiftande landskap. Stil er det statistiske sporet av navigasjonen, ikkje ei årsak til han \parencite{Kubler1962}.
+
+\textbf{Kvifor formhistoria ligg etter materialhistoria.} Stål fanst i hundreår før røyrstolen. Teorien forklarer denne latensen gjennom skiljet mellom materialaffordanse (operasjonane eit materiale \textit{tillèt}) og sjølve operasjonen (teknikken som \textit{aktiverer} affordansen). Materialtilgang er naudsynleg men ikkje tilstrekkeleg; operasjonen må tre inn i kunnskapsrommet $K$ før morforommet kan ekspandere inn i den nyleg tilgjengelege regionen.
+
+\textbf{Kvifor «form følgjer funksjon» er empirisk usant innanfor ein klasse.} Affordansestrukturen definerer klassen og er konstant innanfor han (proposisjon 1). Per definisjon ber han null informasjon om variasjon innanfor klassen. All variasjon må vere driven av trykk utover den klassedefinerande affordansen.
+
+\subsection{Avgrensingar}
+
+Teorien har seks vesentlege avgrensingar som må erkjennast.
+
+\textbf{Éin artefaktklasse.} Teorien er testa mot éin einaste artefaktklasse (den europeiske stolen). Generalisering til andre klassar; arkitektur, grafisk design, programvaregrensesnitt, biologisk design; er teoretisert men ikkje enno demonstrert. Kryssdomene-replikasjon er det viktigaste neste steget (seksjon~\ref{sec:agenda-nn}).
+
+\textbf{Geografisk avgrensing.} Korpuset er avgrensa til europeiske samlingar. Ikkje-europeiske designtradisjonar er ikkje representerte. Dersom landskapsattraktorane reflekterer universelle fysisk-ergonomiske vilkår, bør ikkje-europeiske stolar konvergere mot liknande morforomsstrukturar. Dersom dei ikkje gjer det, krev teorien revisjon for å romme kulturspesifikke landskapstrekk.
+
+\textbf{Mesh-reliabilitet.} Dei tredimensjonale mesh-modellane er maskinlært rekonstruerte frå museumsbilete (Hunyuan3D-2), ikkje direkte skanna frå fysiske objekt. Rekonstruksjonane er éinbilete-estimat med kjende avgrensingar: underside- og bakside-geometri er interpolert, ikkje observert. Konsistensen av resultata over 84 kryssvalideringstestar gjev indirekte evidens for robustheit, men direkte 3D-skanning av ei delmengd ville styrka det empiriske grunnlaget vesentleg.
+
+\textbf{Landskapsfunksjonen er ubestemt.} Teorien spesifiserer ikkje den funksjonelle forma til tilpassingslandskapet. Vektene $w_i(t)$ i landskapslikninga er behandla som tidsvarierande parametrar, ikkje som funksjonar med spesifisert dynamikk. Kjerne-likninga er eit strukturelt skjema; ho identifiserer dei rette komponentane, men ein fullstendig prediktiv teori krev spesifikasjon av $L$ og $C(A)$ for konkrete domene.
+
+\textbf{MI-kontrollen.} Resultatet at stil predikerer meir enn materiale (MI-asymmetrien) er delvis forventa frå konstruksjonen: stil er ein aggregert variabel med 25 kategoriar, medan materiale er éin variabel. Sjølv om asymmetrien er konsistent over alle hold-outs, ville ein kontroltest mot ein tilfeldig aggregert variabel med same kardinalitet styrka argumentet.
+
+\textbf{Omsorg er ikkje direkte målt.} Proposisjon 5--7 (agens, omsorg, diagnostikk) er formaliserte og illustrerte, men ikkje direkte testa i den noverande studien. Ein operasjonell måleprotokoll for omsorg; til dømes gjennom tenkjehøgt-protokollanalyse; er eit ope forskingsprogram.
+
+\subsection{Samtidige tilnærmingar}
+
+Den einaste publiserte studien me kjenner til som anvender morforomsanalyse på designa artefaktar er Valverde et al. sitt arbeid med arkadespel \parencite{Valverde2025}, der CPU-hastigheit og ROM-storleik utgjer aksane. Deira funn; diversifisering, stabilisering og kollaps over fire tiår; er konsistente med proposisjon 3--4 i \formlaere{}. Den noverande studien skil seg ved å leggje til eit formelt agentlag (proposisjon 5--7) og ved å teste mot eit vesentleg meir heterogent artefaktkorpus der formvariasjonen ikkje let seg redusere til to tekniske parametrar.
+
+\subsection{Tilhøve til eksisterande designteoriar}
+
+Teorien er \textit{sterkare} enn C-K-teori åleine: han legg morforomsgeometri og landskapsdynamikk til den epistemiske logikken. Han er \textit{meir generell} enn formgrammatikkar åleine: han legg agenten, seleksjonstrykket og landskapet til det syntaktiske apparatet. Han er \textit{meir spesifikk} enn Levin sitt multiskala-kompetanserammeverk åleine: han gjev ein designdomene-formalisering som gjer det generelle rammeverket empirisk operasjonelt for artefaktar.
+
+Teorien \textit{erstattar} ikkje desse rammeverka; han \textit{integrerer} dei. Kjernalikninga $\mathrm{Form} = SG(\nabla_{C(A)} L(c,t))$ er integrasjonspunktet.

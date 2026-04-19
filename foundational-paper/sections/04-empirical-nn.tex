@@ -1,0 +1,129 @@
+\section{Empirisk demonstrasjon}
+\label{sec:empirical-nn}
+
+Proposisjonane i teorien er ikkje berre logisk koherente; dei er empirisk falsifiserbare. Me testar kjernepredikasjonane mot eit korpus av europeiske stolar som spenner 744 år. Figur~\ref{fig:morphospace} viser korpuset projisert i morforommet og tilpassingslandskapet avleidd frå det.
+
+\begin{figure*}[!t]
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/fig-morphospace-nn.pdf}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figures/fig-landscape-nn.pdf}
+\end{minipage}
+\caption{\textbf{A}: 1\,662 europeiske stolar projiserte i morforommet (breidde $\times$ høgde); farge kodar dato. \textbf{B}: Tilpassingslandskapet som kjernetettleiksestimat med gradientvektorfelt og periodesentriod-trajektorie (raud).}
+\label{fig:morphospace}
+\end{figure*}
+
+\subsection{Data}
+
+Korpuset består av 2\,066 stolar (1280--2024) henta frå to museumssamlingar: Nasjonalmuseet, Oslo ($n = 63$) og Victoria and Albert Museum, London ($n = 2\,003$). Kvar post inkluderer katalogdimensjonar (høgde, breidde, djupn i centimeter), materialsamansetjing (fleirmateriell streng, t.d.\ ``eik, rotting, messing''), stilperiode (25 kanoniske kategoriar frå barokk til postmodernisme), nasjonalitet og dateringsintervall.
+
+Katalogdataa er supplerte med 2\,204 tredimensjonale mesh-modellar genererte frå museumsbilete ved hjelp av Hunyuan3D-2, ein éinbilete-til-3D-rekonstruksjonsmodell. Kvar mesh vert generert frå det primære museumsbiletet og lagra som GLB-format. Frå kvar mesh vert seks geometriske trekk utrekna: sfærisitet, fyllingsgrad, tregleiksratio, kompleksitet, konveks hylster-volum og mesh-vertekstal. Metoden har kjende avgrensingar: underside- og bakside-geometri er interpolert frå éi biletevinkling, ikkje direkte observert. Trass dette produserer dei utrekna trekka konsistente resultat over alle 84 kryssvalideringstestar, noko som indikerer at systematiske rekonstruksjonsfeil ikkje dominerer over reelle morfologiske signal.
+
+Analysevinduet for tidsserietestar er 1500--2024, noko som gjev 1\,105 stolar med fullstendige dimensjonar og dateringsdata. Det fullstendige datasettet og analysekoden er tilgjengelege i eit ope følgjebibliotek.
+
+\subsection{Metodar}
+
+Kvar proposisjon genererer ein testbar predikasjon. Me operasjonaliserer desse gjennom fem statistiske metodar:
+
+\begin{enumerate}
+\item \textbf{Gjensidig informasjon} (MI) samanliknar prediktiv styrke for stilperiode mot materiale på katalogdimensjonar (H, B, D, H/B). Stil er ein aggregert variabel som fangar mange samtidige trykk; materiale er eitt mekanisk trykk. Høgare MI for stil er difor delvis forventa \textit{a priori} og provar ikkje i seg sjølv at stil \textit{forårsakar} meir variasjon. Likevel er det konsistent med proposisjon 2.
+
+\item \textbf{Variasjonskoeffisient} (CV) over dei seks mesh-trekka testar for eit avgrensningshierarki: dersom landskapet kanaliserer somme geometriske eigenskapar sterkare enn andre, bør CV-spreiinga vere stor (proposisjon 3).
+
+\item \textbf{Silhouette-analyse} i firedimensjonalt mesh-rom testar om stilperiodar utgjer diskrete morfologiske klynger. Negative silhouette-skårar indikerer at stilkategoriar ikkje svarar til kompakte, velskilte klynger i formrommet; dette er konsistent med gradienthypotesen (proposisjon 3), men utelukkar ikkje alternative klyngjeløysingar.
+
+\item \textbf{Kumulativt konveks hylster-volum} over suksessive 50-årsperiodar testar om det busette morforommet veks monotont (proposisjon 4). Monoton vekst er forventa for eitkvart akkumulerande utval; den informative samanlikninga er \textit{vekstraten} relativt til ein tilfeldig-trekking-nullmodell.
+
+\item \textbf{Wasserstein-distanse} mellom konsekutive 50-årsperiodar testar om landskapet endrar seg signifikant over tid (proposisjon 4).
+\end{enumerate}
+
+Alle testar er kryssvaliderte mot 14 uavhengige delmengder: heile korpuset, kvart museum separat, sju hundreår-drop hold-outs, og to stil-drop hold-outs. Dette gjev 84 test-delmengd-kombinasjonar.
+
+\subsection{Resultat}
+
+\begin{table*}[!t]
+\centering
+\caption{Oppsummering av empirisk evidens. \textbf{Sterk}: stor effektstorleik, smal KI, robust i alle hold-outs, falsifiseringstest halden.}
+\label{tab:evidence}
+\small
+\begin{tabularx}{\textwidth}{@{} >{\raggedright}p{0.14\textwidth} >{\raggedright}p{0.20\textwidth} >{\raggedright}p{0.22\textwidth} c >{\raggedright\arraybackslash}p{0.08\textwidth} @{}}
+\toprule
+\textbf{Proposisjon} & \textbf{Test} & \textbf{Resultat} & \textbf{Robust?} & \textbf{Rating} \\
+\midrule
+1 (morforom) & NN-distanse CV & 5,36 (Poisson-null: 0,36) & 11/11 & Sterk \\[2pt]
+2 (trykk) & MI: stil vs materiale & Stil vinn 4/4 dimensjonar & 14/14 & Sterk \\[2pt]
+2 (trykk) & Min parvis MI & 0,030 bits (uavhengigheit) & --- & Sterk \\[2pt]
+3 (landskap) & CV-spreiing, mesh & 128$\times$ range & 14/14 & Sterk \\[2pt]
+3 (landskap) & Silhouette, mesh & $-$0,338; 21/25 negative & 14/14 & Sterk \\[2pt]
+4 (dynamisk) & Hylster-vekst, katalog & 107$\times$ monoton & 14/14 & Sterk \\[2pt]
+4 (dynamisk) & Hylster-vekst, mesh & 553$\times$ monoton & 14/14 & Sterk \\[2pt]
+4 (dynamisk) & Wasserstein $d$(H) & 14,4 cm per periode & 10/10 & Sterk \\[2pt]
+4 (dynamisk) & Mahogni-kohort & 16/16 = 100\% & --- & Sterk \\[2pt]
+5 (agentar) & KS vs uniform null & $p \ll 10^{-200}$ alle dim & --- & Sterk \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+Tabell~\ref{tab:evidence} oppsummerer dei ti kjernefunna.
+
+\textbf{Morforommet er ikkje-uniformt busett} (proposisjon 1). Nærmaste-nabo variasjonskoeffisienten er 5,36; femten gonger Poisson-nullforventninga på 0,36 ($\mathrm{CI}_{95}$: [3,71; 5,94]).
+
+\textbf{Stil predikerer meir enn materiale} (proposisjon 2). Gjensidig informasjon mellom stilperiode og form er 1,9--2,3 gonger større enn mellom materiale og form, over alle fire målte dimensjonar. Sidan stil er ein aggregert variabel med fleire kategoriar enn materiale, kan asymmetrien delvis vere eit kardinalitetsartefakt. Ein kontrollanalyse avkreftar dette: 1\,000 tilfeldige grupperingar med same kardinalitet som stilperiode gjev MI-verdiar som er 80--85 gonger lågare enn den observerte ($p < 0{,}001$ for alle fire dimensjonar). Stil ber reell morfologisk informasjon, ikkje berre høgare kategorital.
+
+\textbf{Stilar utgjer ikkje diskrete klynger} (proposisjon 3). Silhouette-analyse i firedimensjonalt mesh-rom gjev ein skåre på $-0{,}338$ ($\mathrm{CI}_{95}$: [$-0{,}346$; $-0{,}329$]), med 21 av 25 stilkategoriar med negative individuelle skårar. Dette er konsistent med gradienthypotesen.
+
+\textbf{Eit avgrensningshierarki finst} (proposisjon 3). Variasjonskoeffisienten spenner 128-falt over dei seks mesh-trekka ($\mathrm{CI}_{95}$: [50$\times$; 158$\times$]). Sfærisitet (CV $= 0{,}074$) er stramt avgrensa; volum (CV $= 9{,}39$) fluktuerer fritt. Figur~\ref{fig:channeling} viser hierarkiet.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig-kanalisering-nn.pdf}
+\caption{Avgrensningshierarki: variasjonskoeffisient (CV) for seks mesh-trekk, rangert frå mest avgrensa (sfærisitet) til minst avgrensa (hylster-volum). Horisontale strekk viser 95\% bootstrap-KI.}
+\label{fig:channeling}
+\end{figure}
+
+\textbf{Stilar utgjer ikkje diskrete klynger} (proposisjon 3). Figur~\ref{fig:silhouette} viser silhouette-skårane per stilperiode.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig-silhouette-nn.pdf}
+\caption{Silhouette-analyse i firedimensjonalt mesh-rom. Alle 25 stilkategoriar har negativ eller nær-null silhouette-skåre ($\overline{s} = -0{,}338$), noko som stadfestar at stilar er overlappande gradientar, ikkje diskrete klynger.}
+\label{fig:silhouette}
+\end{figure}
+
+\textbf{Morforommet ekspanderer kumulativt} (proposisjon 4). Det kumulative konvekse hylsteret ekspanderer monotont over ti 50-årsperiodar ($\mathrm{CI}_{95}$: [435$\times$; 752\,308$\times$]). Figur~\ref{fig:expansion} viser vekstkurva.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig-ekspansjon-nn.pdf}
+\caption{Kumulativ morforoms-ekspansjon. Rust linje: konveks hylster-volum (logaritmisk skala). Blågrøn stipla: kumulativt stoltal. Kvar ny 50-årsperiode bidreg genuint nye formregionar.}
+\label{fig:expansion}
+\end{figure}
+
+\textbf{Landskapet endrar seg signifikant mellom periodar} (proposisjon 4). Gjennomsnittleg Wasserstein-1-distanse mellom konsekutive periodar er 14,4~cm (H), 8,2~cm (B) og 5,9~cm (D). Ingen av ti periodeovergangar viser nær-null-distanse.
+
+Figur~\ref{fig:materialstream} viser materialsamansetjinga til korpuset over tid. Dei suksessive bølgjene; frå eik gjennom valnøtt, mahogni, stål og plast; visualiserer materialstraumane som driv landskapsendringa (proposisjon 4). Figur~\ref{fig:latency} demonstrerer latenshypotesen (proposisjon 2): når eit nytt materiale kjem inn i korpuset, klyngjer sentroiden seg fyrst nær det eksisterande morforomssenteret; geometrisk divergens følgjer fyrst etter at dei materialspesifikke operasjonane er oppdaga og utnytta.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig-materialstraum-nn.png}
+\caption{Materialstraumar over 500 år. Kvart sjikt viser talet på stolar per 50-årsperiode etter primærmateriale. Suksessive bølgjer (eik, valnøtt, mahogni, stål, plast) driv kumulativ morforoms-ekspansjon.}
+\label{fig:materialstream}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig-materiallatens-nn.png}
+\caption{Materiell latens. Øvste panel: morforoms-sentroidar for fire materiale (stål, plast, kryssfiner, aluminium) plotta mot heile korpuset (grått). Pilar sporar sentroidrørsle over tid. Nedste panel: latens-divergens tidslinje som viser at geometrisk divergens følgjer materialintroduksjon med eit systematisk etterslep.}
+\label{fig:latency}
+\end{figure}
+
+\subsection{Robustheit og falsifisering}
+
+Alle 84 test-delmengd-kombinasjonar produserer resultat konsistente med heile-korpus-funna. Desse er ikkje 84 uavhengige testar; delmengdene overlappar vesentleg. Konsistensen på tvers av medvite adversarielle hold-outs (museumsskifte, hundreårs-fjerning, stil-fjerning) gjev likevel evidens for at funna ikkje er artefakt av éi enkelt samling, periode eller stilkategori.
+
+Sju direkte falsifiseringstestar målrettar teoriens postulat. Alle sju held med $p$-verdiar under $10^{-63}$ for dei sterkaste testane. Ingen postulat er falsifisert i datasettet. Fire tilleggstestar vart forsøkte og droppa for utilstrekkeleg effektstorleik; desse er dokumenterte transparent som negative eller inkonklusive resultat.

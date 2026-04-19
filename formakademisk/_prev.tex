@@ -1,0 +1,685 @@
+\documentclass[10pt,a4paper,twocolumn]{article}
+
+\usepackage[a4paper,top=16mm,bottom=18mm,left=14mm,right=14mm,columnsep=6mm]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=nynorsk]{norwegian}
+
+\IfFontExistsTF{EB Garamond}{
+  \setmainfont{EB Garamond}[Numbers={Lining,Proportional}]
+}{
+  \setmainfont{TeX Gyre Pagella}
+}
+
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\graphicspath{{figures/}{figures/png/}{figures/png_empirical/}}
+\usepackage{caption}
+\captionsetup{font=footnotesize,labelfont=bf,labelsep=period,justification=justified,skip=3pt}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage[authoryear,round]{natbib}
+\bibliographystyle{apalike}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,arrows.meta,backgrounds,shapes.geometric,fit,decorations.pathreplacing}
+\usepackage{xcolor}
+\definecolor{accentcol}{RGB}{180,115,50}
+\definecolor{accent2col}{RGB}{110,140,175}
+\definecolor{slatecol}{RGB}{60,75,95}
+\definecolor{lightslate}{RGB}{225,230,238}
+\definecolor{lightaccent}{RGB}{245,228,205}
+\definecolor{lightaccent2}{RGB}{222,230,240}
+\definecolor{dimgrey}{RGB}{140,140,140}
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\small\bfseries}{\thesubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{0.7\baselineskip}{0.15\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.45\baselineskip}{0.08\baselineskip}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35\baselineskip}
+\linespread{1.02}
+\setlength{\columnsep}{6mm}
+
+\newtheorem{theorem}{Teorem}
+\newtheorem{proposition}{Påstand}
+\newtheorem*{proof*}{Bevisskisse}
+
+\usepackage{tcolorbox}
+\tcbset{colback=lightslate!40,colframe=slatecol,boxrule=0.6pt,arc=1.5pt,
+        left=3mm,right=3mm,top=2mm,bottom=2mm}
+
+% float parameters: allow many figures per page, heavy float content
+\usepackage{placeins}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.92}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.72}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.72}
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{8}
+\setcounter{bottomnumber}{8}
+\setcounter{dbltopnumber}{8}
+
+\makeatletter
+
+\begin{document}
+
+\twocolumn[\begin{@twocolumnfalse}%
+\vspace*{-6mm}
+{\fontsize{54pt}{58pt}\selectfont\bfseries\color{slatecol}Formlære\par}
+\vspace{1mm}
+{\fontsize{18pt}{22pt}\selectfont\bfseries\color{accentcol}%
+Grunnlaget for ein substrat-uavhengig formvitskap\par}
+\vspace{3mm}
+{\small Iver Raknes Finne\quad\textbar\quad Arkitektur- og designhøgskolen i Oslo\quad\textbar\quad\texttt{iver.raknes.finne@stud.aho.no}\quad\textbar\quad 2026\par}
+\vspace{4mm}
+\begin{tcolorbox}
+\small
+\noindent\textbf{Abstract.}\;
+Biologien har hatt ei eiga formvitskap i over hundre år. Designfaget har aldri etablert ei tilsvarande disiplin for artefakter, sjølv om spørsmålet \textit{kvifor har ting den forma dei har} er det same i begge domene. Denne artikkelen presenterer grunnlaget for \textbf{Formlære}, ei substrat-uavhengig formvitskap som tek forma si tese frå biologien: \textit{form følgjer tilpassing, avgrensa av grammatikk og representasjon}. Kjerne-likninga uttrykkjer form som responsen av ein generativ formgrammatikk på den vekta gradienten av fleire agent-spesifikke estimat av eit tilpassingslandskap, projisert på skjeringa av agentane sine representasjonsrom. Stasjonær fordeling gjev ein Boltzmann-form som den maksimalentropi-konsistente prediksjonen. Vi viser at formgrammatikken og C-K-teorien er degenererte grensetilfelle av kjerne-likninga, og at 20–70 år gamle paleobiologiske metodar (Gingerich haldane-ratar, Harmon makroevolusjonsmodellar, Butler \& King OU multi-optima, Sidlauskas phylomorphospace, Goswami modularitet, Stayton konvergens) kan appliserast direkte på eit norsk museumskorpus av 1997 stolar med 3D-geometri. Det prediktive hovudfunnet er \textit{morfologisk karakterforskyving}: etablert materialers form kollapsar når nye substrat invaderer nisjen. Kjerne-likninga gir for fyrste gong designteorien eit operativt apparat med falsifiseringsvilkår på tre nivå.\par
+\smallskip
+\noindent\textbf{Nøkkelord:} formvitskap, formlære, tilpassingslandskap, formgrammatikk, C-K-teori, morfologi, substrat-uavhengig agens, paleobiologi, evolusjonær morfometri
+\end{tcolorbox}
+\vspace{3mm}
+\end{@twocolumnfalse}]
+\makeatother
+
+% ─── Figur 1: tre tradisjonar som konvergerer ─────────────────────────
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{17_tre_tradisjonar_konvergens.png}
+\caption{Tre formelle tradisjonar som konvergerer i kjerne-likninga. \citet{stinygips1972} leverer den syntaktiske algebraen gjennom formgrammatikken; \citet{hatchuelweil2003} leverer den epistemiske navigasjonen gjennom C-K-teorien; \citet{levin2022} leverer den dynamiske navigasjonsmekanikken gjennom substrat-uavhengig agens. Likninga bryt så ut i dei tre komponentane ingen av tradisjonane åleine har hatt alle av.}
+\label{fig:konvergens}
+\end{figure}
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Den manglande vitskapen}
+% ═════════════════════════════════════════════════════════════════════
+
+Biologien har hatt ei formvitskap i over hundre år. Designfaget har aldri etablert noko tilsvarande. Artikkelen presenterer eit grunnlag for å rette opp denne asymmetrien, og plasserer dei to eksisterande formelle tradisjonane i designteorien som degenererte grensetilfelle av eit meir allment rammeverk.
+
+\subsection{Biologiens formvitskap}
+
+\citet{thompson1917} viste i \textit{On Growth and Form} at biologisk form følgjer fysiske krefter som overflatespenning, turgortrykk og vekstrater. \citet{raup1966} demonstrerte at den totale morfologiske variasjonen blant alle realiserte skjell i evolusjonen ligg innanfor eit tredimensjonalt parameterrom; skjell som aldri er funne, kan karakteriserast som punkt i dei uaktualiserte regionane. \citet{wright1932} formaliserte tilpassingslandskapet som vektorsummen av alle verksame seleksjonstrykk. \citet{waddington1957} introduserte det epigenetiske landskapet og omgrepet kanalisering: robustheit mot forstyrringar som er målbart bunde til brattleiken på dalveggane. \citet{mitteroecker2009} har utvida formrommet til eit allment teoretisk verktøy, substrat-uavhengig definert gjennom målbare eigenskapar heller enn artsspesifikke detaljar. \citet{mcghee2007} har samla formrom og tilpassingslandskap i eitt rammeverk og vist at teoretisk morfometri er blitt ein operasjonell syntese.
+
+Tradisjonen har gjort formspørsmålet operasjonelt: ein biolog kan måle forma, plassere ho i eit formrom, identifisere seleksjonstrykk, rekonstruere utviklingshistorie, og prediktere kva former som vil realiserast under gjevne vilkår \citep{arnold2001, wagner2005}. Nyare arbeid som \citet{polly2016} har vidareutvikla syntesen gjennom kombinasjon av geometrisk morfometri og finite-element-analyse, og \citet{contrerasfigueroa2023} har demonstrert at operasjonell morforom-konstruksjon med måling direkte på fotografiske spesimen er gjennomførbar for komplekse strukturklassar som bløtdyrskal.
+
+\subsection{Designfagets fråvær og dei partielle føregangarane}
+
+Designfaget har aldri etablert ei tilsvarande operasjonell disiplin. \citet{sullivan1896} si aforisme \textit{form ever follows function} har \citet{michl1995} dokumentert forklarer alt og difor ingenting. Men det vil vere vilkårleg å påstå at designfaget ikkje har rekt etter ein slik vitskap. Fleire tenkjarar har teke delar av vegen utan å samle komponentane.
+
+\citet{alexander1964} formulerte design som reduksjon av misfit-vektorar i eit vilkårsrom; apparatet har formell struktur nær eit tilpassingslandskap, men utan eit generativt grammatikk-lag og utan ein substrat-uavhengig agent-formalisme. \citet{simon1969} definerte designvitskapen som ein systematisk disiplin for det artificielle, med indre og ytre miljø i dialog; eit ambisiøst program som mangla formell algebra over formrommet. \citet{steadman1979} overførte biologiske formmodellar direkte på artefakter i \textit{The Evolution of Designs}; overføringa var ana\-logisk, ikkje substrat-uavhengig, og mangla representasjonsrom-omgrepet. \citet{basalla1988} skildra den teknologiske evolusjonen som ein darwinistisk prosess; skildringa er deskriptiv, ikkje generativ. \citet{petroski1992} viste at svikt fungerer som seleksjon for nyttige ting; innsikta er i landskapstermar, men utan formalisme. \citet{wbarthur2009} formaliserte teknologi som kombinatorisk evolusjon der nye teknologiar er strukturerte kombinasjonar av eksisterande; ein generativ grammatikk i realiteten, men utan eksplisitt kopling mot landskap. \citet{pye1968} skilde mellom risikohandverk og vissheitshandverk; eit substrat-argument \textit{avant la lettre}, men på eitt nivå av agens. \citet{kauffman1993} arbeidde på NK-landskap for kultur; landskapet var kollektivt, ikkje posisjonert i eit formrom med realiserte punkt.
+
+Dei to formelle tradisjonane som seinare er utvikla innanfor designteorien, har modnast utan eksplisitt forhold til landskapsomgrepet. Formgrammatikken til \citet{stinygips1972} er ein presis generativ algebra for kva former som kan genererast frå gjevne reglar, men spesifiserer inga teori om kva av dei genererte formene som er sannsynlege. Tanke-kunnskapsteorien til \citet{hatchuelweil2003, hatchuelweil2009} er ein presis epistemisk dynamikk mellom konseptrom og kunnskapsrom, men spesifiserer inga generativ algebra over formrommet. Kvar av dei to tradisjonane har gjort sitt grensetilfelle så rikt som det kan bli, utan at dei to møtest i eit felles rammeverk.
+
+Fråværet er difor ikkje eit fråvær av teori i designfaget generelt; det er eit fråvær av ei samlande \textit{formell formvitskap} der grammatikk, landskap og representasjon står saman. Ingen av dei partielle føregangarane har hatt alle tre; formvitskapen i biologien har hatt minst to av tre sidan Wright og Waddington.
+
+\subsection{Diagnose og asymmetri}
+
+At designfaget manglar ei samlande formvitskap, er ein diagnose. Han peikar på eit kollektivt fråvær, ikkje på ei individuell forsømming, og inviterer samarbeid heller enn revirstrid. Dei partielle føregangarane har levert delar; det som manglar er syntesen som gjer dei tre komponentane (grammatikk, landskap, representasjon) operasjonelle samstundes og substrat-uavhengig.
+
+Formlære er namnet på eit slikt forsøk. Den sentrale påstanden er ikkje at rammeverket er nytt i sine enkeltdelar. Ho er at designfaget kan ha ein operasjonell vitskap om form, på same måten som biologien har hatt ein i over hundre år, og at kjerne-likninga presentert her er ein kandidat til å utgjere fundamentet.
+
+Tesa kan formulerast kort: \textbf{form følgjer tilpassing, avgrensa av grammatikk og representasjon}. Artikkelen viser at dei to eksisterande formelle tradisjonane er grensetilfelle av denne tesa; formelle bevis er i appendiks~A. Falsifiseringsvilkåra er spesifiserte i seksjon~6.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Tre grunnomgrep}
+% ═════════════════════════════════════════════════════════════════════
+
+Formlære kviler på tre grunnomgrep, alle etablerte i andre vitskapar. Dei tre utgjer minimumsstrukturen ein samlande formvitskap treng; færre, og ein fell inn i eit av grensetilfella seksjon~5 diskuterer.
+
+\subsection{Formrom}
+
+La $M$ vere mengda av alle moglege konfigurasjonar for objekt i ein gjeven klasse. Kvar akse i $M$ er ein målbar eigenskap. Omgrepet er innført av \citet{raup1966} og vidareutvikla som eit substrat-uavhengig teoretisk verktøy av \citet{mitteroecker2009}. Kvar realisert form $F$ er eit eksakt punkt i $M$; kvar uaktualisert men mogeleg form er òg eit punkt. Det empiriske formrommet er alltid ein projeksjon; inga endeleg mengd parametrar fangar den latente kompleksiteten fullt ut. Formrommet deler seg i realiserte posisjonar, uaktualiserte men tilgjengelege posisjonar, og posisjonar utelukka av materielle vilkår. Grensa mellom dei to siste er materiell, ikkje logisk, og kvar ny materialkunnskap kan forskyve henne.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{01_formrom_raup.png}
+\caption{Formrom $M$ for bløtdyrskal etter \citet{raup1966}. Dei tre aksane er spiralutviding $W$, spiraltranslasjon $T$ og avstand frå akse $D$. Fylte punkt markerer realiserte taxa; opne punkt markerer posisjonar som er geometrisk og materielt moglege, men som ikkje er realiserte i evolusjonshistoria. Same operasjon er gjennomførbar for artefaktklassar; \citet{contrerasfigueroa2023} demonstrerer dette for bløtdyrskal med direkte parametermåling frå fotografiske spesimen.}
+\label{fig:formrom}
+\end{figure}
+
+\subsection{Tilpassingslandskap}
+
+La $\mathcal{L}: M \to \mathbb{R}$ vere ein funksjon som tilordnar kvar posisjon i formrommet ein skalar verdi, tolka som graden av samtidig løysing for alle verksame seleksjonstrykk. Omgrepet er frå \citet{wright1932}, utvida av \citet{waddington1957} til utviklingsprosessar og formalisert vidare av \citet{arnold2001}. Landskapet er ikkje deterministisk; det endrar sannsynsfordelinga over realiserte former utan å tvinge ein spesifikk geometri. Fleire seleksjonstrykk verkar samstundes, og minst to peikar typisk i motstridande retningar; kvar realisert form er difor eit kompromiss.
+
+Landskapet er agent-spesifikt. Kvar agent $A_k$ har sitt eige estimat $\mathcal{L}_k$, og det totale landskapet agent $k$ navigerer kan dekomponerast:
+\begin{equation}
+\mathcal{L}_k(x) = \mathcal{L}_{\mathrm{ext}}(x) + \sum_{j \neq k} \phi_{jk}(A_j, x),
+\label{eq:landskapdekomp}
+\end{equation}
+der $\mathcal{L}_{\mathrm{ext}}$ er dei substrat-uavhengige, eksterne seleksjonstrykka og $\phi_{jk}$ er interaksjonstermar mellom agentar. Fortegnet på $\phi_{jk}$ representerer om agent $j$ sin aktivitet forsterkar eller motarbeider agent $k$ sin navigasjon. Antagonisme mellom agentar er difor del av den formelle strukturen, ikkje eit unntak frå henne.
+
+Landskapet er dynamisk. Trykka kviler aldri; haugar stig, søkk, flyttar seg, deler seg og smeltar saman. Landskapet har minne: kvar realisert form endrar seleksjonstrykka for den neste \citep{arthurbrian1994}. All formgjeving er omformgjeving, og stiavhengigheit er eit fundamentalt trekk. Nisjekonstruksjon \citep{odlingsmee2003} gjer den same innsikta eksplisitt for biologi: kvar realisert konfigurasjon deformerer landskapet rundt seg.
+
+Landskapet opererer på fleire abstraksjonsskalaer samstundes. Eit enkelt formgjevingsproblem involverer typisk trykk frå molekylnivå (material-affordansar), individnivå (ergonomi), samfunnsnivå (kulturell preferanse) og biosfære (ressurs-tilgjenge), alle med ulike tidsskalaer.
+
+\subsection{Agent og representasjonsrom}
+
+La $A$ vere ein operator definert av trippelet måltilstand, avstandsmåling, justeringsmekanisme \citep{rosenblueth1943, ashby1956}. Agens krev berre organisering; verken medvit, intensjon eller nervesystem. Formelt er $A := (g, d, \delta)$, og konvergenskravet kan formulerast som at avstanden $d(x_n, g)$ er ikkje-aukande i forventning langs iterasjonen $x_{n+1} = \delta(x_n)$. Den svake konvergensforma er viktig: prøve-og-feile-navigasjon der avstanden aukar mellombels men minskar i forventning, er tillate. Eit kvart system som oppfyller vilkåra er ein agent, uavhengig av substrat \citep{levin2022}.
+
+Kvar agent $A$ har eit representasjonsrom $C(A) \subseteq M$: delmengda av formrommet agenten kan representere og manipulere innanfor ein terskel for informasjonstap \citep{fieldslevin2022}. Formelt er ei form $F$ i $C(A)$ dersom det finst ei politikk $\pi$ slik at Kullback-Leibler-divergensen mellom agenten si observasjon og agenten sin interne prediksjon er under ein terskel $\varepsilon$, gjeve ein eksplisitt prior over $M$. Definisjonen er operasjonell og substrat-uavhengig.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{05_gradient_navigasjon.png}
+\caption{Agent-navigasjon som gradient-følgjing. Venstre: ein agent startar i ein suboptimal region av representasjonsrommet $C(A)$ og følgjer gradienten $\nabla_{C(A)} \hat{\mathcal{L}}$ til eit lokalt optimum. Høgre: gradientfeltet $-\nabla \hat{\mathcal{L}}$ over heile formrommet. Agenten ser berre sin eigen del av feltet; det er dette som gjer representasjonsrommet avgrensande for navigasjonen.}
+\label{fig:gradient}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{18_komponent_diagram.png}
+\caption{Formlære som strukturell tuppel $\mathcal{D} = (M, \Pi, \mathrm{SG}, \mathcal{L}, \mathcal{A})$. Formrommet $M$ er det felles arenaet. Grammatikken genererer kva som er mogeleg gjennom $L(\mathrm{SG})$. Landskapet vektar kva som er sannsynleg. Partisjonen skil det kjende frå det tenkelege. Agenthierarkiet navigerer landskapet via gradienten på eige representasjonsrom, realiserer grammatiske operasjonar, og strukturerer partisjonen.}
+\label{fig:tuppel}
+\end{figure}
+
+Tre-omgrepet agent-formrom-landskap har ein viktig asymmetri. Formrommet er objektivt gjeve av klasseval og aksemåling. Landskapet er òg objektivt, gjeve av dei verksame seleksjonstrykka, men kvar agent har berre sitt eige estimat $\mathcal{L}_k$ av det. Representasjonsrommet er agent-spesifikt og avgrensar både kor presist agenten kan estimere $\mathcal{L}$ og kva regionar av $M$ estimatet er definert over. Kjerne-likninga bind desse tre saman.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Kjerne-likninga}
+% ═════════════════════════════════════════════════════════════════════
+
+Med dei tre grunnomgrepa etablerte står likninga åleine.
+
+La $\{A_k\}_{k=0}^n$ vere eit agenthierarki som opererer på formrommet $M$, kvar med sitt eige estimat $\mathcal{L}_k$ av tilpassingslandskapet og sitt eige representasjonsrom $C(A_k)$. La $\mathrm{SG} = (S, R, \omega)$ vere ein formgrammatikk som definerer det genererte formspråket $L(\mathrm{SG}) \subseteq M$. Den generative dynamikken for ei form $F$ er då:
+\begin{align}
+\mathrm{Form} &= \mathrm{SG}\!\left( \sum_{k=0}^{n} \nabla_{C(A_k)} \mathcal{L}_k(c, t) \right) \label{eq:kjerne}\\
+F &\in L(\mathrm{SG}) \cap \bigcap_{k=0}^n C(A_k) \label{eq:domene}
+\end{align}
+
+Likning~\ref{eq:kjerne} seier at form er grammatikken sin operasjon på den vekta gradienten av agent-spesifikke landskapsestimat, projisert gjennom kvar agent sitt representasjonsrom. Domenevilkåret~\ref{eq:domene} krev at realiseringa ligg både i det grammatikken kan generere og i skjeringa av alle agentar sine representasjonsrom.
+
+\subsection{Stasjonær fordeling og MaxEnt-konsistens}
+
+Under kravet om stasjonær likevekt og konsistens med ei gjeven forventa verdi av $\mathcal{L}$, er Boltzmann-fordelinga den unike sannsynsfordelinga som maksimerer entropi \citep{jaynes1957}:
+\begin{equation}
+P(F \mid \{A_k\}, \mathcal{L}, \mathrm{SG}) \propto \exp\!\left(-\beta \sum_k w_k \mathcal{L}_k(F)\right)
+\label{eq:boltzmann}
+\end{equation}
+for $F$ i domenet~\ref{eq:domene}, der $\beta > 0$ er ein invers temperatur og $w_k$ er agent-spesifikke vekter. Fordelinga er den stasjonære konsekvensen av den dynamiske likninga~\ref{eq:kjerne} når systemet har nådd likevekt; ho er ikkje ein alternativ formulering, men den sannsynsforma av den same dynamikken.
+
+Boltzmann er ikkje det einaste valet. Alternativ som Pareto-fordelingar eller multiplikative former gjer andre antakingar om halar og aggregering.
+
+Boltzmann vel vi fordi han er konsistent med MaxEnt under éin avgrensing (kjent forventa $\mathcal{L}$), som er den minimalt informative antakinga.
+
+\subsection{Avgrensingar og caveats}
+
+Likning~\ref{eq:kjerne} og~\ref{eq:boltzmann} kviler på antakingar som må namngjevast.
+
+Fyrst: for kontinuerleg $M$ krev normaliseringa i~\ref{eq:boltzmann} eit basemål $\mu$ over $M$. Dette er ein standard målteoretisk konstruksjon, men det valet av basemål er ikkje triviell; ulike mål gjev ulike fordelingar.
+
+Deretter: domenet $L(\mathrm{SG}) \cap \bigcap_k C(A_k)$ kan vere tomt. Sjølv om kvar komponent er ikkje-triviell, er skjeringa ikkje garantert. Tomt domene tyder at likninga ikkje gjev ei fordeling, og at den gjevne kombinasjonen av grammatikk og agentar ikkje kan realisere noka form. Dette er ein genuin påstand av modellen, ikkje ein feil.
+
+MaxEnt-argumentet krev kjent forventa $\mathcal{L}$ \citep{jaynes1957}. I design er den forventa verdien sjeldan eksplisitt kjent og må estimerast empirisk. Utan slik estimering er parameteren $\beta$ udefinert.
+
+Vektene $w_k$ er i~\ref{eq:boltzmann} positive ved konstruksjon. Men interaksjonstermane $\phi_{jk}$ i landskapdekomposisjonen~\ref{eq:landskapdekomp} kan ha vilkårleg fortegn, og det er der antagonisme mellom agentar er formelt representert. Negative $\phi_{jk}$ tilsvarer ein agent $j$ som aktivt modifiserer $\mathcal{L}_k$ slik at agent $k$ sin gradient-navigasjon vert omdirigert.
+
+$\mathcal{L}_k$ for ulike $k$ treng ein felles skala for at summen $\sum w_k \mathcal{L}_k$ skal vere veldefinert. Normaliseringa kan gjerast per agent (dele på $|\nabla \mathcal{L}_k|$ lokalt) eller gjennom ein eksplisitt vekting som del av modellen. Dette er eit kommensurabilitetsval som må gjerast ved applikasjon.
+
+Endeleg: det svake Lyapunov-kravet i seksjon~2.3 tillèt prøve-og-feile og mellombels avvik. Det gjer agent-definisjonen robust mot praktisk design-åtferd der avstanden til målet går opp og ned, så lenge tendensen over tid er konvergent.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Kopling til biologien}
+% ═════════════════════════════════════════════════════════════════════
+
+At tilpassingslandskapet er importert frå biologien er ikkje ein metafor. Det er ein formell kopling, og han er den mest kritiske delen av artikkelen å grunngje. Ein skeptisk fagfelle vil spørje: kvifor skal artefakter og organismar dele formapparat? Svaret følgjer av kva type system dei to domena er.
+
+Artefakter er fysiske objekt. Biologiske organismar er fysiske objekt. I begge domene opererer seleksjonstrykk på formmoglegheiter gjennom agentar med avgrensa representasjon. Skilnaden mellom dei to domena ligg i substratet som realiserer agens, ikkje i strukturen av agens sjølv \citep{levin2022, fieldslevin2022}. Ein celle navigerer via bioelektrisk polarisering; ein handverkar via materiell friksjon og korrektiv observasjon; ein ingeniør via beregna simulering og diskrete prosedyrar. Kvar oppfyller trippelet måltilstand, avstandsmåling, justeringsmekanisme; kvar har eit representasjonsrom; kvar opererer i eit formrom deformert av material-affordansar og koordinerte seleksjonstrykk. Den formelle strukturen er identisk; skilnaden er korleis trippelet blir realisert fysisk.
+
+Koplinga er formell fordi den substrat-uavhengige agent-formalismen i \citet{fieldslevin2022} er matematisk definert over vilkårlege tilstandsrom, ikkje over biologiske spesifikasjonar. Kvar persistent, organisert system som kan representere ein måltilstand og redusere avstanden til han, tel som agent i formalismen. Det dekkjer celler, slimsoppar, handverkarar, ingeniørar og språkmodellar i éi handvending.
+
+Konsekvensen er at ein formvitskap på artefakter ikkje treng å utvikle sine eigne metodar frå grunnen av. Ho kan importere eit apparat som har nitti år med empirisk validering. Metodane for å estimere tilpassingslandskap \citep{wright1932, lande1979, arnold2001}, for å identifisere kanaliseringar og utviklingsrobustheit \citep{waddington1957, wagner2005}, for å måle formrom \citep{raup1966, mitteroecker2009, mcghee2007}, og for å rekonstruere utviklingstrajektoriar \citep{gould1977, arthur2004}, er alle tilgjengelege for tilpassing til artefakt-domene. Nyare arbeid har vidareutvikla syntesen gjennom finite element-analyse kombinert med geometrisk morfometri \citep{polly2016}, og har demonstrert at operasjonell morforom-konstruksjon med direkte parametermåling frå fotografiske spesimen er gjennomførbar for komplekse strukturklassar \citep{contrerasfigueroa2023}. Dette er ikkje analogisk tenking, som hjå \citet{steadman1979}; det er direkte matematisk overføring: same likning, ny parameterisering.
+
+Samstundes er koplinga ikkje eittvegs. Artefakter har eit særskilt trekk biologiske organismar ikkje har i same form: dei blir skapte av agentar med representasjonsrom som strekkjer seg forbi deira eigne umiddelbare behov. Ein celle navigerer på sine eigne vegner; ho representerer ikkje sine framtidige brukarar fordi ho ikkje har slike. Ein designar gjer nettopp det. Designaren er ein formgjevar der måltilstanden inkluderer måla til agentar som sjølv ikkje har tilgang til navigasjonsrommet. Det særskilde trekket er den stilte tilliten; designaren navigerer på vegne av andre som vil leve med forma.
+
+Denne asymmetrien gjev formvitskapen på artefakter ein kognitiv dimensjon biologiens formteori ikkje har utvikla same grad av presisjon i. Dimensjonen er innebygd i avgrensinga $\bigcap_k C(A_k)$: når éin av agentane er ein designar med utvida representasjonsrom, vert skjeringa dominert av designaren si evne til å representere andre agentar sine måltilstandar. Kompetansen hennar ligg i å koordinere uavhengige representasjonsrom til eit stabilt form-optimum.
+
+Den substrat-uavhengige koplinga har ein praktisk konsekvens for tverrfagleg forsking. Designarar kan arbeide direkte saman med biologar, økologar og systemforskarar innanfor eit felles formelt apparat, utan at kvar disiplin må omsette omgrepa sine. Ein biologisk vev og eit artefakt-formrom skildrast av den same matematikken når agentar, landskap og representasjonsrom er spesifiserte.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Eksisterande teoriar som grensetilfelle}
+% ═════════════════════════════════════════════════════════════════════
+
+Med den substrat-uavhengige koplinga etablert kan kjerne-likninga brukast til å plassere dei to eksisterande formelle tradisjonane i designteorien. Påstanden er at begge tilsvarer kjerne-likninga under spesifikke degenereringar. Formelle bevis er i appendiks~A; her skisserer vi strukturen.
+
+\subsection{Formgrammatikken som grensetilfelle}
+
+\citet{stinygips1972} definerer ein formgrammatikk som eit trippel $\mathrm{SG} = (S, R, \omega)$ der reglar $r: a \to b$ fyrer på ei form $s$ ved innleiring. Språket $L(\mathrm{SG})$ er mengda av alle former som kan nåast frå $\omega$ gjennom endelege sekvensar av regelapplikasjonar \citep{stiny2006}.
+
+\begin{proposition}
+Formgrammatikken tilsvarer kjerne-likninga når landskapet er flatt og representasjonsrommet er universelt, og fordelinga over $L(\mathrm{SG})$ er uniform.
+\end{proposition}
+
+Set $\mathcal{L}_k(F) \equiv 0$ for alle $F$ og alle $k$, og $|\mathcal{A}| = 1$ med $C(A) = M$. Då er gradienten i~\ref{eq:kjerne} null, grammatikken fyrer ubestemt, og stasjonærforma~\ref{eq:boltzmann} reduserer til uniform fordeling over $L(\mathrm{SG})$. Dette er ekvivalent med den vanlege definisjonen av det genererte språket. Formgrammatikken namngjev kva som er mogeleg, men inneheld inga teori om kva som er sannsynleg innanfor det mogelege.
+
+Observasjonen tek ikkje frå formgrammatikken noko. Den geometriske algebraen med union, differanse, transformasjon og innleiring \citep{stiny2006} er fullt operativ i kjerne-likninga; ho instansierer faktisk denne algebraen kvar gong grammatikk-komponenten er ikkje-triviell.
+
+\subsection{C-K-teorien som grensetilfelle}
+
+\citet{hatchuelweil2003, hatchuelweil2009} formaliserer designprosessen som ein dynamikk mellom eit konseptrom $C$ av proposisjonar utan fastsett sannheitsverdi, og eit kunnskapsrom $K$ av proposisjonar med etablert status, strukturert av fire operatorar \citep{lemasson2010}.
+
+\begin{proposition}
+C-K-teorien tilsvarer kjerne-likninga når grammatikken er triviell og dynamikken reduserer til operasjonar på partisjonen $\Pi$.
+\end{proposition}
+
+Set $\mathrm{SG} = \mathrm{id}_M$ slik at $L(\mathrm{SG}) = \{\omega\}$; grammatikken er ikkje generativ. Likninga~\ref{eq:kjerne} reduserer til operasjonar som endrar partisjonen $(K, C \setminus K)$ og dei agent-spesifikke $\mathcal{L}_k$. Dei fire CK-operatorane $C \to C$, $C \to K$, $K \to C$, $K \to K$ klassifiserast etter retning mellom desse regionane. C-K-teorien har ein rik epistemisk dynamikk, men manglar ein generativ algebra for kva konseptrommet inneheld; \citet{kazakci2015} har peikt på dette som teoriens sentrale svakheit. I kjerne-likninga tilsvarer svakheita eksakt fråværet av $\mathrm{SG}$.
+
+\subsection{Det nye laget}
+
+Kvar av dei to tradisjonane inneheld to av dei tre komponentane. Formgrammatikken har rik grammatikk og rik (universell) representasjon, men trivielt landskap. C-K-teorien har rik representasjon og eit strukturert landskap gjennom K/C-partisjonen, men triviell grammatikk. Ingen har eit strukturert tilpassingslandskap \textit{og} ein generativ formalgebra samstundes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{grensetilfelle.png}
+\caption{Grensetilfelle-plott. Den vertikale aksen måler grammatikkens rikdom (triviell til rik); den horisontale måler tilpassingslandskapets struktur (flatt til strukturert). Formgrammatikken \citep{stinygips1972} okkuperer øvre venstre: rik grammatikk, flatt landskap. C-K-teorien \citep{hatchuelweil2003} okkuperer nedre høgre: triviell grammatikk, strukturert landskap (gjennom partisjonen). Formlære med full kjerne-likning okkuperer øvre høgre, der begge er aktive samstundes. Nedre venstre er utelukka: verken grammatikk eller landskap gjev inga formell formvitskap.}
+\label{fig:grensetilfelle}
+\end{figure}
+
+Tilpassingslandskapet er det nye laget. Det er ikkje ein syntese av dei to tradisjonane; det er eit tredje element, importert frå biologien gjennom den substrat-uavhengige agent-formalismen. Formvitskapens bidrag er å plassere dei to tradisjonane i eit koordinatsystem som har rom for eit element ingen av dei har inkludert, og vise at den ikkje-degenererte kombinasjonen av alle tre har ein presis matematisk form.
+
+Historiske designsituasjonar er sjeldan fullt degenererte: material-affordansar er sjeldan flate, agentar har sjeldan universell representasjon, og grammatikken er sjeldan triviell. Kvar av dei to tradisjonane åleine er difor ofte utilstrekkeleg for dei situasjonane designforskinga arbeider med empirisk. Dei manglar ikkje detaljar; dei manglar eit lag.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Falsifiseringsvilkår}
+% ═════════════════════════════════════════════════════════════════════
+
+At Formlære skal vurderast som vitskap krev at rammeverket har spesifiserte vilkår for å bli tilbakevist. Tre nivå skal skiljast.
+
+\subsection{Modellnivå}
+
+Kjerne-likninga predikerer at formvariasjon i ein klasse kan dekomponerast i bidrag frå tre komponentar: $L(\mathrm{SG})$, $\mathcal{L}_k$ og $C(A_k)$. Modellen er overflødig for ein klasse dersom éin eller to av komponentane predikerer fordelinga like godt som alle tre saman.
+
+Operasjonelt: for ein gjeven klasse, estimer dei tre komponentane separat, bygg tre reduserte modellar, og samanlikn prediktiv kraft med den fulle modellen gjennom informasjonskriterium. Ein $\Delta\mathrm{AIC} > 10$ mellom redusert og full modell i favør av den fulle reknar vi som sterk støtte; $\Delta\mathrm{AIC} < 2$ reknar vi som at komponenten ikkje gjer forskjell for klassen. Dersom fleire klassar systematisk let seg modellere godt utan éin av komponentane, antyder det at komponenten ikkje er universell.
+
+\subsection{Grensetilfelle-nivå}
+
+Reduksjonsteorema i seksjon~5 er formelle under spesifikke degenereringar. Testen er empirisk: finn ein ikkje-degenerert klasse der éin av dei to tradisjonane åleine predikerer formvariasjonen like godt som den fulle kjerne-likninga. Dersom ei slik klasse eksisterer, er den korresponderande komponenten overflødig for den klassen i praksis, sjølv om grensetilfelle-teoremet formelt held.
+
+Merk at dette ikkje er sirkulært. Reduksjonsteoremet seier \textit{viss landskapet er flatt, då} reduserer kjerne-likninga til formgrammatikken. Falsifiseringsvilkåret seier: \textit{viss vi finn ein klasse der landskapet empirisk ikkje er flatt, men formgrammatikken likevel predikerer like godt som den fulle modellen}, då har den fulle modellen ingen prediktiv meirverdi for klassen.
+
+\subsection{Substrat-nivå}
+
+Den sterkaste påstanden i artikkelen er at same formapparatet er gyldig for biologiske og teknologiske domene. Påstanden er falsifiserbar dersom det finst eit domene med veldefinerte persistente former der ingen sett av agentar med representasjonsrom kan tilpassast modellen slik at formvariasjonen vert forklart.
+
+Kandidatar til test er domene med rikeleg historisk data og veldokumenterte seleksjonstrykk: skjelettstrukturar, handverktøy gjennom epokar, arkitektoniske element gjennom stilperiodar. Dersom kjerne-likninga systematisk mispredikerer for eitt slikt domene medan ho predikerer godt for eit anna, er substrat-uavhengigheita tilbakevist for det fyrste domenet.
+
+Ein meir fundamental falsifisering vil vere å identifisere eit fysisk system med persistent formvariasjon som formelt ikkje kan skildrast som agent-over-landskap. \citet{fieldslevin2022} sin formalisme hevdar at alle persistente system med måltilstand oppfyller agent-definisjonen; å finne eit motbevis vil tilbakevise heile den substrat-uavhengige formalismen.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Implikasjonar for designforskinga}
+% ═════════════════════════════════════════════════════════════════════
+
+Formvitskapen, slik ho er skissert her, har tre konsekvensar. Fyrst får feltet eit positivt rammeverk der kritikken av Sullivan-formelen kan erstattast av noko meir enn eit fråvær; kjerne-likninga gjev kritikken ein operativ erstatning. For det andre kvalifiserer analysar som siterer berre éin av dei to eksisterande formelle tradisjonane seg sjølv som grensetilfelle, og slik siteringspraksis bør difor grunngjevast eksplisitt. For det tredje opnar koplinga mot biologien for metodologiske overføringar: kvantitativ morfometri, kanalisering-analyse, rekonstruksjon av utviklingstrajektoriar, og NK-modellering på kulturelle artefakter er alle direkte tilgjengelege \citep{wright1932, lande1979, arnold2001, wagner2005, mcghee2007, polly2016}. \citet{contrerasfigueroa2023} har demonstrert at operasjonell morforom-konstruksjon for komplekse formklassar med direkte parametermåling frå fotografi er gjennomførbar i dag; same pipeline kan applisere på designhistoriske arkiv av stolar, handverktøy og arkitektoniske element.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Opne spørsmål}
+% ═════════════════════════════════════════════════════════════════════
+
+Artikkelen har presentert fundamentet. Fem opne spørsmål peikar retninga for etterfølgjande publikasjonar.
+
+Empirisk estimering av tilpassingslandskap for konkrete artefaktklassar er det mest presserande. Metodane frå kvantitativ evolusjonsgenetikk \citep{lande1979, arnold2001} predikerer seleksjonsgradientar frå statistisk samanheng mellom formtrekk og ytingsvariablar. Same formalismen kan tilpassast artefakter, men krev datasett der formtrekk og ytingsmål er samstundes kvantifiserte. Kontrafaktiske ytingar er nødvendige for å skilje $\mathcal{L}$ frå $\mathcal{L}_k$-estimat; utan dei er identifikasjonen underbestemt.
+
+Operasjonalisering av agent-interaksjonstermane $\phi_{jk}$ og vektene $w_k$ er eit andre. Dorst og Cross har vist at designprosessen er ein \textit{co-evolusjon} av problem og løysing \citep{dorstcross2001}; same struktur kan formaliserast som dynamisk justering av $\mathcal{L}_k$ over tid mellom fleire agentar.
+
+Multi-agent-utviding av formgrammatikken er eit tredje. Stiny-formalismen \citep{stiny2006} er i utgangspunktet mono-agent; multi-agent formgrammatikkar krev utviding som truleg har løysingar i multi-agent forsterkningslæring og distribuerte konsensus-algoritmar.
+
+Den kognitive dimensjonen i representasjonsromma er det fjerde. Evolusjonær epistemologi \citep{campbell1974, popper1972} har argumentert for at kunnskap sjølv utviklar seg under seleksjon; kopla med Fields og Levin sin formalisme er dette eit direkte forskingsfelt om korleis designarar sine representasjonsrom utviklar seg. Heylighen \citeyearpar{heylighen2007} og kompleksitetstradisjonen har nærma seg det same frå kollektiv side.
+
+Endeleg namngjev rammeverket eit gap mellom kva ein agent kan representere og kva ho faktisk representerer. Om dette gapet har normative konsekvensar er eit spørsmål som ikkje kan avgjerast innanfor den formelle modellen åleine og høyrer i ei eiga handsaming.
+
+\subsection*{Takk}
+Arbeidet har vorte til gjennom rettleiingssamtaler ved Arkitektur- og designhøgskolen i Oslo og dialog med fagmiljø i designhistorie og utviklingsbiologi. Inga ekstern finansiering har påverka innhaldet.
+
+\bibliography{formlaere}
+
+% ═════════════════════════════════════════════════════════════════════
+\appendix
+\section{Formelle reduksjonsproof}
+% ═════════════════════════════════════════════════════════════════════
+
+Dette appendikset gjev formelle bevis for proposisjonane i seksjon~5.
+
+\subsection*{A.1 Formgrammatikk som grensetilfelle}
+
+\begin{theorem}[Reduksjon til formgrammatikk]
+La $\mathcal{D} = (M, \Pi, \mathrm{SG}, \mathcal{L}, \mathcal{A})$ vere ein Formlære-instans. Dersom $\mathcal{L}_k(F) \equiv 0$ for alle $F \in M$ og alle $k$, og $|\mathcal{A}| = 1$ med $C(A) = M$, då reduserer den stasjonære fordelinga~\ref{eq:boltzmann} til den uniforme fordelinga over $L(\mathrm{SG})$.
+\end{theorem}
+
+\begin{proof*}
+Under dei gjevne vilkåra er eksponenten i~\ref{eq:boltzmann} null for alle $F$: $\sum_k w_k \mathcal{L}_k(F) = 0$. Difor er $P(F) \propto \exp(0) = 1$ for alle $F$ i domenet~\ref{eq:domene}. Med $|\mathcal{A}| = 1$ og $C(A) = M$ reduserer domenet til $L(\mathrm{SG})$. Normalisering gjev $P(F) = 1/|L(\mathrm{SG})|$ for $F \in L(\mathrm{SG})$, null elles.
+\end{proof*}
+
+Den motsette retninga held ikkje: den uniforme fordelinga over $L(\mathrm{SG})$ spesifiserer ikkje korleis $L(\mathrm{SG})$ er avgrensa av landskapet eller representasjonsrommet, og er difor strengt informasjons-fattigare enn kjerne-likninga.
+
+\subsection*{A.2 C-K-teori som grensetilfelle}
+
+\begin{theorem}[Reduksjon til C-K]
+La $\mathcal{D}$ vere som over. Dersom $\mathrm{SG} = \mathrm{id}_M$ (slik at $L(\mathrm{SG}) = \{\omega\}$ utvida til alle singleton-språk) og $\mathcal{L}_k$ er binær ($\mathcal{L}_k(F) \in \{0, \infty\}$, tilsvarande $F \in K$ eller $F \notin K$), då reduserer kjerne-likninga til operasjonar på partisjonen $\Pi = (K, C \setminus K)$ som er ekvivalente med dei fire CK-operatorane $C \to C$, $C \to K$, $K \to C$, $K \to K$.
+\end{theorem}
+
+\begin{proof*}
+Under $\mathrm{SG} = \mathrm{id}_M$ fyrer ingen generativ regel; grammatikken er inaktiv. Under binær $\mathcal{L}_k$ er $\exp(-\beta \mathcal{L}_k(F))$ anten 1 (for $F \in K$) eller 0 (for $F \notin K$). Fordelinga~\ref{eq:boltzmann} blir difor uniform over $K$, null elles. Dynamikken reduserer til oppdateringar av partisjonen $\Pi$: ein konjektur blir til kunnskap ($C \to K$) når $\mathcal{L}_k$-verdien skiftar frå $\infty$ til $0$; kunnskap gjenbrukt som konjektur ($K \to C$) når ei kjent form vert foreslått mot ein ny problemkontekst; konseptekspansjon ($C \to C$) og kunnskapsutdjuping ($K \to K$) svarer til rørsler innanfor dei to regionane.
+\end{proof*}
+
+Den motsette retninga held ikkje: partisjon-operasjonar åleine spesifiserer ikkje kva som vert generert utanfor $K$, eller korleis nye kandidatar vert foreslått. CK-teorien er difor informasjons-fattigare enn kjerne-likninga.
+
+\subsection*{A.3 Kjerne-likninga som ikkje-degenerert syntese}
+
+\begin{theorem}[Ikkje-de\-ge\-ne\-ra\-sjon]
+For ein ge\-ne\-risk Form\-læ\-re-in\-stans der $\mathrm{SG}$ er ge\-ne\-ra\-tiv, $\mathcal{L}_k$ ikkje-konstant, og $|\mathcal{A}| > 1$, kan ingen av dei to re\-duk\-sjo\-na\-ne over haldast utan tap av in\-for\-ma\-sjon.
+\end{theorem}
+
+\begin{proof*}
+Den fulle modellen spesifiserer $P(F)$ som ein funksjon av alle tre komponentar. Form\-gram\-ma\-tikk-reduksjonen mistar informasjon om relative sannsyn innanfor $L(\mathrm{SG})$. CK-reduksjonen mistar informasjon om kva som er genererbart utanfor $K$. Begge tap er ikkje-trivielle når dei tre komponentane er uavhengige.
+\end{proof*}
+
+Konsekvensen er at Formlære ikkje er erstattbar med nokon av dei to eksisterande tradisjonane når designsituasjonen er ikkje-degenerert.
+
+% ═════════════════════════════════════════════════════════════════════
+\section{Empirisk illustrasjon: stol-datasettet}
+% ═════════════════════════════════════════════════════════════════════
+\label{sec:empiri}
+
+Dette appendikset arbeider direkte på geometri. Datasettet er 1997 stolar henta frå Nasjonalmuseet si samling med komplett tabellgeometri og 3D-meshar (dimensjonar 1300–2024); 1984 har eit nytteverdig år. Analysane bryt med stilperiode-logikken i design\-historiografi: stilperiodar er ikkje geometriske klassar, og den adjusted rand-indeksen mellom stilperiode og rein geometrisk klyngeinndeling er 0,057 (sjå B.2) — dei to taksonomi\-ane er tilnærma ortogonale. Appendikset lever difor på form aleine, og brukar stil\-periodar berre som tilleggs\-informasjon.
+
+Arbeidsmetodane er importerte direkte frå evolusjonær paleobiologi og morfometri: \citet{raup1966} morforom-konstruksjon, \citet{foote1993, foote1997} disparity-through-time, \citet{gingerich1983} haldane-rate, \citet{harmon2010} makroevolusjonsmodellar, \citet{butlerking2004} OU multi-optima, \citet{sidlauskas2008} phylomorphospace, \citet{goswami2007} modularitet, \citet{stayton2015} konvergens-indekser, \citet{ciampaglio2002} nyhetsavstand. Så langt vi veit har ingen av desse tidlegare vore brukt systematisk på eit fullstendig designhistorisk korpus med 3D-geometri. Kvar figur er identifisert med metoden og kjelda.
+
+Figur~\ref{fig:E35} er ein synopsis av dei fire sterkaste empiriske funna: (a) at reint geometri-baserte shape-PC-aksar kan rekonstruerast direkte frå voxel-meshar og renderast som faktiske former; (b) at evolusjonsraten i haldanar ligg konsekvent i domestiserings-regimet, ikkje i vill-makroevolusjons-regimet; (c) at ulike materialklassar har formelt verifiserbart distinkte adaptive optima med ΔAIC > 30{\,}000; og (d) at tallet på levande formtypar har kollapsa etter 1950 med ein mass-extinction-signatur.
+
+\begin{figure*}[!tbp]
+\centering
+\includegraphics[width=\textwidth]{E35_synopsis.png}
+\caption{Synopsis av dei empiriske funna. (a) Shape-PCA-deformasjonar rendra som 3D-meshar. (b) Haldane-rate mot biologiske referanseverdiar. (c) Materialspesifikke OU-optima. (d) Biodiversitets-kurve for formtypar over tid. Alle fire rammeverk fungerer på det same datasettet og gir samansvarande konklusjonar.}
+\label{fig:E35}
+\end{figure*}
+
+\subsection*{B.1 Morforommet, med og utan stolar}
+
+Figur~\ref{fig:E1} presenterer PCA over dei seks standardiserte aksane. Første to komponentar forklarer 67{,}5~\%; tre komponentar forklarer 82{,}5~\%. Biplot-pilene viser at PC1 er dominert av storleiks-aksane (Høgde, Djupn, Breidde), medan PC2 er dominert av form-aksane (Sphericity og Fill-ratio). Skilnaden er substantiv: storleiken varierer i ein retning; kompaktheita varierer i ein annan.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E1_morforom_pca.png}
+\caption{Empirisk morforom over 1997 stolar. (a) PC1-PC2 med biplot-piler som viser kvar av dei seks aksane bidreg. (b) PC1-PC3 som sekundær projeksjon. Punkt er farga kronologisk frå slate (tidleg) til amber (sein), og grå punkt er underliggjande periodar som ikkje er framheva.}
+\label{fig:E1}
+\end{figure}
+
+Figur~\ref{fig:E2} og figur~\ref{fig:E8} er to måtar å gjere morforommet konkret. I figur~\ref{fig:E2} er eit $7\times7$ rutenett lagt over PC1-PC2, og næraste mesh til kvar cellesenter er rendra som silhuett. I figur~\ref{fig:E8} er same prinsipp utvida til heile datasettet: stolar er snapt til ei fin grid der kvar celle blir representert av éi faktisk form. Begge figurane er direkte empirisk paralleller til \citet{raup1966} sitt formrom-prinsipp, men realisert på digitale 3D-målingar heller enn parametrerte rekonstruksjonar som hjå \citet{contrerasfigueroa2023}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E2_mesh_grid.png}
+\caption{$7\times7$ mesh-silhuettar plassert etter nærleik til cellesenter i PC1-PC2. Kvar silhuett er sidesett på den faktiske meshen; bakgrunnen er tinta etter stilperiode.}
+\label{fig:E2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E8_silhouette_scatter.png}
+\caption{Silhuett-scatter: om lag 180 stolar snapte til ei grid i PC1-PC2, kvar representert av sidesilhuetten av den faktiske meshen, tinta etter stilperiode. Ingen scatter-markering dekkjer ein annan; morforommet er lesbart direkte som form og ikkje berre som koordinat.}
+\label{fig:E8}
+\end{figure}
+
+Figur~\ref{fig:E10} kvantifiserer kor mykje av det morforommet som faktisk er okkupert. Konveks innhylling dekkjer 75{,}4~\% av bounding-boksen, og berre 56{,}5~\% av cellene i hylsteret inneheld minst éin stol. Resten er regionar som er materielt og geometrisk tilgjengelege, men aldri realiserte; i FORMLÆRE-terminologien er dei den uaktualiserte tenkelege mengda $C \setminus K$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E10_realiseringsgrad.png}
+\caption{Realiseringsgrad. (a) Tetthetsrutenett $28\times28$ med konveks innhylling i amber og uaktualiserte celler i raud. (b) Andel okkuperte PC2-celler per PC1-desil: relativt jamn fordeling. (c) Log-fordeling av tal stolar per celle. (d) Nøkkeltal.}
+\label{fig:E10}
+\end{figure}
+
+\subsection*{B.2 Deformasjonsrommet — dei rein geometriske aksane}
+
+Dei seks aksane i B.1 er målingar over meshen (høgde, breidde, djupn, sphericity, fill-ratio, inertia-ratio). Dei er informative, men dei er oppsummerings\-skalar\-trekk. Ein meir direkte tilgang til formhistoria er å køyre PCA på dei voxeliserte meshane sjølv: 1997 stolar $\times$ $24^3 = 13{\,}824$ voxel-dimensjonar. Slik PCA gir oss \textit{deformasjons\-modusar}, ikkje stat\-istiske samansett\-vektorar: kvar shape-PC er ein einskapleg geometrisk retning som heile korpuset varierer langs.
+
+Figur~\ref{fig:E30} viser dei fem første shape-PC-ane. Kvar rad er ein modus; kolonnane er middel\-forma forskuva $-2\sigma, -1\sigma, 0, +1\sigma, +2\sigma$ langs den gjeldande PC-en. ShapePC1 (7{,}4~\% av voxel-variansen) er ein \textit{seate-breidde} modus. ShapePC2 (6{,}0~\%) er ein \textit{sete-hogde} modus. ShapePC3 bestemmer om ein har eit distinkt sete; ShapePC4 plasserer armlen; ShapePC5 styrer djupn. Dette er dei reelle uavhengige akser i formhistoria; dei er ikkje lesbare frå stilperioden aleine.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E30_shape_pca_modes.png}
+\caption{Shape-PCA på voxeliserte meshar ($24^3$). Kvar rad er ein deformasjons\-modus, kolonnane er middel\-forma forskuva $\pm k\sigma$. Amber = positivt utslag, blå = negativt, grå = middel. Rekkjefølgd etter voxel-varians: ShapePC1 er den dominerande deformasjonen i heile korpuset.}
+\label{fig:E30}
+\end{figure}
+
+Figur~\ref{fig:E31} tek shape-PC-rommet som basis og gjer uovervaka klyngj\-ing (KMeans på dei første ti shape-PC-ane) for å finne eit data-drive ``genus''-system. Åtte klyngjer dekker 85~\% av silhouette-toppen (best $K=6$, men $K=8$ valt for ein stabil framstilling). Kvart genus blir rendra som isometrisk middel\-form: genus 1 er ein kompakt armstol, genus 3 er ein høg smal stol, genus 5 er ein lang benk, osv. Adjusted Rand-indeksen mellom genus-tilordninga og stilperiode-tilordninga er 0{,}057 — tilnærma null. \textbf{Geometrisk klassifisering avviker signifikant frå stilperiode-klassifisering}: dei to taksonomi\-ane er uavhengige. Stilperiode er ikkje eit geometrisk klassifiseringssystem.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E31_geometrisk_genus.png}
+\caption{Geometrisk genus-klassifisering. Øvre rad: isometrisk middel\-form per genus (KMeans på dei første ti shape-PC-ane, $K = 8$). Midtrad: tids\-histogram per genus — kvart genus er spreidd over fleire hundre\-år, ikkje knytt til éin stilperiode. (c) Silhouette-skår mot $K$. Adjusted Rand Index = 0{,}057 (dei ti shape-PC-ane forklarar ikkje stilperiode\-innd\-elinga).}
+\label{fig:E31}
+\end{figure}
+
+Figur~\ref{fig:E32} tek det eine skrittet lenger: gjer PCA på dei \textit{tids\-differansiale} sentroide\-skifta i shape-PC-rommet, og rendrar kvar av dei dominerande ``evolusjonsretningane'' som ein faktisk deformasjon. EvoDir1 dekkjer 44~\% av evolusjons\-variasjonen: skiftet frå kompakte former til høge slanke former med armlen, det som i design\-historia fell ca på Rokokko $\to$ Nyklassisisme og på Modernism → Samtidsdesign. Tidskurvene til venstre viser at EvoDir1 har skift retning fleire gonger. Metoden gir oss eit reint geometrisk narrativ over kva form har bevegd seg langs, som kan samanliknast direkte med det stil\-periode\-baserte.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E32_evolusjonsretningar.png}
+\caption{Evolusjonsretningar: PCA på $\Delta$sentroide i shape-PC-rommet mellom 40-års bin. Kvar rad er ein evolusjons\-retning rendra som deformasjon av middel\-forma; høgre kolonne viser kor mykje den valde retninga blei aktivert per tidsperiode. EvoDir1 dekkjer 44~\% av evolusjons\-variasjonen og er skiftet mellom kompakt og slank-med-armlen.}
+\label{fig:E32}
+\end{figure}
+
+Figur~\ref{fig:E34} gjer ein data-drive ancestral-state-rekonstruksjon: innan kvart av dei åtte geometriske genera blir den tidlege og seine gjennomsnitts\-forma rendra som fotorealistiske mesh-renderingar. Kolonnen i midten viser \textit{netto tilvekst} — regionar av formrommet som den seine mem\-ming\-en har okkupert men ikkje den tidlege. For genus~1 (393 medlemmar) forskuvast forma frå eit 1666 barokk-arm\-stol-arketype mot eit 1937 minimal-modernistisk rektangel — ‖$\Delta$form‖$_2$~=~13{,}85 i voxel-rommet. Genus~3 går frå kompakt 1676-stol til heilt andre form i 1993 (‖$\Delta$form‖~=~14{,}42). Lengste transformasjon: genus~6, ‖$\Delta$form‖~=~21{,}1 over 234 år.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E34_ancestor_reconstruction.png}
+\caption{Ancestral-state-rekonstruksjon per geometrisk genus. Venstre kolonne: voxel-gjennomsnitt av dei tidlegaste 20~\% medlemmene. Midten: netto tilvekst (sein $-$ tidleg) rendra som eigen form. Høgre: voxel-gjennomsnitt av dei seinaste 20~\%. Ratio-tal viser tids\-spennet og $L_2$-avstanden i voxel-rommet.}
+\label{fig:E34}
+\end{figure}
+
+Figur~\ref{fig:E33} gjer det prediktive skrittet: tren ein Ornstein-Uhlenbeck-dynamikk på sentroide-trajektorien i shape-PC-rommet med berre data frå 1500-1960, forec\-ast forover til 2040, samanlikn mot den held-ut observerte 2000-2024-trajektorien. Parametrane $\alpha$ og $\theta$ estimerast per shape-PC-akse via OLS på $\dot{\mu} \sim -\alpha (\mu - \theta)$. Halveringstider $\tau_{1/2} = \ln 2 / \alpha$ ligg mellom 39 og 303 år, konsistent med haldane-ratane i figur~\ref{fig:E21}. Forecast-forma for 2040 blir rendra direkte frå den rekonstruerte voxel-grid-representasjonen; panelet (c) viser den observerte sentroide-forma for 2000 som referanse. Metoden gir eit prediktivt rammeverk der framtidige former kan estimerast og testast \textit{før} dei blir designa, ikkje berre forklart i etterkant.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E33_forecast.png}
+\caption{Prediktiv forecasting av formframtid. (a) Rekonstruert sentroide-form ved slutten av trenings\-vindauget (1960). (b) OU-forecast 80 år fram (2040). (c) Observert sentroide-form 2000 (held ute under trening). (d1)-(d2) Trajektorien for shape-PC1 og shape-PC2 med OU-forecast og $\theta$-stipla linje; vertikal svart linje markerer trening/test-skiljet.}
+\label{fig:E33}
+\end{figure}
+
+\subsection*{B.3 Landskaps-drift og evolusjonær respons}
+
+Figur~\ref{fig:E7} viser sentroide-banen splitta på materiale. I staden for éin felles trajektorie ser vi korleis tre, stål og plast søker mot fundamentalt ulike adaptive toppar (markerte som OU-optima $\theta$). Stålet okkuperer ein ny nisje prega av slankheit og låg fill-ratio; plasten ein tredje region. Modellen viser at dette ikkje berre legg til nye former, men deformerer landskapet for eksisterande teknologiar.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E7_trajektorie_split.png}
+\caption{Splitta sentroide-trajektórie for tre og metall. Stjernene markerer estimerte adaptive optima basert på Ornstein-Uhlenbeck (OU)-modellering. Dei to materialklassane okkuperer og blir trekt mot ulike regionar av morforommet.}
+\label{fig:E7}
+\end{figure}
+
+Gjennom kjerne-likninga, der C-K-kunnskap utløyser SG-reglar i eit delt tilpassingslandskap, får vi eit genuint prediktivt nyfunn: \textbf{Konseptuell introduksjon skapar morfologisk fråstøyting.} Når stål-agenten realiserer slanke former (ein ny SG-kapasitet utløyst av $C \rightarrow K$-spranget), deformerer dette landskapet for tre-agenten. 
+
+Figur~\ref{fig:E15} testar denne hypotesen formelt ved bruk av Lande-likninga: $\Delta \bar{z} = G \beta$. Her er $G$ varians-kovarians-matrisa for trestolar før 1920 (kanaliseringa), og $\beta$ er seleksjons\-gradien\-ten definert som «flukt frå stål-nisjen». Modellen predikerer at tre-design vil forskyve seg mot høgare fill-ratio (karakterforskyving) som ein direkte respons på stålets tilstadevere. Den observerte responsen korrelerer med prediksjonen: trestolar blei systematisk «meir tre-aktige» etter stålet sitt inntog.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E15_lande_prediction.png}
+\caption{Evolusjonær respons i trestolar etter 1920. (a) G-matrise (ellipsar) og seleksjonstrykket $\beta$ frå stål-konkurranse. (b) Samanlikning av predikert respons ($\Delta \bar{z}$) og faktisk observert morfologisk skift. Tre-agentane flyktar frå stål-nisjen langs minste motstands veg i morforommet.}
+\label{fig:E15}
+\end{figure}
+
+Figur~\ref{fig:E13} testar påstanden om punktert likevekt formelt: den observerte endringsraten blir samanlikna med ein nullmodell der datoane er permuterte. Observerte toppar som ligg over 95~\%-bandet er kandidatar til brot-punkt. Ein tydeleg topp rundt 1920 fell saman med stålrør-revolusjonen (Breuer, Mies).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E13_punktuert_likevekt.png}
+\caption{Observert $\|\Delta\mathrm{sentroide}\|$ versus ein nullmodell med 200 permutasjonar der datoane er blanda. Grå band = 95~\% nullkonfidens. Vertikale stipla linjer markerer kjende teknologiske skifte.}
+\label{fig:E13}
+\end{figure}
+
+\subsection*{B.3 Kanalisering og stiavhengigheit}
+
+Figur~\ref{fig:E12} samlar kanaliseringa i éin målbar indeks per akse. Ratioen innan-stilperiode-varians / total-varians måler kor mykje av variasjonen som skjer mellom periodar versus innanfor. Sphericity er den einaste aksen som ligg under den konvensjonelle kanaliserings-terskelen 0{,}4; resten varierer fritt.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E12_kanalisering_radar.png}
+\caption{Kanaliseringssignatur på tvers av dei seks aksane. (a) Variasjonskoeffisient CV per akse. (b) Innan-stilperiode-varians delt på total-varians; låg verdi = sterkt kanalisert.}
+\label{fig:E12}
+\end{figure}
+
+Figur~\ref{fig:E11} testar stiavhengigheit direkte: for kvar periode blir middelavstanden frå stolane til (a) eigen sentroide, (b) førre periode si sentroide, og (c) globalsentroiden rekna i 6D PC-rommet. Ratioen (b)/(a) skal vere over 1{,}0 dersom forma arvar posisjon frå si eiga periode meir enn frå den føregåande. Observerte verdiar ligg systematisk over 1{,}0 frå 1680 og framover, med klart størst utslag rundt Rokokko (1720-1755) der ratioen når 2{,}3.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E11_stiavhengigheit.png}
+\caption{Arvsavstand. (a) Middelavstand til eigen, føregåande og globalsentroide per periode. (b) Ratio føregåande/eigen: verdi over 1 = stiavhengigheit, forma arvar posisjon frå si eiga periode.}
+\label{fig:E11}
+\end{figure}
+
+\subsection*{B.4 Substrat-skift og karakterforskyving}
+
+Det direkte prediktive funnet er \textbf{morfologisk karakterforskyving} (figur~\ref{fig:E19}). Eksisterande designteori manglar eit apparat for å predikere korleis nye teknologiar endrar formbanen til dei etablerte; verken formgrammatikk eller C-K-teori modellerer konkurranse mellom substrat. Kjerne-likninga gjer denne prediksjonen eksplisitt: når eit nytt materiale tek over ein nisje, deformerast tilpassingslandskapet slik at etablerte substrat tvingast til å forskyve forma si.
+
+Empirisk er mekanismen tydeleg. Før 1900 spreier tradisjonelt treverk seg breitt over heile morforommet med ei konveks innhylling på $\sim 150$ PC-enheter. Når stål etablerer seg i tiåra etter og okkuperer dei slanke ytterkantane, kollapsar treets innhylling til ein tredel av utgangsverdien. I den siste perioden er spreiinga til trestolane pressa saman i ei tett, kompakt klynge: tre-variansen er redusert med $\sim 85~\%$ i same tidsbandet som stål og plast ekspanderer. Det er ein systematisk forskyving av formvariasjonen til det gamle substratet, predikert av kjerne-likninga men ikkje av noka eksisterande designteori.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E19_karakterforskyving.png}
+\caption{Morfologisk karakterforskyving. Øvre rad: fordeling av trestolar med konveks innhylling (amber) i fire tidsband, med stål (blå) og plast (raust) overlagt etter 1900. (e) Hylster-areal over tid; tre-hylsteret kollapsar ~75~\% medan stål og plast ekspanderer. (f) Total varians per materiale. (g) Relativ tre-spreiing mot 1600-1800-baseline side-om-side med den samla spreiinga til dei invaderande substrata.}
+\label{fig:E19}
+\end{figure}
+
+\subsection*{B.5 Biologi-inspirerte prediktive testar}
+
+Dei tre neste figurane (E16, E17, E18) tek i bruk etablerte paleobiologi-metodar direkte på stol-datasettet. Kvar metode er definert for biologiske taxa i litteraturen; implementeringa mot stolar er ein substrat-parameterisering av same matematikk.
+
+Figur~\ref{fig:E16} operasjonaliserer \textit{morfologisk nyskapingsavstand}, eit mål som gjev kvar form dens minste 6D-avstand til alle former som eksisterte før henne (jf.~\citet{foote1997}, \citet{ciampaglio2002}). Målet identifiserer individuelle innovatørar: blant dei 12 mest morfologisk isolerte stolane i datasettet står ein armstol frå 1685 (nyskapingsavstand 24{,}2) og fleire Bauhaus-dining-chairs frå 1936 (avstand 8{,}4) som er mellom dei mest ekstreme outlierane i heile datasettet. Dette gjev kjerne-likninga eit falsifiseringsvilkår: dersom metoden identifiserer kjende designhistoriske brotstolar, er det støtte for at datamålet fangar reell innovasjon.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E16_morfologisk_nyskaping.png}
+\caption{Morfologisk nyskapingsavstand over tid. (a) Observert 90-persentil og median mot ein Brownian-motion nullmodell (80 permutasjonar av år). Punkt markerer dei 12 individuelt mest isolerte stolane. (b) Eksplisitt liste over dei 12 mest isolerte stolane med nyskapingsavstand.}
+\label{fig:E16}
+\end{figure}
+
+Dei same 12 mest isolerte stolane er rendra frå 3D-meshane som isometriske 3/4-projeksjonar i figur~\ref{fig:E29}. Geometrien gir dei konkrete: \#1 1685 (Barokk-armstol, nyskapingsavstand 24{,}2), \#4 1946 (DA~1, 11{,}7), \#8-\#9 1936 (Breuer Bauhaus-dining-chairs, 8{,}4), \#7 1982 (Media Chair, 8{,}6), \#10 1998 (Celle VIII, 7{,}1). Det er ein data-drive, ikkje-kuratert kanon av dei geometrisk mest avvikande stolane i det norske musé-korpuset.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E29_innovator_atlas.png}
+\caption{Isometrisk atlas av dei 12 mest morfologisk isolerte stolane (rangering frå E16). Kvar stol er rendra frå si voxeliserte mesh med orthografisk 3/4-projeksjon og djupn-basert skygging. Fargen graderer nyskapings-rangen (rust → slate).}
+\label{fig:E29}
+\end{figure}
+
+Figur~\ref{fig:E17} implementerer \citet{foote1993} si \textit{disparity through time}-måling direkte: gjennomsnittleg parvis avstand mellom samtidige stolar per 40-års vindauge, samanlikna mot ein Brownian-motion nullmodell med 120 permutasjonar. Observert disparitet er tydeleg \textit{under} nullbandet frå $\sim$1720 til $\sim$1840 (blå skraffering = konsolidering) og \textit{over} nullbandet rundt 1980-2005 (amber skraffering = adaptiv radiasjon). Dei to signalperiodane fell saman med Nyklassisisme-Historisme-konsolideringa og postmoderne-Samtids-bølgja; metoden henta ut dei utan nokon a priori periodisering.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E17_disparity_through_time.png}
+\caption{Disparity through time etter \citet{foote1993}. Observert gjennomsnittleg parvis avstand (raud) mot Brownian-motion nullmodell 95~\%-band (grå). Skraffering markerer statistisk signifikante avvik: konsolidering (blå) og adaptiv radiasjon (amber). Nedre panel viser utvalstørrelse per vindauge.}
+\label{fig:E17}
+\end{figure}
+
+Figur~\ref{fig:E18} gjer kjerne-likninga si dynamiske komponent til ein direkte prediktiv test. Tilpassingslandskapet blir estimert via kernel-tetthet på pre-1900-stolar; deretter blir post-1900-stolar sine posisjonar samanlikna med den estimerte fordelinga. Log$_2$-forholdet mellom post og pre syner kvar nye regionar er realiserte (raust) og kvar tidlegare okkuperte regionar er forlatne (blå). Metoden er standard i paleobiologi for å teste stabilitet i tilpassingslandskap gjennom massive environmental shifts (t.d.~\citet{hunt2007}); her viser han at post-1900-landskapet ikkje kan reproduserast frå pre-1900-fordelinga aleine. Landskapet er dynamisk, som kjerne-likninga predikerer, og drifta er målbar per region.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E18_prediktiv_landskapsdrift.png}
+\caption{Prediktiv test av landskaps-drift. (a) KDE-landskap for pre-1900-stolar. (b) KDE for post-1900. (c) log$_2$-forhold post/pre: raudt = ny region, blå = forlaten. Regioner der prediksjonen frå pre-1900 feilar representerer empirisk drift i tilpassingslandskapet.}
+\label{fig:E18}
+\end{figure}
+
+\subsection*{B.6 Paleobiologiske metodar direkte på design-korpuset}
+
+Dei neste fire figurane tek metodar som er standard i evolusjonær paleobiologi og, så vidt eg kan sjå, aldri før er brukte på eit designhistorisk korpus. Kvar metode er formelt identisk med opphaveleg bruk; substrat-parameteriseringa er ny.
+
+Figur~\ref{fig:E20} implementerer \textit{phylomorphospace} etter \citet{sidlauskas2008}. Metoden blei utvikla for fisk: plasser taxa-sentroider i PCA-rommet, og kopl dei etter fylogenien. Vi erstattar fylogenien med den kronologiske kjeda av stilperiode-sentroider; greinene blir farga etter lokal rate. Den raskaste greina i heile design-fylogenien er Nyklassisisme → Hepplewhite: ein liten periode med høg morfologisk fart. Kjente historiske fakta som Thonet-bøying (1830-talet) og Bauhaus (1920-talet) fell saman med dei nest raskaste greinene, noko som valideres metoden mot uavhengig kjeldegrunnlag.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E20_phylomorphospace.png}
+\caption{Phylomorphospace etter \citet{sidlauskas2008}. (a) Kjede av stilperiode-sentroider i PC1-PC2; greiner farga etter evolusjonsrate. (b) Nummerert node-liste. (c) Rate per grein over tid på log-skala.}
+\label{fig:E20}
+\end{figure}
+
+Figur~\ref{fig:E21} tilpassar \citet{gingerich1983} sin haldane-formalisme. Ein haldane er talet på standardavvik ein gjennomsnittleg trait endrar seg per generasjon; vi brukar ein generasjon = 25 år (typisk designar-karriere). Rata kan direkte samanliknast med biologiske referanseverdar: bradytelisk naturleg makroevolusjon sit på $10^{-4}$, mikroevolusjonære linjer på $10^{-2}$, domestiserte arter på $10^{-1}$, og skjeringsratar under klimaskift når $\sim 1$. Observert rate for stolar ligg jamt i intervallet $10^{-1}$ til $10^{0}$ haldanar: stolar evolverer formelt like raskt som domestiserte arter under aktiv seleksjon, og to-tre størrelses\-ordenar raskare enn vill makroevolusjon. Dette er eit direkte fallsifiserbart funn som ikkje har vore plasserte på den skalaen før.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E21_tempo_gingerich.png}
+\caption{Haldane-rate \citep{gingerich1983} per 40-års intervall. (a) Absolutt |haldane| per PC-akse med biologiske referanseverdar som stipla linjer. (b) Samla gjennomsnittleg rate per intervall. Design ligg mellom domestisering og Bergmann-skift; to størrelsesordenar raskare enn naturleg makroevolusjon.}
+\label{fig:E21}
+\end{figure}
+
+Figur~\ref{fig:E22} fører \citet{harmon2010} sin direkte samanlikning av makroevolusjonsmodellar inn i design-domenet. For kvar av dei seks PC-aksane tilpassar vi tre modellar til den parvise trait-differensial-fordelinga via maksimum likelihood:
+\begin{align*}
+\text{BM} &\quad \mathrm{Var}(\Delta) = \sigma^2 \Delta t \\
+\text{OU} &\quad \mathrm{Var}(\Delta) = \frac{\sigma^2}{2\alpha}\bigl(1 - e^{-2\alpha \Delta t}\bigr) \\
+\text{EB} &\quad \sigma^2(t) = \sigma_0^2 \exp(rt)
+\end{align*}
+Resultatet er entydig: for alle seks aksar er \textbf{Brownian motion-modellen katastrofalt avvist} ($\Delta\mathrm{AIC} > 30{,}000$) til fordel for Ornstein-Uhlenbeck (stabiliserande seleksjon) eller Early-Burst (tidleg radiasjon med ratebremse). Dette er direkte empirisk testa og sterk støtte for kjerne-likninga si fundamentale påstand: stol-evolusjonen er \textit{ikkje} ein tilfeldig kulturell drift, men ein prosess med attraktorar. Naive kulturelle drift-modellar er empirisk falsifiserte for dette korpuset.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E22_makroevo_modellar.png}
+\caption{Makroevolusjonsmodellar etter \citet{harmon2010}. Empirisk $\mathrm{Var}(\Delta)$ mot $\Delta t$ for kvar PC-akse, med tilpassa kurver for BM, OU og EB. $\Delta\mathrm{AIC}$-verdiar oppgitt per modell. Alle seks aksar foretrekkjer OU eller EB; BM blir falsifisert med margen $>30{,}000$ AIC-poeng.}
+\label{fig:E22}
+\end{figure}
+
+Figur~\ref{fig:E23} tek konvergent evolusjon-analyse frå \citet{stayton2015} og brukar han for fyrste gong til å identifisere spesifikke par av stolar der forma har konvergert på tvers av substratet. Eit par er plukka ut dersom: (i) stolane har ulik materialklasse, (ii) minst 40 års separasjon, (iii) 6D-avstanden deira er mindre enn 0{,}5 PC-einingar. Dei valde para ligg i venstre hale av avstandsfordelinga, tydeleg lågare enn typisk innan-materiale-avstand. Silhuettane viser direkte at funksjonelle løysingar er substrat-uavhengige: ein Breuer-stol frå 1926 (stål) har same morfometriske signatur som ein Empire-armstol frå 1805 (tre), berre distribuert i eit anna materiale. Dette er ein direkte empirisk konfirmasjon av substrat-uavhengigheita som kjerne-likninga postulerer i seksjon~4.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E23_konvergens.png}
+\caption{Konvergent evolusjon etter \citet{stayton2015}. Øvre rader: åtte konvergens-par der stolar frå ulike materialklassar sit svært nære i 6D PC-rommet; ramme-fargen viser materialklasse. (c) Fordeling av parvise avstandar: på tvers-av-materiale (amber) overlappar innan-materiale (grå), men dei valde konvergens-para (raude linjer) er i ytre venstre hale — nærare kvarandre enn typiske par innan eit materiale.}
+\label{fig:E23}
+\end{figure}
+
+Figur~\ref{fig:E24} utvidar Harmon-samanlikninga ved å fitte \citet{butlerking2004} si OU-modell med multiple optima, der tre, stål og plast kvar har sitt eige stasjonære $\theta$. Modellkomparasjon: $\Delta\mathrm{AIC}$ over 30~000 i favør av materiale-spesifikke optima for alle seks aksar. Stjerner i panel (a) markerer dei estimerte $\theta$-posisjonane i PC1-PC2. Fylogenetisk halveringstid $\tau_{1/2} = \ln(2)/\alpha$ er 0-9 år: trestolar relakserer mot tre-optimumet nesten umiddelbart, plast endå raskare. Dette er direkte kvantifisering av det kjerne-likninga kallar stabiliserande seleksjon per agent-hierarki.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E24_ou_multi_optima.png}
+\caption{OU-modell med materiale-spesifikke optima etter \citet{butlerking2004}. (a) Estimerte $\theta$-stjerner i PC1-PC2 med stasjonære 1$\sigma$-ellipsar; fylogenetisk halveringstid i år. (b) OU$_3$ vs OU$_1$ $\Delta$AIC per akse: alle seks aksar støtter OU$_3$ med over 30 000 AIC-poeng. (c) Parameterestimat per materialklasse.}
+\label{fig:E24}
+\end{figure}
+
+Figur~\ref{fig:E25} utfører \citet{goswami2007} si modularitets-analyse. Dei seks formaksane er a priori delt i SIZE = \{Høgde, Breidde, Djupn\} og SHAPE = \{Sphericity, Fill-ratio, Inertia-ratio\}; RV-koeffisienten \citep{escoufier1973} måler integrasjonen mellom dei to modulane. Korrelasjonsmatrisa viser direkte kvifor: innan SIZE og innan SHAPE er korrelasjonane sterke (0{,}59-0{,}78 og 0{,}11-0{,}54), mens kryss-korrelasjonane mellom blokkene er nesten null. Resultat: SIZE og SHAPE er tilnærma \textit{modulare}. RV fell signifikant frå 0{,}031 i 1600-1800 til 0{,}007 i 1950-2025 — industrien har dekoplar storleik frå form. Det er ei operativ manifestasjon av eit mykje-drøfta fenomen i designteorien, her empirisk demonstrert.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E25_modularitet.png}
+\caption{Morfologisk modularitet etter \citet{goswami2007}. (a) Korrelasjonsmatrise mellom dei seks aksane med SIZE/SHAPE-blokkinndeling. (b) RV-koeffisient per materialklasse med nullmodell. (c) RV over fire tidsband: integrasjonen fell systematisk.}
+\label{fig:E25}
+\end{figure}
+
+Figur~\ref{fig:E26} bygg eit paleobiologisk range-through-diagram på 14 KMeans-klyngjer i PC1-PC4-rommet. Kvar klyngje er ei ``morfologisk art'' i datasettet; Gantt-barren viser første og siste år han vart produsert. Panelet (b) reknar ut live-type-kurva (biodiversitet) over tid: ein stabil 11-12 typar frå 1700-1950, brå kollaps til 5-6 etter 1950. Panelet (c) dekomponerer dette i origination-ratar (amber) og extinction-ratar (grå): 1950-2000 viser ein tydeleg \textbf{mass extinction av formtypar}, direkte parallell til paleobiologiske mass extinctions. Design har eit K-Pg-skifte.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{E26_range_through.png}
+\caption{Range-through analyse av 14 morfologiske typar (KMeans på PC1-PC4). (a) Gantt-diagram med første-siste-år per type. (b) Live-type-kurve: biodiversitet gjennom tid kollapsar etter 1950. (c) Origination og extinction per 50-års intervall: 1950-2000 viser mass-extinction-signatur.}
+\label{fig:E26}
+\end{figure}
+
+Dei sju analysane deler éin ting: dei brukar matematikk som er tjue til sytti år gammal i biologien, men som ikkje tidlegare har fått eit designhistorisk korpus stort nok og systematisk nok til å køyre på. Resultata validerer kjerne-likninga på måtar som formgrammatikk og C-K-teori ikkje er utstyrte for: rate-målingar i haldanar, modelkomparasjon mot BM, fylogenetisk rekonstruksjon på tvers av stilperiodar, identifikasjon av konkrete konvergens-par, materiale-spesifikke adaptive optima med kvantifisert halveringstid, modularitets-målingar over tid, og mass-extinction-signaturar i formtype-mangfaldet.
+
+\subsection*{B.7 3D giga-grid — kvar einaste stol som rendring}
+
+Figur~\ref{fig:E37y} og \ref{fig:E37pc} presenterer heile korpuset som ein tett rutenett av skuggelagte mesh-renderingar, ein per stol. Kvar thumbnail er rekna direkte frå 3D-meshen via marching-cubes og Blinn-Phong-skyggering; fargen kodar materialklasse (amber = tre, blå = stål, rust = plast, grå = anna). Kronologisk sortering (\ref{fig:E37y}) gjev ein tidslinje der substrat-skiftet etter 1900 er tydeleg synleg som fargeskift. PC1-sortering (\ref{fig:E37pc}) ordnar heile datasettet langs den dominerande geometriske aksen.
+
+\begin{figure*}[!tbp]
+\centering
+\includegraphics[width=\textwidth]{E37_giga_grid_3d_year.png}
+\caption{Shaded-mesh giga-grid over alle stolane, sorterte kronologisk. Kvar celle er ein Blinn-Phong-rendra 3/4-projeksjon med material-fargekoding.}
+\label{fig:E37y}
+\end{figure*}
+
+\begin{figure*}[!tbp]
+\centering
+\includegraphics[width=\textwidth]{E37_giga_grid_3d_pc1.png}
+\caption{Same korpus sortert etter PC1 i staden for år. Materialfargen viser korleis stål og plast konsentrerast mot éin del av aksen.}
+\label{fig:E37pc}
+\end{figure*}
+
+\end{document}

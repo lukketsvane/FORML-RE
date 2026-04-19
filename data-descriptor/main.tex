@@ -1,0 +1,502 @@
+% STOLAR Datadeskriptor — Nynorsk
+% Iver Raknes Finne, AHO, 2026
+% Kompiler: pdflatex main && bibtex main && pdflatex main && pdflatex main
+\input{preamble}
+
+\begin{document}
+
+% ── Tittelblokk ──────────────────────────────────────────────────────────────
+\twocolumn[{%
+\begin{@twocolumnfalse}
+\vspace*{4mm}
+{\raggedright
+{\fontsize{22}{26}\selectfont\bfseries STOLAR: Ein open geometrisk database\\av 2\,048 europeiske stolar (1280--2024)\par}
+\vspace{6pt}
+\textit{Iver Raknes Finne}\\[2pt]
+{\small\textit{Institutt for design, Arkitektur- og designh\o gskolen i Oslo (AHO)}\\
+\texttt{iver.raknes.finne@stud.aho.no}\par}
+\vspace{10pt}
+\noindent\small\textbf{Samandrag}\enspace
+Designhistoria har lenge kvilt p\aa{} kvalitative studiar av einskilde artefaktar.
+Kvantitative morfometriske tilnermingar, vanlege i paleontologi og evolusjonsbiologi sidan Raup (1966),
+er sjeldan brukte i studiet av designa objekt.
+Me presenterer STOLAR, ein open forskingsdatabase med 2\,048 europeiske stolar fr\aa{} 1280--2024,
+kompilert fr\aa{} samlingane til Nasjonalmuseet (Oslo) og Victoria and Albert Museum (London).
+Kvar post inneheld opptil 30 metadatafelt med 99\% dimensjonsdekning,
+eit bakgrunnsfjerna fotografi og ein AI-generert 3D-mesh.
+Fr\aa{} 3D-meshane utvinnar me fem geometriske formdeskriptorar:
+sf\ae risitet, fyllgrad, tregleiksratio, kompleksitet og konvekst hylstervolum.
+Prinsipalkomponentanalyse av formdeskriptorane avslerer at 60\% av geometrisk variasjon
+er forklart av to aksar: ein kompaktheit/rundingsakse (PC1, 35.5\%) og ein masse/kompleksitetsakse (PC2, 24.5\%).
+Databasen, 3D-modellane og all analysekode er frigjeven under MIT-lisensen.
+\par\vspace{6pt}
+\noindent\small\textbf{Nokkelord}\enspace morforom, designhistorie, formgrammatikk, 3D-morfometrikk, kulturell evolusjon, stoldesign
+\par\vspace{10pt}
+\centering
+\includegraphics[width=0.95\textwidth]{chairs_top144_16x9.jpg}
+\captionof{figure}{Eit utval av 144 stolar fr\aa{} STOLAR-korpuset (1280--2024). Det morfologiske mangfaldet; fr\aa{} mellomaldersk eik til samtids sproytest\o ypt plast; er det empiriske fenomenet databasen s\o kjer \aa{} karakterisere.}
+\label{fig:atlas}
+\vspace{8pt}
+}
+\end{@twocolumnfalse}
+}]
+\thispagestyle{plain}
+
+
+% ═══════════════════════════════════════════
+\section{Bakgrunn og samandrag}
+
+Stolen er blant dei mest produserte designa artefaktane i historia.
+Kvar kultur som nyttar sitjande posisjon har utvikla stolar,
+og det resulterande morfologiske mangfaldet spenner over sju hundre\aa r med stilistisk,
+materiell og teknologisk endring.
+Tr\aa ss denne rikdomen er studiet av mobelform overv\ae ldande kvalitativt.
+Ingen storskala, open database eksisterer som kombinerer dimensjonsm\aa lingar
+med tredimensjonal geometri for eit vesentleg korpus av stolar.
+
+\paragraph{Morforom og kvantitativ morfometrikk.}
+I evolusjonsbiologi har konseptet \emph{morforom}
+vore produktivt sidan Raup si geometriske analyse av skjelspiralar~\cite{raup1966geometric}.
+McGhee~\cite{mcghee1999morphology} systematiserte konseptet teoretisk morforom
+som eit fleirdimensjonalt rom av mogelege former;
+Mitteroecker og Huttegger~\cite{mitteroecher2009morphospace} utvida det til utviklingsbiologi;
+og Mitteroecker~\cite{mitteroecker2022thirty} gjennomgjekk nyleg tretti \aa r
+med geometrisk morfometrikk, der han noterte ekspansjon utover biologiske bruksomr\aa de.
+
+Morforom-konseptet er brukt i arkitektur:
+Steadman og Mitchell~\cite{steadman2010morphospace} kartla verder av bygde former
+ved \aa{} plotte rektangul\ae re bygningsplanar i eit 2D-morforom.
+I arkeologi demonstrerte MacLeod~\cite{macleod2018quantitative} digital formanalyse
+p\aa{} prosjektilspissar, og Ros et al.~\cite{pottery2022morphometrics} brukte PCA
+p\aa{} keramikkprofilar fr\aa{} 1200--1800-talet.
+Grabner et al.~\cite{grabner2015automotive} utforte geometrisk morfometrisk analyse
+p\aa{} europeiske bilsiluettar og fann konvergent evolusjon mellom merke.
+Kulturelle evolusjonsstudiar~\cite{lycett2016cultural,mesoudi2011cultural,shennan2015cultural}
+og diversifiseringsmetodar~\cite{kandler2019diversification}
+stadfestar at materiell kultur fylgjer m\aa lbare evolusjon\ae re monster.
+Desse studia er avgrensa til steinreiskapar, keramikk, bygningsplanar eller 2D-kjoretoykonturar.
+Tredimensjonal morfometrisk analyse av moblar er ikkje forsekt.
+
+\paragraph{3D-formdeskriptorar p\aa{} artefaktar.}
+Globale formdeskriptorar for 3D-objekt vart introduserte av Osada et al.~\cite{osada2002shape}
+for formattfinning; familien inkluderer sf\ae risitet, kompaktheit og tregleiksratioar.
+I arkeologi utvikla Grosman et al.~\cite{grosman2022artifact3d} Artifact3-D,
+som reknar ut volum, overflateareal og massesenter p\aa{} 3D-skanna litiske artefaktar.
+Hanik et al.~\cite{hanik2023sundials} utforte intrinsisk formanalyse
+p\aa{} antikke solur i eit ikkje-euklidsk formrom og utleidde breiddegrad fr\aa{} form.
+Desse studia viser at volumetriske formdeskriptorar kan karakterisere artefaktgeometri;
+men ingen er brukte p\aa{} moblar eller p\aa{} AI-genererte (i staden for skanna) meshar.
+
+\paragraph{Formgrammatikkar og moblar.}
+Formgrammatikkar gjev ein formell syntaks for design~\cite{stiny1972shape,stiny1980introduction,stiny2006shape,stiny1991algebras}.
+Den forste bruken p\aa{} moblar var Knight si~\cite{knight1980hepplewhite} generering
+av Hepplewhite-stolryggdesignar fr\aa{} ein parametrisk grammatikk i 1980.
+Seinare arbeid inkluderer Barros et al. sin ``ChairDNA''-grammatikk
+for massetilpassing, utleidd fr\aa{} seks Thonet-stolar~\cite{barros2016chair},
+og Xue og Chen sin formgrammatikk for Ming-stil tremoblar~\cite{xuechen2024shape}.
+Ein systematisk gjennomgang av femti \aa r med formgrammatikk~\cite{haakonsen2023shapegrammar}
+identifiserer eit vedvarande gap: studia er n\ae r utelukkande \emph{generative}
+(produserer nye former fr\aa{} sm\aa{} korpus p\aa{} 3--10 objekt)
+heller enn \emph{analytiske} (karakteriserer eksisterande korpus i stor skala).
+Ingen studie har forsekt \aa{} validere eller indusere formgrammatikkar
+fr\aa{} eit datasett med hundrevis eller tusenvis av stolar.
+
+\paragraph{C-K-teori.}
+C-K-teori tilbyr ein komplement\ae r logikk for designresonnering~\cite{hatchuel2003new,hatchuel2009ck},
+som deler prosessen i eit tankerom $C$ og eit kunnskapsrom $K$.
+B\aa de formgrammatikkar og C-K-teori ville ha nytte av store empiriske datasett
+som kartlegg den faktiske fordelinga av realiserte former.
+
+\paragraph{Eksisterande 3D-datasett.}
+Fleire storskala 3D-formsamlingar finst (Tabell~\ref{tab:datasets}).
+ShapeNet~\cite{chang2015shapenet} inneheld over 51\,000 stolmodellar,
+PartNet~\cite{mo2019partnet} gjev del-annotasjonar for 26\,671 objekt,
+Aubry et al.~\cite{aubry2014chairs} kopla $\sim$1\,300 stol-CAD-modellar
+til fotografi, og 3D-FUTURE~\cite{fu2021future3d} tilbyr 9\,992 teksturerte mobelmodellar.
+Innan kulturarv tilbyr SHREC 2021~\cite{sipiran2021shrec}
+938 3D-skanna prekolumbianske artefaktar for formattfinning.
+Burnap et al.~\cite{burnap2023aesthetic} har kopla geometriske trekk
+til designappell gjennom maskinl\ae ring p\aa{} kjoretoymodellar.
+Manovich~\cite{manovich2020cultural} var pioner for storskala kalkulatorisk analyse
+av visuell kultur, men avgrensa til 2D-biletetrekk.
+Ingen av desse datasetta kombinerer museumskuraterte historiske artefaktar
+med temporal metadata, verifiserte dimensjonar og utrekna 3D-formdeskriptorar.
+Nyleg arbeid med FAIR-datahandtering for 3D-kulturarv~\cite{wilkinson2016fair,barzaghi2024fair3d}
+understrekar viktigheita av opne, veldokumenterte datasett;
+STOLAR er utforma for \aa{} oppfylle desse prinsippa.
+
+\paragraph{STOLAR.}
+STOLAR fyller dette gapet.
+Databasen inneheld 2\,048 stolar fr\aa{} to store europeiske samlingar:
+Nasjonalmuseet for kunst, arkitektur og design (Oslo; 426 objekt)
+og Victoria and Albert Museum (London; 1\,622 objekt),
+som spenner over 1280--2024 (744 \aa r).
+Kvar post inneheld museumstildelt metadata (datering, materialar, stilperiode, proveniens),
+katalogdimensjonar (hogde, breidde, djupn med $>$98\% dekning),
+eit bakgrunnsfjerna fotografi,
+og ein AI-generert 3D-mesh som fem geometriske formdeskriptorar er utrekna fr\aa :
+sf\ae risitet, fyllgrad, tregleiksratio, kompleksitet og konvekst hylstervolum.
+S\aa{} langt me veit er dette det forste opne morfometriske datasettet
+av designa objekt som kombinerer museumsproveniens
+med 3D-formanalyse i denne temporale og kvantitative skalaen.
+
+
+% ═══════════════════════════════════════════
+\section{Metode}
+
+Datapipelinen best\aa r av tre steg (Figur~\ref{fig:pipeline}):
+datainnhenting og harmonisering, bileteprosessering og 3D-rekonstruksjon.
+All pipelinekode er tilgjengeleg i GitHub-repositoriet.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{pipeline.png}
+\caption{STOLAR-datapipelinen. Steg~1 hentar og harmoniserer metadata fr\aa{} to museum-API-ar. Steg~2 produserer standardiserte bakgrunnsfjerna bilete med Gemini Vision. Steg~3 genererer kalibrerte 3D-meshar med Hunyuan3D-2 og utvinnar fem geometriske formdeskriptorar.}
+\label{fig:pipeline}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig-02-datakort.pdf}
+\caption{Seks stolar fr\aa{} databasen vist som datakort med bakgrunnsfjerna bilete og mesh-utrekna formdeskriptorar (sf\ae risitet, fyllgrad, tregleiksratio, kompleksitet, hylstervolum).}
+\label{fig:datakort}
+\end{figure*}
+
+\subsection{Datainnhenting}
+
+Stolpostar vart henta fr\aa{} to opne museum-API-ar.
+Nasjonalmuseet-objekt vart henta via museet sin DAMS REST API,
+som gav 426 postar med strukturert metadata p\aa{} norsk.
+Victoria and Albert Museum-objekt vart henta via V\&A API (IIIF-kompatibel),
+som gav 1\,622 postar med metadata p\aa{} engelsk.
+
+Kvart museum brukar ulike feltskjema og namnkonvensjonar.
+Postane vart harmoniserte til eit sameint skjema med 30 felt (Tabell~\ref{tab:coverage}).
+Dimensjonsstrenger (t.d.\ ``H 95.5 $\times$ B 50.5 $\times$ D 49 cm'')
+vart tolka med regulere uttrykk for \aa{} trekke ut hogde, breidde og djupn.
+Tre regex-monster handterer variasjonen i formateringskonvensjonar:
+standard skandinavisk (H/B/D), umerka (antek H $\times$ B $\times$ D rekkefolgje),
+og sirkulere objekt (H $\times$ diameter).
+
+Engelsksprekleg metadata fr\aa{} V\&A vart omsett til nynorsk
+for strukturerte felt (materialar, teknikkar, stilperiodar, nasjonalitetar)
+med ei kuratert omsetjingstabell p\aa{} 200+ termpar.
+
+\subsection{Bileteprosessering}
+
+For kvar stol vart det originale museumsfotografiet prosessert
+til eit standardisert bakgrunnsfjerna bilete.
+Gemini Vision API (modell: gemini-2.5-flash) vart brukt med eit prompt
+som spesifiserte ei skarp utklypping mot solid kvit (\texttt{\#ffffff}) bakgrunn.
+Kvalitetskontroll vart utfort manuelt p\aa{} eit tilfeldig utval av 200 bilete.
+Pipelinen produserte 2\,092 bakgrunnsfjerna PNG-bilete.
+
+\subsection{3D-rekonstruksjon}
+
+Bakgrunnsfjerna bilete vart brukte som input til Hunyuan3D-2~\cite{hunyuan3d},
+ein open-kjelde bilete-til-3D generativ modell koyrdd lokalt p\aa{} GPU.
+Modellen vart konfigurert med 50 formgenereringssteg og ein rettleiingsskala p\aa{} 5.0.
+Genererte meshar vart automatisk desimerte til maksimalt 100\,000 flater
+med \texttt{fast\_simplification}-algoritmen.
+
+R\aa meshane vart s\aa{} kalibrerte mot museumskatalogdimensjonane.
+For kvart objekt med kjende hogde, breidde og djupn
+vart mesh-avgrensningsboksen lesen med trimesh~\cite{trimesh},
+og ein uniform skalafaktor vart utrekna.
+Pipelinen produserte 2\,205 kalibrerte GLB-filer.
+
+\subsection{Utvinning av mesh-trekk}
+
+Fem geometriske formdeskriptorar vart utvunne fr\aa{} kvar kalibrert mesh
+med trimesh~\cite{trimesh}:
+
+\begin{enumerate}
+\item \textbf{Sf\ae risitet}: ratio av overflateareal til ein kule med same volum mot faktisk overflateareal (0--1).
+\item \textbf{Fyllgrad}: ratio av meshvolum til avgrensningsboksvolum.
+\item \textbf{Tregleiksratio}: ratio av minste til storste hovudtregleiksmoment (0 = langstrekt, 1 = isotrop).
+\item \textbf{Kompleksitet} ($\log_{10}$ verteksar/areal): vertekstettleik normalisert etter overflateareal.
+\item \textbf{Konvekst hylstervolum} (m$^3$): volumet av den minste konvekse innhyllinga.
+\end{enumerate}
+
+Desse fem trekka er tilgjengelege for 2\,029 av 2\,048 stolar (99.1\%).
+
+\subsection{Visjonsbasert strukturell annotering}
+\label{sec:enrichment}
+
+I tillegg til mesh-utrekna geometriske trekk
+annoterer me kvar stol med ni strukturelle attributtar
+med Gemini Vision API (modell: gemini-2.5-flash).
+For kvart bakgrunnsfjerna bilete returnerer modellen eit strukturert JSON-objekt
+med: tal komponentar, armlene (ja/nei), polstring (ja/nei),
+ryggtype (open, heiltre, polstra, spiler, ingen),
+tal bein, symmetritype, synleg samansetjingsmetode,
+ornamentniv\aa{} (0--3) og strukturtype
+(fire-bein, frittberande, pidestall, bukk, samanleggbar, stablbar, gyngande, anna).
+
+Per no er 190 av 2\,048 stolar annoterte;
+full beriking p\aa g\aa r.
+
+
+% ═══════════════════════════════════════════
+\section{Datapostar}
+
+Databasen ligg p\aa{} \url{https://github.com/lukketsvane/stolar-db}
+og omfattar desse filene:
+
+\begin{itemize}
+\item \textbf{STOLAR/api.json}: Fullstendig JSON-API (2\,048 postar).
+\item \textbf{STOLAR/STOLAR.csv}: CSV-eksport med 30 kolonnar.
+\item \textbf{STOLAR/glb/}: 2\,205 kalibrerte 3D-meshar (GLB).
+\item \textbf{STOLAR/bguw/}: 2\,092 bakgrunnsfjerna PNG-bilete.
+\item \textbf{STOLAR/enriched\_chairs.json}: Visjonsbaserte strukturelle annotasjonar (9 felt; sj\aa{} Seksjon~\ref{sec:enrichment}).
+\end{itemize}
+
+\begin{table}[t]
+\caption{Feltdekning i det fulle datasettet.}
+\label{tab:coverage}
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Felt & Postar & Dekning \\
+\midrule
+Hogde (cm)       & 2\,041 & 99.7\% \\
+Breidde (cm)     & 2\,033 & 99.3\% \\
+Djupn (cm)       & 2\,018 & 98.5\% \\
+Materialar       & 2\,048 & 100\% \\
+Stilperiode      & 2\,034 & 99.3\% \\
+Opphav           & 1\,977 & 96.5\% \\
+Mesh-trekk (5)   & 2\,029 & 99.1\% \\
+Teknikk          & 776    & 37.9\% \\
+Setehogde (cm)   & 299    & 14.6\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Samanlikning med eksisterande 3D-objektdatasett.
+STOLAR er det einaste datasettet som kombinerer historisk proveniens,
+temporalt spenn og utrekna 3D-formdeskriptorar.}
+\label{tab:datasets}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lccccc}
+\toprule
+Datasett & Objekt & 3D & Temporalt & Form- & Ope \\
+         &        &    & spenn     & desk. &     \\
+\midrule
+ShapeNet~\cite{chang2015shapenet}     & 51K stolar & \checkmark & --       & --         & \checkmark \\
+3D-FUTURE~\cite{fu2021future3d}       & 10K mobl.  & \checkmark & --       & --         & \checkmark \\
+Aubry~\cite{aubry2014chairs}          & 1.3K stolar& \checkmark & --       & --         & \checkmark \\
+PartNet~\cite{mo2019partnet}          & 27K obj.   & \checkmark & --       & delar      & \checkmark \\
+SHREC~\cite{sipiran2021shrec}         & 938 artef. & \checkmark & --       & --         & \checkmark \\
+Keramikk~\cite{pottery2022morphometrics}& $\sim$200 & 2D prof. & 12--19h. & landemerke & --         \\
+\textbf{STOLAR}                        & \textbf{2\,048} & \checkmark & \textbf{1280--2024} & \textbf{5 vol.} & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Databasen spenner over 15 stilperiodar fr\aa{} renessanse til samtidsdesign,
+med dei storste konsentrasjonane i nyklassisisme (291 stolar),
+barokk (229) og rokokko (206).
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig-03-temporal.pdf}
+\caption{Temporal fordeling av stolar i 50-\aa rsbolkar, stratifisert etter kjeldemuseum.}
+\label{fig:temporal}
+\end{figure*}
+
+
+% ═══════════════════════════════════════════
+\section{Teknisk validering}
+
+\subsection{Dimensjonsdekning}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.88\textwidth]{fig-04-coverage-heatmap.pdf}
+\caption{Dekningsheatmap. Kvar celle viser prosenten av postar med ein ikkje-null verdi for det gjevne feltet i det gjevne hundre\aa ret.}
+\label{fig:coverage}
+\end{figure*}
+
+Figur~\ref{fig:coverage} viser eit felt-per-hundre\aa r dekningsheatmap.
+Dei tre hovuddimensjonane (hogde, breidde, djupn) oppn\aa r $>$98\% dekning
+p\aa{} tvers av alle hundre\aa r med tilstrekkelege postar ($n > 10$).
+
+\subsection{Geometrisk trekkanalyse}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig-05-pca-morphospace.pdf}
+\caption{\textbf{Prinsipalkomponentanalyse av fem mesh-utrekna formdeskriptorar} (n\,=\,2\,029). \textbf{A}: PC1 mot PC2 med KDE-tettleikskontourar og hundre\aa rsfarga scatter. Teal sti viser kronologisk stilsentroid-trajektorie. \textbf{B}: Ladningsvektorar. \textbf{C}: Forklart varians per komponent.}
+\label{fig:pca}
+\end{figure*}
+
+Prinsipalkomponentanalyse av dei fem standardiserte mesh-trekka
+(Figur~\ref{fig:pca}) avslerer at to komponentar forklarar 60.0\% av total varians.
+PC1 (35.5\%) er driven av tregleiksratio (+0.66) og sf\ae risitet (+0.57),
+som representerer ein \emph{kompaktheit/rundingsakse}.
+PC2 (24.5\%) er driven av konvekst hylstervolum (+0.73)
+og kompleksitet ($-$0.63), som representerer ein \emph{masse-mot-detaljakse}.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig-15-style-fingerprints.pdf}
+\caption{Stilfingeravtrykk: radardiagram for kvar hovudstilperiode som viser den normaliserte (z-skora) medianen av \aa tte geometriske trekk. Den stipla sirkelen markerer z = 0 (datasettmedianen).}
+\label{fig:fingerprints}
+\end{figure*}
+
+Stilfingeravtrykka (Figur~\ref{fig:fingerprints}) viser at kvar stilperiode
+har ein distinkt geometrisk signatur.
+Renessanse- og barokkstolar avvik langs volumaksen;
+modernistiske stolar er meir kompakte og sf\ae riske;
+samtidsdesign konvergerer mot datasettet sin median.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig-06-shape-descriptors.pdf}
+\caption{Fordeling av fem mesh-utrekna formdeskriptorar p\aa{} tvers av hovudstilperiodar (n\,$\geq$\,30). Fiolinplott viser KDE-tettleikar; prikkar viser einskilde stolar.}
+\label{fig:violins}
+\end{figure*}
+
+Sf\ae risitetsfordelingane smalnar fr\aa{} renessanse (IQR 0.15) til
+modernisme (IQR 0.08), konsistent med aukande geometrisk standardisering.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig-14-correlation-web.pdf}
+\caption{Korrelasjonsmatrise mellom \aa tte dimensjons- og mesh-trekk. Hogde--volum (r = 0.64) og breidde--djupn (r = 0.78) er dei sterkaste koplingane. Mesh-trekka (Sph., Fyll., Tregl., Kompl.) er i stor grad uavhengige av katalogdimensjonane.}
+\label{fig:corrweb}
+\end{figure}
+
+Korrelasjonsmatrisa (Figur~\ref{fig:corrweb}) avslerer at dei mesh-utrekna formtrekka
+er i stor grad uavhengige av katalogdimensjonane (alle $|r| < 0.25$),
+noko som stadfestar at dei fangar distinkt formell informasjon
+utover enkel storleik.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig-08-inertia-tensor.pdf}
+\caption{Tregleiksratio mot sf\ae risitet, farga etter \aa rstal. Kompakte stolar klyngjer seg oppe til hogre; langstrekte, kantete stolar nede til venstre ($r = 0.72$).}
+\label{fig:inertia}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig-07-proportions.pdf}
+\caption{Proporsjonsratioar over tid (25-\aa rsbolkar). Ribbons viser interkvartilvidde; liner viser medianer.}
+\label{fig:proportions}
+\end{figure}
+
+\subsection{Morforomevolusjon}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig-16-morphospace-evolution.pdf}
+\caption{Morforomevolusjon: distribusjonen av sf\ae risitet i 50-\aa rsbolkar fr\aa{} 1500 til 2000. Kvar rad er ein KDE-tettleik for den gjevne perioden. Vertikale strekar viser periodemedianer. Fr\aa{} 1800-talet konvergerer fordelinga mot hogre sf\ae risitet.}
+\label{fig:kymograph}
+\end{figure}
+
+Kymografen (Figur~\ref{fig:kymograph}) viser korleis sf\ae risitetsfordelinga
+endrar seg over tid.
+F\o r 1700 er fordelinga brei og ujamn, med sm\aa{} utval.
+Fr\aa{} 1750 konsentrerer fordelinga seg progressivt
+rundt sf\ae risitet 0.75--0.85, konsistent med industrialiseringa
+og den tilhoyrane standardiseringa av mobelproroduksjonen.
+
+\subsection{Mesh-kvalitet}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig-11-mesh-quality.pdf}
+\caption{Mesh-kvalitetsvalidering. \textbf{A}: Fordeling av mesh-kompleksitet. \textbf{B}: Katalogvolum mot hylstervolum ($r = 0.39$). \textbf{C}: Z-skora trekkfordelingar; 66 observasjonar (3.3\%) overstig $|z| > 3$.}
+\label{fig:quality}
+\end{figure*}
+
+Mesh-kompleksitetsfordelinga (Figur~\ref{fig:quality}A) er unimodal
+med median $\log_{10}(v/a) = 5.29$.
+Korrelasjonen mellom katalogvolum og konvekst hylstervolum er $r = 0.39$ (Figur~\ref{fig:quality}B).
+
+\subsection{Kryssmuseumskonsistens}
+
+Dei to kjeldemusea bidrar med postar med ulike temporale og geografiske fordelingar.
+Tr\aa ss desse skilnadene skil ikkje mesh-trekkfordelingane seg signifikant mellom museum
+etter kontroll for periode
+(to-utvals Kolmogorov--Smirnov-testar, $p > 0.05$
+for alle fem trekk innanfor matchande halve hundre\aa rsbolkar).
+
+
+% ═══════════════════════════════════════════
+\section{Bruksnotat}
+
+Databasen kan lastast i Python:
+
+{\small
+\begin{verbatim}
+import pandas as pd
+df = pd.read_csv("STOLAR/STOLAR.csv")
+
+import trimesh
+mesh = trimesh.load("STOLAR/glb/NMK.2005.0638.glb")
+\end{verbatim}
+}
+
+\subsection{Mogelege bruksomr\aa de}
+
+STOLAR mogleggjer fleire forskingsretningar:
+
+\begin{itemize}
+\item \emph{Kvantitativ designhistorie}: teste om stiltransisjonar
+      svarar til m\aa lbare geometriske skifte~\cite{kubler1962shape,thompson1917growth}.
+\item \emph{Formgrammatikkvalidering}: samanlikne grammatikk-genererte former
+      mot den empiriske fordelinga av realiserte stolar~\cite{stiny2006shape,knight1980hepplewhite}.
+\item \emph{Kulturell evolusjonell modellering}: estimere oppst\aa ings- og utdoyingsratar
+      for morfologiske trekk~\cite{kandler2019diversification}.
+\item \emph{Maskinleringsbenchmarks}: trene generative 3D-modellar
+      p\aa{} historisk grunna data.
+\item \emph{Designutdanning}: gje studentar empirisk evidens
+      for korleis form, material og funksjon samhandlar over hundre\aa r.
+\end{itemize}
+
+\subsection{Avgrensingar}
+
+3D-meshane er AI-genererte tilnermingar, ikkje fotogrammetriske skannar.
+Hunyuan3D-2-modellen opererer fr\aa{} eit einaste bilete,
+noko som kan introdusere synsavhengige artefaktar.
+
+Stilperiodeklassifiseringar kombinerer museumstildelingar
+med semi-automatisert klassifisering.
+Dimensjonsdata vart tolka fr\aa{} fritekststrenger
+og kan innehalde m\aa lefeil fr\aa{} kjeldekatalogane.
+
+Datasettet speglar innsamlingsprioritetane til to europeiske museum
+og er ikkje representativt for globale mobeltradisjona.
+
+
+% ═══════════════════════════════════════════
+\section{Kodetilgang}
+
+All data, 3D-modellar og analysekode er tilgjengelege p\aa{}
+\url{https://github.com/lukketsvane/stolar-db}.
+Databasen er frigjeven under MIT-lisensen.
+
+\section*{Takkseiingar}
+
+Forfattaren takkar Nasjonalmuseet for kunst, arkitektur og design
+og Victoria and Albert Museum for \aa{} gjere samlingsdataa sine
+tilgjengelege gjennom opne API-ar.
+Dette arbeidet vart utfort ved Institutt for design,
+Arkitektur- og designhogskolen i Oslo (AHO).
+
+\section*{Forfattarbidrag}
+
+I.R.F.\ designa studien, samla dataa, bygde pipelinen,
+utforte analysane og skreiv manuskriptet.
+
+\section*{Konkurrerande interesser}
+
+Forfattaren erkl\ae rer ingen konkurrerande interesser.
+
+\bibliography{references}
+
+\end{document}

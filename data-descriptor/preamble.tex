@@ -1,0 +1,92 @@
+% ══════════════════════════════════════════════════════════════
+% STOLAR Data Descriptor — two-column research publication format
+% Matching foundational-paper style
+% ══════════════════════════════════════════════════════════════
+
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+% ── Encoding & fonts ──
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext}              % Times Roman
+\usepackage{newtxmath}              % Matching math fonts
+\usepackage[final]{microtype}       % Optical margin alignment
+
+% ── Page geometry ──
+\usepackage[
+  top=20mm, bottom=22mm,
+  left=16mm, right=16mm,
+  columnsep=7mm,
+  headsep=8mm, footskip=10mm
+]{geometry}
+
+% ── Line spacing ──
+\usepackage{setspace}
+\setstretch{1.12}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+
+% ── Section headings ──
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection.}{0.4em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}{\thesubsubsection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{14pt plus 2pt minus 1pt}{5pt plus 1pt}
+\titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 1pt}{2pt plus 1pt}
+\titlespacing*{\subsubsection}{0pt}{6pt plus 1pt}{2pt}
+
+% ── Citations ──
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\renewcommand*{\bibfont}{\small}
+
+% ── Math ──
+\usepackage{amsmath}
+
+% ── Figures & tables ──
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\captionsetup{
+  labelfont={bf, small},
+  font={small},
+  skip=4pt,
+  belowskip=2pt,
+  format=plain,
+  justification=justified,
+  singlelinecheck=false
+}
+
+% ── Lists ──
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=1.5em, topsep=2pt}
+
+% ── Cross-references ──
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=blue!50!black,
+  urlcolor=blue!60!black
+]{hyperref}
+\usepackage{siunitx}
+
+% ── Running head ──
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\textsc{STOLAR: open geometrisk database}}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{\footnotesize\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\graphicspath{{figures/}}

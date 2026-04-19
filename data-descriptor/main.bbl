@@ -1,0 +1,222 @@
+\begin{thebibliography}{38}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Raup(1966)]{raup1966geometric}
+David~M. Raup.
+\newblock Geometric analysis of shell coiling.
+\newblock \emph{Journal of Paleontology}, 40\penalty0 (5):\penalty0 1178--1190,
+  1966.
+
+\bibitem[McGhee(1999)]{mcghee1999morphology}
+George~R. McGhee.
+\newblock \emph{Theoretical Morphology: The Concept and Its Applications}.
+\newblock Columbia University Press, 1999.
+
+\bibitem[Mitteroecker and Huttegger(2009)]{mitteroecher2009morphospace}
+Philipp Mitteroecker and Simon~M. Huttegger.
+\newblock The concept of morphospaces in evolutionary and developmental
+  biology.
+\newblock \emph{Biological Theory}, 4\penalty0 (1):\penalty0 54--67, 2009.
+
+\bibitem[Mitteroecker(2022)]{mitteroecker2022thirty}
+Philipp Mitteroecker.
+\newblock Thirty years of geometric morphometrics: Achievements, challenges,
+  and the ongoing quest for biological meaningfulness.
+\newblock \emph{American Journal of Biological Anthropology}, 2022.
+
+\bibitem[Steadman and Mitchell(2010)]{steadman2010morphospace}
+Philip Steadman and Linda~J. Mitchell.
+\newblock Architectural morphospace: Mapping worlds of built forms.
+\newblock \emph{Environment and Planning B}, 37:\penalty0 197--220, 2010.
+
+\bibitem[MacLeod(2018)]{macleod2018quantitative}
+Norman MacLeod.
+\newblock The quantitative assessment of archaeological artifact groups.
+\newblock \emph{Quaternary Science Reviews}, 201:\penalty0 319--348, 2018.
+
+\bibitem[Ros et~al.(2022)]{pottery2022morphometrics}
+Jaume Ros et~al.
+\newblock Statistical analysis of morphometric data for pottery formal
+  classification.
+\newblock \emph{Open Archaeology}, 8, 2022.
+
+\bibitem[Grabner et~al.(2015)Grabner, Eisank, and Gaal]{grabner2015automotive}
+H.~Grabner, C.~Eisank, and M.~Gaal.
+\newblock Temporal shape changes and future trends in {European} automotive
+  design.
+\newblock \emph{Machines}, 3\penalty0 (3):\penalty0 256--267, 2015.
+
+\bibitem[Lycett(2016)]{lycett2016cultural}
+Stephen~J. Lycett.
+\newblock The importance of a `quantitative genetic' approach to the evolution
+  of artifact morphological traits.
+\newblock \emph{World Archaeology}, 48\penalty0 (1):\penalty0 14--30, 2016.
+
+\bibitem[Mesoudi(2011)]{mesoudi2011cultural}
+Alex Mesoudi.
+\newblock \emph{Cultural Evolution: How {Darwinian} Theory Can Explain Human
+  Culture and Synthesize the Social Sciences}.
+\newblock University of Chicago Press, 2011.
+
+\bibitem[Shennan et~al.(2015)]{shennan2015cultural}
+Stephen~J. Shennan et~al.
+\newblock Cultural evolutionary approaches to artifact variation.
+\newblock \emph{Journal of Archaeological Method and Theory}, 2015.
+
+\bibitem[Kandler and Crema(2019)]{kandler2019diversification}
+Anne Kandler and Enrico~R. Crema.
+\newblock A quantitative workflow for modeling diversification in material
+  culture.
+\newblock \emph{PLOS ONE}, 15\penalty0 (2), 2019.
+
+\bibitem[Osada et~al.(2002)Osada, Funkhouser, Chazelle, and
+  Dobkin]{osada2002shape}
+Robert Osada, Thomas Funkhouser, Bernard Chazelle, and David Dobkin.
+\newblock Shape distributions.
+\newblock \emph{ACM Transactions on Graphics}, 21\penalty0 (4):\penalty0
+  807--832, 2002.
+
+\bibitem[Grosman et~al.(2022)]{grosman2022artifact3d}
+Leore Grosman et~al.
+\newblock {Artifact3-D}: New software for accurate, objective and efficient
+  {3D} analysis and documentation of archaeological artifacts.
+\newblock \emph{PLOS ONE}, 17\penalty0 (6):\penalty0 e0268401, 2022.
+
+\bibitem[Hanik et~al.(2023)Hanik, Ducke, Hege, Fless, and von
+  Tycowicz]{hanik2023sundials}
+Martin Hanik, Benjamin Ducke, Hans-Christian Hege, Friederike Fless, and
+  Christoph von Tycowicz.
+\newblock Intrinsic shape analysis in archaeology: A case study on ancient
+  sundials.
+\newblock \emph{ACM Journal on Computing and Cultural Heritage}, 16\penalty0
+  (4), 2023.
+
+\bibitem[Stiny and Gips(1972)]{stiny1972shape}
+George Stiny and James Gips.
+\newblock Shape grammars and the generative specification of painting and
+  sculpture.
+\newblock \emph{Information Processing}, 71:\penalty0 1460--1465, 1972.
+
+\bibitem[Stiny(1980)]{stiny1980introduction}
+George Stiny.
+\newblock Introduction to shape and shape grammars.
+\newblock \emph{Environment and Planning B}, 7:\penalty0 343--351, 1980.
+
+\bibitem[Stiny(2006)]{stiny2006shape}
+George Stiny.
+\newblock \emph{Shape: Talking about Seeing and Doing}.
+\newblock MIT Press, 2006.
+
+\bibitem[Stiny(1991)]{stiny1991algebras}
+George Stiny.
+\newblock The algebras of design.
+\newblock \emph{Research in Engineering Design}, 2:\penalty0 171--181, 1991.
+
+\bibitem[Knight(1980)]{knight1980hepplewhite}
+Terry~W. Knight.
+\newblock The generation of {Hepplewhite}-style chair-back designs.
+\newblock \emph{Environment and Planning B}, 7:\penalty0 227--238, 1980.
+
+\bibitem[Barros et~al.(2016)Barros, Duarte, and Chaparro]{barros2016chair}
+M.~Barros, J.~P. Duarte, and B.~M. Chaparro.
+\newblock A grammar-based model for the mass customisation of chairs.
+\newblock \emph{Nexus Network Journal}, 18\penalty0 (2), 2016.
+
+\bibitem[Xue and Chen(2024)]{xuechen2024shape}
+Guanlan Xue and Jinglian Chen.
+\newblock Strategies for applying shape grammar to wooden furniture design.
+\newblock \emph{BioResources}, 19\penalty0 (1):\penalty0 1707--1727, 2024.
+
+\bibitem[Haakonsen et~al.(2023)Haakonsen, Ronnquist, and
+  Labonnote]{haakonsen2023shapegrammar}
+S.~M. Haakonsen, A.~Ronnquist, and N.~Labonnote.
+\newblock Fifty years of shape grammars.
+\newblock \emph{International Journal of Architectural Computing}, 21\penalty0
+  (1), 2023.
+
+\bibitem[Hatchuel and Weil(2003)]{hatchuel2003new}
+Armand Hatchuel and Benoit Weil.
+\newblock A new approach of innovative design: An introduction to {C-K} theory.
+\newblock \emph{Proc. ICED 2003}, 2003.
+
+\bibitem[Hatchuel and Weil(2009)]{hatchuel2009ck}
+Armand Hatchuel and Benoit Weil.
+\newblock {C-K} design theory: An advanced formulation.
+\newblock \emph{Research in Engineering Design}, 19\penalty0 (4):\penalty0
+  181--192, 2009.
+
+\bibitem[Chang et~al.(2015)]{chang2015shapenet}
+Angel~X. Chang et~al.
+\newblock {ShapeNet}: An information-rich {3D} model repository.
+\newblock In \emph{arXiv:1512.03012}, 2015.
+
+\bibitem[Mo et~al.(2019)]{mo2019partnet}
+Kaichun Mo et~al.
+\newblock {PartNet}: A large-scale benchmark for fine-grained {3D} object
+  understanding.
+\newblock In \emph{CVPR}, 2019.
+
+\bibitem[Aubry et~al.(2014)Aubry, Maturana, Efros, Russell, and
+  Sivic]{aubry2014chairs}
+Mathieu Aubry, Daniel Maturana, Alexei~A. Efros, Bryan~C. Russell, and Josef
+  Sivic.
+\newblock Seeing {3D} chairs: Exemplar part-based {2D-3D} alignment.
+\newblock In \emph{CVPR}, 2014.
+
+\bibitem[Fu et~al.(2021)]{fu2021future3d}
+Huan Fu et~al.
+\newblock {3D-FUTURE}: {3D} furniture shape with {TextURE}.
+\newblock \emph{International Journal of Computer Vision}, 2021.
+
+\bibitem[Sipiran et~al.(2021)]{sipiran2021shrec}
+Ivan Sipiran et~al.
+\newblock {SHREC 2021}: Retrieval of cultural heritage objects.
+\newblock In \emph{Computers \& Graphics}, volume 100, pages 1--20, 2021.
+
+\bibitem[Burnap et~al.(2023)Burnap, Hauser, and
+  Timoshenko]{burnap2023aesthetic}
+Alexander Burnap, John~R. Hauser, and Artem Timoshenko.
+\newblock Product aesthetic design: A machine learning augmentation.
+\newblock \emph{Marketing Science}, 42\penalty0 (6):\penalty0 1029--1056, 2023.
+
+\bibitem[Manovich(2020)]{manovich2020cultural}
+Lev Manovich.
+\newblock \emph{Cultural Analytics}.
+\newblock MIT Press, 2020.
+
+\bibitem[Wilkinson et~al.(2016)]{wilkinson2016fair}
+Mark~D. Wilkinson et~al.
+\newblock The {FAIR} guiding principles for scientific data management and
+  stewardship.
+\newblock \emph{Scientific Data}, 3:\penalty0 160018, 2016.
+
+\bibitem[Barzaghi et~al.(2024)]{barzaghi2024fair3d}
+Sebastian Barzaghi et~al.
+\newblock A proposal for a {FAIR} management of {3D} data in cultural heritage.
+\newblock \emph{Data Intelligence}, 2024.
+
+\bibitem[{Tencent}(2024)]{hunyuan3d}
+{Tencent}.
+\newblock Hunyuan3d-2: Image-to-3d generation, 2024.
+\newblock URL \url{https://github.com/Tencent/Hunyuan3D-2}.
+
+\bibitem[Dawson-Haggerty(2019)]{trimesh}
+Michael Dawson-Haggerty.
+\newblock trimesh, 2019.
+\newblock URL \url{https://trimesh.org/}.
+
+\bibitem[Kubler(1962)]{kubler1962shape}
+George Kubler.
+\newblock \emph{The Shape of Time}.
+\newblock Yale University Press, 1962.
+
+\bibitem[Thompson(1917)]{thompson1917growth}
+D'Arcy~Wentworth Thompson.
+\newblock \emph{On Growth and Form}.
+\newblock Cambridge University Press, 1917.
+
+\end{thebibliography}

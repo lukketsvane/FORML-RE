@@ -1,0 +1,77 @@
+\input{preamble}
+
+% ── Nynorsk overrides ──
+\fancyhead[L]{\footnotesize\textsc{Form f\o lgjer omsorg}}
+
+\addto\captionsenglish{%
+  \renewcommand{\figurename}{Figur}%
+  \renewcommand{\tablename}{Tabell}%
+}
+\renewcommand{\figurename}{Figur}
+\renewcommand{\tablename}{Tabell}
+
+\begin{document}
+
+% ── Tittelblokk ──
+\twocolumn[{%
+\begin{@twocolumnfalse}
+
+\vspace*{4mm}
+
+{\raggedright
+{\fontsize{22}{26}\selectfont\bfseries Form f\o lgjer omsorg\par}
+\vspace{4pt}
+{\Large Ei formell forklaring av formvariasjon i designa artefaktar\par}
+
+\vspace{14pt}
+
+{\normalsize Iver Raknes Finne\par}
+\vspace{3pt}
+{\small\itshape Institutt for design, Arkitektur- og designhøgskolen i Oslo (AHO)\par}
+\vspace{1pt}
+{\small iver.raknes.finne@stud.aho.no\par}
+\par}
+
+\vspace{14pt}
+
+% ── Samandrag ──
+\begin{minipage}{0.96\textwidth}
+\noindent\rule{\textwidth}{0.4pt}
+\vspace{5pt}
+
+{\small
+\noindent\textbf{Samandrag}\quad
+Kvifor tek eit designobjekt éi form framfor ei anna? Funksjon kan ikkje vere svaret; alle stolar deler affordansen sitting, men forma varierer enormt. Me føreslår \formlaere{}, ein formell designteori som sameinar Stiny sin formalgebra, Hatchuel og Weil sin C-K-teori, og Levin sitt multiskala-kompetanserammeverk i éi generativ likning: $\mathrm{Form} = SG(\nabla_{C(A)}\, L(c,t))$. Teorien er strukturert som sju proposisjonar og introduserer \textit{omsorg}; dimensjonaliteten til agenten si kognitive lyskjegle; som mål på designintelligens. Me testar teorien mot 2\,066 europeiske stolar (1280--2024) frå to museumssamlingar med 2\,204 mesh-modellar. Tjue statistiske analysar over 14 kryssvalideringsdelmengder gjev resultat konsistente med kjernepredikasjonane; ingen postulat er falsifisert. Tre utarbeidde døme; utkragingsstolkappløpet (1925--28), Neri Oxman sitt Silk Pavilion, og The Great Green Wall; demonstrerer teoriens forklaringskraft frå møbelhistorie til kontinental-skala økologi. Teorien genererer sju falsifiserbare forskingsprogram.
+
+\vspace{4pt}
+\noindent\textbf{Nøkkelord}\quad designteori, morforom, tilpassingslandskap, formgrammatikk, C-K-teori, multiskala-agens, omsorg, seleksjonstrykk
+}
+
+\vspace{4pt}
+\noindent\rule{\textwidth}{0.4pt}
+\end{minipage}
+\par
+
+\vspace{8pt}
+
+\end{@twocolumnfalse}
+}]
+
+% ── Hovuddel ──
+\input{sections/01-introduction-nn}
+\input{sections/02-background-nn}
+\input{sections/03-theory-nn}
+\input{sections/04-empirical-nn}
+\input{sections/05-examples-nn}
+\input{sections/06-discussion-nn}
+\input{sections/07-agenda-nn}
+\input{sections/08-conclusion-nn}
+
+% ── Referansar ──
+\clearpage
+\begingroup
+\footnotesize
+\printbibliography[title={Referansar}]
+\endgroup
+
+\end{document}

@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: formlaere.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Illegal, another \bibdata command---line 271 of file formlaere.aux
+ : \bibdata
+ :         {formlaere}
+I'm skipping whatever remains of this command
+Database file #1: formlaere.bib
+Warning--empty journal in hatchuelweil2003
+Warning--empty journal in kazakci2015
+Warning--empty journal in stinygips1972
+Warning--empty journal in thompson1917
+You've used 51 entries,
+            1935 wiz_defined-function locations,
+            759 strings with 10301 characters,
+and the built_in function-call counts, 17975 in all, are:
+= -- 1767
+> -- 541
+< -- 46
++ -- 209
+- -- 169
+* -- 1425
+:= -- 3155
+add.period$ -- 151
+call.type$ -- 51
+change.case$ -- 319
+chr.to.int$ -- 51
+cite$ -- 55
+duplicate$ -- 735
+empty$ -- 1376
+format.name$ -- 236
+if$ -- 3502
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 70
+newline$ -- 255
+num.names$ -- 155
+pop$ -- 288
+preamble$ -- 1
+purify$ -- 338
+quote$ -- 0
+skip$ -- 563
+stack$ -- 0
+substring$ -- 1359
+swap$ -- 67
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 268
+warning$ -- 4
+while$ -- 159
+width$ -- 0
+write$ -- 657
+(There was 1 error message)

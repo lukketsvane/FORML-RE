@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if gte IE 9 ]><html class="no-js ie9" lang="en"> <![endif]-->
+
+  <title>Page not found | YU</title>
+
+	<meta name="description" content="" />
+
+	<link rel="shortcut icon" href="https://yaleunion.org/wp-content/themes/skeleton-theme/images/favicon.ico">
+
+	<!--[if lt IE 9]>
+		<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<link rel="stylesheet" href="https://yaleunion.org/wp-content/themes/skeleton-theme/stylesheets/ie.css">
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- typekit -->
+	<script type="text/javascript" src="//use.typekit.com/kwn1rcd.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="https://yaleunion.org/wp-content/themes/skeleton-theme/stylesheets/base.css">
+	<link rel="stylesheet" href= "https://yaleunion.org/wp-content/themes/skeleton-theme/stylesheets/style.css">
+	<link rel="stylesheet" href="https://yaleunion.org/wp-content/themes/skeleton-theme/stylesheets/layout.css">
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/yaleunion.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.7.15"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='s201-bai-css'  href='https://yaleunion.org/wp-content/plugins/ba-plus-before-after-image-slider-free/css/ba-plus.min.css?ver=1.0.3' type='text/css' media='screen' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://yaleunion.org/wp-includes/css/dist/block-library/style.min.css?ver=5.7.15' type='text/css' media='all' />
+<link rel='stylesheet' id='bg-shce-genericons-css'  href='https://yaleunion.org/wp-content/plugins/show-hidecollapse-expand/assets/css/genericons/genericons.css?ver=5.7.15' type='text/css' media='all' />
+<link rel='stylesheet' id='bg-show-hide-css'  href='https://yaleunion.org/wp-content/plugins/show-hidecollapse-expand/assets/css/bg-show-hide.css?ver=5.7.15' type='text/css' media='all' />
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public.js?ver=2.0.10' id='wp-hide-post-js'></script>
+<link rel="https://api.w.org/" href="https://yaleunion.org/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://yaleunion.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://yaleunion.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.7.15" />
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>		<style type="text/css" id="wp-custom-css">
+			.postid-17055 {
+	background: #FFCAD4;
+		color: #000000
+}
+
+.postid-16989 {
+	background: #FFCAD4;
+		color: #000000
+}
+
+.postid-17115 {
+	background: #FFCAD4;
+		color: #000000
+}
+
+.postid-17153 {
+	background: #FFCAD4;
+		color: #000000
+}
+
+.postid-17292 {
+	background: #FFCAD4;
+		color: #000000
+}
+
+.postid-17401 {
+	background: #FFCAD4;
+		color: #000000
+}		</style>
+		
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1431411-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<meta name="google-site-verification" content="StxwXwhcFvNo5pP3xfbB0AvDnhUODG9OGCL510HZOsA" />
+
+</head>
+
+<body class="error404"><!-- the Body  -->
+
+ <div class="container clearfix">
+
+  <header>  
+    
+     <div class="content-clearfix"> 
+         <div class="logo">
+            <a href="https://yaleunion.org">
+             <h1>YALE UNION (YU)</h1>
+            </a>
+         
+         
+     </div> 
+     
+   </header> <!--  End blog header -->
+	<div class="two-thirds column">
+		<div id="content">
+
+			<div id="error-oops">
+				This is somewhat embarrassing, isn't it?
+			It seems we can't find what you're looking for. Perhaps searching can help.
+			<br />
+			<br />
+			
+			<form role="search" method="get" id="searchform" class="searchform" action="https://yaleunion.org/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form>			
+			</div>
+
+				     
+
+				</div><!-- .entry-content -->
+			</article><!-- #post-0 -->
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
+        
+
+      <div class="sidebar clearfix">
+      	
+      </div>
+
+  <div class="clear"></div>
+    <div class="footer clearfix">
+    	<div class="search">
+				<form id="searchform" method="get" action="https://yaleunion.org">
+					<div>
+						<label for="s">Search</label>
+						<input id="s" name="s" type="text" class="text" title="Search the site" placeholder="" value="" tabindex="1" />
+						<input id="searchsubmit" name="searchsubmit" type="submit" value="Search" tabindex="2" />
+					</div>
+				</form>
+		</div>
+
+		<div class="email-list">
+			<!-- Form -->
+			<form action="https://yu.createsend.com/t/r/s/nutmu/" method="post" id="subForm">
+				<div>
+				<label for="nutmu-nutmu">Receive YU E-blast Updates</label>
+				<span><input type="text" name="cm-nutmu-nutmu" id="nutmu-nutmu" size="35" placeholder="" /></span>
+				<span class="button"><input type="submit" value="Subscribe" /></span>
+				</div>
+			</form>
+			<!-- /form -->
+		</div>
+
+			<ul class="social">
+				<li id="fb-share"><a href="https://www.facebook.com/pages/YU/177459945638147">Facebook</a></li>
+				<li id="twitter-share"><a href="https://twitter.com/YaleUnion">Twitter</a></li>
+				<!--<li id="tumblr-share"><a href="http://yaleunion.tumblr.com">Tumblr</a></li>-->
+			</ul>
+    </div>
+
+          	<ul class="taglist">
+
+      	<li><a href="https://yaleunion.org/tagged/film/" title="" >film</a></li> <li><a href="https://yaleunion.org/tagged/panel-discussion/" title="" >panel discussion</a></li> <li><a href="https://yaleunion.org/tagged/screening/" title="" >screening</a></li> <li><a href="https://yaleunion.org/tagged/lucier/" title="" >lucier</a></li> <li><a href="https://yaleunion.org/tagged/fullman/" title="" >fullman</a></li> <li><a href="https://yaleunion.org/tagged/repatriation/" title="" >repatriation</a></li> <li><a href="https://yaleunion.org/tagged/letterpress/" title="" >Letterpress</a></li> <li><a href="https://yaleunion.org/tagged/george-kuchar/" title="" >George Kuchar</a></li> <li><a href="https://yaleunion.org/tagged/building/" title="" >Building</a></li> <li><a href="https://yaleunion.org/tagged/offset/" title="" >Offset</a></li> <li><a href="https://yaleunion.org/tagged/recording-studio/" title="" >Recording Studio</a></li> <li><a href="https://yaleunion.org/tagged/library/" title="" >Library</a></li> <li><a href="https://yaleunion.org/tagged/2016/" title="" >2016</a></li> <li><a href="https://yaleunion.org/tagged/solstice-quest/" title="" >Solstice Quest</a></li> <li><a href="https://yaleunion.org/tagged/michelle-stuart/" title="" >Michelle Stuart</a></li> <li><a href="https://yaleunion.org/tagged/tom-marioni/" title="" >Tom Marioni</a></li> <li><a href="https://yaleunion.org/tagged/suzanne-cotter/" title="" >Suzanne Cotter</a></li> <li><a href="https://yaleunion.org/tagged/john-cage/" title="" >john cage</a></li> <li><a href="https://yaleunion.org/tagged/concert/" title="" >Concert</a></li> <li><a href="https://yaleunion.org/tagged/yu/" title="" >YU</a></li> <li><a href="https://yaleunion.org/tagged/portland-center-for-the-visual-arts/" title="" >Portland Center for the Visual Arts</a></li> <li><a href="https://yaleunion.org/tagged/veneer/" title="" >Veneer</a></li> <li><a href="https://yaleunion.org/tagged/pcva/" title="" >PCVA</a></li> <li><a href="https://yaleunion.org/tagged/exhibition/" title="" >EXHIBITION</a></li> <li><a href="https://yaleunion.org/tagged/app/" title="" >app</a></li> <li><a href="https://yaleunion.org/tagged/mykki-blanco/" title="" >mykki blanco</a></li> <li><a href="https://yaleunion.org/tagged/tom-blood/" title="" >Tom Blood</a></li> <li><a href="https://yaleunion.org/tagged/images/" title="" >Images</a></li> <li><a href="https://yaleunion.org/tagged/david-senior/" title="" >David Senior</a></li> <li><a href="https://yaleunion.org/tagged/david-abel/" title="" >David Abel</a></li> <li><a href="https://yaleunion.org/tagged/tina-olsen/" title="" >Tina Olsen</a></li> <li><a href="https://yaleunion.org/tagged/the-maximus-poems/" title="" >The Maximus Poems</a></li> <li><a href="https://yaleunion.org/tagged/performance/" title="" >Performance</a></li> <li><a href="https://yaleunion.org/tagged/benjamin-thorel/" title="" >Benjamin Thorel</a></li> <li><a href="https://yaleunion.org/tagged/talk/" title="" >Talk</a></li> <li><a href="https://yaleunion.org/tagged/spare-room/" title="" >Spare Room</a></li> <li><a href="https://yaleunion.org/tagged/shannon-ebner/" title="" >Shannon Ebner</a></li> <li><a href="https://yaleunion.org/tagged/omar-souleyman/" title="" >Omar Souleyman</a></li> <li><a href="https://yaleunion.org/tagged/money/" title="" >money</a></li> 		</ul>
+
+</div>
+
+<script type='text/javascript' src='https://yaleunion.org/wp-content/plugins/ba-plus-before-after-image-slider-free/js/ba-plus.min.js?ver=1.0.3' id='s201-bai-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/ui/effect.min.js?ver=1.12.1' id='jquery-effects-core-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/ui/effect-slide.min.js?ver=1.12.1' id='jquery-effects-slide-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/ui/effect-highlight.min.js?ver=1.12.1' id='jquery-effects-highlight-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/ui/effect-fold.min.js?ver=1.12.1' id='jquery-effects-fold-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/jquery/ui/effect-blind.min.js?ver=1.12.1' id='jquery-effects-blind-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-content/plugins/show-hidecollapse-expand/assets/js/bg-show-hide.js?ver=5.7.15' id='bg-show-hide-script-js'></script>
+<script type='text/javascript' src='https://yaleunion.org/wp-includes/js/wp-embed.min.js?ver=5.7.15' id='wp-embed-js'></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://yaleunion.org/wp-content/themes/skeleton-theme/js/yu2.js"></script>
+</body>
+</html>

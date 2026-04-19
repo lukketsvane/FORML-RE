@@ -1,0 +1,602 @@
+\documentclass[10pt,oneside]{book}
+
+% Page geometry — 125 × 200 mm (Gyldendal 1999 Tractatus format).
+% Wide LEFT margin holds the proposition numbers (marginal numbering style):
+% numbers are \llap'd into this margin so the body text block is a clean
+% rectangle with all lines (including continuation) flush left at the body
+% column. Right margin is narrow (no marginalia on the right).
+% Top includes the running header band; footskip minimal (no footer text).
+\usepackage[
+  paperwidth=125mm,
+  paperheight=200mm,
+  top=20mm,
+  bottom=18mm,
+  left=28mm,
+  right=12mm,
+  headheight=12pt,
+  headsep=6mm,
+  footskip=8mm,
+]{geometry}
+
+% UTF-8 + Norwegian (nynorsk)
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=nynorsk]{norwegian}
+
+% Body font — the digibok is set in Sabon. EB Garamond is the closest
+% free serif with the same general feel; fall back to TeX Gyre Pagella.
+\IfFontExistsTF{EB Garamond}{
+  \setmainfont{EB Garamond}[
+    Numbers={Lining,Proportional},
+    SmallCapsFeatures={LetterSpace=4},
+  ]
+}{
+  \setmainfont{TeX Gyre Pagella}
+}
+% Body size 10.5 pt on 12.5 pt leading (close to Sabon 10.5/12 in the digibok)
+\renewcommand{\normalsize}{\fontsize{10.5}{12.5}\selectfont}
+\normalsize
+
+% Better line breaking (must be loaded after font setup)
+\usepackage{microtype}
+\usepackage{endnotes}
+\let\footnote=\endnote
+\usepackage{amsmath}
+
+% Math-symbol fallback font — EB Garamond lacks ∀ ∃ ∈ ⊆ ⊃ ≠ etc.,
+% so the Python preprocessor wraps them in \msym{...} which uses
+% Cambria Math (alltid present on Windows).
+\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
+\newcommand{\msym}[1]{{\mathfbfont #1}}
+
+% Headings — small caps, centred, generous spacing
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+  {\normalfont\centering\scshape\addfontfeature{LetterSpace=10}\large}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\chapter}{0pt}{2.5em}{2.5em}
+
+\titleformat{\section}[block]
+  {\normalfont\centering\scshape\addfontfeature{LetterSpace=6}\normalsize}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\section}{0pt}{2.5em}{1.5em}
+
+\titleformat{\subsection}[block]
+  {\normalfont\scshape\addfontfeature{LetterSpace=2}\small}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\subsection}{0pt}{1.5em}{0.8em}
+
+% Hide chapter numbers (chapters are titled by name)
+\renewcommand{\thechapter}{}
+
+% Running headers — chapter title at left, page number at right, thin rule.
+% The header rule is extended LEFT by 16 mm via \fancyheadoffset so it
+% spans the full content width INCLUDING the marginal number column
+% (otherwise the rule looks narrow because it's anchored to the body
+% text block which sits to the right of the number margin).
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\scshape\leftmark}  % chapter title at left on every page
+\fancyhead[R]{\small\thepage}           % page number at right on every page
+\fancyheadoffset[L]{16mm}               % extend header left over the number margin
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+% plain style (chapter-opening pages): identical to fancy (full header).
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small\scshape\leftmark}
+  \fancyhead[R]{\small\thepage}
+  \fancyheadoffset[L]{16mm}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+% title style — used ONLY on the title page: nothing in the header at all.
+\fancypagestyle{titlepage}{
+  \fancyhf{}
+  \fancyheadoffset[L]{0pt}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% \silentchapter{display name}{lowercase mark}
+%   Starts a new page, sets the running mark, adds a TOC entry, and uses the
+%   plain pagestyle for the opening page — but DOES NOT emit a centred chapter
+%   title (the chapter is identified by the running header and by its content).
+\newcommand{\silentchapter}[2]{%
+  \clearpage
+  \markboth{#2}{}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+\newcommand{\flowchapter}[2]{%
+  \par\addvspace{10pt}%
+  \markboth{#2}{}%
+  \addcontentsline{toc}{chapter}{#1}%
+}
+
+% Redefine \tableofcontents to skip the centred "Innhald" title and to
+% emit the entire TOC at \footnotesize so it fits compactly on one page.
+\makeatletter
+\renewcommand\tableofcontents{%
+  \markboth{innhald}{}%
+  \begingroup\footnotesize
+  \@starttoc{toc}%
+  \endgroup
+}
+% Very compact chapter-level TOC entries
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \vskip 0pt%
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \footnotesize
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \normalfont
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      #1\nobreak\leaders\hbox{$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill
+      \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    \endgroup
+  \fi}
+% Compact section / subsection entries — tight indents.
+% Font size is set via \footnotesize on the entire TOC (see \tableofcontents
+% redefinition above), so the entries inherit it.
+\renewcommand*\l@section{\@dottedtocline{1}{1.0em}{2.0em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.0em}{2.6em}}
+\makeatother
+
+% ─── Proposition environment ──────────────────────────────────────────────
+%
+% \prop{1.21}{d}{Body text..\footnote{Udelelegheit tyder her at vidare dekomponering øydelegg objektets kausale funksjon i den gjevne lyskjegla.}.}
+%   ⇒  number sits in the LEFT MARGIN (\llap'd outside the text block);
+%      body text fills the entire text block as a clean justified rectangle;
+%      continuation lines wrap to the body column (= text margin).
+%
+% This is the Gyldendal 1999 Tractatus / Töpfer marginal-numbering layout:
+% the body text is a single uniform column and the proposition numbers hang
+% out into the white space to the left.
+%
+% Numbers in the digibok appear in the same weight as the body (regular,
+% not bold). The status letter is rendered as an italic superscript right
+% after the number.
+\usepackage{calc}
+\newlength{\propnumwidth}
+\setlength{\propnumwidth}{13mm}  % column reserved for the number itself
+\newlength{\propnumgap}
+\setlength{\propnumgap}{2mm}     % gap between number column and body text
+
+% \prop{num}{status}{body}
+%   The number is placed in a left-aligned 13 mm box, then a 2 mm gap,
+%   and the whole 15 mm slug is \llap'd into the LEFT margin so its right
+%   edge sits flush against the text-block left edge. Body text starts at
+%   the text margin and wraps there too — a perfect rectangle.
+%   The number itself is rendered in a heavier weight so it stands out
+%   against the regular body text.
+% Regular proposition — \needspace prevents page break inside a proposition
+\newcommand{\prop}[3]{%
+  \needspace{3\baselineskip}%
+  \par\addvspace{3pt}%
+  \noindent\llap{\makebox[\propnumwidth][l]{\textbf{#1}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  #3\par%
+  \addvspace{1pt}%
+}
+% Main proposition (integer numbers 1–7): number slightly larger+bold, body text at normal size
+\newcommand{\mainprop}[3]{%
+  \par\addvspace{6pt}%
+  \noindent\llap{\makebox[\propnumwidth][l]{{\fontsize{12}{13.5}\selectfont\textbf{#1}}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  #3\par%
+  \addvspace{3pt}%
+}
+
+% Continuation paragraph — plain paragraph at the body column (no number).
+\newcommand{\propcont}[1]{%
+  \par\addvspace{1pt}%
+  \noindent #1\par%
+}
+
+% Italic transition between chapters
+\newenvironment{overgang}{%
+  \par\addvspace{12pt}%
+  \begingroup\itshape\noindent
+}{%
+  \endgroup\par\addvspace{12pt}%
+}
+
+% Glossary entries — bold term, regular body, with breathing room
+% between entries. Spans up to two pages comfortably.
+\newenvironment{ordliste}{%
+  \begingroup\footnotesize\setlength{\parskip}{0.3pt plus 0.1pt}%
+  \linespread{0.92}\selectfont
+}{%
+  \endgroup
+}
+\newcommand{\ordlisteentry}[2]{%
+  \par\addvspace{1.5pt}%
+  \noindent\textbf{#1:} #2\par%
+}
+
+% Compact Føreord body — small font, very tight parskip and linespread
+% so the foreword fits on a single page.
+\newenvironment{foreordbody}{%
+  \begingroup\normalsize\setlength{\parskip}{3pt plus 0.5pt}%
+  \linespread{1.0}\selectfont
+}{%
+  \endgroup
+}
+
+% A.6.x explanatory body text — slightly smaller, tight line spacing
+% so each A.6.x entry (heading + figure + explanation) fits compactly.
+\newcommand{\anote}[1]{%
+  \par\addvspace{1pt}%
+  {\footnotesize\linespread{0.93}\selectfont\noindent #1\par}%
+  \addvspace{1pt}%
+}
+
+% Reference entries — very compact, tight line spacing, hanging indent.
+% Designed to fit ~30 entries on a single page.
+\newcommand{\refentry}[1]{%
+  \par\addvspace{0pt}%
+  \begingroup\footnotesize\linespread{0.92}\selectfont
+  \noindent\hangindent=4mm\hangafter=1 #1\par%
+  \endgroup
+}
+
+% Figures — centred, max width = text width
+\usepackage{graphicx}
+\usepackage{colortbl}
+\graphicspath{{figures/}{../figures/}{../../analysis/figures/}}
+\usepackage{caption}
+\captionsetup{
+  font={small,it},
+  labelformat=empty,
+  justification=centering,
+  skip=4pt,
+}
+\usepackage{float}
+\usepackage{booktabs}
+
+% Formula display blocks (for D4, D6, etc.) — monospace, small left indent
+\newenvironment{formelblokk}{%
+  \par\addvspace{4pt}%
+  \begingroup\ttfamily\small\leftskip=4mm\noindent
+}{%
+  \endgroup\par\addvspace{4pt}%
+}
+
+% Avoid widows/orphans and keep propositions together
+\widowpenalty=10000
+\clubpenalty=10000
+\usepackage{needspace}
+
+% Body paragraph defaults — tight for the small page
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt plus 0.6pt minus 0.4pt}
+\linespread{1.0}
+
+% Wide environment for back-matter sections (Etterord, Referansar) that
+% should fill the full content width including the 16 mm marginal number
+% column. Pulls the left edge 16 mm to the left of the body block.
+\usepackage{changepage}
+\newenvironment{widebody}{%
+  \begin{adjustwidth}{-16mm}{0mm}%
+}{%
+  \end{adjustwidth}%
+}
+
+% Full-bleed cover page support — image at exact paper size, title overlaid.
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+% Tittelside
+\thispagestyle{titlepage}
+\markboth{}{}
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=north west, inner sep=0] at ([xshift=12mm, yshift=-18mm]current page.north west) {%
+    {\fontsize{36}{40}\selectfont\bfseries FORMLÆRE}%
+  };
+  \node[anchor=north west, inner sep=0] at ([xshift=12mm, yshift=-32mm]current page.north west) {%
+    {\large\itshape Ei traktatform om form for design og estetiske fag}%
+  };
+  \node[anchor=center, inner sep=0] at ([yshift=-10mm]current page.center) {%
+    \includegraphics[width=0.86\paperwidth]{cover-stolar.png}%
+  };
+  \node[anchor=south west, inner sep=0] at ([xshift=12mm, yshift=28mm]current page.south west) {%
+    {\small Iver Raknes Finne}%
+  };
+  \node[anchor=south west, inner sep=0] at ([xshift=12mm, yshift=22mm]current page.south west) {%
+    {\footnotesize\itshape iver.raknes.finne@stud.aho.no}%
+  };
+  \node[anchor=south west, inner sep=0] at ([xshift=12mm, yshift=16mm]current page.south west) {%
+    {\footnotesize Arkitektur- og designhøgskolen i Oslo\quad\textperiodcentered\quad 2026}%
+  };
+\end{tikzpicture}
+
+% Føreord
+\input{forord}
+
+% Til lesaren (kart over boka)
+\input{til-lesaren}
+
+% Ordliste
+\silentchapter{Ordliste}{ordliste}
+\begin{widebody}
+\begin{ordliste}
+\ordlisteentry{Affordanse}{Operasjonane eit materiale tillèt og hindrar (Gibson, 1979). Avgjer kva formoperasjonar som er moglege. [2.2]}
+\ordlisteentry{Agent}{Eit system definert av trippelet (måltilstand, avstandsmåling, justeringsmekanisme). Krev berre organisering; verken medvit, intensjon eller nervesystem (Rosenblueth et al., 1943; Wiener, 1948). [5.11]}
+\ordlisteentry{C (tankerommet)}{Alle former som er tenkelege men ikkje avgjorte. Svarar til dei opne regionane i formrommet. [1.44]}
+\ordlisteentry{Formalgebra}{Mengda av former lukka under union, differanse og transformasjon. Grunnlaget for formgrammatikken. [1.32]}
+\ordlisteentry{Formgrammatikk}{Trippelet SG = (S, R, \msym{ω}). Reglar som opererer under innleiring; berre den noverande forma avgjer kva som fyrer. [5.3]}
+\ordlisteentry{Formrom}{Mengda av alle moglege konfigurasjonar for objekt i ein klasse. Kvar akse er ein målbar eigenskap (Raup, 1966). [1.3]}
+\ordlisteentry{Gradient}{Retninga og styrken til endringa i sannsynsfordeling over formrommet. Seleksjonstrykket er ein gradient, inga regel. [2.1]}
+\ordlisteentry{Innleiring}{Transformasjonen som viser at éi form finst i ei anna. Avgjer kva grammatikkreglar som kan fyre. [1.32]}
+\ordlisteentry{K (kunnskapsrommet)}{Alle former som er kjende å verke eller svikte. Svarar til dei busette og stadfesta forbodne regionane. [1.44]}
+\ordlisteentry{Kanalisering}{Robustheit mot forstyrringar. Bratte dalveggar = stabil form (Waddington, 1957). [3.2]}
+\ordlisteentry{Kapasitet}{Bredda på lyskjegla; kor mange aksar agenten \textit{kan} representere. Skild frå omhug, som er kor mange han faktisk representerer. [5.6]}
+\ordlisteentry{Klasse}{Ei gruppe objekt som deler same affordansestruktur: dei tilbyr same konstellasjon av operasjonar til same konstellasjon av agentar. [2.14]}
+\ordlisteentry{Kognitiv lyskjegle}{Delmengda av formrommet agenten kan representere og manipulere (Fields \& Levin, 2022). [5.2]}
+\ordlisteentry{Multiskala-kompetanse}{Agens opererer samstundes på fleire skalaer, kvar med si eiga lyskjegle og sine eigne grammatikkreglar (Levin, 2022). [6.12]}
+\ordlisteentry{Omhug}{Mengda av aksar i formrommet agenten aktivt justerer for. Omhug er intelligensens innhald; intelligens er omhugen si form. [5.6, 5.61]}
+\ordlisteentry{Generativ modell}{Boltzmann-distribusjon over formrommet som sameinar grammatikk, landskap og lyskjegle i éin probabilistisk formalisme. [8.1]}
+\ordlisteentry{Liv}{Den prosessen der eit system opprettheld og utvidar si eiga lyskjegle over tid (Levin, 2022). [5.65]}
+\ordlisteentry{Seleksjonstrykk}{Ein gradient som endrar sannsynsfordelinga over formrommet (Wright, 1932). [2.1]}
+\ordlisteentry{Substrat}{Det fysiske, algoritmiske eller sosiale systemet som realiserer agensen. Fungerer som ein null-ordens agent (Levin, 2022). [5.4]}
+\ordlisteentry{Tilpassingslandskap}{Vektorsummen av alle verksame seleksjonstrykk over formrommet (Wright, 1932; Waddington, 1957). [3.1]}
+\end{ordliste}
+\end{widebody}
+
+\vspace*{\fill}
+\begin{widebody}
+\noindent\includegraphics[width=\linewidth]{fencing.png}
+\end{widebody}
+
+% Proposisjonar
+\input{proposisjonar}
+
+% Fundament (empirisk grunnlag for den generative modellen)
+\input{fundament}
+
+% Etterord I og II
+\input{etterord}
+
+% Tre brev til målgruppene
+\input{brev}
+
+% Omhugsmal: kompetansestacken fra kvark til sivilisasjon
+\input{omhugsmal}
+
+% Referansar (nummererte for å korrespondere med superscript i proposisjonane)
+\silentchapter{Referansar}{referansar}
+\begin{widebody}
+\refentry{[1] Semper, G. (1860). \textit{Der Stil in den technischen und tektonischen Künsten}. Verlag für Kunst und Wissenschaft.}
+\refentry{[2] Thompson, D'A. W. (1917). \textit{On Growth and Form}. Cambridge University Press.}
+\refentry{[3] Wright, S. (1932). The roles of mutation, inbreeding, crossbreeding, and selection in evolution. \textit{Proc. Sixth Int. Congress of Genetics}, 1, 356--366.}
+\refentry{[4] Rosenblueth, A., Wiener, N. \& Bigelow, J. (1943). Behavior, purpose and teleology. \textit{Philosophy of Science}, 10(1), 18--24.}
+\refentry{[5] Wiener, N. (1948). \textit{Cybernetics}. MIT Press.}
+\refentry{[6] Turing, A. M. (1950). Computing machinery and intelligence. \textit{Mind}, 59(236), 433--460.}
+\refentry{[7] Ashby, W. R. (1956). \textit{An Introduction to Cybernetics}. Chapman \& Hall.}
+\refentry{[8] Waddington, C. H. (1957). \textit{The strategy of the genes}. George Allen \& Unwin.}
+\refentry{[9] Kubler, G. (1962). \textit{The shape of time}. Yale University Press.}
+\refentry{[10] Raup, D. M. (1966). Geometric analysis of shell coiling. \textit{Journal of Paleontology}, 40(5), 1178--1190.}
+\refentry{[11] Stiny, G. \& Gips, J. (1972). Shape grammars and the generative specification of painting and sculpture. \textit{Information Processing 71}, 1460--1465.}
+\refentry{[12] Gibson, J. J. (1979). \textit{The ecological approach to visual perception}. Houghton Mifflin.}
+\refentry{[13] Kauffman, S. A. (1993). \textit{The origins of order}. Oxford University Press.}
+\refentry{[14] Arthur, W. B. (1994). \textit{Increasing returns and path dependence in the economy}. University of Michigan Press.}
+\refentry{[15] Michl, J. (1995). Form follows WHAT? The modernist notion of function as a carte blanche. \textit{1. Designforum Finland Magazine}, 1.}
+\refentry{[16] Hatchuel, A. \& Weil, B. (2003). A new approach of innovative design: An introduction to C-K theory. \textit{Proc. ICED 2003}.}
+\refentry{[17] Hatchuel, A. \& Weil, B. (2009). C-K design theory: An advanced formulation. \textit{Research in Engineering Design}, 19(4), 181--192.}
+\refentry{[18] Stiny, G. (2006). \textit{Shape: Talking about seeing and doing}. MIT Press.}
+\refentry{[19] Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nature Reviews Neuroscience}, 11(2), 127--138.}
+\refentry{[20] Mitteroecker, P. \& Huttegger, S. M. (2009). The concept of morphospaces in evolutionary and developmental biology. \textit{Biological Theory}, 4(1), 54--67.}
+\refentry{[21] Fields, C. \& Levin, M. (2022). Competency in navigating arbitrary spaces. \textit{Entropy}, 24(6), 819.}
+\refentry{[22] Levin, M. (2022). Technological approach to mind everywhere. \textit{Frontiers in Systems Neuroscience}, 16, 768201.}
+\refentry{[23] Doctor, T., Wakefield, E., Pavlic, T. P. \& Levin, M. (2024). Biology, Buddhism, and AI: Care as the driver of intelligence. \textit{Entropy}, 26(4), 352.}
+\refentry{[24] Levin, M. (2025). Living things are not machines (also, they totally are). \textit{Noema Magazine}.}
+\refentry{[25] Trentmann, F. (2016). \textit{Empire of Things: How We Became a World of Consumers}. Allen Lane.}
+\refentry{[26] Pye, D. (1968). \textit{The Nature and Art of Workmanship}. Cambridge University Press.}
+\refentry{[27] Blackiston, D. J., Casey, E. S. \& Bhatt, A. L. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? \textit{PLoS ONE}, 3(3), e1736.}
+\refentry{[28] NOAA Marine Debris Program (2024). Estimated decomposition rates of common marine debris items. National Oceanic and Atmospheric Administration.}
+\refentry{[29] NOAA Global Monitoring Laboratory (2024). Trends in atmospheric carbon dioxide. National Oceanic and Atmospheric Administration.}
+\refentry{[30] FAO \& UNCCD (2024). \textit{Global Soil Partnership}: estimated annual topsoil loss. Food and Agriculture Organization of the United Nations.}
+\refentry{[31] UN-Habitat (2024). \textit{World Cities Report}: 1.8 billion people in inadequate housing. United Nations Human Settlements Programme.}
+\refentry{[32] Biddle, S. (2019--2024). Palantir and ICE reporting series. \textit{The Intercept}. Sjå òg Mijente, \textit{Who's Behind ICE?}}
+\refentry{[33] Abraham, Y. (2024). «Lavender» og «Where's Daddy?»: AI-baserte målrettingssystem i Gaza. \textit{+972 Magazine / Local Call}. Sjå òg ICJ rådgjevande fråsegn (2024).}
+\refentry{[34] Autoriteit Persoonsgegevens (2020). SyRI-dommen; Amnesty International (2021). Toeslagenaffaire: systematisk diskriminering gjennom algoritmisk profilering i nederlandsk velferd.}
+\refentry{[35] Anthropic (2025). On the biology of a large language model: Probing emotion. Research report. Sjå òg Butlin, P. et al. (2023). Consciousness in artificial intelligence. arXiv:2308.08708.}
+\refentry{[36] Biswas, S., Manicka, S., Hoel, E. P. \& Levin, M. (2023). Gene regulatory networks exhibit several kinds of memory. \textit{iScience}, 26(4), 106440.}
+\refentry{[37] Vandenberg, L. N., Adams, D. S. \& Levin, M. (2012). Normalized shape and location of perturbed craniofacial structures in the \textit{Xenopus} tadpole reveal an innate ability to achieve correct morphology. \textit{Developmental Dynamics}, 241(5), 863--878.}
+\refentry{[38] Shomrat, T. \& Levin, M. (2013). An automated training paradigm reveals long-term memory in planarians and its persistence through head regeneration. \textit{Journal of Experimental Biology}, 216(20), 3799--3810.}
+\refentry{[39] Fankhauser, G. (1945). The effects of changes in chromosome number on amphibian development. \textit{Quarterly Review of Biology}, 20(1), 20--78.}
+\refentry{[40] Kriegman, S., Blackiston, D., Levin, M. \& Bongard, J. (2021). Kinematic self-replication in reconfigurable organisms. \textit{Proceedings of the National Academy of Sciences}, 118(49), e2112672118.}
+\refentry{[41] Gumuskaya, G., Srivastava, P., Cooper, B. G., Lesser, H., Semegran, B., Garber, S. \& Levin, M. (2023). Motile living biobots self-construct from adult human somatic progenitor seed cells. \textit{Advanced Science}, 10(34), 2303575.}
+\refentry{[42] UNEP (2024). \textit{Plastics}: annual global production. United Nations Environment Programme. Sjå òg Plastics Europe, \textit{Plastics---The Fast Facts 2023}.}
+\refentry{[43] Ellen MacArthur Foundation (2017). \textit{A New Textiles Economy}: average number of times a garment is worn before disposal.}
+\refentry{[44] Richardson, K. et al. (2023). Earth beyond six of nine planetary boundaries. \textit{Science Advances}, 9(37), eadh2458.}
+\refentry{[45] IPBES (2019). \textit{Global Assessment Report on Biodiversity and Ecosystem Services}: approximately 1 million species threatened with extinction.}
+\refentry{[46] WWF (2022). \textit{Living Planet Report 2022}: 69\,\% average decline in monitored wildlife populations since 1970.}
+\refentry{[47] FAO (2022). \textit{Global Forest Resources Assessment}: approximately 10 million hectares of forest lost per year (2015--2020).}
+\refentry{[48] WHO/UNICEF Joint Monitoring Programme (2023). \textit{Progress on household drinking water, sanitation and hygiene}: 2.4 billion people lack basic sanitation.}
+\refentry{[49] UNHCR (2024). \textit{Global Trends: Forced Displacement in 2023}: 120 million people displaced worldwide.}
+\refentry{[50] IPCC (2022). \textit{Climate Change 2022: Impacts, Adaptation and Vulnerability} (AR6 WGII): 3.3--3.6 billion people highly vulnerable to climate change.}
+\refentry{[51] UCDP/PRIO (2024). \textit{Armed Conflict Dataset v24.1}: 56 active state-based armed conflicts in 2023.}
+\refentry{[52] Ecovative Design / GROWN.bio (2024). Mycelium-based packaging and construction materials as polystyrene replacement.}
+\refentry{[53] Riegl, A. (1893). \textit{Stilfragen: Grundlegungen zu einer Geschichte der Ornamentik}. George Siemens.}
+\refentry{[54] Frampton, K. (1995). \textit{Studies in Tectonic Culture: The Poetics of Construction in Nineteenth and Twentieth Century Architecture}. MIT Press.}
+\refentry{[55] Rietveld, E. \& Kiverstein, J. (2014). A rich landscape of affordances. \textit{Ecological Psychology}, 26(4), 325--352.}
+\refentry{[56] Brier, S. (2020). Affordances are signs. \textit{tripleC: Communication, Capitalism \& Critique}, 18(1).}
+\refentry{[57] Fultot, M. \& Turvey, M. T. (2019). Von Uexküll's theory of meaning and Gibson's organism--environment reciprocity. \textit{Ecological Psychology}, 31(4), 289--315.}
+\refentry{[58] Pievani, T. (2013). Adaptive landscapes: A case study of metaphors, models, and synthesis in evolutionary biology. Università degli Studi di Milano-Bicocca.}
+\refentry{[59] Kauffman, S. A. \& Roli, A. (2023). A third transition in science? \textit{Interface Focus}, 13(3).}
+\refentry{[60] Huneman, P. \& Walsh, D. M. (Eds.) (2023). \textit{Evolution ``On Purpose''}. MIT Press.}
+\refentry{[61] Svensson, E. I. \& Connallon, T. (2026). Evolution of adaptation's evil Doppelgänger. \textit{Evolution}.}
+\refentry{[62] Schlosser, M. (2019). Agency. I \textit{The Stanford Encyclopedia of Philosophy}. Metaphysics Research Lab, Stanford University.}
+\refentry{[63] Friston, K. (2010). The free-energy principle: a unified brain theory? \textit{Nature Reviews Neuroscience}, 11(2), 127--138.}
+\refentry{[64] Niv, Y. (2009). Reinforcement learning in the brain. \textit{Journal of Mathematical Psychology}, 53(3), 139--154.}
+\refentry{[65] Murray, E. A. et al. (2016). \textit{The Evolution of Memory Systems}. Oxford University Press.}
+\refentry{[66] Latour, B. (2005). \textit{Reassembling the Social: An Introduction to Actor-Network-Theory}. Oxford University Press.}
+\refentry{[67] Hutchins, E. (1995). \textit{Cognition in the Wild}. MIT Press.}
+\refentry{[68] Tronto, J. C. (1993). \textit{Moral Boundaries: A Political Argument for an Ethic of Care}. Routledge.}
+\refentry{[69] Dewey, J. (1934). \textit{Art as Experience}. Minton, Balch \& Company.}
+\refentry{[70] Fields, C. \& Levin, M. (2024). Principled limitations on self-representation for generic physical systems. \textit{Entropy}, 26(3), 194.}
+\refentry{[71] Varzi, A. (2016). Mereology. I \textit{The Stanford Encyclopedia of Philosophy}. Metaphysics Research Lab, Stanford University.}
+\refentry{[72] Bateson, G. (1979). \textit{Mind and Nature: A Necessary Unity}. E.P. Dutton.}
+\refentry{[73] Hoffmeyer, J. (2008). Bateson and Peirce on the pattern that connects and the sacred. I \textit{A Legacy for Living Systems}. Springer.}
+\refentry{[74] Le Masson, P., Weil, B. \& Hatchuel, A. (2010). \textit{Strategic Management of Innovation and Design}. Cambridge University Press.}
+\refentry{[75] Kazakçi, A. O. (2015). C-K, an engineering design theory? \textit{Proceedings of the International Conference on Engineering Design}. Design Society.}
+\refentry{[76] Ma, M. (2023). Simulating design theory using LLM agents: A case study of C-K theory. Co-Design Lab, UC Berkeley.}
+\refentry{[77] Michl, J. (1989). On forms following functions and post-modernism. \textit{Pro Forma}, 1, 5--15.}
+\refentry{[78] Michl, J. (2014). A case against the modernist regime in design education. \textit{Archnet-IJAR}, 8(2), 36--46.}
+\refentry{[79] Odling-Smee, F. J., Laland, K. N. \& Feldman, M. W. (2003). \textit{Niche Construction: The Neglected Process in Evolution}. Princeton University Press.}
+\refentry{[80] Norman, D. A. (2013). \textit{The Design of Everyday Things} (Revised ed.). Basic Books.}
+\refentry{[81] Cussat-Blanc, S., Harrington, K. \& Banzhaf, W. (2018). Artificial gene regulatory networks---A review. \textit{Artificial Life}, 24(4).}
+\refentry{[82] Seifert, U., Sealander, P., Marzen, S. \& Levin, M. (2024). Reinforcement learning and developmental biology: A shared computational structure. \textit{BioSystems}, 235, 105107.}
+\refentry{[83] Kirchhoff, M., Parr, T., Palacios, E., Friston, K. \& Kiverstein, J. (2018). The Markov blankets of life: Autonomy, active inference and the free energy principle. \textit{Journal of the Royal Society Interface}, 15(138), 20170792.}
+\refentry{[84] Levin, M. (2023). Darwin's agential materials: Evolutionary implications of multiscale competency in developmental biology. \textit{Cellular and Molecular Life Sciences}, 80(6), 142.}
+\refentry{[85] Levin, M. (2023). Bioelectric networks: The cognitive glue enabling evolutionary scaling from physiology to mind. \textit{Animal Cognition}, 26, 1865--1891.}
+\refentry{[86] Chis-Ciure, R. \& Levin, M. (2025). Cognition all the way down 2.0: Neuroscience beyond neurons in the diverse intelligence era. \textit{Synthese}, 206, 257.}
+\refentry{[87] Watson, R. A., Levin, M. \& Buckley, C. L. (2022). Design for an individual: Connectionist approaches to the evolutionary transitions in individuality. \textit{Frontiers in Ecology and Evolution}, 10, 823588.}
+\refentry{[88] Levin, M. (2025). Artificial intelligences: A bridge toward diverse intelligence and humanity's future. \textit{Advanced Intelligent Systems}, 7, 2401034.}
+\refentry{[89] Fields, C. \& Levin, M. (2025). Life, its origin, and its distribution: A perspective from the Conway--Kochen theorem and the Free Energy Principle. \textit{Communicative \& Integrative Biology}, 18(1), 2466017.}
+\refentry{[90] Doctor, T., Witkowski, O., Colognese, P., Ishihara, Y. \& Levin, M. (2025). Selves as perspectives: From biological life to superintelligence and a Bodhisattva project. Manuscript, Center for the Study of Apparent Selves.}
+\refentry{[91] Sol{\'e}, R., Seoane, L. F., Pla-Mauri, J., Bennett, M. T., Hochberg, M. E. \& Levin, M. (2026). Cognition spaces: Natural, artificial, and hybrid. arXiv:2601.12837.}
+\refentry{[92] Hartl, B., Risi, S. \& Levin, M. (2024). Evolutionary implications of multi-scale intelligence. Preprint.}
+\refentry{[93] Levin, M. \& Gitelman, A. (2025). Designing with diverse intelligence: Interfaces, agential materials, and ingressing minds. SUrF interview.}
+\refentry{[94] Haidt, J. (2024). \textit{The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness}. Penguin Press. Sjå òg Twenge, J. M. (2017). \textit{iGen}. Atria Books.}
+\refentry{[95] Haugen, F. (2021). Testimony before U.S. Senate Subcommittee on Consumer Protection; \textit{The Facebook Files}, Wall Street Journal investigation series.}
+\refentry{[96] Cadwalladr, C. \& Graham-Harrison, E. (2018). Revealed: 50 million Facebook profiles harvested for Cambridge Analytica in major data breach. \textit{The Guardian}, 17 March.}
+\refentry{[97] Ovid. \textit{Metamorfosar} III: Ekko og Narcissus.}
+\refentry{[98] Rajan, D., Makushok, T., Kalantari, A. et al. (2023). Single-cell analysis of habituation in \textit{Stentor coeruleus}. \textit{Current Biology}, 33, 241--251.}
+\refentry{[99] Boisseau, R. P., Vogel, D. \& Dussutour, A. (2016). Habituation in non-neural organisms: Evidence from slime moulds. \textit{Proceedings of the Royal Society B}, 283, 20160446.}
+\refentry{[100] Netea, M. G., Joosten, L. A. B., Latz, E. et al. (2016). Trained immunity: A program of innate immune memory in health and disease. \textit{Science}, 352(6284), aaf1098.}
+\refentry{[101] Kandel, E. R. (2001). The molecular biology of memory storage: A dialogue between genes and synapses. \textit{Science}, 294(5544), 1030--1038.}
+\refentry{[102] Pavlov, I. P. (1927). \textit{Conditioned Reflexes}. Oxford University Press.}
+\refentry{[103] Friston, K. \& Frith, C. (2015). A duet for one. \textit{Consciousness and Cognition}, 36, 390--405.}
+\refentry{[104] March, J. G. (1991). Exploration and exploitation in organizational learning. \textit{Organization Science}, 2(1), 71--87.}
+\refentry{[105] Kuhn, T. S. (1962). \textit{The Structure of Scientific Revolutions}. University of Chicago Press.}
+\refentry{[106] Wigner, E. P. (1960). The unreasonable effectiveness of mathematics in the natural sciences. \textit{Communications on Pure and Applied Mathematics}, 13(1), 1--14.}
+\refentry{[107] Brandel, J. (2024). Usynlige landskap. \textit{IDEALTID.org}, 17.12.2024. Essay om interstitium som væskefylt organ i bindevevet, omklassifisert frå barrière i 2018.}
+\end{widebody}
+
+\par\addvspace{14pt}
+\markboth{notat}{}
+\addcontentsline{toc}{chapter}{Notat}
+\begin{widebody}
+{\footnotesize
+
+\textbf{1.3} Formrommet vart innført av Raup [10] for skjellgeometri og generalisert av Mitteroecker \& Huttegger [20] til utviklingsbiologi. Me brukar det her substrat-uavhengig; rommet er definert av eigenskapar, ikkje av domene.
+
+\textbf{2.14} Gibson [12] definerer affordanse som relasjonell; ikkje ein eigenskap ved objektet åleine, men ved objektet-i-relasjon-til-agenten. Me utvider dette til å definere klassen sjølv gjennom affordansekonstellasjonen. Proposisjonen er flytta frå kapittel 1 til kapittel 2 fordi affordansestrukturen er operasjonelt knytt til seleksjonstrykk, ikkje til den ontologiske grunnstrukturen.
+
+\textbf{2.14 (forts.)} Den semiotiske utvidinga av affordansomgrepet [56] har sin teoretiske rot i Hoffmeyer [73] si syntese av Bateson og Peirce. Hoffmeyer plasserer affordans i ei kjede objekt → mønster → teikn → tolking; Brier formaliserer dette for designkontekst. Vår bruk av «affordansestruktur» er nær Gibson [12] (objektivt relasjonell), men opnar for den semiotiske vidareføringa når klassen krev det.
+
+\textbf{1.2} Objektet er udeleleg i den forstand at vidare dekomponering øydelegg den kausale kapasiteten me er interesserte i. Under det nivået finst det framleis fysikk; men ikkje formgjeving. Den klassiske mereologien [71] definerer atomet formelt: det utan eigne deler; vår variant er operasjonell: det utan kausalt verksame deler i den valde klassen. Distinksjonen er substansiell, ikkje terminologisk: same fysisk gjenstand kan vere atom i éin klasse og samansett i ein annan.
+
+\textbf{5.3} Formalgebraen er utvikla av Stiny over fire tiår [11, 13, 18]. Algebraen er ikkje ein modell av form; han er syntaksen til formrommet. Innleiringsoperasjonen (at agenten gjenkjenner ei delform inne i heilforma) er grunnlaget for grammatikkreglane. At formrommet er kontinuerleg langs geometriske aksar og diskret langs materielle, adresserast her for fyrste gong.
+
+\textbf{1.44} Tanke--kunnskapsteorien er utvikla av Hatchuel \& Weil [15, 16] som ein formalisme for designprosessen. Me identifiserer C med dei opne regionane i formrommet og K med dei busette og stadfesta forbodne. Partisjonen er epistemisk; ho endrar seg med kvar ny realisering.
+
+\textbf{2.1} Seleksjonstrykk som gradient (ikkje regel) er Wrights [3] tilpassing av evolusjonsteori. Michl [15] viste at den funksjonalistiske «regelen» (form follows function) er logisk tom. Vår formulering; at forma er ein rest; generaliserer Michls innsikt til eit positivt rammeverk. «Rest» er ei forenkling; meir presist er forma ein likevektstilstand i eit system der form og trykk er gjensidig avhengige (jf. 4.3). Restmetaforen held for den synkrone analysen; den dynamiske analysen krev likevektsomgrepet. Trentmann [25] skildrar den materielle kulturen si gjensidigheit frå eit historisk perspektiv.
+
+\textbf{3.1} Tilpassingslandskapet samlar Wrights [3] adaptive landscape og Waddingtons [7] epigenetiske landskap i éin definisjon. Wright skildra landskapet for populasjonar; Waddington for utviklingsprosessar. Me skildrar det for formverda.
+
+\textbf{3.2} Kanalisering er Waddingtons [7] omgrep for utviklingsrobustheit. I vårt rammeverk tyder det at somme dimensjonar av formrommet er meir robuste enn andre. Empirisk: setehøgd varierer minimalt (CV = 0,07) over 500 år; ornament varierer maksimalt (CV \msym{≈} 1,5). Spreiinga er 128 gonger.
+
+\textbf{4.3} Stiavhengigheit er Arthurs [14] omgrep for korleis tidlege val låser seinare. I formverda: kvar realisert konfigurasjon deformerer landskapet rundt seg og avgrensar kva nabokonfigurasjonar som er tilgjengelege for den neste agenten.
+
+\textbf{4.4 / 6.4} Nicheconstruction-teorien [79] formaliserer at organismar (eller agentar) modifiserer dei seleksjonstrykka som verkar på dei sjølv. Påstand 4.4 generaliserer dette til formverda: kvar realisert konfigurasjon endrar tilpassingslandskapet for den neste agenten. Distinksjonen mellom passiv navigasjon og aktiv landskapsutviding er fundamental: stiavhengigheit [14] gjev tids\-mekanismen, nicheconstruction gjev den evolusjonsteoretiske parallellen.
+
+\textbf{5.4} Substratet som null-ordens agent har ein parallell i Pyes [26] skilje mellom \textit{risikohandverk} (utfallet avheng av handverkarens kompetanse i kvart steg) og \textit{vissheitshandverk} (utfallet er predeterminert av forma, jigen, maskina). Risikohandverket let substratet tale sterkare; vissheitshandverket dempar substratets agens. Begge er former for navigasjon; dei skil seg i kor mykje av landskapet substratet sjølv får utforske.
+
+\textbf{5.1} Ei klasse utan ein navigerande agent er formelt mogleg men empirisk tom; ho ville ha null realiserte posisjonar og difor ikkje eksistere som observerbar klasse.
+
+\textbf{5.11} Agentdefinisjonen konvergerer frå fire uavhengige tradisjonar: kybernetikk [4, 5, 7], utviklingsbiologi [22, 24, 84], maskinlæring [82], og fri-energi-prinsippet [19, 83]. At fire domene uavhengig definerer same struktur (mål, måling, justering), stadfestar at definisjonen grip noko reelt. Fields \& Levin [21] formulerer det slik: konvergensen «dates back at least to Ashby, and includes Maturana and Varela, Pattee, and Rosen»; eit historisk kontinuum som strekker seg frå kybernetikken via autopoiesen til den frie energien. Seifert et al.\ [82] viser eksplisitt at forsterkingslæring og utviklingsbiologi deler den same berekningstruktur: belønningssignal er ein avstandsfunksjon d, og politikk-oppdatering er justeringsmekanismen δ. Kirchhoff et al.\ [83] viser at Markov-tepper formaliserer den same strukturen i FEP: det aktive teppet definerer grensa mellom agent og omverd via nettopp dette trippelet. Definisjonen er Turing-komplett [6]; eit kvart system som oppfyller (g, d, \msym{δ}) med konvergensgaranti er ein universell navigator uavhengig av substrat. Formgrammatikken er og Turing-komplett; Stiny (1975) konstruerte to uavhengige simuleringar av Turing-maskiner i formgrammatikk-formalismen.
+
+\textbf{5.2} Kognitiv lyskjegle er Fields \& Levins [21] generalisering av perseptuelle grenser til vilkårlege agentar. Omgrepet generaliserer den fysiske lyskjegla frå relativitetsteorien: det finst ei grense for kor mykje av formrommet ein agent kan representere innanfor sin eigen tidsskala.
+
+\textbf{5.6--5.61} Omhug som formell eigenskap ved agentar er frå Doctor, Levin et al.\ [23]. Identiteten \textit{omhug = intelligensens innhald; intelligens = omhugen si form} er vår formulering av deira innsikt: at mengda av dimensjonar eit system aktivt justerer for, er same ting som det me kallar intelligens.
+
+\textbf{6.12} Multiskala-kompetanse er Levins [22] rammeverk for korleis biologiske system opererer agentisk på fleire skalaer samstundes. Me generaliserer det til formverda: celle, materiale, verktøy, handverkar, marknad er alle agentar med eigne lyskjegler. Forma er resultatet av deira samtidige navigasjon.
+
+\textbf{5.61} Proposisjonen er ein definisjon (status d), ikkje eit teorem. Identiteten omhug = intelligens er eit val av terminologi, ikkje ein empirisk påstand. Eit uavhengig mål på intelligens (til dømes navigasjonseffektivitet som funksjon av dim(C(A))) ville gjort identiteten testbar. Semper [1] var den fyrste som kopla materialteknikk, form og kulturell meining i éin systematisk analyse; omhugsomgrepet generaliserer denne innsikta. Thompson [2] viste at biologisk form følgjer fysiske krefter; me generaliserer innsikta hans til alle formdomene.
+
+\bigskip
+\textbf{Falsifiseringsvilkår.} Proposisjonar av type \textit{t} (teorem) og \textit{a} (postulat) er falsifiserbare. Hovudvilkåra:
+
+\textbf{2.12} Falsifisert dersom ein observerer ein klasse der all formvariasjon let seg forklare av éin einaste faktor.
+
+\textbf{2.14} Falsifisert dersom bruksmåten (ikkje stilen) predikerer meir formvariasjon enn alle andre variablar innanfor klassen.
+
+\textbf{3.12} Falsifisert dersom tilpassingsfunksjonen konsekvent har éin einaste global topp i kvar klasse.
+
+\textbf{4.1} Falsifisert dersom landskapet er stabilt over tid; dersom vektene ikkje endrar seg.
+
+\textbf{4.51} Falsifisert dersom éin-dimensjonal optimalisering produserer former som ikkje sviktar under dei andre dimensjonane.
+
+\textbf{5.62} Falsifisert dersom snevring av lyskjegla ikkje har negative konsekvensar for forma si robustheit.
+
+\textbf{6.1} Falsifisert dersom éin einskild agent konsekvent dikterer morfologien i ein klasse.
+
+\textbf{6.3} Stilarten spelar for formverda ei rolle som liknar det genus spelar i biologien; ein deskriptiv kategori som fangar slektskap utan å forklare det. Om stilarten ber kausal kraft utover mønsterminne; om han kan kanalisere navigasjon aktivt og ikkje berre passivt; er eit ope spørsmål. Falsifiseringseksperiment: gje to grupper designarar identiske trykk men ulik stileksponering. Dersom stileksponeringa endrar formvariasjonen signifikant utover trykka sin effekt, har stilarten kausal kraft utover mønsterminne.
+
+\textbf{6.3} Ingen reint eksperiment testar stileksponering som uavhengig variabel på formvariasjon (per april 2026). Designfiksasjon-litteraturen stadfestar at eksempeleksponering avgrensar kreativ output, men isolerer ikkje stilnivået frå eksempelnivået. Falsifiseringseksperimentet i 6.3-notatet er difor originalt.
+
+\textbf{6.5} Følgjer av 2.13 (motstridande trykk utelukkar permanent likevekt) og 4.1 (trykka kviler aldri). Saman: ingen balanse er stabil over tid; kvar form er gyldig berre for aktualiseringsaugeblikket.
+
+\textbf{7.2} Proposisjonen er eit postulat (status a), ikkje eit teorem. Den normative påstanden følgjer ikkje frå det formelle apparatet åleine; ho krev ein tilleggspremiss om at designhandlinga har konsekvensar for andre agentar. Denne premissen er parallell til Doctor et al.\ [23] si kopling mellom omhug og normativitet. At premissen ikkje er deduserbar, gjer han ikkje vilkårleg; han gjer han eksplisitt. Posisjonen i seksjon 7 (og ikkje i seksjon 5) er medviten: etikken følgjer strukturelt av kapasitets--omhug-gapet som seksjon 7 namngjev.
+
+\textbf{5.6} Distinksjonen mellom omhug og kapasitet er avgjerande. Ein designar med brei kapasitet som likevel berre attenderer til éin akse; til dømes visuell nyheit åleine; viser trong omhug trass i høg kapasitet. Det er omhugen, ikkje kapasiteten, som er leseleg i forma.
+
+\textbf{5.7} Kjerne-likninga er eit strukturelt skjema, ikkje ein prediksjonsmotor. Analogien er \textit{F = ma} før kraftlova er kjend; likninga spesifiserer forma til forklaringa, ikkje forklaringa sjølv. Kvar historisk klasse fyller inn sin eigen \msym{L}, sin eigen SG, sine eigne C(A), men skjemaet er delt.
+
+\textbf{5.72} Reduksjonsteoremet klargjer tilhøvet til dei to kjeldetradisjonane. Stiny-Gips si formgrammatikkteori og Hatchuel-Weil si tanke-kunnskapsteori er ikkje to lesingar av den same prosessen; dei er den same prosessen sett under to ulike kollaps. At begge tradisjonane har utvikla seg uavhengig i fire tiår utan å møta kvarandre er difor naturleg: kvar har gjort sitt grensetilfelle så rikt som det kan bli. Samla gjev dei ikkje éin ny teori; dei gjev formen til den eksisterande.
+
+\textbf{5.72 (forts.)} CK-tradisjonen har modnast gjennom tre tiår: frå dei opphavlege artiklane [16, 17] gjennom den kanoniske boka [74], til refleksive kritikkar av om CK er ein \textit{engineering} eller meir generell teori [75], til moderne dataeksperiment med LLM-agentar [76]. Reduksjonsteoremet relaterer seg til heile denne tradisjonen; kvart steg i CK-modninga er framleis innanfor det same grensetilfellet av kjerne-likninga. Tilsvarande modning på Stiny-sida [11, 13, 18] gjer den parallelle påstanden gyldig: båe tradisjonane utviklar seg innanfor sitt eige grensetilfelle, ikkje på tvers.
+
+\textbf{5.722} Eit domene som tidlegare tilhøyrde einten formgrammatikk eller tanke-kunnskap aleine, tilhøyrer no feltet deira ikkje-degenererte skjering. Praktiske konsekvensar: analysar som siterer berre éin av tradisjonane kvalifiserer seg sjølv som grensetilfelle.
+
+\textbf{7.1--7.2} Proposisjon 7 rommar to distinkte påstandar. Den deskriptive (7.1) kan testast empirisk: dersom former designa under demonstrerbart trong omhug ikkje presterer dårlegare langs urepresenterte aksar enn former designa under brei omhug, er proposisjonen tilbakevist. Den normative (7.2) gjev den deskriptive retning og relevans, men står ikkje og fell med henne.
+
+\textbf{7.13} Geologi/biologi/design-parallellen er Bateson [72] sin «pattern that connects»: at same forklaringsmønsteret (mønster i residue ber spor av prosessen som produserte det) gjeld på tvers av domena. Bateson argumenterer for ein «nødvendig einskap» mellom natur og tanke; vi tek ein svakare stilling: same lesningsapparatet kan brukast, utan å hevde ontologisk einskap.
+
+\textbf{15, 77, 78} Michl-serien dekkjer 25 år: norsk røter [77], kanonisk midtpunkt [15], engelsk konsolidering [78]. Saman utgjer dei den teoretiske basen for traktaten sin form-følger-funksjon-kritikk. Den fulle bibliografien (Michl 1989, 1995, 2002, 2007, 2009, 2014, 2024) er tilgjengeleg i \texttt{references.bib}.
+
+\textbf{7.15} Meta-teoremet bind 7.1 til 5.722. Sviktsignatur kan lesast berre av ein teori som både har eit generativt lag (for å forklare kva var mogleg) og eit kompetanselag (for å forklare kva var urepresentert). At ingen tidlegare designteori har både lag, er den historiske diagnosen meta-teoremet gjev.
+
+\textbf{CK-kritikk.} Den sterkaste innvendinga mot tanke-kunnskapsteorien er at C-rommet er eindimensjonalt og at funksjons- og strukturomgrep manglar. Denne traktaten adresserer begge: formrommet er fleirdimensjonalt (1.3); affordansestrukturen erstattar funksjonsomgrepet (1.31); og formalgebraen gjev struktur (1.32). Reduksjonsteoremet (5.72) viser at innvendinga ikkje er eit feil ved tanke-kunnskapsteorien, men ein diagnose av grensetilfellet ho representerer.
+
+\bigskip
+\textbf{5.212--5.213} Den presise informasjonstap-definisjonen av lyskjegla følgjer Fields \& Levin [21]: eit system er kognitiv agent for ein variabel dersom det finst ei politikk \(\pi\) slik at KL-divergensen \(D_{\mathrm{KL}}(p_{\mathrm{obs}} \| p_{\pi})\) er under terskelen \(\varepsilon\). Definisjonen er operasjonell og substrat-uavhengig.
+
+\textbf{5.65--5.652} Liv-definisjonen er utleidd frå Levin [22, 24]. Å definere liv som aktiv lyskjegle-oppretthald er konsistent med klassisk homeostase-teori (Cannon, 1932) og med dei nyaste biofysiske rammeverka for levande system (Friston, 2010 [19]). Definisjonen er falsifiserbar: han fell dersom eit system som aktivt opprettheld lyskjegla likevel vert klassifisert som ikkje-levande i alle relevante domene.
+
+\textbf{8.1} Den generative modellen er ein Boltzmann/Gibbs-distribusjon over formrommet. Denne forma er vald fordi ho er den einaste sannsynsfordelinga som maksimerer entropi under energirestriksjonar (jaynes, 1957). At \(\hat{L}_i\) speler rolla til «energi» tyder at kvar agents estimat av «kor god ei form er» fungerer som ein fri-energi-funksjon i Fristons [19] forstand. Fleire agentar vert kombinerte gjennom vekta produktform, som svarer til ein log-lineær kombinasjon av dei individuelle preferansane.
+
+\textbf{8.3--8.31} Grensetilfella i 8.3 samsvarar eksakt med reduksjonsteoremet i 5.72: (i) tilsvarer «rein formgrammatikk» og (ii) tilsvarer «rein gradientnavigasjon». Proposisjon 8.31 er difor ei formell konsolidering av 5.721 med eksplisitt referanse til den probabilistiske formliseringa i 8.1.
+
+\textbf{5.401} Tolagsstrukturen i substratet (struktur- vs.\ funksjonsparametrar) er formalisert i Hartl, Risi \& Levin [92]. Deira simuleringar viser at evolusjon under støy føretek seg signifikant raskare gjennom funksjonelle parametrar (MCA) enn gjennom direkte kodifisering av målforma. For formverda tyder dette at det grammatiske laget (reglar som opererer på konfigurasjonen) er ein adaptiv respons til støy i landskapet; ikkje berre ein ekspressiv konvensjon.
+
+\textbf{5.621} K-metrikken er Chis-Ciure \& Levins [86] kvantitative operasjonalisering av kompetanse. Metrikken er skala-invariant og additiv over uavhengige delproblem. Éi K-eining svarer til ca.\ 3,32 bit sti-informasjon. For formverda: ein designar med K = 3 i eit gjeve formrom sparar tre storleiksordnar av designarbeid samanlikna med tilfeldig utforsking.
+
+\textbf{5.653} Fields \& Levin [89] viser at Conway--Kochen-teoremet (2006) og FEP saman eliminerer ethvert «bright line» mellom kognitive og reint fysiske system. Alle persistente system oppfyller formelt definisjonen av Bayesiansk aktør. For formverda tyder dette at substratets agentstatus ikkje er ein metafor men ein fysisk konsekvens av persistens sjølv.
+
+\textbf{6.121} Watson, Levin \& Buckley [87] formaliserer evolusjonære overgangar i individualitet som djup modellinduksjon: berre djupe, asymmetriske interaksjonar (ikkje berre symmetrisk samspel) produserer kollektive eigenskapar som er ikkje-lineært separable funksjonar av komponentkarakterane. For formverda: tett kopling mellom agentar er ikkje berre ei styrke; ho er det formelle vilkåret for at heilskapen kvalifiserer seg som eigen agent.
+
+\textbf{6.14} Levin \& Gitelman [93] koplar formverda direkte til designpraksis: all design med agentivt materiale krev ei vending frå mikrostyring til samarbeid med kompetente substrat. Geninformasjon er ikkje preskriptiv men «prompts» som vert kreativt tolka på kvar skala. Whiteheads ingression-omgrep [93] gjev eit rammeverk for korleis matematiske strukturar «inngår» i det fysiske gjennom grensesnittet: forma trekk ikkje berre på kontingente seleksjonstrykk, men òg på platoniske regularitetar som vert tilgjengelege ved realisering.
+
+\textbf{7.1} Falsifiseringskrav: dersom former designa under demonstrerbart trong omhug ikkje presterer dårlegare langs urepresenterte aksar enn former designa under brei omhug, er proposisjonen tilbakevist.
+
+\textbf{8.1} Falsifiseringskrav: modellen fell dersom ei klasse viser formvariasjon som ikkje let seg dekomponere i bidrag frå \(L(\mathrm{SG})\), \(\hat{L}_i\) og \(C(A_i)\) kvar for seg; dersom grammatikk, landskap og lyskjegle saman ikkje predikerer fordelinga betre enn ein enklare modell, er rammeverket overflødig.
+
+}
+% Stille teikn på siste side: portal til digital versjon og open kjelde.
+\begin{tikzpicture}[remember picture, overlay]
+  \node[anchor=south east, inner sep=0] at ([xshift=-12mm, yshift=18mm]current page.south east) {%
+    \includegraphics[width=22mm]{qr.png}%
+  };
+\end{tikzpicture}
+
+\end{widebody}
+
+\end{document}

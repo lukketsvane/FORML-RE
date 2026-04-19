@@ -1,0 +1,55 @@
+\section{Theoretical Background}
+\label{sec:background}
+
+The theory synthesizes three formal traditions that have developed independently. Each addresses a necessary aspect of design form; syntax, epistemic logic, and dynamics; but none provides a complete account. This section reviews each tradition and identifies the gap the synthesis fills.
+
+\subsection{Shape algebra and form grammars: the syntax of form}
+
+George Stiny and James Gips introduced shape grammars in 1972 as a generative specification for visual design \parencite{Stiny1972}. A shape grammar is a rule system that operates on forms through embedding: a rule recognizes a subshape within the current form and replaces it with another. The key insight is that rules fire on the \textit{present geometry}, not on construction history. A form has no memory of how it was made; the grammar sees only what is there now.
+
+Stiny subsequently formalized the underlying algebra of shapes \parencite{Stiny1991, Stiny2006}. Forms are elements of a Boolean algebra closed under sum (union), difference, and product (intersection, derived from sum and difference). The transformation group of Euclidean space provides rotation, translation, and scaling. The embedding relation $\tau(a) \leq s$ determines whether a subshape $a$ can be found within a shape $s$ under some transformation $\tau$.
+
+Shape grammars have been applied to architectural analysis \parencite{Stiny1972}, Palladian villas, Chinese ice-ray lattices, Hepplewhite chair backs, and computational design synthesis. The formalism provides a precise syntactic account: it specifies \textit{what operations are possible} on forms. But it does not explain \textit{why} one form arises rather than another. The grammar generates a language of possible forms; it does not explain why some forms are realized and others are not. This explanatory gap; from syntax to causation; is the first gap the present theory addresses.
+
+\subsection{C-K theory: the logic of design}
+
+Armand Hatchuel and Benoit Weil introduced Concept-Knowledge (C-K) theory as a formal account of innovative design reasoning \parencite{Hatchuel2003, Hatchuel2009}. The theory partitions the designer's cognitive space into two expandable spaces: a \textit{concept space} $C$ (propositions whose truth value is undecided) and a \textit{knowledge space} $K$ (propositions whose truth value is known). Design proceeds through four operators that move propositions between the two spaces.
+
+C-K theory provides what shape grammars lack: an account of the \textit{epistemic process} of design. It formalizes how designers move from the thinkable-but-unknown to the known, and how new knowledge opens new conceptual territory. The four operators ($C \to C$, $C \to K$, $K \to K$, $K \to C$) capture the rhythm of design reasoning with precision.
+
+However, C-K theory has attracted two persistent criticisms relevant to the present work. First, the concept space $C$ is essentially one-dimensional: concepts are specified through progressive partitioning, but the space lacks geometric or morphological structure. There is no formal account of \textit{where} in the concept space a design sits, or of the distance between two concepts. Second, C-K theory provides no account of function or structure as constitutive elements of the design object \parencite{Hatchuel2009}. The theory describes the reasoning process but not the morphological outcome.
+
+The present theory addresses both criticisms. The morphospace provides $C$ with multi-dimensional geometric structure; concepts are positions in morphospace, not branches of a tree. The affordance structure replaces the function concept with a relational construct that is both formally precise and empirically testable.
+
+\subsection{Multi-scale competence: the dynamics of form}
+
+Michael Levin's work on multi-scale competence provides the third pillar: a substrate-independent account of goal-directed behavior across biological scales \parencite{Levin2022}. Levin demonstrates that agency; defined as goal-directed navigation via feedback; operates at every level of biological organization, from bioelectric signaling in cell collectives to organism-level morphogenesis to ecosystem-level homeostasis. The critical insight is that higher-level goals are not programmed by lower-level components; they \textit{emerge} from the collective navigation of agents at multiple scales.
+
+Chris Fields and Levin formalize this through the concept of the \textbf{cognitive light cone}: the subset of the environment that an agent can represent and manipulate \parencite{Fields2022}. Everything outside the cone lacks causal existence for the agent. The cone's width determines the agent's competence. Wider cones enable navigation in higher-dimensional spaces; narrower cones constrain the agent to local gradients.
+
+Most recently, Doctor, Wakefield, Pavlic, and Levin propose \textbf{care}; the number of dimensions an agent actively attends to; as the driver of intelligence \parencite{Doctor2024}. An agent that cares about more axes of its environment navigates a richer landscape and finds solutions that withstand more pressures simultaneously. Intelligence, in this framework, is not processing speed or memory capacity; it is the dimensionality of engaged attention.
+
+This framework has not previously been applied to design theory. Yet the mapping is natural. The designer is an agent navigating a morphospace landscape via grammar operations, constrained by a cognitive cone. Care determines which pressures the designer represents. The form that emerges shows how far care reached. The present theory makes this mapping formal and testable.
+
+\subsection{Related work: adjacent traditions}
+
+The three source traditions are not the only ones that address form, design, and agency. Several adjacent frameworks must be mentioned to clarify what \formlaere{} does that they do not, and what it does not do that they do.
+
+\textbf{Semantic design theory.} Krippendorff's \textit{semantic turn} argues that design is about meaning, not about form \parencite{Krippendorff2006}. In \formlaere{}, semantics is not absent; meaning is one axis of the morphospace, one dimension in the cognitive cone. Care can encompass meaning; but the theory claims that meaning alone does not explain form, just as function alone does not. Semantics is one pressure among many.
+
+\textbf{Cultural evolution of artifacts.} Mesoudi, Lycett, and others have shown that material culture forms follow evolutionary patterns: variation, selection, and transmission \parencite{Mesoudi2011, Lycett2015}. This tradition strengthens the present theory's use of morphospace and fitness landscapes for artifacts. The difference is that \formlaere{} adds an agent layer (Propositions 5--6) that cultural evolution theory lacks: the designer navigates the landscape with care, not merely through blind variation and selection.
+
+\textbf{Actor-Network Theory.} Latour's work on distributed agency among human and non-human actors \parencite{Latour2005} shares \formlaere{}'s intuition that form arises \textit{between} agents (Proposition 6). ANT provides the sociological vocabulary; \formlaere{} provides the mathematical formalization that ANT lacks: morphospace, gradient, cone, grammar. The two frameworks are complementary, not competing.
+
+\textbf{Function-Behaviour-Structure (FBS).} Gero's FBS framework \parencite{Gero1990} distinguishes between what a design is \textit{for} (function), what it \textit{does} (behaviour), and what it \textit{is} (structure). FBS provides useful vocabulary but lacks mathematical formalization: function, behaviour, and structure are not defined as elements of an algebra or a measurable space. The present theory replaces function with affordance structure (relational and class-constant), behaviour with landscape navigation (gradient-driven), and structure with morphospace position (measurable).
+
+\subsection{The synthesis gap}
+
+Each tradition provides one necessary component: shape algebra gives syntax (what operations are possible), C-K theory gives epistemic logic (how knowledge expands through design), and multi-scale competence gives dynamics (how agents navigate and why certain positions are stable). No existing framework integrates all three.
+
+The core equation of the synthesis is:
+\begin{equation}
+\mathrm{Form} = SG\!\left(\nabla_{C(A)}\, L(c,\, t)\right)
+\tag{\ref{eq:core}}
+\end{equation}
+\noindent Form is the grammar's response to the landscape gradient as perceived through the agent's cognitive cone. This equation unifies Stiny (the grammar $SG$), Hatchuel and Weil (the $C \leftrightarrow K$ operators embedded in the cone and landscape), and Levin (the multi-scale agent hierarchy and the care dimensionality $\dim C(A)$). The next section presents the full theory.

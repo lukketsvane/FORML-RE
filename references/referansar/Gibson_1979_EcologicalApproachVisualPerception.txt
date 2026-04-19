@@ -1,0 +1,6 @@
+Title: The Ecological Approach to Visual Perception
+Author: James J. Gibson
+Year: 1979
+Publisher: Houghton Mifflin
+Summary: 
+This seminal work introduces the concept of "affordances" – what the environment offers the animal, what it provides or furnishes, either for good or ill. In the context of FORMLÆRE, affordances dictate the hard constraints of the morphospace. A chair must afford sitting; its structural and geometric properties are selected against this fundamental affordance. The depth (D) and height (H) are heavily canalized because they map directly to human bodily affordances, whereas other dimensions (like raw volume) are freer.
