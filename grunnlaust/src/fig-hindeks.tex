@@ -1,64 +1,23 @@
-\begin{figure}[t]
+% Siteringstal for «dei ti namna» som ein rein tabell (ikkje eit diagram).
+% Poenget er ikkje rangeringa, men kva talet faktisk tel.
+\begin{table}[t]
 \centering
-\begin{tikzpicture}[
-  font=\footnotesize,
-  scale=0.92, every node/.style={transform shape},
-]
-
-% Skala: 172k -> 60mm. Søylebreidd 6mm, mellomrom 10.5mm.
-% Aksen
-\draw[-{Latex[length=2mm]}, thick] (0,0) -- (0,66mm) node[above right, font=\footnotesize]{siteringar (omtrentlege)};
-\draw[thick] (0,0) -- (104mm,0);
-
-% Hjelpelinjer / merke på y-aksen
-\foreach \v/\y in {50/17.45mm, 100/34.9mm, 150/52.35mm}{
-  \draw[gray!40] (0,\y) -- (104mm,\y);
-  \node[left, font=\scriptsize, gray] at (0,\y) {\v k};
-}
-
-% Søyler: senter x, høgd i mm
-\newcommand{\sbar}[2]{%
-  \fill[black!12, draw=black] (#1-3mm,0) rectangle (#1+3mm,#2);
-}
-
-\sbar{6mm}{63mm}   % Simon (klippa)
-\sbar{17mm}{60mm}  % Norman 172k
-\sbar{28mm}{42.2mm}% Krippendorff 121k
-\sbar{39mm}{14mm}  % Cross 40k
-\sbar{50mm}{7.3mm} % Dorst 21k
-\sbar{61mm}{2.8mm} % Margolin 8k
-\sbar{72mm}{2.4mm} % Buchanan
-\sbar{83mm}{2.1mm} % Lawson
-\sbar{94mm}{1.7mm} % Manzini
-\sbar{104mm}{1.4mm}% Nelson & Stolterman
-
-% Brotmarkering på Simon-søyla (klippa topp)
-\draw[black] (3mm,59.5mm) -- (9mm,61.5mm);
-\draw[black] (3mm,60.5mm) -- (9mm,62.5mm);
-\node[above, font=\scriptsize] at (6mm,63mm) {$\gg$};
-
-% Etikettar (roterte) under aksen
-\foreach \x/\n in {%
-  6mm/{Simon},
-  17mm/{Norman},
-  28mm/{Krippendorff},
-  39mm/{Cross},
-  50mm/{Dorst},
-  61mm/{Margolin},
-  72mm/{Buchanan},
-  83mm/{Lawson},
-  94mm/{Manzini},
-  104mm/{{Nelson \& St.}}%
-}{
-  \node[below, rotate=45, anchor=north east, font=\scriptsize] at (\x,-0.5mm) {\n};
-}
-
-\end{tikzpicture}
-\caption{\textsc{Siteringar for «dei ti namna».}
-Omtrentlege siteringstal (Google Scholar, storleiksorden). Simon er klippa fordi
-talet ligg langt over skalaen. Poenget er ikkje rangeringa, men kva talet tel:
-dei mest siterte er det oftast for arbeid utanfor design, eller for ei særskilt
-innflytelsesrik meining --- ikkje for kumulativ, etterprøvd kunnskap som har
-bygd seg opp i faget.}
-\label{fig:hindeks}
-\end{figure}
+\small
+\begin{tabular}{@{}p{42mm}rp{58mm}@{}}
+\toprule
+\textsc{namn} & \textsc{siteringar} & \textsc{kva tyngda kviler på} \\
+\midrule
+Herbert Simon        & $\gg$\,500\,k & økonomi og kognisjon, ikkje design \\[2pt]
+Donald Norman        & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,170\,k & ei innflytelsesrik meining (\emph{affordans}) \\[2pt]
+Klaus Krippendorff   & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,120\,k & kommunikasjonsteori, lånt inn \\[2pt]
+Nigel Cross          & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,40\,k & «designerly ways of knowing» (program, ikkje resultat) \\[2pt]
+Kees Dorst           & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,21\,k & rammesetjing (framing) \\[2pt]
+Victor Margolin      & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,8\,k & designhistorie \\[2pt]
+Richard Buchanan     & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,7\,k & «wicked problems», lånt frå Rittel \\[2pt]
+Bryan Lawson         & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,7\,k & korleis designarar tenkjer \\[2pt]
+Ezio Manzini         & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,6\,k & sosial innovasjon \\[2pt]
+Nelson \& Stolterman & {\raise.17ex\hbox{$\scriptstyle\sim$}}\,5\,k & design som eigen kunnskapsform \\
+\bottomrule
+\end{tabular}
+\caption{\textsc{Siteringar for «dei ti namna».} Omtrentlege tal (Google Scholar, storleiksorden). Poenget er ikkje rangeringa, men kva talet tel: dei mest siterte er det oftast for arbeid utanfor design, eller for éi særskilt innflytelsesrik meining --- ikkje for kumulativ, etterprøvd kunnskap som har bygd seg opp i faget.}
+\end{table}
