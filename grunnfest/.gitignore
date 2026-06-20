@@ -1,0 +1,12 @@
+pdf/*.aux
+pdf/*.log
+pdf/*.toc
+pdf/*.out
+pdf/*.bbl
+pdf/*.bcf
+pdf/*.blg
+pdf/*.run.xml
+src/*.aux
+src/*.log
+src/*.toc
+src/*.out
