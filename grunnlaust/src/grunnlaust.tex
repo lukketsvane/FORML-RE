@@ -33,8 +33,10 @@
 \setotherlanguage{english}
 \setotherlanguage{german}
 
+% EB Garamond sin medfølgjande feite vekt manglar æøå. AutoFakeBold syntetiserer
+% feit frå regulær-vekta (full glyfdekning) så ingenting fell bort i overskrifter.
 \IfFontExistsTF{EB Garamond}{
-  \setmainfont{EB Garamond}[Numbers={Lining,Proportional},SmallCapsFeatures={LetterSpace=4}]
+  \setmainfont{EB Garamond}[Numbers={Lining,Proportional},SmallCapsFeatures={LetterSpace=4},AutoFakeBold=2.5]
 }{
   \setmainfont{TeX Gyre Pagella}
 }
@@ -43,12 +45,16 @@
 
 \usepackage{microtype}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
-% Matematikk-/symbolfallback (∇ ∩ ◇) med trygg degradering.
+% Matematikk-/symbolfallback (∇ ∩ ◇) med trygg degradering: Cambria Math
+% (Windows) → Symbola → DejaVu Sans (alltid på Linux) → ingen.
 \IfFontExistsTF{Cambria Math}{\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]}{%
-  \IfFontExistsTF{Symbola}{\newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]}{\newcommand{\mathfbfont}{}}}
+  \IfFontExistsTF{Symbola}{\newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]}{%
+  \IfFontExistsTF{DejaVu Sans}{\newfontfamily{\mathfbfont}{DejaVu Sans}[Scale=0.85]}{\newcommand{\mathfbfont}{}}}}
 \newcommand{\msym}[1]{{\mathfbfont #1}}
-\IfFontExistsTF{Symbola}{\newfontfamily{\picfont}{Symbola}[Scale=0.9]}{\newcommand{\picfont}{}}
+\IfFontExistsTF{Symbola}{\newfontfamily{\picfont}{Symbola}[Scale=0.9]}{%
+  \IfFontExistsTF{DejaVu Sans}{\newfontfamily{\picfont}{DejaVu Sans}[Scale=0.8]}{\newcommand{\picfont}{}}}
 \newcommand{\pic}[1]{{\picfont #1}}
 
 % --- Litteraturapparat (biblatex/biber, forfattar–år) ---
@@ -112,6 +118,27 @@
   \par\vspace{12pt}\noindent{\scshape\addfontfeature{LetterSpace=3}\small vidare lesing}\par\nobreak\vspace{3pt}%
   \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup}
 
+% --- Modulær lærebok-apparatur ---
+% Læringsmål: kort punktliste, rute-avgrensa, sist i kvart kapittel.
+\newcommand{\laeringsmal}[1]{%
+  \par\vspace{12pt}\needspace{4\baselineskip}%
+  \noindent\rule{\linewidth}{0.4pt}\par\vspace{3pt}%
+  \noindent{\scshape\addfontfeature{LetterSpace=3}\small læringsmål}\par\nobreak\vspace{2pt}%
+  \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup%
+  \vspace{3pt}\noindent\rule{\linewidth}{0.4pt}}
+% Øvingar og diskusjon: nummererte oppgåver, for seminarbruk.
+\newcommand{\ovingar}[1]{%
+  \par\vspace{10pt}\needspace{3\baselineskip}%
+  \noindent{\scshape\addfontfeature{LetterSpace=3}\small øvingar og diskusjon}\par\nobreak\vspace{2pt}%
+  \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup}
+% Kasus: utheva case-bolk inne i brødteksten.
+\newenvironment{kasus}[1]{%
+  \par\vspace{8pt}\needspace{5\baselineskip}%
+  \noindent\rule{\linewidth}{0.4pt}\par\vspace{2pt}%
+  \noindent{\scshape\addfontfeature{LetterSpace=2}\footnotesize kasus:\ #1}\par\nobreak\vspace{2pt}%
+  \begingroup\small\setlength{\parindent}{0pt}}{%
+  \par\endgroup\vspace{2pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{6pt}}
+
 \widowpenalty=10000
 \clubpenalty=10000
 \usepackage{needspace}
@@ -119,6 +146,7 @@
 \setlength{\parskip}{0pt}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage[hidelinks]{hyperref}
 
 \begin{document}
@@ -180,9 +208,11 @@ Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar,
 \part{Den vitskaplege ambisjonen}
 \input{12-designmetode}
 \input{13-simon-vitskap}
+\input{mislukka-fundamenta}
 \input{14-vrange-problem}
 \input{15-atelieret}
 \input{16-forsking-utan-objekt}
+\input{siste-metoden}
 
 \part{Migrasjonen}
 \input{17-semantisk-vending}
@@ -192,11 +222,14 @@ Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar,
 \part{Skadane og fråværa}
 \input{20-merksemd-ekstraksjon}
 \input{21-kan-ikkje-seie-nei}
+\input{greinene}
 \input{22-fravaeret}
 \input{23-sjolvbedraget}
+\input{dei-ti-namna}
 
 \part{Avrekninga}
 \input{24-avleggaren}
+\input{innvendingane}
 \input{25-grunnen}
 \input{26-etterord}
 
