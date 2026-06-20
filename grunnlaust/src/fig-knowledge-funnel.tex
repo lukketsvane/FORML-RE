@@ -1,0 +1,35 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\small]
+
+% Trakt som smalnar: fire-kant som er brei oppe og smal nede
+\coordinate (tl) at (-32mm, 0);
+\coordinate (tr) at ( 32mm, 0);
+\coordinate (br) at ( 9mm, -48mm);
+\coordinate (bl) at (-9mm, -48mm);
+
+\fill[black!8] (tl) -- (tr) -- (br) -- (bl) -- cycle;
+\draw[thick] (tl) -- (tr) -- (br) -- (bl) -- cycle;
+
+% Tre nivå med vassrette skiljelinjer
+\draw[gray!60] (-21mm,-16mm) -- (21mm,-16mm);
+\draw[gray!60] (-15mm,-32mm) -- (15mm,-32mm);
+
+% Etikettar for dei tre stega
+\node[font=\bfseries] at (0,-8mm) {Mysterium};
+\node[font=\bfseries] at (0,-24mm) {Heuristikk};
+\node[font=\bfseries] at (0,-40mm) {Algoritme};
+
+% Pil som viser rørsla nedover (innsnevringa)
+\draw[-{Latex[length=2mm]}, thick] (40mm,-2mm) -- (40mm,-46mm)
+  node[midway, right, align=left, font=\footnotesize]{stadig\\snævrare\\og\\billegare};
+
+\end{tikzpicture}
+\caption{\textsc{Kunnskapstrakta.}
+Roger Martins «knowledge funnel»: arbeidet rører seg frå det opne mysteriet,
+gjennom ein heuristikk som gjev retning, til ein algoritme som er billeg å
+køyre i stor skala. Design thinking selde sjølve trakta som metode --- forma,
+rørsla, dei tre orda --- utan å levere den kunnskapen som skal fylle henne.
+Trakta utan innhald flyttar ingenting nedover.}
+\label{fig:knowledge-funnel}
+\end{figure}
