@@ -33,8 +33,10 @@
 \setotherlanguage{english}
 \setotherlanguage{german}
 
+% EB Garamond sin medfølgjande feite vekt manglar æøå. AutoFakeBold syntetiserer
+% feit frå regulær-vekta (full glyfdekning) så ingenting fell bort i overskrifter.
 \IfFontExistsTF{EB Garamond}{
-  \setmainfont{EB Garamond}[Numbers={Lining,Proportional},SmallCapsFeatures={LetterSpace=4}]
+  \setmainfont{EB Garamond}[Numbers={Lining,Proportional},SmallCapsFeatures={LetterSpace=4},AutoFakeBold=2.5]
 }{
   \setmainfont{TeX Gyre Pagella}
 }
@@ -43,12 +45,16 @@
 
 \usepackage{microtype}
 \usepackage{amsmath}
+\usepackage{amssymb}
 
-% Matematikk-/symbolfallback (∇ ∩ ◇) med trygg degradering.
+% Matematikk-/symbolfallback (∇ ∩ ◇) med trygg degradering: Cambria Math
+% (Windows) → Symbola → DejaVu Sans (alltid på Linux) → ingen.
 \IfFontExistsTF{Cambria Math}{\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]}{%
-  \IfFontExistsTF{Symbola}{\newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]}{\newcommand{\mathfbfont}{}}}
+  \IfFontExistsTF{Symbola}{\newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]}{%
+  \IfFontExistsTF{DejaVu Sans}{\newfontfamily{\mathfbfont}{DejaVu Sans}[Scale=0.85]}{\newcommand{\mathfbfont}{}}}}
 \newcommand{\msym}[1]{{\mathfbfont #1}}
-\IfFontExistsTF{Symbola}{\newfontfamily{\picfont}{Symbola}[Scale=0.9]}{\newcommand{\picfont}{}}
+\IfFontExistsTF{Symbola}{\newfontfamily{\picfont}{Symbola}[Scale=0.9]}{%
+  \IfFontExistsTF{DejaVu Sans}{\newfontfamily{\picfont}{DejaVu Sans}[Scale=0.8]}{\newcommand{\picfont}{}}}
 \newcommand{\pic}[1]{{\picfont #1}}
 
 % --- Litteraturapparat (biblatex/biber, forfattar–år) ---
