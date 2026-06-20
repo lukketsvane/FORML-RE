@@ -112,6 +112,27 @@
   \par\vspace{12pt}\noindent{\scshape\addfontfeature{LetterSpace=3}\small vidare lesing}\par\nobreak\vspace{3pt}%
   \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup}
 
+% --- Modulær lærebok-apparatur ---
+% Læringsmål: kort punktliste, rute-avgrensa, sist i kvart kapittel.
+\newcommand{\laeringsmal}[1]{%
+  \par\vspace{12pt}\needspace{4\baselineskip}%
+  \noindent\rule{\linewidth}{0.4pt}\par\vspace{3pt}%
+  \noindent{\scshape\addfontfeature{LetterSpace=3}\small læringsmål}\par\nobreak\vspace{2pt}%
+  \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup%
+  \vspace{3pt}\noindent\rule{\linewidth}{0.4pt}}
+% Øvingar og diskusjon: nummererte oppgåver, for seminarbruk.
+\newcommand{\ovingar}[1]{%
+  \par\vspace{10pt}\needspace{3\baselineskip}%
+  \noindent{\scshape\addfontfeature{LetterSpace=3}\small øvingar og diskusjon}\par\nobreak\vspace{2pt}%
+  \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup}
+% Kasus: utheva case-bolk inne i brødteksten.
+\newenvironment{kasus}[1]{%
+  \par\vspace{8pt}\needspace{5\baselineskip}%
+  \noindent\rule{\linewidth}{0.4pt}\par\vspace{2pt}%
+  \noindent{\scshape\addfontfeature{LetterSpace=2}\footnotesize kasus:\ #1}\par\nobreak\vspace{2pt}%
+  \begingroup\small\setlength{\parindent}{0pt}}{%
+  \par\endgroup\vspace{2pt}\noindent\rule{\linewidth}{0.4pt}\par\vspace{6pt}}
+
 \widowpenalty=10000
 \clubpenalty=10000
 \usepackage{needspace}
@@ -119,6 +140,7 @@
 \setlength{\parskip}{0pt}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage[hidelinks]{hyperref}
 
 \begin{document}

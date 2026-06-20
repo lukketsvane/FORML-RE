@@ -1,0 +1,30 @@
+% Vertikal tidslinje: dei serielle «fundamenta» (for kapittelet «Dei mislukka
+% fundamenta»). Reint TikZ, ingen ekstra bibliotek. Input-bart fragment.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  yscale=0.92, xscale=1,
+  every node/.style={font=\footnotesize},
+  aar/.style={font=\small\bfseries},
+]
+% Loddrett akse
+\draw[line width=0.8pt] (0,0.4) -- (0,-16.0);
+% Hjelpefunksjon: punkt + år + tekst
+\foreach \y/\year/\who/\what in {%
+  -0.6/1919/Bauhaus/{Vorkurs: ei grunnlære om form},
+  -2.3/1953/Ulm/{vitskap og metode},
+  -4.0/1962/Designmetodar/{ein eksplisitt rasjonell prosess},
+  -5.7/1969/Simon/{ein vitskap om det kunstige},
+  -7.4/1982/Cross/{«designerly ways of knowing»},
+  -9.1/1992/Buchanan/{design som det fjerde kunstfaget},
+  -10.8/2006/Krippendorff/{«eit nytt fundament for design»},
+  -12.5/2012/{Nelson \& Stolterman}/{design som tredje kunnskapskultur},
+  -14.2/2017/Redström/{design lagar si eiga teori}%
+}{
+  \fill (0,\y) circle (2.2pt);
+  \node[aar, anchor=east] at (-0.35,\y) {\year};
+  \node[anchor=west, text width=78mm] at (0.35,\y) {\textsc{\who} — \textit{\what}};
+}
+\end{tikzpicture}
+\caption{\textsc{Dei serielle fundamenta.} Ni annonserte grunnlag på under hundre år. Eit fag som fann grunnen sin, grunnlegg seg ikkje på nytt kvar generasjon; overfloden er sjølv beviset på fråvêret.}
+\end{figure}
