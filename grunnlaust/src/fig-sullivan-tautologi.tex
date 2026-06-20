@@ -1,0 +1,41 @@
+% Michl-disjunksjonen: to lesingar av «form follows function». Begge greinene
+% endar i «inga foresegn». Reint TikZ, ingen ekstra bibliotek. Input-bart fragment.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  boks/.style={draw, rounded corners=2pt, align=center, inner sep=4pt},
+  pil/.style={-{Latex[length=2mm]}, line width=0.6pt},
+]
+% ---- Toppen: paastanden ----
+\node[boks, fill=black!5, text width=58mm] (top) at (0,4.0)
+  {\textsc{«form follows function»}\\[2pt]\scriptsize forma fylgjer av funksjonen};
+
+% Disjunksjonen forgreinar
+\draw[pil] (top.south) -- (-3.6,3.1);
+\draw[pil] (top.south) -- (3.6,3.1);
+\node[font=\scriptsize] at (-2.3,3.45) {funksjon = snever nytte};
+\node[font=\scriptsize] at (2.3,3.45) {funksjon = alt};
+
+% ---- Venstre grein ----
+\node[boks, text width=46mm] (v1) at (-3.6,2.5)
+  {Funksjonen avgrensar berre grovt\\\scriptsize (eit verktoy skal kunne brukast)};
+\node[boks, text width=46mm] (v2) at (-3.6,0.7)
+  {Forma er \emph{underbestemt}\\\scriptsize mange former oppfyller same funksjon};
+\draw[pil] (v1.south) -- (v2.north);
+
+% ---- Hogre grein ----
+\node[boks, text width=46mm] (h1) at (3.6,2.5)
+  {Alt ved tingen reknast som funksjon\\\scriptsize medrekna verknad, meining, uttrykk};
+\node[boks, text width=46mm] (h2) at (3.6,0.7)
+  {Paastanden vert \emph{tom}\\\scriptsize forma fylgjer av seg sjolv};
+\draw[pil] (h1.south) -- (h2.north);
+
+% ---- Felles botn ----
+\node[boks, fill=black!8, text width=52mm] (botn) at (0,-1.4)
+  {\textsc{inga foresegn}\\[2pt]\scriptsize prinsippet vel ikkje forma};
+\draw[pil] (v2.south) -- (botn.north west);
+\draw[pil] (h2.south) -- (botn.north east);
+\end{tikzpicture}
+\caption{\textsc{Tautologien i to lesingar.} Lèt ein funksjonen tyde snever nytte, avgrensar han forma berre grovt: utallege former oppfyller han, og forma vert underbestemt. Lèt ein funksjonen tyde alt ved tingen, vert påstanden tom. Som Michl viser, endar begge greinene same stad: prinsippet gjev inga føresegn om kva form ein skal velje.}
+\end{figure}

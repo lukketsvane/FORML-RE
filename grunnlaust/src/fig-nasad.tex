@@ -1,0 +1,40 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  box/.style={draw, rounded corners=2pt, inner sep=6pt, align=left, text width=46mm},
+]
+
+% Venstre: det akkrediteringa måler
+\node[box] (maler) at (0,0) {%
+  \textbf{\textsc{Måler}}\\[2pt]
+  \footnotesize Ressurs og prosess:\\[3pt]
+  \footnotesize krediteringstimar\\
+  \footnotesize lærarkvalifikasjonar\\
+  \footnotesize bibliotek\\
+  \footnotesize verkstad\\
+  \footnotesize areal\\
+  \footnotesize HMS\\
+  \footnotesize dokument
+};
+
+% Høgre: det akkrediteringa ikkje måler
+\node[box] (ikkje) at (62mm,0) {%
+  \textbf{\textsc{Måler ikkje}}\\[2pt]
+  \footnotesize Kvalitet:\\[3pt]
+  \footnotesize om det studentane\\
+  \footnotesize lærer å sjå og gjere\\
+  \footnotesize er godt
+};
+
+% Pil som flyttar spørsmålet eitt hakk til sida
+\draw[-{Latex[length=2mm]}, thick] (maler.east) -- node[above, font=\footnotesize]{spørsmålet} node[below, font=\footnotesize]{flytta eitt hakk} (ikkje.west);
+
+\end{tikzpicture}
+\caption{\textsc{Det akkreditering måler, og det ho ikkje måler.}
+Akkrediteringa tel ressursar og prosessar som kan dokumenterast. Spørsmålet om
+kvalitet --- om studentane faktisk lærer å sjå og gjere noko godt --- blir
+flytta eitt hakk til sida og handsama som om det var avgjort av at innsatsfaktorane
+er på plass.}
+\label{fig:nasad}
+\end{figure}
