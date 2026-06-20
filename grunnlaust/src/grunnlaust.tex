@@ -1,210 +1,207 @@
-\documentclass[11pt,oneside]{book}
+\documentclass[11pt,twoside,openright]{book}
 
-% ─── GRUNNLAUST ────────────────────────────────────────────────────────────
-% Ei avrekning med designutdanninga.
-% Den destruktive tvillingen til FORMLÆRE-traktaten: der traktaten byggjer
-% grunnen, river denne boka ned påstanden om at faget alt har ein.
-% Sett i same familie som traktaten (EB Garamond, nynorsk, XeLaTeX), men i
-% eit normalt prosabok-format med synlege, nummererte kapittel.
+% =====================================================================
+% GRUNNLAUST — Ein kritisk historie om designfaget og fundamentet det
+% aldri fekk.
+%
+% Hovudlærebok i kritisk designhistorie for eit femårig masterløp.
+% Tese: designfaget nådde aldri eit haldbart fundament. Boka viser dette
+% ikkje ved å hevde det, men ved å fortelje historia — og lar lesaren
+% lese diagnosen ut av FRÅVÆRA (ingen etiske råd, inga felles etikk, inga
+% metode, inga stemme) og SKADANE (ekstraksjon, avhengigheit, algoritmisk
+% styring). Den destruktive lina frå traktaten FORMLÆRE er no boren av
+% sjølve historia.
+% =====================================================================
 
-% Sidegeometri — 140 × 215 mm (vanleg pocket/fagbok-trim, større enn
-% traktaten sitt 125 × 200 mm Tractatus-format).
+% --- Sidegeometri: fagbok-trim 165 × 240 mm ---
 \usepackage[
-  paperwidth=140mm,
-  paperheight=215mm,
-  top=22mm,
-  bottom=20mm,
-  inner=22mm,
-  outer=18mm,
+  paperwidth=165mm,
+  paperheight=240mm,
+  top=24mm,
+  bottom=22mm,
+  inner=26mm,
+  outer=20mm,
   headheight=14pt,
   headsep=7mm,
-  footskip=10mm,
+  footskip=11mm,
 ]{geometry}
 
-% UTF-8 + nynorsk
+% --- Språk og font ---
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=nynorsk]{norwegian}
+\setotherlanguage{english}
+\setotherlanguage{german}
 
-% Brødtekst — same val som traktaten: EB Garamond, fallback TeX Gyre Pagella.
 \IfFontExistsTF{EB Garamond}{
-  \setmainfont{EB Garamond}[
-    Numbers={Lining,Proportional},
-    SmallCapsFeatures={LetterSpace=4},
-  ]
+  \setmainfont{EB Garamond}[Numbers={Lining,Proportional},SmallCapsFeatures={LetterSpace=4}]
 }{
   \setmainfont{TeX Gyre Pagella}
 }
-\renewcommand{\normalsize}{\fontsize{11}{15}\selectfont}
+\renewcommand{\normalsize}{\fontsize{11}{15.5}\selectfont}
 \normalsize
 
 \usepackage{microtype}
 \usepackage{amsmath}
 
-% Matematikk-symbolfallback (∇ ∩ ◇ osv.) — Cambria Math, jf. traktaten.
-% Guarda med fallback (Symbola → hovudfont) for miljø utan Cambria Math.
-\IfFontExistsTF{Cambria Math}{
-  \newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
-}{
-  \IfFontExistsTF{Symbola}{
-    \newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]
-  }{
-    \newcommand{\mathfbfont}{}
-  }
-}
+% Matematikk-/symbolfallback (∇ ∩ ◇) med trygg degradering.
+\IfFontExistsTF{Cambria Math}{\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]}{%
+  \IfFontExistsTF{Symbola}{\newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]}{\newcommand{\mathfbfont}{}}}
 \newcommand{\msym}[1]{{\mathfbfont #1}}
-% Piktografisk fallback (◇ ▲ ● osv.)
-\IfFontExistsTF{Segoe UI Symbol}{
-  \newfontfamily{\picfont}{Segoe UI Symbol}[Scale=0.90]
-}{
-  \IfFontExistsTF{Symbola}{
-    \newfontfamily{\picfont}{Symbola}[Scale=0.90]
-  }{
-    \newfontfamily{\picfont}{TeX Gyre Pagella}
-  }
-}
+\IfFontExistsTF{Symbola}{\newfontfamily{\picfont}{Symbola}[Scale=0.9]}{\newcommand{\picfont}{}}
 \newcommand{\pic}[1]{{\picfont #1}}
 
-% Referansar: manuelle hevra tal som peikar til den nummererte lista bak,
-% same konvensjon som traktaten (\textsuperscript{n}).
-\newcommand{\kref}[1]{\textsuperscript{#1}}
+% --- Litteraturapparat (biblatex/biber, forfattar–år) ---
+\usepackage[backend=biber,style=authoryear,sorting=nyt,maxbibnames=8,maxcitenames=2,giveninits=true,uniquename=init,doi=false,isbn=false,url=false]{biblatex}
+\addbibresource{../referansar.bib}
+% Kompaktare bibliografi
+\setlength\bibitemsep{0.5\baselineskip}
+\renewcommand*{\bibfont}{\small}
 
-% ─── Kapitteloppsett ───────────────────────────────────────────────────────
+% --- Kapittel- og deloppsett ---
 \usepackage{titlesec}
-
-% Kapitlet får eit stort nummer over ein kapiteltittel i kapitélar.
+\titleformat{\part}[display]
+  {\normalfont\centering\scshape\addfontfeature{LetterSpace=14}}
+  {\Large del \thepart}{18pt}{\huge\MakeLowercase}
 \titleformat{\chapter}[display]
   {\normalfont\centering}
-  {\fontsize{40}{40}\selectfont\bfseries\thechapter}
-  {10pt}
-  {\scshape\addfontfeature{LetterSpace=12}\Large\MakeLowercase}
-\titlespacing*{\chapter}{0pt}{16pt}{40pt}
-
+  {\fontsize{44}{44}\selectfont\bfseries\thechapter}{10pt}
+  {\scshape\addfontfeature{LetterSpace=10}\LARGE\MakeLowercase}
+\titlespacing*{\chapter}{0pt}{12pt}{38pt}
 \titleformat{\section}[block]
-  {\normalfont\scshape\addfontfeature{LetterSpace=4}\normalsize}
-  {}{0em}{\MakeLowercase}
-\titlespacing*{\section}{0pt}{1.6em}{0.7em}
+  {\normalfont\scshape\addfontfeature{LetterSpace=3}\large}{}{0em}{\MakeLowercase}
+\titlespacing*{\section}{0pt}{1.8em}{0.7em}
+\titleformat{\subsection}[runin]
+  {\normalfont\itshape}{}{0em}{}[.\quad]
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thepart}{\Roman{part}}
 
-% Romartal-kapittel
-\renewcommand{\thechapter}{\Roman{chapter}}
-
-% Løpande topptekst: boktittel venstre, kapittel høgre, tynn strek.
+% --- Løpande topptekst ---
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\footnotesize\scshape grunnlaust}
-\fancyhead[R]{\footnotesize\scshape\nouppercase{\leftmark}}
+\fancyhead[LE]{\footnotesize\scshape\thepage\quad grunnlaust}
+\fancyhead[RO]{\footnotesize\scshape\nouppercase{\rightmark}\quad\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  \renewcommand{\headrulewidth}{0pt}%
-  \fancyfoot[C]{\footnotesize\thepage}%
-}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\footnotesize\thepage}}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
 
-% Innhaldsliste — kompakt, utan «Innhald»-tittel midtstilt.
-\usepackage{titletoc}
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{0}
 
-% Figurar
+% --- Figurar og tabellar ---
 \usepackage{graphicx}
 \graphicspath{{../figures/}{../../figures/}}
 \usepackage{caption}
-\captionsetup{font={small,it},labelformat=empty,justification=centering,skip=4pt}
+\captionsetup{font={small},labelfont={sc},justification=raggedright,singlelinecheck=false,skip=5pt}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{enumitem}
 
-% Sitatblokk for opningssitat per kapittel
+% --- Stilelement ---
+% Motto: opningssitat under kapitteltittel.
 \newenvironment{motto}{%
-  \par\nobreak\vspace{-26pt}\begin{center}\begin{minipage}{0.82\linewidth}%
-  \itshape\small\raggedleft
-}{%
-  \par\end{minipage}\end{center}\vspace{12pt}%
-}
-
-% Avsluttande vignett (tre stjerner)
-\newcommand{\vignett}{\par\vspace{10pt}\begin{center}\small$*\quad*\quad*$\end{center}\vspace{6pt}}
-
-% Referanseinnslag bak — kompakt, hengjande innrykk.
-\newcommand{\refentry}[1]{%
-  \par\addvspace{2pt}%
-  \begingroup\footnotesize\linespread{0.95}\selectfont
-  \noindent\hangindent=5mm\hangafter=1 #1\par%
-  \endgroup
-}
-% Notatinnslag bak
-\newcommand{\noteentry}[2]{%
-  \par\addvspace{3pt}%
-  \begingroup\footnotesize\linespread{0.98}\selectfont
-  \noindent\hangindent=5mm\hangafter=1 \textbf{#1}\quad #2\par%
-  \endgroup
-}
+  \par\nobreak\vspace{-22pt}\begin{center}\begin{minipage}{0.80\linewidth}\itshape\small\raggedleft}{%
+  \par\end{minipage}\end{center}\vspace{14pt}}
+% Vignett: avsnittsskifte.
+\newcommand{\vignett}{\par\vspace{8pt}\begin{center}\small$*\;\;*\;\;*$\end{center}\vspace{4pt}}
+% Vidare lesing: standardisert bolk sist i kvart kapittel.
+\newcommand{\vidarelesing}[1]{%
+  \par\vspace{12pt}\noindent{\scshape\addfontfeature{LetterSpace=3}\small vidare lesing}\par\nobreak\vspace{3pt}%
+  \begingroup\small\setlength{\parindent}{0pt}#1\par\endgroup}
 
 \widowpenalty=10000
 \clubpenalty=10000
+\usepackage{needspace}
 \setlength{\parindent}{1.4em}
 \setlength{\parskip}{0pt}
-\linespread{1.0}
 
-% TikZ for tittelside
 \usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
 
 \begin{document}
+\frontmatter
+\pagestyle{empty}
 
-% ─── Tittelside ────────────────────────────────────────────────────────────
+% --- Smusstittel ---
+\vspace*{\fill}
+\begin{center}{\fontsize{30}{32}\selectfont\bfseries GRUNNLAUST}\end{center}
+\vspace*{\fill}\clearpage
+
+% --- Tittelside ---
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{center}
-  {\fontsize{54}{56}\selectfont\bfseries GRUNNLAUST}\\[10mm]
-  {\large\itshape Ei avrekning med designutdanninga}\\[28mm]
+  {\fontsize{52}{54}\selectfont\bfseries GRUNNLAUST}\\[10mm]
+  {\large\itshape Ein kritisk historie om designfaget\\ og fundamentet det aldri fekk}\\[30mm]
   {\normalsize Iver Raknes Finne}\\[2mm]
   {\footnotesize Arkitektur- og designhøgskolen i Oslo\quad\textperiodcentered\quad 2026}
 \end{center}
-\vspace*{\fill}
-\clearpage
+\vspace*{\fill}\clearpage
 
-% ─── Kolofon / epigraf ─────────────────────────────────────────────────────
-\thispagestyle{empty}
-\vspace*{\fill}
-\begin{flushright}\itshape\small
-\begin{minipage}{0.74\linewidth}\raggedleft
-Ein disiplin utan fundament overlever ikkje dei neste tiåra.\\
-Han vert avleggar, slik frenologien vart før nevrovitskapen,\\
-slik alkemien vart før kjemien, slik vitalismen vart før biologien.\\[4mm]
+% --- Epigraf ---
+\thispagestyle{empty}\vspace*{\fill}
+\begin{flushright}\itshape\small\begin{minipage}{0.74\linewidth}\raggedleft
+Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar, slik frenologien vart før nevrovitskapen, slik alkemien vart før kjemien, slik vitalismen vart før biologien.\\[3mm]
 \upshape\footnotesize — frå føreordet til \textsc{Formlære}-traktaten
-\end{minipage}
-\end{flushright}
-\vspace{18mm}
-\noindent\footnotesize Denne boka er den destruktive tvillingen til traktaten \textsc{Formlære}. Traktaten byggjer grunnen faget kan stå på. Denne boka river ned påstanden om at faget alt har ein. Dei skal lesast saman, men denne kan lesast fyrst.
+\end{minipage}\end{flushright}
+\vspace*{\fill}\clearpage
+
+% --- Innhald ---
+\pagestyle{plain}
+{\small\renewcommand{\contentsname}{}%
+\vspace*{4mm}{\scshape\addfontfeature{LetterSpace=6}\normalsize innhald}\par\vspace{4mm}\tableofcontents}
 \clearpage
 
-% ─── Innhald ───────────────────────────────────────────────────────────────
-\thispagestyle{empty}
-{\footnotesize
-\renewcommand{\contentsname}{}
-\vspace*{6mm}
-{\scshape\addfontfeature{LetterSpace=6}\normalsize innhald}\par\vspace{6mm}
-\tableofcontents
-}
-\clearpage
+\mainmatter
+\pagestyle{fancy}
 
-\setcounter{page}{1}
+\input{00-til-lesaren}
 
-% ─── Brødtekst ─────────────────────────────────────────────────────────────
-\input{00-forord}
-\input{01-klagemaalet}
-\input{02-tomme-formelen}
-\input{03-atelieret}
-\input{04-pensum-av-laan}
-\input{05-forsking-utan-objekt}
-\input{06-kan-ikkje-seie-nei}
-\input{07-sjolvbedraget}
-\input{08-avleggaren}
-\input{09-grunnen}
-\input{10-etterord}
+\part{Føresetnadene}
+\input{01-form-for-faget}
+\input{02-industri-og-skilje}
+\input{03-utstilling-og-reform}
 
-% ─── Referansar og notar ───────────────────────────────────────────────────
-\input{99-referansar}
+\part{Rørslene som lova eit grunnlag}
+\input{04-arts-and-crafts}
+\input{05-werkbund}
+\input{06-bauhaus}
+\input{07-funksjonalismen}
+
+\part{Institusjonaliseringa}
+\input{08-ulm}
+\input{09-amerikansk-styling}
+\input{10-skandinavisk}
+\input{11-gute-form-rams}
+
+\part{Den vitskaplege ambisjonen}
+\input{12-designmetode}
+\input{13-simon-vitskap}
+\input{14-vrange-problem}
+\input{15-atelieret}
+\input{16-forsking-utan-objekt}
+
+\part{Migrasjonen}
+\input{17-semantisk-vending}
+\input{18-brukaren-skjermen}
+\input{19-design-thinking}
+
+\part{Skadane og fråværa}
+\input{20-merksemd-ekstraksjon}
+\input{21-kan-ikkje-seie-nei}
+\input{22-fravaeret}
+\input{23-sjolvbedraget}
+
+\part{Avrekninga}
+\input{24-avleggaren}
+\input{25-grunnen}
+\input{26-etterord}
+
+\backmatter
+\pagestyle{plain}
+\printbibliography[heading=bibintoc,title={Litteratur}]
 
 \end{document}

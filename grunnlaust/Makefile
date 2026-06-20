@@ -1,19 +1,23 @@
 # GRUNNLAUST — Makefile
-# Krev: xelatex (med EB Garamond eller TeX Gyre Pagella som fallback).
+# Krev: xelatex + biber (forfattar–år-bibliografi via biblatex).
 
 SRCDIR = src
 PDFDIR = pdf
 MAIN   = grunnlaust
-XELATEX = xelatex -interaction=nonstopmode -output-directory=../$(PDFDIR)
+XELATEX = xelatex -interaction=nonstopmode
 
 .PHONY: all clean
 
 all: $(PDFDIR)/$(MAIN).pdf
 
-$(PDFDIR)/$(MAIN).pdf: $(SRCDIR)/$(MAIN).tex $(wildcard $(SRCDIR)/*.tex)
+# Full sekvens: xelatex → biber → xelatex → xelatex (kryssreferansar + bibliografi).
+$(PDFDIR)/$(MAIN).pdf: $(SRCDIR)/$(MAIN).tex $(wildcard $(SRCDIR)/*.tex) referansar.bib
 	mkdir -p $(PDFDIR)
-	cd $(SRCDIR) && $(XELATEX) $(MAIN).tex
-	cd $(SRCDIR) && $(XELATEX) $(MAIN).tex   # andre gong for innhaldsliste
+	cd $(SRCDIR) && $(XELATEX) -output-directory=../$(PDFDIR) $(MAIN).tex
+	cd $(PDFDIR) && biber $(MAIN)
+	cd $(SRCDIR) && $(XELATEX) -output-directory=../$(PDFDIR) $(MAIN).tex
+	cd $(SRCDIR) && $(XELATEX) -output-directory=../$(PDFDIR) $(MAIN).tex
 
 clean:
-	rm -f $(PDFDIR)/*.aux $(PDFDIR)/*.log $(PDFDIR)/*.toc $(PDFDIR)/*.out
+	rm -f $(PDFDIR)/*.aux $(PDFDIR)/*.log $(PDFDIR)/*.toc $(PDFDIR)/*.out \
+	      $(PDFDIR)/*.bbl $(PDFDIR)/*.bcf $(PDFDIR)/*.blg $(PDFDIR)/*.run.xml
