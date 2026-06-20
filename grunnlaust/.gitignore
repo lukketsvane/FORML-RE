@@ -1,0 +1,8 @@
+pdf/*.aux
+pdf/*.log
+pdf/*.toc
+pdf/*.out
+src/*.aux
+src/*.log
+src/*.toc
+src/*.out

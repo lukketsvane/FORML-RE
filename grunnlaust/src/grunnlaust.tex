@@ -1,0 +1,210 @@
+\documentclass[11pt,oneside]{book}
+
+% ─── GRUNNLAUST ────────────────────────────────────────────────────────────
+% Ei avrekning med designutdanninga.
+% Den destruktive tvillingen til FORMLÆRE-traktaten: der traktaten byggjer
+% grunnen, river denne boka ned påstanden om at faget alt har ein.
+% Sett i same familie som traktaten (EB Garamond, nynorsk, XeLaTeX), men i
+% eit normalt prosabok-format med synlege, nummererte kapittel.
+
+% Sidegeometri — 140 × 215 mm (vanleg pocket/fagbok-trim, større enn
+% traktaten sitt 125 × 200 mm Tractatus-format).
+\usepackage[
+  paperwidth=140mm,
+  paperheight=215mm,
+  top=22mm,
+  bottom=20mm,
+  inner=22mm,
+  outer=18mm,
+  headheight=14pt,
+  headsep=7mm,
+  footskip=10mm,
+]{geometry}
+
+% UTF-8 + nynorsk
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=nynorsk]{norwegian}
+
+% Brødtekst — same val som traktaten: EB Garamond, fallback TeX Gyre Pagella.
+\IfFontExistsTF{EB Garamond}{
+  \setmainfont{EB Garamond}[
+    Numbers={Lining,Proportional},
+    SmallCapsFeatures={LetterSpace=4},
+  ]
+}{
+  \setmainfont{TeX Gyre Pagella}
+}
+\renewcommand{\normalsize}{\fontsize{11}{15}\selectfont}
+\normalsize
+
+\usepackage{microtype}
+\usepackage{amsmath}
+
+% Matematikk-symbolfallback (∇ ∩ ◇ osv.) — Cambria Math, jf. traktaten.
+% Guarda med fallback (Symbola → hovudfont) for miljø utan Cambria Math.
+\IfFontExistsTF{Cambria Math}{
+  \newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
+}{
+  \IfFontExistsTF{Symbola}{
+    \newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]
+  }{
+    \newcommand{\mathfbfont}{}
+  }
+}
+\newcommand{\msym}[1]{{\mathfbfont #1}}
+% Piktografisk fallback (◇ ▲ ● osv.)
+\IfFontExistsTF{Segoe UI Symbol}{
+  \newfontfamily{\picfont}{Segoe UI Symbol}[Scale=0.90]
+}{
+  \IfFontExistsTF{Symbola}{
+    \newfontfamily{\picfont}{Symbola}[Scale=0.90]
+  }{
+    \newfontfamily{\picfont}{TeX Gyre Pagella}
+  }
+}
+\newcommand{\pic}[1]{{\picfont #1}}
+
+% Referansar: manuelle hevra tal som peikar til den nummererte lista bak,
+% same konvensjon som traktaten (\textsuperscript{n}).
+\newcommand{\kref}[1]{\textsuperscript{#1}}
+
+% ─── Kapitteloppsett ───────────────────────────────────────────────────────
+\usepackage{titlesec}
+
+% Kapitlet får eit stort nummer over ein kapiteltittel i kapitélar.
+\titleformat{\chapter}[display]
+  {\normalfont\centering}
+  {\fontsize{40}{40}\selectfont\bfseries\thechapter}
+  {10pt}
+  {\scshape\addfontfeature{LetterSpace=12}\Large\MakeLowercase}
+\titlespacing*{\chapter}{0pt}{16pt}{40pt}
+
+\titleformat{\section}[block]
+  {\normalfont\scshape\addfontfeature{LetterSpace=4}\normalsize}
+  {}{0em}{\MakeLowercase}
+\titlespacing*{\section}{0pt}{1.6em}{0.7em}
+
+% Romartal-kapittel
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Løpande topptekst: boktittel venstre, kapittel høgre, tynn strek.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\scshape grunnlaust}
+\fancyhead[R]{\footnotesize\scshape\nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\footnotesize\thepage}%
+}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+% Innhaldsliste — kompakt, utan «Innhald»-tittel midtstilt.
+\usepackage{titletoc}
+\setcounter{tocdepth}{0}
+
+% Figurar
+\usepackage{graphicx}
+\graphicspath{{../figures/}{../../figures/}}
+\usepackage{caption}
+\captionsetup{font={small,it},labelformat=empty,justification=centering,skip=4pt}
+\usepackage{float}
+\usepackage{booktabs}
+
+% Sitatblokk for opningssitat per kapittel
+\newenvironment{motto}{%
+  \par\nobreak\vspace{-26pt}\begin{center}\begin{minipage}{0.82\linewidth}%
+  \itshape\small\raggedleft
+}{%
+  \par\end{minipage}\end{center}\vspace{12pt}%
+}
+
+% Avsluttande vignett (tre stjerner)
+\newcommand{\vignett}{\par\vspace{10pt}\begin{center}\small$*\quad*\quad*$\end{center}\vspace{6pt}}
+
+% Referanseinnslag bak — kompakt, hengjande innrykk.
+\newcommand{\refentry}[1]{%
+  \par\addvspace{2pt}%
+  \begingroup\footnotesize\linespread{0.95}\selectfont
+  \noindent\hangindent=5mm\hangafter=1 #1\par%
+  \endgroup
+}
+% Notatinnslag bak
+\newcommand{\noteentry}[2]{%
+  \par\addvspace{3pt}%
+  \begingroup\footnotesize\linespread{0.98}\selectfont
+  \noindent\hangindent=5mm\hangafter=1 \textbf{#1}\quad #2\par%
+  \endgroup
+}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\setlength{\parindent}{1.4em}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+
+% TikZ for tittelside
+\usepackage{tikz}
+
+\begin{document}
+
+% ─── Tittelside ────────────────────────────────────────────────────────────
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+  {\fontsize{54}{56}\selectfont\bfseries GRUNNLAUST}\\[10mm]
+  {\large\itshape Ei avrekning med designutdanninga}\\[28mm]
+  {\normalsize Iver Raknes Finne}\\[2mm]
+  {\footnotesize Arkitektur- og designhøgskolen i Oslo\quad\textperiodcentered\quad 2026}
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+% ─── Kolofon / epigraf ─────────────────────────────────────────────────────
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushright}\itshape\small
+\begin{minipage}{0.74\linewidth}\raggedleft
+Ein disiplin utan fundament overlever ikkje dei neste tiåra.\\
+Han vert avleggar, slik frenologien vart før nevrovitskapen,\\
+slik alkemien vart før kjemien, slik vitalismen vart før biologien.\\[4mm]
+\upshape\footnotesize — frå føreordet til \textsc{Formlære}-traktaten
+\end{minipage}
+\end{flushright}
+\vspace{18mm}
+\noindent\footnotesize Denne boka er den destruktive tvillingen til traktaten \textsc{Formlære}. Traktaten byggjer grunnen faget kan stå på. Denne boka river ned påstanden om at faget alt har ein. Dei skal lesast saman, men denne kan lesast fyrst.
+\clearpage
+
+% ─── Innhald ───────────────────────────────────────────────────────────────
+\thispagestyle{empty}
+{\footnotesize
+\renewcommand{\contentsname}{}
+\vspace*{6mm}
+{\scshape\addfontfeature{LetterSpace=6}\normalsize innhald}\par\vspace{6mm}
+\tableofcontents
+}
+\clearpage
+
+\setcounter{page}{1}
+
+% ─── Brødtekst ─────────────────────────────────────────────────────────────
+\input{00-forord}
+\input{01-klagemaalet}
+\input{02-tomme-formelen}
+\input{03-atelieret}
+\input{04-pensum-av-laan}
+\input{05-forsking-utan-objekt}
+\input{06-kan-ikkje-seie-nei}
+\input{07-sjolvbedraget}
+\input{08-avleggaren}
+\input{09-grunnen}
+\input{10-etterord}
+
+% ─── Referansar og notar ───────────────────────────────────────────────────
+\input{99-referansar}
+
+\end{document}
