@@ -1,47 +1,52 @@
-# GRUNNLAUST — Ei avrekning med designutdanninga
+# GRUNNLAUST — Ein kritisk historie om designfaget og fundamentet det aldri fekk
 
-Den destruktive tvillingen til **FORMLÆRE**-traktaten. Der traktaten byggjer
-grunnen designfaget kan stå på, river denne boka ned påstanden om at faget alt
-har ein. Bok-manus, nynorsk, polemisk.
+Hovudlærebok i **kritisk designhistorie** for eit femårig masterløp, og den
+historiske tvillingen til **FORMLÆRE**-traktaten. Boka fortel heile
+designhistoria — frå laugshandverket til overvakingskapitalismen — men les
+henne mot håra: som historia om eit fag som gong på gong lova seg sjølv eit
+fundament og kvar gong leverte noko anna (ein stil, ein metode, ein
+pedagogikk, ein prosess). Diagnosen blir ikkje hamra inn, men lesen ut av
+**fråværa** (ingen internasjonale etiske råd, inga felles etikk, metode,
+fagspråk eller stemme) og **skadane** (planlagd forelding, eingongskultur,
+ekstraksjon, avhengigheit, algoritmisk styring).
 
-## Tese
+## Omfang
 
-Designfaget er det einaste profesjonsfaget som deler ut grader i ein kompetanse
-det ikkje kan definere, måle eller forsvare. Det manglar ei grammatikk — ein
-presis modell av kva ei form er, kva som verkar på henne, og kva som vert lagt
-til side. Utan det har faget ingen intern måte å seie nei på, verken til det
-dårlege arbeidet eller til det skadelege. Boka fører dette i bevis pilar for
-pilar, og peikar til slutt mot det einaste fundamentet eg veit om som kan fylle
-holet: rammeverket i traktaten.
+- **27 kapittel** i sju delar + innleiing, etterord og full litteraturliste.
+- **~46 000 ord** brødtekst i dette utkastet (veks mot målet på 400–550 sider).
+- **Litteraturapparat:** biblatex (forfattar–år), `referansar.bib` med ~165
+  reelle, verifiserte kjelder; ~140 aktivt siterte, resten som vidare lesing.
+- **Vidare lesing** etter kvart kapittel.
 
-## Struktur
+## Delar og kapittel
 
-| Fil | Kapittel |
-|-----|----------|
-| `src/00-forord.tex` | Føreord — klagemålet i kortform |
-| `src/01-klagemaalet.tex` | I. Klagemålet |
-| `src/02-tomme-formelen.tex` | II. Den tomme formelen (*form follows function*) |
-| `src/03-atelieret.tex` | III. Atelieret (kritikk og smak forkledd som dom) |
-| `src/04-pensum-av-laan.tex` | IV. Pensum av lån (design thinking, stilhistorie) |
-| `src/05-forsking-utan-objekt.tex` | V. Forskinga utan objekt (forsking gjennom design, vrange problem) |
-| `src/06-kan-ikkje-seie-nei.tex` | VI. Faget som ikkje kan seie nei (Palantir, etikken som tillegg) |
-| `src/07-sjolvbedraget.tex` | VII. Sjølvbedraget (akkreditering, prisar, fagfelle) |
-| `src/08-avleggaren.tex` | VIII. Avleggaren (frenologi, Kuhn, agentisk materiale) |
-| `src/09-grunnen.tex` | IX. Grunnen (den konstruktive vendinga — éi setning, éi likning) |
-| `src/10-etterord.tex` | Etterord: til dei som skal rive |
-| `src/99-referansar.tex` | Notar og referansar |
+**I. Føresetnadene** — 01 Form før faget · 02 Skiljet · 03 Den fyrste reforma
+**II. Rørslene som lova eit grunnlag** — 04 Arts and Crafts · 05 Werkbund · 06 Bauhaus · 07 Funksjonalismen
+**III. Institusjonaliseringa** — 08 Ulm · 09 Amerikansk styling · 10 Skandinavisk · 11 Gute Form / Rams
+**IV. Den vitskaplege ambisjonen** — 12 Metoderørsla · 13 Simon · 14 Vrange problem · 15 Atelieret · 16 Forsking utan objekt
+**V. Migrasjonen** — 17 Semantisk vending · 18 Brukaren og skjermen · 19 Design thinking (poda som flytta)
+**VI. Skadane og fråværa** — 20 Ekstraksjonen · 21 Faget som ikkje kan seie nei · 22 Fråværet · 23 Sjølvbedraget
+**VII. Avrekninga** — 24 Avleggaren · 25 Grunnen · 26 Etterord
 
 ## Bygg
 
 ```sh
-make            # → pdf/grunnlaust.pdf
+make            # xelatex → biber → xelatex → xelatex  →  pd/grunnlaust.pdf
 ```
 
-Krev `xelatex`. Brødtekst i EB Garamond (fallback TeX Gyre Pagella), same
-font-familie som traktaten. Symbol-fallback via Cambria Math / Symbola.
+Krev `xelatex` og `biber`. Brødtekst i EB Garamond (fallback TeX Gyre Pagella).
+Symbol-fallback via Cambria Math / Symbola.
+
+## Status og vegen vidare
+
+Dette er eit komplett **fyrsteutkast av heile strukturen**: alle 27 kapittel er
+skrivne, alle sitatnøklar er verifiserte mot `referansar.bib`. Vegen mot full
+lengd (400–550 sider) går gjennom (1) utviding av kvart kapittel med fleire
+kasus, personar og institusjonar, (2) utviding av `referansar.bib` mot ~400
+oppføringar, og (3) illustrasjonar. **Ikkje kompilert i sesjonen der utkastet
+vart skrive** (miljøet mangla `xelatex`/`biber`); køyr `make` lokalt for PDF.
 
 ## Tilhøvet til resten av prosjektet
 
-`GRUNNLAUST` er meint å lesast saman med `traktat/` (FORMLÆRE). Diagnosen her
-er grunngjeven der: påstandane i kapittel IX om at eit fundament finst, står i
-full aksiomatisk form med falsifiseringsvilkår i traktaten.
+Les saman med `traktat/` (FORMLÆRE). Traktaten legg fram fundamentet i full
+aksiomatisk form; `GRUNNLAUST` fortel historia som påviser fråvêret av eitt.
