@@ -1,9 +1,9 @@
 # Plan: neste runde — GRUNNLAUST mot 500–600 sider
 
-## Status no (commit 62d60aa)
-- **295 sider**, 32 kapittel i 7 delar. Reint bygg (xelatex + biber), 0 feil, 0 manglande glyfar.
-- Modulær apparatur (`\laeringsmal` + `\ovingar` + `kasus`) på **24/32** kapittel.
-- **3 illustrasjonar** (tidslinje, stil-mot-form, greine-tabell). ~230 kjelder i `referansar.bib`.
+## Status no (commit 62d60aa, oppdatert)
+- **299 sider**, 32 kapittel i 7 delar. Reint bygg (xelatex + biber), 0 feil, 0 manglande glyfar.
+- Modulær apparatur (`\laeringsmal` + `\ovingar` + `kasus`) **komplett på alle innhaldskapittel** (berre innleiing/etterord utan, som dei skal). ✓
+- **4 illustrasjonar** (tidslinje, stil-mot-form, greine-tabell, + kasus-scener). ~230 kjelder i `referansar.bib`.
 - Verktøykjede installert (xelatex, biber, EB Garamond, Symbola, DejaVu). `make` byggjer på minutt.
 
 ## Mål
