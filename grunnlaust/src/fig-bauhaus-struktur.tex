@@ -1,0 +1,40 @@
+% Bauhaus-pedagogikken som diagram: Vorkurs -> verkstadene (dobbel leiing)
+% -> bygg/arkitektur. Ein pedagogikk og ein struktur, ikkje ein teori.
+% Reint TikZ, ingen ekstra bibliotek. Input-bart fragment.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  boks/.style={draw, rounded corners=2pt, align=center, inner sep=4pt},
+  pil/.style={-{Latex[length=2mm]}, line width=0.6pt},
+]
+% ---- 1. Vorkurs ----
+\node[boks, fill=black!5, text width=40mm] (vor) at (0,4.4)
+  {\textsc{Vorkurs}\\\scriptsize grunnkurset: material, form og farge};
+
+% ---- 2. Verkstadene, med dobbel leiing ----
+\node[font=\small\scshape] at (0,3.05) {verkstadene};
+\node[boks, text width=34mm] (form) at (-2.6,2.2)
+  {\textsc{Formmeister}\\\scriptsize kunstnaren: form og idé};
+\node[boks, text width=34mm] (werk) at (2.6,2.2)
+  {\textsc{Werkmeister}\\\scriptsize handverkaren: teknikk og verkty};
+\node[boks, fill=black!5, text width=58mm] (verk) at (0,0.7)
+  {metall {\textperiodcentered} veving {\textperiodcentered} tre {\textperiodcentered} keramikk {\textperiodcentered} trykk};
+
+\draw[pil] (vor.south) -- (0,3.3);
+\draw[pil] (form.south) -- (verk.north west);
+\draw[pil] (werk.south) -- (verk.north east);
+% klamme som viser dobbel leiing over verkstaden
+\draw[line width=0.5pt] (form.south east) -- (werk.south west);
+
+% ---- 3. Bygg / arkitektur ----
+\node[boks, fill=black!8, text width=40mm] (bau) at (0,-0.8)
+  {\textsc{Bau}\\\scriptsize bygget: alle handverka samla};
+\draw[pil] (verk.south) -- (bau.north);
+
+% ---- Margmerknad ----
+\node[anchor=west, text width=34mm, font=\scriptsize, align=left] at (3.7,1.7)
+  {Ein \emph{pedagogikk} og ein \emph{struktur} --- ikkje ein teori om forma.};
+\end{tikzpicture}
+\caption{\textsc{Bauhaus som pedagogikk.} Skulen var bygd som ein veg, ikkje som ei lære: frå Vorkurset gjennom verkstadene til bygget. Den doble leiinga --- Formmeister ved sida av Werkmeister --- institusjonaliserte spenninga mellom kunst og handverk i sjølve organisasjonskartet. Det Bauhaus etterlét seg, var ein måte å organisere opplæring på, ikkje ein prøvbar påstand om kva god form er.}
+\end{figure}

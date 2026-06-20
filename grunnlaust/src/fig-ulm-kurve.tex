@@ -1,0 +1,46 @@
+% Tidslinje for HfG Ulm 1953-1968. Nodane skrivne eksplisitt (ikkje \foreach).
+% Reint TikZ, ingen ekstra bibliotek. Input-bart fragment.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  xscale=0.95,
+  font=\footnotesize,
+  aar/.style={font=\small\bfseries},
+  over/.style={anchor=south, align=center, text width=24mm, font=\scriptsize},
+  under/.style={anchor=north, align=center, text width=24mm, font=\scriptsize},
+]
+% Vassrett akse 1953..1968 -> x = aar - 1953, skala 0.72
+\draw[line width=0.8pt, -{Latex[length=2mm]}] (-0.4,0) -- (11.5,0);
+
+% --- 1953: grunnlegging (Bill), over ---
+\fill (0,0) circle (2.2pt);
+\draw[line width=0.5pt] (0,0) -- (0,0.55);
+\node[aar, anchor=north] at (0,-0.18) {1953};
+\node[over] at (0,0.6) {\textsc{Bill}\\grunnlegging};
+
+% --- 1956: vending mot vitskap (Maldonado), under ---
+\fill (2.16,0) circle (2.2pt);
+\draw[line width=0.5pt] (2.16,0) -- (2.16,-0.55);
+\node[aar, anchor=south] at (2.16,0.16) {1956};
+\node[under] at (2.16,-0.6) {\textsc{Maldonado}\\vitskap og semiotikk};
+
+% --- 1961: Braun-samarbeid, over ---
+\fill (5.76,0) circle (2.2pt);
+\draw[line width=0.5pt] (5.76,0) -- (5.76,0.55);
+\node[aar, anchor=north] at (5.76,-0.18) {1961};
+\node[over] at (5.76,0.6) {\textsc{Braun}\\industri-samarbeid};
+
+% --- 1965: politisk press, under ---
+\fill (8.64,0) circle (2.2pt);
+\draw[line width=0.5pt] (8.64,0) -- (8.64,-0.55);
+\node[aar, anchor=south] at (8.64,0.16) {1965};
+\node[under] at (8.64,-0.6) {politisk press\\og kutt i loyvingar};
+
+% --- 1968: stenging, over ---
+\fill (10.8,0) circle (2.2pt);
+\draw[line width=0.5pt] (10.8,0) -- (10.8,0.55);
+\node[aar, anchor=north] at (10.8,-0.18) {1968};
+\node[over] at (10.8,0.6) {stenging};
+\end{tikzpicture}
+\caption{\textsc{Ulm-kurva 1953--1968.} Frå Bills kunstnariske grunnlegging vende skulen under Maldonado mot vitskap og semiotikk, og knytte seg til industrien gjennom Braun-samarbeidet. Det same prosjektet --- ein rasjonell, metodisk designvitskap --- gjorde skulen sårbar for politisk press, og delstaten stengde han i 1968. Femten år: lengre enn Bauhaus rakk, kortare enn ein teori treng.}
+\end{figure}
