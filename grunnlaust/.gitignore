@@ -10,3 +10,17 @@ src/*.aux
 src/*.log
 src/*.toc
 src/*.out
+
+# LaTeX build artifacts (regenerable; never track)
+*.aux
+*.bcf
+*.bcf-SAVE-ERROR
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.run.xml
+*.bbl
+*.blg
+*.synctex.gz
