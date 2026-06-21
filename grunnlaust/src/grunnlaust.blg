@@ -1,0 +1,14 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'grunnlaust.blg'
+[383] biber-MSWIN64:342> INFO - === 
+[539] Biber.pm:421> INFO - Reading 'grunnlaust.bcf'
+[1056] Biber.pm:999> INFO - Using all citekeys in bib section 0
+[1091] Biber.pm:4487> INFO - Processing section 0
+[1123] Biber.pm:4678> INFO - Looking for bibtex file '../referansar.bib' for section 0
+[1201] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1595] bibtex.pm:1519> INFO - Found BibTeX data source '../referansar.bib'
+[3445] UCollate.pm:68> INFO - Overriding locale 'nn-NO' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3446] UCollate.pm:68> INFO - Overriding locale 'nn-NO' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3446] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'nn-NO'
+[3832] bbl.pm:676> INFO - Writing 'grunnlaust.bbl' with encoding 'UTF-8'
+[4025] bbl.pm:779> INFO - Output to grunnlaust.bbl
