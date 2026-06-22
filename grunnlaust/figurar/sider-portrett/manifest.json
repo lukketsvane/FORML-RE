@@ -92,6 +92,68 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-05-metoderorsla-bygde-og-reiv-ned": {
+      "nr": 5,
+      "kjelde": "metoderorsla-bygde-og-reiv-ned",
+      "tittel": "metoderørsla — bygde og reiv ned",
+      "ord": 97,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "bd0fc24ba520",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 151.4,
+      "usage": {
+        "input_tokens": 4662,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 726
+        },
+        "output_tokens": 15303,
+        "total_tokens": 19965,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-04-halefinnen-steig-og-fall-utan-gr": {
+      "nr": 4,
+      "kjelde": "halefinnen-steig-og-fall-utan-gr",
+      "tittel": "halefinnen — steig og fall utan grunn",
+      "ord": 261,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "85b78ba8de1a",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 162.2,
+      "usage": {
+        "input_tokens": 4925,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 989
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20228,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
