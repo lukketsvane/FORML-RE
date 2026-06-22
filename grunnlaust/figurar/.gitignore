@@ -1,7 +1,7 @@
 __pycache__/
 
-# Genererte sider frå teikne-sider.py (regenererbare; spor manifestet, ikkje PNG-ane)
-sider/*.png
+# Genererte sider + manifest frå teikne-sider.py (regenererbare køyringsartefakt)
+sider/
 
 # Stilreferansar lagde inn lokalt (kan vere opphavsrettsverna) — hald dei utanfor git
 stil-referansar/*.jpg
