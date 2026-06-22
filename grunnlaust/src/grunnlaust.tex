@@ -151,7 +151,7 @@
 
 % --- Figurar ---------------------------------------------------------
 \usepackage{graphicx}
-\graphicspath{{../figurar/}{figurar/}}
+\graphicspath{{../figurar/}{figurar/}{../omslag/art/}}
 \usepackage{caption}
 \captionsetup{font=small,labelfont={sc},labelsep=period,
   justification=raggedright,singlelinecheck=false,skip=6pt}
@@ -162,9 +162,28 @@
     \caption{#3}\label{fig:#4}%
   \end{figure}}
 
+% Omslagsfargar (= smussomslaget)
+\definecolor{omslagvellum}{HTML}{EAE7DF}
+\definecolor{omslagink}{HTML}{2B2926}
+
 \begin{document}
 \frontmatter
 \pagestyle{empty}
+
+% --- Omslag (framside, fullt utfall) ---
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,inner sep=0pt,outer sep=0pt]
+  \coordinate (O) at (current page.south west);
+  \begin{scope}[shift={(O)}]
+    \fill[omslagvellum] (0,0) rectangle (165,240);
+    \node[anchor=north west] at (12,185) {\includegraphics[width=141mm]{title-frost}};
+    \node[anchor=north west,align=left,text=omslagink] at (16,137)
+      {\fontsize{10.5}{13}\selectfont ei kritisk\\ historie og teori\\ om designfaget};
+    \node[anchor=south east,text=omslagink] at (148,23)
+      {\fontsize{11}{11}\selectfont 2028};
+  \end{scope}
+\end{tikzpicture}
+\null\clearpage
 
 % --- Smusstittel ---
 \vspace*{\fill}
