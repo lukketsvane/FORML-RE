@@ -386,6 +386,8 @@ def main() -> None:
                     "i staden for oppslag frå heile boka")
     ap.add_argument("--ref-fil", default=STD_REF_FIL,
                     help=f"referansefilnamn i utskriven kode (std {STD_REF_FIL})")
+    ap.add_argument("--maks-refs", type=int, default=5,
+                    help="maks tal stilreferansar sende med per kall (std 5)")
     ap.add_argument("--berre", metavar="STAMME", help="berre denne kjeldefila (t.d. 06-bauhaus)")
     ap.add_argument("--grense", type=int, default=0, help="maks tal oppslag å lage (0 = alle)")
     ap.add_argument("--fraa", type=int, default=1, help="start ved oppslag nr N")
@@ -422,7 +424,7 @@ def main() -> None:
     if args.grense:
         oppslag = oppslag[: args.grense]
 
-    refs = referansebilete()
+    refs = referansebilete()[: args.maks_refs]
     print(f"teikningar:    {len(oppslag)}")
     print(f"referansar:    {len(refs)} i {REF_DIR}")
     print(f"modell:        {args.modell}   storleik {args.storleik}   kvalitet {args.kvalitet}")
