@@ -70,7 +70,7 @@
       "modell": "gpt-image-2",
       "storleik": "2304x3456",
       "kvalitet": "high",
-      "prompt_hash": "07fae4a229f2",
+      "prompt_hash": "6cc6838fed55",
       "refs": [
         "IMG-4009.jpg",
         "IMG-4015.jpg",
@@ -78,15 +78,77 @@
         "IMG-4019.jpg",
         "IMG-4020.jpg"
       ],
-      "sekund": 160.4,
+      "sekund": 153.5,
       "usage": {
-        "input_tokens": 4824,
+        "input_tokens": 4895,
         "input_tokens_details": {
           "image_tokens": 3936,
-          "text_tokens": 888
+          "text_tokens": 959
         },
         "output_tokens": 15303,
-        "total_tokens": 20127,
+        "total_tokens": 20198,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-06-side-6": {
+      "nr": 6,
+      "kjelde": "side-6",
+      "tittel": "side 6",
+      "ord": 110,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "30ed1f3205f4",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 147.0,
+      "usage": {
+        "input_tokens": 4565,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 629
+        },
+        "output_tokens": 15303,
+        "total_tokens": 19868,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-05-side-5": {
+      "nr": 5,
+      "kjelde": "side-5",
+      "tittel": "side 5",
+      "ord": 185,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "c3f6b2bf4c67",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 150.5,
+      "usage": {
+        "input_tokens": 4740,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 804
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20043,
         "output_tokens_details": {
           "image_tokens": 15303,
           "text_tokens": 0
