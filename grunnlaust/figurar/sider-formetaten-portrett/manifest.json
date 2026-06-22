@@ -1,0 +1,66 @@
+{
+  "sider": {
+    "utsnitt-01-side-1": {
+      "nr": 1,
+      "kjelde": "side-1",
+      "tittel": "side 1",
+      "ord": 272,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "4002895f5cf6",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 212.4,
+      "usage": {
+        "input_tokens": 4764,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 828
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20067,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-02-side-2": {
+      "nr": 2,
+      "kjelde": "side-2",
+      "tittel": "side 2",
+      "ord": 265,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "712263f8eab4",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 158.8,
+      "usage": {
+        "input_tokens": 4734,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 798
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20037,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    }
+  }
+}

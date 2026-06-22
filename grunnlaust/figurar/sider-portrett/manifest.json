@@ -1,0 +1,35 @@
+{
+  "sider": {
+    "utsnitt-01-til-lesaren-dei-to-glasa": {
+      "nr": 1,
+      "kjelde": "til-lesaren-dei-to-glasa",
+      "tittel": "til lesaren — dei to glasa",
+      "ord": 442,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "a657670fb257",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 178.1,
+      "usage": {
+        "input_tokens": 5123,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 1187
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20426,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    }
+  }
+}
