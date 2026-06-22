@@ -61,6 +61,37 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-03-bauhaus-albers-og-arket": {
+      "nr": 3,
+      "kjelde": "bauhaus-albers-og-arket",
+      "tittel": "bauhaus — albers og arket",
+      "ord": 377,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "56dce16978d3",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 152.4,
+      "usage": {
+        "input_tokens": 5063,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 1127
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20366,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
