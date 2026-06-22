@@ -16,7 +16,7 @@
         "IMG-4019.jpg",
         "IMG-4020.jpg"
       ],
-      "sekund": 164.6,
+      "sekund": 155.7,
       "usage": {
         "input_tokens": 4835,
         "input_tokens_details": {
@@ -39,7 +39,7 @@
       "modell": "gpt-image-2",
       "storleik": "2304x3456",
       "kvalitet": "high",
-      "prompt_hash": "712263f8eab4",
+      "prompt_hash": "919d070ee67c",
       "refs": [
         "IMG-4009.jpg",
         "IMG-4015.jpg",
@@ -47,15 +47,15 @@
         "IMG-4019.jpg",
         "IMG-4020.jpg"
       ],
-      "sekund": 158.8,
+      "sekund": 161.1,
       "usage": {
-        "input_tokens": 4734,
+        "input_tokens": 4805,
         "input_tokens_details": {
           "image_tokens": 3936,
-          "text_tokens": 798
+          "text_tokens": 869
         },
         "output_tokens": 15303,
-        "total_tokens": 20037,
+        "total_tokens": 20108,
         "output_tokens_details": {
           "image_tokens": 15303,
           "text_tokens": 0
@@ -149,6 +149,37 @@
         },
         "output_tokens": 15303,
         "total_tokens": 20043,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-04-side-4": {
+      "nr": 4,
+      "kjelde": "side-4",
+      "tittel": "side 4",
+      "ord": 275,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "763a8a51576d",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 160.8,
+      "usage": {
+        "input_tokens": 4802,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 866
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20105,
         "output_tokens_details": {
           "image_tokens": 15303,
           "text_tokens": 0
