@@ -408,6 +408,8 @@ def main() -> None:
                     help=f"referansefilnamn i utskriven kode (std {STD_REF_FIL})")
     ap.add_argument("--maks-refs", type=int, default=5,
                     help="maks tal stilreferansar sende med per kall (std 5)")
+    ap.add_argument("--jobs", type=int, default=1,
+                    help="tal sider å generere PARALLELT (std 1)")
     ap.add_argument("--berre", metavar="STAMME", help="berre denne kjeldefila (t.d. 06-bauhaus)")
     ap.add_argument("--grense", type=int, default=0, help="maks tal oppslag å lage (0 = alle)")
     ap.add_argument("--fraa", type=int, default=1, help="start ved oppslag nr N")
@@ -488,39 +490,53 @@ def main() -> None:
     klient = lag_klient()
     manifest = les_manifest()
 
-    laga = 0
-    feila = 0
-    for o in oppslag:
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    mlock = threading.Lock()
+    teljar = {"laga": 0, "feila": 0}
+
+    def lag_ein(o):
         ut = UT_DIR / f"{o.stamme()}.png"
         if ut.exists() and not args.paa_nytt:
             print(f"  ✓ hoppar over {ut.name} (finst)")
-            continue
+            return
         prompt = bygg_prompt(o)
         kw = dict(model=args.modell, prompt=prompt, n=1, size=args.storleik,
                   quality=args.kvalitet, background="auto", _refs=refs)
         if args.fidelity:
             kw["input_fidelity"] = args.fidelity
-        print(f"  → lagar {ut.name}  ({o.ord} ord, {len(refs)} refs) …", flush=True)
+        print(f"  → lagar {ut.name}  ({o.ord} ord) …", flush=True)
         t0 = time.time()
         try:
             svar = kall_med_backoff(klient, **kw)
             meta = lagra_svar(svar, ut)
-        except Exception as e:                      # hald fram batchen om eitt oppslag feilar
-            feila += 1
-            print(f"    ✗ FEILA: {type(e).__name__}: {str(e)[:160]}", flush=True)
-            continue
+        except Exception as e:                      # hald fram om eitt oppslag feilar
+            with mlock:
+                teljar["feila"] += 1
+            print(f"    ✗ FEILA {ut.name}: {type(e).__name__}: {str(e)[:140]}", flush=True)
+            return
         dt = time.time() - t0
-        manifest["sider"][o.stamme()] = {
-            "nr": o.nr, "kjelde": o.kjelde, "tittel": o.tittel, "ord": o.ord,
-            "modell": args.modell, "storleik": args.storleik, "kvalitet": args.kvalitet,
-            "prompt_hash": hashlib.sha256(prompt.encode()).hexdigest()[:12],
-            "refs": [p.name for p in refs], "sekund": round(dt, 1), **meta,
-        }
-        skriv_manifest(manifest)
-        laga += 1
-        print(f"    ferdig på {dt:.1f}s")
+        with mlock:
+            manifest["sider"][o.stamme()] = {
+                "nr": o.nr, "kjelde": o.kjelde, "tittel": o.tittel, "ord": o.ord,
+                "modell": args.modell, "storleik": args.storleik, "kvalitet": args.kvalitet,
+                "prompt_hash": hashlib.sha256(prompt.encode()).hexdigest()[:12],
+                "refs": [p.name for p in refs], "sekund": round(dt, 1), **meta,
+            }
+            skriv_manifest(manifest)
+            teljar["laga"] += 1
+        print(f"    ✓ {ut.name} ferdig på {dt:.1f}s", flush=True)
 
-    print(f"\nferdig: {laga} nye sider i {UT_DIR}" + (f"  ({feila} feila)" if feila else ""))
+    if args.jobs > 1:
+        with ThreadPoolExecutor(max_workers=args.jobs) as ex:
+            for _ in ex.map(lag_ein, oppslag):
+                pass
+    else:
+        for o in oppslag:
+            lag_ein(o)
+
+    print(f"\nferdig: {teljar['laga']} nye sider i {UT_DIR}"
+          + (f"  ({teljar['feila']} feila)" if teljar["feila"] else ""))
 
 
 if __name__ == "__main__":
