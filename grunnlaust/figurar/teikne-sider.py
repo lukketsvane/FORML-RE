@@ -469,6 +469,7 @@ def main() -> None:
     manifest = les_manifest()
 
     laga = 0
+    feila = 0
     for o in oppslag:
         ut = UT_DIR / f"{o.stamme()}.png"
         if ut.exists() and not args.paa_nytt:
@@ -481,8 +482,13 @@ def main() -> None:
             kw["input_fidelity"] = args.fidelity
         print(f"  → lagar {ut.name}  ({o.ord} ord, {len(refs)} refs) …", flush=True)
         t0 = time.time()
-        svar = kall_med_backoff(klient, **kw)
-        meta = lagra_svar(svar, ut)
+        try:
+            svar = kall_med_backoff(klient, **kw)
+            meta = lagra_svar(svar, ut)
+        except Exception as e:                      # hald fram batchen om eitt oppslag feilar
+            feila += 1
+            print(f"    ✗ FEILA: {type(e).__name__}: {str(e)[:160]}", flush=True)
+            continue
         dt = time.time() - t0
         manifest["sider"][o.stamme()] = {
             "nr": o.nr, "kjelde": o.kjelde, "tittel": o.tittel, "ord": o.ord,
@@ -494,7 +500,7 @@ def main() -> None:
         laga += 1
         print(f"    ferdig på {dt:.1f}s")
 
-    print(f"\nferdig: {laga} nye sider i {UT_DIR}")
+    print(f"\nferdig: {laga} nye sider i {UT_DIR}" + (f"  ({feila} feila)" if feila else ""))
 
 
 if __name__ == "__main__":
