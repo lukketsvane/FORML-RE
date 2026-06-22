@@ -1,0 +1,35 @@
+{
+  "sider": {
+    "utsnitt-01-side-1": {
+      "nr": 1,
+      "kjelde": "side-1",
+      "tittel": "side 1",
+      "ord": 272,
+      "modell": "gpt-image-2",
+      "storleik": "3456x2304",
+      "kvalitet": "high",
+      "prompt_hash": "ac8c3b349201",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 179.9,
+      "usage": {
+        "input_tokens": 4761,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 825
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20064,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    }
+  }
+}
