@@ -51,56 +51,23 @@ MANIFEST = UT_DIR / "manifest.json"
 # så portrett er rett — ikkje det 16:9 som code-snutten hadde. Storleiken er
 # eit flagg av di gpt-image-2 kan ta fleire mål enn gpt-image-1.
 STD_MODELL = "gpt-image-2"
-STD_STORLEIK = "1024x1536"      # ståande; overstyr med --storleik
+STD_STORLEIK = "3840x2160"      # eit OPPSLAG er liggjande (to sider side om side)
 STD_KVALITET = "high"
-STD_ORD = 200                   # lite tekst per side — teikninga skal ta over
-STD_UTSNITT = HER / "utsnitt.txt"   # kuraterte korte parti (føretrekt arbeidsmåte)
+STD_ORD = 850                   # ~eitt oppslag ≈ to boksider tekst
+STD_UTSNITT = HER / "utsnitt.txt"   # valfrie kuraterte korte parti (--utsnitt)
+STD_REF_FIL = "IMG_4017.jpeg"   # referansefilnamn i utskriven kode (--kode)
 GYLDIGE_KVALITETAR = {"low", "medium", "high", "auto"}
 
 # --------------------------------------------------------------------------
-# STILSPESIFIKASJON — fast del av kvar prompt. Ordrett etter tinginga, med
-# dei to variantane (den strukturerte + dei ekstra instruksjonane) fletta.
+# STILSPESIFIKASJON — fast del av kvar prompt. Ordrett etter det fungerande
+# eksempelet (kort nynorsk-instruks; teksten følgjer rett etter «etc:»).
 # --------------------------------------------------------------------------
-STIL = """\
-You illustrate pages for an academic theory book. ONE portrait page per image.
-
-OBSERVE, then PLAN, then DRAW — one page spread at a time. Work out the figures \
-from the supplied text before drawing them.
-
-STYLE: Continuous black ink contour line on white paper. Thin-to-medium stroke. \
-No shading, no fill, no colour, no gradients. Exactly like the attached reference \
-images — pen-and-ink drawings in the manner of Andreas Töpfer for Armen \
-Avanessian's books. Match the reference images closely in line weight, density and feel.
-
-FIGURES: Faceless human bodies (blank oval heads, naturalistic proportions). \
-Not stick figures. Not cartoon. Bodies have weight, volume, perspective.
-
-METHOD: Abstract concepts become physical scenes. Hierarchy = one figure standing \
-on another. Connection = rope or tube between figures. Fragmentation = body with \
-gaps between parts. Entrapment = figure inside a structure. Sequence = same figure \
-drawn twice in different states.
-
-ANNOTATIONS: Only very tiny, badly handwritten lowercase notes, if any at all — \
-single words or short phrases beside figures with thin leader lines. Same language \
-as the supplied text (nynorsk). Match the small amount of handwriting in the references.
-
-LAYOUT: Multiple vignettes per page with generous whitespace. No borders, no boxes, \
-no frames. Arrange scenes so the eye moves naturally across the page. Match the \
-amount of text/handwriting to the references (very little).
-
-FORMAT: Portrait orientation, 2:3-ish like a book page. High resolution.
-
-DO NOT: Use icons, pictograms, flowcharts, arrows as the main device, speech \
-bubbles, decorative elements, infographic styling, box-and-arrow diagrams, symbolic \
-shorthand (lightbulbs, gears, checkmarks), or any text-heavy labelling. Let spatial \
-arrangement carry the meaning.\
-"""
-
-BRIEF_INNLEIING = (
-    "TEKST FOR DETTE OPPSLAGET (nynorsk). Planlegg figurane ut frå INNHALDET "
-    "og omgrepa her — IKKJE gjengi teksten på sida. Vel berre nokre få sterke "
-    "scenar som ber tankegangen, og lat teikninga ta over storparten av sida; "
-    "berre svært lite, smått handskrive om i det heile:\n\n"
+STIL = (
+    "ut frå teksten skal du lage fleir sider i same stil som vedlagd tenk observer\n"
+    "planlegg så lagar du figurar til boka i same stil som vedlagd you only very tiny\n"
+    "and baldy written handwriting, if any at all\n\n"
+    "one page spread  at a time planlegg og lag dei neste 5 sidene. match text amount "
+    "dise fonts, header footer\netc:"
 )
 
 # ==========================================================================
@@ -264,30 +231,35 @@ class Oppslag:
 
 
 def del_i_oppslag(filer: list[Path], mål_ord: int) -> list[Oppslag]:
-    """Grådig oppdeling: samle avsnitt til ~mål_ord; ny fil => nytt oppslag."""
+    """Grådig oppdeling: samle avsnitt til ~mål_ord per oppslag; ny fil => nytt
+    oppslag. Ein for liten hale (< mål_ord/4) blir slegen inn i førre oppslag,
+    så vi slepp einslege restsider."""
+    min_hale = max(250, mål_ord // 3)
     oppslag: list[Oppslag] = []
     nr = 0
     for f in filer:
         rein = latex_til_tekst(f.read_text(encoding="utf-8"))
         if not rein:
             continue
-        # tittel = fyrste ikkje-tomme linja (overskrifta)
         fyrste = rein.splitlines()[0].strip() if rein.splitlines() else f.stem
+        bitar: list[str] = []
         bunke: list[str] = []
         bunke_ord = 0
         for a in avsnitt(rein):
             ao = len(a.split())
             if bunke and bunke_ord + ao > mål_ord:
-                nr += 1
-                t = "\n\n".join(bunke)
-                oppslag.append(Oppslag(nr, f.stem, fyrste, t, len(t.split())))
+                bitar.append("\n\n".join(bunke))
                 bunke, bunke_ord = [], 0
             bunke.append(a)
             bunke_ord += ao
         if bunke:
+            bitar.append("\n\n".join(bunke))
+        if len(bitar) >= 2 and len(bitar[-1].split()) < min_hale:
+            bitar[-2] = bitar[-2] + "\n\n" + bitar[-1]
+            bitar.pop()
+        for b in bitar:
             nr += 1
-            t = "\n\n".join(bunke)
-            oppslag.append(Oppslag(nr, f.stem, fyrste, t, len(t.split())))
+            oppslag.append(Oppslag(nr, f.stem, fyrste, b, len(b.split())))
     return oppslag
 
 
@@ -326,7 +298,8 @@ def les_utsnitt(sti: Path) -> list[Oppslag]:
 # ==========================================================================
 
 def bygg_prompt(o: Oppslag) -> str:
-    return f"{STIL}\n\n{BRIEF_INNLEIING}[{o.tittel}]\n\n{o.tekst}"
+    # Den fungerande forma: instruks + «etc:» + bokteksten for oppslaget.
+    return f"{STIL} {o.tekst}"
 
 
 def referansebilete() -> list[Path]:
@@ -405,12 +378,14 @@ def main() -> None:
     global REF_DIR, UT_DIR, MANIFEST
     ap = argparse.ArgumentParser(description="Teikn GRUNNLAUST-sider med gpt-image-2.")
     ap.add_argument("--proev", action="store_true", help="vis plan, ingen API-kall")
+    ap.add_argument("--kode", action="store_true",
+                    help="skriv ut ferdige images.edits-kall til å lime inn sjølv (ingen API-kall)")
     ap.add_argument("--paa-nytt", action="store_true", help="lag om sider som finst frå før")
     ap.add_argument("--utsnitt", nargs="?", const=str(STD_UTSNITT), default=None,
-                    metavar="FIL", help=f"kuraterte korte parti (std {STD_UTSNITT.name}); "
-                    "føretrekt — eitt utsnitt = éi teikning")
-    ap.add_argument("--auto", action="store_true",
-                    help="autokutt heile boka i staden for kuraterte utsnitt")
+                    metavar="FIL", help=f"valfritt: kuraterte korte parti ({STD_UTSNITT.name}) "
+                    "i staden for oppslag frå heile boka")
+    ap.add_argument("--ref-fil", default=STD_REF_FIL,
+                    help=f"referansefilnamn i utskriven kode (std {STD_REF_FIL})")
     ap.add_argument("--berre", metavar="STAMME", help="berre denne kjeldefila (t.d. 06-bauhaus)")
     ap.add_argument("--grense", type=int, default=0, help="maks tal oppslag å lage (0 = alle)")
     ap.add_argument("--fraa", type=int, default=1, help="start ved oppslag nr N")
@@ -428,10 +403,9 @@ def main() -> None:
     UT_DIR = Path(args.ut)
     MANIFEST = UT_DIR / "manifest.json"
 
-    # Standard: kuraterte utsnitt om fila finst og --auto ikkje er sett.
-    bruk_utsnitt = args.utsnitt or (not args.auto and not args.berre and STD_UTSNITT.exists())
-    if bruk_utsnitt:
-        sti = Path(args.utsnitt) if args.utsnitt else STD_UTSNITT
+    # Standard: oppslag frå heile boka i lesErekkjefølgje. --utsnitt for kurert.
+    if args.utsnitt:
+        sti = Path(args.utsnitt)
         if not sti.exists():
             sys.exit(f"fann ikkje utsnitt-fila {sti}")
         oppslag = les_utsnitt(sti)
@@ -443,7 +417,7 @@ def main() -> None:
             if not filer:
                 sys.exit(f"fann inga kjeldefil med stamme '{args.berre}'")
         oppslag = del_i_oppslag(filer, args.ord)
-        print(f"modus:         autokutt (~{args.ord} ord/side)")
+        print(f"modus:         oppslag frå boka (~{args.ord} ord/oppslag)")
     oppslag = [o for o in oppslag if o.nr >= args.fraa]
     if args.grense:
         oppslag = oppslag[: args.grense]
@@ -464,6 +438,24 @@ def main() -> None:
             print("\n— promptdøme (fyrste oppslag), avkorta —")
             p = bygg_prompt(o0)
             print(p[:1200] + ("…" if len(p) > 1200 else ""))
+        return
+
+    if args.kode:
+        # Skriv ut ferdige kall til å lime inn sjølv (matchar det fungerande eksempelet).
+        for o in oppslag:
+            print(f"\n# ===== {o.nr}. {o.tittel} ({o.ord} ord) =====")
+            print("from openai import OpenAI")
+            print("client = OpenAI()\n")
+            print("response = client.images.edits(")
+            print(f'  image=open("{args.ref_fil}", "rb"),')
+            print(f'  prompt="""{bygg_prompt(o)}""",')
+            print(f'  model="{args.modell}",')
+            print("  n=1,")
+            print(f'  size="{args.storleik}",')
+            print(f'  quality="{args.kvalitet}",')
+            print('  background="auto",')
+            print('  moderation="auto",')
+            print(")")
         return
 
     if not refs:
