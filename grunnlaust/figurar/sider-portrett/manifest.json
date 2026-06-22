@@ -8,7 +8,7 @@
       "modell": "gpt-image-2",
       "storleik": "2304x3456",
       "kvalitet": "high",
-      "prompt_hash": "a657670fb257",
+      "prompt_hash": "079d539a925b",
       "refs": [
         "IMG-4009.jpg",
         "IMG-4015.jpg",
@@ -16,15 +16,46 @@
         "IMG-4019.jpg",
         "IMG-4020.jpg"
       ],
-      "sekund": 178.1,
+      "sekund": 188.5,
       "usage": {
-        "input_tokens": 5123,
+        "input_tokens": 5203,
         "input_tokens_details": {
           "image_tokens": 3936,
-          "text_tokens": 1187
+          "text_tokens": 1267
         },
         "output_tokens": 15303,
-        "total_tokens": 20426,
+        "total_tokens": 20506,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-02-den-falske-vara-reforma-1851": {
+      "nr": 2,
+      "kjelde": "den-falske-vara-reforma-1851",
+      "tittel": "den falske vara — reforma 1851",
+      "ord": 145,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "5e2c372f41cb",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 166.8,
+      "usage": {
+        "input_tokens": 4666,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 730
+        },
+        "output_tokens": 15303,
+        "total_tokens": 19969,
         "output_tokens_details": {
           "image_tokens": 15303,
           "text_tokens": 0
