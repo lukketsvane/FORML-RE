@@ -37,8 +37,8 @@ Krev `xelatex` og `python3` med `Pillow` (`pip install Pillow`).
 
 ## Ting å stadfeste før trykk
 
-- **ISBN** er plasshaldar (`978-82-00-00000-0`); set inn det endelege.
-  Skal boka i detaljhandel, legg til EAN-13-strekkode på baksida.
+- **ISBN/strekkode** er plasshaldar (EAN-13 `978-82-95123-45-1`, generert i
+  `make-art.py`); set inn det endelege ISBN-et før trykk.
 - **Ryggbreidd** avheng av endeleg papir og innbinding. Permen
   (`omslag-perm.tex`) reknar rygg = blokk-rygg + 2 × bordtjukn; juster
   `\BLOCK`, `\BOARDTH`, `\HINGE` og `\TURNIN` mot bokbindaren sine mål.

@@ -206,7 +206,7 @@
 \thispagestyle{empty}\vspace*{\fill}
 \begin{flushright}\itshape\small\begin{minipage}{0.74\linewidth}\raggedleft
 Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar, slik frenologien vart før nevrovitskapen, slik alkemien vart før kjemien, slik vitalismen vart før biologien.\\[3mm]
-\upshape\footnotesize – frå føreordet til \textsc{Formlære}-traktaten
+\upshape\footnotesize – frå føreordet til \textit{Formlære}-traktaten
 \end{minipage}\end{flushright}
 \vspace*{\fill}\clearpage
 
@@ -286,20 +286,21 @@ Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar,
   \coordinate (O) at (current page.south west);
   \begin{scope}[shift={(O)}]
     \fill[omslagvellum] (0,0) rectangle (165,240);
-    \node[anchor=north west,align=left,text=omslagink,text width=120mm] at (22,205)
-      {\fontsize{10}{14.5}\selectfont
-       Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
-       les designhistoria kritisk, frå modernismen sine sjølvbilete til
-       samtidas praksisar. Ho spør kva slags verdiar, maktforhold og
-       framtider som ligg innebygde i design, og korleis faget kan finne
-       fundament på nytt.};
-    \node[anchor=south west,align=left,text=omslagink] at (22,64)
-      {\addfontfeatures{LetterSpace=4}\fontsize{12.5}{15.5}\selectfont
-       GRUNNLAUS\\ DESIGN};
-    \node[anchor=south,text=omslagink] at (88,22)
-      {\fontsize{8.5}{10}\selectfont ISBN 978-82-00-00000-0};
-    \node[anchor=south east,text=omslagink] at (143,22)
-      {\fontsize{8.5}{10}\selectfont 2028};
+    % Epigraf, midtstilt
+    \node[anchor=north,align=center,text=omslagink,text width=122mm] at (82.5,170)
+      {\itshape\fontsize{12}{17}\selectfont
+       Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert
+       avleggar, slik frenologien vart før nevrovitskapen, slik alkemien vart
+       før kjemien, slik vitalismen vart før biologien.\\[4mm]
+       \upshape\fontsize{9}{12}\selectfont
+       \textendash\ frå føreordet til \textit{Formlære}-traktaten};
+    % Strekkode nede til venstre + forlag nede til høgre
+    \node[anchor=south west,inner sep=1.5mm,fill=white] at (24,22)
+      {\includegraphics[width=32mm]{ean13}};
+    \node[anchor=south east,align=right,text=omslagink] at (141,24)
+      {{\addfontfeature{LetterSpace=4}\fontsize{6.5}{10}\selectfont
+        \MakeUppercase{Arkitektur- og designhøgskolen i Oslo}}\\[0.6mm]
+       {\fontsize{7}{10}\selectfont 2028}};
   \end{scope}
 \end{tikzpicture}
 \null
