@@ -149,6 +149,19 @@
 \usetikzlibrary{arrows.meta}
 \usepackage[hidelinks]{hyperref}
 
+% --- Figurar ---------------------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{../figurar/}{figurar/}}
+\usepackage{caption}
+\captionsetup{font=small,labelfont={sc},labelsep=period,
+  justification=raggedright,singlelinecheck=false,skip=6pt}
+% \bokfigur[breidd]{fil}{bilsettekst}{etikett}
+\newcommand{\bokfigur}[4][0.74\linewidth]{%
+  \begin{figure}[htbp]\centering
+    \includegraphics[width=#1]{#2}%
+    \caption{#3}\label{fig:#4}%
+  \end{figure}}
+
 \begin{document}
 \frontmatter
 \pagestyle{empty}
