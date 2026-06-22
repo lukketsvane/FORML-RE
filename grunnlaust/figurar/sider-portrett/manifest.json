@@ -278,6 +278,37 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-10-grunnen-stolen-som-eit-punkt": {
+      "nr": 10,
+      "kjelde": "grunnen-stolen-som-eit-punkt",
+      "tittel": "grunnen — stolen som eit punkt",
+      "ord": 165,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "be643eac5376",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 156.4,
+      "usage": {
+        "input_tokens": 4784,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 848
+        },
+        "output_tokens": 15303,
+        "total_tokens": 20087,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
