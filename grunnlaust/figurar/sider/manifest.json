@@ -329,6 +329,36 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-08-faget-som-ikkje-kan-seie-nei": {
+      "nr": 8,
+      "kjelde": "faget-som-ikkje-kan-seie-nei",
+      "tittel": "faget som ikkje kan seie nei",
+      "ord": 241,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "7f6e58f533d1",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 161.7,
+      "usage": {
+        "input_tokens": 3986,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 818
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17328,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
