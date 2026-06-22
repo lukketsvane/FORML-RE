@@ -1,0 +1,124 @@
+{
+  "sider": {
+    "side-01-00-til-lesaren": {
+      "nr": 1,
+      "kjelde": "00-til-lesaren",
+      "tittel": "Til lesaren",
+      "ord": 971,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "cf8d7cb0d2e1",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 155.4,
+      "usage": {
+        "input_tokens": 5111,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 1943
+        },
+        "output_tokens": 13342,
+        "total_tokens": 18453,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
+    },
+    "side-02-01-form-for-faget": {
+      "nr": 2,
+      "kjelde": "01-form-for-faget",
+      "tittel": "Form før faget",
+      "ord": 755,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "43124813588e",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 125.1,
+      "usage": {
+        "input_tokens": 4448,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 1280
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17790,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
+    },
+    "side-03-01-form-for-faget": {
+      "nr": 3,
+      "kjelde": "01-form-for-faget",
+      "tittel": "Form før faget",
+      "ord": 750,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "64df6dc91607",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 139.4,
+      "usage": {
+        "input_tokens": 4419,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 1251
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17761,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
+    },
+    "side-04-01-form-for-faget": {
+      "nr": 4,
+      "kjelde": "01-form-for-faget",
+      "tittel": "Form før faget",
+      "ord": 760,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "dcb7e8260354",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 151.6,
+      "usage": {
+        "input_tokens": 4383,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 1215
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17725,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
+    }
+  }
+}
