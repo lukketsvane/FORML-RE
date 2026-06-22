@@ -359,6 +359,36 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-09-avleggaren-fingrane-pa-hovudet": {
+      "nr": 9,
+      "kjelde": "avleggaren-fingrane-pa-hovudet",
+      "tittel": "avleggaren — fingrane på hovudet",
+      "ord": 169,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "4bbf65276d16",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 156.8,
+      "usage": {
+        "input_tokens": 3816,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 648
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17158,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
