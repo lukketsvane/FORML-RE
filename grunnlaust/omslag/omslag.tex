@@ -1,0 +1,146 @@
+% =====================================================================
+% GRUNNLAUS DESIGN — smussomslag (dust jacket), trykkjeklar spreidning
+% Rekkjefølgje (venstre→høgre): bakflik · bakside · rygg · framside · framflik
+%
+% Byggjer med: xelatex (krev art/title-frost.png + art/ean13.png frå
+%              make-art.py). Sjå Makefile.
+%
+% Alle mål i mm. Endre parameterblokka under for anna sidetal/papir.
+% =====================================================================
+\documentclass[10pt]{article}
+
+% --- Produksjonsparametrar (juster her) -------------------------------
+\newcommand{\TRIMW}{165}     % bokbreidd (trim)
+\newcommand{\TRIMH}{240}     % bokhøgd  (trim)
+\newcommand{\SPINE}{16}      % ryggbreidd  (295 s. ~ 0,105 mm/blad ≈ 15,5 → 16)
+\newcommand{\FLAP}{90}       % flikbreidd
+\newcommand{\BLEED}{3}       % utfall
+\newcommand{\AARSTAL}{2028}  % årstal på omslaget (boka sjølv er datert 2026)
+% Avleidde mål:
+% sidebreidd = 2*FLAP + 2*TRIMW + SPINE + 2*BLEED = 532
+% sidehøgd   = TRIMH + 2*BLEED = 246
+\usepackage[paperwidth=532mm,paperheight=246mm,margin=0mm]{geometry}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\graphicspath{{art/}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% --- Fontar: fri grotesk (Helvetica-ekvivalent) for skarpe element -----
+\setmainfont{Liberation Sans}
+
+% --- Fargar -----------------------------------------------------------
+\definecolor{vellum}{HTML}{E6E3DC}   % varmt off-white omslag
+\definecolor{ink}{HTML}{2B2926}      % varm mørk grå (= tittelfargen)
+\definecolor{mark}{HTML}{2B2926}
+
+\begin{document}%
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,
+                    inner sep=0pt,outer sep=0pt]
+  % Forankre alt til den fysiske sida sitt nedre venstre hjørne.
+  \coordinate (O) at (current page.south west);
+  \begin{scope}[shift={(O)}]
+
+  % ---- Bakgrunn (heile sida, inkl. utfall) ----
+  \fill[vellum] (0,0) rectangle (532,246);
+
+  % ---- Panelgrenser (x frå venstre) ----
+  % bakflik 3..93 | bakside 93..258 | rygg 258..274 | framside 274..439 | framflik 439..529
+  \def\xBackFlap{3}   \def\xBack{93}   \def\xSpineL{258}
+  \def\xSpineR{274}   \def\xFrontFold{439}   \def\xRight{529}
+  \def\yB{3}          \def\yT{243}     % trim botn/topp
+
+  % =====================================================================
+  % FRAMSIDE  (x 274..439)
+  % =====================================================================
+  % Frosta display-tittel (venstrejustert, litt over midten)
+  \node[anchor=north west] at (286,188) {\includegraphics[width=141mm]{title-frost.png}};
+  % Undertittel — liten, i kvitrommet til høgre for «LAUS»
+  \node[anchor=north west,align=left,text=ink] at (372,150)
+    {\fontsize{10.5}{13}\selectfont ei kritisk\\ historie og teori\\ om designfaget};
+  % Årstal nede til høgre
+  \node[anchor=south east,text=ink] at (422,26)
+    {\fontsize{11}{11}\selectfont \AARSTAL};
+
+  % =====================================================================
+  % RYGG  (x 258..274, senter 266)
+  % =====================================================================
+  \node[rotate=-90,text=ink] at (266,135)
+    {\addfontfeatures{LetterSpace=18}\fontsize{11}{11}\selectfont GRUNNLAUS DESIGN};
+  \node[rotate=-90,text=ink] at (266,22)
+    {\fontsize{9}{9}\selectfont \AARSTAL};
+
+  % =====================================================================
+  % BAKSIDE  (x 93..258)
+  % =====================================================================
+  % Blurb
+  \node[anchor=north west,align=left,text=ink,text width=120mm] at (110,206)
+    {\fontsize{10}{14.5}\selectfont
+     Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
+     les heile designhistoria, frå laugshandverket til
+     overvakingskapitalismen, mot håra: som soga om eit fag som gong på
+     gong lova seg sjølv eit fundament og kvar gong leverte noko anna, ein
+     stil, ein metode, ein pedagogikk, ein prosess, eit varemerke.\\[2mm]
+     Diagnosen blir ikkje hamra inn, men lesen ut av \emph{fråværa} (ingen
+     felles etikk, metode eller fagspråk) og \emph{skadane} (den planlagde
+     foreldinga, eingongskulturen, ekstraksjonen). Ei kritisk historie og
+     teori om designfaget, og om kva eit fag utan grunn kostar.};
+  % Liten tittel nede til venstre
+  \node[anchor=south west,align=left,text=ink] at (110,70)
+    {\addfontfeatures{LetterSpace=4}\fontsize{13}{15}\selectfont
+     \textbf{GRUNNLAUS}\\ \textbf{DESIGN}};
+  % Forlag nede til venstre, under tittelen
+  \node[anchor=south west,text=ink] at (110,46)
+    {\fontsize{8.5}{11}\selectfont Arkitektur- og designhøgskolen i Oslo};
+  % Strekkode (EAN-13) nede til høgre, på kvit flate
+  \node[anchor=south east,inner sep=2mm,fill=white] at (244,24)
+    {\includegraphics[width=34mm]{ean13.png}};
+
+  % =====================================================================
+  % FRAMFLIK  (x 439..529)
+  % =====================================================================
+  \node[anchor=north west,align=left,text=ink,text width=64mm] at (452,206)
+    {\fontsize{9.5}{13.5}\selectfont
+     \textsc{Grunnlaus Design} fortel heile designhistoria, frå
+     handverkslauget til plattformselskapa som lever av merksemda di, men
+     les henne som soga om eit fag som aldri fann fundamentet det heile
+     tida lova seg sjølv.\\[2mm]
+     Boka gjev deg ikkje konklusjonen, men brillene: fråværa og skadane.
+     Det historiske motstykket til den aksiomatiske traktaten
+     \textsc{Formlære} i same prosjekt.};
+
+  % =====================================================================
+  % BAKFLIK  (x 3..93) — forfattar / impressum
+  % =====================================================================
+  \node[anchor=north west,align=left,text=ink,text width=64mm] at (16,206)
+    {\fontsize{9.5}{13.5}\selectfont
+     \textbf{Iver Raknes Finne}\\[1mm]
+     Arkitektur- og designhøgskolen i Oslo\\[6mm]
+     Hovudlærebok i kritisk designhistorie, og den historiske tvillingen
+     til \textsc{Formlære}-traktaten: der traktaten legg fram fundamentet i
+     aksiomatisk form, fortel denne boka historia som påviser fråvêret av
+     eitt.};
+
+  % =====================================================================
+  % SKJERE- OG BRETTEMERKE  (berre i utfallssona)
+  % =====================================================================
+  \begin{scope}[color=ink,line width=0.2mm]
+    % Skjeremerke (L-form) i dei fire trim-hjørna, inne i utfallet
+    \draw (3,243) -- (3,246);   \draw (3,243) -- (0,243);     % topp venstre
+    \draw (529,243) -- (529,246); \draw (529,243) -- (532,243); % topp høgre
+    \draw (3,3) -- (3,0);       \draw (3,3) -- (0,3);         % botn venstre
+    \draw (529,3) -- (529,0);   \draw (529,3) -- (532,3);     % botn høgre
+    % Brettemerke ved dei fire bretta (flikar + rygg), korte tikk i utfallet
+    \foreach \x in {93,258,274,439}{
+      \draw[dashed,dash pattern=on 1mm off 1mm] (\x,246) -- (\x,243.5);
+      \draw[dashed,dash pattern=on 1mm off 1mm] (\x,0)   -- (\x,2.5);
+    }
+  \end{scope}
+
+  \end{scope}
+\end{tikzpicture}%
+\end{document}
