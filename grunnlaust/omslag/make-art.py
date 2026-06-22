@@ -70,7 +70,52 @@ def lag_tittel():
     img.save(ut, dpi=(RES, RES))
     print(f"  art/title-frost.png  {img.width}x{img.height}px  (pt={pt})")
 
+# --------------------------------------------------------------------------
+# Frosta grunn — teksturert varmgrå bakgrunn + gjennomskinleg frosta panel
+# (glassine-effekten). Full omslagsstorleik; tittel/tekst leggjast oppå i TeX.
+# --------------------------------------------------------------------------
+def lag_grunn():
+    import numpy as np
+    W_MM, H_MM = 165.0, 240.0          # trim (= framsidepanelet)
+    DPI = 400                          # lågfrekvent motiv; held fila nede
+    px = lambda mmv: int(round(mmv / 25.4 * DPI))
+    W, H = px(W_MM), px(H_MM)
+    rng = np.random.default_rng(7)
+
+    base = np.array([201, 197, 188], float)     # varm grå grunn
+    img = np.ones((H, W, 3)) * base
+
+    # mjuk vertikal gradient (litt lysare mot midten)
+    yy = np.linspace(-1, 1, H)[:, None, None]
+    img += (1 - yy**2) * 7.0
+
+    # vertikale «pensel»-strok: 1D-støy langs x, mjuka, strekt loddrett
+    streak = rng.normal(0, 1, W)
+    k = max(3, W // 90)
+    ker = np.ones(k) / k
+    streak = np.convolve(streak, ker, mode="same")
+    img += (streak[None, :, None]) * 3.0
+    # fin korn-støy
+    img += rng.normal(0, 1.0, (H, W, 1))
+
+    # frosta panel: lysare rektangel med svært mjuke (blura) kantar
+    panel = Image.new("L", (W, H), 0)
+    d = ImageDraw.Draw(panel)
+    x0, x1 = int(0.115 * W), int(0.885 * W)
+    y0, y1 = int(0.135 * H), int(0.795 * H)
+    d.rectangle([x0, y0, x1, y1], fill=255)
+    panel = panel.filter(ImageFilter.GaussianBlur(radius=px(8.0)))   # fjør kantane
+    a = (np.asarray(panel, float) / 255.0)[:, :, None] * 0.62        # paneldekkevne
+    panel_col = np.array([231, 227, 219], float)                     # frosta lysare
+    img = img * (1 - a) + panel_col * a
+
+    out = Image.fromarray(np.clip(img, 0, 255).astype("uint8"), "RGB")
+    ut = os.path.join(ART, "cover-ground.png")
+    out.save(ut, dpi=(DPI, DPI))
+    print(f"  art/cover-ground.png  {out.width}x{out.height}px")
+
 if __name__ == "__main__":
     print("genererer omslags-art:")
     lag_tittel()
+    lag_grunn()
     print("ferdig.")

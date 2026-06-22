@@ -79,6 +79,9 @@
   % Lokale koordinatar: x 0..165 (rygg→forkant), y 0..240 (botn→topp)
   % =====================================================================
   \begin{scope}[shift={(\xFrontSpine,\yTrimB)}]
+    % Frosta grunn på heile bordfasen (TRIMW+SQUARE × TRIMH+2*SQUARE = 168×246)
+    \node[anchor=south west,inner sep=0pt] at (0,-\SQUARE)
+      {\includegraphics[width=168mm,height=246mm]{cover-ground.png}};
     \node[anchor=north west] at (12,185) {\includegraphics[width=141mm]{title-frost.png}};
     \node[anchor=north west,align=left,text=ink] at (16,137)
       {\fontsize{10.5}{13}\selectfont ei kritisk\\ historie og teori\\ om designfaget};
