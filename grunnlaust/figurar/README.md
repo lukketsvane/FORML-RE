@@ -27,3 +27,13 @@ synlege pikslane. Krev `Pillow` + `numpy`.
 | `bauhaus-objekt.png` | Bauhaus-objekt med årstal (1924–1930) |
 | `produktlevetid.png` | produktlevetid 1920→2000 (planlagd forelding) |
 | `skandinavisk-kart.png` | skandinavisk design / eksportmerke — «ikkje eit fundament» |
+| `formgrammatikk-syklus.png` | formgrammatikk → form → agentar → plattform (lukka sløyfe) |
+| `ruskin-morris-greiner.png` | Ruskin → Morris → gilda / verkstadene (tre greiner) |
+| `modernist-objekt.png` | modernistisk objektkanon med årstal (1925–1952) |
+| `bauhaus-hjul-rein.png` | Bauhaus-læreplan som ring (rein versjon) |
+| `ulm-matrise.png` | Ulm: verkstad × metodefag (2×2-matrise) |
+
+Dei tre siste opplastingane forfinar tidlegare figurar og er dei som ligg i
+boka: `ruskin-morris-greiner` (i staden for `ruskin-morris`), `bauhaus-hjul-rein`
+(i staden for `bauhaus-hjul`) og `modernist-objekt` (i staden for
+`bauhaus-objekt`). Dei eldre filene er haldne for referanse.
