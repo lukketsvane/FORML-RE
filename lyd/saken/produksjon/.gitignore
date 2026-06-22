@@ -1,0 +1,14 @@
+# Rendered TTS stems and master output — regenerate locally, do not commit
+voices/*.wav
+stems/*.wav
+build/*.wav
+build/*.flac
+build/*.mp3
+master/
+
+# Never commit secrets or local env
+.env
+*.key
+*apikey*
+.venv/
+__pycache__/

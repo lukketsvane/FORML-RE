@@ -1,0 +1,18 @@
+{
+  "FORTELJAR": {
+    "voice": "cedar",
+    "instructions": "Norwegian bokmål/nynorsk. Extremely old male narrator, 90 to 120 years old, slow, creaky, dramatic, damp archive authority, faint Voss/Bergen/Vestlandet feel. Very controlled breath, long pauses, theatrical but not cartoonish. Sound like an ancient court clerk reading a cosmic case file."
+  },
+  "GLENN": {
+    "voice": "marin",
+    "instructions": "Norwegian. Dry, precise bureaucratic caseworker. Flat, fast-ish, controlled, deadpan. Never laugh. Treat absurd content as ordinary paperwork. Clear consonants, short pauses, office archive authority."
+  },
+  "KLUMPEN": {
+    "voice": "cedar",
+    "instructions": "Norwegian. Soft, curious, warm and slightly naive, but still natural. Use a lighter, smaller, more vulnerable delivery than the narrator. Gentle comic timing, honest questions, a little hungry. Not babyish."
+  },
+  "KLUMPEN_LITANI": {
+    "voice": "cedar",
+    "instructions": "Norwegian. Ritual litany. Start plain and intimate, then slowly grow hypnotic, ceremonial and grave. Small pauses after each phrase. Serious, strange, quietly comic."
+  }
+}

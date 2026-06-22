@@ -1,0 +1,678 @@
+[
+  {
+    "id": "000",
+    "type": "sfx",
+    "cue": "room_tone"
+  },
+  {
+    "id": "001",
+    "type": "sfx",
+    "cue": "drypp"
+  },
+  {
+    "id": "002",
+    "type": "sfx",
+    "cue": "chair_hover"
+  },
+  {
+    "id": "003",
+    "type": "voice",
+    "role": "FORTELJAR",
+    "text": "Dryppet traff bøtta hvert syttende sekund. Det hadde gjort det lenge. Midt i rommet svevde stolen én centimeter over gulvet, slik den hadde gjort siden, ja. Det var nettopp spørsmålet."
+  },
+  {
+    "id": "004",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Den svever fremdeles."
+  },
+  {
+    "id": "005",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Den er under behandling."
+  },
+  {
+    "id": "006",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvor lenge nå?"
+  },
+  {
+    "id": "007",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Hundre år. Eller ni måneder. Tiden føres ikke nøyaktig her."
+  },
+  {
+    "id": "008",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Det er forskjell på hundre år og ni måneder."
+  },
+  {
+    "id": "009",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Ikke i denne saken."
+  },
+  {
+    "id": "010",
+    "type": "sfx",
+    "cue": "folder"
+  },
+  {
+    "id": "011",
+    "type": "voice",
+    "role": "FORTELJAR",
+    "text": "Glenn Marengs dro frem en mappe. Den var tykk som et lår og åpnet seg motvillig, som om den ikke orket flere spørsmål den heller."
+  },
+  {
+    "id": "012",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Vil du høre saken?"
+  },
+  {
+    "id": "013",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Er den lang?"
+  },
+  {
+    "id": "014",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Den er ikke ferdig. Det er en annen ting enn lang."
+  },
+  {
+    "id": "015",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Bare les."
+  },
+  {
+    "id": "016",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak null. Det fantes ingen sak. Det fantes en mann. Han satt og lagde stolen med hendene. Han skrev aldri et ord om hvorfor."
+  },
+  {
+    "id": "017",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvorfor ikke?"
+  },
+  {
+    "id": "018",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Han skjønte ikke spørsmålet. Du lager en stol. Hva er det å skrive om. Hånda vet det. Hånda sa det ikke videre."
+  },
+  {
+    "id": "019",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Så hvordan vet vi noe?"
+  },
+  {
+    "id": "020",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det gjør vi ikke. Derfor måtte vi opprette en sak."
+  },
+  {
+    "id": "021",
+    "type": "sfx",
+    "cue": "chair_touch"
+  },
+  {
+    "id": "022",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak én. Nittennitten. Noen åpnet en skole og sa at nå skulle det ryddes. En stol er til å sitte på. Alt annet er pynt, og pynt er løgn. Fjern løgnen. Da står funksjonen igjen, naken og ærlig."
+  },
+  {
+    "id": "023",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Det høres greit ut."
+  },
+  {
+    "id": "024",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det var det også. I omtrent én generasjon. Så meldte neste behandler seg."
+  },
+  {
+    "id": "025",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvem da?"
+  },
+  {
+    "id": "026",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Tilslørte Bondepiker. Nittenfemtitre. Hun sa funksjon ikke var nok. Funksjon var synsing. Vi trengte en metode. En vitenskap. Vi skulle måle alt."
+  },
+  {
+    "id": "027",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Måle en stol?"
+  },
+  {
+    "id": "028",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Måle alt. Vinkelen. Behovet. Tegnet. Hun bygde et system så rent at stolen forsvant inn i det og ikke kom ut igjen."
+  },
+  {
+    "id": "029",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva skjedde med stolen?"
+  },
+  {
+    "id": "030",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Den ble et punkt i en matrise. Veldig presist plassert. Ingen kunne sitte på det."
+  },
+  {
+    "id": "031",
+    "type": "sfx",
+    "cue": "drypp"
+  },
+  {
+    "id": "032",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Så, nittensekstiåtte, la hun ned hele systemet og gikk."
+  },
+  {
+    "id": "033",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvorfor det?"
+  },
+  {
+    "id": "034",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Hun skrev et notat. Det henger her. Jeg har trukket meg fra feltet."
+  },
+  {
+    "id": "035",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Kan man det? Trekke seg fra et felt?"
+  },
+  {
+    "id": "036",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Hun gjorde det. Og rett etterpå kom det inn et nytt stempel på saken. Rødt. Det sto WICKED PROBLEM."
+  },
+  {
+    "id": "037",
+    "type": "sfx",
+    "cue": "stamp"
+  },
+  {
+    "id": "038",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva betyr det?"
+  },
+  {
+    "id": "039",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det betyr at stolen ikke er et regnestykke. Den har ikke ett svar. Hver gang du løser den, lager du tre nye stoler du ikke har løst."
+  },
+  {
+    "id": "040",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Så da gir man opp?"
+  },
+  {
+    "id": "041",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Nei. Da gir man den videre. Det er forskjell."
+  },
+  {
+    "id": "042",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak fire. Åttitallet. Inn kom en behandler som het Krokan og sa at hele greia hadde blitt dødskjedelig. En stol skulle ikke bare virke. Den skulle BETY noe."
+  },
+  {
+    "id": "043",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Bety hva?"
+  },
+  {
+    "id": "044",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Hva som helst. Det var poenget. Han satte et helt unødig horn på ryggstøet og kalte det et standpunkt."
+  },
+  {
+    "id": "045",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Var det et standpunkt?"
+  },
+  {
+    "id": "046",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det var et horn. Men han hadde et poeng. Lite er kjedelig, sa han. Folk siterer ham fremdeles når de skal forsvare et horn."
+  },
+  {
+    "id": "047",
+    "type": "voice",
+    "role": "FORTELJAR",
+    "text": "Stolen virket sliten av hornet. Den hadde aldri bedt om hornet."
+  },
+  {
+    "id": "048",
+    "type": "sfx",
+    "cue": "knock"
+  },
+  {
+    "id": "049",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak fem. Nittenåttiåtte. Da banket det, og inn kom en behandler som var rasende på alle de andre."
+  },
+  {
+    "id": "050",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvorfor det?"
+  },
+  {
+    "id": "051",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Han sa: dere krangler om funksjon og mening, og ingen av dere har spurt den som skal SITTE. Hvor er brukeren?"
+  },
+  {
+    "id": "052",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "God pølse. Hvor var brukeren?"
+  },
+  {
+    "id": "053",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Vi hadde glemt å invitere ham. Vi fant ham til slutt. Han sto i gangen. Han hadde ventet i syksti år."
+  },
+  {
+    "id": "054",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva sa han?"
+  },
+  {
+    "id": "055",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Han sa: jeg vil bare sette meg. Kan jeg sette meg?"
+  },
+  {
+    "id": "056",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Fikk han sette seg?"
+  },
+  {
+    "id": "057",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Nei. Vi måtte først kartlegge sitteopplevelsen hans. Det tok et nytt møte."
+  },
+  {
+    "id": "058",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak seks. Like etter. En behandler sa det var udemokratisk at vi designet stolen FOR brukeren. Vi skulle designe den MED ham."
+  },
+  {
+    "id": "059",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Det høres fint ut."
+  },
+  {
+    "id": "060",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det var fint. Vi tok ham med inn i rommet. Og hans fetter. Og naboen. Og en mann som tilfeldigvis gikk forbi. Nå hadde alle et ord med i laget."
+  },
+  {
+    "id": "061",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva ble stolen da?"
+  },
+  {
+    "id": "062",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Et utvalg. Stolen ble et utvalg. Den sitter du heller ikke godt på."
+  },
+  {
+    "id": "063",
+    "type": "sfx",
+    "cue": "drypp"
+  },
+  {
+    "id": "064",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak syv. Og nå må du holde deg fast, Klumpen, for her kommer lappene."
+  },
+  {
+    "id": "065",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Lappene?"
+  },
+  {
+    "id": "066",
+    "type": "sfx",
+    "cue": "postit_storm"
+  },
+  {
+    "id": "067",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "De gule lappene. Tusenvis av dem. En ny behandler kom inn og sa at vi hadde tenkt for tungt. Vi skulle føle. Vi skulle ha empati. Vi skulle ikke si stol."
+  },
+  {
+    "id": "068",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva skulle vi si?"
+  },
+  {
+    "id": "069",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "En sitteopplevelses-utfordring. Og så skulle vi spurte. Og ideere. Og spri-inte."
+  },
+  {
+    "id": "070",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Spri-inte?"
+  },
+  {
+    "id": "071",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det betyr å gjøre veldig mye veldig fort i fem dager og så henge en lapp på veggen."
+  },
+  {
+    "id": "072",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva sto det på lappene?"
+  },
+  {
+    "id": "073",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "STOL? Med spørsmålstegn. Tre hundre ganger."
+  },
+  {
+    "id": "074",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Løste det saken?"
+  },
+  {
+    "id": "075",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det løste ingenting. Men det var fryktelig gøy mens det sto på. Etterpå kom det et nytt notat i mappen."
+  },
+  {
+    "id": "076",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva sto det?"
+  },
+  {
+    "id": "077",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det sto: dette er pølsevev."
+  },
+  {
+    "id": "078",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Var det pølsevev?"
+  },
+  {
+    "id": "079",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det var verdens peneste pølsevev. Innrammet og alt."
+  },
+  {
+    "id": "080",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Sak åtte. Totusenogtretten. Nå var alle gått så lei av å løse ting at en behandler reiste seg og sa: stolen skal ikke løse noe i det hele tatt. Stolen skal STILLE ET SPØRSMÅL."
+  },
+  {
+    "id": "081",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Kan en stol stille spørsmål?"
+  },
+  {
+    "id": "082",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Denne kan. Du kan ikke sitte på den. Det er meningen. Den er trist med vilje. Den spør deg hvorfor du i det hele tatt ville sitte."
+  },
+  {
+    "id": "083",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva svarer man på det?"
+  },
+  {
+    "id": "084",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Man svarer ikke. Man står og kjenner seg ettertenksom. Det er en helt egen fløy her for stoler ingen kan sitte på. Den er full."
+  },
+  {
+    "id": "085",
+    "type": "voice",
+    "role": "FORTELJAR",
+    "text": "Stolen svevde litt nærmere, som om den kjente seg sett av de andre stolene den ikke fikk være."
+  },
+  {
+    "id": "086",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Og så, helt til slutt i mappen, ligger det et siste ark."
+  },
+  {
+    "id": "087",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva står det?"
+  },
+  {
+    "id": "088",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det er ikke et svar. Det er et spørsmål, og det er skrevet med skjelven hånd. Det står: men er dette egentlig et fag?"
+  },
+  {
+    "id": "089",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva mener de med det?"
+  },
+  {
+    "id": "090",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "De mener: har vi vår egen kunnskap, eller har vi bare lånt av alle andre og hengt et horn på den. Har vi noe vi kan kalle vårt. Eller er vi bare hender som later som de er en vitenskap."
+  },
+  {
+    "id": "091",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva gjorde dere med det spørsmålet?"
+  },
+  {
+    "id": "092",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Vi gjorde det eneste vi kan. Vi opprettet en sak på det. Og en doktorgrad. Du kan nå ta en doktorgrad i stolen."
+  },
+  {
+    "id": "093",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Blir stolen ferdig av det?"
+  },
+  {
+    "id": "094",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Nei. Men du blir doktor. Det er forskjell."
+  },
+  {
+    "id": "095",
+    "type": "sfx",
+    "cue": "late_drypp"
+  },
+  {
+    "id": "096",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Glenn."
+  },
+  {
+    "id": "097",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Ja."
+  },
+  {
+    "id": "098",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvor mange behandlere har hatt saken?"
+  },
+  {
+    "id": "099",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Alle. Hver eneste en var sikker på at de forrige hadde tatt feil. Hver eneste en skrev et manifest. Manifestene ligger i en egen perm. Den svever også. Vi har plassmangel."
+  },
+  {
+    "id": "100",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Og ingen ble enige om hva en stol er?"
+  },
+  {
+    "id": "101",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Jo. Alle ble enige. Bare aldri samtidig, og aldri om det samme."
+  },
+  {
+    "id": "102",
+    "type": "sfx",
+    "cue": "chair_touch"
+  },
+  {
+    "id": "103",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Kan jeg spørre om en ting til?"
+  },
+  {
+    "id": "104",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Bare én."
+  },
+  {
+    "id": "105",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hvorfor ser stoler ut som stoler?"
+  },
+  {
+    "id": "106",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "App app app."
+  },
+  {
+    "id": "107",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Hva?"
+  },
+  {
+    "id": "108",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Det er der saken begynner. Det spørsmålet. Vil du sende inn et skjema?"
+  },
+  {
+    "id": "109",
+    "type": "voice",
+    "role": "KLUMPEN",
+    "text": "Må jeg det?"
+  },
+  {
+    "id": "110",
+    "type": "voice",
+    "role": "GLENN",
+    "text": "Du må alltid det. Ellers er det ikke en sak. Det er bare en stol noen lurer på."
+  },
+  {
+    "id": "111",
+    "type": "sfx",
+    "cue": "litany_drone"
+  },
+  {
+    "id": "112",
+    "type": "voice",
+    "role": "KLUMPEN_LITANI",
+    "text": "STOL. OGSÅ KJENT SOM EN SITTEFLATE. OGSÅ KJENT SOM FUNKSJON. OGSÅ KJENT SOM FORM SOM FØLGER FUNKSJON. OGSÅ KJENT SOM EN METODE. OGSÅ KJENT SOM ET SYSTEM SÅ RENT AT INGEN KUNNE SITTE. OGSÅ KJENT SOM ET WICKED PROBLEM. OGSÅ KJENT SOM ET HORN SOM BETYR NOE. OGSÅ KJENT SOM EN BRUKER SOM HAR VENTET I GANGEN. OGSÅ KJENT SOM ET UTVALG. OGSÅ KJENT SOM TUSEN GULE LAPPER. OGSÅ KJENT SOM PENT INNRAMMET PØLSEVEV. OGSÅ KJENT SOM ET SPØRSMÅL DU IKKE FÅR SITTE PÅ. OGSÅ KJENT SOM EN DOKTORGRAD. OGSÅ KJENT SOM ET FAG SOM IKKE VET OM DET ER ET FAG. OGSÅ KJENT SOM HENDER SOM LATER SOM DE ER EN VITENSKAP. OGSÅ KJENT SOM NOEN SOM BARE LAGDE DEN. FØR ALT DETTE. MED HENDENE. UTEN ETT ORD. OGSÅ KJENT SOM EN STOL. SOM HAR SVEVD I HUNDRE ÅR. OG FREMDELES BARE VIL. AT NOEN SKAL SETTE SEG."
+  },
+  {
+    "id": "113",
+    "type": "sfx",
+    "cue": "final_drypp"
+  },
+  {
+    "id": "114",
+    "type": "voice",
+    "role": "FORTELJAR",
+    "text": "Klumpen kjente at han ble litt sulten, og glemte resten. Stolen svevde videre. Den hadde tid. Saken var ikke ferdig. Det er en annen ting enn lang."
+  }
+]
