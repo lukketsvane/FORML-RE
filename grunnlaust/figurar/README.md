@@ -33,7 +33,20 @@ synlege pikslane. Krev `Pillow` + `numpy`.
 | `bauhaus-hjul-rein.png` | Bauhaus-læreplan som ring (rein versjon) |
 | `ulm-matrise.png` | Ulm: verkstad × metodefag (2×2-matrise) |
 
-Dei tre siste opplastingane forfinar tidlegare figurar og er dei som ligg i
-boka: `ruskin-morris-greiner` (i staden for `ruskin-morris`), `bauhaus-hjul-rein`
-(i staden for `bauhaus-hjul`) og `modernist-objekt` (i staden for
-`bauhaus-objekt`). Dei eldre filene er haldne for referanse.
+| `designmetode-syklus.png` | analyse → syntese → evaluering (metoderørsla) |
+| `tamt-vs-vrangt.png` | tamt mot vrangt problem (tabell) |
+| `refleksjon-i-handling.png` | handling ↔ refleksjon-i-handling, taus kunnskap (Schön) |
+| `forsking-design-venn.png` | research into / through / for design (Frayling) |
+| `semiotisk-triangel.png` | objekt – teikn – tyding |
+| `form-abstraksjonslag.png` | fysisk produkt → GUI → tenestelag |
+| `design-thinking-migrasjon.png` | design thinking → management / offentleg / konsulent |
+| `agentar-manglande-nei.png` | form → agentar, kvar utan eit nei |
+| `fagsprak-grensa.png` | ICD kryssar grensa, «god balanse» stoggar |
+| `ti-namna-falsifisering.png` | dei ti namna: lét det seg falsifisere? |
+| `formgrammatikk-syklus-rund.png` | sirkulær variant av formgrammatikk-sløyfa (alternativ) |
+
+`formgrammatikk-syklus.png` vart oppdatert til den boksa, forfina sløyfa.
+Dei tre opplastingane som forfinar tidlegare figurar er dei som ligg i boka:
+`ruskin-morris-greiner` (for `ruskin-morris`), `bauhaus-hjul-rein` (for
+`bauhaus-hjul`) og `modernist-objekt` (for `bauhaus-objekt`). Dei eldre filene
+er haldne for referanse.
