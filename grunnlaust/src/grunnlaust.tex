@@ -278,4 +278,29 @@ Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar,
 \nocite{*}
 \printbibliography[heading=bibintoc,title={Litteratur}]
 
+% --- Omslag (bakside, fullt utfall) ---
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,inner sep=0pt,outer sep=0pt]
+  \coordinate (O) at (current page.south west);
+  \begin{scope}[shift={(O)}]
+    \fill[omslagvellum] (0,0) rectangle (165,240);
+    \node[anchor=north west,align=left,text=omslagink,text width=120mm] at (22,205)
+      {\fontsize{10}{14.5}\selectfont
+       Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
+       les designhistoria kritisk, frå modernismen sine sjølvbilete til
+       samtidas praksisar. Ho spør kva slags verdiar, maktforhold og
+       framtider som ligg innebygde i design, og korleis faget kan finne
+       fundament på nytt.};
+    \node[anchor=south west,align=left,text=omslagink] at (22,64)
+      {\addfontfeatures{LetterSpace=4}\fontsize{12.5}{15.5}\selectfont
+       GRUNNLAUS\\ DESIGN};
+    \node[anchor=south,text=omslagink] at (88,22)
+      {\fontsize{8.5}{10}\selectfont ISBN 978-82-00-00000-0};
+    \node[anchor=south east,text=omslagink] at (143,22)
+      {\fontsize{8.5}{10}\selectfont 2028};
+  \end{scope}
+\end{tikzpicture}
+\null
+
 \end{document}
