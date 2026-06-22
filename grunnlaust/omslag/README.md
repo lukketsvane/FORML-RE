@@ -1,19 +1,26 @@
-# GRUNNLAUS DESIGN — smussomslag
+# GRUNNLAUS DESIGN — omslag
 
-Trykkjeklar smussomslag-spreidning (dust jacket) for boka.
+Trykkjeklare omslagsfiler for boka:
+
+- **`omslag.pdf`** — smussomslag (dust jacket, med flikar).
+- **`omslag-perm.pdf`** — hardcase-perm (case wrap, utan flikar), med ombrett
+  (turn-in), bordovergrep (square) og falsgap dimensjonert for innbindinga.
 
 ## Bygg
 
 ```sh
-make            # python3 make-art.py  →  xelatex omslag.tex  →  omslag.pdf
+make            # python3 make-art.py  →  xelatex  →  omslag.pdf + omslag-perm.pdf
 ```
 
 Krev `xelatex` og `python3` med `Pillow` (`pip install Pillow`).
 
 ## Filer
 
-- `omslag.tex` — spreidninga: bakflik · bakside · rygg · framside · framflik,
-  med 3 mm utfall og skjere-/brettemerke. Alle mål i parameterblokka øvst.
+- `omslag.tex` — smussomslaget: bakflik · bakside · rygg · framside · framflik,
+  3 mm utfall + skjere-/brettemerke.
+- `omslag-perm.tex` — hardcase-permen: ombrett · bakbord · fals · rygg · fals ·
+  frambord · ombrett, med fals-/score- og skjeremerke. Bokbinding-måla
+  (bordtjukn, blokk-rygg, falsgap, ombrett) ligg i parameterblokka øvst.
 - `make-art.py` — genererer den frosta display-tittelen GRUNN / LAUS / DESIGN
   (ekte gaussisk uskarpleik, Pillow; GRUNN/DESIGN venstrestilt, LAUS høgrestilt).
 - `art/` — generert (title-frost.png).
@@ -32,6 +39,8 @@ Krev `xelatex` og `python3` med `Pillow` (`pip install Pillow`).
 
 - **ISBN** er plasshaldar (`978-82-00-00000-0`); set inn det endelege.
   Skal boka i detaljhandel, legg til EAN-13-strekkode på baksida.
-- **Ryggbreidd** avheng av endeleg papir og innbinding.
+- **Ryggbreidd** avheng av endeleg papir og innbinding. Permen
+  (`omslag-perm.tex`) reknar rygg = blokk-rygg + 2 × bordtjukn; juster
+  `\BLOCK`, `\BOARDTH`, `\HINGE` og `\TURNIN` mot bokbindaren sine mål.
 - **Display-fonten** er Liberation Sans Bold (fri Helvetica-ekvivalent);
   byt til den lisensierte grotesken før endeleg trykk om ynskjeleg.

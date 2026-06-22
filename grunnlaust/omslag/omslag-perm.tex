@@ -1,0 +1,141 @@
+% =====================================================================
+% GRUNNLAUS DESIGN — hardcase-perm (case wrap), trykkjeklar
+%
+% Den trykte arket som limast over permborda (utan flikar). Layout:
+%   ombrett · BAKBORD · fals · RYGG · fals · FRAMBORD · ombrett
+% Bakgrunnen blør ut i ombretta (turn-in); desse brettar inn på innsida.
+%
+% Byggjer med: xelatex (krev art/title-frost.png frå make-art.py).
+% Alle mål i mm. Bokbinding-parametrane ligg i blokka under.
+% =====================================================================
+\documentclass[10pt]{article}
+
+% --- Bok- og bindingsparametrar (juster her) --------------------------
+\def\TRIMW{165}      % bokblokk-breidd (trim)
+\def\TRIMH{240}      % bokblokk-høgd  (trim)
+\def\SQUARE{3}       % bordovergrep (square) topp/botn/forkant
+\def\BOARDTH{2.5}    % bordtjukn (gråpapp)
+\def\BLOCK{16}       % bokblokk-rygg (tekstblokka si tjukn)
+\def\HINGE{8}        % falsgap (joint groove) mellom bord og rygg
+\def\TURNIN{16}      % ombrett-monn (turn-in) rundt heile arket
+\def\BLEED{3}        % ekstra utfall utanfor ombretta
+\def\AARSTAL{2028}
+
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usepackage{graphicx}
+\usepackage{fontspec}
+
+% Avleidde mål (mm):
+%   boardW = TRIMW+SQUARE = 168      boardH = TRIMH+2*SQUARE = 246
+%   spineW = BLOCK+2*BOARDTH = 21
+%   wrapW  = 2*TURNIN+2*boardW+2*HINGE+spineW = 405
+%   wrapH  = boardH+2*TURNIN = 278
+%   paper  = wrap + 2*BLEED = 411 x 284
+\usepackage[paperwidth=411mm,paperheight=284mm,margin=0mm]{geometry}
+\graphicspath{{art/}}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\setmainfont{Liberation Sans}
+
+\definecolor{vellum}{HTML}{EAE7DF}
+\definecolor{ink}{HTML}{2B2926}
+
+\begin{document}%
+\begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,
+                    inner sep=0pt,outer sep=0pt]
+  \coordinate (O) at (current page.south west);
+  \begin{scope}[shift={(O)}]
+
+  % ---- avleidde grenser ----
+  \pgfmathsetmacro{\boardW}{\TRIMW+\SQUARE}     % 168
+  \pgfmathsetmacro{\boardH}{\TRIMH+2*\SQUARE}   % 246
+  \pgfmathsetmacro{\spineW}{\BLOCK+2*\BOARDTH}  % 21
+  % x-grenser (frå venstre, +BLEED)
+  \pgfmathsetmacro{\xA}{\BLEED}                 % arkkant
+  \pgfmathsetmacro{\xBackFore}{\xA+\TURNIN}     % bakbord forkant-brett
+  \pgfmathsetmacro{\xBackSpine}{\xBackFore+\boardW}
+  \pgfmathsetmacro{\xSpineL}{\xBackSpine+\HINGE}
+  \pgfmathsetmacro{\xSpineR}{\xSpineL+\spineW}
+  \pgfmathsetmacro{\xFrontSpine}{\xSpineR+\HINGE}
+  \pgfmathsetmacro{\xFrontFore}{\xFrontSpine+\boardW}
+  \pgfmathsetmacro{\xZ}{\xFrontFore+\TURNIN}    % arkkant høgre
+  % y-grenser
+  \pgfmathsetmacro{\yA}{\BLEED}
+  \pgfmathsetmacro{\yBoardB}{\yA+\TURNIN}
+  \pgfmathsetmacro{\yBoardT}{\yBoardB+\boardH}
+  \pgfmathsetmacro{\yZ}{\yBoardT+\TURNIN}
+  % trim-monn innanfor bord (square)
+  \pgfmathsetmacro{\yTrimB}{\yBoardB+\SQUARE}
+  \pgfmathsetmacro{\yTrimT}{\yBoardT-\SQUARE}
+  \pgfmathsetmacro{\spineMid}{\xSpineL+\spineW/2}
+  \pgfmathsetmacro{\boardMid}{(\yBoardB+\yBoardT)/2}
+
+  % ---- bakgrunn (heile arket) ----
+  \fill[vellum] (0,0) rectangle (411,284);
+
+  % =====================================================================
+  % FRAMBORD — trim-origo (ryggside, botn) = (xFrontSpine, yTrimB)
+  % Lokale koordinatar: x 0..165 (rygg→forkant), y 0..240 (botn→topp)
+  % =====================================================================
+  \begin{scope}[shift={(\xFrontSpine,\yTrimB)}]
+    \node[anchor=north west] at (12,185) {\includegraphics[width=141mm]{title-frost.png}};
+    \node[anchor=north west,align=left,text=ink] at (16,137)
+      {\fontsize{10.5}{13}\selectfont ei kritisk\\ historie og teori\\ om designfaget};
+    \node[anchor=south east,text=ink] at (148,23)
+      {\fontsize{11}{11}\selectfont \AARSTAL};
+  \end{scope}
+
+  % =====================================================================
+  % RYGG  (senter spineMid, breidd spineW)
+  % =====================================================================
+  \node[rotate=-90,text=ink] at (\spineMid,{\boardMid+12})
+    {\addfontfeatures{LetterSpace=18}\fontsize{11}{11}\selectfont GRUNNLAUS DESIGN};
+  \node[rotate=-90,text=ink] at (\spineMid,{\yTrimB+18})
+    {\fontsize{9}{9}\selectfont \AARSTAL};
+
+  % =====================================================================
+  % BAKBORD — trim-origo (forkant, botn) = (xBackFore+SQUARE, yTrimB)
+  % Lokale koordinatar: x 0..165 (forkant→rygg), y 0..240
+  % =====================================================================
+  \begin{scope}[shift={({\xBackFore+\SQUARE},\yTrimB)}]
+    \node[anchor=north west,align=left,text=ink,text width=118mm] at (17,203)
+      {\fontsize{10}{14.5}\selectfont
+       Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
+       les designhistoria kritisk, frå modernismen sine sjølvbilete til
+       samtidas praksisar. Ho spør kva slags verdiar, maktforhold og
+       framtider som ligg innebygde i design, og korleis faget kan finne
+       fundament på nytt.};
+    \node[anchor=south west,align=left,text=ink] at (17,63)
+      {\addfontfeatures{LetterSpace=4}\fontsize{12.5}{15.5}\selectfont
+       GRUNNLAUS\\ DESIGN};
+    \node[anchor=south,text=ink] at (82.5,21)
+      {\fontsize{8.5}{10}\selectfont ISBN 978-82-00-00000-0};
+    \node[anchor=south east,text=ink] at (147,21)
+      {\fontsize{8.5}{10}\selectfont \AARSTAL};
+  \end{scope}
+
+  % =====================================================================
+  % FALS-, BRETTE- OG SKJEREMERKE (i ombrett-/utfallssona)
+  % =====================================================================
+  \begin{scope}[color=ink,line width=0.2mm]
+    % loddrette fals/score: bord-forkantar, hjørne mot rygg, ryggkantar
+    \foreach \x in {\xBackFore,\xBackSpine,\xSpineL,\xSpineR,\xFrontSpine,\xFrontFore}{
+      \draw[dashed,dash pattern=on 1.5mm off 1.5mm] (\x,\yZ) -- (\x,\yBoardT);
+      \draw[dashed,dash pattern=on 1.5mm off 1.5mm] (\x,\yA) -- (\x,\yBoardB);
+    }
+    % vassrette ombrett-fals topp/botn
+    \foreach \y in {\yBoardB,\yBoardT}{
+      \draw[dashed,dash pattern=on 1.5mm off 1.5mm] (\xA,\y) -- (\xBackFore,\y);
+      \draw[dashed,dash pattern=on 1.5mm off 1.5mm] (\xFrontFore,\y) -- (\xZ,\y);
+    }
+    % skjeremerke i arkhjørna (ytterkant av ombrett)
+    \draw (\xA,\yBoardT) -- (\xA,\yZ);   \draw (\xA,\yBoardT) -- (0,\yBoardT);
+    \draw (\xZ,\yBoardT) -- (\xZ,\yZ);   \draw (\xZ,\yBoardT) -- (411,\yBoardT);
+    \draw (\xA,\yBoardB) -- (\xA,\yA);   \draw (\xA,\yBoardB) -- (0,\yBoardB);
+    \draw (\xZ,\yBoardB) -- (\xZ,\yA);   \draw (\xZ,\yBoardB) -- (411,\yBoardB);
+  \end{scope}
+
+  \end{scope}
+\end{tikzpicture}%
+\end{document}
