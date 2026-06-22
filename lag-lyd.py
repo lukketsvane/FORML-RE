@@ -123,11 +123,18 @@ KOMITE = ("Framfør den følgjande teksten som eit satirisk høyrespel — eit k
           "byråkratisk; forslagsstillarane ivrige og litt patetiske; gjer stemmene tydeleg "
           "ulike og timinga komisk. Les berre sjølve teksten, ikkje denne instruksen:")
 
+DISPUTAS = ("Framfør den følgjande teksten som eit satirisk høyrespel — ein doktordisputas som "
+            "aldri tok slutt. Tørr, høgtideleg forteljar; komitéen pompøs og byråkratisk; "
+            "kandidaten Klumpen sliten, resignert og litt fortvila; gjer stemmene tydeleg ulike. "
+            "Les berre sjølve teksten, ikkje denne instruksen:")
+
 TEKSTAR = {
     "gravgaaver": ("Charon", NARRATOR),
     "saken": ("Puck", HOYRESPEL),
     "oneida": ("Charon", MORK),
     "grunnlaget": ("Puck", KOMITE),
+    "disputasen": ("Puck", DISPUTAS),
+    "detevigemotet": ("Puck", KOMITE),
 }
 
 if __name__ == "__main__":
