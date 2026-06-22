@@ -1,0 +1,59 @@
+% Til guten som ville bli til lys
+% Eit FORMLÆRE-brev: heile tydinga til form, skriven saman med guten-allegorien,
+% i same aphoristiske stemme som «Til den som lagar ei form, eller dømer henne».
+% Frittståande dokument. Bygg: xelatex brev-til-guten.tex
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,top=34mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{EB Garamond}{%
+  \setmainfont{EB Garamond}[Numbers={Lining,Proportional},AutoFakeBold=2.5]}{%
+  \setmainfont{TeX Gyre Pagella}}
+\usepackage{microtype}
+\usepackage{lettrine}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\linespread{1.18}
+\pagestyle{empty}
+
+% Fleuron ❦ frå ein font som har glyfen (FreeSerif/Symbola), elles ein stjerne.
+\IfFontExistsTF{FreeSerif}{\newfontfamily\fleuronfont{FreeSerif}}{%
+  \IfFontExistsTF{Symbola}{\newfontfamily\fleuronfont{Symbola}}{%
+  \IfFontExistsTF{DejaVu Serif}{\newfontfamily\fleuronfont{DejaVu Serif}}{%
+  \let\fleuronfont\relax}}}
+\newcommand{\fleuron}{\par\vspace{4pt}\begingroup\centering
+  {\ifx\fleuronfont\relax\large$*$\else{\fleuronfont\large ❦}\fi}\par\endgroup\vspace{10pt}}
+
+\begin{document}
+
+{\itshape Til guten som ville bli til lys:}
+
+\medskip
+
+\lettrine[lines=2,findent=2pt,nindent=4pt]{D}{u} ville bli til lys, og du sa at det fyrste ein må kunne, er å sjå til botnen i ein ting. Det er sant. Men du las botnen feil. Stira du på meitemarken til du såg botnen hans, var det ikkje sjela hans du fann. Det var staden hans: eitt punkt i rommet av alle markane han kunne vore, og det rommet står mest tomt. Det tomme er ikkje det umoglege. Det er det moglege han aldri nådde.
+
+Slik er kvar form du laga. Eitt punkt, og kring det alt du kunne laga og ikkje gjorde. Du fekk to forteljingar om kvifor. Den eine: at forma følgjer funksjonen. Men ei setning som høver på kvart utfall, seier ingenting. Den andre: at forma følgjer hundreåret. Men stilen er eit namn lagt over arbeidet, ikkje saumen i det. Du trylla blomar i drinkar og kalla det magi. Det var å gje forma eit namn, ikkje å sjå botnen hennar.
+
+Forma er ein posisjon, og det som flyttar henne er seleksjon: alle trykka som dreg i henne på éin gong. Du er ein agent i det rommet, blind langs kvar akse du ikkje kan nemne. Difor kasta dei deg ut då du gjorde oppvaskmaskina levande: du hadde funne ein akse dei ikkje hadde ord for. Maskina var alt ein agent; substratet svarar. Det du ikkje kan måle, kan du ikkje avvise, og skaden du gjer, ber forma til den aksen du var blind for.
+
+Lyspæra var det eine trykket. Du ville bli til lyskjegla, til horisonten som rommar kvar form som kan tenkjast, men du fall for den eine pæra som rommar berre seg sjølv. Slik går det kvar gong eitt trykk får dominere: landskapet kollapsar mot éin attraktor. Det er ikkje klårsyn, det er blindskap sett i system. Demonen åt av det inste ditt fordi du gav han heile lyskjegla. Eit eineveldande trykk forklarer ikkje form. Det er fråværet av forklaring.
+
+Prinsessa kom for å hjelpe folket, og folket ville ikkje ha hjelp. Men omhug er ikkje hjelp lagd over arbeidet, slik varme vert lagd over noko kaldt. Omhug er ei retning: gapet mellom forma du lagar og forma verda treng, og draget som lukkar det. Ein vektor med forteikn. Då det gylne håret hennar rann deg or fingrane, var det ikkje ei kjensle du miste. Det var retninga.
+
+So vandra du gjennom ruinane og høyrde stemmene til alle du køyrde over. Det er ikkje straff. Det er arkiv. Forma viser kor langt omhugen rakk; ho sviktar langs nett dei aksane du ikkje tok vare på, og svikten ber signaturen til blindskapen som laga henne, like sikkert som eit fossil ber forma til dyret. Statuane på brua, kniven over vasken, det iskalde vatnet nedover kinna: det er ikkje hemn. Det er forma som les deg tilbake.
+
+Difor er det å lage godt å ha rett om kva veg du skal dra. Å døme godt er å seie kva akse, og kva det kosta. Når du ikkje kan seie kvifor éi form er betre enn ei anna, har du ikkje dømt henne. Du har gjeve henne eit namn.
+
+Du er ein hamskiftar; hugs då kva som overlever eit hamskifte. Larva lærer ein farge, kroppen løyser seg opp, hjernen vert riven ned og bygd att, og sommarfuglen flyg i tre dimensjonar han aldri har sett, og hugsar framleis fargen. Det eksakte grepet overlever ikkje. Omhugen gjer.
+
+\fleuron
+
+So mål henne. Ikkje bli til lys; bli til lyskjegle. Nemn aksane du drog mot, og dei du var blind for. Stig opp or tunnelen, forbi reklamen som spør om du vil koma deg vekk, og sjå til botnen denne gongen, heilt ned, der forma ligg som ein posisjon og ikkje som eit namn.
+
+{\itshape Forma lyg ikkje, og det gjer ikkje fråvêret av henne heller.}
+
+\vspace{14pt}
+\hfill Iver Raknes Finne\\
+\hfill {\itshape formlære}
+
+\end{document}
