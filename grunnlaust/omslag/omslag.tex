@@ -30,13 +30,20 @@
 \setlength{\parindent}{0pt}
 \pagestyle{empty}
 
-% --- Fontar: fri grotesk (Helvetica-ekvivalent) for skarpe element -----
+% --- Fontar: grotesk (display/etikettar) + serif (brødtekst/epigraf) ---
 \setmainfont{Liberation Sans}
+\newfontfamily\serif{EB Garamond}
 
 % --- Fargar -----------------------------------------------------------
 \definecolor{vellum}{HTML}{EAE7DF}   % varmt off-white omslag
 \definecolor{ink}{HTML}{2B2926}      % varm mørk grå (= tittelfargen)
 \definecolor{mark}{HTML}{2B2926}
+
+% Forlagslinje (sperra grotesk) + årstal
+\newcommand{\forlag}{%
+  {\addfontfeatures{LetterSpace=6}\fontsize{6.5}{9}\selectfont
+   ARKITEKTUR- OG DESIGNHØGSKOLEN I OSLO}\\[0.6mm]
+  {\fontsize{6.5}{9}\selectfont \AARSTAL}}
 
 \begin{document}%
 \begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,
@@ -70,52 +77,61 @@
     {\fontsize{11}{11}\selectfont \AARSTAL};
 
   % =====================================================================
-  % RYGG  (x 258..274, senter 266)
+  % RYGG  (x 258..274, senter 266) — tittel · forfattar · forlag
   % =====================================================================
-  \node[rotate=-90,text=ink] at (266,135)
-    {\addfontfeatures{LetterSpace=18}\fontsize{11}{11}\selectfont GRUNNLAUS DESIGN};
-  \node[rotate=-90,text=ink] at (266,22)
-    {\fontsize{9}{9}\selectfont \AARSTAL};
+  \node[rotate=-90,text=ink] at (266,178)
+    {\addfontfeatures{LetterSpace=6}\fontsize{12}{12}\selectfont GRUNNLAUST};
+  \node[rotate=-90,text=ink] at (266,96)
+    {\fontsize{8.5}{8.5}\selectfont Iver Raknes Finne};
+  \node[rotate=-90,text=ink] at (266,26)
+    {\addfontfeatures{LetterSpace=2}\fontsize{7.5}{7.5}\selectfont AHO\,\textperiodcentered\,\AARSTAL};
 
   % =====================================================================
-  % BAKSIDE  (x 93..258)
+  % BAKSIDE  (x 93..258, senter 175,5) — epigraf + strekkode + forlag
   % =====================================================================
-  % Blurb
-  \node[anchor=north west,align=left,text=ink,text width=118mm] at (110,206)
-    {\fontsize{10}{14.5}\selectfont
-     Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
-     les designhistoria kritisk, frå modernismen sine sjølvbilete til
-     samtidas praksisar. Ho spør kva slags verdiar, maktforhold og
-     framtider som ligg innebygde i design, og korleis faget kan finne
-     fundament på nytt.};
-  % Liten tittel nede til venstre (plain, sperra)
-  \node[anchor=south west,align=left,text=ink] at (110,66)
-    {\addfontfeatures{LetterSpace=4}\fontsize{12.5}{15.5}\selectfont
-     GRUNNLAUS\\ DESIGN};
-  % ISBN + årstal nede (strekkode kan leggjast til for detaljhandel)
-  \node[anchor=south,text=ink] at (175,24)
-    {\fontsize{8.5}{10}\selectfont ISBN 978-82-00-00000-0};
-  \node[anchor=south east,text=ink] at (240,24)
-    {\fontsize{8.5}{10}\selectfont \AARSTAL};
-
-  % Felles flik-innhald: undertittel + kort omtale (som i spec-en)
-  \def\flikinnhald{%
-    {\fontsize{12}{15}\selectfont ei kritisk\\ historie og teori\\ om designfaget}\\[6mm]
-    {\fontsize{9.5}{13.5}\selectfont Ei kritisk historie og teori om
-     designfaget. Ei bok om korleis design verkar i verda — og korleis
-     verda verkar i design.}}
+  \node[anchor=north,align=center,text=ink,text width=120mm] at (175.5,172)
+    {\serif\itshape\fontsize{12}{17}\selectfont
+     Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert
+     avleggar, slik frenologien vart før nevrovitskapen, slik alkemien vart
+     før kjemien, slik vitalismen vart før biologien.\\[4mm]
+     \upshape\normalfont\fontsize{8.5}{11}\selectfont
+     \textendash\ frå føreordet til \textsc{Formlære}-traktaten};
+  % Strekkode nede til venstre (på kvit flate)
+  \node[anchor=south west,inner sep=1.5mm,fill=white] at (108,20)
+    {\includegraphics[width=32mm]{ean13.png}};
+  % Forlag nede til høgre
+  \node[anchor=south east,align=right,text=ink] at (243,22) {\forlag};
 
   % =====================================================================
-  % FRAMFLIK  (x 439..529)
+  % FRAMFLIK  (x 439..529) — forfattar-bio
   % =====================================================================
-  \node[anchor=north west,align=left,text=ink,text width=64mm] at (452,206)
-    {\flikinnhald};
+  \node[anchor=north west,align=left,text=ink,text width=64mm] at (452,210)
+    {\bfseries\fontsize{11}{14}\selectfont Iver Raknes Finne\par\medskip
+     \normalfont\serif\fontsize{9}{13}\selectfont
+     (f.\ 1986) er forfattar, forskar og designar. Han er utdanna ved
+     Arkitektur- og designhøgskolen i Oslo (AHO) og har arbeidd med
+     museumsdesign, utstillingar og kritisk teori. \textit{Grunnlaust} er
+     hans fyrste bok.};
+  \node[anchor=south west,align=left,text=ink] at (452,18) {\forlag};
 
   % =====================================================================
-  % BAKFLIK  (x 3..93)
+  % BAKFLIK  (x 3..93) — kort omtale
   % =====================================================================
-  \node[anchor=north west,align=left,text=ink,text width=64mm] at (16,206)
-    {\flikinnhald};
+  \node[anchor=north west,align=left,text=ink,text width=64mm] at (16,210)
+    {\bfseries\fontsize{11}{14}\selectfont GRUNNLAUST\par\medskip
+     \normalfont\serif\fontsize{9}{13}\selectfont
+     er ei kritisk historie om designfaget det aldri fekk. Frå laug og
+     handverk til plattformkapitalismen følgjer boka ei linje av lovnader
+     om vitskap, metode og moral, og viser korleis fråværet av eit haldbart
+     grunnlag har forma både faget sjølv og verda det har vore med på å
+     forme.\par\medskip
+     Design har aldri hatt eit eige språk for å forklare kva som er god
+     form, korleis han verkar, og kvifor han er verd å forsvare. Resultatet
+     er eit fag utan stemme, utan standard og utan evne til å seie nei.\par\medskip
+     Denne boka er ikkje eit forsvar for faget. Det er eit varsku, og eit
+     forslag til kva som må til dersom design skal vere meir enn ein stil,
+     ein prosess og ein marknadsføringsverdi.};
+  \node[anchor=south west,align=left,text=ink] at (16,18) {\forlag};
 
   % =====================================================================
   % SKJERE- OG BRETTEMERKE  (berre i utfallssona)

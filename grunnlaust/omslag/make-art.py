@@ -114,8 +114,23 @@ def lag_grunn():
     out.save(ut, dpi=(DPI, DPI))
     print(f"  art/cover-ground.png  {out.width}x{out.height}px")
 
+# --------------------------------------------------------------------------
+# EAN-13 strekkode (ISBN) — baksida
+# --------------------------------------------------------------------------
+def lag_strekkode():
+    import barcode
+    from barcode.writer import ImageWriter
+    EAN = barcode.get_barcode_class("ean13")
+    code = EAN("978829512345", writer=ImageWriter())   # 82-95123 (NO), check => ...1
+    opts = dict(module_width=0.30, module_height=13.0, font_size=8,
+                text_distance=3.0, quiet_zone=3.0, dpi=RES,
+                background="white", foreground="black", write_text=True)
+    sti = code.save(os.path.join(ART, "ean13"), options=opts)
+    print(f"  art/{os.path.basename(sti)}  (EAN-13 {code.get_fullcode()})")
+
 if __name__ == "__main__":
     print("genererer omslags-art:")
     lag_tittel()
     lag_grunn()
+    lag_strekkode()
     print("ferdig.")

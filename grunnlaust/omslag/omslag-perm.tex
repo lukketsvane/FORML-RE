@@ -37,9 +37,16 @@
 \setlength{\parindent}{0pt}
 \pagestyle{empty}
 \setmainfont{Liberation Sans}
+\newfontfamily\serif{EB Garamond}
 
 \definecolor{vellum}{HTML}{EAE7DF}
 \definecolor{ink}{HTML}{2B2926}
+
+% Forlagslinje (sperra grotesk) + årstal
+\newcommand{\forlag}{%
+  {\addfontfeatures{LetterSpace=6}\fontsize{6.5}{9}\selectfont
+   ARKITEKTUR- OG DESIGNHØGSKOLEN I OSLO}\\[0.6mm]
+  {\fontsize{6.5}{9}\selectfont \AARSTAL}}
 
 \begin{document}%
 \begin{tikzpicture}[remember picture,overlay,x=1mm,y=1mm,
@@ -90,32 +97,32 @@
   \end{scope}
 
   % =====================================================================
-  % RYGG  (senter spineMid, breidd spineW)
+  % RYGG  (senter spineMid) — tittel · forfattar · forlag
   % =====================================================================
-  \node[rotate=-90,text=ink] at (\spineMid,{\boardMid+12})
-    {\addfontfeatures{LetterSpace=18}\fontsize{11}{11}\selectfont GRUNNLAUS DESIGN};
-  \node[rotate=-90,text=ink] at (\spineMid,{\yTrimB+18})
-    {\fontsize{9}{9}\selectfont \AARSTAL};
+  \node[rotate=-90,text=ink] at (\spineMid,{\boardMid+58})
+    {\addfontfeatures{LetterSpace=6}\fontsize{12}{12}\selectfont GRUNNLAUST};
+  \node[rotate=-90,text=ink] at (\spineMid,\boardMid)
+    {\fontsize{8.5}{8.5}\selectfont Iver Raknes Finne};
+  \node[rotate=-90,text=ink] at (\spineMid,{\yTrimB+22})
+    {\addfontfeatures{LetterSpace=2}\fontsize{7.5}{7.5}\selectfont AHO\,\textperiodcentered\,\AARSTAL};
 
   % =====================================================================
   % BAKBORD — trim-origo (forkant, botn) = (xBackFore+SQUARE, yTrimB)
   % Lokale koordinatar: x 0..165 (forkant→rygg), y 0..240
   % =====================================================================
   \begin{scope}[shift={({\xBackFore+\SQUARE},\yTrimB)}]
-    \node[anchor=north west,align=left,text=ink,text width=118mm] at (17,203)
-      {\fontsize{10}{14.5}\selectfont
-       Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
-       les designhistoria kritisk, frå modernismen sine sjølvbilete til
-       samtidas praksisar. Ho spør kva slags verdiar, maktforhold og
-       framtider som ligg innebygde i design, og korleis faget kan finne
-       fundament på nytt.};
-    \node[anchor=south west,align=left,text=ink] at (17,63)
-      {\addfontfeatures{LetterSpace=4}\fontsize{12.5}{15.5}\selectfont
-       GRUNNLAUS\\ DESIGN};
-    \node[anchor=south,text=ink] at (82.5,21)
-      {\fontsize{8.5}{10}\selectfont ISBN 978-82-00-00000-0};
-    \node[anchor=south east,text=ink] at (147,21)
-      {\fontsize{8.5}{10}\selectfont \AARSTAL};
+    % Epigraf, midtstilt
+    \node[anchor=north,align=center,text=ink,text width=120mm] at (82.5,168)
+      {\serif\itshape\fontsize{12}{17}\selectfont
+       Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert
+       avleggar, slik frenologien vart før nevrovitskapen, slik alkemien vart
+       før kjemien, slik vitalismen vart før biologien.\\[4mm]
+       \upshape\normalfont\fontsize{8.5}{11}\selectfont
+       \textendash\ frå føreordet til \textsc{Formlære}-traktaten};
+    % Strekkode nede til venstre + forlag nede til høgre
+    \node[anchor=south west,inner sep=1.5mm,fill=white] at (12,20)
+      {\includegraphics[width=32mm]{ean13.png}};
+    \node[anchor=south east,align=right,text=ink] at (153,22) {\forlag};
   \end{scope}
 
   % =====================================================================
