@@ -118,10 +118,16 @@ HOYRESPEL = ("Framfør den følgjande teksten som eit innleva høyrespel — rol
 MORK = ("Les den følgjande teksten langsamt og alvorleg, som eit mørkt prosadikt — låg, dempa, "
         "intens forteljarstemme med lange pausar. Les berre sjølve teksten, ikkje denne instruksen:")
 
+KOMITE = ("Framfør den følgjande teksten som eit satirisk høyrespel — eit komitémøte som har "
+          "vart i hundre år. Tørr, roleg forteljar for skildringane; Lederen pompøs og "
+          "byråkratisk; forslagsstillarane ivrige og litt patetiske; gjer stemmene tydeleg "
+          "ulike og timinga komisk. Les berre sjølve teksten, ikkje denne instruksen:")
+
 TEKSTAR = {
     "gravgaaver": ("Charon", NARRATOR),
     "saken": ("Puck", HOYRESPEL),
     "oneida": ("Charon", MORK),
+    "grunnlaget": ("Puck", KOMITE),
 }
 
 if __name__ == "__main__":
