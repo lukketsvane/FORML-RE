@@ -25,10 +25,14 @@
 
 % Body font — the digibok is set in Sabon. EB Garamond is the closest
 % free serif with the same general feel; fall back to TeX Gyre Pagella.
+% EB Garamond sin medfølgjande feite vekt manglar æøå; AutoFakeBold
+% syntetiserer feit frå regulær-vekta (full glyfdekning) så ingen
+% norske teikn fell ut i feit tekst.
 \IfFontExistsTF{EB Garamond}{
   \setmainfont{EB Garamond}[
     Numbers={Lining,Proportional},
     SmallCapsFeatures={LetterSpace=4},
+    AutoFakeBold=2.5,
   ]
 }{
   \setmainfont{TeX Gyre Pagella}
@@ -44,13 +48,17 @@
 \usepackage{amsmath}
 
 % Math-symbol fallback font — EB Garamond lacks ∀ ∃ ∈ ⊆ ⊃ ≠ etc.,
-% so the Python preprocessor wraps them in \msym{...} which uses
-% Cambria Math (alltid present on Windows).
-\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]
+% so the Python preprocessor wraps them in \msym{...}. Trygg degradering:
+% Cambria Math (Windows) → Symbola → DejaVu Sans (alltid på Linux) → ingen.
+\IfFontExistsTF{Cambria Math}{\newfontfamily{\mathfbfont}{Cambria Math}[Scale=0.95]}{%
+  \IfFontExistsTF{Symbola}{\newfontfamily{\mathfbfont}{Symbola}[Scale=0.95]}{%
+  \IfFontExistsTF{DejaVu Sans}{\newfontfamily{\mathfbfont}{DejaVu Sans}[Scale=0.85]}{\newcommand{\mathfbfont}{}}}}
 \newcommand{\msym}[1]{{\mathfbfont #1}}
 % Pictographic-symbol fallback — for ⬢ ☉ ◇ ◐ ▲ ▽ ● ◯ ⁂ ∿ ↘ etc.
-% (BMP pictographs absent from Cambria Math).
-\newfontfamily{\picfont}{Segoe UI Symbol}[Scale=0.90]
+% Segoe UI Symbol (Windows) → Symbola → DejaVu Sans → ingen.
+\IfFontExistsTF{Segoe UI Symbol}{\newfontfamily{\picfont}{Segoe UI Symbol}[Scale=0.90]}{%
+  \IfFontExistsTF{Symbola}{\newfontfamily{\picfont}{Symbola}[Scale=0.90]}{%
+  \IfFontExistsTF{DejaVu Sans}{\newfontfamily{\picfont}{DejaVu Sans}[Scale=0.80]}{\newcommand{\picfont}{}}}}
 \newcommand{\pic}[1]{{\picfont #1}}
 
 % Headings — small caps, centred, generous spacing
@@ -490,7 +498,7 @@
 
 \textbf{2.14} Gibson [12] definerer affordanse som relasjonell; ikkje ein eigenskap ved objektet åleine, men ved objektet-i-relasjon-til-agenten. Me utvider dette til å definere klassen sjølv gjennom affordansekonstellasjonen. Proposisjonen er flytta frå kapittel 1 til kapittel 2 fordi affordansestrukturen er operasjonelt knytt til seleksjonstrykk, ikkje til den ontologiske grunnstrukturen.
 
-\textbf{2.14 (forts.)} Den semiotiske utvidinga av affordansomgrepet [56] har sin teoretiske rot i Hoffmeyer [73] si syntese av Bateson og Peirce. Hoffmeyer plasserer affordans i ei kjede objekt → mønster → teikn → tolking; Brier formaliserer dette for designkontekst. Vår bruk av «affordansestruktur» er nær Gibson [12] (objektivt relasjonell), men opnar for den semiotiske vidareføringa når klassen krev det.
+\textbf{2.14 (forts.)} Den semiotiske utvidinga av affordansomgrepet [56] har sin teoretiske rot i Hoffmeyer [73] si syntese av Bateson og Peirce. Hoffmeyer plasserer affordans i ei kjede objekt \msym{→} mønster \msym{→} teikn \msym{→} tolking; Brier formaliserer dette for designkontekst. Vår bruk av «affordansestruktur» er nær Gibson [12] (objektivt relasjonell), men opnar for den semiotiske vidareføringa når klassen krev det.
 
 \textbf{1.2} Objektet er udeleleg i den forstand at vidare dekomponering øydelegg den kausale kapasiteten me er interesserte i. Under det nivået finst det framleis fysikk; men ikkje formgjeving. Den klassiske mereologien [71] definerer atomet formelt: det utan eigne deler; vår variant er operasjonell: det utan kausalt verksame deler i den valde klassen. Distinksjonen er substansiell, ikkje terminologisk: same fysisk gjenstand kan vere atom i éin klasse og samansett i ein annan.
 
