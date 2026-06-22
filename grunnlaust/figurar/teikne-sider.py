@@ -63,11 +63,23 @@ GYLDIGE_KVALITETAR = {"low", "medium", "high", "auto"}
 # eksempelet (kort nynorsk-instruks; teksten følgjer rett etter «etc:»).
 # --------------------------------------------------------------------------
 STIL = (
-    "ut frå teksten skal du lage fleir sider i same stil som vedlagd tenk observer\n"
-    "planlegg så lagar du figurar til boka i same stil som vedlagd you only very tiny\n"
-    "and baldy written handwriting, if any at all\n\n"
-    "one page spread  at a time planlegg og lag dei neste 5 sidene. match text amount "
-    "dise fonts, header footer\netc:"
+    "Lag eit boksoppslag som ser NØYAKTIG ut som dei vedlagde referansesidene. "
+    "Tenk, observer, planlegg, så teikn.\n\n"
+    "VIKTIGAST: brødteksten nedanfor er teksten som høyrer til sida, og han SKAL "
+    "faktisk setjast som EKTE, LESELEG, korrekt stava trykt tekst i ein serif-bokfont "
+    "— ord for ord, heile teksten, same tekstmengd og spalte-/sideombrekking som ei "
+    "ekte boksside, med løpande topptekst (tittelen) og sidetal slik referansane har. "
+    "IKKJE erstatt teksten med krot, bølgjelinjer, lorem ipsum eller uleseleg tekst; "
+    "IKKJE parafraser og IKKJE kutt. Teksten skal kunne lesast.\n\n"
+    "Figurane er i Andreas Töpfer sin stil: penn-og-blekk, samanhengande svart "
+    "konturlinje på kvitt papir, ingen skugge, ingen farge, ansiktslause kroppar med "
+    "vekt og volum. Stilen er SPEKULATIV og oppfinnsam — abstrakte omgrep vert til "
+    "uventa, tankevekkjande fysiske scenar (kroppar som rom og kar, ein figur inni "
+    "ein struktur, same figur i fleire tilstandar, uvanlege perspektiv og snitt), "
+    "interessante måtar å tenkje og teikne på, aldri bokstavlege ikon. Dei står som "
+    "vignettar ved sida av og innimellom den trykte teksten, slik som i referansane. "
+    "Berre sjølve figur-etikettane er handskrivne, og då svært små og få.\n\n"
+    "Match tekstmengd, fontar, topptekst og botntekst som referansane.\n\netc:"
 )
 
 # ==========================================================================
