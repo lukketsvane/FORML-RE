@@ -119,6 +119,96 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-01-til-lesaren-dei-to-glasa": {
+      "nr": 1,
+      "kjelde": "til-lesaren-dei-to-glasa",
+      "tittel": "til lesaren — dei to glasa",
+      "ord": 442,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "7de1bce99b28",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 157.6,
+      "usage": {
+        "input_tokens": 4265,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 1097
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17607,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-02-den-falske-vara-reforma-1851": {
+      "nr": 2,
+      "kjelde": "den-falske-vara-reforma-1851",
+      "tittel": "den falske vara — reforma 1851",
+      "ord": 145,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "e910619350c5",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 128.5,
+      "usage": {
+        "input_tokens": 3808,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 640
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17150,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
+    },
+    "utsnitt-03-bauhaus-albers-og-arket": {
+      "nr": 3,
+      "kjelde": "bauhaus-albers-og-arket",
+      "tittel": "bauhaus — albers og arket",
+      "ord": 377,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "924600761c07",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 141.1,
+      "usage": {
+        "input_tokens": 4125,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 957
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17467,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
