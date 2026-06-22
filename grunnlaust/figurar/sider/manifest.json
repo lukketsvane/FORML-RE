@@ -128,22 +128,22 @@
       "modell": "gpt-image-2",
       "storleik": "3840x2160",
       "kvalitet": "high",
-      "prompt_hash": "7de1bce99b28",
+      "prompt_hash": "b55c1a82eeb3",
       "refs": [
         "IMG-4019.jpg",
         "IMG-4020.jpg",
         "IMG-4021.jpg",
         "IMG-4022.jpg"
       ],
-      "sekund": 157.6,
+      "sekund": 147.3,
       "usage": {
-        "input_tokens": 4265,
+        "input_tokens": 4255,
         "input_tokens_details": {
           "image_tokens": 3168,
-          "text_tokens": 1097
+          "text_tokens": 1087
         },
         "output_tokens": 13342,
-        "total_tokens": 17607,
+        "total_tokens": 17597,
         "output_tokens_details": {
           "image_tokens": 13342,
           "text_tokens": 0
