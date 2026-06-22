@@ -209,6 +209,36 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-04-halefinnen-steig-og-fall-utan-gr": {
+      "nr": 4,
+      "kjelde": "halefinnen-steig-og-fall-utan-gr",
+      "tittel": "halefinnen — steig og fall utan grunn",
+      "ord": 261,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "59d1ff731f59",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 131.0,
+      "usage": {
+        "input_tokens": 3987,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 819
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17329,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
