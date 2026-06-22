@@ -51,7 +51,15 @@ def tts(tekst, voice, stil):
                     response_modalities=["AUDIO"],
                     speech_config=types.SpeechConfig(voice_config=types.VoiceConfig(
                         prebuilt_voice_config=types.PrebuiltVoiceConfig(voice_name=voice)))))
-            return r.candidates[0].content.parts[0].inline_data.data
+            cand = (r.candidates or [None])[0]
+            parts = getattr(getattr(cand, "content", None), "parts", None) or []
+            for p in parts:
+                inl = getattr(p, "inline_data", None)
+                if inl and inl.data:
+                    return inl.data
+            siste = RuntimeError("tomt audiosvar")        # prøv på nytt
+            time.sleep(min(30, 5 * (forsok + 1)))
+            continue
         except Exception as e:
             siste = e
             msg = str(e)
