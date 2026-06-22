@@ -51,7 +51,7 @@ MANIFEST = UT_DIR / "manifest.json"
 # så portrett er rett — ikkje det 16:9 som code-snutten hadde. Storleiken er
 # eit flagg av di gpt-image-2 kan ta fleire mål enn gpt-image-1.
 STD_MODELL = "gpt-image-2"
-STD_STORLEIK = "3456x2304"      # normalt oppslag 3:2 (to ståande ~3:4-sider), under px-budsjettet
+STD_STORLEIK = "2304x3456"      # EI ståande side (portrett ~2:3), under px-budsjettet
 STD_KVALITET = "high"
 STD_ORD = 850                   # ~eitt oppslag ≈ to boksider tekst
 STD_UTSNITT = HER / "utsnitt.txt"   # valfrie kuraterte korte parti (--utsnitt)
@@ -80,10 +80,10 @@ STIL = (
     "ikkje parafrase. Løpande topptekst (tittelen) og sidetal som i referansane. "
     "Handskrift berre på små figur-etikettar, få og små.\n\n"
     "Lat teikninga bere meininga.\n\n"
-    "FORMAT: eit NORMALT boksoppslag — to ståande sider i vanleg bokformat (om lag "
-    "3:4 kvar) side om side, med ei tydeleg midtfals ned midten; IKKJE eit breitt "
-    "16:9-panorama. Match dei vedlagde referansesidene tett: same strekkvalitet, "
-    "tettleik, komposisjon og handskrift.\n\netc:"
+    "FORMAT: EI EINSKILD STÅANDE SIDE (portrett, om lag 2:3) — IKKJE eit oppslag, "
+    "IKKJE to sider, IKKJE liggjande. Éi bokside om gongen, med sidetal. Teksten SKAL "
+    "stå på sida som ekte leseleg trykt tekst. Match dei vedlagde referansane tett: "
+    "same strekkvalitet, tettleik, komposisjon og handskrift.\n\netc:"
 )
 
 # ==========================================================================
