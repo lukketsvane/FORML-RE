@@ -3,6 +3,41 @@
 Strek- og diagram-illustrasjonar til boka, med transparent bakgrunn og
 trimma til motivet (ingen tom monn).
 
+## Heilside-oppslag med OpenAI (`teikne-sider.py`)
+
+Genererer **oppslag** (to sider side om side, liggjande) i penn-og-blekk-stilen
+til Andreas Töpfer (Avanessian-bøkene) via `gpt-image-2`, ut frå det fungerande
+prompt-eksempelet: kort nynorsk-instruks + eit oppslag av bokteksten (≈ to
+boksider), med stilreferansar sende med på kvart kall. Lite/inga handskrift —
+men brødtekst, header/footer og figurar som eit ekte boksoppslag.
+
+```sh
+pip install -r requirements.txt           # openai + Pillow + numpy
+export OPENAI_API_KEY=sk-...
+
+# 1) legg 1–6 stilreferansar i  stil-referansar/  (t.d. IMG_4017.jpeg)
+# 2) sjå planen utan å kalle APIet (gratis):
+python3 teikne-sider.py --proev
+# 3) skriv ut ferdige kall til å lime inn sjølv (ingen API-kall):
+python3 teikne-sider.py --kode --fraa 2 --grense 5
+# 4) eller automatiser heile boka (eitt kall per oppslag, gjenoppstartbart):
+python3 teikne-sider.py                   # alle oppslag
+python3 teikne-sider.py --grense 1        # berre det fyrste (test)
+```
+
+- **Oppslag frå boka** (standard): `del_i_oppslag` deler `src/*.tex` i
+  oppslag på ~`--ord` ord (std 850 ≈ to sider) i `\input`-rekkjefølgja frå
+  `grunnlaust.tex`; for små halar blir slegne inn i førre oppslag.
+- **`--kode`**: skriv ut `client.images.edits(...)`-kall (eitt per oppslag) i
+  same form som det fungerande eksempelet — til å lime inn der du vil.
+- **`--utsnitt FIL`**: valfri kurert liste med korte parti (`utsnitt.txt`).
+- Idempotent (hoppar over ferdige sider; `--paa-nytt` tvingar). Flagg:
+  `--modell --storleik --kvalitet --ref-fil --berre --fraa --grense --ut`.
+- Utdata: `sider/*.png` + `sider/manifest.json` (PNG-ane er git-ignorerte).
+
+NB: eit oppslag er liggjande, difor `size="3840x2160"`. Sjølve køyringa brukar
+`client.images.edit` (eintal — `images.edits` finst ikkje i SDK-en).
+
 ## Reprosessering
 
 ```sh

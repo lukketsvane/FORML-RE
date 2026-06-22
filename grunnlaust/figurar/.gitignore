@@ -1,0 +1,10 @@
+__pycache__/
+
+# Genererte sider frå teikne-sider.py (regenererbare; spor manifestet, ikkje PNG-ane)
+sider/*.png
+
+# Stilreferansar lagde inn lokalt (kan vere opphavsrettsverna) — hald dei utanfor git
+stil-referansar/*.jpg
+stil-referansar/*.jpeg
+stil-referansar/*.png
+stil-referansar/*.webp
