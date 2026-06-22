@@ -1,0 +1,4 @@
+# Til teikne-sider.py (OpenAI-biletgenerering) og fjern-bakgrunn.py
+openai>=1.40
+Pillow>=10.0
+numpy>=1.24

@@ -3,6 +3,36 @@
 Strek- og diagram-illustrasjonar til boka, med transparent bakgrunn og
 trimma til motivet (ingen tom monn).
 
+## Heilside-teikningar med OpenAI (`teikne-sider.py`)
+
+Genererer heilside-illustrasjonar i penn-og-blekk-stilen til Andreas Töpfer
+(Avanessian-bøkene) via `gpt-image-2` (`client.images.edit`), med teksten frå
+boka som brief. Lite tekst per side — teikninga tek over storparten av sida.
+
+```sh
+pip install -r requirements.txt           # openai + Pillow + numpy
+export OPENAI_API_KEY=sk-...
+
+# 1) legg 3–6 stilreferansar i  stil-referansar/  (sjå mappa sin README)
+# 2) sjå planen utan å kalle APIet (gratis):
+python3 teikne-sider.py --proev
+# 3) lag teikningane for dei kuraterte utsnitta i  utsnitt.txt :
+python3 teikne-sider.py                   # eitt utsnitt = éi teikning
+python3 teikne-sider.py --grense 1        # berre den fyrste (test)
+```
+
+- **Kuraterte utsnitt** (føretrekt): `utsnitt.txt` — korte, sterke parti, eitt
+  per teikning. Format: blokker skilde med `===`, valfri `@ etikett`-linje.
+- **Autokutt** (heile boka): `--auto` deler `src/*.tex` i korte oppslag
+  (`--ord N`, std 200) i `\input`-rekkjefølgja frå `grunnlaust.tex`.
+- Idempotent (hoppar over ferdige sider; `--paa-nytt` tvingar). Flagg:
+  `--modell --storleik --kvalitet --input-fidelity --berre --fraa --ut`.
+- Utdata: `sider/*.png` + `sider/manifest.json` (PNG-ane er git-ignorerte).
+
+NB: `images.edit` (eintal) er rett metode; `moderation` finst berre på
+`generate`. Boktrimmet er 165×240 mm, så storleiken er ståande (portrett),
+ikkje 16:9.
+
 ## Reprosessering
 
 ```sh
