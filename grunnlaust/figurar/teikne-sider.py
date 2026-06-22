@@ -337,28 +337,31 @@ def lag_klient():
 
 
 def kall_med_backoff(klient, **kw):
-    """images.edit med eksponentiell backoff på forbigåande feil."""
+    """images.edit med backoff; ventar lenge nok på 429 (rate limit per minutt)."""
     from openai import APIError, APIConnectionError, RateLimitError
-    forseinking = 2.0
     siste = None
-    for forsok in range(5):
+    for forsok in range(9):
         opne = [open(p, "rb") for p in kw["_refs"]]
         try:
             argv = {k: v for k, v in kw.items() if not k.startswith("_")}
             return klient.images.edit(image=opne, **argv)
-        except (APIConnectionError, RateLimitError) as e:
+        except RateLimitError as e:
             siste = e
-            if forsok == 4:
+            if forsok == 8:
                 break
-            time.sleep(forseinking)
-            forseinking *= 2
+            m = re.search(r"try again in ([0-9.]+)s", str(getattr(e, "message", e)) or "")
+            time.sleep(float(m.group(1)) + 2 if m else min(70, 10 * (forsok + 1)))
+        except APIConnectionError as e:
+            siste = e
+            if forsok == 8:
+                break
+            time.sleep(min(30, 2 ** forsok))
         except APIError as e:
             # 5xx er forbigåande; 4xx er reell (feil parameter osv.) -> stogg
             status = getattr(e, "status_code", None)
-            if status and 500 <= status < 600 and forsok < 4:
+            if status and 500 <= status < 600 and forsok < 8:
                 siste = e
-                time.sleep(forseinking)
-                forseinking *= 2
+                time.sleep(min(30, 2 ** forsok))
                 continue
             raise
         finally:
