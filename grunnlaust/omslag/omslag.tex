@@ -34,7 +34,7 @@
 \setmainfont{Liberation Sans}
 
 % --- Fargar -----------------------------------------------------------
-\definecolor{vellum}{HTML}{E6E3DC}   % varmt off-white omslag
+\definecolor{vellum}{HTML}{EAE7DF}   % varmt off-white omslag
 \definecolor{ink}{HTML}{2B2926}      % varm mørk grå (= tittelfargen)
 \definecolor{mark}{HTML}{2B2926}
 
@@ -57,10 +57,10 @@
   % =====================================================================
   % FRAMSIDE  (x 274..439)
   % =====================================================================
-  % Frosta display-tittel (venstrejustert, litt over midten)
+  % Frosta display-tittel (GRUNN/DESIGN venstre, LAUS høgre, litt over midten)
   \node[anchor=north west] at (286,188) {\includegraphics[width=141mm]{title-frost.png}};
-  % Undertittel — liten, i kvitrommet til høgre for «LAUS»
-  \node[anchor=north west,align=left,text=ink] at (372,150)
+  % Undertittel — liten, i kvitrommet til venstre for «LAUS»
+  \node[anchor=north west,align=left,text=ink] at (290,140)
     {\fontsize{10.5}{13}\selectfont ei kritisk\\ historie og teori\\ om designfaget};
   % Årstal nede til høgre
   \node[anchor=south east,text=ink] at (422,26)
@@ -78,52 +78,41 @@
   % BAKSIDE  (x 93..258)
   % =====================================================================
   % Blurb
-  \node[anchor=north west,align=left,text=ink,text width=120mm] at (110,206)
+  \node[anchor=north west,align=left,text=ink,text width=118mm] at (110,206)
     {\fontsize{10}{14.5}\selectfont
      Design formar kvardagen vår, men faget er aldri nøytralt. Denne boka
-     les heile designhistoria, frå laugshandverket til
-     overvakingskapitalismen, mot håra: som soga om eit fag som gong på
-     gong lova seg sjølv eit fundament og kvar gong leverte noko anna, ein
-     stil, ein metode, ein pedagogikk, ein prosess, eit varemerke.\\[2mm]
-     Diagnosen blir ikkje hamra inn, men lesen ut av \emph{fråværa} (ingen
-     felles etikk, metode eller fagspråk) og \emph{skadane} (den planlagde
-     foreldinga, eingongskulturen, ekstraksjonen). Ei kritisk historie og
-     teori om designfaget, og om kva eit fag utan grunn kostar.};
-  % Liten tittel nede til venstre
-  \node[anchor=south west,align=left,text=ink] at (110,70)
-    {\addfontfeatures{LetterSpace=4}\fontsize{13}{15}\selectfont
-     \textbf{GRUNNLAUS}\\ \textbf{DESIGN}};
-  % Forlag nede til venstre, under tittelen
-  \node[anchor=south west,text=ink] at (110,46)
-    {\fontsize{8.5}{11}\selectfont Arkitektur- og designhøgskolen i Oslo};
-  % Strekkode (EAN-13) nede til høgre, på kvit flate
-  \node[anchor=south east,inner sep=2mm,fill=white] at (244,24)
-    {\includegraphics[width=34mm]{ean13.png}};
+     les designhistoria kritisk, frå modernismen sine sjølvbilete til
+     samtidas praksisar. Ho spør kva slags verdiar, maktforhold og
+     framtider som ligg innebygde i design, og korleis faget kan finne
+     fundament på nytt.};
+  % Liten tittel nede til venstre (plain, sperra)
+  \node[anchor=south west,align=left,text=ink] at (110,66)
+    {\addfontfeatures{LetterSpace=4}\fontsize{12.5}{15.5}\selectfont
+     GRUNNLAUS\\ DESIGN};
+  % ISBN + årstal nede (strekkode kan leggjast til for detaljhandel)
+  \node[anchor=south,text=ink] at (175,24)
+    {\fontsize{8.5}{10}\selectfont ISBN 978-82-00-00000-0};
+  \node[anchor=south east,text=ink] at (240,24)
+    {\fontsize{8.5}{10}\selectfont \AARSTAL};
+
+  % Felles flik-innhald: undertittel + kort omtale (som i spec-en)
+  \def\flikinnhald{%
+    {\fontsize{12}{15}\selectfont ei kritisk\\ historie og teori\\ om designfaget}\\[6mm]
+    {\fontsize{9.5}{13.5}\selectfont Ei kritisk historie og teori om
+     designfaget. Ei bok om korleis design verkar i verda — og korleis
+     verda verkar i design.}}
 
   % =====================================================================
   % FRAMFLIK  (x 439..529)
   % =====================================================================
   \node[anchor=north west,align=left,text=ink,text width=64mm] at (452,206)
-    {\fontsize{9.5}{13.5}\selectfont
-     \textsc{Grunnlaus Design} fortel heile designhistoria, frå
-     handverkslauget til plattformselskapa som lever av merksemda di, men
-     les henne som soga om eit fag som aldri fann fundamentet det heile
-     tida lova seg sjølv.\\[2mm]
-     Boka gjev deg ikkje konklusjonen, men brillene: fråværa og skadane.
-     Det historiske motstykket til den aksiomatiske traktaten
-     \textsc{Formlære} i same prosjekt.};
+    {\flikinnhald};
 
   % =====================================================================
-  % BAKFLIK  (x 3..93) — forfattar / impressum
+  % BAKFLIK  (x 3..93)
   % =====================================================================
   \node[anchor=north west,align=left,text=ink,text width=64mm] at (16,206)
-    {\fontsize{9.5}{13.5}\selectfont
-     \textbf{Iver Raknes Finne}\\[1mm]
-     Arkitektur- og designhøgskolen i Oslo\\[6mm]
-     Hovudlærebok i kritisk designhistorie, og den historiske tvillingen
-     til \textsc{Formlære}-traktaten: der traktaten legg fram fundamentet i
-     aksiomatisk form, fortel denne boka historia som påviser fråvêret av
-     eitt.};
+    {\flikinnhald};
 
   % =====================================================================
   % SKJERE- OG BRETTEMERKE  (berre i utfallssona)

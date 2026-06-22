@@ -8,16 +8,15 @@ Trykkjeklar smussomslag-spreidning (dust jacket) for boka.
 make            # python3 make-art.py  →  xelatex omslag.tex  →  omslag.pdf
 ```
 
-Krev `xelatex` og `python3` med `Pillow` + `python-barcode`
-(`pip install Pillow python-barcode`).
+Krev `xelatex` og `python3` med `Pillow` (`pip install Pillow`).
 
 ## Filer
 
 - `omslag.tex` — spreidninga: bakflik · bakside · rygg · framside · framflik,
   med 3 mm utfall og skjere-/brettemerke. Alle mål i parameterblokka øvst.
-- `make-art.py` — genererer rasterelementa: den frosta display-tittelen
-  (ekte gaussisk uskarpleik, Pillow) og EAN-13-strekkoden.
-- `art/` — generert (title-frost.png, ean13.png).
+- `make-art.py` — genererer den frosta display-tittelen GRUNN / LAUS / DESIGN
+  (ekte gaussisk uskarpleik, Pillow; GRUNN/DESIGN venstrestilt, LAUS høgrestilt).
+- `art/` — generert (title-frost.png).
 
 ## Mål og parametrar (i `omslag.tex`)
 
@@ -31,7 +30,8 @@ Krev `xelatex` og `python3` med `Pillow` + `python-barcode`
 
 ## Ting å stadfeste før trykk
 
-- **ISBN** (`978-82-9561-84-7`) er eit plasshaldar; byt ut i `make-art.py`.
+- **ISBN** er plasshaldar (`978-82-00-00000-0`); set inn det endelege.
+  Skal boka i detaljhandel, legg til EAN-13-strekkode på baksida.
 - **Ryggbreidd** avheng av endeleg papir og innbinding.
 - **Display-fonten** er Liberation Sans Bold (fri Helvetica-ekvivalent);
   byt til den lisensierte grotesken før endeleg trykk om ynskjeleg.
