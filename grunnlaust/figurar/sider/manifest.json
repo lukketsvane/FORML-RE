@@ -299,6 +299,36 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-07-natta-spelautomaten-i-lomma": {
+      "nr": 7,
+      "kjelde": "natta-spelautomaten-i-lomma",
+      "tittel": "natta — spelautomaten i lomma",
+      "ord": 133,
+      "modell": "gpt-image-2",
+      "storleik": "3840x2160",
+      "kvalitet": "high",
+      "prompt_hash": "8afb0b9f632b",
+      "refs": [
+        "IMG-4019.jpg",
+        "IMG-4020.jpg",
+        "IMG-4021.jpg",
+        "IMG-4022.jpg"
+      ],
+      "sekund": 144.2,
+      "usage": {
+        "input_tokens": 3779,
+        "input_tokens_details": {
+          "image_tokens": 3168,
+          "text_tokens": 611
+        },
+        "output_tokens": 13342,
+        "total_tokens": 17121,
+        "output_tokens_details": {
+          "image_tokens": 13342,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
