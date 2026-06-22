@@ -154,6 +154,37 @@
           "text_tokens": 0
         }
       }
+    },
+    "utsnitt-06-poda-som-flytta-design-thinking": {
+      "nr": 6,
+      "kjelde": "poda-som-flytta-design-thinking",
+      "tittel": "poda som flytta — design thinking",
+      "ord": 119,
+      "modell": "gpt-image-2",
+      "storleik": "2304x3456",
+      "kvalitet": "high",
+      "prompt_hash": "a63a149fe4be",
+      "refs": [
+        "IMG-4009.jpg",
+        "IMG-4015.jpg",
+        "IMG-4016.jpg",
+        "IMG-4019.jpg",
+        "IMG-4020.jpg"
+      ],
+      "sekund": 142.7,
+      "usage": {
+        "input_tokens": 4692,
+        "input_tokens_details": {
+          "image_tokens": 3936,
+          "text_tokens": 756
+        },
+        "output_tokens": 15303,
+        "total_tokens": 19995,
+        "output_tokens_details": {
+          "image_tokens": 15303,
+          "text_tokens": 0
+        }
+      }
     }
   }
 }
