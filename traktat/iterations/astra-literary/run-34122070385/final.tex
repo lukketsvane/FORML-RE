@@ -1,0 +1,60 @@
+```latex
+\silentchapter{Proposisjonar}{proposisjonar}
+
+\begin{widebody}
+\footnotesize
+\textit{d} står for definisjon, \textit{a} for postulat, \textit{t} for teorem, \textit{o} for observasjon, \textit{i} for illustrasjon. Kvart merke fortel korleis proposisjonen er vunne, ikkje kva den er verd.
+\end{widebody}
+
+\vspace{6mm}
+
+\mainprop{1}{}{Alt som finst, finst som ein bestemt samanheng mellom avgrensa delar.}
+  \prop{1.1}{d}{Eit \textbf{objekt} er ein del som kan inngå i ei samanheng utan sjølv å bli delt vidare.}
+  \prop{1.2}{d}{Ein \textbf{konfigurasjon} er ei bestemt samanheng mellom eit avgrensa sett objekt.}
+  \prop{1.3}{d}{\textbf{Forma} til ein konfigurasjon er mønsteret av samanhengar mellom objekta, uavhengig av kva objekt som fyller kvar plass.}
+    \prop{1.31}{t}{To konfigurasjonar med same objekt, men ulikt mønster, har ulik form.}
+    \prop{1.32}{t}{To konfigurasjonar med ulike objekt, men same mønster, har same form.}
+  \prop{1.4}{t}{Forma kan gå att i fleire konfigurasjonar. Kvar konfigurasjon finst likevel berre éin gong.}
+
+\flowchapter{2 Ein regel for å byte ut ein del}{ein regel for aa byte ut ein del}
+\mainprop{2}{}{Éin konfigurasjon kan bli til ein annan ved at ein avgrensa del av han vert bytt ut, medan resten står urørt.}
+  \prop{2.1}{d}{Ein \textbf{formingsregel} er ein fast operasjon: han peikar ut ein del av ein konfigurasjon og byter han med ein annan del.}
+  \prop{2.2}{t}{Brukt gjentekne gonger frå ein gjeven konfigurasjon når éin eller fleire formingsreglar fram til eit heilt sett andre konfigurasjonar. Dette settet er \textbf{feltet} til konfigurasjonen.}
+  \prop{2.3}{d}{Ein konfigurasjon er \textbf{framstilt} når han faktisk er bytt fram til.}
+    \prop{2.31}{d}{Ein konfigurasjon er \textbf{nåbar} for eit gjeve sett formingsreglar når han ligg i feltet til ein framstilt konfigurasjon, utan sjølv å vere det.}
+    \prop{2.32}{d}{Ein konfigurasjon er \textbf{ikkje nåbar} for eit gjeve sett formingsreglar når ingen av dei, brukt kor mange gonger som helst, når fram til han.}
+    \prop{2.33}{t}{2.31 og 2.32 nemner formingsreglane i sjølve definisjonen. At noko er ikkje nåbart, seier difor ikkje noko om konfigurasjonen åleine — det seier at desse reglane ikkje når han.}
+    \prop{2.34}{t}{Vert objekta feltet er utrekna frå bytte ut eller endra, oppstår eit nytt felt med sine eigne nåbare og ikkje-nåbare konfigurasjonar. Det gamle feltet held opp å gjelde.}
+
+\flowchapter{3 Vekt og stabile punkt}{vekt og stabile punkt}
+\mainprop{3}{}{Innanfor det nåbare når ikkje alle konfigurasjonar fram på like mange måtar.}
+  \prop{3.1}{d}{\textbf{Vekta} til ein konfigurasjon er talet på uavhengige kjeder av formingsregel-bruk, rekna frå ulike framstilte konfigurasjonar, som endar i han.}
+  \prop{3.2}{d}{Eit \textbf{stabilt punkt} er ein konfigurasjon der ingen tilgjengeleg formingsregel fører til høgare vekt.}
+    \prop{3.21}{o}{Kjeder greinar seg. Eit felt har difor ofte fleire stabile punkt, ikkje eitt.}
+
+\flowchapter{4 Vekta endrar seg}{vekta endrar seg}
+\mainprop{4}{}{Kvar gong ein konfigurasjon vert framstilt, endrar det vekta til andre konfigurasjonar i feltet.}
+  \prop{4.1}{t}{Ein ny framstilling legg til minst éi kjede for alt ho når fram til.}
+  \prop{4.2}{t}{Vekta som møter neste framstilling er difor alltid vekta etter dei føregåande. Kvar framstilling arvar ei rekning og legg til si eiga.}
+    \prop{4.21}{o}{Endringa kan vere umerkeleg lenge — og så, brått, flytte det stabile punktet.}
+
+\flowchapter{5 Agentar held ein del stabil}{agentar held ein del stabil}
+\mainprop{5}{}{Nokre konfigurasjonar brukar sjølve formingsreglar for å halde ein avgrensa del av seg stabil.}
+  \prop{5.1}{d}{Ein \textbf{agent} er ein konfigurasjon med ein avgrensa del, den \textbf{halden delen}, som han held lik seg sjølv ved å bruke formingsreglar på resten av seg.}
+    \prop{5.11}{d}{\textbf{Avviket} til ein agent er skilnaden mellom halden del og resten — den skilnaden agenten arbeider for å minske.}
+  \prop{5.2}{d}{\textbf{Rekkevidda} til ein agent er den delen av feltet formingsreglane hans kan nå.}
+  \prop{5.3}{t}{Ein agent bruker formingsreglar på nytt for kvar framstilling. Ingen halden del er stabil av seg sjølv.}
+  \prop{5.4}{d}{\textbf{Tilgjenget} til ein konfigurasjon, for ein gjeven agent, er dei formingsreglane konfigurasjonen let akkurat den agenten bruke — fastsett av rekkevidda hans åleine, ikkje av kva den halden delen er retta mot. To agentar med same halden del, men ulik rekkevidd, kan difor få ulikt tilgjenge frå same konfigurasjon.}
+
+\flowchapter{6 Grensa for vekt}{grensa for vekt}
+\mainprop{6}{}{Ingen framstilt konfigurasjon er endeleg.}
+  \prop{6.1}{t}{Sidan framstilling endrar vekt, er eit stabilt punkt stabilt berre inntil neste framstilling.}
+  \prop{6.2}{t}{Fleire kjeder kan nå same punkt utan å kjenne kvarandre, utan at agentane bak dei har rekkevidd til kvarandre sine kjeder. Om eit punkt er stabilt, avgjer vekta åleine — ikkje kven som når det, eller korleis.}
+
+\flowchapter{7 Ringen sluttar seg}{ringen sluttar seg}
+\mainprop{7}{}{Denne teksten er sjølv ein konfigurasjon: framstilt ved at formingsreglar er bytt ut, ledd for ledd, i tidlegare utkast.}
+  \prop{7.1}{t}{Ein konfigurasjon har rekkevidd berre gjennom ein agent (5.2). Teksten åleine har inga; ho får rekkevidd berre gjennom den som les henne, og då er det lesarens rekkevidd, ikkje teksten sin.}
+  \prop{7.2}{o}{Det som ikkje er nått, er ikkje sagt.}
+  \prop{7.3}{i}{Alt som finst for denne teksten, er det som ligg i rekkevidda ho får låna. Resten finst — men ikkje for henne.}
+```
+
