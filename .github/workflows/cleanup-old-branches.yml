@@ -1,0 +1,30 @@
+name: Cleanup old branches
+on:
+  push:
+    paths:
+      - '.github/workflows/cleanup-old-branches.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Delete verified obsolete branches
+        run: |
+          set -euo pipefail
+          branches=(
+            'CODEX'
+            'claude/design-education-book-yt56qr'
+            'claude/trusting-clarke-fqb7nn'
+          )
+          for b in "${branches[@]}"; do
+            if git ls-remote --exit-code --heads origin "$b" >/dev/null 2>&1; then
+              git push origin --delete "$b"
+            else
+              echo "Already absent: $b"
+            fi
+          done
