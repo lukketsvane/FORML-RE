@@ -1,0 +1,62 @@
+name: Sync Astra Literary Iteration
+on:
+  push:
+    paths:
+      - '.github/workflows/sync-astra-literary.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Wait for Astra literary benchmark
+        env:
+          SOURCE_RUN: '34122070385'
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 180); do
+            json=$(curl -fsSL \
+              -H 'Accept: application/vnd.github+json' \
+              -H 'X-GitHub-Api-Version: 2022-11-28' \
+              "https://api.github.com/repos/lukketsvane/claude.workspace/actions/runs/$SOURCE_RUN")
+            status=$(printf '%s' "$json" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("status",""))')
+            conclusion=$(printf '%s' "$json" | python3 -c 'import json,sys; print(json.load(sys.stdin).get("conclusion") or "")')
+            if [ "$status" = completed ]; then
+              test "$conclusion" = success
+              exit 0
+            fi
+            sleep 30
+          done
+          echo 'Benchmark did not complete inside sync window' >&2
+          exit 1
+
+      - name: Fetch permanent Astra outputs
+        env:
+          SOURCE_RUN: '34122070385'
+        run: |
+          set -euo pipefail
+          base='https://raw.githubusercontent.com/lukketsvane/claude.workspace/main/astra-literary/latest'
+          out='traktat/iterations/astra-literary/latest'
+          runout="traktat/iterations/astra-literary/run-${SOURCE_RUN}"
+          mkdir -p "$out" "$runout"
+          for file in final.tex final-judge.md literary-critique.md provenance.txt; do
+            curl -fsSL "$base/$file" -o "$out/$file"
+            cp "$out/$file" "$runout/$file"
+          done
+
+      - name: Commit Astra response archive
+        run: |
+          set -euo pipefail
+          git config user.name 'astra-literary-bot'
+          git config user.email '41840333+lukketsvane@users.noreply.github.com'
+          git add traktat/iterations/astra-literary
+          if ! git diff --cached --quiet; then
+            git commit -m 'archive Astra literary tractatus iteration'
+            git push origin HEAD:main
+          fi
