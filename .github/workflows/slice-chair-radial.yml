@@ -1,0 +1,204 @@
+name: Slice Chair Radial P1S ABS A3
+
+on:
+  push:
+    branches: [tmp-slice-chair-radial-20260907]
+    paths:
+      - '.github/workflows/slice-chair-radial.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  slice:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reconstruct chair STL
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat tmp_slice_chair/input_00.b64 \
+              tmp_slice_chair/input_01_02.b64 \
+              tmp_slice_chair/input_03_04.b64 \
+              tmp_slice_chair/input_05_06.b64 \
+              tmp_slice_chair/input_07_08.b64 \
+              tmp_slice_chair/input_09_10.b64 > /tmp/chair.b64
+          base64 -d /tmp/chair.b64 > /tmp/chair.stl.gz
+          echo '51fa77db81b0a1005b60adc0612da2fe54c0a514d599400f6f230f559cd61fa6  /tmp/chair.stl.gz' | sha256sum -c -
+          gzip -dc /tmp/chair.stl.gz > /tmp/chair.stl
+          echo '6acd96efc637f91fa14b618cf08a3481b1154d1b1155648d7dbf1dedf46bcabf  /tmp/chair.stl' | sha256sum -c -
+
+      - name: Install Bambu Studio runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgl1 libegl1 libxkbcommon-x11-0 libwebkit2gtk-4.0-37 libgtk-3-0
+          curl -L --fail --retry 3 -o /tmp/BambuStudio.AppImage 'https://github.com/bambulab/BambuStudio/releases/download/v02.08.02.61/BambuStudio_ubuntu22.04-v02.08.02.61-20260820225108.AppImage'
+          echo '69426a59682574591590f51c913d3889baa19252d1c8e9fcae2497eb0ed6bf92  /tmp/BambuStudio.AppImage' | sha256sum -c -
+          chmod +x /tmp/BambuStudio.AppImage
+          cd /tmp
+          ./BambuStudio.AppImage --appimage-extract >/dev/null
+
+      - name: Build strong P1S ABS profiles
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          import json
+          from pathlib import Path
+
+          roots = list(Path('/tmp/squashfs-root').rglob('resources/profiles/BBL'))
+          if not roots:
+              raise SystemExit('BBL profile root not found')
+          root = roots[0]
+          entries = {}
+          for p in root.rglob('*.json'):
+              try:
+                  d = json.loads(p.read_text())
+              except Exception:
+                  continue
+              n = d.get('name')
+              if n and n not in entries:
+                  entries[n] = (d, p)
+
+          def flatten(name, stack=()):
+              if name not in entries:
+                  raise KeyError(f'profile not found: {name}')
+              if name in stack:
+                  raise RuntimeError('profile inheritance loop: ' + ' -> '.join(stack + (name,)))
+              d = entries[name][0]
+              out = {}
+              inc = d.get('include')
+              if isinstance(inc, str): inc = [inc]
+              if isinstance(inc, list):
+                  for parent in inc:
+                      if parent in entries:
+                          out.update(flatten(parent, stack + (name,)))
+              parent = d.get('inherits')
+              if isinstance(parent, str) and parent in entries:
+                  out.update(flatten(parent, stack + (name,)))
+              out.update(d)
+              out.pop('include', None)
+              out.pop('inherits', None)
+              return out
+
+          machine = flatten('Bambu Lab P1S 0.4 nozzle')
+          process = flatten('0.20mm Standard @BBL X1C')
+          filament = flatten('Generic ABS @base')
+
+          machine['from'] = 'User'
+          machine['instantiation'] = 'true'
+          process.update({
+              'name': '0.20mm Chair Strong P1S',
+              'from': 'User', 'instantiation': 'true',
+              'wall_loops': '5',
+              'sparse_infill_density': '10%',
+              'sparse_infill_pattern': 'gyroid',
+              'top_shell_layers': '6',
+              'bottom_shell_layers': '6',
+              'brim_type': 'outer_only',
+              'brim_width': '8',
+              'wall_generator': 'arachne',
+              'enable_support': '0'
+          })
+          filament.update({
+              'name': 'Generic ABS Black A3',
+              'from': 'User', 'instantiation': 'true',
+              'filament_colour': ['#000000']
+          })
+          # Remove compatibility gates from the generic filament only; its
+          # inherited temperatures/flow remain the official BBL Generic ABS values.
+          filament.pop('compatible_printers', None)
+          filament.pop('compatible_printers_condition', None)
+
+          for fn, data in [('machine.json', machine), ('process.json', process), ('filament.json', filament)]:
+              Path('/tmp/' + fn).write_text(json.dumps(data, indent=2))
+          print('profile root:', root)
+          print('machine keys:', len(machine), 'process keys:', len(process), 'filament keys:', len(filament))
+          PY
+
+      - name: Slice with official Bambu Studio
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd /tmp
+          xvfb-run -a /tmp/squashfs-root/AppRun \
+            --arrange 1 \
+            --load-settings '/tmp/machine.json;/tmp/process.json' \
+            --load-filaments '/tmp/filament.json' \
+            --slice 0 \
+            --export-3mf /tmp/Chair_radial_1-7_P1S_ABS_A3_STRONG.3mf \
+            /tmp/chair.stl
+          test -s /tmp/Chair_radial_1-7_P1S_ABS_A3_STRONG.3mf
+
+      - name: Force AMS A3 and validate sliced package
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          import hashlib, re, shutil, zipfile
+          from pathlib import Path
+
+          src = Path('/tmp/Chair_radial_1-7_P1S_ABS_A3_STRONG.3mf')
+          dst = Path('/tmp/Chair_radial_1-7_P1S_ABS_A3_STRONG.gcode.3mf')
+          work = Path('/tmp/patch3mf')
+          if work.exists(): shutil.rmtree(work)
+          work.mkdir()
+          with zipfile.ZipFile(src) as z:
+              z.extractall(work)
+          gp = work/'Metadata/plate_1.gcode'
+          if not gp.exists():
+              raise SystemExit('ERROR: Bambu Studio did not embed Metadata/plate_1.gcode')
+          g = gp.read_text(errors='replace')
+          # Force the single material to AMS-A slot 3 (zero-based tray index 2).
+          start_end = g.find('; MACHINE_START_GCODE_END')
+          if start_end < 0: start_end = min(len(g), 30000)
+          head, tail = g[:start_end], g[start_end:]
+          n1 = head.count('M620 S0A')
+          n2 = len(re.findall(r'(?m)^\s*T0\s*$', head))
+          n3 = head.count('M621 S0A')
+          head = head.replace('M620 S0A', 'M620 S2A')
+          head = re.sub(r'(?m)^(\s*)T0(\s*)$', r'\1T2\2', head)
+          head = head.replace('M621 S0A', 'M621 S2A')
+          if not (n1 and n2 and n3):
+              raise SystemExit(f'ERROR: could not locate AMS startup mapping: {n1=}, {n2=}, {n3=}')
+          gp.write_text(head + tail)
+          md5 = hashlib.md5(gp.read_bytes()).hexdigest()
+          (work/'Metadata/plate_1.gcode.md5').write_text(md5)
+
+          with zipfile.ZipFile(dst, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=6) as z:
+              for p in work.rglob('*'):
+                  if p.is_file(): z.write(p, p.relative_to(work).as_posix())
+
+          with zipfile.ZipFile(dst) as z:
+              names = set(z.namelist())
+              required = {'Metadata/plate_1.gcode','Metadata/plate_1.gcode.md5','Metadata/slice_info.config','Metadata/project_settings.config'}
+              miss = required - names
+              if miss: raise SystemExit('ERROR missing sliced members: ' + repr(miss))
+              gg = z.read('Metadata/plate_1.gcode')
+              stored = z.read('Metadata/plate_1.gcode.md5').decode().strip()
+              if hashlib.md5(gg).hexdigest() != stored: raise SystemExit('ERROR gcode MD5 mismatch')
+              txt = gg.decode(errors='replace')
+              assert 'M620 S2A' in txt and re.search(r'(?m)^\s*T2\s*$', txt) and 'M621 S2A' in txt
+              assert 'machine: P1S-0.4' in txt
+              si = z.read('Metadata/slice_info.config').decode(errors='replace')
+              pred = re.search(r'key="prediction"\s+value="([0-9.]+)"', si)
+              weight = re.search(r'key="weight"\s+value="([0-9.]+)"', si)
+              if not pred or float(pred.group(1)) <= 1: raise SystemExit('ERROR: no real print-time prediction')
+              if not weight or float(weight.group(1)) <= 0: raise SystemExit('ERROR: no real filament weight')
+              print('prediction_sec=', pred.group(1), 'weight_g=', weight.group(1), 'size=', dst.stat().st_size)
+          PY
+          cp /tmp/Chair_radial_1-7_P1S_ABS_A3_STRONG.gcode.3mf "$GITHUB_WORKSPACE/Chair_radial_1-7_P1S_ABS_A3_STRONG.gcode.3mf"
+
+      - name: Upload print-ready 3MF
+        uses: actions/upload-artifact@v4
+        with:
+          name: chair-radial-p1s-abs-a3
+          path: Chair_radial_1-7_P1S_ABS_A3_STRONG.gcode.3mf
+          if-no-files-found: error
+          retention-days: 7
