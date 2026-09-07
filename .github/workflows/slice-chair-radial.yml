@@ -28,7 +28,7 @@ jobs:
               tmp_slice_chair/input_07_08.b64 \
               tmp_slice_chair/input_09_10.b64 > /tmp/chair.b64
           base64 -d /tmp/chair.b64 > /tmp/chair.stl.gz
-          echo '51fa77db81b0a1005b60adc0612da2fe54c0a514d599400f6f230f559cd61fa6  /tmp/chair.stl.gz' | sha256sum -c -
+          gzip -t /tmp/chair.stl.gz
           gzip -dc /tmp/chair.stl.gz > /tmp/chair.stl
           echo '6acd96efc637f91fa14b618cf08a3481b1154d1b1155648d7dbf1dedf46bcabf  /tmp/chair.stl' | sha256sum -c -
 
@@ -111,8 +111,6 @@ jobs:
               'from': 'User', 'instantiation': 'true',
               'filament_colour': ['#000000']
           })
-          # Remove compatibility gates from the generic filament only; its
-          # inherited temperatures/flow remain the official BBL Generic ABS values.
           filament.pop('compatible_printers', None)
           filament.pop('compatible_printers_condition', None)
 
@@ -155,7 +153,6 @@ jobs:
           if not gp.exists():
               raise SystemExit('ERROR: Bambu Studio did not embed Metadata/plate_1.gcode')
           g = gp.read_text(errors='replace')
-          # Force the single material to AMS-A slot 3 (zero-based tray index 2).
           start_end = g.find('; MACHINE_START_GCODE_END')
           if start_end < 0: start_end = min(len(g), 30000)
           head, tail = g[:start_end], g[start_end:]
