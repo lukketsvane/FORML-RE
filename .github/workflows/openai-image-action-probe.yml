@@ -1,0 +1,65 @@
+name: OpenAI Image API probe
+
+on:
+  push:
+    paths:
+      - '.github/workflows/openai-image-action-probe.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Check image API secret exists
+        run: |
+          set -euo pipefail
+          if [ -z "${OPENAI_API_KEY:-}" ]; then
+            echo 'OPENAI_API_KEY secret is NOT configured in this repository.'
+            exit 2
+          fi
+          echo 'OPENAI_API_KEY secret is configured; value remains masked.'
+
+      - name: Install current OpenAI SDK
+        run: python -m pip install --upgrade openai pillow
+
+      - name: Generate one real image with GPT-Image-2
+        run: |
+          python - <<'PY'
+          import base64
+          from pathlib import Path
+          from openai import OpenAI
+
+          client = OpenAI()
+          r = client.images.generate(
+              model='gpt-image-2',
+              prompt='Minimal black ink conceptual figure on white paper: three irregular black nodes connected by two thin hand-drawn lines, a fourth node apart. No text, no frame, no shading, no colour.',
+              size='1024x1024',
+              quality='low',
+              n=1,
+          )
+          d = r.data[0]
+          if getattr(d, 'b64_json', None):
+              Path('openai-image-probe.png').write_bytes(base64.b64decode(d.b64_json))
+          elif getattr(d, 'url', None):
+              import urllib.request
+              urllib.request.urlretrieve(d.url, 'openai-image-probe.png')
+          else:
+              raise RuntimeError('Image response contained neither b64_json nor url')
+          assert Path('openai-image-probe.png').stat().st_size > 1000
+          print('REAL_IMAGE_GENERATION_OK')
+          PY
+
+      - name: Upload generated probe
+        uses: actions/upload-artifact@v4
+        with:
+          name: openai-image-probe
+          path: openai-image-probe.png
+          if-no-files-found: error
