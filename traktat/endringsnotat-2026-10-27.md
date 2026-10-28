@@ -61,6 +61,20 @@ Resultat, målt maskinelt:
 - Definisjonar: der omgrepet er nytt, kjem det no sist i setninga («Det som endrar sannsynsfordelinga …, er eit *seleksjonstrykk*»). Der omgrepet alt er gjeve, står det først.
 - Kolon som bar ei grunngjeving eller ei følgje, har fått eit namngjeve bindeord (*for*, *difor*). Ingen proposisjon opnar lenger med *Difor*.
 
+### Andre runde: lært av den norske Tractatus
+
+Alle 45 sidene i den norske utgåva (Gyldendal 1999, s. 11–55) vart transkriberte og granska for stil. Målt mot henne mangla utkastet ikkje korte setningar eller overtak, men arkitekturen. Hovudproposisjonane på eitt desimal hadde altfor lange hovud, kvar femte proposisjon slutta på ei tilvising, og sidekanalane mangla: parentesen, kursiv på det ordet som ber kontrasten, og ein sjeldan *eg* når det er tale om ei tankehandling.
+
+| | Norsk Tractatus | Før | No |
+|---|---|---|---|
+| Proposisjonar med fleire avsnitt | 33 % | 3 % | 39 % |
+| Avsnitt på éi setning | 80 % | 27 % | 59 % |
+| Sluttar på ei tilvising | 0 % | 22 % | 5 % |
+| Proposisjonar med kursiv for kontrast | 19 % | 0 | 11 |
+| Heile setningar i parentes | 19 per 100 | 0 | 10 |
+
+Ein lang proposisjon har no eit kort hovud og avsnitt under, og proposisjonen sluttar på det avgjerande ordet. Innhald, nummer, status, formlar og tilvisingar er framleis uendra (kontrollert maskinelt).
+
 ## Logiske rettingar
 
 - **Objekt, struktur og form** er skilde (1.2 til 1.2124): forma er strukturen teken uavhengig av objekta, ikkje sjølv ein konfigurasjon.
