@@ -45,6 +45,22 @@ Oppsettet følgjer Gyldendal-utgåva av Tractatus frå 1999 (omsett av Terje Ød
 - Omgrep og framheving er sette i kursiv, ikkje i feit.
 - Sidestorleiken og margane gjeld heile boka. Dei andre delane har framleis topptekst og den førre brødskrifta.
 
+## Flyt: kvar proposisjon skal følgje av den før
+
+Proposisjonane er skrivne om i ordlyden for at lesinga skal kjennast tvungen steg for steg, slik som i Tractatus. Innhald, nummer, statusbokstavar, formlar og litteraturtilvisingar står urørte.
+
+Metoden var denne:
+- Først vart det studert kva grep Tractatus brukar (den tyske originalen, Ogden og den norske utgåva). Det viktigaste er at det nye omgrepet kjem sist i éi setning og opnar den neste. Elles er det lite slutningsord, kort kopula og nummereringa som ber slutninga.
+- Ut frå det vart det laga ei stilrettleiing med kontrollerbare reglar.
+- Kvar del av teksten vart skriven om etter rettleiinga og kontrollert av to uavhengige lesarar, éin for innhald og logikk og éin for nynorsk og flyt. Ein kritisk retter vurderte kvart funn før det vart lagt inn.
+- Til slutt las ein lesar heile teksten for skøytene mellom delane og for manér.
+
+Resultat, målt maskinelt:
+- Del av proposisjonane som opnar med eit ord frå forelderen eller proposisjonen rett før: 66 % før, 78 % no.
+- Tilvisingar i parentes: 336 før, 319 no. Berre tilvisingar til forelderen eller til proposisjonen rett før er fjerna, sidan nummereringa alt viser dei. Ingen andre tilvisingar er endra.
+- Definisjonar: der omgrepet er nytt, kjem det no sist i setninga («Det som endrar sannsynsfordelinga …, er eit *seleksjonstrykk*»). Der omgrepet alt er gjeve, står det først.
+- Kolon som bar ei grunngjeving eller ei følgje, har fått eit namngjeve bindeord (*for*, *difor*). Ingen proposisjon opnar lenger med *Difor*.
+
 ## Logiske rettingar
 
 - **Objekt, struktur og form** er skilde (1.2 til 1.2124): forma er strukturen teken uavhengig av objekta, ikkje sjølv ein konfigurasjon.
