@@ -1,22 +1,24 @@
-\documentclass[10pt,oneside]{book}
+\documentclass[10pt,twoside]{book}
 
-% Page geometry — 125 × 200 mm (Gyldendal 1999 Tractatus format).
-% Wide LEFT margin holds the proposition numbers (marginal numbering style):
-% numbers are \llap'd into this margin so the body text block is a clean
-% rectangle with all lines (including continuation) flush left at the body
-% column. Right margin is narrow (no marginalia on the right).
-% Top includes the running header band; footskip minimal (no footer text).
+% Page geometry — 124 × 203 mm, measured from the Gyldendal 1999 Tractatus
+% (NB digibok, 400 ppi): 8 mm inner and 17 mm outer margin, a 17.8 mm number
+% column and an 81.1 mm body, 36 lines of 13.4 pt from a first baseline
+% 14.7 mm below the top edge, folio baseline 15.3 mm above the bottom edge.
+% The number column always sits left of the body, so even pages get their
+% own side margin (outer 17 mm + column) instead of the mirrored one.
 \usepackage[
-  paperwidth=125mm,
-  paperheight=200mm,
-  top=20mm,
-  bottom=18mm,
-  left=28mm,
-  right=12mm,
+  paperwidth=124mm,
+  paperheight=203mm,
+  top=11.2mm,
+  textheight=169mm,
+  left=25.8mm,
+  textwidth=81.1mm,
   headheight=12pt,
-  headsep=6mm,
-  footskip=8mm,
+  headsep=4.5mm,
+  footskip=7.5mm,
 ]{geometry}
+\AtBeginDocument{\setlength{\evensidemargin}{\dimexpr34.8mm-1in\relax}}
+\raggedbottom
 
 % UTF-8 + Norwegian (nynorsk)
 \usepackage{fontspec}
@@ -82,7 +84,7 @@
 \renewcommand{\thechapter}{}
 
 % Running headers — chapter title at left, page number at right, thin rule.
-% The header rule is extended LEFT by 16 mm via \fancyheadoffset so it
+% The header rule is extended LEFT by 17.8 mm via \fancyheadoffset so it
 % spans the full content width INCLUDING the marginal number column
 % (otherwise the rule looks narrow because it's anchored to the body
 % text block which sits to the right of the number margin).
@@ -91,7 +93,7 @@
 \fancyhf{}
 \fancyhead[L]{\small\scshape\leftmark}  % chapter title at left on every page
 \fancyhead[R]{\small\thepage}           % page number at right on every page
-\fancyheadoffset[L]{16mm}               % extend header left over the number margin
+\fancyheadoffset[L]{17.8mm}               % extend header left over the number margin
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 % plain style (chapter-opening pages): identical to fancy (full header).
@@ -99,7 +101,7 @@
   \fancyhf{}
   \fancyhead[L]{\small\scshape\leftmark}
   \fancyhead[R]{\small\thepage}
-  \fancyheadoffset[L]{16mm}
+  \fancyheadoffset[L]{17.8mm}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0pt}
 }
@@ -174,7 +176,7 @@
 % after the number.
 \usepackage{calc}
 \newlength{\propnumwidth}
-\setlength{\propnumwidth}{15mm}  % column reserved for the number itself
+\setlength{\propnumwidth}{15.8mm}  % column reserved for the number itself
 \newlength{\propnumgap}
 \setlength{\propnumgap}{2mm}     % gap between number column and body text
 
@@ -287,7 +289,7 @@
 % column. Pulls the left edge 16 mm to the left of the body block.
 \usepackage{changepage}
 \newenvironment{widebody}{%
-  \begin{adjustwidth}{-16mm}{0mm}%
+  \begin{adjustwidth}{-17.8mm}{0mm}%
 }{%
   \end{adjustwidth}%
 }

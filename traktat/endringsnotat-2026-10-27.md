@@ -23,15 +23,26 @@ Alt innhald frå den førre utgåva er teke vare på. Kvar proposisjon er anten 
 
 ## Typografi
 
-Proposisjonsdelen følgjer no oppsettet i den norske referanseutgåva av Tractatus:
+Oppsettet følgjer Gyldendal-utgåva av Tractatus frå 1999 (omsett av Terje Ødegaard, ISBN 82-05-25741-8). Måla er tekne frå skanninga og frå digitaliseringa til Nasjonalbiblioteket (400 ppi, 1944–1952 × 3192–3224 px).
 
-- Nummera står i vanleg vekt og storleik i ei eiga spalte på 17 mm, med kursiv statusbokstav hevd etter talet. Hovudproposisjonane er sette som dei andre.
-- Det er ei blank linje mellom proposisjonane, og òg mellom avsnitta i same proposisjon.
-- Brødteksten er 78,5 mm brei (om lag 21 em). Nummerspalta og brødteksten står midt på sida.
-- Sidene har inga topptekst; sidetalet står nedst på midten.
-- Forklaringa av desimaltala og statusbokstavane står som fotnote til proposisjon 1, i full breidd.
+| | Referanse | No |
+|---|---|---|
+| Side | om lag 124 × 203 mm | 124 × 203 mm (før 125 × 200) |
+| Marg inst / ytst | om lag 8 / 17 mm | 8 / 17 mm, spegla på partals- og oddetalssider |
+| Nummerspalte | 17,8 mm | 17,8 mm |
+| Brødtekst | 81,1 mm | 81,1 mm |
+| Linjer per side | 36 à 13,4 pt | 36 à 13,4 pt |
+| Første grunnlinje | 14,7 mm frå toppen | 14,7 mm |
+| Sidetal | midt, grunnlinja 15,3 mm frå botnen | same |
+| Skrift | Sabon om lag 11 pt (x-høgd 5,1 pt, om lag 52 teikn per linje) | EB Garamond 12 pt, som gjev same x-høgd og same teikntettleik |
+| Fotnote | om lag 0,88 av brødteksten, full breidd, kort strek | 10/10,8 pt, full breidd, strek på 13,6 mm |
+
+- Nummera står i vanleg vekt, med kursiv statusbokstav hevd etter talet. Hovudproposisjonane er sette som dei andre.
+- Mellom proposisjonane, og mellom avsnitt i same proposisjon, er det om lag ei blank linje (0,87 linje).
+- Proposisjonane byrjar på ei høgreside, 8 linjer ned. Sidene har inga topptekst.
+- Forklaringa av desimaltala og statusbokstavane står som fotnote til proposisjon 1.
 - Omgrep og framheving er sette i kursiv, ikkje i feit.
-- Resten av boka har framleis topptekst, sidan dei andre delane brukar han som tittel.
+- Sidestorleiken og margane gjeld heile boka. Dei andre delane har framleis topptekst og den førre brødskrifta.
 
 ## Logiske rettingar
 

@@ -2,19 +2,21 @@
 % Deler preamble med traktat.tex; manipulerbar utan å skrive heile boka.
 %
 % Kompiler: xelatex proposisjonar-solo.tex
-\documentclass[10pt,oneside]{book}
+\documentclass[10pt,twoside]{book}
 
 \usepackage[
-  paperwidth=125mm,
-  paperheight=200mm,
-  top=20mm,
-  bottom=18mm,
-  left=28mm,
-  right=12mm,
+  paperwidth=124mm,
+  paperheight=203mm,
+  top=11.2mm,
+  textheight=169mm,
+  left=25.8mm,
+  textwidth=81.1mm,
   headheight=12pt,
-  headsep=6mm,
-  footskip=8mm,
+  headsep=4.5mm,
+  footskip=7.5mm,
 ]{geometry}
+\AtBeginDocument{\setlength{\evensidemargin}{\dimexpr34.8mm-1in\relax}}
+\raggedbottom
 
 \usepackage{fontspec}
 \usepackage{polyglossia}
@@ -48,14 +50,14 @@
 \fancyhf{}
 \fancyhead[L]{\small\scshape\leftmark}
 \fancyhead[R]{\small\thepage}
-\fancyheadoffset[L]{16mm}
+\fancyheadoffset[L]{17.8mm}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{plain}{
   \fancyhf{}
   \fancyhead[L]{\small\scshape\leftmark}
   \fancyhead[R]{\small\thepage}
-  \fancyheadoffset[L]{16mm}
+  \fancyheadoffset[L]{17.8mm}
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0pt}
 }
@@ -73,7 +75,7 @@
 
 \usepackage{calc}
 \newlength{\propnumwidth}
-\setlength{\propnumwidth}{15mm}
+\setlength{\propnumwidth}{15.8mm}
 \newlength{\propnumgap}
 \setlength{\propnumgap}{2mm}
 
@@ -107,7 +109,7 @@
 
 \usepackage{changepage}
 \newenvironment{widebody}{%
-  \begin{adjustwidth}{-16mm}{0mm}%
+  \begin{adjustwidth}{-17.8mm}{0mm}%
 }{%
   \end{adjustwidth}%
 }
