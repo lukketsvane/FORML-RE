@@ -73,26 +73,22 @@
 
 \usepackage{calc}
 \newlength{\propnumwidth}
-\setlength{\propnumwidth}{13mm}
+\setlength{\propnumwidth}{15mm}
 \newlength{\propnumgap}
 \setlength{\propnumgap}{2mm}
 
 \usepackage{needspace}
+\newlength{\propskip}
+\setlength{\propskip}{9pt}
 \newcommand{\prop}[3]{%
   \needspace{3\baselineskip}%
-  \par\addvspace{3pt}%
-  \noindent\llap{\makebox[\propnumwidth][l]{\textbf{#1}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  \par\addvspace{\propskip}%
+  \noindent\llap{\makebox[\propnumwidth][l]{#1\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
   #3\par%
-  \addvspace{1pt}%
 }
-\newcommand{\mainprop}[3]{%
-  \par\addvspace{6pt}%
-  \noindent\llap{\makebox[\propnumwidth][l]{{\fontsize{12}{13.5}\selectfont\textbf{#1}}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
-  #3\par%
-  \addvspace{3pt}%
-}
+\let\mainprop\prop
 \newcommand{\propcont}[1]{%
-  \par\addvspace{1pt}%
+  \par\addvspace{\propskip}%
   \noindent #1\par%
 }
 

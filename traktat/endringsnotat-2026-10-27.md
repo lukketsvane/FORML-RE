@@ -21,6 +21,18 @@ Alt innhald frå den førre utgåva er teke vare på. Kvar proposisjon er anten 
 - **Statusbokstavane** er gjennomgåtte: det som er avleitt, er teorem (t); det som er sett, er postulat (a); det som er empirisk, er observasjon (o).
 - **Krysstilvisingane** peikar berre bakover, eller ned i eige undertre. Alle er kontrollerte maskinelt.
 
+## Typografi
+
+Proposisjonsdelen følgjer no oppsettet i den norske referanseutgåva av Tractatus:
+
+- Nummera står i vanleg vekt og storleik i ei eiga spalte på 17 mm, med kursiv statusbokstav hevd etter talet. Hovudproposisjonane er sette som dei andre.
+- Det er ei blank linje mellom proposisjonane, og òg mellom avsnitta i same proposisjon.
+- Brødteksten er 78,5 mm brei (om lag 21 em). Nummerspalta og brødteksten står midt på sida.
+- Sidene har inga topptekst; sidetalet står nedst på midten.
+- Forklaringa av desimaltala og statusbokstavane står som fotnote til proposisjon 1, i full breidd.
+- Omgrep og framheving er sette i kursiv, ikkje i feit.
+- Resten av boka har framleis topptekst, sidan dei andre delane brukar han som tittel.
+
 ## Logiske rettingar
 
 - **Objekt, struktur og form** er skilde (1.2 til 1.2124): forma er strukturen teken uavhengig av objekta, ikkje sjølv ein konfigurasjon.

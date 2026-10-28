@@ -1,24 +1,46 @@
 \silentchapter{Proposisjonar}{proposisjonar}
-\setlength{\emergencystretch}{2.5em}
+\setlength{\emergencystretch}{4em}
+\begingroup
+\fancypagestyle{proposisjonar}{%
+  \fancyhf{}%
+  \fancyheadoffset[L]{0pt}%
+  \fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{proposisjonar}
+\thispagestyle{proposisjonar}
+\newlength{\propslug}
+\setlength{\propslug}{\propnumwidth}
+\addtolength{\propslug}{\propnumgap}
+\newlength{\propadjL}
+\setlength{\propadjL}{\paperwidth}
+\addtolength{\propadjL}{-78.5mm}
+\addtolength{\propadjL}{-\propslug}
+\setlength{\propadjL}{0.5\propadjL}
+\addtolength{\propadjL}{\propslug}
+\addtolength{\propadjL}{-1in}
+\addtolength{\propadjL}{-\hoffset}
+\addtolength{\propadjL}{-\oddsidemargin}
+\newlength{\propadjR}
+\setlength{\propadjR}{\textwidth}
+\addtolength{\propadjR}{-78.5mm}
+\addtolength{\propadjR}{-\propadjL}
+\renewenvironment{widebody}{\begin{adjustwidth}{-\propslug}{0mm}}{\end{adjustwidth}}
+\makeatletter
+\renewcommand\@makefntext[1]{\leftskip=-\propslug\advance\leftskip\propadjL\rightskip=\propadjR\noindent\@makefnmark#1}
+\renewcommand\footnoterule{\kern-3\p@\moveright\propadjL\hbox{\kern-\propslug\vrule width 14mm height 0.4pt}\kern2.6\p@}
+\makeatother
+\begin{adjustwidth}{\propadjL}{\propadjR}
 
-\begin{widebody}
-\begin{center}\footnotesize
-\begin{tabular}{@{}lllll@{}}
-\textbf{\textit{d}} definisjon & \textbf{\textit{a}} postulat & \textbf{\textit{t}} teorem & \textbf{\textit{o}} observasjon & \textbf{\textit{i}} illustrasjon \\
-\end{tabular}
+\vspace*{8\baselineskip}
 
-\smallskip
-Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad til \textit{n}, og \textit{n.mk} ein merknad til \textit{n.m}. Ein null framfor sifferet, \textit{n.0m}, står nærast \textit{n}. Tal i parentes viser til premissane eit steg kviler på.
-\end{center}
-\end{widebody}
-
-\vspace{6mm}
-
-\mainprop{1}{d}{Formverda er alt som er tilfelle.}
+\mainprop{1}{d}{Formverda er alt som er tilfelle.\footnotemark}
+\footnotetext{Desimaltala viser den logiske vekta til kvar proposisjon. Proposisjonen \textit{n.m} er ein merknad til \textit{n}, og \textit{n.mk} ein merknad til \textit{n.m}; ein null framfor sifferet, \textit{n.0m}, står nærast \textit{n}. Tal i parentes viser til premissane eit steg kviler på. Bokstaven etter talet viser status: \textit{d} definisjon, \textit{a} postulat, \textit{t} teorem, \textit{o} observasjon, \textit{i} illustrasjon.}
 
 \prop{1.1}{a}{Formverda er totaliteten av realiserte konfigurasjonar, ikkje av ting.}
 
-\prop{1.11}{d}{Ein \textbf{konfigurasjon} er ein bestemt samanheng av delar. Han er realisert når han er tilfelle.}
+\prop{1.11}{d}{Ein \textit{konfigurasjon} er ein bestemt samanheng av delar. Han er realisert når han er tilfelle.}
 
 \prop{1.111}{i}{Same treet kan vere stol eller ved.}
 
@@ -28,7 +50,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.131}{t}{Dei same delane kan berre stå i éin samanheng om gongen. Å forklare kvifor nettopp denne vart realisert, er difor å forklare kvifor dei andre ikkje vart det. Forklaringa ligg i relasjonen mellom den realiserte konfigurasjonen og dei moglege som ikkje vart realiserte.}
 
-\prop{1.2}{d}{Eit \textbf{objekt} er ein konfigurasjonsdel som ikkje vert delt vidare på det valde analysenivået. Same objekt kan stå i fleire konfigurasjonar.}
+\prop{1.2}{d}{Eit \textit{objekt} er ein konfigurasjonsdel som ikkje vert delt vidare på det valde analysenivået. Same objekt kan stå i fleire konfigurasjonar.}
 
 \prop{1.201}{t}{Inndelinga i objekt er eit val av analysenivå (1.2).}
 
@@ -40,17 +62,17 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.2022}{a}{Ein relasjon krev ledd. Relasjonar mellom relasjonar utan ende er ikkje ein samanheng av noko.}
 
-\prop{1.203}{t}{Formverda har difor ein \textbf{substans}: det som er ledd og ikkje sjølv relasjon. Substansen finst uavhengig av kva som er tilfelle.}
+\prop{1.203}{t}{Formverda har difor ein \textit{substans}: det som er ledd og ikkje sjølv relasjon. Substansen finst uavhengig av kva som er tilfelle.}
 
 \prop{1.2031}{t}{Utan substans ville det at ein konfigurasjon er mogleg, avhenge av at ein annan er realisert, og den andre av ein tredje. Regressen stoggar berre i noko som ikkje er konfigurasjon.}
 
 \prop{1.204}{t}{Objektet har ingen delar på nivået sitt (1.2) og difor ingen samanheng som kan skifte der; det som endrar seg i det, endrar seg på eit lågare nivå (1.202). Objektet står fast på eitt nivå. Substansen står fast på alle. Konfigurasjonen er det skiftande.}
 
-\prop{1.21}{d}{Måten objekta heng saman på i konfigurasjonen, er \textbf{strukturen} hans.}
+\prop{1.21}{d}{Måten objekta heng saman på i konfigurasjonen, er \textit{strukturen} hans.}
 
 \prop{1.211}{i}{Sambandet mellom setet og beinet i ein stol er ikkje ein del til. Delane heng i kvarandre direkte, som lenkene i ei kjede.}
 
-\prop{1.212}{d}{\textbf{Forma} til ein konfigurasjon er strukturen hans, teken uavhengig av kva objekt som står i han.}
+\prop{1.212}{d}{\textit{Forma} til ein konfigurasjon er strukturen hans, teken uavhengig av kva objekt som står i han.}
 
 \prop{1.2121}{t}{To konfigurasjonar med same objekt, men ulik struktur, har ulike former.}
 
@@ -60,7 +82,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.2124}{t}{Ei form utan alternativ er ikkje vald, og ho treng inga forklaring; ho er ei nødvendigheit (1.131).}
 
-\prop{1.22}{d}{Moglegheita eit objekt har for å inngå i konfigurasjonar, er \textbf{valensen} til objektet.}
+\prop{1.22}{d}{Moglegheita eit objekt har for å inngå i konfigurasjonar, er \textit{valensen} til objektet.}
 
 \prop{1.221}{t}{Alle moglege former er gjevne i og med valensane til objekta.}
 
@@ -76,7 +98,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.23}{t}{Substansen i formverda er oppleving (1.231, 1.234, 1.2342).}
 
-\prop{1.231}{d}{Ei \textbf{måling} er ein relasjon mellom det som vert målt og det som måler.}
+\prop{1.231}{d}{Ei \textit{måling} er ein relasjon mellom det som vert målt og det som måler.}
 
 \prop{1.2311}{t}{Det ei måling gjev, er difor ein relasjon, aldri leddet sjølv.}
 
@@ -84,11 +106,11 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.2321}{t}{Fysikken seier difor kva det målte gjer, ikkje kva det er.}
 
-\prop{1.233}{d}{\textbf{Oppleving} er det som er kjent utan måling: ikkje gjennom ein relasjon, men ved å vere det.}
+\prop{1.233}{d}{\textit{Oppleving} er det som er kjent utan måling: ikkje gjennom ein relasjon, men ved å vere det.}
 
 \prop{1.2331}{o}{Kvar måling er gjeven som oppleving. Det fysikken veit, veit han gjennom henne.}
 
-\prop{1.2332}{d}{\textbf{Medvit} er oppleving av opplevinga: opplevinga framstilt på nytt i seg sjølv.}
+\prop{1.2332}{d}{\textit{Medvit} er oppleving av opplevinga: opplevinga framstilt på nytt i seg sjølv.}
 
 \prop{1.2333}{a}{Oppleving føreset ikkje medvit.}
 
@@ -100,7 +122,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.2343}{o}{Ein slik substans skapar dessutan ei gåte ingen har løyst: korleis det som ikkje opplever, skulle bli til oppleving.}
 
-\prop{1.235}{d}{Å kjenne noko \textbf{innanfrå} er å vere det. Å kjenne noko \textbf{utanfrå}, å sjå det utanfrå, er å kjenne relasjonane det står i.}
+\prop{1.235}{d}{Å kjenne noko \textit{innanfrå} er å vere det. Å kjenne noko \textit{utanfrå}, å sjå det utanfrå, er å kjenne relasjonane det står i.}
 
 \prop{1.2351}{t}{Materie er det fysikken skildrar, og fysikken kjenner berre relasjonar (1.2311, 1.2321). Materie er difor oppleving, sett utanfrå (1.23, 1.235): biletet ei oppleving har av ei anna.}
 
@@ -110,7 +132,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.2354}{t}{At materien er oppleving, tyder ikkje at han er min.}
 
-\prop{1.24}{a}{Opplevinga er eitt \textbf{felt}. Det som vert skilt ut i feltet, er mønster i det, ikkje bitar av det.}
+\prop{1.24}{a}{Opplevinga er eitt \textit{felt}. Det som vert skilt ut i feltet, er mønster i det, ikkje bitar av det.}
 
 \prop{1.2401}{t}{Ingen del av formverda står difor utanfor relasjon til resten (1.24).}
 
@@ -132,13 +154,13 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.246}{t}{Feltet som heilskap har inkje utanfor seg (1.245). Det kan difor ikkje kjennast utanfrå; det viser seg aldri som ein ting.}
 
-\prop{1.3}{d}{Ein \textbf{klasse} er ei mengd konfigurasjonar som tillèt same operasjonar.}
+\prop{1.3}{d}{Ein \textit{klasse} er ei mengd konfigurasjonar som tillèt same operasjonar.}
 
-\prop{1.31}{d}{\textbf{Formrommet} \msym{𝕄} til ein klasse er mengda av alle moglege konfigurasjonar i klassen.\textsuperscript{2,\,10,\,20}}
+\prop{1.31}{d}{\textit{Formrommet} \msym{𝕄} til ein klasse er mengda av alle moglege konfigurasjonar i klassen.\textsuperscript{2,\,10,\,20}}
 
 \prop{1.311}{t}{Formrommet vert ikkje konstruert. Det vert oppdaga (1.222).}
 
-\prop{1.32}{d}{Kvar akse i formrommet er ein målbar eigenskap. Kvar konfigurasjon i klassen er eitt eksakt punkt i \msym{𝕄}: \textbf{posisjonen} hans.}
+\prop{1.32}{d}{Kvar akse i formrommet er ein målbar eigenskap. Kvar konfigurasjon i klassen er eitt eksakt punkt i \msym{𝕄}: \textit{posisjonen} hans.}
 
 \prop{1.321}{t}{Eit val av aksar er ein projeksjon av \msym{𝕄}. Forma finst uavhengig av den einskilde målinga, slik eit fjell finst uavhengig av kartet.}
 
@@ -158,7 +180,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.412}{o}{Tyngda til ein busett posisjon, kor sterkt han dreg nye realiseringar til seg, veks med kor lenge han har vore busett.}
 
-\prop{1.413}{d}{Totaliteten av busette posisjonar er \textbf{formhistoria}.}
+\prop{1.413}{d}{Totaliteten av busette posisjonar er \textit{formhistoria}.}
 
 \prop{1.42}{d}{Dei forbodne regionane V er dei ikkje busette posisjonane som er logisk moglege, men utelukka av materielle vilkår: av materialet, strukturen eller energien, slik lovene verkar på det som er for hand. Forbodet følgjer vilkåra, ikkje regionen.}
 
@@ -168,17 +190,17 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{1.43}{d}{Dei opne regionane er dei ikkje busette posisjonane som er materielt moglege.}
 
-\prop{1.431}{d}{Ein open region som kan nåast frå det busette utan å gå gjennom det forbodne, er \textbf{tilgjengeleg}.}
+\prop{1.431}{d}{Ein open region som kan nåast frå det busette utan å gå gjennom det forbodne, er \textit{tilgjengeleg}.}
 
 \prop{1.4311}{t}{Ein open region som berre grensar til forbodne regionar, er utilgjengeleg utan materialskifte (1.411, 1.422).}
 
-\prop{1.432}{d}{Det \textbf{nærliggande moglege} er dei opne posisjonane som grensar til det busette.\textsuperscript{13}}
+\prop{1.432}{d}{Det \textit{nærliggande moglege} er dei opne posisjonane som grensar til det busette.\textsuperscript{13}}
 
 \prop{1.4321}{t}{Det nærliggande moglege er avgrensa. Det ligg spent ut mellom det busette på den eine sida og det forbodne og dei opne regionane lenger ute på den andre (1.431, 1.4311).}
 
-\prop{1.5}{d}{Ved sida av den materielle delinga går ei epistemisk.\textsuperscript{16,\,17} Ho gjeld alltid relativt til ein \textit{kunnskapsstand}: det nokon på eit gjeve tidspunkt veit og har tenkt. Det \textbf{kjende} K er dei posisjonane ein veit verkar eller sviktar; dei ein veit verkar, er K\textsuperscript{+}. Det \textbf{tenkjelege} C er dei posisjonane som er tenkte, men ikkje avgjorde. Resten, U = \msym{𝕄}\,\msym{∖}\,(K\,\msym{∪}\,C), er det \textbf{utenkjelege}. K og C har inkje felles; partisjonen er \msym{Π} = (K, C, U).}
+\prop{1.5}{d}{Ved sida av den materielle delinga går ei epistemisk.\textsuperscript{16,\,17} Ho gjeld alltid relativt til ein \textit{kunnskapsstand}: det nokon på eit gjeve tidspunkt veit og har tenkt. Det \textit{kjende} K er dei posisjonane ein veit verkar eller sviktar; dei ein veit verkar, er K\textsuperscript{+}. Det \textit{tenkjelege} C er dei posisjonane som er tenkte, men ikkje avgjorde. Resten, U = \msym{𝕄}\,\msym{∖}\,(K\,\msym{∪}\,C), er det \textit{utenkjelege}. K og C har inkje felles; partisjonen er \msym{Π} = (K, C, U).}
 
-\prop{1.501}{d}{C er \textit{tankerommet}; K er \textit{kunnskapsrommet}. \textbf{Formgjeving} er rørsla i og mellom dei, medan ho går gjennom dei materielle regionane.}
+\prop{1.501}{d}{C er \textit{tankerommet}; K er \textit{kunnskapsrommet}. \textit{Formgjeving} er rørsla i og mellom dei, medan ho går gjennom dei materielle regionane.}
 
 \prop{1.51}{t}{Dei to delingane fell ikkje saman. Ein forboden region kan vere tenkt: materielt utelukka, men tenkt. Ein open region kan vere utenkjeleg: materielt mogleg, men utanfor det nokon har tenkt.}
 
@@ -195,36 +217,36 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 \prop{1.54}{t}{Ei rørsle tek utgangspunkt i C eller K og legg noko til C eller K. Det gjev fire retningar:}
 
 \begin{center}\small
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{30mm}lp{30mm}@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}p{25mm}lp{27mm}@{}}
 \toprule
-\textbf{C-K-operator} & \textbf{Retning} & \textbf{Verknad} \\
+\textit{C-K-operator} & \textit{Retning} & \textit{Verknad} \\
 \midrule
-\textbf{C \msym{→} C}\newline{\footnotesize(konseptekspansjon)} & Innanfor C & Utviding: C veks \\[4pt]
-\textbf{C \msym{→} K}\newline{\footnotesize(konjektur \msym{→} kunnskap)} & Frå C til K & Kollaps: ei tenkt form vert avgjord \\[4pt]
-\textbf{K \msym{→} C}\newline{\footnotesize(kunnskap \msym{→} konjektur)} & Frå K til C & Opning: det kjende opnar nye konjekturar \\[4pt]
-\textbf{K \msym{→} K}\newline{\footnotesize(kunnskapsutdjuping)} & Innanfor K & Oppløysingsauke: det kjende vert finare \\
+\textit{C \msym{→} C}\newline{\footnotesize(konseptekspansjon)} & Innanfor C & Utviding: C veks \\[4pt]
+\textit{C \msym{→} K}\newline{\footnotesize(konjektur \msym{→} kunnskap)} & Frå C til K & Kollaps: ei tenkt form vert avgjord \\[4pt]
+\textit{K \msym{→} C}\newline{\footnotesize(kunnskap \msym{→} konjektur)} & Frå K til C & Opning: det kjende opnar nye konjekturar \\[4pt]
+\textit{K \msym{→} K}\newline{\footnotesize(kunnskapsutdjuping)} & Innanfor K & Oppløysingsauke: det kjende vert finare \\
 \bottomrule
 \end{tabular*}
 \end{center}
 
 \prop{1.541}{t}{Det som kjem inn frå U, kjem ikkje ved at nokon ser over grensa (1.53). Tanken veks innanfrå: frå det tenkte (C\msym{→}C) eller frå det kjende (K\msym{→}C).}
 
-\prop{1.55}{d}{Den delen av det nærliggande moglege som ligg i C, er \textbf{fronten}: tilgjengeleg og tenkt, men ikkje kjend. Det er der det tenkte kan prøvast og bli kjent (1.52).}
+\prop{1.55}{d}{Den delen av det nærliggande moglege som ligg i C, er \textit{fronten}: tilgjengeleg og tenkt, men ikkje kjend. Det er der det tenkte kan prøvast og bli kjent (1.52).}
 
 \prop{1.6}{d}{Konfigurasjonar lukka under sum, differanse og produkt, og under transformasjonar \msym{θ}, med delrelasjonen \msym{≤}, utgjer ein \textit{formalgebra}.\textsuperscript{11,\,13,\,18}}
 
-\prop{1.61}{d}{\textbf{Formgrammatikken} utfører diskrete overgangar i denne algebraen. Reglane slår til ved \textit{innleiring}: ei delform vert kjend att inne i heilforma. Inndata\-geometrien er einaste premiss.}
+\prop{1.61}{d}{\textit{Formgrammatikken} utfører diskrete overgangar i denne algebraen. Reglane slår til ved \textit{innleiring}: ei delform vert kjend att inne i heilforma. Inndata\-geometrien er einaste premiss.}
 
 \propcont{Ein formgrammatikk er eit trippel SG = (S, R, s\textsubscript{0}): ei mengd posisjonar S \msym{⊆} \msym{𝕄}, tekne ved forma si (1.212), reglar R = \{a\textsubscript{r} \msym{→} b\textsubscript{r}\} og ei startform s\textsubscript{0}. Reglane transformerer former:}
 
 \begin{widebody}
 \begin{center}\small
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}p{18mm}lp{34mm}@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}p{17mm}lp{28mm}@{}}
 \toprule
-\textbf{Regelbruk} & s \msym{→} (s \msym{−} \msym{θ}(a\textsubscript{r})) + \msym{θ}(b\textsubscript{r}) når \msym{θ}(a\textsubscript{r}) \msym{≤} s & Finn delforma; byt henne ut \\[4pt]
-\textbf{Språk} & L(SG) = \{s \msym{∈} S : s\textsubscript{0} \msym{→}\textsuperscript{*} s\} & Alle former grammatikken kan generere \\[4pt]
-\textbf{Utløysing} & \msym{θ}(a\textsubscript{r}) \msym{≤} s & Kvar innleiring gjev eitt mogleg steg; eitt av dei vert teke \\[4pt]
-\textbf{Premiss} & & Noverande geometri, ikkje konstruksjonshistorie \\
+\textit{Regelbruk} & s \msym{→} (s \msym{−} \msym{θ}(a\textsubscript{r})) + \msym{θ}(b\textsubscript{r}) når \msym{θ}(a\textsubscript{r}) \msym{≤} s & Finn delforma; byt henne ut \\[4pt]
+\textit{Språk} & L(SG) = \{s \msym{∈} S : s\textsubscript{0} \msym{→}\textsuperscript{*} s\} & Alle former grammatikken kan generere \\[4pt]
+\textit{Utløysing} & \msym{θ}(a\textsubscript{r}) \msym{≤} s & Kvar innleiring gjev eitt mogleg steg; eitt av dei vert teke \\[4pt]
+\textit{Premiss} & & Noverande geometri, ikkje konstruksjonshistorie \\
 \bottomrule
 \end{tabular*}
 \end{center}
@@ -247,7 +269,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{2.021}{t}{Det som verkar, skuvar ikkje den einskilde forma; ho er realisert eller ikkje (1.12). Det verkar på fordelinga: det tynner ut sannsynet der forma elles kunne ha vore.}
 
-\prop{2.1}{d}{Eit \textbf{seleksjonstrykk} er det som endrar sannsynsfordelinga over det som ikkje er forbode.\textsuperscript{3} Trykket er ein gradient, ikkje ein regel: det gjer somme posisjonar mindre sannsynlege enn andre, utan å forby dei. Det utelukkar ved å tynne ut.}
+\prop{2.1}{d}{Eit \textit{seleksjonstrykk} er det som endrar sannsynsfordelinga over det som ikkje er forbode.\textsuperscript{3} Trykket er ein gradient, ikkje ein regel: det gjer somme posisjonar mindre sannsynlege enn andre, utan å forby dei. Det utelukkar ved å tynne ut.}
 
 \prop{2.101}{t}{Forma er det som står att når trykka har utelukka alt anna.\textsuperscript{15,\,77,\,78}}
 
@@ -269,13 +291,13 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{2.1311}{t}{Omgrepet «suboptimal» føreset ein referanse. Utan eit spesifikt trykksett er det tomt.}
 
-\prop{2.14}{d}{Den delte moglegheita for operasjonar som avgrensar klassen (1.3), er \textbf{affordansestrukturen} hans.\textsuperscript{12,\,55,\,56}}
+\prop{2.14}{d}{Den delte moglegheita for operasjonar som avgrensar klassen (1.3), er \textit{affordansestrukturen} hans.\textsuperscript{12,\,55,\,56}}
 
 \prop{2.141}{t}{Affordansestrukturen er konstant innanfor klassen, og ein konstant kan ikkje forklare ein skilnad. Han kan seie kvar formene samlar seg og kor trongt; men det klassen er til for, seier ingenting om kvifor formene i han er ulike.}
 
 \prop{2.15}{t}{Den projeksjonen av formrommet som forklarer best (1.3221), er den som gjer flest seleksjonstrykk synlege; det er trykka som forklarer (1.131, 2.1).}
 
-\prop{2.2}{d}{\textbf{Material\-affordansen} er operasjonane materialet tillèt og hindrar.\textsuperscript{12} Utover forbodet i 1.42 er han ein gradient, ikkje ein regel: han bind sannsyns\-fordelinga utan å tvinge geometrien (2.1). Signaturen hans i forma er latent der alle tilfella har same materiale (2.122).}
+\prop{2.2}{d}{\textit{Material\-affordansen} er operasjonane materialet tillèt og hindrar.\textsuperscript{12} Utover forbodet i 1.42 er han ein gradient, ikkje ein regel: han bind sannsyns\-fordelinga utan å tvinge geometrien (2.1). Signaturen hans i forma er latent der alle tilfella har same materiale (2.122).}
 
 \prop{2.201}{o}{Stål fanst i hundreår før stålrøyrstolen.\textsuperscript{54} Først mangla operasjonen, og regionen var forboden (1.422). Så kom operasjonen, og regionen låg open, men ikkje tenkt (1.51). Formhistoria er systematisk langsamare enn materialhistoria.}
 
@@ -298,7 +320,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{3.01}{t}{Kvart trykk endrar sannsynet for kvar posisjon med ein positiv faktor (2.1): det tynner ut, men forbyr ikkje. Verkar trykka kvart for seg (2.12), vert faktorane gonga saman, og logaritmen av eit produkt er ein sum. Den samla verknaden i kvar posisjon er difor éin storleik. Han er gjeven opp til eit fast tillegg; berre skilnader i han tel.}
 
-\prop{3.1}{d}{\textbf{Tilpassingslandskapet} \msym{Λ} er det dei verksame seleksjons\-trykka legg over formrommet når dei verkar samstundes.\textsuperscript{3,\,8,\,58} Kvar posisjon held ein verdi, \textbf{spenninga} i posisjonen: kor mykje av trykka som står uforløyst der. Di lågare spenninga, di meir sannsynleg er posisjonen.}
+\prop{3.1}{d}{\textit{Tilpassingslandskapet} \msym{Λ} er det dei verksame seleksjons\-trykka legg over formrommet når dei verkar samstundes.\textsuperscript{3,\,8,\,58} Kvar posisjon held ein verdi, \textit{spenninga} i posisjonen: kor mykje av trykka som står uforløyst der. Di lågare spenninga, di meir sannsynleg er posisjonen.}
 
 \propcont{Formelt. \msym{Λ}(x,\,t) = \msym{Σ}\textsubscript{j}\,\msym{λ}\textsubscript{j}(x,\,t), der \msym{λ}\textsubscript{j} er minus logaritmen av faktoren trykket j legg på sannsynet for x. Trykket sjølv er \msym{−∇λ}\textsubscript{j}: retninga der forma vert meir sannsynleg, ikkje ei kraft på henne (2.021). Summen av trykka er \msym{−∇Λ}. Der aksane er diskrete, står \msym{∇} for skilnaden over eitt steg. Låg spenning er god tilpassing; sannsynet samlar seg i dalane.}
 
@@ -306,7 +328,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{3.12}{a}{Trykk som strir mot kvarandre (2.13), kan ikkje møtast fullt ut i same posisjon, og same kompromiss kan nåast på fleire måtar. Landskapet har difor mange lokale minimum.}
 
-\prop{3.121}{d}{Ein \textbf{dal} er staden der kvart steg bort kostar; ryggane er tilstandane sannsynet skyr. Dalane er landskapet sine \textit{attraktorar}.}
+\prop{3.121}{d}{Ein \textit{dal} er staden der kvart steg bort kostar; ryggane er tilstandane sannsynet skyr. Dalane er landskapet sine \textit{attraktorar}.}
 
 \prop{3.122}{o}{Éin universell botn er eit teoretisk unntak.\textsuperscript{58} Den eine fullkomne forma finst ikkje i noko observert landskap.}
 
@@ -314,7 +336,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{3.21}{t}{Djupe, bratte kanalar fryser dimensjonane; slake rommar fluktuasjonen.}
 
-\prop{3.3}{d}{Ein \textbf{stilart} er formene si \textit{sverming} kring eit felles tyngdepunkt i landskapet.\textsuperscript{9,\,53} Stilarten er ein \textit{sverm}, ikkje ein kategori. Stilperiodar går gradvis over i kvarandre; dei er ikkje øyar.}
+\prop{3.3}{d}{Ein \textit{stilart} er formene si \textit{sverming} kring eit felles tyngdepunkt i landskapet.\textsuperscript{9,\,53} Stilarten er ein \textit{sverm}, ikkje ein kategori. Stilperiodar går gradvis over i kvarandre; dei er ikkje øyar.}
 
 \propcont{Ingen har nokon gong sett ein stil. Ein ser stolar som liknar kvarandre.}
 
@@ -360,11 +382,11 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{5.013}{t}{Å svare er å ta noko inn og gje noko ut. Det som svarar, har difor eit indre og eit ytre, og ei grense der dei møtest.}
 
-\prop{5.02}{d}{Ei \textbf{hinne} er ei mengd tilstandar som skil eit indre frå eit ytre, slik at det indre og det ytre er uavhengige av kvarandre når tilstandane i hinna er gjevne.\textsuperscript{83} Gjennom hinna går observasjonane inn og handlingane ut.}
+\prop{5.02}{d}{Ei \textit{hinne} er ei mengd tilstandar som skil eit indre frå eit ytre, slik at det indre og det ytre er uavhengige av kvarandre når tilstandane i hinna er gjevne.\textsuperscript{83} Gjennom hinna går observasjonane inn og handlingane ut.}
 
 \prop{5.021}{d}{Ei hinne er \textit{sjølvhalden} i den grad verksemda i det indre held henne oppe. Ei grense som berre den som analyserer, teiknar, er ei \textit{analysegrense} (1.201).}
 
-\prop{5.022}{d}{Eit \textbf{sjølv} er eit mønster i feltet (1.244), avgrensa av ei sjølvhalden hinne.}
+\prop{5.022}{d}{Eit \textit{sjølv} er eit mønster i feltet (1.244), avgrensa av ei sjølvhalden hinne.}
 
 \prop{5.0221}{o}{Hinner vert haldne i ulik grad: nokre av det indre, nokre av andre, dei fleste av begge.}
 
@@ -388,7 +410,7 @@ Desimaltala viser den logiske vekta. Proposisjonen \textit{n.m} er ein merknad t
 
 \prop{5.1}{a}{Til kvar klasse finst minst eitt system som navigerer landskapet hans via negativ tilbakekopling.\textsuperscript{62}}
 
-\prop{5.11}{d}{Ein \textbf{agent} er eit system som held avviket mellom forventing og møte under ein terskel. Formelt er A = (m, \msym{π}, \msym{ε}).\textsuperscript{19,\,21,\,83,\,84} m er ein generativ modell over ei delmengd av aksane i formrommet; han ber òg det agenten føretrekkjer å møte, \textit{målregionen} hans. \msym{π}\textsubscript{A} er politikken som minimerer variasjonell fri energi mellom det m predikerer og det agenten observerer gjennom hinna. \msym{ε} er toleransen for divergensen mellom prediksjon og observasjon. Agens krev berre denne strukturen; verken medvit (1.2332), intensjon eller nervesystem.}
+\prop{5.11}{d}{Ein \textit{agent} er eit system som held avviket mellom forventing og møte under ein terskel. Formelt er A = (m, \msym{π}, \msym{ε}).\textsuperscript{19,\,21,\,83,\,84} m er ein generativ modell over ei delmengd av aksane i formrommet; han ber òg det agenten føretrekkjer å møte, \textit{målregionen} hans. \msym{π}\textsubscript{A} er politikken som minimerer variasjonell fri energi mellom det m predikerer og det agenten observerer gjennom hinna. \msym{ε} er toleransen for divergensen mellom prediksjon og observasjon. Agens krev berre denne strukturen; verken medvit (1.2332), intensjon eller nervesystem.}
 
 \propcont{Formelt. D\textsubscript{k}(t;\,\msym{π}) er divergensen langs aksen X\textsubscript{k}, t fram i tid, og D\textsubscript{k}(\msym{π}) = D\textsubscript{k}(0;\,\msym{π}). \msym{𝒫}\textsubscript{A} er politikkane A kan ta i bruk. F[m,\,\msym{π}] er den variasjonelle frie energien: eit tak over overraskinga ved det agenten observerer.}
 
@@ -408,7 +430,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.111}{t}{Definisjonen er uavhengig av kva agenten er laga av.\textsuperscript{88,\,89} Eit kvart system som oppfyller vilkåra, er ein agent.}
 
-\prop{5.1111}{i}{Biologisk vev navigerer via bioelektrisk polarisering;\textsuperscript{22,\,24,\,85} menneskeleg praksis via materiell friksjon; ein slimsopp via oscillerande samandragingar; ein språkmodell via vektoriell merksemd.}
+\prop{5.1111}{i}{Biologisk vev navigerer via bio\-elektrisk polari\-sering;\textsuperscript{22,\,24,\,85} menneskeleg praksis via materiell friksjon; ein slimsopp via oscillerande samandragingar; ein språkmodell via vektoriell merksemd.}
 
 \prop{5.112}{t}{Fri energi er eit tak over overraskinga, og den venta overraskinga er uvissa i det møtte pluss divergensen. Den som held taket lågt, held òg divergensen låg. Men at politikken held taket så lågt han kan, sikrar ikkje at divergensen kjem under \msym{ε}; toleransen er eit eige krav.}
 
@@ -416,7 +438,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \propcont{Formelt. Krympar bandet til eit punkt \msym{δ}\textsubscript{g}, veks divergensen i 5.11 mot det uendelege så snart det møtte spreier seg. Berre den omvende er endeleg: D\textsubscript{KL}(\msym{δ}\textsubscript{g} \msym{∥} p\textsubscript{obs}) = \msym{−}ln\,p\textsubscript{obs}(g), kor uventa målet er under det agenten møter. Den reine punktforma er grensa for 5.11, ikkje eit tilfelle av henne.}
 
-\prop{5.114}{d}{\textbf{Prediksjonshorisonten} \msym{τ}\textsubscript{k}(A) er kor langt fram A, med ein politikk han kan ta i bruk, kan halde divergensen langs X\textsubscript{k} under \msym{ε}. Horisonten til agenten, \msym{τ}(A), er den lengste av dei.}
+\prop{5.114}{d}{\textit{Prediksjonshorisonten} \msym{τ}\textsubscript{k}(A) er kor langt fram A, med ein politikk han kan ta i bruk, kan halde divergensen langs X\textsubscript{k} under \msym{ε}. Horisonten til agenten, \msym{τ}(A), er den lengste av dei.}
 
 \prop{5.1141}{a}{Ein realisert modell har endeleg mange parametrar.}
 
@@ -443,7 +465,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 \prop{5.125}{i}{Den som formgjev for andre: representasjonen strekkjer seg forbi behova til agenten sjølv, til dei som skal leve med forma.}
 
 \begin{center}
-\includegraphics[width=0.5\textwidth]{termostat-designar.png}
+\includegraphics[width=0.5\linewidth]{termostat-designar.png}
 \end{center}
 
 \prop{5.13}{a}{Det modellen føretrekkjer å møte, er låg spenning i posisjonen langs aksane han dekkjer (3.1). Å halde divergensen nede er då å følgje gradienten nedover. Agenten svarar på gradienten slik han når agenten gjennom hinna (5.025), ikkje på forma.\textsuperscript{63,\,64}}
@@ -452,7 +474,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.132}{t}{Navigasjon krev berre den lokale gradienten (5.13).\textsuperscript{63} Lokale steg gjev global form, utan at nokon ser henne.}
 
-\prop{5.14}{d}{Spenninga i 3.1 ligg over formrommet. Den \textbf{indre spenninga} \msym{σ}\textsubscript{k}(A) er avstanden langs X\textsubscript{k} mellom det agenten møter og målregionen hans, slik han verkar inne i agenten. Ho set politikken i rørsle.}
+\prop{5.14}{d}{Spenninga i 3.1 ligg over formrommet. Den \textit{indre spenninga} \msym{σ}\textsubscript{k}(A) er avstanden langs X\textsubscript{k} mellom det agenten møter og målregionen hans, slik han verkar inne i agenten. Ho set politikken i rørsle.}
 
 \prop{5.141}{t}{Indre spenning kjem frå minst tre stader: verda mot målregionen, sansinga mot forventinga, og målet langs éin akse mot målet langs ein annan. Den første er landskapet (3.1, 5.13), den andre er divergensen (5.11), den tredje er kompromisset (2.13).}
 
@@ -464,7 +486,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.1441}{o}{Svolt, smerte og frykt følgjer trugsmål mot det ein organisme må halde. Metting, lindring og tryggleik følgjer at trugsmålet fell bort.}
 
-\prop{5.15}{d}{\textbf{Kompetanse} er evna til å nå same målregion frå ulike utgangspunkt og på ulike vegar.}
+\prop{5.15}{d}{\textit{Kompetanse} er evna til å nå same målregion frå ulike utgangspunkt og på ulike vegar.}
 
 \prop{5.151}{t}{Kompetansen syner seg berre under forstyrring. Ein kompetent agent når same mål på ein annan veg når vegen vert sperra; ein refleks kjenner berre éin.}
 
@@ -476,15 +498,15 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.153}{t}{Kvar måling av kompetanse er gjord av ein observatør, i eit rom observatøren har valt (1.321). Målinga seier difor òg noko om observatøren, ikkje berre om agenten.}
 
-\prop{5.2}{d}{\textbf{Omhug} \msym{ω}(A) er at avvik ikkje er likegyldige for agenten.\textsuperscript{23,\,68} For kvar akse X\textsubscript{k} er \msym{ω}\textsubscript{k}(A) kor mykje arbeid ei eining indre spenning langs X\textsubscript{k} set i gang i politikken. Omhug er ikkje eit tal, men ein profil over aksane.}
+\prop{5.2}{d}{\textit{Omhug} \msym{ω}(A) er at avvik ikkje er likegyldige for agenten.\textsuperscript{23,\,68} For kvar akse X\textsubscript{k} er \msym{ω}\textsubscript{k}(A) kor mykje arbeid ei eining indre spenning langs X\textsubscript{k} set i gang i politikken. Omhug er ikkje eit tal, men ein profil over aksane.}
 
 \prop{5.201}{t}{Omhug vert målt i arbeid, ikkje i kunnskap. Ein agent kan predikere ein akse fullkome og ikkje røre seg for han: kunnskap utan omhug predikerer, men endrar ikkje. Omhugen set i gang arbeidet, både det som måler og det som endrar.}
 
-\prop{5.21}{d}{\textbf{Kapasiteten} \msym{κ}(A) er dei aksane der A, med ein politikk han kan ta i bruk, kan halde divergensen under toleransen: \msym{κ}(A) = \{X\textsubscript{k} : det finst \msym{π} \msym{∈} \msym{𝒫}\textsubscript{A} med D\textsubscript{k}(\msym{π}) \msym{≤} \msym{ε}\}.\textsuperscript{21,\,86} Kapasiteten fell direkte ut av agentdefinisjonen i 5.11 og seier kva agenten kan halde.}
+\prop{5.21}{d}{\textit{Kapasiteten} \msym{κ}(A) er dei aksane der A, med ein politikk han kan ta i bruk, kan halde divergensen under toleransen: \msym{κ}(A) = \{X\textsubscript{k} : det finst \msym{π} \msym{∈} \msym{𝒫}\textsubscript{A} med D\textsubscript{k}(\msym{π}) \msym{≤} \msym{ε}\}.\textsuperscript{21,\,86} Kapasiteten fell direkte ut av agentdefinisjonen i 5.11 og seier kva agenten kan halde.}
 
 \prop{5.211}{t}{D\textsubscript{k} måler informasjonstapet når modellen til agenten står i staden for det han observerer langs X\textsubscript{k}. Innanfor kapasiteten finst ein politikk agenten kan ta i bruk som held aksen innanfor toleransen; utanfor finst ingen.}
 
-\prop{5.22}{d}{Den \textbf{kognitive lyskjegla} \msym{Γ}(A) er det som kan setje agenten i spenning: aksane der \msym{ω}\textsubscript{k} > 0, kvar med så lang utstrekning fram og attende i tid som måla hans rekk langs han.\textsuperscript{21,\,85,\,90} Ho er ikkje grensa for kva agenten sansar eller når, men for kva han kan ha som mål.}
+\prop{5.22}{d}{Den \textit{kognitive lyskjegla} \msym{Γ}(A) er det som kan setje agenten i spenning: aksane der \msym{ω}\textsubscript{k} > 0, kvar med så lang utstrekning fram og attende i tid som måla hans rekk langs han.\textsuperscript{21,\,85,\,90} Ho er ikkje grensa for kva agenten sansar eller når, men for kva han kan ha som mål.}
 
 \prop{5.221}{o}{Lyskjegler spenner frå cellulær millisekundrespons til tiårslang konsensus.}
 
@@ -496,9 +518,9 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.23}{t}{Lyskjegla og kapasiteten er definerte kvar for seg (5.21, 5.22) og treng ikkje falle saman. Ein agent kan bry seg om det han ikkje kan halde, og kunne halde det han ikkje bryr seg om.}
 
-\prop{5.231}{d}{Aksane som ligg både i lyskjegla og i kapasiteten, er dei \textbf{haldne} aksane: H(A) = \{X\textsubscript{k} \msym{∈} \msym{κ}(A) : \msym{ω}\textsubscript{k}(A) > 0\}. Langs dei bryr agenten seg, og han kan halde divergensen under terskelen. Der den faktiske politikken \msym{π}\textsubscript{A} gjer det, viser haldet seg utanfrå som margin: 1 \msym{−} D\textsubscript{k}(\msym{π}\textsubscript{A})\,/\,\msym{ε}.}
+\prop{5.231}{d}{Aksane som ligg både i lyskjegla og i kapasiteten, er dei \textit{haldne} aksane: H(A) = \{X\textsubscript{k} \msym{∈} \msym{κ}(A) : \msym{ω}\textsubscript{k}(A) > 0\}. Langs dei bryr agenten seg, og han kan halde divergensen under terskelen. Der den faktiske politikken \msym{π}\textsubscript{A} gjer det, viser haldet seg utanfrå som margin: 1 \msym{−} D\textsubscript{k}(\msym{π}\textsubscript{A})\,/\,\msym{ε}.}
 
-\prop{5.232}{d}{Ein akse kan falle utanfor det agenten held, på tre måtar. Utan omhug og utan kapasitet: \textbf{blindskap}. Med kapasitet, utan omhug: \textbf{likesæle}. Med omhug, utan kapasitet: \textbf{avmakt}.}
+\prop{5.232}{d}{Ein akse kan falle utanfor det agenten held, på tre måtar. Utan omhug og utan kapasitet: \textit{blindskap}. Med kapasitet, utan omhug: \textit{likesæle}. Med omhug, utan kapasitet: \textit{avmakt}.}
 
 \prop{5.2321}{t}{Blindskapen er ikkje nøytral, og det er heller ikkje likesæla eller avmakta: under alle tre verkar trykka langs aksen vidare (2.12, 5.222).}
 
@@ -526,7 +548,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.263}{t}{Grensa for lyskjegla er difor usynleg innanfrå (5.262), slik grensa for tankerommet er det (1.53): ein kan ikkje kjenne kvar kjensla sluttar. Og inkje system kan frå innsida fastslå kva det sjølv kan observere; ein sjølvmodell som femna si eiga grense, måtte stå utanfor henne.\textsuperscript{70} Grensa kan lesast av ein annan, eller i forma.}
 
-\prop{5.27}{d}{\textbf{Intelligens} er kompetanse i eit rom: evna til å finne vegar til målregionen, òg vegar som fører bort frå han ei stund og nærare seinare.\textsuperscript{23,\,86,\,91} Omhug er innhaldet i intelligensen. Omhugen gjev intelligensen noko å gjelde; intelligensen gjev omhugen vegar.}
+\prop{5.27}{d}{\textit{Intelligens} er kompetanse i eit rom: evna til å finne vegar til målregionen, òg vegar som fører bort frå han ei stund og nærare seinare.\textsuperscript{23,\,86,\,91} Omhug er innhaldet i intelligensen. Omhugen gjev intelligensen noko å gjelde; intelligensen gjev omhugen vegar.}
 
 \prop{5.271}{t}{Kompetansen veks med omhugen berre innanfor kapasiteten: berre aksar som er haldne, kan navigerast med hell (5.231), og omhug utover kapasiteten er avmakt (5.232).}
 
@@ -540,7 +562,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.32}{t}{Sett frå agenten er dei fire operatorane i 1.54 ulike. Berre C\msym{→}K og K\msym{→}K kan utvide kapasiteten, for berre dei gjer prediksjonen skarpare. C\msym{→}C og K\msym{→}C endrar kva som er tenkt, ikkje kva som kan haldast.}
 
-\prop{5.4}{d}{\textbf{Substratet} er lovene i feltet der inkje indre held ei hinne (1.245). Det verkar som ein \textit{agent av nullte orden}: grensetilfellet av 5.11 utan modell og politikk, der berre vetoet står att.\textsuperscript{26,\,81,\,92,\,93} Det legg ned veto mot somme konfigurasjonar og gjev resonans til andre gjennom ufråvikelege avgrensingar.}
+\prop{5.4}{d}{\textit{Substratet} er lovene i feltet der inkje indre held ei hinne (1.245). Det verkar som ein \textit{agent av nullte orden}: grensetilfellet av 5.11 utan modell og politikk, der berre vetoet står att.\textsuperscript{26,\,81,\,92,\,93} Det legg ned veto mot somme konfigurasjonar og gjev resonans til andre gjennom ufråvikelege avgrensingar.}
 
 \prop{5.401}{o}{Substratet har to lag: strukturparametrar (den initiale konfigurasjonen) og funksjonsparametrar (reglane som verkar på konfigurasjonen).\textsuperscript{92} Under støy akselererer funksjonsparametrane navigasjonen i formrommet.}
 
@@ -552,7 +574,7 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.5}{o}{Evna til å navigere hopar seg opp som strukturert informa\-sjon.\textsuperscript{64}}
 
-\prop{5.51}{d}{\textbf{Læring} er at kapasiteten til ein agent vert utvida gjennom det han har navigert. Ho er irreversibel i arkivet, ikkje i kvar agent.}
+\prop{5.51}{d}{\textit{Læring} er at kapasiteten til ein agent vert utvida gjennom det han har navigert. Ho er irreversibel i arkivet, ikkje i kvar agent.}
 
 \prop{5.511}{t}{Summert over agentar ber læringa ekspansjonen av det tilgjengelege formrommet (4.4): det som vert navigert og realisert, vert busett og kjent (1.52), og det busette er utgangspunktet for neste steg (1.411).}
 
@@ -566,13 +588,13 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.53}{t}{Med agentar får landskapet ein ny kanal for endring. Det kjende går inn i modellane som styrer kva agentane realiserer (5.11, 5.31), og det som endrar sannsynsfordelinga over det som ikkje er forbode, er trykk (2.1). Det kjende verkar difor sjølv som trykk på det som kjem etter (1.52, 3.4).}
 
-\prop{5.6}{d}{\textbf{Liv} er den prosessen der eit system held oppe si eiga lyskjegle mot oppløysing over tid, og vidar henne ut der det kan.\textsuperscript{85,\,89}}
+\prop{5.6}{d}{\textit{Liv} er den prosessen der eit system held oppe si eiga lyskjegle mot oppløysing over tid, og vidar henne ut der det kan.\textsuperscript{85,\,89}}
 
 \prop{5.61}{t}{Eit system er levande i den grad det aktivt motverkar at lyskjegla krympar.}
 
 \prop{5.62}{t}{Å halde oppe si eiga lyskjegle krev å halde si eiga hinne: utan hinne kjem ingen observasjon inn og inga handling ut (5.02), og ei hinne som andre held, er ikkje halden av systemet sjølv. Det levande er difor eit sjølv, sett utanfrå (5.115). Difor ser det levande annleis ut enn det livlause: det er det i formverda som utanfrå viser seg som noko som held seg sjølv.}
 
-\prop{5.63}{d}{\textbf{Død} er den irreversible kollapsen av lyskjegla til det tomme.}
+\prop{5.63}{d}{\textit{Død} er den irreversible kollapsen av lyskjegla til det tomme.}
 
 \prop{5.631}{t}{Når lyskjegla er tom, har systemet inkje mål, og det er ikkje lenger ein agent (5.11). Døden ligg difor på grensa for definisjonen.}
 
@@ -584,10 +606,10 @@ D\textsubscript{k}(\msym{π}\textsubscript{A}) \msym{≤} \msym{ε} for minst é
 
 \prop{5.641}{o}{Alle system som held seg ved å svare (5.011), kan skildrast som om dei minimerer variasjonell fri energi; dei er formelt aktørar som oppdaterer etter sannsyn.\textsuperscript{89} Berre det levande gjer det for si eiga hinne.}
 
-\prop{5.7}{a}{\textbf{Kjernelikninga.}\textsuperscript{11,\,17,\,21} Forma er grammatikken sin respons på gradienten i landskapet slik agenten estimerer det, projisert på det han kan halde og vekta med omhugen hans:}
+\prop{5.7}{a}{\textit{Kjernelikninga.}\textsuperscript{11,\,17,\,21} Forma er grammatikken sin respons på gradienten i landskapet slik agenten estimerer det, projisert på det han kan halde og vekta med omhugen hans:}
 
 \begin{center}\small
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lp{34mm}@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lp{26mm}@{}}
 \toprule
 Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\hat{\Lambda}_A\)(x,\,t)\,) & Grammatikk, landskap, lyskjegle \\
 \bottomrule
@@ -598,7 +620,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 
 \prop{5.71}{d}{Likninga er eit strukturelt skjema. Ho namngjev komponentane, men spesifiserer ikkje den funksjonelle forma til \msym{Λ}, kva reglar i R som slår til, eller dimensjonaliteten til lyskjegla. Den presise forma hennar er steget i 6.64.}
 
-\prop{5.72}{t}{\textbf{Reduksjon.}\textsuperscript{11,\,17} Likninga kan reduserast til fire grensetilfelle, alt etter kva som vert gjort trivielt:}
+\prop{5.72}{t}{\textit{Reduksjon.}\textsuperscript{11,\,17} Likninga kan reduserast til fire grensetilfelle, alt etter kva som vert gjort trivielt:}
 
 \propcont{\textit{(i) Rein formgrammatikk}, når \msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\(\hat{\Lambda}_A\) \msym{≡} 0: landskapet er flatt langs dei haldne aksane, eller agenten held ingenting, H(A) = \msym{∅}. Då er Form = SG(0) = L(SG): heile det genererte språket utan seleksjon.}
 
@@ -629,9 +651,9 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 
 \prop{6.003}{t}{Trykka har to kjelder: substratet, lovene i feltet der inkje indre held ei hinne (5.4), og politikkane til agentane (5.11). Utanfrå er begge avgrensingar; innanfrå eit sjølv er berre den andre omhug (5.2612).}
 
-\prop{6.01}{d}{Ein \textbf{formgjevar} er ein agent som ved å navigere realiserer konfigurasjonar i formrommet. Cella, bia, treet, handverkaren og ingeniøren er formgjevarar; det er materialet agensen er bygd av som varierer, ikkje strukturen.}
+\prop{6.01}{d}{Ein \textit{formgjevar} er ein agent som ved å navigere realiserer konfigurasjonar i formrommet. Cella, bia, treet, handverkaren og ingeniøren er formgjevarar; det er materialet agensen er bygd av som varierer, ikkje strukturen.}
 
-\prop{6.02}{d}{Ein \textbf{designar} er ein agent A som langs minst éin akse X verkar inn på den generative modellen til minst éin annan agent A\msym{′}, og der lyskjegla femner spenninga til A\msym{′} langs X: eit avvik hjå A\msym{′} langs X set arbeid i gang hjå A. Designar er ein konfigurasjon av verknad og omhug, ikkje ein ontologisk kategori.}
+\prop{6.02}{d}{Ein \textit{designar} er ein agent A som langs minst éin akse X verkar inn på den generative modellen til minst éin annan agent A\msym{′}, og der lyskjegla femner spenninga til A\msym{′} langs X: eit avvik hjå A\msym{′} langs X set arbeid i gang hjå A. Designar er ein konfigurasjon av verknad og omhug, ikkje ein ontologisk kategori.}
 
 \prop{6.021}{t}{Verknad åleine gjer ingen til designar. Det første vilkåret i 6.02 er naudsynt, ikkje tilstrekkeleg; det seier at A verkar på A\msym{′}, ikkje at A bryr seg om korleis det går med A\msym{′}.}
 
@@ -729,7 +751,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 
 \prop{6.5111}{t}{Omhug som vil halde verda slik ho er, krev mindre måling og mindre endring enn omhug som vil opne henne.}
 
-\prop{6.6}{d}{\textbf{Den allmenne forma.} Før realiseringa er det gjeve ei sannsynsfordeling over formrommet; det som vert realisert, er éin konfigurasjon x (1.12), og forma hans er strukturen hans (1.212). \textbf{Formmodellen} for x, realisert av agentar \{A\textsubscript{i}\} som navigerer med grammatikken SG, er:\textsuperscript{86,\,89}}
+\prop{6.6}{d}{\textit{Den allmenne forma.} Før realiseringa er det gjeve ei sannsynsfordeling over formrommet; det som vert realisert, er éin konfigurasjon x (1.12), og forma hans er strukturen hans (1.212). \textit{Formmodellen} for x, realisert av agentar \{A\textsubscript{i}\} som navigerer med grammatikken SG, er:\textsuperscript{86,\,89}}
 
 \begin{widebody}
 \begin{center}\small
@@ -788,7 +810,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 \includegraphics[width=0.92\linewidth]{formgjevarkompetanse/den-generelle-forma.png}
 \end{center}
 
-\prop{6.67}{d}{Den \textbf{samla omhugen} langs \(X_k\) er \(W_k = \sum_i w_i\,\omega_k(A_i)\), rekna over dei agentane som held aksen.}
+\prop{6.67}{d}{Den \textit{samla omhugen} langs \(X_k\) er \(W_k = \sum_i w_i\,\omega_k(A_i)\), rekna over dei agentane som held aksen.}
 
 \prop{6.671}{t}{Der \(W_k = 0\), vel ingen langs aksen. Gjeve koordinatane \(x_H\) langs dei haldne aksane er fordelinga langs han grammatikken si eiga, avgrensa til det som ikkje er forbode: \(P(x_k \mid x_H) = \mu_{\text{SG}}(x_k \mid x_H,\, x \notin V)\). Forma er der berre det moglege, ikkje det valde. Ho fell der ho fell.}
 
@@ -823,7 +845,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 
 \prop{7.13}{t}{Arkivet er ikkje ei skulding. Det er eit faktum. Same faktumet som gjer geologi leseleg, gjer design leseleg.\textsuperscript{72}}
 
-\prop{7.14}{d}{\textbf{Sviktlatensen} er kor mange horisontar svikten ventar: \msym{ρ}\textsubscript{k}(A) = \msym{Δ}\textsubscript{k}\,/\,\msym{τ}\textsubscript{k}(A), der \msym{Δ}\textsubscript{k} er tida før konsekvensen viser seg langs X\textsubscript{k}, og \msym{τ}\textsubscript{k}(A) er horisonten langs aksen (5.114).}
+\prop{7.14}{d}{\textit{Sviktlatensen} er kor mange horisontar svikten ventar: \msym{ρ}\textsubscript{k}(A) = \msym{Δ}\textsubscript{k}\,/\,\msym{τ}\textsubscript{k}(A), der \msym{Δ}\textsubscript{k} er tida før konsekvensen viser seg langs X\textsubscript{k}, og \msym{τ}\textsubscript{k}(A) er horisonten langs aksen (5.114).}
 
 \needspace{10\baselineskip}
 \prop{7.141}{d}{Forholdstalet deler svikten i tre regime:}
@@ -831,7 +853,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 \nopagebreak
 \begin{widebody}
 \begin{center}\small
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lp{80mm}@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lp{68mm}@{}}
 \toprule
 \msym{ρ} \msym{≤} 0,1 & \textit{Internalisert}: konsekvensen ligg godt innanfor horisonten; svikten kan føreseiast innanfrå. \\[3pt]
 0,1 < \msym{ρ} < 100 & \textit{Leseleg}: konsekvensen kjem nær horisonten, eller høgst to storleiksordenar etter han, så signaturen kan observerast. \\[3pt]
@@ -867,7 +889,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 
 \prop{7.22}{t}{Der sviktsignaturen råkar eit sjølv, er han uroa til den som ikkje var med, sett utanfrå.}
 
-\prop{7.23}{d}{\textbf{Det predikerte sviktrommet} er mengda av aksar i \msym{𝕄} som ingen agent held, slik at W\textsubscript{k} = 0, og der trykk verkar; kvar har sviktlatensen \msym{ρ}\textsubscript{k}(A) for den agenten A som les. For kvar agent fell det i tre: blindskap, likesæle og avmakt (5.232). Modellen predikerer at forma ber signatur langs desse aksane. Om signaturen er relevant for agenten, er eit spørsmål agenten stiller når han les modellen, ikkje eit spørsmål modellen svarar på.}
+\prop{7.23}{d}{\textit{Det predikerte sviktrommet} er mengda av aksar i \msym{𝕄} som ingen agent held, slik at W\textsubscript{k} = 0, og der trykk verkar; kvar har sviktlatensen \msym{ρ}\textsubscript{k}(A) for den agenten A som les. For kvar agent fell det i tre: blindskap, likesæle og avmakt (5.232). Modellen predikerer at forma ber signatur langs desse aksane. Om signaturen er relevant for agenten, er eit spørsmål agenten stiller når han les modellen, ikkje eit spørsmål modellen svarar på.}
 
 \prop{7.24}{t}{At noko har noko å seie, kan modellen ikkje måle. Målingane hans er relasjonar (1.2311), og det å ha noko å seie er innsida av det han skildrar utanfrå (5.261). Han kan berre vise kvar noko hadde noko å seie for nokon som kunne halde det, og kvar ikkje.}
 
@@ -885,4 +907,7 @@ Form = SG(\,\msym{ω}(A) \msym{⊙} \msym{∇}\textsubscript{\msym{κ}(A)}\,\(\h
 
 \prop{7.4}{t}{Formverda er alt som er tilfelle, og alt som er tilfelle, verkar. Navigasjonen held fram.}
 
+\end{adjustwidth}
+\clearpage
+\endgroup
 \setlength{\emergencystretch}{0pt}

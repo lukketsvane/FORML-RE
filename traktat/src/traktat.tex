@@ -174,7 +174,7 @@
 % after the number.
 \usepackage{calc}
 \newlength{\propnumwidth}
-\setlength{\propnumwidth}{13mm}  % column reserved for the number itself
+\setlength{\propnumwidth}{15mm}  % column reserved for the number itself
 \newlength{\propnumgap}
 \setlength{\propnumgap}{2mm}     % gap between number column and body text
 
@@ -183,27 +183,23 @@
 %   and the whole 15 mm slug is \llap'd into the LEFT margin so its right
 %   edge sits flush against the text-block left edge. Body text starts at
 %   the text margin and wraps there too — a perfect rectangle.
-%   The number itself is rendered in a heavier weight so it stands out
-%   against the regular body text.
+%   Number and body share weight and size; one blank line separates
+%   propositions and their paragraphs (reference edition layout).
 % Regular proposition — \needspace prevents page break inside a proposition
+\newlength{\propskip}
+\setlength{\propskip}{9pt}
 \newcommand{\prop}[3]{%
   \needspace{3\baselineskip}%
-  \par\addvspace{3pt}%
-  \noindent\llap{\makebox[\propnumwidth][l]{\textbf{#1}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
+  \par\addvspace{\propskip}%
+  \noindent\llap{\makebox[\propnumwidth][l]{#1\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
   #3\par%
-  \addvspace{1pt}%
 }
-% Main proposition (integer numbers 1–7): number slightly larger+bold, body text at normal size
-\newcommand{\mainprop}[3]{%
-  \par\addvspace{6pt}%
-  \noindent\llap{\makebox[\propnumwidth][l]{{\fontsize{12}{13.5}\selectfont\textbf{#1}}\textsuperscript{\textit{#2}}}\hspace{\propnumgap}}%
-  #3\par%
-  \addvspace{3pt}%
-}
+% Main proposition: set exactly like the others.
+\let\mainprop\prop
 
 % Continuation paragraph — plain paragraph at the body column (no number).
 \newcommand{\propcont}[1]{%
-  \par\addvspace{1pt}%
+  \par\addvspace{\propskip}%
   \noindent #1\par%
 }
 
