@@ -15,6 +15,7 @@ Alt innhald frå den førre utgåva er teke vare på. Kvar proposisjon er anten 
 
 ## Struktur
 
+- **Ny opning:** proposisjon 1 er «Form er ei ordning av skilnader.» Stega 1.01 til 1.0211 byggjer skilnad og ordning. Den gamle første setninga, «Formverda er alt som er tilfelle», opnar no 1.1. Konfigurasjon (1.11) er definert som ei ordning, og forma i 1.212 er avleidd av 1, ikkje definert på nytt.
 - **Sju hovudproposisjonar**, ikkje åtte. Den generative modellen (gammal seksjon 8) er no *den allmenne forma*, 6.6 til 6.68, inne i kapittel 6. Kapittel 7 er avslutninga, slik han skal vere.
 - **Bruproposisjonar** som tvingar kvar hovudproposisjon fram: 2.01, 3.01, 4.01, 5.01, 6.001 og 7.01.
 - **Kapitteltitlane** er no hovudproposisjonane sjølve.
@@ -102,6 +103,8 @@ Oppsettet følgjer Gyldendal-utgåva av Tractatus frå 1999 (omsett av Terje Ød
 ---
 
 ## Konkordans (gammalt nummer → nytt)
+
+Den gamle proposisjonen 1 («Formverda er alt som er tilfelle») står no i 1.1.
 
 | Gammal | Ny | Gammal | Ny | Gammal | Ny |
 |---|---|---|---|---|---|
