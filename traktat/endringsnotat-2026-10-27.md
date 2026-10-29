@@ -75,6 +75,50 @@ Alle 45 sidene i den norske utgåva (Gyldendal 1999, s. 11–55) vart transkribe
 
 Ein lang proposisjon har no eit kort hovud og avsnitt under, og proposisjonen sluttar på det avgjerande ordet. Innhald, nummer, status, formlar og tilvisingar er framleis uendra (kontrollert maskinelt).
 
+## Revisjon etter kritikken
+
+Forfattaren las utkastet kritisk og sette opp fem prioriteringar. Kvar av dei er gjennomført slik.
+
+**1. Prediksjon, mål og kontroll er skilde (5.11–5.272).** Ein agent er no A = (m, G, π, ε):
+- Prediksjonsavviket D_k og horisonten τ_k (med eigen toleranse ε_p) seier kor langt agenten *veit*.
+- Målregionen G (preferansen p_G) seier kva han *vil*.
+- Målavviket R_k og kapasiteten κ seier kva han *kan halde*.
+
+5.112 seier eksplisitt at fri energi, prediksjon, preferanse og kontroll er fire ulike objekt. Politikken minimerer forventa fri energi (risiko pluss tvitydigheit). Persepsjonen minimerer variasjonell fri energi.
+
+Avmakt kan no sjå katastrofen kome: ho bryr seg, men kan ikkje halde. Prøvene i 5.2325–5.2328 skil blindskap, likesæle og avmakt empirisk:
+- forstyrring for omhug;
+- å gjere aksen til mål for kapasitet;
+- prognose mot utfall for prediksjon.
+
+Agentomgrepet sin breidd er forsvart eksplisitt som grader (5.113). Substratet er ikkje lenger «agent av nullte orden», men grensetilfellet utan agens.
+
+**2. Omhug kan ikkje lesast direkte ut av forma (6.672–6.676).** Låg spreiing kan kome av β, krumming, grammatikk, standard, materialtvang eller arv like gjerne som av omhug (6.673). Omhug kan lesast komparativt, under like vilkår (6.674), eller ved svar på endring (6.675). Forma ber spor av omhug, ikkje bevis (6.676).
+
+**3. Svikt er prediktiv og falsifiserbar (6.7–6.77).** Svikt er venta berre når tre vilkår held saman: aksen er uhalden i bruk, belastninga l_k(T) verkar, og den passive reserven r_k er for liten (6.73). Det predikerte sviktrommet S(T) kan motprovast (6.74).
+
+I sviktlatensen er tala 0,1 og 100 bytte ut med den prinsipielle grensa ρ = 1, kombinert med kven som les (6.751). Ho er prøvd mot motdøme: føreseielege langtidsfølgjer, uføreseielege korttidsfølgjer, simulering og kollektiv hukommelse. Eitt fullt døme går frå formrom til svikt: monoblokkstolen (6.8–6.89).
+
+**4. Fullstendigheita er tona ned.** «Likninga lukkar faget» er erstatta av «Eg kjenner ikkje eit naudsynt fjerde lag som ikkje kan reduserast til desse tre.» (5.7231, observasjon). Originalitetskravet gjeld no ein mekanisme som bind form, agens, omhug og konsekvens. Merknaden om C–K skil det kjende frå det nye.
+
+**5. 6.027 er sentrum, og forma er eit arkiv.** 6.027 er no eit teorem med premissane uttalte. Hovudproposisjon 7 er bytt til «Forma er eit arkiv over kva som vart halde.» Kapittel 7 har gått frå 36 til 24 proposisjonar og inneheld:
+- arkivet;
+- vilkåra for å lese det;
+- ansvaret sett utanfrå;
+- fire motdøme der teorien nesten brest (7.31–7.34);
+- sjølvkritikk med namngjevne aksar (7.411).
+
+**Elles:**
+- Metafysikken er ein modul (1.25). 1.23 er eit postulat, og argumentet er gjort til eit vilkår med postulata uttalte. Designteorien står òg for den som avviser modulen.
+- «Det moglege veks ikkje» gjeld på fast nivå og med faste objekt (1.2231). Det står der påstanden ber.
+- 1.411 er eit testbart postulat med naboskap definert som eitt steg.
+- 2.13 gjeld som regel, og eitt trykk pluss støy er nemnt som alternativ.
+- Liv og død er stipulerte for teorien sitt bruk (5.6, 5.63).
+- Stolen er den raude tråden.
+- Kvantorar i empiriske påstandar er avgrensa: 1,72 strenge kvantorar per 1000 teikn før, 1,37 no.
+
+Teksten har no 410 proposisjonar. 29 er fjerna eller flytta, og alle er førte i konkordansen.
+
 ## Logiske rettingar
 
 - **Objekt, struktur og form** er skilde (1.2 til 1.2124): forma er strukturen teken uavhengig av objekta, ikkje sjølv ein konfigurasjon.
@@ -109,20 +153,26 @@ Ein lang proposisjon har no eit kort hovud og avsnitt under, og proposisjonen sl
 | K, K⁺, C, U, Π | kjent, kjent å verke, tenkjeleg, utenkjeleg, partisjonen | 1.5 | K, C∖K |
 | SG = (S, R, s₀), L(SG) | formgrammatikk og språket hans | 1.61 | SG = (S, R, ω) |
 | Λ, λ_j | landskapet (spenning) og bidraget frå trykket j | 3.1 | L |
-| A = (m, π, ε) | agent | 5.11 | same |
-| D_k, F, 𝒫_A | divergens langs X_k, fri energi, politikkar | 5.11 | |
+| A = (m, G, π, ε) | agent: modell, målregion, politikk, toleranse | 5.11 | A = (m, π, ε) |
+| D_k, ε_p | prediksjonsavvik langs X_k og toleransen for det (å vite) | 5.11 | D_k |
+| G, p_G | målregion og preferansen over han (å ville) | 5.11 | |
+| R_k, ε | målavvik langs X_k og toleransen for det (å halde) | 5.11 | |
+| F, G(π), 𝒫_A | variasjonell fri energi, forventa fri energi, politikkar | 5.11, 5.112 | F |
 | τ_k(A), τ(A) | prediksjonshorisont | 5.114 | τ(A) |
 | σ_k(A) | indre spenning | 5.14 | |
 | ν(A; G) | kompetanse i storleiksordenar | 5.152 | K |
 | ω_k(A) | omhug | 5.2 | ω som divergensvektor |
-| κ(A) | kapasitet | 5.21 | C(A) |
+| κ(A) | kapasitet: aksar der ein politikk held R_k ≤ ε | 5.21 | C(A), definert ved D_k |
 | Γ(A) | kognitiv lyskjegle | 5.22 | C(A) |
 | H(A) | haldne aksar, κ ∩ Γ | 5.231 | |
 | Λ̂_A | landskapet slik agenten estimerer det | 5.7 | L̂ |
 | μ_SG, β, w_i, Z | grunnfordeling, seleksjonsstyrke, innverknad, normalisering | 6.6 til 6.62 | |
 | q, Φ | framlegg frå grammatikken, samla vekt | 6.64 | |
 | W_k | samla omhug langs X_k | 6.67 | |
-| ρ_k(A), Δ_k | sviktlatens, tid før konsekvensen | 7.14 | ρ_i, τ(X_i) |
+| F_k | sviktregion langs X_k; grensa er sviktterskelen | 6.7 | |
+| l_k(T), r_k | belastning over bruksperioden og passiv reserve | 6.71, 6.72 | |
+| S(T) | det predikerte sviktrommet | 6.74 | 7.23 (utan terskel) |
+| ρ_k(A), Δ_k | sviktlatens, tid før konsekvensen; grensa ρ = 1 | 6.75 | 7.14, med grensene 0,1 og 100 |
 
 ## Konsekvensar for tilhøyrande tekstar (ikkje endra her)
 
@@ -140,7 +190,7 @@ Den gamle proposisjonen 1 («Formverda er alt som er tilfelle») står no i 1.1.
 |---|---|---|---|---|---|
 | 1.1 | 1.1 | 2.2 | 2.2 | 5.62 | 5.27, 5.271 |
 | 1.11 | 1.12 | 2.201 | 2.201 | 5.621 | 5.152 |
-| 1.12 | 1.13 | 2.21 | 2.21 | 5.63 | 5.232, 5.2321 |
+| 1.12 | 1.13 | 2.21 | 2.21 | 5.63 | 5.232, 5.2322 |
 | 1.13 | 1.131 | 2.211 | 2.211 | 5.631 | 5.25 |
 | 1.131 | 1.2124 | 2.212 | 2.212 | 5.65 | 5.6 |
 | 1.2 | 1.2 | 3.1 | 3.01, 3.1 | 5.651 | 5.61 |
@@ -148,7 +198,7 @@ Den gamle proposisjonen 1 («Formverda er alt som er tilfelle») står no i 1.1.
 | 1.203 | 1.203 | 3.12 | 3.121 | 5.653 | 5.64, 5.641 |
 | 1.2031 | 1.2031 | 3.121 | 3.122 | 5.7 | 5.7 |
 | 1.204 | 1.204 | 3.2 | 3.2 | 5.71 | 5.71 |
-| 1.21 | 1.11, 1.212 | 3.21 | 3.21 | 5.72 | 5.72 |
+| 1.21 | 1.11, 1.212 | 3.21 | 3.2 | 5.72 | 5.72 |
 | 1.211 | 1.211 | 3.3 | 3.3 | 5.721 | 5.721 |
 | 1.212 | 1.21 | 3.4 | 3.4 | 5.722 | 5.722 |
 | 1.213 | 1.2123 | 3.41 | 3.41 | 5.723 | 5.7231 |
@@ -157,7 +207,7 @@ Den gamle proposisjonen 1 («Formverda er alt som er tilfelle») står no i 1.1.
 | 1.22 | 1.22 | 4.12 | 4.12 | 6.02 | 6.02 |
 | 1.221 | 1.22 | 4.2 | 4.2 | 6.021 | 6.022 |
 | 1.222 | 1.222, 1.311 | 4.3 | 4.3 | 6.022 | 6.023 |
-| 1.2221 | 1.2221 | 4.4 | 4.4, 4.41 | 6.1 | 6.1 |
+| 1.2221 | 1.222 | 4.4 | 4.4 | 6.1 | 6.1 |
 | 1.223 | 1.223 | 4.5 | 4.5 | 6.11 | 6.112 |
 | 1.3 | 1.31 | 4.51 | 5.521 | 6.111 | 6.113 |
 | 1.31 | 1.32 | 4.511 | 5.5211 | 6.12 | 6.11, 6.114 |
@@ -167,25 +217,25 @@ Den gamle proposisjonen 1 («Formverda er alt som er tilfelle») står no i 1.1.
 | 1.4 | 1.4 | 5.111 | 5.111 | 6.2 | 6.2 |
 | 1.41 | 1.41, 1.411 | 5.112 | 5.114, 5.1142 | 6.3 | 6.3 |
 | 1.411 | 1.412, 3.41 | 5.12 | 5.12 | 6.31 | 6.31 |
-| 1.412 | 1.413, 1.52 | 5.121 | 5.121 | 6.311 | 6.311 |
-| 1.42 | 1.43, 1.432, 1.4321 | 5.122 | 5.122 | 6.32 | 6.32 |
+| 1.412 | 1.41, 1.52 | 5.121 | 5.121 | 6.311 | 6.311 |
+| 1.42 | 1.43, 1.432 | 5.122 | 5.122 | 6.32 | 6.32 |
 | 1.421 | 1.431, 1.4311 | 5.123 | 5.123 | 6.4 | 6.4 |
 | 1.43 | 1.42, 1.422 | 5.124 | 5.124 | 6.5 | 6.5 |
 | 1.431 | 1.421 | 5.125 | 5.125 | 7.1 | 7.1 |
-| 1.432 | 1.422 | 5.126 | 5.125 | 7.11 | 7.11 |
-| 1.433 | 1.51 | 5.13 | 5.13, 5.131 | 7.12 | 7.12 |
-| 1.44 | 1.5, 1.512 | 5.131 | 5.132 | 7.13 | 7.13 |
-| 1.441 | 1.501 | 5.2 | 5.22 | 7.14 | 7.14, 7.141 |
-| 1.442 | 1.52 | 5.21 | 5.223 | 7.141 | 7.141 |
-| 1.443 | 1.53 | 5.211 | 5.2231 | 7.142 | 7.142 |
-| 1.444 | 1.54 | 5.212 | 5.21, 5.22 | 7.15 | 7.15 |
-| 2.01 | 2.02, 2.1 | 5.213 | 5.211 | 7.151 | 7.151 |
-| 2.011 | 2.021 | 5.3 | 1.6 | 7.152 | 7.152 |
-| 2.1 | 2.1 | 5.301 | 1.61 | 7.153 | 7.153 |
+| 1.432 | 1.422 | 5.126 | 5.125 | 7.11 | 7.1 |
+| 1.433 | 1.51 | 5.13 | 5.13, 5.131 | 7.12 | 7.11 |
+| 1.44 | 1.5, 1.512 | 5.131 | 5.132 | 7.13 | 7.12 |
+| 1.441 | 1.501 | 5.2 | 5.22 | 7.14 | 6.75, 6.751 |
+| 1.442 | 1.52 | 5.21 | 5.223 | 7.141 | 6.751 |
+| 1.443 | 1.53 | 5.211 | 5.2231 | 7.142 | 6.756 |
+| 1.444 | 1.54 | 5.212 | 5.21, 5.22 | 7.15 | 6.77 |
+| 2.01 | 2.02, 2.1 | 5.213 | 5.211 | 7.151 | 6.77 |
+| 2.011 | 2.021 | 5.3 | 1.6 | 7.152 | 6.771 |
+| 2.1 | 2.1 | 5.301 | 1.61 | 7.153 | 6.772 |
 | 2.101 | 2.101 | 5.31 | 1.63 | 7.2 | 7.2 |
-| 2.11 | 2.11 | 5.311 | 5.301 | 7.21 | 7.21, 7.144 |
-| 2.111 | 2.111 | 5.312 | 5.31 | 7.23 | 7.23 |
-| 2.12 | 2.12 | 5.4 | 5.4 | 7.3 | 7.4 |
+| 2.11 | 2.11 | 5.311 | 5.301 | 7.21 | 7.21, 6.751 |
+| 2.111 | 2.111 | 5.312 | 5.31 | 7.23 | 6.74 |
+| 2.12 | 2.12 | 5.4 | 5.4 | 7.3 | 7.5 |
 | 2.121 | 2.121 | 5.401 | 5.401 | 8.1 | 6.6 |
 | 2.122 | 2.122 | 5.41 | 5.1111 | 8.11 | 6.61 |
 | 2.13 | 2.13 | 5.5 | 5.5, 5.51 | 8.12 | 6.62 |
