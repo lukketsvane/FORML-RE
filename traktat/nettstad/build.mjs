@@ -18,6 +18,7 @@ for(const name of ['index.html','reader.js','reader.css','content.mjs','illustra
 }
 await writeFile(path.join(out,'data/formlaere.txt'),text);
 await writeFile(path.join(out,'data/kjelder.json'),catalogText);
+await cp(path.join(tractate,'pdf/traktat.pdf'),path.join(out,'traktat.pdf'));
 // Keep existing bookmarked reader URLs working after moving to this repository.
 await cp(path.join(root,'index.html'),path.join(out,'traktat/scroll.html'));
 await cp(path.join(root,'index.html'),path.join(out,'traktat/index.html'));

@@ -310,7 +310,7 @@
 \usepackage[hidelinks,unicode]{hyperref}
 \hypersetup{pdftitle={FORMLÆRE},pdfauthor={Iver Raknes Finne}}
 \newcommand{\kjeldelenke}[1]{\kjeldeskilje\hyperlink{kjelde-#1}{#1}\def\kjeldeskilje{,\thinspace}}
-\newcommand{\kjelde}[1]{\textsuperscript{\def\kjeldeskilje{}\forcsvlist{\kjeldelenke}{#1}}}
+\newcommand{\kjelde}[1]{\nobreak\textsuperscript{\upshape\def\kjeldeskilje{}\forcsvlist{\kjeldelenke}{#1}}}
 
 \AtBeginDocument{\raggedright}
 

@@ -45,6 +45,7 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
   preview.hidden=true;
   document.body.appendChild(preview);
   const anchorNotes=new WeakMap();
+  const renderedNotes=new WeakSet();
   let previewAnchor=null,previewMode="",closeTimer=0;
   function closePreview(){
     clearTimeout(closeTimer);
@@ -85,12 +86,15 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
     const body=make("div","prop-preview-body");
     if(note){
       preview.classList.add("source-preview");
-      number.textContent=note.relation|| (note.sources.length===1?"Kjelde":"Kjelder");
-      if(note.note)body.appendChild(make("p","source-note",note.note));
+      number.textContent=note.sources.length===1?"Kjelde":"Kjelder";
       for(const id of note.sources){
         const source=sources.get(id);
         if(!source)continue;
         body.appendChild(make("p","source-citation","["+id+"] "+source.citation));
+      }
+      for(const explanation of note.notes||(note.note?[note]:[])){
+        const relation=explanation.relation?explanation.relation+": ":"";
+        body.appendChild(make("p","source-note",relation+explanation.note));
       }
     }else{
       preview.classList.remove("source-preview");
@@ -172,18 +176,44 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
         button.setAttribute("aria-label",(part.ids.length===1?"Vis kjelde ":"Vis kjelder ")+part.ids.join(", "));
         anchorNotes.set(button,{sources:part.ids});
         bindPreview(button);
+        // Keep the mark with the preceding word, including an italic word
+        // whose emphasis ends immediately before the citation.
+        el.appendChild(document.createTextNode("\u2060"));
         el.appendChild(button);
       }
     }
   }
   function addAnnotations(el,notes){
     for(const note of notes){
+      if(renderedNotes.has(note))continue;
       const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
       let node;
       while((node=walker.nextNode())){
         if(node.parentElement.closest("button"))continue;
         const index=node.data.indexOf(note.anchor);
         if(index<0)continue;
+        renderedNotes.add(note);
+        // An existing source number carries the explanation as well. Avoid a
+        // second clickable term for the same source in the same paragraph.
+        const anchorRange=document.createRange();
+        anchorRange.selectNodeContents(el);
+        anchorRange.setEnd(node,index+note.anchor.length);
+        const anchorEnd=anchorRange.toString().length;
+        const matches=Array.from(el.querySelectorAll(".source-ref"))
+          .filter(ref=>ref.dataset.sources.split(",").some(id=>note.sources.includes(id)))
+          .map(ref=>{
+            const range=document.createRange();
+            range.selectNodeContents(el);range.setEndBefore(ref);
+            return {ref,distance:Math.abs(range.toString().length-anchorEnd)};
+          }).sort((a,b)=>a.distance-b.distance);
+        if(matches.length){
+          const ref=matches[0].ref,existing=anchorNotes.get(ref);
+          anchorNotes.set(ref,{
+            sources:[...new Set([...existing.sources,...note.sources])],
+            notes:[...(existing.notes||[]),note]
+          });
+          break;
+        }
         const before=node.data.slice(0,index),after=node.data.slice(index+note.anchor.length);
         const button=make("button","source-term",note.anchor);
         button.type="button";
@@ -264,7 +294,10 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
     }
     referenceList.appendChild(item);
   }
-  bibliography.appendChild(referenceList);stream.appendChild(bibliography);
+  bibliography.appendChild(referenceList);
+  const pdfLink=make("a","source-url","Last ned PDF");
+  pdfLink.href="/traktat.pdf";
+  bibliography.appendChild(pdfLink);stream.appendChild(bibliography);
   const VW=358,PAD=5,SGAP=5,YROOT=17,YLAB=8,UNIT=75;
   const branches=roots.flatMap(r=>r.kids);
   const STEP=(VW-2*PAD-SGAP*(roots.length-1))/Math.max(1,branches.length);

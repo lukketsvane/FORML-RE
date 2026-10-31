@@ -4,7 +4,7 @@
   "provenance": {
     "bibliography": "traktat/src/traktat.tex",
     "text": "traktat/tekst/formlaere.txt",
-    "note": "Referansar 1–107 er overførte frå den eksisterande bibliografien, med opphavleg nummerering og bibliografisk ordlyd. Metadata er ikkje nyverifiserte. Referanse 108 er kontrollert mot den lenka digitale primærteksten. Notata skil uttrykkelege tilvisingar, tekstlege parallellar og FORMLÆRE sine eigne vidareføringar."
+    "note": "Nummera 1–107 følgjer den opphavlege kjeldelista; 108 viser til tekstlege parallellar med Tractatus, og 109 til Investigations. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
   },
   "sources": [
     {
@@ -60,7 +60,9 @@
     {
       "id": "11",
       "citation": "Stiny, G. & Gips, J. (1972). Shape grammars and the generative specification of painting and sculpture. Information Processing 71, 1460–1465.",
-      "year": "1972"
+      "year": "1972",
+      "url": "https://ocw.mit.edu/courses/4-540-introduction-to-shape-grammars-i-fall-2018/pages/lecture-slides-and-supplemental-readings/",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "12",
@@ -69,8 +71,12 @@
     },
     {
       "id": "13",
-      "citation": "Kauffman, S. A. (1993). The origins of order. Oxford University Press.",
-      "year": "1993"
+      "citation": "Kauffman, S. A. (1993). The Origins of Order: Self-Organization and Selection in Evolution. Oxford University Press.",
+      "year": "1993",
+      "url": "https://academic.oup.com/book/53153",
+      "doi": "10.1093/oso/9780195079517.001.0001",
+      "verification_note": "Metadata stadfesta hos OUP. Dette er bakgrunn for sjølvorganisering og seleksjon; direkte støtte for omgrepet adjacent possible er betre dokumentert i Investigations (2000), kap. 8. Ikkje byt boktittelen på same ID.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "14",
@@ -84,13 +90,20 @@
     },
     {
       "id": "16",
-      "citation": "Hatchuel, A. & Weil, B. (2003). A new approach of innovative design: An introduction to C-K theory. Proc. ICED 2003.",
-      "year": "2003"
+      "citation": "Hatchuel, A. & Weil, B. (2003). A new approach of innovative design: An introduction to C-K theory. DS 31: Proceedings of ICED 03, Stockholm.",
+      "year": "2003",
+      "url": "https://www.designsociety.org/publication/24204/a_new_approach_of_innovative_design_an_introduction_to_c-k_theory",
+      "verified_on": "2026-11-01",
+      "verification_note": "Tittel, forfattarar og år stadfesta i arrangøren sin katalog."
     },
     {
       "id": "17",
       "citation": "Hatchuel, A. & Weil, B. (2009). C-K design theory: An advanced formulation. Research in Engineering Design, 19(4), 181–192.",
-      "year": "2009"
+      "year": "2009",
+      "url": "https://doi.org/10.1007/s00163-008-0043-4",
+      "doi": "10.1007/s00163-008-0043-4",
+      "verification_note": "Springer stadfestar 2009 som volumår; publisert på nett i 2008. Eksisterande 2009 er rett for volumreferansen.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "18",
@@ -119,8 +132,12 @@
     },
     {
       "id": "23",
-      "citation": "Doctor, T., Wakefield, E., Pavlic, T. P. & Levin, M. (2024). Biology, Buddhism, and AI: Care as the driver of intelligence. Entropy, 26(4), 352.",
-      "year": "2024"
+      "citation": "Doctor, T., Witkowski, O., Solomonova, E., Duane, B. & Levin, M. (2022). Biology, Buddhism, and AI: Care as the Driver of Intelligence. Entropy, 24(5), 710.",
+      "year": "2022",
+      "url": "https://doi.org/10.3390/e24050710",
+      "doi": "10.3390/e24050710",
+      "verification_note": "Retta feil år, volum, hefte, artikkelnummer og forfattarliste. MDPI og forfattarsenteret CSAS stadfestar posten. Primærtekst: https://www.mdpi.com/1099-4300/24/5/710 ; forfattarliste òg https://apparentselves.org/publications/ .",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "24",
@@ -179,13 +196,20 @@
     },
     {
       "id": "35",
-      "citation": "Anthropic (2025). On the biology of a large language model: Probing emotion. Research report. Sjå òg Butlin, P. et al. (2023). Consciousness in artificial intelligence. arXiv:2308.08708.",
-      "year": "2025"
+      "citation": "Lindsey, J. et al. (2025). On the Biology of a Large Language Model. Transformer Circuits, Anthropic. Sjå òg Butlin, P. et al. (2023). Consciousness in Artificial Intelligence. arXiv:2308.08708.",
+      "year": "2025",
+      "url": "https://www.transformer-circuits.pub/2025/attribution-graphs/biology.html",
+      "verification_note": "Fjerna den udokumenterte undertittelen Probing emotion. Posten blanda denne artikkelen (27.3.2025) med Sofroniew et al. (2.4.2026), Emotion Concepts and their Function in a Large Language Model, https://www.transformer-circuits.pub/2026/emotions/index.html . Det siste arbeidet viser kausalt verksame representasjonar av emosjonsomgrep, ikkje dokumentasjon av subjektiv oppleving. Butlin-posten er ikkje nyverifisert i denne gjennomgangen.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "36",
-      "citation": "Biswas, S., Manicka, S., Hoel, E. P. & Levin, M. (2023). Gene regulatory networks exhibit several kinds of memory. iScience, 26(4), 106440.",
-      "year": "2023"
+      "citation": "Biswas, S., Manicka, S., Hoel, E. & Levin, M. (2021). Gene regulatory networks exhibit several kinds of memory: Quantification of memory in biological and random transcriptional networks. iScience, 24(3), 102131.",
+      "year": "2021",
+      "url": "https://doi.org/10.1016/j.isci.2021.102131",
+      "doi": "10.1016/j.isci.2021.102131",
+      "verification_note": "Retta feil år, volum, hefte og artikkelnummer. Full publisert artikkel ligg i PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC7970124/ . Studien analyserer GRN-modellar; ikkje framstill alle resultata som direkte våtlabforsøk.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "37",
@@ -284,8 +308,12 @@
     },
     {
       "id": "56",
-      "citation": "Brier, S. (2020). Affordances are signs. tripleC: Communication, Capitalism & Critique, 18(1).",
-      "year": "2020"
+      "citation": "Pickering, J. (2007). Affordances are Signs. tripleC: Communication, Capitalism & Critique, 5(2), 64–74.",
+      "year": "2007",
+      "url": "https://www.triple-c.at/index.php/tripleC/article/view/59",
+      "doi": "10.31269/triplec.v5i2.59",
+      "verification_note": "Tidsskriftets primærside stadfestar at forfattaren er John Pickering, ikkje Søren Brier, og at år/volum/hefte var feil. Kjeldeapparatet sine tekstnotar må òg rette namnet Brier der dei meiner denne artikkelen.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "57",
@@ -299,18 +327,30 @@
     },
     {
       "id": "59",
-      "citation": "Kauffman, S. A. & Roli, A. (2023). A third transition in science? Interface Focus, 13(3).",
-      "year": "2023"
+      "citation": "Kauffman, S. A. & Roli, A. (2023). A third transition in science? Interface Focus, 13(3), 20220063.",
+      "year": "2023",
+      "url": "https://doi.org/10.1098/rsfs.2022.0063",
+      "doi": "10.1098/rsfs.2022.0063",
+      "verification_note": "Retta ufullstendig artikkelnummer. Registrert primærartikkel: https://pmc.ncbi.nlm.nih.gov/articles/PMC10102722/ . Arbeidet argumenterer for ikkje-førehandsgjeve fase-/moglegheitsrom. Dette står i spenning til eit globalt, førehandsfast formrom; bruk som fagleg samtalepartnar, ikkje som prov for identisk ontologi.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "60",
-      "citation": "Huneman, P. & Walsh, D. M. (Eds.) (2023). Evolution “On Purpose”. MIT Press.",
-      "year": "2023"
+      "citation": "Corning, P. A., Kauffman, S. A., Noble, D., Shapiro, J. A., Vane-Wright, R. I. & Pross, A. (red.) (2023). Evolution “On Purpose”: Teleonomy in Living Systems. MIT Press.",
+      "year": "2023",
+      "url": "https://mitpress.mit.edu/9780262546409/evolution-on-purpose/",
+      "doi": "10.7551/mitpress/14642.001.0001",
+      "verification_note": "MIT Press stadfestar dei seks redaktørane. Huneman og Walsh redigerte ei anna bok, Challenging the Modern Synthesis (OUP), og skal ikkje stå som redaktørar her. Antologien drøftar teleonomi og aktiv påverknad på evolusjon; ho provar ikkje åleine kvar formalisering i FORMLÆRE.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "61",
-      "citation": "Svensson, E. I. & Connallon, T. (2026). Evolution of adaptation's evil Doppelgänger. Evolution.",
-      "year": "2026"
+      "citation": "Svensson, E. I. (2026). Evolution of adaptation’s evil Doppelgänger. Evolution, 80(5), 1128–1132. Bokmelding.",
+      "year": "2026",
+      "url": "https://academic.oup.com/evolut/article/80/5/1128/8503492",
+      "doi": "10.1093/evolut/qpag033",
+      "verification_note": "OUP stadfestar éin forfattar, Erik I. Svensson, og at dette er ei bokmelding av bøker av Hurst og Madgwick. Connallon er ikkje medforfattar. Ikkje før som original empirisk studie av tradeoffs.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "62",
@@ -354,8 +394,12 @@
     },
     {
       "id": "70",
-      "citation": "Fields, C. & Levin, M. (2024). Principled limitations on self-representation for generic physical systems. Entropy, 26(3), 194.",
-      "year": "2024"
+      "citation": "Fields, C., Glazebrook, J. F. & Levin, M. (2024). Principled Limitations on Self-Representation for Generic Physical Systems. Entropy, 26(3), 194.",
+      "year": "2024",
+      "url": "https://www.mdpi.com/1099-4300/26/3/194",
+      "doi": "10.3390/e26030194",
+      "verification_note": "Lagt til manglande medforfattar James F. Glazebrook. Tittel og øvrige metadata stadfesta hos MDPI og Levin sin publikasjonsside.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "71",
@@ -375,17 +419,27 @@
     {
       "id": "74",
       "citation": "Le Masson, P., Weil, B. & Hatchuel, A. (2010). Strategic Management of Innovation and Design. Cambridge University Press.",
-      "year": "2010"
+      "year": "2010",
+      "url": "https://www.cambridge.org/core/books/strategic-management-of-innovation-and-design/B95FF8ACA1EC253B9384257172FDA034",
+      "verification_note": "Forlagssida stadfestar forfattarar og trykt utgjevingsdato 9.9.2010. Online-datoen 2018 på somme kapittelsider er ikkje boka sitt opphavlege år.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "75",
-      "citation": "Kazakçi, A. O. (2015). C-K, an engineering design theory? Proceedings of the International Conference on Engineering Design. Design Society.",
-      "year": "2015"
+      "citation": "Coatanéa, E., Choulier, D. & Forest, J. (2011). CK, an engineering design theory? Contributions, limits and proposals. DS 68-2: Proceedings of ICED 11, Vol. 2: Design Theory and Research Methodology, 323–333. Design Society.",
+      "year": "2011",
+      "url": "https://theory.designsociety.org/publication/30483/CK%2C%2BAN%2BENGINEERING%2BDESIGN%2BTHEORY%3F%2BCONTRIBUTIONS%2C%2BLIMITS%2BAND%2BPROPOSALS",
+      "verification_note": "Retta feil forfattar Kazakçi og år 2015. Arrangøren sin primærkatalog gjev denne tittelen til Coatanéa, Choulier og Forest i 2011. Dersom målet eigentleg var ei særskild Kazakçi-kjelde, må det veljast og dokumenterast som ei anna kjelde, ikkje kamuflerast under denne tittelen.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "76",
-      "citation": "Ma, M. (2023). Simulating design theory using LLM agents: A case study of C-K theory. Co-Design Lab, UC Berkeley.",
-      "year": "2023"
+      "citation": "Ma, K., Brubaker, E. R. & Goucher-Lambert, K. (2025). Simulating Design Theory Using LLM Agents: A Case Study of C-K Theory. Proceedings of the ASME International Design Engineering Technical Conferences, Vol. 4.",
+      "year": "2025",
+      "url": "https://codesign.berkeley.edu/papers/ma-ck/",
+      "doi": "10.1115/DETC2025-169634",
+      "verification_note": "Retta Ma M. 2023 og lagt til medforfattarar og publikasjonsstad. Berkeley-labside/PDF stadfestar tittel, 2025 og forfattarar; medforfattaren sin Duke-post stadfestar DOI: https://scholars.duke.edu/publication/1698341 .",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "77",
@@ -400,7 +454,10 @@
     {
       "id": "79",
       "citation": "Odling-Smee, F. J., Laland, K. N. & Feldman, M. W. (2003). Niche Construction: The Neglected Process in Evolution. Princeton University Press.",
-      "year": "2003"
+      "year": "2003",
+      "url": "https://research-portal.st-andrews.ac.uk/en/publications/niche-construction-the-neglected-process-in-evolution/",
+      "verification_note": "Forfattarinstitusjonen St Andrews stadfestar boka, tre forfattarar, forlag og år. Nisjekonstruksjon er biologisk teorigrunnlag, ikkje direkte dokumentasjon av alle formdomene.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "80",
@@ -420,27 +477,47 @@
     {
       "id": "83",
       "citation": "Kirchhoff, M., Parr, T., Palacios, E., Friston, K. & Kiverstein, J. (2018). The Markov blankets of life: Autonomy, active inference and the free energy principle. Journal of the Royal Society Interface, 15(138), 20170792.",
-      "year": "2018"
+      "year": "2018",
+      "url": "https://doi.org/10.1098/rsif.2017.0792",
+      "doi": "10.1098/rsif.2017.0792",
+      "verification_note": "Stadfesta. Eit Markov-teppe er ei statistisk grense; det er ikkje automatisk ein fysisk membran eller prov på eit subjekt.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "84",
-      "citation": "Levin, M. (2023). Darwin's agential materials: Evolutionary implications of multiscale competency in developmental biology. Cellular and Molecular Life Sciences, 80(6), 142.",
-      "year": "2023"
+      "citation": "Levin, M. (2023). Darwin’s agential materials: Evolutionary implications of multiscale competency in developmental biology. Cellular and Molecular Life Sciences, 80(6), 142.",
+      "year": "2023",
+      "url": "https://doi.org/10.1007/s00018-023-04790-z",
+      "doi": "10.1007/s00018-023-04790-z",
+      "verification_note": "Stadfesta hos Springer.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "85",
       "citation": "Levin, M. (2023). Bioelectric networks: The cognitive glue enabling evolutionary scaling from physiology to mind. Animal Cognition, 26, 1865–1891.",
-      "year": "2023"
+      "year": "2023",
+      "url": "https://doi.org/10.1007/s10071-023-01780-3",
+      "doi": "10.1007/s10071-023-01780-3",
+      "verification_note": "Stadfesta hos Springer.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "86",
       "citation": "Chis-Ciure, R. & Levin, M. (2025). Cognition all the way down 2.0: Neuroscience beyond neurons in the diverse intelligence era. Synthese, 206, 257.",
-      "year": "2025"
+      "year": "2025",
+      "url": "https://link.springer.com/article/10.1007/s11229-025-05319-6",
+      "doi": "10.1007/s11229-025-05319-6",
+      "verification_note": "Stadfesta hos Springer, publisert 6.11.2025. Formaliserer intelligens som søkjeeffektivitet i problemrom. FORMLÆRE si bestemte terskelmengd er framleis ei eiga vidareføring.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "87",
-      "citation": "Watson, R. A., Levin, M. & Buckley, C. L. (2022). Design for an individual: Connectionist approaches to the evolutionary transitions in individuality. Frontiers in Ecology and Evolution, 10, 823588.",
-      "year": "2022"
+      "citation": "Watson, R. A., Levin, M. & Buckley, C. L. (2022). Design for an Individual: Connectionist Approaches to the Evolutionary Transitions in Individuality. Frontiers in Ecology and Evolution, 10, 823588.",
+      "year": "2022",
+      "url": "https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2022.823588/full",
+      "doi": "10.3389/fevo.2022.823588",
+      "verification_note": "Stadfesta. Publisert som Hypothesis and Theory, ikkje som universell empirisk regel om alle fleiragentsystem.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "88",
@@ -450,12 +527,20 @@
     {
       "id": "89",
       "citation": "Fields, C. & Levin, M. (2025). Life, its origin, and its distribution: A perspective from the Conway–Kochen theorem and the Free Energy Principle. Communicative & Integrative Biology, 18(1), 2466017.",
-      "year": "2025"
+      "year": "2025",
+      "url": "https://doi.org/10.1080/19420889.2025.2466017",
+      "doi": "10.1080/19420889.2025.2466017",
+      "verification_note": "Stadfesta hos tidsskriftet og full primærartikkel i https://pmc.ncbi.nlm.nih.gov/articles/PMC11834426/ . Ei teoretisk framstilling; ikkje åleine empirisk verifikasjon av ei eksponentialfordeling.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "90",
-      "citation": "Doctor, T., Witkowski, O., Colognese, P., Ishihara, Y. & Levin, M. (2025). Selves as perspectives: From biological life to superintelligence and a Bodhisattva project. Manuscript, Center for the Study of Apparent Selves.",
-      "year": "2025"
+      "citation": "Doctor, T., Witkowski, O., Colognese, P., Ishihara, Y. & Levin, M. (2025). Selves as Perspectives: From Biological Life to Superintelligence and a Bodhisattva Project. PsyArXiv, førehandsmanuskript.",
+      "year": "2025",
+      "url": "https://doi.org/10.31234/osf.io/s56zu_v1",
+      "doi": "10.31234/osf.io/s56zu_v1",
+      "verification_note": "Tittel, forfattarar, preprintstatus og DOI stadfesta i Levin Lab sin primærkatalog: https://as.tufts.edu/biology/levin-lab/publications/preprints .",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "91",
@@ -464,13 +549,20 @@
     },
     {
       "id": "92",
-      "citation": "Hartl, B., Risi, S. & Levin, M. (2024). Evolutionary implications of multi-scale intelligence. Preprint.",
-      "year": "2024"
+      "citation": "Hartl, B., Risi, S. & Levin, M. (2024). Evolutionary Implications of Self-Assembling Cybernetic Materials with Collective Problem-Solving Intelligence at Multiple Scales. Entropy, 26(7), 532.",
+      "year": "2024",
+      "url": "https://www.mdpi.com/1099-4300/26/7/532",
+      "doi": "10.3390/e26070532",
+      "verification_note": "Erstattar preprintoppføringa med publisert versjon, 21.6.2024. Den tidlegare tittelen Evolutionary Implications of Multi-Scale Intelligence er stadfesta som OSF-preprint (10.31219/osf.io/sp9kf) i https://repositum.tuwien.at/handle/20.500.12708/211580 . Simuleringa nyttar nevrale celleautomatar, varierer avgjerdsstøy og samanliknar funksjonell og strukturell koding. Ho støttar at evolusjon av funksjonsparametrar i denne modellen kan gå raskare enn direkte målkonfigurasjonar, men syner ein støyavhengig tradeoff; ho støttar ikkje at maksimal kompetanse alltid er best eller at same resultat gjeld alle materiale.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "93",
-      "citation": "Levin, M. & Gitelman, A. (2025). Designing with diverse intelligence: Interfaces, agential materials, and ingressing minds. SUrF interview.",
-      "year": "2025"
+      "citation": "Just, M. T. W., Levin, M. & Gitelman, A. (2026). Designing with Diverse Intelligence: Interfaces, Agential Materials, and Ingressing Minds. SUrF – Speculative Urban Futures. Intervju ved M. T. W. Just.",
+      "year": "2026",
+      "url": "https://surfutures.eu/articles-and-interviews/mike-levin-anna-gitelman-designing-with-diverse-intelligence",
+      "verification_note": "Institusjonsposten ved intervjuaren sitt universitet stadfestar utgjeving 6.2.2026 og tre personroller: Just intervjuar, Levin/Gitelman intervjua. https://scholars.cityu.edu.hk/en/publications/designing-with-diverse-intelligence-interfaces-agential-materials/ . Retta feil år 2025.",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "94",
@@ -524,7 +616,9 @@
     {
       "id": "104",
       "citation": "March, J. G. (1991). Exploration and exploitation in organizational learning. Organization Science, 2(1), 71–87.",
-      "year": "1991"
+      "year": "1991",
+      "url": "https://doi.org/10.1287/orsc.2.1.71",
+      "verified_on": "2026-11-01"
     },
     {
       "id": "105",
@@ -546,7 +640,18 @@
       "citation": "Wittgenstein, L. (1922). Tractatus Logico-Philosophicus. Engelsk utgåve ved F. P. Ramsey og C. K. Ogden. Kegan Paul, Trench, Trubner & Co. Digital primærtekst: The Ludwig Wittgenstein Project.",
       "year": "1922",
       "url": "https://wittgensteinproject.org/w/index.php/Tractatus_Logico-Philosophicus_(English)",
-      "note": "Tilføyd for tekstlege parallellar og omarbeidingar av namngjevne proposisjonar. Tilvisinga er ikkje empirisk støtte til formmodellen."
+      "note": "Tilføyd for tekstlege parallellar og omarbeidingar av namngjevne proposisjonar. Tilvisinga er ikkje empirisk støtte til formmodellen.",
+      "verification_note": "Digitalutgåva opplyser eksplisitt at ho byggjer på 1922-utgåva og gjev denne oversetjar/redaktørkrediteringa. Brukast for tekstlege parallellar; ikkje empirisk støtte.",
+      "verified_on": "2026-11-01"
+    },
+    {
+      "citation": "Kauffman, S. A. (2000). Investigations. Oxford University Press.",
+      "year": "2000",
+      "url": "https://academic.oup.com/book/51166/chapter-abstract/421882688",
+      "doi": "10.1093/oso/9780195121049.001.0001",
+      "verification_note": "OUP sitt samandrag til kapittel 8, Candidate Laws For The Coconstruction Of A Biosphere (s.159–209), nemner uttrykkeleg adjacent possible. Dette er ei betre direkte kjelde for namngjeve omgrep enn å la The Origins of Order (1993) bere det åleine. Ny ID må sjekkast mot noverande katalog før bruk.",
+      "id": "109",
+      "verified_on": "2026-11-01"
     }
   ],
   "annotations": [
@@ -698,6 +803,7 @@
       "proposition": "1.31",
       "anchor": "formrommet",
       "sources": [
+        "2",
         "10",
         "20"
       ],
@@ -708,11 +814,11 @@
       "proposition": "1.432",
       "anchor": "nærliggande moglege",
       "sources": [
-        "13",
+        "109",
         "59"
       ],
       "relation": "omgrepsleg bakgrunn",
-      "note": "Kauffman-tradisjonen gjev bakgrunnen for det nærliggande moglege. Avgrensinga gjennom regionar og eitt grammatikksteg er formulert i denne teksten."
+      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom; det skil seg frå skiljet her mellom eit fast logisk rom og skiftande tilgang (4.41)."
     },
     {
       "proposition": "1.5",
@@ -780,7 +886,7 @@
     },
     {
       "proposition": "3.2",
-      "anchor": "dalveggane",
+      "anchor": "kanalisering",
       "sources": [
         "8"
       ],
@@ -789,7 +895,7 @@
     },
     {
       "proposition": "4.3",
-      "anchor": "minne",
+      "anchor": "Stiavhengigheit",
       "sources": [
         "14"
       ],
@@ -803,7 +909,7 @@
         "79"
       ],
       "relation": "omgrepsleg samanlikning",
-      "note": "Nisjekonstruksjon er ein biologisk parallell til at det realiserte endrar vilkåra for dei som kjem etter. Parallellen gjer ikkje alle formdomene biologiske."
+      "note": "Nisjekonstruksjon skildrar korleis organismar endrar vilkåra for vidare evolusjon. Her er det ein biologisk parallell til at realiserte former endrar landskapet, ikkje eit empirisk prov for alle formdomene."
     },
     {
       "proposition": "5.02",
@@ -888,7 +994,7 @@
         "93"
       ],
       "relation": "omgrepsleg samanlikning",
-      "note": "Pyes skilje mellom risiko og vissheit i handverket er ein parallell i notata. Å kalle substratet ein agent av nullte orden er modellgrepet i denne teksten."
+      "note": "«Agent av nullte orden» er eit grensetilfelle definert her. Pyes handverksomgrep, genregulatoriske modellar og arbeidet med kompetente materiale gjev ulike samanlikningar; ingen av dei etablerer denne agentdefinisjonen."
     },
     {
       "proposition": "5.401",
@@ -896,8 +1002,8 @@
       "sources": [
         "92"
       ],
-      "relation": "modellbakgrunn",
-      "note": "Skiljet mellom strukturen og reglane som verkar på han er kopla til eit førehandsmanus om intelligens på fleire skalaer. Kjelda er oppført som preprint."
+      "relation": "simuleringsresultat",
+      "note": "Hartl, Risi og Levin undersøker arva startkonfigurasjonar og reglar i ein simulert nevral celleautomat. Resultata gjeld denne modellen. Avgjerder under støy endrar avveginga mellom struktur og kompetanse; dei viser ikkje at meir kompetanse alltid er betre."
     },
     {
       "proposition": "5.6",
@@ -1011,6 +1117,73 @@
       ],
       "relation": "hypotese i denne teksten",
       "note": "Kjeldene gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i FORMLÆRE som krev eiga empirisk prøving."
+    },
+    {
+      "proposition": "1.54",
+      "anchor": "fire retningar",
+      "sources": [
+        "16",
+        "17"
+      ],
+      "relation": "kjeldegrunnlag",
+      "note": "Dei fire operatorane C→C, C→K, K→C og K→K er henta frå C-K-teorien. Koplinga til dei materielle regionane og U er utvikla her."
+    },
+    {
+      "proposition": "1.61",
+      "anchor": "innleiring",
+      "sources": [
+        "18"
+      ],
+      "relation": "kjeldegrunnlag",
+      "note": "Innleiring lèt ei delform utløyse ein regel utan at delinga var fastsett på førehand. Dette er sentralt i Stiny sin formgrammatikk."
+    },
+    {
+      "proposition": "2.202",
+      "anchor": "Stil kan predikere",
+      "sources": [
+        "53"
+      ],
+      "relation": "historisk bakgrunn",
+      "note": "Riegl drøftar stilhistoriske samanhengar. Samanlikninga av prediksjonsevne er her ei hypotese som krev eit definert datasett og ei eiga prøving."
+    },
+    {
+      "proposition": "5.1",
+      "anchor": "negativ tilbakekopling",
+      "sources": [
+        "4",
+        "5",
+        "7",
+        "62"
+      ],
+      "relation": "postulat og bakgrunn",
+      "note": "Målretta tilbakekopling har kybernetisk bakgrunn; Schlosser drøftar agens filosofisk. At denne strukturen finst i kvar klasse, er postulatet her."
+    },
+    {
+      "proposition": "5.15",
+      "anchor": "kompetanse",
+      "sources": [
+        "21"
+      ],
+      "relation": "kjeldegrunnlag",
+      "note": "Fields og Levin undersøker målretta navigasjon i ulike rom. Definisjonen held fram denne bruken; det særskilde målet ν i 5.152 er føreslått i FORMLÆRE."
+    },
+    {
+      "proposition": "5.152",
+      "anchor": "Kompetansen kan teljast",
+      "sources": [
+        "86"
+      ],
+      "relation": "måleforslag",
+      "note": "Litteraturen om ulike former for intelligens er bakgrunn. Logaritmen av steg spart mot blind leiting er eit måleforslag her, ikkje eit ferdig validert mål henta frå kjelda."
+    },
+    {
+      "proposition": "6.131",
+      "anchor": "Utforsking",
+      "sources": [
+        "104"
+      ],
+      "relation": "vidareføring",
+      "note": "March analyserer avveginga mellom utforsking av nye moglegheiter og utnytting av kjend kunnskap. Påstanden om kva koplingane bør tillate, er vidareføringa her."
     }
   ],
   "intro": [
