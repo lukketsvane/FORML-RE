@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "node traktat/nettstad/build.mjs",
+  "outputDirectory": "traktat/nettstad/dist",
+  "cleanUrls": false
+}
