@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="nn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FORMLÆRE">
+<title>FORMLÆRE · Iver Raknes Finne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..400;1,7..72,300..400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="/reader.css">
+</head>
+<body>
+<div class="app">
+  <div class="bar">FORMLÆRE</div>
+  <div class="strip"><svg id="tree" role="img" aria-label="Traktatens tre"></svg></div>
+  <main class="read" id="read" tabindex="0" aria-label="FORMLÆRE, heile teksten"><div class="stream" id="stream"></div></main>
+  <nav class="pager">
+    <button type="button" id="prev" aria-label="Førre">‹</button>
+    <span class="pos" id="pos"></span>
+    <button type="button" id="next" aria-label="Neste">›</button>
+  </nav>
+</div>
+
+<script type="module" src="/reader.js"></script>
+
+</body>
+</html>
