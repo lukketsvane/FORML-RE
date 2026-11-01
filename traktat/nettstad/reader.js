@@ -346,16 +346,27 @@
   const readingStart=TOKENS.findIndex(tok=>tok.kind==="heading"&&tok.text==="Lesekode");
   if(readingStart<0)throw new Error("Lesekode manglar i FORMLÆRE");
   const visibleTokens=TOKENS.slice(bodyStart);
+  // The tree belongs to the propositions, not the foreword or reading code.
+  // Its sticky position is bounded by this section, so it leaves the screen
+  // after the last proposition instead of covering the glossary and notes.
+  const propositionStrip=document.querySelector(".strip");
+  let propositionSection=null;
   for(const tok of visibleTokens){
     if(tok.kind==="heading"){const h=make("h2","section-title",tok.text);h.id=tok.text==="Føreord"?"introduksjon":"del-"+tok.text.toLowerCase().replace(/[^a-z0-9æøå]+/g,"-").replace(/^-|-$/g,"");stream.appendChild(h);}
     else if(tok.kind==="paragraph"){const p=make("p","plain-paragraph");rich(p,tok.text);addNoteLinks(p,tok.notes);stream.appendChild(p);}
     else if(tok.kind==="prop"){
+      if(!propositionSection){
+        propositionSection=make("section","proposition-section");
+        propositionSection.setAttribute("aria-label","Proposisjonar og navigasjon");
+        propositionSection.appendChild(propositionStrip);
+        stream.appendChild(propositionSection);
+      }
       const row=make("article","prop depth"+Math.min(byNum.get(tok.n).depth,4));row.dataset.n=tok.n;row.id=tok.n;
       const n=make("span","n",tok.n);const sup=make("sup","status",tok.status);n.appendChild(sup);
       const body=make("div","t");for(const para of tok.paragraphs){const p=make("p","prop-paragraph");rich(p,para);body.appendChild(p);}
       addNoteLinks(body.lastElementChild,tok.notes);
       row.append(n,body);row.addEventListener("click",()=>{if(!window.getSelection()?.toString())setCurrent(tok.n,true,false);});
-      byRow.set(tok.n,row);stream.appendChild(row);
+      byRow.set(tok.n,row);propositionSection.appendChild(row);
       const figures=FIGURES_AFTER[tok.n];
       if(figures?.length){
         const group=make("div","figure-set");
@@ -370,7 +381,7 @@
           figure.appendChild(img);
           group.appendChild(figure);
         }
-        stream.appendChild(group);
+        propositionSection.appendChild(group);
       }
     }
   }
@@ -404,6 +415,7 @@
       }
     }
     svg.appendChild(g);
+    read.style.setProperty("--tree-height",propositionStrip.offsetHeight+"px");
   }
   function paint(){
     for(const [n,el] of byRow)el.classList.toggle("active",n===current);
@@ -422,7 +434,10 @@
   function currentFromScroll(){
     if(performance.now()<navUntil)return;
     if(read.scrollTop<=2){if(current!==order[0])setCurrent(order[0],false);return;}
-    const line=read.getBoundingClientRect().top+32;
+    const scroller=read.getBoundingClientRect();
+    const nav=propositionStrip.getBoundingClientRect();
+    const navPinned=nav.top<=scroller.top+2&&nav.bottom>scroller.top+2;
+    const line=scroller.top+(navPinned?propositionStrip.offsetHeight:0)+20;
     const endmatter=document.getElementById("ordliste")||document.getElementById("notat");
     if(endmatter?.getBoundingClientRect().top<=line)return;
     let candidate=null;
