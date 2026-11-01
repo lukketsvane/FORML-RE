@@ -1,5 +1,7 @@
 name: FORMLÆRE
 
+# Validate source, regenerated print release, and portable bundle on the production branch.
+
 on:
   push:
     paths:
