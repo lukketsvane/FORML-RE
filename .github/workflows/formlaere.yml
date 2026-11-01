@@ -1,6 +1,6 @@
 name: FORMLÆRE
 
-# Validate source, regenerated print release, and portable bundle on the production branch.
+# Validate source, regenerated short edition, print release, and portable bundle on the production branch.
 
 on:
   push:
