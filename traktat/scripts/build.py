@@ -165,6 +165,7 @@ def build_web(doc: dict) -> None:
 def check() -> None:
     subprocess.run(["python3", "-m", "unittest", "discover", "-s", "tests", "-v"], cwd=ROOT, check=True)
     subprocess.run(["node", "--check", "nettstad/reader.js"], cwd=ROOT, check=True)
+    subprocess.run(["node", "--test", "tests/test_service_worker.mjs"], cwd=ROOT, check=True)
 
 
 def main() -> None:
