@@ -67,7 +67,14 @@
 \newcommand{\sourceref}[1]{\nobreak\textsuperscript{\normalfont\fontsize{7}{8}\selectfont #1}}
 \newcommand{\noteref}[1]{\nobreak\hspace{2pt}\textsuperscript{\normalfont\color{muted}\fontsize{7}{8}\selectfont #1}}
 \newcommand{\bodyparagraph}{\par\vspace{3pt}\noindent}
-\newcommand{\bookfigure}[2]{\par\vspace{5pt}\noindent\includegraphics[width=\linewidth,height=125mm,keepaspectratio]{#1}\par\vspace{8pt}}
+\newcommand{\bookfigure}[2]{%
+  \par\addvspace{5pt}\noindent\begin{minipage}{\linewidth}%
+  \includegraphics[width=\linewidth,height=125mm,keepaspectratio]{#1}\par%
+  \if\relax\detokenize{#2}\relax\else
+    \vspace{4pt}{\smallbookfont\fontsize{8.5}{10.5}\selectfont #2\par}%
+  \fi
+  \end{minipage}\par\addvspace{8pt}%
+}
 \begin{document}
 \fontsize{10.5}{12.5}\selectfont
 %%CONTENT%%

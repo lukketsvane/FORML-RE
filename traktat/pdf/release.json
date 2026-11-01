@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "e52b4de1ebd2b38fabc3079cfd2b3402cb4af764ac1e5c31aec14abd67f77757",
+  "sourceHash": "b53da2ed757109701d7da6281f3a13a84e7e6d2274ca29e64af6d65fa0bbc21d",
   "inputs": {
     "edition.json": "ae77c3706b1e5fb4146b8301cb20684e11f676d38fdd561c694c8a3dd48c4ada",
-    "figurar.json": "86afd0cd5194babed0403200a23bec716111bb6427c697d8b8c7b3f64d348f9b",
+    "figurar.json": "6ebe288dcf88aa1e53dd4d9cb616f14c151bbe0120ffd22e631ce92a8f96ca05",
     "kjelder.json": "972e8b832153b03c0cfcc7168da539b06bf87bb7c0d8756964d99bf81e356bc6",
     "layout/authoring.tex": "d411efb9615cbbe34c276cdb5918daa4a70cd8312a1436b3b61f31264379f065",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
@@ -13,46 +13,48 @@
     "layout/fonts/EBGaramond12-Regular.otf": "4c27b125b42ccc7fbbc4f01fdd6440019e3abe30dff576897e9487e6b9578597",
     "layout/fonts/OFL.txt": "6e1c393ba486dd6f542806444e21907af90675625e03623fb14122d38e70cda6",
     "layout/fonts/PROVENANCE.txt": "cc1277850051c3bbbb18e58dba0a88899db80816b4e858991388fd4eec9274ed",
-    "layout/print.tex": "1de25fea8520b144c93fe96bf49ab957db2c993c86cc897fbc727e34d0147e1a",
+    "layout/print.tex": "169289fbe8e3fb9231788cb806556f59f2fd714d874ca0924a7c43d849d73d54",
     "nettstad/build.mjs": "56d26d225fdca2bbf0f16f7335da3d0fa1390a30ab581d18906dc5c0e99ea73b",
     "nettstad/illustrations/agent-scales-20261101.svg": "88851cbc81bef5ef196fca7cd2c301b71fb403e579c66b36673a416571782474",
+    "nettstad/illustrations/formgrammatikk-20261101.png": "9b16de6d7019d1bd1215262f89422e0c049b03ca17e8ab981a679d7086722794",
     "nettstad/illustrations/model-overview-20261101.svg": "3977125d5709b184892f39719104d27ae589c65599a755b76a734948fcab69c6",
     "nettstad/illustrations/scan-20261031-p11-busette-opne-forbodne.png": "73ccfe947557cfc0e659f944a59f5c24c4f858461d078bccf5e07185e6382192",
     "nettstad/illustrations/scan-20261031-p16-royrstol-utvikling.png": "81fc638b6981e98d5d4300488d1c4c166de3e0c340403877f95db541bbf33092",
+    "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/kort.html": "6afddbf1aabe66b87c30f4d2328cbcbc6690989b0e214f50fe4014fbdc901a27",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
-    "nettstad/kortversjon.html": "a814a2456bb68689f4b6097f92d31dad02b58c8ca9704cb53269aa05e2150f11",
-    "nettstad/kortversjon.tex": "ac152cd0ef71e332129dcdc9dc83804f279388a47f3d9d19dcbef8946cbb8a34",
+    "nettstad/kortversjon.html": "dc21b706a62cc6234ffd71c5efeee8820be9e4b164e9d238fe6c0c0528113242",
+    "nettstad/kortversjon.tex": "fe2be9ceb4f160aba60b389328f97ea7ab99cd1a5aca62bd3d3d8d0af61e8528",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "898f680d1def34b940b77112a44448eea63b5b35a5cc393afeb819a360509049",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "8ecdb8b2959fd549984ffb8c4e876ecbd7743fae35e9c5d9f7e9e2f392ffb16c",
+    "nettstad/reader.css": "ce440f4e6e66a7e21d1430872e15435fe46833049c582ec82875269f9ccd6e2d",
     "nettstad/reader.html": "ac0fe851023bf7a8b089992015ed8d8ab02b2176926a89443b50165610842eac",
-    "nettstad/reader.js": "37af678666df88a0a593f94b8dcf30a168459a2a2f6aff153e7b681aa8c635ee",
+    "nettstad/reader.js": "d11a0098a000a99db7f5f45ad6afd8a907a1391387feafc70c834de21d5a7260",
     "ordliste.json": "6aa7351e0f3757fbabd0ef49330f05635ffbdd3bf39ba3b46036320c23fcb8c9",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "b6c16758195c7da24b69dee80f1e513f7ffb83fe1f79fe4de4b8f586cb0ee1a3",
-    "scripts/content.py": "d8a55275e5f437203f2d5e66d4e4ae3cdd9fa35f7a9b9541eb2c1a9d30244e6d",
+    "scripts/content.py": "9302578fed48d62ed1e8cf9a6fa0ed3fd70e094b4830322fb2dd16e615620365",
     "scripts/latex_source.py": "2ac92437d06bf7f975b1d867cb745586a76cbb0e349eabd5ef2482e7f21179eb",
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "92bc84f43fc7dc3b87eb540c4c6a7537ebc6815a1595c2869393613c0c5145e1",
-    "scripts/render_latex.py": "4b74a9cf377380b83d41db3283d7ad32d299f22c986d52d4720dd0eee449261d",
-    "tekst/formlaere.tex": "5d2c88876ce28f129e7e62527a98459ee417a05b7b84588846f6dff1689cb6b1",
+    "scripts/render_latex.py": "3398d65f28edefc39a40e3c271a118a703f9d6d97383e6ea4f3abfe59276c937",
+    "tekst/formlaere.tex": "5cb3cf58258873886e4488d60493537dca29780a5ccfb8674df16a272a8dbdfe",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "c79f509a7b518e43e7e5b1c1b817d3ae780bc8719966d5963990c70e092841fd",
-    "formlaere-latex.zip": "eed0a2750144f36524f6676bb89a96847bf7f920e49328796ef4bdf9072a4f57"
+    "formlaere.pdf": "ff08637e43a4c8b930efeb9774a95d11fc50043ce8c4d705c432f992ebdb8032",
+    "formlaere-latex.zip": "b56e14dee7896788a844b4f2d3f916074b2a74eb90953ac3a788b59037448f32"
   },
   "quality": {
-    "pages": 77,
+    "pages": 78,
     "destinations": 537,
     "propositions": 377,
     "notes": 47,
     "references": 78,
-    "figures": 1,
+    "figures": 3,
     "glossary": 34
   },
   "engine": "XeLaTeX",
@@ -261,6 +263,11 @@
       "tex": "∇",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>∇</mi><annotation encoding=\"application/x-tex\">∇</annotation></semantics></math>"
+    },
+    "ff7d38bf642a3ef50baa044f": {
+      "tex": "j",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>j</mi><annotation encoding=\"application/x-tex\">j</annotation></semantics></math>"
     },
     "75b4bc4e6d0eecae87cdf38e": {
       "tex": "π",
@@ -931,11 +938,6 @@
       "tex": "\\frac{\\partial R_j}{\\partial\\theta_k}=-\\operatorname{Cov}\\bigl(\\mathbf 1[e_j>\\varepsilon_j],\\hat e_k\\bigr).",
       "display": true,
       "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><msub><mi>R</mi><mi>j</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mi>−</mi><mo>Cov</mo><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">(</mo><mn>𝟏</mn><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mi>e</mi><mi>j</mi></msub><mo>&gt;</mo><msub><mi>ε</mi><mi>j</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial R_j}{\\partial\\theta_k}=-\\operatorname{Cov}\\bigl(\\mathbf 1[e_j&gt;\\varepsilon_j],\\hat e_k\\bigr).</annotation></semantics></math>"
-    },
-    "ff7d38bf642a3ef50baa044f": {
-      "tex": "j",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>j</mi><annotation encoding=\"application/x-tex\">j</annotation></semantics></math>"
     },
     "d08d31b43306cd58a420ab38": {
       "tex": "\\hat e_k=e_j/\\varepsilon_j",

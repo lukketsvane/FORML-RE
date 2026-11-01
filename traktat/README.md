@@ -12,7 +12,7 @@ LaTeX-manuskriptet er kjelda for både nettstaden og PDF-en. Begge vert bygde fr
 | `edition.json` | Tittel, forfattar og reglar for utgåva, mellom anna utelatne kjelde-ID-ar. |
 | `ordliste.json` | Omgrep med stabile ID-ar, korte forklaringar og tilvisingar til proposisjonane dei byggjer på. |
 
-Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseringa skal gjerast i `figurar.json`, slik at begge formata får same figur på same stad. Nye diagram vert redigerte som SVG. Nettstaden nyttar SVG-fila direkte; utskriftsbyggjet lagar ein vektor-PDF av henne til LaTeX og den portable pakka. Pakka inneheld berre figurane den aktive utgåva nyttar.
+Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseringa skal gjerast i `figurar.json`, slik at begge formata får same figur på same stad. Valfri `caption` i `figurar.json` er ein synleg, felles bilettekst i begge formata; `alt` skildrar sjølve biletet for skjermlesarar. `printWidth: "wide"` nyttar bokflata på 101 mm, medan standarden er tekstkolonnen. På nett kan figurane opnast i full storleik. Nye diagram vert redigerte som SVG. Nettstaden nyttar SVG-fila direkte; utskriftsbyggjet lagar ein vektor-PDF av henne til LaTeX og den portable pakka. Pakka inneheld berre figurane den aktive utgåva nyttar.
 
 Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av manuskriptet i tekstfiler eller HTML. LaTeX-kjelda er handredigert; PDF-oppsettet og nettutgåva er genererte. Ordlista har éi felles JSON-kjelde. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
 
