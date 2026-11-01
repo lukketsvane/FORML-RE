@@ -102,7 +102,7 @@ Lista nedanfor prioriterer publikasjonar som direkte utviklar eller undersøker 
 - Galle, Per (2011). «Foundational and Instrumental Design Theory». *Design Issues*, 27(4), 81–94. https://doi.org/10.1162/DESI_a_00107
 - Folkmann, Mads Nygaard (2010). «Evaluating Aesthetics in Design: A Phenomenological Approach». *Design Issues*, 26(1), 40–53. https://doi.org/10.1162/desi.2010.26.1.40
 - Folkmann, Mads Nygaard (2016). «The Potential of Design Aesthetics». *The Design Journal*. https://doi.org/10.7190/ead/2015/47
-- Folkmann, Mads Nygaard (2021). *Design Aesthetics: Theoretical Basics and Studies in Implication*. MIT Press.
+- Folkmann, Mads Nygaard (2023). *Design Aesthetics: Theoretical Basics and Studies in Implication*. MIT Press.
 - Folkmann, Mads Nygaard & Graesse, Malin Kristine (2025). «Liquid Forms: Questions for a Design History of Water». *Journal of Design History*. https://doi.org/10.1093/jdh/epaf004
 - Galle, Per & Hove, H. (red.) (2010). *The Borderland between Philosophy and Design Research*. To konferansevolum frå CEPHAD 2010, Copenhagen Working Papers on Design.
 - Fallan, Kjetil, Zetterlund, Christina & Munch, Anders V. (red.) (2023). *Nordic Design Cultures in Transformation, 1960–1980: Revolt and Resilience*. Routledge. https://doi.org/10.4324/9781003309321
