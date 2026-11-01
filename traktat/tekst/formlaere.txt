@@ -3,20 +3,22 @@
 Iver Raknes Finne · Arkitektur- og designhøgskolen i Oslo · 2026
 
 ## Føreord
-Kvifor har ting den forma dei har? I over hundre år har faget lent seg på ein variant av Sullivans formel, *form følgjer funksjon*. Michl[[kjelde:15]] har vist at formelen forklarte alt og difor ingenting. Semper[[kjelde:1]] kopla materialteknikk, form og kulturell meining, men disiplinen arva splittinga heller enn syntesen. Thompson[[kjelde:2]] viste at biologisk form følgjer fysiske krefter; designfaget tok aldri steget frå biologi til artefakt. Tradisjonane har skildra formverda stykkevis; ingen har sameint dei.
+Kvifor har ting den forma dei har? Materialet tillèt meir enn det som vert laga. Funksjonen kan oppfyllast på fleire måtar. Den som vel mellom dei, rår over mindre enn det forma kjem til å verke på.
 
-Utan ei felles grammatikk har faget ingen intern måte å seie nei til det som ikkje skal lagast. Profesjonen har ingen ryggrad, verken kollektiv eller akademisk. Målretting av sivile og grensesnitt for å ekstrahere merksemd frå born er designprosjekt i teknisk forstand, og faget har ikkje språket til å seie noko anna. Dette er ikkje ein moralsk brist hjå den einskilde designaren; det er eit strukturelt hol i disiplinen. Ein disiplin utan fundament overlever ikkje dei neste tiåra. Han vert avleggar, slik frenologien vart før nevrovitskapen, slik alkjemien vart før kjemien, slik vitalismen vart før biologien.
+FORMLÆRE skal gje design eit vitskapleg fundament som akademisk fagfelt. Ambisjonen er ei lære som kan bere minst hundre år med nye materiale, teknologiar og livsvilkår: eit felles grunnlag for å forklare kvifor former vert til, prøve kva dei held, og grunngje kva faget set i verda.
 
-Rammeverket kan samanfattast i éi setning: *form er ein posisjon i eit rom av moglegheiter, forma av samtidige seleksjonstrykk, navigert av agentar på fleire skalaer.*
+Grunnpåstanden er denne: *form er ei ordning av skilnader, realisert mellom moglege alternativ under samtidige trykk, gjennom agentar med avgrensa omhug og kapasitet.* Forma er meir enn det nokon meinte med henne. Ho verkar òg langs omsyn ingen valde, og på andre enn dei som valde.
 
-Difor tre lag. *Form* er ei ordning av skilnader. *Formgjevaren* er agenten som navigerer, uavhengig av substrat: celle, tre, handverkar. *Designaren* er den særskilde typen formgjevar som navigerer på vegner av andre som skal leve med forma.
+Difor tre lag. Grammatikken gjev vegar til formene. Landskapet gjev vilkåra som favoriserer, hindrar og prøver dei. Agentane navigerer med mål, kunnskap og handlag. Designaren er formgjevaren som tek andre sine mål inn i arbeidet med det dei skal leve med.
 
-Rammeverket kviler på tre pilarar. **Formgrammatikken** til Stiny og Gips[[kjelde:11]] gjev det generative laget. **Tanke–kunnskapsteorien** til Hatchuel og Weil[[kjelde:16,17]] formaliserer den epistemiske navigasjonen. Det substratuavhengige **agensrammeverket** til Levin og Fields[[kjelde:21,22]] gjev den ontologiske grunnen. At tre uavhengige tradisjonar konvergerer om same struktur, tyder på at definisjonen grip noko reelt.[[notat:intro-1]]
+Læra skal gjere prosjekt til kunnskap som kan overførast. Ho må vise kva relasjonar som ber ein verknad, kva endringar verknaden toler, og kvar han sviktar. Det som vert meint, det som kan haldast, og det som faktisk vert halde, må kunne prøvast kvar for seg. Slik kan eit einskild arbeid verte meir enn eit førebilete: det kan verte eit resultat andre kan byggje vidare på.[[notat:intro-1]]
+
+Eit fundament forpliktar faget òg der det må seie nei. Forma kan ikkje kallast vellukka berre fordi ho tener den som bestilte henne, når kostnaden er flytta til dei som skal leve med henne. Kven som tel, og kva som tel som svikt, høyrer til undersøkinga frå byrjinga.
 
 *Oslo, 2026*
 
 ## Lesekode
-d = definisjon · a = postulat/hypotese · t = modellvilkårsvis følgje · o = observasjon · i = illustrasjon. Desimalnummera viser logiske underordningar, ikkje berre kapittelrekkjefølgje.
+d = definisjon · a = postulat/hypotese · t = følgje under oppgjevne vilkår · o = observasjon · i = illustrasjon. Desimalnummera viser logiske underordningar, ikkje berre kapittelrekkjefølgje. Definisjonar fastset språkbruken; hypotesar krev prøving; ei følgje står og fell med premissane sine.
 
 **1d**  Form er ei ordning av skilnader.[[kjelde:1]]
 
@@ -48,13 +50,9 @@ Kvar side av ein skilnad er det ho er mot den andre (1.011). Det som står i ei 
 
 Ingen konfigurasjon er delvis realisert.
 
-**1.13a**  At ein konfigurasjon er nettopp denne, når uendeleg mange andre samanhengar av dei same delane var logisk moglege, har ei forklaring utover konfigurasjonen sjølv.
+**1.13d**  Å forklare kvifor nettopp ein konfigurasjon vart realisert, er å vise kva vilkår og overgangar som førte til han, og kva dei gjorde med alternativa.
 
-Forklaringa er det som gjorde nettopp denne meir venteleg enn dei andre.
-
-**1.131t**  Dei same delane kan berre stå i éin samanheng om gongen. Å forklare kvifor nettopp denne vart realisert, er difor å forklare kvifor dei andre ikkje vart det.
-
-Forklaringa ligg i relasjonen mellom den realiserte konfigurasjonen og dei moglege som ikkje vart realiserte.
+**1.131t**  Forklaringa er difor òg ei forklaring av utvalet. Ho må skilje mellom alternativ som var umoglege, utilgjengelege, uprøvde og forkasta. Desse fråværa har ulike årsaker.
 
 **1.2d**  Ein konfigurasjonsdel som ikkje vert delt vidare på det valde analysenivået, er eit objekt.
 
@@ -62,41 +60,35 @@ Same objekt kan stå i fleire konfigurasjonar.
 
 **1.201t**  Inndelinga i objekt er eit val av analysenivå.
 
-**1.2011o**  Under nivået held fysikken fram; formgjevinga på nivået gjer det ikkje. (Stolbeinet er udeleleg for snikkaren. For fysikken er det ein konfigurasjon av fibrar, av celler, av molekyl.)
+**1.2011i**  Stolbeinet er éin del for snikkaren som monterer. For den som granskar brotet, er fibrane delar. Nivået må følgje det som skal forklarast.
 
-**1.202a**  Kvart objekt er ein konfigurasjon på eit lågare nivå, for under kvart nivå held strukturen fram.
-
-Fysikken er òg eit nivå. Kor langt analysen enn går, finn han difor konfigurasjonar.
+**1.202a**  Kvart objekt er ein konfigurasjon på eit lågare nivå. Under kvart valt nivå held strukturen fram.
 
 **1.2021t**  Ein konfigurasjon er ein samanheng (1.11). Det analysen finn, er difor relasjonar.
 
-**1.2022a**  Ein relasjon krev ledd. Relasjonar mellom relasjonar utan ende er ikkje ein samanheng av noko.
+**1.2022a**  Ein relasjon krev ledd. At ledda sjølve kan analyserast som relasjonar, gjer ikkje spørsmålet om kva relasjonane er i, til endå ei oppdeling.
 
-**1.203t**  Det som er ledd og ikkje sjølv relasjon, er substans.
+**1.203d**  Substans er den indre naturen til det som står i relasjonane. Han er ikkje eit ekstra ledd i den fysiske skildringa, men det ledda er, teke uavhengig av korleis dei er ordna.
 
-Formverda har difor ein substans. Substansen finst uavhengig av kva som er tilfelle.
+**1.2031t**  Substansen er ikkje det siste objektet analysen finn. Analysen kan halde fram gjennom nivå utan ende, medan spørsmålet om substans gjeld kva som er ordna på alle nivåa.
 
-**1.2031t**  Utan substans ville det at ein konfigurasjon er mogleg, avhenge av at ein annan er realisert, og den andre av ein tredje. Regressen stoggar berre i noko som ikkje er konfigurasjon.
-
-**1.204t**  Objektet har ingen delar på nivået sitt (1.2) og difor ingen samanheng som kan skifte der. Det som endrar seg i det, endrar seg på eit lågare nivå (1.202).
-
-Objektet står fast på eitt nivå, substansen på alle. Konfigurasjonen er det skiftande.
+**1.204t**  Objekta vert haldne faste på det valde nivået; konfigurasjonane skiftar. Endrar eit fysisk stykke ein eigenskap analysen held fast, vert endringa skildra som ein annan objekttilstand.
 
 **1.21d**  Måten objekta heng saman på i konfigurasjonen, er strukturen til konfigurasjonen.
 
 **1.211i**  Sambandet mellom setet og beinet i ein stol er ikkje ein del til. Delane heng i kvarandre direkte, som lenkene i ei kjede.
 
-**1.212t**  Strukturen er ordninga av skilnadene mellom objekta (1.02). Ordninga seier ikkje kva objekt som står i henne.
+**1.212d**  Forma til ein konfigurasjon er strukturen hans, teken uavhengig av dei eigenskapane ved objekta analysen ser bort frå.
 
-Forma til ein konfigurasjon (1) er difor strukturen hans, teken uavhengig av kva objekt som står i konfigurasjonen.
+Abstraksjonen må oppgjevast. Same silhuett er ikkje nødvendigvis same bereform.
 
 **1.2121t**  To konfigurasjonar med same objekt, men ulik struktur, har ulike former.
 
-**1.2122t**  To konfigurasjonar med ulike objekt, men same struktur, deler form.
+**1.2122t**  To konfigurasjonar med ulike objekt, men same struktur, deler form i dei omsyna abstraksjonen held fast ved.
 
-**1.2123t**  Forma er difor ikkje sjølv ein konfigurasjon, men moglegheita strukturen har for å gå att i andre objekt.
+**1.2123t**  Forma kan difor gå att i andre objekt. Verknadene går att berre i den mon dei òg kviler på dei relasjonane som er bevarte.
 
-**1.2124t**  Ei form utan alternativ (1.131) er ikkje vald, og ho treng inga forklaring. Ho er ei nødvendigheit.
+**1.2124t**  Ei form utan alternativ under gjevne vilkår er nødvendig relativt til vilkåra. Kvifor nettopp desse vilkåra gjeld, kan framleis krevje ei forklaring.
 
 **1.22d**  Moglegheita eit objekt har for å inngå i konfigurasjonar, er valensen til objektet.
 
@@ -106,7 +98,7 @@ Forma til ein konfigurasjon (1) er difor strukturen hans, teken uavhengig av kva
 
 **1.2221t**  Ei moglegheit kan ikkje finnast opp, berre avdekkjast.
 
-**1.2222t**  Det moglege ligg fast når nivået er valt. Berre valet av nivå (1.201) er konstruert.
+**1.2222t**  Det vidare moglege ligg fast. Valet av nivå, objekt, aksar og operasjonar avgrensar kartet over det (1.201, 1.321), ikkje kva som kan vere tilfelle.
 
 **1.223t**  Valensen høyrer til objektet, og objektet står fast på nivået (1.204). Å kjenne objektet fullt ut ville vere å kjenne alle konfigurasjonane det kan inngå i.
 
@@ -114,7 +106,7 @@ Ei ny moglegheit for eit gjeve objekt kan ikkje oppstå seinare; ei ny skildring
 
 **1.2231t**  Kva av det moglege som er realisert, tilgjengeleg og kjent, kan endre seg, ikkje kva som er mogleg.
 
-**1.23t**  Substansen i formverda (1.231, 1.234, 1.2342) er oppleving.
+**1.23t**  Substansen i formverda er oppleving, under suffisiens- og minimalitetspostulata i 1.234 og 1.2341.
 
 **1.231d**  Ei måling er ein relasjon mellom det som vert målt og det som måler.
 
@@ -134,19 +126,17 @@ Ei ny moglegheit for eit gjeve objekt kan ikkje oppstå seinare; ei ny skildring
 
 **1.234a**  Når ein natur som er kjend, strekkjer til, har det verkelege ingen natur som ingen kan møte.
 
-**1.2341t**  Opplevinga strekkjer til.
+**1.2341a**  Den relasjonelle strukturen i den fysiske skildringa kan vere ordning i oppleving. Opplevinga strekkjer til som indre natur utan at dei målte relasjonane må endrast.
 
-Alt fysikken skil og set i samband, er gjeve som skilnader og samanhengar i henne (1.232, 1.2331). I dei relasjonane fysikken finn, kan ho difor vere ledd.
+Dette er suffisienspostulatet. Oppleving er kjend innanfrå (1.233); ho kan vere det som er ordna utanfrå.
 
-**1.2342t**  Ein substans som ikkje er oppleving, er ein natur ingen kan møte.
+**1.2342t**  Å byte oppleving ut med ein ukjend indre natur endrar ikkje den relasjonelle skildringa (1.2341). Den ukjende naturen er heller ikkje kjend innanfrå, for det som er kjent slik, er oppleving (1.233).
 
-Måling gjev berre relasjonane hans (1.2311), og det som er kjent ved å vere det, er oppleving (1.233). Han forklarer heller ikkje meir enn opplevinga.
+Oppleving strekkjer til; den andre naturen legg inkje nødvendig til. Minimalitetspostulatet (1.234) utelukkar han. Substansen er difor oppleving.
 
-Substansen (1.203, 1.234) er difor oppleving.
+**1.2343t**  Oppleving er då ikkje ein eigenskap som eit elles ikkje-opplevande stoff må produsere. Det som skal forklarast vidare, er korleis oppleving er ordna og avgrensa.
 
-**1.2343o**  Ein substans som ikkje er oppleving, skapar dessutan ei gåte ingen har løyst: korleis det som ikkje opplever, skulle bli til oppleving.
-
-**1.235d**  Å vere noko er å kjenne det innanfrå. Å kjenne relasjonane noko står i, er å kjenne det utanfrå, å sjå det utanfrå.
+**1.235d**  Å kjenne noko innanfrå er å kjenne det ved å vere det. Å kjenne det utanfrå er å kjenne relasjonane det står i. Tilgangane gjeld same røyndom, ikkje to stoff som først må koplast saman.
 
 **1.2351t**  Fysikken kjenner berre relasjonar (1.2311, 1.2321), og materie er det han skildrar. Materie er difor oppleving, sett utanfrå (1.23): biletet ei oppleving har av ei anna.
 
@@ -162,15 +152,13 @@ Forma er difor korleis ein del av substansen tek seg ut for ein annan.
 
 Det som vert skilt ut i feltet, er mønster i det, ikkje bitar av det.
 
-**1.2401t**  Ingen del av formverda står difor utanfor relasjon til resten.
+**1.2401t**  Alle mønstera høyrer til same felt. Kva mønster som kan påverke kvarandre, vert avgjort av relasjonane i det.
 
-**1.241o**  Korleis mange opplevingar kunne bli éi, veit ingen. Men at éi oppleving kan dele seg i fleire som ikkje når kvarandre innanfrå, er kjent.
+**1.241a**  Det som er mange frå utsida, kan vere avgrensingar i éin grunn. Kvar innside har berre tilgang innanfrå til si eiga avgrensing; andre vert kjende gjennom relasjonane.
 
-**1.242t**  Eitt felt som vert avgrensa, krev berre det som er kjent (1.241). Mange som må samlast, krev ei samanslåing ingen kjenner.
+**1.242t**  Postulatet i 1.24 gjer mangfaldet til eit spørsmål om avgrensing i eitt felt. Organiseringa skil ut kva som høyrer saman innanfrå, framfor å summere ferdige opplevingar.
 
-Av dei to krev postulatet i 1.24 minst.
-
-**1.243t**  Det som skiftar, er korleis feltet er konfigurert; det som står fast (1.204), er feltet.
+**1.243t**  Det som skiftar, er korleis feltet er konfigurert; det som står fast under postulatet i 1.24, er feltet.
 
 **1.244t**  I feltet kan det skiljast ut mønster som ikkje når kvarandre innanfrå (1.241).
 
@@ -180,7 +168,7 @@ Av dei to krev postulatet i 1.24 minst.
 
 Det som kjem til seinare, er materiale og operasjonar lovene kan verke på: tilgang, ikkje moglegheit.
 
-**1.2452d**  Materiell tyder: gjeven ved lovene i feltet, kjend utanfrå.
+**1.2452d**  Materiell tyder: gjeven ved stoff, energi og dei regelmessige samanhengane som avgrensar realiseringa.
 
 **1.2453d**  Det som gjeld feltet og lovene i det, same kva nokon veit, er ontologisk. Det som avheng av kva som er kjent om feltet, og av kven, er epistemisk.
 
@@ -198,29 +186,27 @@ Det som kjem til seinare, er materiale og operasjonar lovene kan verke på: tilg
 
 **1.3211t**  Fjellet er ikkje i kartet. Men den som les kartet, er av same substans (1.23) som fjellet.
 
-**1.322t**  Det empiriske formrommet er alltid ein slik projeksjon. Sidan strukturen held fram under kvart valt nivå (1.202), fangar inga endeleg mengd parametrar heile den latente kompleksiteten.[[kjelde:2]]
+**1.322t**  Det empiriske formrommet er alltid ein slik projeksjon. Ei endeleg skildring kan vere tilstrekkeleg for eitt spørsmål og utilstrekkeleg for eit anna. Det som vert utelate, sluttar ikkje å verke.[[kjelde:2]]
 
 **1.3221t**  At det empiriske formrommet er ein projeksjon, tyder ikkje at det er vilkårleg. Somme projeksjonar fangar meir variasjon enn andre.
 
 **1.323t**  Formrommet er eit rom av relasjonar (1.2311). Det viser korleis konfigurasjonane i klassen tek seg ut utanfrå, ikkje kva dei er innanfrå.
 
-**1.4d**  Formrommet deler seg i tre regionar: dei busette, dei forbodne og dei opne.
+**1.4d**  Formrommet har eit historisk skilje mellom busett og ikkje busett, og eit materielt skilje mellom tillate og forbode. Det ikkje busette og tillatne er ope.
+
+Skilja må daterast: ei form som var realisert før, kan vere forboden under vilkåra no.
 
 **1.41d**  Dei busette regionane er dei posisjonane som er eller har vore realiserte. Dei utgjer det historiske arkivet.
 
-**1.411a**  Frå det busette vert ny form nådd. Kvar ny realisering tek utgangspunkt i ein busett posisjon og når ein posisjon som grensar til han.
+**1.411t**  Kvar ny realisering tek utgangspunkt i ein realisert tilstand. Naboar i rommet er dei posisjonane som kan nåast med eitt tillate steg; dei treng ikkje likne kvarandre.
 
-Det busette er ankerpunktet for alt som kjem etter, og den induktive premissen for vidare form.
-
-**1.412o**  Tyngda til ein busett posisjon, kor sterkt han dreg nye realiseringar til seg, veks med kor lenge han har vore busett.
+**1.412a**  Ein busett posisjon kan trekkje nye realiseringar til seg gjennom verktøy, vane og forventing. Tyngda veks der desse vert haldne oppe; ho kan minke når forma bind knappe ressursar eller fyller behovet.
 
 **1.413d**  Totaliteten av busette posisjonar er formhistoria.
 
-**1.42d**  Dei forbodne regionane V er dei ikkje busette posisjonane som er logisk moglege, men utelukka av materielle vilkår.
+**1.42d**  Dei forbodne regionane V er posisjonane som er logisk skildra i rommet, men utelukka av dei materielle vilkåra som gjeld.
 
-Dei er utelukka av materialet, strukturen eller energien, slik lovene verkar på det som er for hand.
-
-Forbodet følgjer ikkje regionen, men vilkåra.
+Forbodet følgjer ikkje regionen åleine, men vilkåra.
 
 **1.421t**  Grensa mellom det forbodne og det opne er ikkje logisk, men materiell, for ho er gjeven ved lovene i feltet (1.2452), brukte på dei materiala og operasjonane som er for hand. (Bøk bøyer seg langs fiberen; granitt gjer det ikkje.)
 
@@ -250,7 +236,7 @@ Resten, U = 𝕄 ∖ (K ∪ C), er det utenkjelege.
 
 K og C har inkje felles. Partisjonen er Π = (K, C, U).
 
-**1.501d**  C kallar eg tankerommet, K kunnskapsrommet. Rørsla i og mellom dei, medan ho går gjennom dei materielle regionane, er formgjeving.
+**1.501d**  C kallar eg tankerommet, K kunnskapsrommet. Rørsla i og mellom dei er den epistemiske sida av formgjevinga.
 
 **1.51t**  Dei to delingane fell ikkje saman.
 
@@ -262,13 +248,11 @@ Ein open region kan vere utenkjeleg: materielt mogleg, men utanfor det nokon har
 
 **1.512t**  Grensene i den epistemiske delinga er epistemiske, ikkje ontologiske (1.2453). Dei flyttar seg når kunnskapen flyttar seg, medan det moglege (1.2231) står fast.
 
-**1.52a**  Det ein veit verkar eller sviktar, er kjent fordi det er prøvd i ein realisert konfigurasjon.
+**1.52t**  Det som er prøvd i ein realisert konfigurasjon, gjev kunnskap under prøvevilkåra. Slutningar frå det prøvde kan òg avgjere noko som enno ikkje er realisert.
 
-Det busette avgjer difor K. K rommar både suksessar og fiaskoar.
+K rommar både suksessar og fiaskoar. Ei avgjerd gjeld eit bestemt kriterium, ikkje alle moglege verknader av forma.
 
-Formhistoria avgjer kva som er kjent mogleg.
-
-**1.53t**  Grensa mellom C og U kan ikkje sjåast frå C. Ein kan ikkje vite kva ein ikkje kan tenkje.
+**1.53t**  Ein kan kjenne at noko manglar utan å kjenne det som manglar. Men eit bestemt element i U kan ikkje nemnast utan å verte tenkt og dermed forlate U.
 
 **1.531t**  Innanfrå kan U nemnast som komplement, men inkje element i U kan nemnast. Eit element i U kan berre peikast ut frå ein vidare kunnskapsstand, og der er det ikkje lenger utenkjeleg.
 
@@ -306,47 +290,41 @@ Med SG meiner eg heretter ein historisk grammatikk. Språket hans er den delen a
 
 Eitt regelbruk er eitt steg. Det nærliggande moglege (1.432) ligg eitt steg frå det busette.
 
-**1.63t**  Ein grammatikkoperasjon endar i C. Han gjer altså moglegheiter tenkte, frå ei tenkt form (C→C) eller frå ei kjend (K→C).
+**1.63t**  Ein grammatikkoperasjon kan gjere ei moglegheit tenkt, frå ei tenkt eller kjend form. Han treng ikkje avgjere om forma vil verke.
 
-Realisering er ein C→K-operasjon: ho avgjer konfigurasjonen.
+Realisering er ei prøve på det tenkte. Ho vert ein C→K-operasjon når resultatet avgjer det oppgjevne spørsmålet.
 
-**2t**  Ikkje alle posisjonar er like sannsynlege.
+**2a**  Ikkje alle posisjonar er like sannsynlege under dei same oppgjevne vilkåra.
 
-**2.01t**  Forbodet (1.42) skil ut det som ikkje kan vere, men lèt mange posisjonar stå opne (1.43).
-
-Var alle dei opne like sannsynlege, ville ingen relasjon til dei urealiserte gjere den realiserte meir venteleg enn dei. Realiseringa ville vere eit lotteri, og forklaringa som 1.13 set, ville ikkje finnast.
+**2.01t**  Forbodet stengjer somme alternativ. Fordelinga over dei tillatne krev i tillegg ein oppgjeven genereringsprosess eller ei avgrensa rekkje forsøk. Også eit tilfeldig utfall kan ha ei forklaring.
 
 **2.011o**  Dei busette posisjonane ligg ikkje jamt spreidde over det materielt moglege. Tradisjonar som aldri har møtt kvarandre, kjem fram til same form.
 
-**2.02t**  Forklaringa av ein konfigurasjon gjer han meir venteleg enn dei andre (1.13). Noko verkar difor på fordelinga.
+**2.02t**  Ei skeiv fordeling er noko som skal forklarast, ikkje sjølv ei forklaring. Forklaringa må vise kva som gjorde skilnad mellom alternativa (1.13).
 
-**2.021t**  Det som verkar, skuvar ikkje den einskilde forma, for ho er realisert eller ikkje (1.12). Det verkar på fordelinga, og der forma elles kunne ha vore, tynner det altså ut sannsynet.
+**2.021t**  Seleksjonen endrar fordelinga gjennom det som skjer i kvart einskild forløp. At ei form anten er realisert eller ikkje (1.12), hindrar ikkje at dei same prosessane flyttar, endrar og bryt henne.
 
-**2.1d**  Det som endrar sannsynsfordelinga over det som ikkje er forbode, er eit seleksjonstrykk.[[kjelde:3]]
+**2.1d**  Eit seleksjonstrykk endrar sannsynsfordelinga over det som ikkje er forbode, relativt til ei oppgjeven grunnfordeling.[[kjelde:3]]
 
-Trykket er ikkje ein regel, men ein gradient. Det gjer somme posisjonar mindre sannsynlege enn andre, utan å forby dei.
+Trykket favoriserer og svekkjer alternativ utan å stengje dei. I landskapsspråket (3.1) er retninga mot favoriserte alternativ eit fall i spenninga.
 
-Det utelukkar ved å tynne ut.
+**2.101t**  Forma er eitt realisert utfall av det trykka favoriserte, det agentane gjorde, og det vilkåra tillét. Dei andre alternativa treng ikkje vere utelukka då ho vart til.[[kjelde:15,77,78]]
 
-**2.101t**  Forma er det som står att når trykka har utelukka alt anna.[[kjelde:15,77,78]]
+**2.11t**  Eit trykk som inkje tynner ut, er inkje trykk. Samlar fordelinga seg i éin region, er utfallet bunde til regionen; først når éin posisjon står att, er heile utfallet determinert.
 
-**2.11t**  Eit trykk som inkje tynner ut, er inkje trykk. Eit trykk som tynner ut alt unnateke éin region til inkje, er ikkje lenger eit trykk, men determinisme.
+**2.111t**  Mellom nulltrykket og determinismen vert opne alternativ vekta ulikt utan at eitt utfall er tvinga fram. Her kan seleksjon og val skiljast frå både lik vekting og nødvendigheit.
 
-**2.111t**  Berre mellom nulltrykket og determinismen finst alternativ som trykka gjer ulikt sannsynlege (2.01, 1.2124).
+**2.112a**  Design har sitt sentrale arbeidsrom mellom desse grensene. Ei konkret form kan likevel vere heilt bunden langs eitt omsyn og fri langs eit anna.
 
-Mellom dei to ligg heile rommet for design.
+**2.12a**  Fleire seleksjonstrykk verkar samstundes. Korleis dei verkar saman, må skiljast frå at dei kan namngjevast kvar for seg.
 
-**2.112o**  Mellom dei to grensene ligg alle observerte trykk, for ingen observert formklasse er utan trykk, og ingen er fullt determinert.
+**2.121t**  Eitt namngjeve trykk kan samle fleire omsyn og skjule avvegingane mellom dei. At modellen har éin verdi, viser ikkje at verda har eitt omsyn.
 
-**2.12a**  Fleire seleksjonstrykk verkar samstundes, kvart for seg.
+**2.122t**  Eit trykk som er likt over alle observerte tilfelle, er latent i samanlikninga. Det kan avgrense alle utan å forklare skilnaden mellom dei. Variasjon i vilkåra kan vise verknaden.
 
-**2.121t**  Verka berre eitt trykk, ville det ikkje finnast avvegingar. All variasjon ville vere variasjon i kor nær forma kom det eine, ikkje i kva ho vog mellom.
+**2.13a**  Omsyn kjem i konflikt når dei ikkje kan møtast fullt ut i same tilgjengelege posisjon. Ei sentral oppgåve for formgjevinga er å finne ut kva konfliktar som er reelle, og kva som kjem frå eit for trongt repertoar av steg.
 
-**2.122t**  Eit trykk som er likt over alle observerte tilfelle, er latent. Det verkar framleis, men berre variasjon i vilkåra kan påvise trykket.
-
-**2.13a**  I kvar realisert posisjon peikar minst to trykk i motstridande retningar, for inga form er best for alle trykk samstundes.
-
-**2.131t**  Kvar realisert form er difor eit kompromiss, der minst eitt trykk ikkje er fullt forløyst.
+**2.131t**  Ei realisert form under ein slik konflikt er eit kompromiss: minst eitt relevant omsyn er ikkje fullt møtt. Utan konflikt kan fleire omsyn oppfyllast samstundes.
 
 **2.1311t**  Utan eit spesifikt trykksett er omgrepet «suboptimal» tomt. Omgrepet føreset ein referanse.
 
@@ -354,7 +332,7 @@ Mellom dei to ligg heile rommet for design.
 
 **2.141t**  Affordansestrukturen er konstant innanfor klassen, og ein konstant kan ikkje forklare ein skilnad. Han kan seie kvar formene samlar seg og kor trongt, men det klassen er til for, seier ingenting om kvifor formene i han er ulike.
 
-**2.15t**  Det som forklarer, er trykka (1.131, 2.1). Den projeksjonen av formrommet som forklarer best (1.3221), er den som gjer flest seleksjonstrykk synlege.
+**2.15t**  Ei god forklaring viser kva som skilde alternativa, og føreseier skilnader ho ikkje vart tilpassa til. Talet på namngjevne trykk tel mindre enn forklaringsarbeidet dei gjer.
 
 **2.2d**  Materialaffordansen er operasjonane materialet tillèt og hindrar.[[kjelde:12]]
 
@@ -374,9 +352,7 @@ Røyret låg i sykkelfabrikken i eit halvt hundreår. Nokon måtte sjå stolen i
 
 **2.2021t**  Materialet set difor rammene, ikkje utfallet (2.2). Variasjonen vert boren av mange trykk (2.121, 2.13) på ein gong.
 
-**2.21t**  Materialaffordansen er eitt trykk mellom mange.
-
-Ein samlevariabel som tek opp i seg mange samtidige trykk, predikerer formvariasjon betre enn kvart einskildtrykk. Stilperioden (2.202, 2.2021) er ein slik samlevariabel.
+**2.21t**  Materialaffordansen er eitt trykk mellom mange. Ein samlevariabel kan predikere betre enn eit einskildtrykk ved å bere informasjon om fleire samtidige vilkår. Stilperioden kan vere ein slik variabel.
 
 **2.211t**  Som samlevariabel er stilen eit aggregat som tek opp mange samtidige trykk i éin etikett, inga forklaring.
 
@@ -384,29 +360,29 @@ Ein samlevariabel som tek opp i seg mange samtidige trykk, predikerer formvarias
 
 **3t**  Seleksjonstrykka spenner ut eit landskap over formrommet.
 
-**3.01t**  Kvart seleksjonstrykk endrar sannsynet for kvar posisjon med ein positiv faktor (2.1): det tynner ut, men forbyr ikkje. Verkar trykka kvart for seg (2.12), vert faktorane gonga saman, og logaritmen av eit produkt er ein sum.
+**3.01a**  Lat μ vere ei oppgjeven grunnfordeling. Dersom trykk j endrar vekta i x med ein positiv faktor f_j(x), og faktorane verkar multiplikativt, vert den samla vekta μ(x) ∏_j f_j(x). Logaritmen av produktet er ein sum.
 
-Den samla verknaden i kvar posisjon er difor éin storleik. Han er gjeven opp til eit fast tillegg, og berre skilnader i han tel.
+Dette er additivitetsvilkåret for landskapet. Samspelet mellom trykka må inn i faktorane dersom det ikkje kan skiljast frå dei.
 
-**3.1d**  Tilpassingslandskapet Λ er det dei verksame seleksjonstrykka legg over formrommet når dei verkar samstundes.[[kjelde:3,8,58]]
+**3.1d**  Tilpassingslandskapet Λ er den samla vektinga dei verksame trykka legg over formrommet under additivitetsvilkåret (3.01).[[kjelde:3,8,58]]
 
-Kvar posisjon held ein verdi: kor mykje av trykka som står uforløyst der. Verdien er spenninga i posisjonen.
+Λ(x, t) = ∑_j λ_j(x, t), der λ_j = −ln f_j. Verdien er spenninga i posisjonen. Berre skilnader i henne tel. Ved lik grunnvekt er lågare spenning meir sannsynleg.
 
-Di lågare spenninga, di meir sannsynleg er posisjonen.
+Der ein gradient er definert, er −∇λ_j retninga mot lågare spenning, ikkje ei eiga kraft. Ved diskrete steg samanliknar me verdiane i naboane.
 
-Formelt. Λ(x, t) = Σj λj (x, t), der λj er minus logaritmen av faktoren trykket j legg på sannsynet for x. Trykket sjølv er −∇λj: retninga der forma vert meir sannsynleg, ikkje ei kraft på henne (2.021). Summen av trykka er −∇Λ. Der aksane er diskrete, står ∇ for skilnaden over eitt steg. Låg spenning er god tilpassing; sannsynet samlar seg i dalane.
+**3.11t**  Eit landskap lese ut av dei same formene det skal forklare, kan berre omnamne fordelinga. For å bere framover må vilkår eller overgangar fastsetjast uavhengig av det nye utfallet.
 
-**3.11t**  Landskapet lèt seg utanfrå berre lodde i ettertid, gjennom det som er prøvd (1.52). Det målte ber likevel framover, lokalt.
+**3.12a**  Landskapet kan ha mange lokale minimum. Motstridande trykk kan gje eitt kompromiss eller fleire dalar; talet på trykk avgjer ikkje talet på minimum.
 
-**3.12a**  Trykk som strir mot kvarandre (2.13), kan ikkje møtast fullt ut i same posisjon, og same kompromiss kan nåast på fleire måtar. Landskapet har difor mange lokale minimum.
+**3.121d**  Eit lokalt minimum er ein posisjon utan betre tillatne nabosteg. Ein dal er ein region som ein bestemt navigasjonsmåte fører mot eit slikt minimum.
 
-**3.121d**  Ein dal er staden der kvart steg bort kostar; ryggane er tilstandane sannsynet skyr. Dalane er landskapet sine attraktorar.
+Dalen er ein attraktor for denne rørsla, ikkje for alle moglege rørsler.
 
 **3.122o**  Éin universell botn er eit teoretisk unntak.[[kjelde:58]] Den eine fullkomne forma finst ikkje i noko observert landskap.
 
-**3.2d**  Stabiliteten til ein dal svarar til djupna og brattleiken på dalveggane.[[kjelde:8]]
+**3.2t**  Bratte dalveggar kan avgrense spreiinga; høge ryggar kan gjere dalen vanskeleg å forlate. Stabiliteten krev i tillegg ei rørsle som svarar på forstyrringar.
 
-Bratte veggar gjev kanalisering: forma støyter forstyrringar frå seg.
+Når rørsla fører forstyrra former attende, er dei kanaliserte.[[kjelde:8]]
 
 **3.21t**  Djupe, bratte kanalar fryser dimensjonane; slake rommar fluktuasjonen.
 
@@ -418,19 +394,15 @@ Stilperiodar er ikkje øyar. Dei går gradvis over i kvarandre.
 
 (Ingen har nokon gong sett ein stil. Ein ser stolar som liknar kvarandre.)
 
-**3.31t**  Kvar stol er eksakt (1.12); svermen er det ikkje. Grensene hans er difor naudsynleg uskarpe.
+**3.31t**  Kvar stol er bestemt, men svermen er eit mønster over mange stolar. Grensene må fastsetjast gjennom likskapen som vert undersøkt, ikkje gjennom kor bestemte stolane er.
 
-Det 2.211 fann som aggregat i statistikken, er ein sverm i landskapet.
+Det 2.211 fann som aggregat i statistikken, kan vise seg som ein sverm i landskapet.
 
-**3.4a**  Formgjevinga skapar ikkje grunnstrukturen i landskapet.
+**3.4a**  Formgjevinga arbeider i vilkår ho ikkje åleine rår over: dei materielle verkemåtane og behova formene skal møte.
 
-Han følgjer av vilkår formgjevinga ikkje rår over: materielle, energetiske og dei behova formene skal møte.
+Kvar realisert form vert sjølv eit vilkår for den neste. Ho tek plass, bind stoff, går inn i nye konfigurasjonar og endrar tyngda i det busette (1.412). Kvar realisering endrar difor landskapet lokalt.
 
-Men kvar realisert form er sjølv eit vilkår for den neste. Ho tek plass, bind stoff, går inn i andre konfigurasjonar og gjer det busette tyngre (1.412).
-
-Kvar realisering endrar difor landskapet lokalt.
-
-**3.41t**  I landskapet finn isolerte tradisjonar den same dalen utan å utveksle eit ord (2.011). Uavhengig konvergens stadfestar at attraktoren ikkje er konvensjonell, men reell.
+**3.41t**  Uavhengig konvergens kan prøve hypotesen om ein felles attraktor. Ho styrkjer forklaringa når felles opphav og måten rommet er konstruert på, ikkje er nok til å forklare likskapen.
 
 **3.411d**  Reell tyder her: gjeven ved vilkåra i 3.4, lovene i feltet og dei behova formene skal møte, same kva tradisjon som navigerer.
 
@@ -452,7 +424,7 @@ Ein slik overgang er ein bifurkasjon.
 
 **4.2o**  Lange periodar med stillstand bryt saman i brå skifte: radiasjon inn i ein ny region, deretter konvergens.
 
-**4.21t**  Det brå spranget er difor merket etter ein jamn dynamikk, ikkje eit brot med han, når vilkåra endrar seg jamt (4.12). Siktlinja (3.11) er lang i stillstanden og brotnar i bifurkasjonen.
+**4.21t**  Når vilkåra endrar seg jamt og eit minimum forsvinn, er det brå formskiftet eit merke etter den jamne dynamikken (4.12). Andre sprang kan kome av brå vilkårsendringar eller val mellom dalar som framleis finst.
 
 **4.3t**  Landskapet har minne.[[kjelde:14]]
 
@@ -460,59 +432,49 @@ Kvar realisert form endrar trykka for den neste (3.4), og kvar ny form tek utgan
 
 Stiavhengigheit er eit grunntrekk, ingen anomali.
 
-**4.4o**  Med kvar realisering flyttar det nærliggande moglege (1.432) seg.[[kjelde:13,59,60,79]]
+**4.4t**  Med kvar realisering endrar det busette seg, og det nærliggande moglege kan flytte seg.[[kjelde:13,59,60,79]]
 
-Materialstraumane driv landskapsendringa. Dei flyttar grensa for det forbodne, og med henne det nærliggande moglege (1.422).
-
-Det tilgjengelege formrommet veks i hovudsak kumulativt.
+Materialstraumar, nye operasjonar og læring kan opne vegar; tap av stoff, handlag og tilgang kan stengje dei. Det tilgjengelege veks berre der opninga er større enn tapet.
 
 **4.41t**  Det tilgjengelege kan vekse; det moglege (1.2231) veks ikkje.
 
-**4.5t**  Når eitt trykk dominerer, samlar fordelinga seg om éin attraktor (3.1).[[kjelde:59]]
+**4.5t**  Eitt dominerande trykk kan trongne utvalet, men kan òg tillate mange jamgode former. Eit mangfald av trykk kan samlast i eitt kompromiss.[[kjelde:59]]
 
-Eit eineveldande trykk nærmar seg determinismen (2.11). Det forklarer ikkje form, men er fråværet av forklaring (1.2124).
-
-Mangfald (2.121) speglar mangfald av aktive trykk.
+Variasjonen må forklarast gjennom strukturen i landskapet og stega som vert tekne, ikkje gjennom talet på trykk åleine.
 
 **5t**  Formverda rommar agentar som svarar på landskapet.
 
-**5.01t**  Eit landskap flyttar ingenting (2.021, 3.1).
+**5.01t**  Landskapet verkar gjennom materialet, agentane og overgangane mellom konfigurasjonar. Desse må finnast i forklaringa av kva som flyttar forma.
 
-Det endrar sannsynet for at ein posisjon vert realisert, og verkar difor berre gjennom det som realiserer, i den mon det følgjer gradienten.
+**5.011t**  Ein formtype som går att under endra vilkår, kan verte halden gjennom regulering, eller vere stabil utan henne. Å skilje dei krev å undersøkje kva som skjer når vilkåra vert forstyrra.
 
-**5.011t**  Når ein formtype vert laga på nytt i eit landskap som endrar seg (4), går han att berre om det som lagar han, svarar på endringa. Elles vert han ført med og omforma.
+**5.012o**  Somme formtypar går att gjennom skiftande vilkår. Stolar vert laga på nytt kring kroppar med mykje av den same beregeometrien. Haldet må finnast i arbeidet som fører forma vidare.
 
-Objekta står fast (1.204), men samanhengen mellom dei må haldast. (Ein stein held seg derimot utan å svare; det er lovene i feltet som held steinen.)
-
-**5.012o**  Somme formtypar held seg gjennom skiftande vilkår. Setehøgda har variert lite i fem hundre år, og kvar stol er laga på nytt. Difor svarar noko.
-
-**5.013t**  Å svare er å ta noko inn og gje noko ut. Det som svarar, har difor eit indre og eit ytre, og ei grense der dei møtest.
+**5.013t**  Å svare er å ta påverknad inn og gje påverknad ut. Analysen må difor skilje eit system frå omgjevnaden og finne vegane mellom dei. Grensa kan vere ei fysisk hinne eller ei funksjonell avgrensing.
 
 **5.02d**  Ei hinne er ei mengd tilstandar som skil eit indre frå eit ytre, slik at det indre og det ytre er uavhengige av kvarandre når desse tilstandane er gjevne (1.011).[[kjelde:83]] Gjennom hinna går observasjonane inn og handlingane ut.
 
-**5.021d**  Ei hinne er sjølvhalden i den grad verksemda i det indre held henne oppe. Ei grense som berre den som analyserer, teiknar (1.201), kallar eg ei analysegrense.
+**5.021d**  Ei hinne er sjølvhalden i den grad regulering innanfor henne motverkar forstyrringar som elles ville løyse henne opp. Ei grense som berre den som analyserer, teiknar, er ei analysegrense.
 
-**5.022d**  Eit sjølv er eit mønster i feltet (1.244), avgrensa av ei sjølvhalden hinne.
+**5.022d**  Eit sjølv er eit mønster i feltet, avgrensa av ei sjølvhalden hinne.
 
 **5.0221o**  Hinner vert haldne i ulik grad: nokre av det indre, nokre av andre, dei fleste av begge.
 
 **5.0222t**  Å vere eit sjølv er difor ein grad (5.021).
 
-**5.023t**  Steinen er ikkje eit sjølv.
+**5.023t**  Steinen held ei grense utan å regulere henne. Eit sjølv må motverke forstyrringar som elles ville løyse grensa opp. Begge følgjer naturlovene; skiljet er reguleringa.
 
-Han held seg, men det er lovene i feltet som held grensa hans (1.245), ikkje verksemd i det indre. Hinna hans er ikkje sjølvhalden (5.021).
+**5.024a**  Den sjølvhaldne avgrensinga er òg ei avgrensing innanfrå: sjølvet er ei oppleving som ikkje når inn i andre mønster i feltet. Det ho har av resten, kjem gjennom hinna.
 
-**5.024t**  Innanfrå er sjølvet ei oppleving som ikkje når inn i andre mønster i feltet (1.244). Det ho har av resten, er tilstandane i hinna (5.02).
-
-Utanfrå (1.235) er sjølvet hinna og det ho held.
+Utanfrå er sjølvet hinna og det ho held. Dette er individuasjonspostulatet: den regulerande og den opplevde avgrensinga høyrer til same organisering.
 
 **5.025t**  Det sjølvet har av det ytre, er tilstandane i hinna. Det ser difor ikkje feltet, men ei koding av feltet på hinna.
 
 Persepsjonen er ikkje eit vindauge, men eit grensesnitt.
 
-**5.0251t**  Sjølvet kan ikkje halde kodinga opp mot det ho kodar, for det har berre kodinga.
+**5.0251t**  Sjølvet har ikkje eit ukoda møte å samanlikne kodinga med. Det kan prøve henne gjennom det ho let systemet skilje, føreseie og halde.
 
-Det som held kodinga oppe, er difor ikkje at ho liknar, men at ho held hinna (5.021). Kodinga viser det sjølvet treng for å halde seg.
+Ei koding kan tene dette arbeidet utan å likne det ho kodar, og samstundes skjule noko systemet treng.
 
 **5.026t**  Fleire sjølv i same felt har eit felles ytre, alt som ligg utanfor dei alle. Dei deler difor éi verd, sjølv om kvart har si eiga koding av henne.
 
@@ -526,58 +488,37 @@ Biletet følgjer det det er bilete av, og lagar det ikkje.
 
 **5.0281o**  Den delen av biletet som følgjer opplevinga tettast, er hjernen.
 
-**5.1a**  Landskapet til kvar klasse vert navigert av minst eitt system via negativ tilbakekopling.[[kjelde:62]]
+**5.1a**  I målretta formgjeving vert landskapet navigert av system med tilbakekopling: dei registrerer avvik og endrar verksemda som svar. Kor mykje eit bestemt forløp krev av slik agens, må visast.[[kjelde:62]]
 
-**5.11d**  Eit system som held avviket mellom forventing og møte under ein terskel, er ein agent.
+**5.11d**  Ein agent er eit system som registrerer avvik frå ein målregion og har ein politikk som svarar for å minske eller halde avviket.
 
-Formelt er A = (m, π, ε).[[kjelde:19,21,83,84]]
+Formelt er A = (m, π, G, ε). m knyter observasjonar, handlingar og venta følgjer saman; G er målregionen; π er politikken agenten tek i bruk; ε er toleransen for mål-avvik. Ordninga treng ikkje vere medviten eller uttrykt som eit bilete.[[kjelde:19,21,83,84]]
 
-m er ein generativ modell over ei delmengd av aksane i formrommet. Han ber òg det agenten føretrekkjer å møte, målregionen hans.
+Lat e_k(t; π, d) vere avstanden frå målregionen langs X_k, t fram i tid under politikken π og forstyrringa d. Avstanden og eininga må fastsetjast for kvart omsyn. 𝒫_A er politikkane agenten faktisk har tilgang til.
 
-π_A er politikken som minimerer variasjonell fri energi mellom det m predikerer og det agenten observerer gjennom hinna.
+Prediksjonsfeilen er ein annan storleik. Der observasjon og prediksjon er fordelingar, kan han målast som D_k = D_KL(p_obs ∥ p_m). Låg D_k tyder godt samsvar med det som skjer; låg e_k tyder at det som skjer, møter målet.
 
-ε er toleransen for divergensen mellom prediksjon og observasjon.
-
-Agens krev berre denne strukturen, ikkje medvit (1.2332), intensjon eller nervesystem.
-
-Formelt. D_k(t; π) er divergensen langs aksen X_k, t fram i tid, og D_k(π) = D_k(0; π). 𝒫_A er politikkane A kan ta i bruk. F[m, π] er den variasjonelle frie energien: eit tak over overraskinga ved det agenten observerer.
-
-D_k(t; π) = D_KL(p_obs(x_k, t) ∥ p_{m,π}(x_k, t)) · Divergensen langs X_k
-D_k(π_A) ≤ ε for minst éin X_k · Agenten held noko innanfor toleransen
-π_A = arg min_{π′ ∈ 𝒫_A} F[m, π′] · Politikken minimerer fri energi
-τ_k(A) = sup{t ≥ 0: det finst π ∈ 𝒫_A med D_k(t′; π) ≤ ε for alle 0 ≤ t′ ≤ t} · Horisonten langs X_k; null når mengda er tom
+Agens krev svarstrukturen, ikkje medvit, intensjon eller nervesystem. Om svaret lukkast, er spørsmålet om kompetanse og kapasitet.
 
 **5.111t**  Definisjonen er uavhengig av kva agenten er laga av.[[kjelde:88,89]] Eit kvart system som oppfyller vilkåra, er ein agent.
 
 **5.1111i**  Biologisk vev navigerer via bioelektrisk polarisering;[[kjelde:22,24,85]] menneskeleg praksis via materiell friksjon; ein slimsopp via oscillerande samandragingar; ein språkmodell via vektoriell merksemd.
 
-**5.112t**  Fri energi er eit tak over overraskinga, og den venta overraskinga er uvissa i det møtte pluss divergensen. Den som held taket lågt, held òg divergensen låg.
+**5.112t**  Variasjonell fri energi kan gje eit tak over overraskinga i det observerte. Låg prediksjonsfeil er likevel ikkje låg skade: ein kan føreseie samanbrotet presist utan å kunne hindre det.
 
-Men at politikken held taket så lågt han kan, sikrar ikkje at divergensen kjem under ε.
+**5.113t**  Negativ tilbakekopling gjev ein agent når svaret er kopla til eit avvik frå det som skal haldast. Målet er regionen G, avviket er e, og justeringa er politikken som motverkar det.[[kjelde:4,5,7]]
 
-Toleransen er eit eige krav.
+Termostaten har eit band kring ein temperatur. Brytaren koplar målinga til varme som reduserer avviket. Han treng ikkje føreseie rommet langt fram for å halde det no.
 
-**5.113t**  Eit system med negativ tilbakekopling (5.1) er ein slik agent.
+**5.114d**  Haldshorisonten τ_k(A) er kor lenge ein tilgjengeleg politikk kan halde e_k ≤ ε_k under oppgjevne forstyrringar. Prøva må òg fastsetje starttilstanden og eventuell innstillingstid.
 
-Den eldre kybernetiske forma (mål, avvik, justering)[[kjelde:4,5,7]] er eit spesialtilfelle: målet er eit smalt band kring éin konfigurasjon g, avviket divergensen frå bandet, og justeringa politikkoppdateringa. (Termostaten har bandet i hysteresen til brytaren.)
-
-Fleire tradisjonar har funne same strukturen kvar for seg.
-
-Formelt. Krympar bandet til eit punkt δg, veks divergensen i 5.11 mot det uendelege så snart det møtte spreier seg. Berre den omvende er endeleg: DKL (δg ∥ pobs ) = −ln pobs (g), kor uventa målet er under det agenten møter. Den reine punktforma er grensa for 5.11, ikkje eit tilfelle av henne.
-
-**5.114d**  Prediksjonshorisonten τk (A) er kor langt fram A, med ein politikk han kan ta i bruk, kan halde divergensen langs Xk under ε. Horisonten til agenten, τ(A), er den lengste av prediksjonshorisontane.
+Prediksjonshorisonten er kor lenge modellen føreseier følgjene med oppgjeven presisjon. Ein agent kan ha lang prediksjonshorisont og kort haldshorisont, eller halde noko ved lokal tilbakekopling som han ikkje føreseier langt fram.
 
 **5.1141a**  Ein realisert modell har endeleg mange parametrar.
 
-**5.1142t**  Horisonten er endeleg for alle realiserte agentar.
+**5.1142t**  Horisonten må prøvast under forstyrringane oppgåva krev. Endeleg parametrisering avgjer ikkje åleine kvar han sluttar; lokal regulering kan vare medan andre sider av verda er ukjende.
 
-Ein endeleg modell fangar ikkje heile den latente kompleksiteten (1.322), landskapet kviler aldri (4.1), og somme endringar er brå (4.12). Langs kvar akse skil det observerte seg difor før eller seinare frå det predikerte meir enn ε.
-
-**5.115t**  Eit sjølv, sett utanfrå, er ein agent som held si eiga hinne.
-
-Hinna finst berre så lenge tilstandane hennar held seg innanfor ei avgrensa mengd (5.02). Den som held henne oppe frå det indre (5.021), held avviket mellom den venta mengda og det som vert møtt, under ein terskel.
-
-Det er det 5.11 krev.
+**5.115t**  Eit sjølv, sett utanfrå, er ein agent som held si eiga hinne. Reguleringa tek avvik i vilkåra for eiga vidare verksemd inn i svaret sitt. Det er dette 5.021 og 5.11 saman krev.
 
 **5.116t**  Ikkje kvar agent er eit sjølv.
 
@@ -601,55 +542,59 @@ Han er ein agent, ikkje eit sjølv.
 
 **5.125i**  Den som formgjev for andre: representasjonen strekkjer seg forbi behova til agenten sjølv, til dei som skal leve med forma.
 
-**5.13a**  Det agenten føretrekkjer å møte, er låg spenning i posisjonen langs aksane modellen dekkjer (3.1). Å halde divergensen nede er då å følgje gradienten nedover.
+**5.13a**  Agenten føretrekkjer låg spenning langs dei omsyna måla gjeld. Han svarar på avvik slik dei når han gjennom hinna, og vel etter dei følgjene modellen hans ventar.
 
-Agenten svarar på gradienten slik han når agenten gjennom hinna (5.025), ikkje på forma.[[kjelde:63,64]]
+Å gå ned i estimert mål-avvik kan då føre mot målet. Det fører ned i det verkelege landskapet berre i den mon estimatet er rett og det som er valt, kan gjennomførast.[[kjelde:63,64]]
 
-**5.131t**  Agenten finn ikkje opp målet, for målet er ein region i eit rom som er gjeve (1.222). Det som er hans, er at han held målet.
+**5.131t**  Målet er ein region i eit gjeve rom, men agenten kan endre kva region han held som mål. Det moglege vert ikkje laga av ønsket; retninga til arbeidet kan verte det.
 
-**5.132t**  Navigasjon krev berre den lokale gradienten.[[kjelde:63]] Lokale steg gjev global form, utan at nokon ser forma.
+**5.132t**  Lokal navigasjon kan gje global form utan at nokon ser heilskapen.[[kjelde:63]] Men lokale fall kan stengje vegen til eit betre mål. Kompetanse kan krevje å gå opp ei stund for å kome ned ein annan stad.
 
 **5.14d**  Spenninga i 3.1 ligg over formrommet. Den indre spenninga σk (A) er avstanden langs Xk mellom det agenten møter og målregionen hans, slik han verkar inne i agenten. Ho set politikken i rørsle.
 
-**5.141t**  Indre spenning kjem frå minst tre stader: verda mot målregionen, sansinga mot forventinga, og målet langs éin akse mot målet langs ein annan. Den første er landskapet (3.1, 5.13), den andre divergensen (5.11), den tredje kompromisset (2.13).
+**5.141t**  Indre spenning kjem frå minst tre stader: verda mot målet, sansinga mot forventinga, og målet langs éin akse mot målet langs ein annan. Den første er mål-avviket e, den andre prediksjonsfeilen D, den tredje ein konflikt mellom omsyn.
 
-**5.142o**  Spenninga i ein bjelke, over hinna til ei celle og i eit menneske er same slag storleik, avvik frå ein føretrekt tilstand som driv ei rørsle attende mot han. Berre der ein politikk (5.11) tek imot spenninga, set ho arbeid i gang.
+Dei krev ulike svar. Meir presis kunnskap om ein skade er ikkje det same som mindre skade.
 
-**5.143t**  Ein agent utan indre spenning langs ein akse har anten nådd målet langs aksen eller mista det.
+**5.142t**  Ein bjelke, ei celle og eit menneske kan alle vere i spenning. Storleikane vert ikkje identiske av namnet. I ein agent må det visast korleis avviket vert registrert og set ein politikk i arbeid.
 
-**5.144a**  Innanfrå er indre spenning kjend som uro når divergensen langs aksen står over toleransen; når han fell attende under, er ho kjend som ro.
+**5.143t**  Utan registrert spenning kan målet vere nådd, gløymt eller ikkje lenger sansa. Ro er difor ikkje åleine eit prov på at det som skal haldast, er trygt.
+
+**5.144a**  For eit sjølv er den indre målspenninga kjend innanfrå som uro når det registrerte avviket står over toleransen; når det fell attende under, som ro.
+
+Uro treng ikkje vere medviten eller uttrykkje den verkelege faren presist. Ho er innsida av svaret, ikkje ein ufeilbarleg rapport om verda.
 
 **5.1441o**  Svolt, smerte og frykt følgjer trugsmål mot det ein organisme må halde. Metting, lindring og tryggleik følgjer at trugsmålet fell bort.
 
 **5.15d**  Evna til å nå same målregion frå ulike utgangspunkt og på ulike vegar er kompetanse.
 
-**5.151t**  Kompetansen syner seg berre under forstyrring. Ein kompetent agent når same mål på ein annan veg når vegen vert sperra; ein refleks kjenner berre éin.
+**5.151t**  Kompetansen vert synleg når den vanlege vegen vert sperra: kva andre vegar kan agenten finne til same mål?
 
-**5.152d**  Kompetansen kan teljast.
+**5.152d**  Kompetansen kan målast som stegsparing mot eit oppgjeve mål G, samanlikna med ei bestemt blind leiting:[[kjelde:86]]
 
-Talet på storleiksordenar av steg politikken sparar samanlikna med blind leiting mot målet G, er[[kjelde:86]]
+ν(A; G) = log₁₀(E N_blind(G) / E N_A(G)).
 
-ν(A; G) = log₁₀(E N_blind(G) / E N_A(G)),
-
-med forventingane tekne over utgangspunkt og forstyrringar, og rekna der begge er endelege. ν = 0 er inga betring på blind leiting; ν < 0 er verre; ν > 0 er kompetanse.
+Forventingane gjeld same fordeling av utgangspunkt og forstyrringar og må vere endelege. Positiv ν er gevinst, negativ ν tap. Målet seier kva prøva kostar i steg, ikkje kva G er verdt.
 
 **5.153t**  Kvar måling av kompetanse er gjord av ein observatør, i eit rom observatøren har valt (1.321). Målinga seier difor ikkje berre noko om agenten, men òg om observatøren.
 
-**5.2d**  At avvik ikkje er likegyldige for agenten, er omhug ω(A).[[kjelde:23,68]]
+**5.2d**  At avvik set ein agent i arbeid for å måle, endre eller halde noko, er omhug ω(A).[[kjelde:23,68]]
 
-For kvar akse Xk er ωk (A) kor mykje arbeid ei eining indre spenning langs Xk set i gang i politikken.
+ω_k(A) er styrken på svaret langs X_k under oppgjevne vilkår. For å samanlikne styrken må ein fastsetje både eininga for avviket og kva som tel som arbeid.
 
-Omhug er ikkje eit tal, men ein profil over aksane.
+Omhug er ein profil over omsyn, ikkje eitt tal for kor mykje agenten bryr seg om alt.
 
-**5.201t**  Omhug vert målt i arbeid, ikkje i kunnskap.
+**5.201t**  Omhug viser seg i prioritering av arbeid. Kunnskap åleine endrar ikkje det kjende; omhug åleine gjer ikkje eit feil estimat rett. Innsats, handlag og utfall må difor prøvast kvar for seg.
 
-Ein agent kan predikere ein akse fullkome og ikkje røre seg for han, for kunnskap utan omhug predikerer, men endrar ikkje.
+**5.21d**  Kapasiteten κ(A) er dei omsyna agenten har ein tilgjengeleg politikk for å halde innanfor toleransen, over eit oppgjeve tidsrom og under oppgjevne forstyrringar.[[kjelde:21,86]]
 
-Omhugen set i gang arbeidet, både det som måler og det som endrar.
+For ei prøve med tidsrom T og forstyrringar 𝒟:
 
-**5.21d**  Kapasiteten κ(A) er dei aksane der A, med ein politikk han kan ta i bruk, kan halde divergensen under toleransen: κ(A) = {Xk: det finst π ∈ 𝒫A med Dk (π) ≤ ε}.[[kjelde:21,86]] Kapasiteten fell direkte ut av agentdefinisjonen i 5.11 og seier kva agenten kan halde.
+κ(A; T, 𝒟) = {X_k: det finst π ∈ 𝒫_A slik at e_k(t; π, d) ≤ ε_k for alle d ∈ 𝒟 og alle t i prøvetidsrommet}.
 
-**5.211t**  Divergensen Dk måler informasjonstapet når modellen til agenten står i staden for det han observerer langs Xk. Innanfor kapasiteten finst ein politikk agenten kan ta i bruk som held aksen innanfor toleransen; utanfor finst ingen.
+Ei eventuell innstillingstid må vere fastsett før prøva. Å kjenne ein politikk ein ikkje kan ta i bruk, er ikkje å ha han i kapasiteten.
+
+**5.211t**  Kapasitetsprøva gjev eit hald agenten kan setje i verk. Prediksjonsprøva gjev eit samband han har grunn til å vente. Eit vellukka resultat i den eine prøva kan ikkje telje som resultat i begge.
 
 **5.22d**  Det som kan setje agenten i spenning, er den kognitive lyskjegla Γ(A): aksane der ωk > 0, kvar med så lang utstrekning fram og attende i tid som måla hans rekk langs han.[[kjelde:21,85,90]]
 
@@ -657,7 +602,7 @@ Lyskjegla er ikkje grensa for kva agenten sansar eller når, men for kva han kan
 
 **5.221o**  Lyskjegler spenner frå cellulær millisekundrespons til tiårslang konsensus.
 
-**5.222t**  Det som ligg utanfor lyskjegla, finst ikkje for agenten, men verkar likevel på han.
+**5.222t**  Det som ligg utanfor lyskjegla, set ikkje målretta arbeid i gang. Det kan likevel vere kjent, og det kan verke på agenten anten han kjenner det eller ikkje.
 
 **5.223t**  Lyskjegla avgjer kva skilnader i formrommet som har noko å seie for agenten.
 
@@ -669,11 +614,13 @@ Den delen av dei som er felles for heile klassen, er affordansestrukturen i 2.14
 
 **5.23t**  Lyskjegla og kapasiteten er definerte kvar for seg (5.21, 5.22) og treng ikkje falle saman. Ein agent kan bry seg om det han ikkje kan halde, og kunne halde det han ikkje bryr seg om.
 
-**5.231d**  Aksane som ligg både i lyskjegla og i kapasiteten, er dei haldne aksane: H(A) = {Xk ∈ κ(A): ωk (A) > 0}.
+**5.231d**  Aksane som ligg både i lyskjegla og i kapasiteten, er H(A) = {X_k ∈ κ(A): ω_k(A) > 0}.
 
-Langs dei bryr agenten seg og kan halde divergensen under terskelen. Der den faktiske politikken πA gjer det, viser haldet seg utanfrå som margin: 1 − Dk (πA ) / ε.
+Dei er dei haldne aksane i modellens tyding: agenten bryr seg og har ein politikk som kan halde dei. Om den faktiske politikken gjer det, må prøvast.
 
-**5.232d**  Ein akse kan falle utanfor det agenten held, på tre måtar.
+To aksar kan liggje i kapasiteten kvar for seg utan å kunne haldast samstundes. Eit felles hald krev éin tilgjengeleg politikk som møter begge.
+
+**5.232d**  Ein akse kan falle utanfor H(A) på tre måtar.
 
 Utan omhug og utan kapasitet: blindskap.
 
@@ -681,13 +628,15 @@ Med kapasitet, utan omhug: likesæle.
 
 Med omhug, utan kapasitet: avmakt.
 
-**5.2321t**  Blindskapen er ikkje nøytral, og det er heller ikkje likesæla eller avmakta, for under alle tre verkar trykka langs aksen vidare (2.12, 5.222).
+Blindskap er her ei operativ nemning: ho seier at agenten verken svarar eller kan halde, ikkje at han nødvendigvis manglar all kunnskap om aksen.
 
-**5.2322t**  Ein akse kan ikkje vere halden lenger fram i tid enn horisonten (5.114) rekk. Lyskjegla (5.22) er ikkje bunden av horisonten, men rekk så langt måla rekk.
+**5.2321t**  Vilkåra verkar vidare under blindskap, likesæle og avmakt. Utfallet kan verte verna eller skadd gjennom andre omsyn og gjennom substratet; det uhaldne manglar eit eige hald.
 
-Det som ligg mellom horisonten og kanten av lyskjegla, er avmakt i tid.
+**5.2322t**  Ein akse kan ikkje haldast lenger enn haldshorisonten rekk. Lyskjegla er ikkje bunden av han, men av kor langt måla rekk.
 
-**5.233t**  Mål finst berre mellom to grenser: ein målregion krympa til der agenten alt er, og ein målregion som femner alt mogleg like mykje. Ein målregion som ikkje skil, er inkje mål, slik eit trykk som inkje tynner ut, er inkje trykk (2.11).
+Gapet er avmakt i tid, òg når agenten kan føreseie det som vil skje.
+
+**5.233t**  Ein målregion må skilje mellom tilstandar. Ein region som femner alle alternativ likt, gjev inga retning. Å halde den tilstanden agenten alt er i, kan derimot krevje vedvarande arbeid.
 
 **5.234t**  I gapet mellom omhug og kapasitet bur strevet.
 
@@ -711,25 +660,19 @@ Rekkjevidda krympar, veks og flyttar seg når måla gjer det; hinna kan stå.
 
 **5.261t**  For eit sjølv er omhug, sett innanfrå (5.024, 5.144), at noko har noko å seie. Sett utanfrå er omhug (5.2) kor mykje arbeid avvik set i gang i politikken.
 
-**5.2611t**  Det som utanfrå er divergens over toleransen langs ein akse i lyskjegla, er innanfrå uro (5.144).
+**5.2611t**  Det som utanfrå er registrert mål-avvik over toleransen langs ein akse i lyskjegla, er innanfrå uro (5.144). At ein annan måler den faktiske faren, er noko anna enn at sjølvet registrerer han.
 
-**5.2612t**  Omhug er difor ikkje ei kjensle i tillegg til politikken, men at politikken svarar, kjent innanfrå.
+**5.2612t**  Omhug er difor ikkje ei kjensle i tillegg til politikken. Det same svaret som vert undersøkt utanfrå, er kjent innanfrå som at noko har noko å seie.
 
-**5.262t**  Det som ligg utanfor lyskjegla, vert ikkje kjent som uro.
+**5.262t**  Eit omsyn som ikkje vert registrert som målrelevant, utløyser ikkje målretta uro. Men ein kan kjenne at ein ikkje bryr seg. Kunnskap om ei grense er ikkje det same som å flytte henne.
 
-Blindskapen er innanfrå inkje. Han kan ikkje kjennast att innanfrå.
-
-**5.263t**  Grensa for lyskjegla er difor, slik som grensa for tankerommet (1.53), usynleg innanfrå. (Ein kan ikkje kjenne kvar kjensla sluttar.)
-
-Og frå innsida kan inkje system fastslå kva det sjølv kan observere, for ein sjølvmodell som femna si eiga grense, måtte stå utanfor grensa.[[kjelde:70]]
-
-Grensa kan lesast av ein annan, eller i forma.
+**5.263t**  Agenten kan oppdage somme av grensene sine utan å vite at han har funne alle. Eiga gransking, forstyrringar og andre sine svar kan gjere ulike utelatingar synlege.[[kjelde:70]]
 
 **5.27d**  Kompetanse i eit rom er intelligens: evna til å finne vegar til målregionen, òg vegar som fører bort frå han ei stund og nærare seinare.[[kjelde:23,86,91]]
 
 Omhug er innhaldet i intelligensen. Omhugen gjev intelligensen noko å gjelde; intelligensen gjev omhugen vegar.
 
-**5.271t**  Kompetansen veks med omhugen berre innanfor kapasiteten, for berre aksar som er haldne, kan navigerast med hell (5.231), og omhug utover kapasiteten er avmakt (5.232).
+**5.271t**  Meir omhug endrar kva agenten prioriterer; meir handlag kan endre kva han maktar. Dei to verknadene kan prøvast ved å endre den eine medan den andre vert halden fast.
 
 **5.272t**  Intelligensen gjeld berre innanfor lyskjegla. Eit problem som ikkje kan setje agenten i spenning, er ikkje hans problem.
 
@@ -739,15 +682,13 @@ Omhug er innhaldet i intelligensen. Omhugen gjev intelligensen noko å gjelde; i
 
 **5.31t**  Av det grammatikken tilbyr, realiserer agenten helst det som minskar spenninga (5.13) langs aksane han held.
 
-**5.32t**  Sett frå agenten er dei fire operatorane i 1.54 ulike.
+**5.32t**  Dei fire operatorane i 1.54 kan alle endre kva politikkar agenten har tilgang til. Ein ny tenkt framgangsmåte kan opne eit steg; ei prøve kan vise om steget verkar.
 
-Berre C→K og K→K kan utvide kapasiteten, for berre dei gjer prediksjonen skarpare.
+Kapasiteten vert ikkje større berre fordi noko nytt er tenkt eller kjent. Han vert større når eit nytt hald kan gjennomførast.
 
-C→C og K→C endrar kva som er tenkt, ikkje kva som kan haldast.
+**5.4d**  Substratet er dei materielle vilkåra formgjevinga arbeider gjennom og mot. Det gjev motstand og resonans og legg ned veto mot somme overgangar.[[kjelde:26,81,92,93]]
 
-**5.4d**  Lovene i feltet der inkje indre held ei hinne (1.245), er substratet.
-
-Substratet verkar som ein agent av nullte orden, grensetilfellet av 5.11 utan modell og politikk, der berre vetoet står att.[[kjelde:26,81,92,93]] Det legg ned veto mot somme konfigurasjonar og gjev resonans til andre gjennom ufråvikelege avgrensingar.
+Som «agent av nullte orden» nemner det grensa der berre den materielle verknaden står att, utan modell, politikk og omhug.
 
 **5.401o**  Substratet har to lag: strukturparametrar (den initiale konfigurasjonen) og funksjonsparametrar (reglane som verkar på konfigurasjonen).[[kjelde:92]] Under støy akselererer funksjonsparametrane navigasjonen i formrommet.
 
@@ -755,27 +696,21 @@ Substratet verkar som ein agent av nullte orden, grensetilfellet av 5.11 utan mo
 
 **5.402t**  Substratet bidreg på to måtar: hardt, ved å leggje ned veto og avgrense kvar landskapet gjeld (1.42), og mjukt, som eitt trykk (2.2) i landskapet.
 
-**5.403t**  Substratet har spenning, men ingen omhug (5.2), for utan politikk set spenninga inkje arbeid i gang.
-
-Det følgjer den minste verknaden her og no; det søkjer han ikkje.
+**5.403t**  Substratet kan bere mekanisk spenning utan omhug. Rørsla følgjer verkemåtane i materialet. Ho tel som navigasjon hjå ein agent berre der eit registrert avvik set ein politikk i arbeid.
 
 **5.5o**  Evna til å navigere hopar seg opp som strukturert informasjon.[[kjelde:64]]
 
 **5.51d**  Læring er at det ein agent har navigert, utvidar kapasiteten hans. Ho er irreversibel i arkivet, ikkje i kvar agent.
 
-**5.511t**  Summert over agentar ber læringa ekspansjonen av det tilgjengelege formrommet (4.4).
-
-Det som vert navigert og realisert, vert busett og kjent (1.52), og det busette (1.411) er utgangspunktet for neste steg.
+**5.511t**  Læring kan utvide det tilgjengelege: eit nytt hald opnar nye steg. Kvar realisering vert busett; ho vert ny kunnskap når prøva avgjer noko agenten ikkje visste (1.63).
 
 **5.52t**  Læring utvidar κ(A), men garanterer ikkje omhug. Agenten kan kjenne fleire aksar utan å halde dei (5.23).
 
-**5.521t**  Ei lære som reduserer alle seleksjonstrykk til eitt, verkar sjølv som eit eineveldande trykk (4.5).
+**5.521t**  Ei lære som gjer eitt omsyn til det einaste, kanaliserer arbeidet etter dette omsynet. Dei andre trykka verkar vidare, medan læra sluttar å krevje svar på dei.[[kjelde:15,78]]
 
-Ho pressar landskapet saman til éin dimensjon, slik det tek seg ut for dei som følgjer henne. Dei andre trykka verkar framleis (2.12).
+Dette er ei innsnevring av omhugen, ikkje berre ei matematisk samanfatting av fleire omsyn i éin verdi.
 
-Å følgje læra er ikkje rasjonalitet, men systematisk likesæle, og når handlaget er tapt, blindskap (5.232).[[kjelde:15,78]]
-
-**5.5211t**  Formene som oppstår under eit samanpressa landskap, sviktar under dei reelle trykka læra utelèt.
+**5.5211t**  Der det utelatne krev eit svar politikken ikkje gjev, vert manglande hald ei kjelde til svikt. Kva følgjer utelatinga får, vert føresagt gjennom dei verksame vilkåra (7.152).
 
 **5.5212t**  Der læra rår, vert handlaget som svara på dei andre trykka, ikkje lenger øvt.
 
@@ -793,11 +728,7 @@ Det kjende verkar difor sjølv som trykk (1.52, 3.4) på det som kjem etter.
 
 **5.61t**  Eit system er levande i den grad det aktivt motverkar at lyskjegla krympar.
 
-**5.62t**  Å halde oppe si eiga lyskjegle krev å halde si eiga hinne, for utan hinne kjem ingen observasjon inn og inga handling ut (5.02). Og ei hinne som andre held, er ikkje halden av systemet sjølv.
-
-Det levande er difor eit sjølv, sett utanfrå (5.115).
-
-Det levande ser annleis ut enn det livlause, for det er det i formverda som utanfrå viser seg som noko som held seg sjølv.
+**5.62t**  Å halde vilkåra for eiga vidare regulering er sjølvhald. Det levande er difor eit sjølv sett utanfrå, også når det er avhengig av andre for å halde seg.
 
 **5.63d**  Den irreversible kollapsen av lyskjegla til det tomme er død.
 
@@ -805,9 +736,7 @@ Det levande ser annleis ut enn det livlause, for det er det i formverda som utan
 
 Døden ligg difor på grensa for definisjonen.
 
-**5.632t**  Døden er slutten på ei avgrensing, ikkje på oppleving.
-
-Feltet brest ikkje (1.243). Det som brest, er hinna og det ho heldt.
+**5.632t**  Døden avsluttar ei bestemt avgrensing, ikkje feltet. At feltet held fram, inneber ikkje at den avgrensa opplevinga held fram.
 
 **5.6321t**  Kva det avgrensa var for seg sjølv, kan ikkje kjennast utanfrå (1.235). Kva som held fram av det, kan difor ikkje avgjerast her.
 
@@ -815,103 +744,77 @@ Feltet brest ikkje (1.243). Det som brest, er hinna og det ho heldt.
 
 Skilnaden er kor mykje av hinna det indre held sjølv (5.0222). Han er ikkje i slag, men i grad.
 
-**5.641o**  Alle system som held seg ved å svare (5.011), kan skildrast som om dei minimerer variasjonell fri energi; dei er formelt aktørar som oppdaterer etter sannsyn.[[kjelde:89]]
+**5.641a**  System som held seg ved å svare, kan modellerast ved prediksjon og regulering.[[kjelde:89]] Liv krev at denne reguleringa held vilkåra for eiga vidare verksemd.
 
-Berre det levande gjer det for si eiga hinne.
+**5.7a**  Kjernelikninga.[[kjelde:11,17,21]] Forma er grammatikken sitt utfall under agenten sin politikk. For éin agent kan ein lokal politikk skrivast som ein overgangskjerne:
 
-**5.7a**  Kjernelikninga.[[kjelde:11,17,21]] Forma er grammatikken sin respons på gradienten i landskapet slik agenten estimerer det, projisert på det han kan halde og vekta med omhugen hans:
+T_A(x, x′) = q_A(x, x′) min{1, exp(−β[Φ_A(x′) − Φ_A(x)])}, for x′ ≠ x.
 
-Form = SG(ω(A) ⊙ ∇_{κ(A)} Λ̂_A(x, t)) · Grammatikk, landskap, lyskjegle
+Φ_A(x) = ∑_{k∈Γ(A)} ω_k(A) Λ̂_{A,k}(x).
 
-Her er Λ̂_A landskapet slik modellen til A ber det (5.13). Det fell saman med det verkelege landskapet Λ berre i grensetilfellet (iv).
+q_A føreslår dei grammatikkstega agenten faktisk kan ta under dei materielle vilkåra. Resten av sannsynet vert verande i x. Form = SG(T_A): utfalla av dei gjentekne stega.
 
-ω(A) ⊙ ∇_{κ(A)} er gradienten innanfor kapasiteten, teken komponent for komponent med omhugen. Utanfor lyskjegla er ω_k = 0.
+Også arbeid som ikkje kan nå toleransen, kan endre forma. Kapasiteten κ seier kva som kan haldast; q_A seier kva som kan gjerast.
 
-Vektorfeltet er gradienten til ein storleik når spenninga lèt seg dele akse for akse. Då er ω(A) ⊙ ∇_{κ(A)} Λ̂_A = ∇ ∑_{k∈H(A)} ω_k Λ̂_{A,k}(x_k).
+Ved små, symmetriske steg i eit glatt, separerbart landskap gjev kjernen lokal rørsle mot lågare estimert spenning, vekta med omhugen. I den grensa kjem gradientskjemaet fram. Ved endeleg β kan politikken òg godta steg oppover.
 
-SG(f) er dei formene grammatikken kjem fram til når rørsla følgjer vektorfeltet f nedover. SG(0) = L(SG).
+**5.71d**  Kjernelikninga bind reglar, vurdering og gjennomføring saman i ein stegprosess. Den eksponentielle politikken er ein presis hypotese om valet mellom stega. Stega, estimata og vektene kan prøvast kvar for seg.
 
-**5.71d**  Likninga er eit strukturelt skjema.
+Under vilkåra i 6.64 gjev stega den stasjonære fordelinga i 6.6.
 
-Ho namngjev komponentane, men spesifiserer ikkje den funksjonelle forma til Λ, kva reglar i R som slår til, eller dimensjonaliteten til lyskjegla.
+**5.72t**  Reduksjon.[[kjelde:11,17]] Fire grensetilfelle viser kva komponentane gjer:
 
-Den presise forma til likninga er steget i 6.64.
+(i) Utan seleksjon står dei faktisk tilgjengelege grammatikkstega og grunnfordelinga deira att.
 
-**5.72t**  Reduksjon.[[kjelde:11,17]] Likninga kan reduserast til fire grensetilfelle, alt etter kva som vert gjort trivielt:
+(ii) Eit landskap som berre skil det kjende vellukka K+ frå resten, gjev ei binær vekting av kjent og uavgjort. Han skildrar ikkje åleine korleis nye tankar vert til.
 
-(i) Rein formgrammatikk, når ω(A) ⊙ ∇κ(A) Λ̂A ≡ 0: landskapet er flatt langs dei haldne aksane, eller agenten held ingenting, H(A) = ∅. Då er Form = SG(0) = L(SG): heile det genererte språket utan seleksjon.
+(iii) Med fast grammatikk, gjeve parameterrom og agentar som kan styre alle aksane i det, får me optimering i eit fiksert rom.
 
-(ii) Rein tanke-kunnskapsteori, når grammatikken ikkje genererer noko utover det partisjonen alt rommar, L(SG) = K ∪ C, og landskapet berre skil det som er kjent å verke, frå resten: Λ̂A = 𝟙𝕄∖K+. Spenninga seier her berre om ein posisjon er kjend å verke. Då vert operasjonane reduserte til partisjonsendringar mellom C og K (1.54).
+(iv) Med rette estimat, full kapasitet og omhug langs alle omsyn fell uvissa om vurdering og gjennomføring bort. Konflikt mellom mål kan framleis stå att.
 
-(iii) Rein optimering, når grammatikken er fast, språket eit gjeve parameterrom og agenten held alle aksane i det. Då står det att gradientnavigasjon i eit fiksert rom.
+**5.721t**  Formgrammatikken gjev det generative arbeidet, tanke-kunnskapsskiljet det epistemiske, og agentanalysen mål og gjennomføring. Samanbindinga forklarer korleis kvart arbeid avgrensar og opnar dei andre.
 
-(iv) Den allvitande agenten, når lyskjegla og kapasiteten femner alle aksar, ωk er lik langs kvar, horisonten er uendeleg og estimatet er rett, Λ̂A = Λ. Då fell projeksjonen bort, og forma følgjer heile gradienten.
+**5.722a**  Historisk formgjeving bind dei tre laga saman. Ei avgrensa undersøking kan halde eitt lag fast; eit fundament for faget må òg forklare overgangane mellom dei.
 
-**5.721t**  Formgrammatikken og tanke-kunnskapsteorien er difor ikkje konkurrerande rammeverk, men degenererte grensetilfelle av same likning.
+**5.7221t**  Den allvitande agenten er eit grenseomgrep. Ei konkret forklaring krev at kunnskap og kapasitet vert prøvde, ikkje føresette som uavgrensa.
 
-Kvart av dei oppstår når minst éin av dei tre komponentane vert triviell. Det same gjeld rein optimering og idealet om den allvitande agenten.
+**5.723t**  Dei tre laga stiller ulike forklaringskrav: korleis forma kan genererast, kva som skil alternativa, og korleis vurdering vert verksam i handling. Å løyse eitt av krava er ikkje å ha løyst dei andre.
 
-**5.722t**  Historiske designsituasjonar er aldri degenererte.
+**5.7231a**  Dei tre laga strekkjer til som felles arkitektur for ei vitskapleg formlære. Dette er fullstendigheitshypotesen.
 
-Ingen observert klasse er flat (2.011, 2.112), og i kvar klasse følgjer minst éin agent gradienten langs aksar han held (5.1, 5.113, 5.13).
+Ho fell dersom eit nødvendig forklaringsledd ikkje kan plasserast utan å miste verkemåten sin. Plasseringa må forklare noko; eit nytt namn på det uforklarte er ikkje nok.
 
-Ingen historisk grammatikk genererer berre det som alt er tenkt eller kjent, for innleiringa finn delformer inga deling gav på førehand (1.611, 1.63).
+**5.724t**  Formrommet 𝕄 er grunnen i modellen; kunnskapsstanden Π = (K, C, U) er relativ til agentar. Det moglege er ikkje avhengig av at nokon kjenner det.
 
-Ingen historisk grammatikk står fast (1.62), og ingen agent er allvitande (5.7221).
+Eit nytt kart kan skilje posisjonar eit tidlegare kart slo saman. Det er ikkje det same som at den vidare moglegheita fyrst vart laga av kartet.
 
-Kvart av rammeverka åleine er difor systematisk utilstrekkeleg. Dei manglar ikkje detaljar, men eit lag.
+Femtuppelet (𝕄, Π, SG, Λ, {A_i}) held grunnen, dei tre laga og kunnskapssporet frå kvarandre utan å gjere dei til isolerte ting.
 
-**5.7221t**  Ingen realisert agent er allvitande, for ingen har uendeleg horisont (5.1142) eller alle aksar (5.1141, 1.322).
+**6t**  Forma oppstår i møtet mellom agentar og vilkår.
 
-Grensetilfellet (iv) er ein horisont, ikkje ein stad.
+**6.001t**  Kvar navigert form har ein som navigerer og eit substrat som gjer navigasjonen mogleg og avgrensar henne. Fleire agentar kan føre kvar sin politikk inn i same form.
 
-**5.723t**  Ingen av dei tre laga kan takast bort utan at likninga fell saman til eitt av grensetilfella i 5.72.
+Det ein agent bryr seg om, men ikkje kan halde, krev hjelp, meir kapasitet eller endra vilkår.
 
-**5.7231a**  Likninga lukkar faget. Fleire lag trengst difor ikkje.
+**6.002t**  Feltet mellom agentane er same felt som sjølva er mønster i. Hinnene avgrensar tilgangen innanfrå, ikkje eit anna stoff. Det som ligg utanfor kvar hinne, kan vere felles vilkår for fleire.
 
-Fleire lag kan ikkje leggjast til utan å endre strukturen til formverda sjølv.
-
-**5.724t**  Formrommet 𝕄 er ikkje eit lag, men grunnen i modellen, for det avheng ikkje av kva nokon veit (1.2231). Partisjonen Π = (K, C, U) er sporet agentane lèt etter seg i 𝕄 gjennom Λ (5.118).
-
-Skiljet mellom 𝕄 og Π kan ikkje kollapse (1.2231, 1.512), for då ville det moglege avhenge av det kjende.
-
-Femtuppelet (𝕄, Π, SG, Λ, {Ai }) inneheld ikkje meir enn grunnen, dei tre laga og sporet dei lèt etter seg.
-
-Gjeve 𝕄, er dei tre laga, grammatikken, landskapet og agentane med lyskjeglene sine, primitive.
-
-**6t**  Forma oppstår i feltet mellom agentar.
-
-**6.001t**  Kvar navigert form har minst to verkande: den som navigerer henne (5.1), og substratet som legg ned veto (5.4).
-
-Forma oppstår difor mellom agentar, aldri i éin åleine: om ikkje mellom to politikkar, så mellom ein politikk og eit veto.
-
-Og det ein agent har omhug for, men ikkje kan halde (5.232), vert berre halde om ein annan held det.
-
-**6.002t**  Feltet mellom agentane er det same feltet sjølva er mønster i (1.24). Det dei deler (5.026), er det som ligg utanfor kvar hinne.
-
-**6.003t**  I feltet mellom agentane har trykka to kjelder: substratet, lovene i feltet der inkje indre held ei hinne (5.4), og politikkane til agentane (5.11). Utanfrå er begge avgrensingar; innanfrå eit sjølv (5.2612) er berre den andre omhug.
+**6.003t**  Trykka har både materielle og agentborne verkemåtar. At ei avgrensing kjem frå ein politikk, gjer henne ikkje verksam utan stoff og energi. Skiljet gjeld korleis ho vert halden og kan endrast.
 
 **6.01d**  Ein agent som ved å navigere realiserer konfigurasjonar i formrommet, er ein formgjevar.
 
 Cella, bia, treet, handverkaren og ingeniøren er formgjevarar. Det som varierer, er materialet agensen er bygd av, ikkje strukturen.
 
-**6.02d**  Ein designar er ein agent A som langs minst éin akse X verkar inn på den generative modellen til minst éin annan agent A′, og der lyskjegla til A femner spenninga til A′ langs X: eit avvik hjå A′ langs X set arbeid i gang hjå A.
+**6.02d**  Ein designar er ein formgjevar som endrar vilkåra ein annan agent navigerer under, og tek den andre sine mål inn som eit eige kriterium i arbeidet. Eit avvik hjå den andre set arbeid i gang for å minske avviket for den andre.
 
-Designar er ikkje ein ontologisk kategori, men ein konfigurasjon av verknad og omhug.
+Kriteriet gjeld bestemte omsyn. Det krev eit arbeid som kan rettast av det som held eller sviktar hjå den andre, ikkje at arbeidet alltid lukkast.
 
-**6.021t**  Verknad åleine gjer ingen til designar.
+**6.021t**  Verknad åleine er ikkje nok. Den som berre brukar den andre sine avvik til å styre han mot eigne mål, formgjev vilkåra hans, men møter ikkje designkriteriet langs dette omsynet.
 
-Det første vilkåret i 6.02 er naudsynt, ikkje tilstrekkeleg. Det seier at A verkar på A′, ikkje at A bryr seg om korleis det går med A′.
+**6.0211t**  Den som endrar vilkåra, treng ikkje bere følgjene eller gje den andre same høve til å endre dei attende. Denne asymmetrien er situasjonen det faglege ansvarsprinsippet (7.26) skal svare på.
 
-**6.0211t**  Verknaden er asymmetrisk: A endrar det A′ observerer langs X, utan at A′ treng endre noko hjå A. Av denne asymmetrien følgjer ansvarsproblemet, ikkje av ein metafysisk asymmetri i valfridom.
+**6.022t**  Kriteriet kan prøvast på alle formgjevarane i 6.01. Ei celle som verkar på naboen, tel berre som designar langs eit omsyn dersom avviket hjå naboen vert eit kriterium for svaret hennar.
 
-**6.022t**  Kriteriet for å vere designar er det same for alle formgjevarane i 6.01.
-
-Cella som skil ut eit signalstoff, verkar på naboen. Ho er designar langs aksen berre om avviket hjå naboen set arbeid i gang hjå henne.
-
-Cella som berre regulerer si eiga hinne, er ikkje designar langs nokon akse, for lyskjegla hennar femner ikkje spenninga til nokon annan.
-
-Ingen er designar simpliciter; alle er designarar langs nokre aksar og ikkje langs andre.
+Agens er ikkje nok til å gje dette forholdet. Ingen er designar langs alle omsyn berre fordi kriteriet er oppfylt langs eitt.
 
 **6.023t**  Skiljet designar/ikkje-designar er parametrisk: kor mange aksar og kor mange andre lyskjegla femner.
 
@@ -921,69 +824,59 @@ Profesjonen sjølv er designar berre langs dei aksane der kriteriet er oppfylt. 
 
 **6.0231t**  Kor mykje ein designar formgjev for, er ikkje kor langt omhugen hennar når i rom, men kor mange ulike målregionar til andre lyskjegla hennar femner.
 
-**6.024t**  Omhug for ein annan krev ingen ny mekanisme. Han krev berre at stoda til den andre kjem inn i målregionen, slik at eit avvik der set i gang det same arbeidet som eit avvik i eiga stode (5.14, 5.2).
+**6.024t**  Omhug for den andre tek stoda hans inn i det ein sjølv prøver å halde. Biletet av måla hans kan vere feil; arbeidet må kunne rettast av eit svar ein ikkje alt har bestemt innhaldet i.
 
-Å sjå den andre er ikkje nok, for kunnskap utan omhug (5.201) endrar ikkje.
+**6.025t**  Å formgje for ein annan er å gjere avviket hjå den andre til eit kriterium i eige arbeid. Avviket og biletet ein har av det, må haldast frå kvarandre.
 
-**6.025t**  Å formgje for ein annan er å gjere avviket hjå den andre til eit avvik i sin eigen modell.
-
-Hinnene til designaren og den ho formgjev for, skil ikkje to stoff, men to mønster i same felt (1.24, 1.2352). Omhugen rekk gjennom hinnene, som observasjon inn og handling ut (5.02, 5.027); hinnene står.
+Observasjon og handling kan bere omsyn over ei grense utan å oppheve grensa mellom den som formgjev, og den som lever med forma.
 
 **6.026t**  Ein agent kan leggje spenninga si over på ein annan ved å omsetje henne til eit teikn den andre handlar på. (Bestillinga er eit slikt teikn; forma er svaret.)
 
 Overføringa krev ein felles protokoll. Utan han er teiknet støy.
 
-**6.027t**  Alle formgjevarar verkar inn på modellane til andre (1.52, 5.53). Berre langs dei aksane designaren held (5.231), held ho det ho verkar inn på. Det ho verkar inn på utan å halde, ber den andre åleine.
+**6.027t**  Formgjeving endrar vilkåra andre møter, også langs omsyn ingen hadde som mål å endre. Den andre kan verte sitjande med følgjene utan same høve til å rette dei.
 
-**6.1o**  Fleire agentar svarar på ulike trykk samstundes.
+**6.1a**  Former i samansett praksis er polyagentiske kompromiss: fleire agentar og materielle prosessar verkar inn på kva som vert til.[[kjelde:66,67]]
 
-Kvar form er eit polyagentisk kompromiss.[[kjelde:66,67]]
+Korleis kontrollen er fordelt, er eit spørsmål om verknad, ikkje berre om kor mange som var til stades. Ein agent kan dominere utan å rå over alle følgjene.
 
-Ingen einskild agent dikterer forma. Ho trer fram i skjeringspunktet mellom agentane.
+**6.11a**  Agens er organisert på fleire skalaer: delar kan regulere noko, heilskapen noko anna.[[kjelde:22,67,85,87]] Kvar skala må ha den svarstrukturen han skal forklare.
 
-**6.11o**  Agens finst på mange skalaer samstundes: kvar agent er sett saman av agentar og er sjølv del av agentar.[[kjelde:22,67,85,87]]
-
-Kvar skala har sin eigen kompetanse og si eiga lyskjegle. Delane samarbeider og konkurrerer, innanfor nivå og mellom nivå.
-
-**6.111t**  Heilskapen styrer ikkje delane. Delane svarar berre på gradienten i sitt eige landskap (5.13); heilskapen bøyer det landskapet, slik at det lokale fallet (5.132) fører dit heilskapen skal.
+**6.111t**  Heilskapen styrer delane ved å endre vilkåra dei svarar på. Slik kan lokale mål tene eit mål ingen del representerer.
 
 **6.1111t**  Kvar avgjerd ser difor ut som rein mekanikk når ein ser nær nok, og som eit mål når ein ser på rett skala. Kva skala som er rett, er eit val av analysenivå (1.201). Det som løner seg, er den skalaen der prediksjon og styring kostar minst.
 
 **6.112t**  Kvart nivå navigerer innanfor si eiga lyskjegle (5.272).[[kjelde:67]] Delane på lågare nivå kan difor fremje mål langs aksar som ligg i lyskjegla til heilskapen (6.111), men ikkje i deira eiga.
 
-**6.113t**  Forklaringa nedanfrå viser kva delane gjer, forklaringa ovanfrå kva dei gjer det for.
-
-Reduksjonisme og holisme er difor komplementære. Begge er sanne; ingen er tilstrekkeleg åleine.[[kjelde:72]]
+**6.113t**  Forklaringa nedanfrå viser korleis delane verkar; forklaringa ovanfrå viser kva felles hald verksemda inngår i. Ei god fleirskalaforklaring må binde dei saman i dei same overgangane.[[kjelde:72]]
 
 **6.114t**  På alle skalaene vert grammatikkoperasjonar og realiseringar (1.63) utførte samstundes. Formproduksjonen er difor distribuert C↔K-ekspansjon.
 
-**6.12o**  Den biologiske mekanismen for at mange agentar vert éin, er evolusjonære overgangar i individualitet.[[kjelde:87]]
+**6.12a**  Overgangar i individualitet gjer spørsmålet om skala konkret: når kan mange agentar telje som éin?[[kjelde:87]]
 
-Vilkåret for det er ikkje symmetrisk samspel, men djup interaksjonsstruktur.
+Koplinga må skape ei felles regulering, ikkje berre lik rørsle. Om ho òg skapar eit sjølv, krev eit felles sjølvhald (6.22).
 
 **6.121d**  Interaksjonsstrukturen er djup når spenninga vert delt: avviket i den eine vert eit avvik i den andre, utan merke om kven det høyrer til.
 
-**6.1211t**  Då arbeider dei andre mot målet til den eine for å bli kvitt si eiga uro (5.144). Cella i kopla vev er difor designar (6.02) for naboen langs den delte aksen.
+**6.1211t**  Når eit avvik vert eit felles reguleringssignal, kan arbeidet hjå éin del minske avviket hjå ein annan. Delen oppfyller då designkriteriet langs dette omsynet dersom den andre sitt mål vert halde som kriterium (6.02).
 
-**6.1212t**  Dei kopla delane er ikkje mindre eigennyttige enn før. Sjølvet dei tener, har vorte større.
+**6.1212t**  Delt regulering utvidar det som vert halde saman. Ho gjev eit større sjølv når ei sjølvhalden hinne bind delane saman (6.22).
 
-**6.1213t**  I eit kopla nett kjem skaden ein gjer naboen, attende til ein sjølv. Det som frå nivået over ser ut som samarbeid, er eigennytte i eit større sjølv.
+**6.1213t**  Der skaden på éin del vert ført attende som eit avvik i den felles reguleringa, kan heilskapen svare på han. Utan slik tilbakeføring kan éin del vinne på tapet til ein annan.
 
-**6.122t**  Koplinga har eit optimum.
+**6.122a**  Koplinga må bere det felles haldet og samstundes bevare dei skilnadene arbeidet krev. Det optimale ligg i dette forholdet, ikkje i sterkast mogleg kopling.
 
-Er ho for laus, vert delane ikkje eitt. Er ho for tett, vert dei ein graut utan delar.
-
-**6.1221t**  Når koplinga brest, krympar sjølvet til delen, og resten av heilskapen vert omgjevnad for han. Delane kan leve vidare. Det som er borte (5.632), er det ytre sjølvet.
+**6.1221t**  Når ei kopling som bar eit felles sjølvhald, brest, kan delane halde fram utan at heilskapen gjer det. Det som døyr på det høgare nivået, treng ikkje døy på det lågare.
 
 **6.123d**  Når ei samling agentar oppfyller 5.11 som heilskap, er ho éin agent.
 
 Det er eit skalasprang når heilskapen held det ingen del held: ein akse utanfor lyskjeglene til alle delane, eller ein lengre horisont enn nokon av delane.
 
-**6.13t**  Agenten vel; landskapet filtrerer.[[kjelde:66]] Kontrollen er alltid delt.
+**6.13t**  Agenten vel og verkar; vilkåra opnar, hindrar og prøver. Kontroll og seleksjon kan vere verksame både før, under og etter realiseringa.[[kjelde:66]]
 
 **6.131o**  Utforsking krev lause koplingar; utnytting krev tette.
 
-**6.132t**  Kompetente delar jamnar ut landskapet for heilskapen. Der spenninga er delt (6.121), vert ein feil i éin del retta av dei andre før seleksjonen ser feilen.
+**6.132t**  Kompetente delar kan rette eit avvik før det vert svikt i heilskapen. Delt spenning må då møte kapasitet til å svare.
 
 **6.1321t**  Ein plan treng difor ikkje vere fullstendig for å verke. Der materialet sperrar vegen (5.402), rettar handverkaren det teikninga ikkje såg.
 
@@ -995,15 +888,15 @@ Ho navigerer mellom konkurrerande agentar, frå mikrobielt vev til marknadskreft
 
 **6.2o**  Selektiv samanbinding etablerer globale tilbakekoplingssløyfer.[[kjelde:66]]
 
-**6.201t**  Ei global negativ tilbakekopling gjer heilskapen til ein agent (5.113, 6.123). Når han held aksar utanfor lyskjeglene til alle delane, har skalaspranget (6.123) skjedd.
+**6.201t**  Ei global tilbakekopling gjev ein agent på det høgare nivået når ho oppfyller 5.11. Skalaspranget ligg i det nye haldet.
 
 **6.21o**  Hinner ligg i hinner.
 
 Cella held si, vevet si om cellene, organismen si om vevet.
 
-**6.211t**  Når hinnene mellom dei lågare sjølva ber spenninga over (6.121), og ei ny hinne vert halden om alle, oppstår eit sjølv av høgare orden. Det vert ikkje til ved at opplevingane til dei lågare vert summerte (1.241).
+**6.211t**  Når hinnene mellom dei lågare sjølva ber avvik over, og ei ny sjølvhalden hinne vert halden om alle, oppstår eit sjølv av høgare orden. Under individuasjonspostulatet er dette ei ny avgrensing i feltet, ikkje ei summering av opplevingar.
 
-I eitt felt (1.24) er samansetjing ikkje summering av opplevingar, men endring av grenser.
+Det som må forklarast, er korleis den felles reguleringa vert halden, og kva tilgang den nye avgrensinga gjev.
 
 **6.22t**  Om heilskapen òg vert eit sjølv, avheng av om den nye hinna er sjølvhalden (5.021).
 
@@ -1025,271 +918,250 @@ Brukaren kjenner att tyngdepunktet i det han ser, ikkje seleksjonstrykka.
 
 **6.32t**  Å navigere med kunnskap om trykka bak stilen, ikkje berre om tyngdepunktet hans, er å representere fleire aksar.
 
-**6.4t**  Kvar realisert form utvidar det kjende for alle som ser henne (1.52), og forskyv det nærliggande moglege (1.432, 4.4).[[kjelde:14,79]]
+**6.4t**  Ei realisert form utvidar det kjende når møtet med henne avgjer eit nytt spørsmål, og vert eit utgangspunkt for neste steg.[[kjelde:14,79]]
 
-Formhistoria tømer ikkje eit lukka repertoar av det kjende, men utvidar det gjennom rørsle.
+**6.5t**  Inga form har krav på å vere den siste. Nye vilkår kan endre kva som verkar, og nye omsyn kan vise at det som verka, hadde ein kostnad.[[kjelde:60,61]]
 
-**6.5t**  Inga form er den siste.
+Former og grammatikkar kan vare lenge. Det læra skal bevare gjennom endringane, er evna til å undersøkje korleis reglar, vilkår og agentar ber forma.
 
-Kvar balanse vert med tida suboptimal under dei trykka som då verkar.[[kjelde:60,61]]
+**6.51t**  Ein omhug som veks raskare enn kapasiteten, opnar nye oppgåver før dei gamle er haldne. Han kan drive arbeidet vidare sjølv når eit einskilt verk er ferdig.
 
-Formene er flyktige spor. Grammatikkane varer lenger enn formene, men står heller ikkje fast (1.62).
+**6.511t**  Ein agent kan ha som mål å utvide måla sine. Då kan ei måloppnåing opne ei ny oppgåve.
 
-Berre den generative strukturen varer: at det finst eit formrom, trykk, eit landskap og agentar.
+Også eit uendra mål kan krevje arbeid utan siste steg: vedlikehaldet sluttar ikkje fordi det lukkast. Å opne og å halde er ulike former for vidare verksemd.
 
-**6.51t**  Di større lyskjegla til ein agent er, di fleire avvik kan setje agenten i spenning (5.22). Ein omhug som veks raskare enn kapasiteten, finn difor aldri ro (5.234), og forma han lagar, når aldri ein sluttilstand.
+**6.5111t**  Å opne nye omsyn krev å finne nye prøver og vegar. Å halde noko kjent krev å møte det som forstyrrar det. Kor mykje arbeid kvar av dei krev, avheng av vilkåra.
 
-**6.511t**  Ein agent kan ha som mål å utvide måla sine.
+**6.6a**  Den allmenne forma bind saman det genererbare, det vurderte og det gjennomførte. Fordelingsmodellen er:[[kjelde:86,89]]
 
-Alle andre mål er ein region i eit gjeve rom (5.131), og når regionen er nådd, er målet nådd. Målet om å utvide måla flyttar seg når det vert nådd, og er difor det einaste utan sluttilstand.
+P(x | {A_i}, SG, V) = Z⁻¹ μ_SG(x) exp(−β Φ(x)), for x ∈ D.
 
-**6.5111t**  Omhug som vil opne verda, krev meir måling og meir endring enn omhug som vil halde henne slik ho er.
+Φ(x) = ∑_i w_i Λ̂_i(x).
 
-**6.6d**  Den allmenne forma. Før realiseringa er det gjeve ei sannsynsfordeling over formrommet.
+Her er D ei ikkje-tom mengd former som kan nåast frå startforma med tillatne steg utanfor V. μ_SG er ei grunnfordeling med positiv vekt på D, gjeven av stegprosessen utan vurderande seleksjon. Estimata og vektene står faste.
 
-Det som vert realisert, er éin konfigurasjon x (1.12), og forma hans er strukturen hans (1.212).
+For eit endeleg D med endelege verdiar er fordelinga alltid veldefinert. Normaliseringsvilkåra for eit vidare rom står i 6.62. Stegprosessen i 6.64 utleier fordelinga i det endelege tilfellet.
 
-Formmodellen for x, realisert av agentar {A_i} som navigerer med grammatikken SG, er:[[kjelde:86,89]]
+**6.61d**  Λ̂_i(x) = ∑_{k∈Γ(A_i)} ω_k(A_i) Λ̂_{ik}(x), der Λ̂_{ik} er agenten sitt estimerte mål-avvik langs omsyn k og kan avhenge av heile konfigurasjonen.
 
-P(x | {A_i}, SG, V) = Z⁻¹ μ_SG(x) exp(−β ∑_i w_i Λ̂_i(x | H(A_i))) · Eksponentiell vekting
+w_i ≥ 0 er agenten sin relative innverknad, med ∑_i w_i = 1; β ≥ 0 er seleksjonsstyrken. Estimata må vere skalerte slik at den vekta summen har ei bestemt tyding.
 
-x ∈ L(SG) ∖ V · Domenet: det grammatikken kan generere, utanom det substratet legg ned veto mot
+Lyskjegla fastset vurderinga, kapasiteten kva vurderinga kan gjennomføre. μ_SG kjem frå både grammatikken og den oppgjevne stegprosessen.
 
-**6.61d**  Λ̂_i(x | H(A_i)) = ∑_{k∈H(A_i)} ω_k(A_i) Λ̂_{ik}(x_k), der Λ̂_{ik} er det modellen til agent i predikerer om spenninga i posisjonen langs X_k (3.1). Kvar agent vurderer berre dei aksane han held, vekta med omhugen sin.
+**6.611t**  Fordelinga gjeld vala under oppgjevne vilkår. Dei faktiske følgjene krev ei eiga skildring av møtet mellom forma og verda.
 
-w_i ≥ 0 er den relative innverknaden til agenten, med ∑_i w_i = 1.
+Materielle vilkår verkar òg før realiseringa ved å endre kva steg som er tilgjengelege, og kor sannsynlege dei er.
 
-β ≥ 0 er seleksjonsstyrken.
+**6.612t**  Ved β = 0 står grunnfordelinga att. Når β veks, aukar vekta til posisjonane med låg Φ relativt til dei med høg. Når Φ når eit globalt minimum i D, samlar massen seg i grensa β → ∞ om dei globale minima, fordelte etter grunnvekta dersom fleire minimum står likt.
 
-μ_SG er grunnfordelinga, den fordelinga stega i grammatikken sjølv endar i når inkje vel.
+Sterk seleksjon er ikkje nødvendigvis eitt utfall. Ho kan heller ikkje gjere eit feil estimat rett.
 
-**6.611t**  Det verkelege landskapet Λ står ikkje sjølv i vekta.
+**6.62t**  Z = ∑_{x∈D} μ_SG(x) exp(−β Φ(x)) normaliserer fordelinga. I det endelege tilfellet med endelege verdiar er 0 < Z < ∞.
 
-Det verkar på fordelinga berre gjennom estimata Λ̂i. Vetoet kjem frå vilkåra, ikkje frå trykka (1.42, 2.1).
+I eit teljeleg rom er Z endeleg når μ_SG er ei sannsynsfordeling og Φ er avgrensa nedanfrå; han er positiv når D har positiv grunnvekt.
 
-Landskapet filtrerer (6.13) etter realiseringa.
+**6.63t**  Grammatikken avgrensar det genererbare, vilkåra avgrensar D og grunnfordelinga, og agentane vektar alternativa gjennom Φ. Haldet vert prøvd gjennom dei faktiske følgjene.
 
-**6.612t**  β = 0 er nulltrykket; grensa β → ∞ er determinismen, der all masse samlar seg i dei djupaste dalbotnane. Ein grunnare dal får ei vekt som fell eksponentielt med β gonger skilnaden i djupn.
+Fastset ledda før nye utfall vert føresagde. Då kan feilen finnast i eit ledd, ikkje løysast ved at alle vert tilpassa utfallet.
 
-Mellom nulltrykket og determinismen (2.111) ligg heile rommet for design.
+**6.631t**  Komponentane avgrensar kvarandre. Utan eit steg kan eit føretrekt alternativ verte utilgjengeleg. Utan eit treffande estimat kan eit gjennomført val svikte. Utan kapasitet kan ei rett vurdering verte verknadslaus.
 
-**6.62t**  Av kravet om at P summerer til éin over L(SG)\V, følgjer normaliseringskonstanten Z.
+Desse tapa høyrer til ulike ledd og krev ulike endringar.
 
-Er grunnfordelinga ei sannsynsfordeling og estimata avgrensa nedanfrå, er Z endeleg; legg grunnfordelinga masse utanfor V, er han positiv.
+**6.632t**  Fleire agentar kan få plass i same modell, men ein vekta sum er ikkje heile teorien om samspelet. Endrar agentane kvarandre sine mål eller tilgangar undervegs, må desse overgangane inn i forklaringa.
 
-**6.63t**  Formmodellen sameinar dei tre komponentane frå 5.7: grammatikk (det genererbare L(SG)), landskap (estimata Λ̂ik ) og lyskjegle med omhug (projeksjonen på H(Ai ), vekta med ω).
+**6.64t**  Frå x føreslår stegprosessen ein nabo x′ med sannsyn q(x, x′). Forslag utanfor D vert avviste; andre vert godtekne med sannsynet
 
-**6.631t**  Dei tre komponentane verkar ikkje kvar for seg. Kvar avgrensar den neste.
+min{1, exp(−β[Φ(x′) − Φ(x)])}.
 
-Grammatikken avgrensar kva som kan genererast.
+Lat D vere endeleg og samanhengande under stega, med positivt sannsyn for å bli ståande i kvar posisjon. Lat Φ stå fast og
 
-Det agentane held, avgrensar kva del av landskapet dei svarar på. Resten verkar likevel, men utan at nokon vel.
+μ_SG(x) q(x, x′) = μ_SG(x′) q(x′, x).
 
-Estimata av landskapet avgjer kva av det genererbare som er sannsynleg; landskapet sjølv filtrerer (6.611) etterpå.
+Straumen under P er då lik begge vegar: den like grunnstraumen vert gonga med den minste av dei to eksponentielle vektene. P er stasjonær. Samanheng og høvet til å stå gjev konvergens til denne eine stasjonære fordelinga.
 
-**6.632t**  At agentane er fleire, er ikkje eit fjerde lag, men same lyskjegle i fleirtal.
+Tida det tek å kome nær henne med oppgjeven presisjon, er blandingstida.
 
-**6.64t**  Den allmenne forma er der stega endar; kjernelikninga er steget.
+**6.641t**  Når vekter, estimat eller tilgjengelege steg endrar seg før prosessen har blanda seg, er den stasjonære fordelinga ikkje nødvendigvis ei god skildring av utfalla. Det må då forklarast korleis fordelinga utviklar seg i tid.
 
-Frå x føreslår grammatikken eit steg til ein nabo x′ med sannsynet q(x, x′). Ligg x′ i V, vert steget avvist; elles vert det godteke med sannsynet
+**6.642t**  I grensa β → ∞ vert steg til høgare Φ avviste. Ein slik lokal prosess kan verte verande i eit lokalt minimum sjølv om den stasjonære grensa i 6.612 legg vekta på dei globale.
 
-min{1, e^{−β[Φ(x′)−Φ(x)]}}, der Φ = ∑_i w_i Λ̂_i.
+Lokal rørsle og stasjonær fordeling er difor ulike spørsmål. Historia og dei tilgjengelege stega avgjer om ein dal kan forlatast i tida prosessen har.
 
-Er straumen i grammatikken like stor kvar veg,
+**6.65t**  Grensetilfella frå 5.72 kan prøvast i fordelingsmodellen:[[kjelde:92]]
 
-μ_SG(x) q(x, x′) = μ_SG(x′) q(x′, x),
+(i) Ved β = 0 eller konstant Φ er P grunnfordelinga avgrensa til D.
 
-heng L(SG) ∖ V saman under stega, står Φ stille og er Z endeleg, så er 6.6 den einaste fordelinga stega kan ende i.
+(ii) Med éin agent og Λ̂ = 𝟙 utanfor K+ får ei kjend vellukka form e^β gonger vekta til ei anna med same grunnvekt. Dette er ei føreseiing om val, ikkje ei utleiing av tanke-kunnskapsrørsla.
 
-Tida stega treng for å kome dit, er blandingstida.
+(iii) Med fast parameterrom og ei vurdering av alle aksar er modellen ein seleksjonsmodell for optimering. Ein gradientprosess krev ytterlegare vilkår om stega.
 
-**6.641t**  Når estimata, eller landskapet dei følgjer, endrar seg raskare enn blandingstida, gjeld ikkje fordelinga i 6.6.
+(iv) Når Φ er det faktiske avviket som skal minimerast, samlar den stasjonære fordelinga seg om dei beste tilgjengelege posisjonane når β → ∞. Det seier ikkje kor raskt dei vert nådde.
 
-Stillstanden er regimet der ho gjeld; bifurkasjonen (4.21) er der ho bryt.
+**6.66t**  Den allmenne forma bind det genererbare, det vurderte og det gjennomførte til eit felles forklaringskrav. Stegutleiinga og følgjene av vektinga gjer dette kravet matematisk prøvbart.
 
-**6.642t**  Med éin agent og β → ∞ går stega aldri oppover.
+**6.67d**  Den samla effektive prioriteringa langs omsyn k er W_k = ∑_i w_i ω_k(A_i), med ω_k = 0 utanfor lyskjegla til agenten. W_k måler ei vekt i valprosessen, ikkje kjensle eller gjennomføringskraft.
 
-Langs aksane agenten held, går dei i middel ned langs gradienten til Λ̂, til botnen av dalen dei starta i; langs dei andre endrar ikkje Φ seg, og stega går fritt etter grunnfordelinga (6.61).
+**6.671t**  Når W_k = 0, har omsynet inga direkte vekt i Φ. Forma kan likevel verte god eller dårleg langs X_k gjennom μ_SG, V og samanhengen med andre omsyn.
 
-Lèt spenninga seg dele akse for akse, er dette kjernelikninga i skjemaform (5.7).
+Dersom Φ berre avheng av dei haldne koordinatane x_H, får dei andre den vilkårsfordelinga μ_SG gjev når x_H og D er faste. Dette gjev ikkje uavhengigheit mellom aksane; nettopp vilkårsfordelinga kan bere eit indirekte vern.
 
-Tida det tek å kome over ein rygg, veks eksponentielt med β gonger høgda hans, så 6.6 vert ikkje nådd (6.641).
+**6.672t**  Med separerbar spenning, flat lokal grunnfordeling og felles estimert krumming ved eit indre minimum, er
 
-Kva dal det er, avgjer difor historia (4.3), ikkje likninga.
+Var(x_k) ≈ 1 / (β W_k Λ̂_k″).
 
-**6.65t**  I formmodellen går grensetilfella i 5.72 att:[[kjelde:92]]
+Dette er ei lokal, kvadratisk tilnærming på ein samanhengande skala. Spreiinga bestemmer produktet av seleksjonsstyrke, prioritering og krumming. Dei kan skiljast ved å endre eitt ledd medan dei andre står faste.
 
-(i) Flatt landskap, β = 0 eller Λ̂i konstant: P (x) = µSG (x) / µSG (L(SG) \ V ) for x ∉ V.
+**6.6721i**  Setehøgd kan variere lite medan ornamentet varierer mykje. Det er ei oppgåve for forklaringa å skilje kropp, produksjon, vane og prioritering som årsaker til denne skilnaden. Spreiinga åleine skil dei ikkje.
 
-Fordelinga er grammatikken si eiga, avgrensa av vetoet.
+**6.673t**  For eit endeleg D, skriv βΦ(x) = ∑_k θ_k ê_k(x), der kvar k no merkar eit bestemt par av agent og omsyn og θ_k er β gongar vekta til dette estimatet. Lat D, μ_SG og alle ê_k stå faste.
 
-(ii) L(SG) = K ∪ C og Λ̂i = 𝟙𝕄∖K+: ei form som er kjend å verke, er eβ gonger så sannsynleg som ei anna med same grunnvekt. Seleksjonen verkar berre på grensa mellom dei.
+Derivasjon av den normaliserte fordelinga gjev
 
-(iii) Fast grammatikk: L(SG) er eit gjeve parameterrom, og agentane held alle aksane i det. Når β → ∞, står rein gradientnavigasjon i eit fiksert rom att.
+∂P(x)/∂θ_k = −P(x)(ê_k(x) − E[ê_k]).
 
-(iv) Éin agent som held alle aksar med lik omhug og rett estimat, Λ̂ = Λ, og β → ∞: 6.6 samlar all masse i det globale minimumet av Λ i L(SG) \ V.
+Difor er ∂E[ê_j]/∂θ_k = −Cov(ê_j, ê_k).
 
-**6.66t**  Den allmenne forma viser plassen til formgrammatikken og tanke-kunnskapsteorien. Formlære er difor ikkje eit alternativ til nokon av dei (5.721).
+Særleg er ∂E[ê_k]/∂θ_k = −Var(ê_k) ≤ 0. Meir prioritering kan ikkje auke det estimerte avviket langs same omsyn i middel under desse vilkåra.
 
-**6.67d**  Den samla omhugen langs X_k er W_k = ∑_i w_i ω_k(A_i), rekna over dei agentane som held aksen.
+**6.674t**  For eit faktisk avvik e_j(x), målt uavhengig av agenten sitt estimat, gjev same utleiing
 
-**6.671t**  Der W_k = 0, vel ingen langs aksen.
+∂E[e_j]/∂θ_k = −Cov(e_j, ê_k).
 
-Gjeve koordinatane x_H langs dei haldne aksane, er fordelinga langs aksen grammatikken si eiga, avgrensa til det som ikkje er forbode:
+Meir prioritering betrar det faktiske utfallet der faktisk og estimert avvik varierer same veg. Der dei varierer motsett, gjer meir prioritering utfallet verre.
 
-P(x_k | x_H) = μ_SG(x_k | x_H, x ∉ V).
+Omhug og kunnskap er difor ulike verkemåtar også i likninga: prioriteringa endrar styrken, estimatet avgjer kva retning styrken tener.
 
-Der er forma berre det moglege, ikkje det valde. Ho fell der ho fell.
+**6.675t**  Auka prioritering av eitt omsyn kan verne eller skade eit anna gjennom samvariasjonen i 6.674. Det gjeld også omsyn utan eiga vekt.
 
-**6.672t**  Langs ein akse er variansen nær ein dalbotn omvendt proporsjonal med kor krapp dalen er og kor mykje samla omhug som verkar langs aksen: Var(xk ) ≈ 1/(β Wk Λ̂′′k ), der Λ̂′′k er krumminga langs Xk i dalbotnen. Tilnærminga gjeld når spenninga lèt seg dele akse for akse, agentane er samde om krumminga, og grunnfordelinga er flat nær botnen.
+Eit indirekte vern er difor eit føreseieleg samband mellom omsyn, ikkje eit unntak frå at omhug verkar gjennom bestemte steg.
 
-Kanaliseringa (3.2) og omhugen er då to sider av same spreiing.
-
-**6.6721i**  Setehøgda har variert lite over fem hundre år (variasjonskoeffisient 0,07), ornamentet mykje (om lag 1,5). Kroppen held setehøgda; ingen held ornamentet like fast.
-
-**6.68t**  Forma vert vald i det landskapet agentane estimerer langs det dei held, men ho står (6.611) i det landskapet som er.
+**6.68t**  Forma vert vald gjennom vurderingar og gjennomført i vilkår vurderingane ikkje rår over. Dei to kan samsvare eller skilje lag. Skilnaden er noko læra skal føreseie og prøve.
 
 **7t**  Forma viser kor langt omhugen rakk.
 
-**7.01t**  Kvar realisert form er eksakt langs alle aksar (1.12, 1.32), og aksane tek ikkje slutt (1.322). Kvar agent held endeleg mange (5.1141), og ei form vert navigert av endeleg mange agentar.
+**7.01t**  Forma verkar med heile ordninga ho har, også der agentane berre held nokre relasjonar i modellen. Følgjene stoggar ikkje ved grensa for omsyna deira.
 
-Forma rekk difor alltid lenger enn den samla omhugen.
+**7.02t**  Langs eit omsyn kan utfallet vere halde gjennom eige arbeid, verna gjennom eit anna omsyn, gjeve av substratet eller overlate til variasjonen i stega. Desse vegane kan ende i same form.
 
-**7.02t**  Langs dei aksane nokon heldt (6.67), er forma vald. Langs dei andre fell ho der ho fell (6.671), innanfor det grammatikken og substratet tillèt.
+For å lese omhugen må me difor undersøkje både forma og forløpet, og samanlikne det som skjer når vilkår eller prioriteringar vert endra.
 
-Over mange former sett er mønsteret av det valde og det uvalde (6.672) eit kart over den samla omhugen.
+**7.021t**  Omhug utan kapasitet kan setje sterke spor utan å lukkast. Kapasitet utan omhug kan verte liggjande ubrukt. Forma viser kva som vart verkeleggjort av arbeidet; for å skilje det meinte frå det moglege og det haldne trengst ulike prøver.
 
-**7.021t**  Omhug utan kapasitet rakk ikkje fram til forma (5.232). Det forma viser, kor langt omhugen rakk fram, er ikkje heile lyskjegla, men dei haldne aksane (5.231).
+**7.03t**  Der eit omsyn førte til arbeid som heldt forma under forstyrring, er haldet eit spor etter omhugen: ein kausal samanheng mellom registrert avvik, svar og utfall.
 
-**7.03t**  Forma er utfallet av politikkane som navigerte henne (6.64). Der ein politikk set arbeid i gang mot avvik, er han omhug, sett utanfrå (5.261).
+**7.031t**  Materie er oppleving sett utanfrå. Det levande er eit sjølv sett utanfrå. Langs dei omsyna der målretta verksemd bar forma, er forma omhug sett utanfrå.
 
-Langs dei haldne aksane er forma difor omhug, sett utanfrå; langs dei andre (7.02) fell ho berre.
+Forma viser omhugen som vart verksam, ikkje heile innsida til den som forma.
 
-**7.031t**  Materie er oppleving, sett utanfrå (1.2351). Det levande er eit sjølv, sett utanfrå (5.62).
+**7.04t**  Omhugen ein gjenstand viser, er lånt: arbeidet til dei som forma og brukte han, festa i materialet. Berre der gjenstanden sjølv har reguleringa i 5.11, har han eiga omhug.
 
-Forma er omhug, sett utanfrå, så langt omhugen rakk.
+**7.041t**  Gjenstanden er eit arkiv i den mon tidlegare arbeid held fram som verknad i han. Arkivet kan bevare eit omsyn ingen no arbeider med, og miste eit omsyn nokon framleis prøver å halde.
 
-**7.04t**  Omhugen ein gjenstand viser, er lånt: omhugen til dei som forma han, festa i materialet. Gjenstanden held ikkje si eiga hinne (5.023); han har inga eiga innside.
+**7.1a**  Den realiserte forma ber ein sviktsignatur der utelatingar i arbeidet fører til systematiske feil under dei trykka som vart utelatne.
 
-**7.041t**  Gjenstanden er difor eit arkiv. Han ber omhug som ingen lenger held.
+Signaturen er hypotesen om ein samanheng mellom avgrensa hald og bestemte sviktmønster. Han krev at grensa for haldet vert fastsett før dei nye sviktane vert lesne.
 
-**7.1t**  Den realiserte forma er eit leseleg arkiv over dimensjonaliteten i kompromisset.
+Blindskap, likesæle og avmakt kan gje liknande utfall. For å skilje dei må kunnskap, prioritering og kapasitet undersøkjast kvar for seg.
 
-Ei form designa under trong omhug sviktar, sett over mange former, langs dei aksane som ikkje vart haldne og der trykk verkar, for trykka der verkar framleis (5.2321, 6.68).
+**7.11t**  Ei lesing av signaturen bind sporet til steg, vilkår og prioriteringar. Ho vert prøvd ved at ei endring av eitt ledd endrar nye utfall slik forklaringa sa.
 
-Kvar svikten kjem, er ikkje tilfeldig. Svikten ber signaturen av det som produserte han: blindskapen, likesæla eller avmakta (5.232).
+**7.12a**  Når alternativ, vilkår og handlag står faste, skal endra prioritering endre nye val slik 6.673 føreseier. Samsvaret mellom estimat og faktisk avvik avgjer kva det gjer med forma i bruk (6.674).
 
-**7.11t**  Signaturen er leseleg fordi skiljet mellom det valde og det uvalde ikkje er tilfeldig.
+**7.13t**  Arkivet er eit grunnlag for gransking, ikkje ein ferdig dom. Ei kausal lesing må skilje mellom fleire forløp som kunne ha gjeve same spor.[[kjelde:72]]
 
-Skiljet følgjer grensa for det agentane heldt. Forma er residuet av ein retta prosess.
+**7.14d**  Sviktlatensen er ρ_k(A) = Δ_k / τ^pred_k(A): tida før konsekvensen viser seg, delt på prediksjonshorisonten langs omsynet. Han skil seg frå haldshorisonten τ_k (5.114).
 
-Retninga er gjeven av gradienten i estimata (6.611); kva aksar ho rører, av det agentane held (5.231).
+**7.141t**  Ved ρ ≤ 1 ligg konsekvensen innanfor den prøvde prediksjonshorisonten; ved ρ > 1 utanfor. Ved null horisont og positiv Δ set me ρ = ∞.
 
-**7.12t**  Former designa under ulik omhug for same funksjon skil seg, sett over mange, systematisk langs dei aksane den eine sida heldt og den andre ikkje.
+Eit utfall utanfor horisonten kan vere kjent som risiko. Nye prøver eller ei vidare representering kan flytte grensa.
 
-Skilnaden er arkivet.
+**7.142i**  Ei prøvesitjing som berre ber føreseiingar éin time fram, møter smerte etter åtte timar med ρ = 8. Ei lengre prøve kan flytte horisonten.
 
-**7.13t**  Arkivet er ikkje ei skulding, men eit faktum. (Same faktumet som gjer geologi leseleg, gjer design leseleg.[[kjelde:72]] )
+Bruker nokon ein kopp i tjue minutt, er dette brukstida, ikkje nødvendigvis prediksjonshorisonten. Den som kjenner materialet, kan føre følgjer hundreår fram inn i valet no.
 
-**7.14d**  Kor mange horisontar svikten ventar, er sviktlatensen: ρk (A) = Δk / τk (A), der Δk er tida før konsekvensen viser seg langs Xk, og τk (A) er horisonten langs aksen (5.114).
+**7.143t**  Avmakt kan sjå svikten kome utan å kunne hindre han. Likesæle kan ha eit vern tilgjengeleg utan å ta det i bruk. Blindskap manglar både svar og hald, men er ikkje alltid uvitskap.
 
-**7.141d**  Forholdstalet deler svikten i tre regime:
+**7.144t**  Sviktlatensen er relativ til den som undersøkjer. Det som ligg utanfor prediksjonshorisonten til den som formgav, kan liggje innanfor ein annan sin.
 
-ρ ≤ 0,1 · Internalisert: konsekvensen ligg godt innanfor horisonten; svikten kan føreseiast innanfrå.
-0,1 < ρ < 100 · Leseleg: konsekvensen kjem nær horisonten, eller høgst to storleiksordenar etter han, så signaturen kan observerast.
-ρ ≥ 100 · Strukturelt usynleg: konsekvensen kjem storleiksordenar etter horisonten; agenten kan ikkje lese signaturen utan ekstern representasjon.
+Den andre kan òg ha eit anna mål og ein annan toleranse. Kva som tel som svikt, må difor følgje med når prøver vert samanlikna.
 
-**7.142i**  Ergonomi: prøvesitjinga ser ein time fram, ryggverken kjem etter ein arbeidsdag; ρ ≈ 8, leseleg.
+**7.15t**  Ei forklaring av sviktsignaturen må skilje omsyn, gjennomføring og følgjer. Omhug, lyskjegle og kapasitet gjer skilja til spørsmål som kan prøvast.[[kjelde:21,70]]
 
-Eingongskoppen: bruken ser tjue minutt fram, nedbrytinga tek fire hundre år; ρ ∼ 10⁷, strukturelt usynleg.
+**7.151d**  Ei førehandsprøve av læra har fire ledd:
 
-Same formalisme; ulikt forholdstal.
+Fastset formrommet, dei tilgjengelege stega, vilkåra, måla og toleransane.
+Registrer kva følgjer agenten ventar før han handlar.
+Prøv prioriteringa og kapasiteten i eigne val- og forstyrringsprøver.
+Føresei deretter nye val og hald, og samanlikn med det som skjer.
 
-**7.143t**  Utanfor kapasiteten er horisonten null og sviktlatensen uendeleg. Svikten kan altså ikkje sjåast kome.
+Skil ledda slik at rett val med feil følgjer ikkje vert rekna som same feil som rett vurdering utan gjennomføring.
 
-Blindskapen kan ikkje lese sin eigen signatur, for aksen set han ikkje i spenning (5.262).
+**7.152t**  Lat e_k(x) vere faktisk avvik i ei uavhengig konsekvensprøve og ε_k den fastsette toleransen. Den føresagde sviktrisikoen er
 
-Avmakta kjenner svikten som uro når han kjem (5.2611), men kan ikkje sjå han kome.
+R_k = ∑_{x∈D} P(x) 𝟙[e_k(x) > ε_k].
 
-Likesæla kunne sjå han kome; ho gjer det ikkje.
+Valmodellen gjev P; konsekvensprøva gjev e_k. Begge trengst for å føreseie skade.
 
-**7.144t**  Sviktlatensen er relativ til den som les. Ein signatur som er usynleg for den som formgav, kan vere leseleg (1.531) for ein observatør med aksen i lyskjegla si og ein lengre horisont.
+**7.1521t**  Ved faste vilkår som i 6.674 er
 
-**7.15t**  Sviktsignatur kan ikkje predikerast av ein designteori utan omgrep om omhug, lyskjegle og kapasitet.[[kjelde:21,70]] Ein slik teori kan berre registrere signaturen i ettertid.
+∂R_k/∂θ_k = −Cov(𝟙[e_k > ε_k], ê_k).
 
-**7.151t**  Prediksjonen krev at teorien namngjev grensa for det agentane held.[[kjelde:70]]
+Når ê_k = e_k, er kovariansen ikkje-negativ: sviktindikatoren minkar ikkje når avviket veks. Meir prioritering kan då ikkje auke sviktrisikoen i modellen. Eit feilvendt estimat kan snu retninga.
 
-Prediksjonen krev ikkje at landskapet er lodda, for det lèt seg berre lodde i ettertid (3.11). Han krev landskapet ikkje som kart, men som omgrep: at trykk verkar vidare langs aksar ingen held (5.2321).
+**7.153t**  Dersom auka prioritering gjev større estimert avvik i middel medan dei oppgjevne vilkåra i 6.673 står faste, held ikkje den eksponentielle valmodellen for forsøket.
 
-Utan grensa finst ingen akse å peike ut som uhalden før svikten kjem.
+Dersom vala vert føresagde rett, men svikten feil, ligg brotet i konsekvensskildringa eller dei endra vilkåra. Dersom ei påstått kapasitet ikkje held under dei avtalte forstyrringane, held ikkje kapasitetsmålet.
 
-**7.152t**  Svikt er spenning i det verkelege landskapet, langs aksar omhugen ikkje rakk, i former grammatikken kunne generere.
+Eit fundament vert vitskapleg ved at slike brot endrar forklaringa. Det kan ikkje stadfestast av alle moglege utfall.
 
-Grammatikken åleine (5.72 i) veit kva som kan bli, ikkje kva som vil svikte.
+**7.16t**  Ei lære som gjer eitt ufullstendig omsyn til einaste mål, gjev ei tydeleg prøve: fastset utelatinga, føresei følgjene hennar, og prøv dei. Slik vert uskuldig forenkling skild frå forenkling som systematisk skadar det ho ikkje held.
 
-Tanke-kunnskapsteorien åleine (5.72 ii) veit kva som er kjent, ikkje kvar det ukjende vil slå til.
+**7.2t**  Designhandlinga endrar vilkåra ein annan agent navigerer under. Ho kan endre kva han kan gjere, kva han må tole, og kva han lærer å vente.
 
-Optimeringa åleine (5.72 iii) skjerper dei aksane ho har, og er blind for resten.
+Ei vitskapleg undersøking av handlinga må følgje denne overføringa. Det ferdige produktet er ikkje slutten på prosessen som skal forklarast.
 
-Prediksjon krev difor alle dei tre laga som omgrep, men ikkje eit ferdig kart over landskapet.
+**7.201t**  Ei endring av vilkåra til eit sjølv er innanfrå ei endring av det det møter og kjenner. Svaret frå den som ber følgjene, høyrer til kunnskapen om forma; det kan ikkje erstattast av designaren sin modell av svaret.
 
-**7.1521t**  Berre den allvitande agenten (5.72 iv) ville ikkje etterlate nokon signatur av det uhaldne. Det som stod att, ville vere kompromisset sjølv (2.131).
+**7.21t**  Eit avvik som ingen tok inn i arbeidet, kan verte liggjande hos den som møter forma. Også ein svikt som vart føresagd og forsøkt hindra, kan verte lagd over på andre.
 
-Men grensetilfellet (iv) er ein horisont (5.7221), ikkje ein stad.
+Fordelinga av innsikt, avgjerdsmakt og kostnad må difor undersøkjast kvar for seg.
 
-**7.153t**  Å forklare ei form er å forklare kvifor dei andre ikkje vart realiserte (1.131). Langs aksar ingen heldt, vart dei ikkje utelukka av noko val (7.02).
+**7.22t**  Der eit sviktmønster råkar eit menneske, kan det som utanfrå er ein systematisk feil, innanfrå vere smerte, tap eller avmakt. Ei forklaring som finn mønsteret, har ikkje dermed gjort greie for kva det er å bere det.
 
-Ein teori som ikkje skil desse aksane frå dei andre, kan ikkje predikere sviktsignatur (7.151). Han forklarer ikkje form, men katalogiserer henne.
+**7.23d**  Det predikerte sviktrommet er omsyna der R_k ligg over ei fastsett akseptgrense. Både haldne og uhaldne aksar kan liggje i det.
 
-Sviktsignaturen er såleis ikkje ein empirisk bonus, men prøvesteinen på at teorien forklarer form.
+Det uhaldne er eit rom for uhandtert risiko der vilkåra krev eit svar. Risikoen må forklarast gjennom feil estimat, utelaten prioritering, utilstrekkeleg kapasitet, konflikt eller endra vilkår.
 
-**7.16t**  Læra i 5.521, trong omhug gjord til program, er det reinaste dømet. Formene hennar ber signaturen til læra.
+**7.24t**  Modellen kan undersøkje kva noko har å seie ved å følgje prioriteringar, svar og følgjer. Han kan ikkje avgjere kor mykje det bør telje berre ved å telje kor sterkt agentane alt prioriterer det.
 
-**7.2t**  Designhandlinga verkar inn på dei generative modellane til andre agentar, langs dei aksane der kriteriet i 6.02 er oppfylt.
+Ei sterk vekt i valmodellen er eit mål på innverknad, ikkje eit prov på rett.
 
-Dette er ein påstand om verknad, ikkje om verdi. Kva som følgjer av han, avheng av vurderingsapparatet til agenten sjølv.
+**7.25t**  Omhugen kan rette seg sjølv gjennom prøver, men kan ikkje gje seg sjølv endeleg stadfesting på vegner av den andre. Svaret frå den som lever med forma, kan endre både målet, modellen og det som må haldast.
 
-**7.201t**  Ein verknad på modellen til eit sjølv er, innanfrå, ein verknad på kva det kjenner (5.2611). Påstanden er framleis deskriptiv.
+Å lukke sløyfa er å la dette svaret endre arbeidet.
 
-**7.21t**  Langs kvar akse ingen heldt, bar ingen avviket då forma vart til. Får nokon aksen i lyskjegla si seinare, ber han avviket utan dei som forma henne (6.027).
+**7.26a**  Design som fag forpliktar seg til at dei som ber vesentlege følgjer av forma, tel i vurderinga av henne. Deira tap kan ikkje reknast bort berre fordi dei manglar vekt i avgjerda.
 
-Det som utanfrå er ein sviktsignatur, er altså innanfrå uro (5.2611) hjå den som lever med forma, så lenge han ikkje kan halde aksen (5.232).
+Dette er eit fagleg grunnprinsipp, ikkje ei følgje av sannsynsrekninga. Det gjev eit krav til måla, prøvene og fordelinga av avgjerdsmakt. Kven som vert høyrd, kven som ikkje kan svare, og kven som skal representere dei, må gjerast synleg.
 
-**7.22t**  Der sviktsignaturen råkar eit sjølv, er han uroa til den som ikkje var med, sett utanfrå.
+**7.27t**  Kunnskap frå eit prosjekt kan overførast når me kan vise kva relasjonar og vilkår som får verknaden til å gå att. Same geometri er ikkje alltid nødvendig; same namn på funksjonen er ikkje nok.
 
-**7.23d**  Mengda av aksar i 𝕄 som ingen agent held, slik at Wk = 0, og der trykk verkar, er det predikerte sviktrommet.
+Det som varer, er kunnskap om kva som ber og kva endringar det toler.
 
-Kvar av aksane har sviktlatensen ρk (A) for den agenten A som les. For kvar agent fell det predikerte sviktrommet i tre: blindskap, likesæle og avmakt (5.232).
+**7.3t**  Desse proposisjonane er sjølve ei form. Dei ordnar skilnader og gjev vegar til å undersøkje andre former. Dei må tole den prøva dei krev av faget.
 
-Formmodellen predikerer at forma ber signatur langs desse aksane.
+**7.31t**  Teksten kan ha oversett samanhengar som avgjer om stega ber. Ein påvist feil må rettast der slutninga skjer; han kan ikkje gjerast uskuldig ved å kallast endå eit døme på endeleg omhug.
 
-Om signaturen er relevant for agenten, er ikkje eit spørsmål modellen svarar på, men eit spørsmål agenten stiller når han les modellen.
+**7.32t**  Ein lesar kan finne eit motdøme, eit betre mellomledd eller ei prøve som skil forklaringar teksten let falle saman. Lesinga er eit svar i sløyfa når ho endrar kva læra kan forklare og halde.
 
-**7.24t**  Modellen kan ikkje måle at noko har noko å seie.
+**7.33t**  Stigen vert halden ved like gjennom det han let oss nå. Kvar ombygging må gjere stega betre, ikkje berre stigen lengre.
 
-Målingane hans er relasjonar (1.2311), og det å ha noko å seie er innsida av det han skildrar utanfrå (5.261).
-
-Han kan berre vise kvar noko hadde noko å seie for nokon som kunne halde det, og kvar ikkje.
-
-**7.25t**  Omhugen veit ikkje sjølv kor langt han rakk fram, for grensa hans er usynleg innanfrå (5.263). Sløyfa vert lukka utanfrå: av svaret frå den som tok imot, eller av ein annan (7.144) som les forma.
-
-**7.3t**  Desse proposisjonane er sjølve ei form.
-
-Dei er ein stige, navigert steg for steg av ein agent med endeleg horisont (5.1142) og endeleg mange (7.01) haldne aksar.
-
-**7.31t**  Proposisjonane sviktar difor langs aksar eg ikkje heldt (7.1).
-
-Somme av aksane kunne eg nemne, for ein kan sjå ein akse og likevel ikkje halde han (5.232).
-
-Det som låg utanfor det eg kunne tenkje, kan ikkje nemnast her, for den grensa (1.53, 5.263) er usynleg innanfrå.
-
-**7.32t**  Ein lesar som held aksar eg ikkje heldt, kan lese signaturen til proposisjonane (7.144) og sjå kvar stega ikkje bar. Lesinga hans er svaret (7.25) som lukkar sløyfa.
-
-**7.33t**  Stigen vert difor ikkje kasta. Utanfor feltet finst det inkje å stige opp til (1.246).
-
-Han vert lesen.
+Han vert lesen, brukt og prøvd.
 
 **7.34t**  Fjellet er ikkje i kartet. Men den som les kartet (1.3211), står på fjellet.
 
-**7.4t**  Formverda er alt som er tilfelle, og alt som er tilfelle, verkar. Navigasjonen held fram.
+**7.4t**  Eit fundament for design skal bere meir kunnskap enn det sjølv rommar. Når nye former og livsvilkår kjem til, skal det gje faglege vegar til å forstå dei og til å rette det som ikkje held.
+
+Forma stoggar. Verknaden held fram.
 
