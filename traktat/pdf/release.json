@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "54f880ac3db57c06384478bbcbb1083945afcea30800d2cdf7a39f19e287e7e1",
+  "sourceHash": "f224000819301f19ef4b7eaf9c478b7bad08182a73207c060d525d0839a1e491",
   "inputs": {
     "edition.json": "7308d8d7f9067a3e0ce67589d39d7a8ebd019c02e8a5a3b80dc0f0b0a78bc488",
     "figurar.json": "4bba7d8aa59c6adb1f943518a7e99fd3902a7228d7ca266d4cf90454d31fa156",
@@ -26,17 +26,17 @@
     "scripts/content.py": "f8b50f78c35de97bd3dc41aacb80ca234086386db0f30bdc3dd8b8c53bfaa841",
     "scripts/migrate_published.py": "b0b654affd5ca4aea819639f736b31dbc90ed34a09e1857b472a47e087c89129",
     "scripts/render_latex.py": "65ca5d79d678e0e4a08a13aba6d2042d29939e0b59cc8987c9ec29c3b3e0ccd5",
-    "tekst/formlaere.txt": "1226755e0f329054b26246556001d80fe788865970f2775688900e2ba87bf28c",
+    "tekst/formlaere.txt": "955be31d76c179df351edc45965a9d1b6d78aed0ae12019b8ee78e5b043ab3d6",
     "vercel.json": "d247ac19b640da2cfe2bf52d913749ce31187f60dac92b9723363ec3e5a01727"
   },
   "outputs": {
-    "formlaere.pdf": "93df1e4261bc1d4c8e91ae3a088dcc3dacc74f382e57d2f43e916e1702105fda",
-    "formlaere-latex.zip": "39bdcee77231fee7b78d2fb1b73cfb3a0f12b920f1a7198d269edda348ee52c5"
+    "formlaere.pdf": "da77523d93e04b271b666524792aade2166f53d7ff79195f1d9569b2add7a53b",
+    "formlaere-latex.zip": "e7cc0082befa1784bfed0bae88b1042ea3eed2fced02ca783e4f9e37f7455562"
   },
   "quality": {
     "pages": 46,
-    "destinations": 565,
-    "propositions": 375,
+    "destinations": 570,
+    "propositions": 380,
     "notes": 41,
     "references": 117,
     "figures": 6,
