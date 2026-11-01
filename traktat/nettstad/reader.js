@@ -37,7 +37,9 @@
       const term=make("dt","glossary-term",item.term);
       if(item.symbol)term.appendChild(make("span","glossary-symbol",item.symbol));
       const definition=make("dd","glossary-definition");
+      if(item.fields?.length)definition.appendChild(make("div","endnote-meta",item.fields.join(" · ")));
       definition.appendChild(make("p","",item.definition));
+      if(item.connection)definition.appendChild(make("p","","I teksten: "+item.connection));
       if(item.propositions?.length||item.sources?.length){
         const refs=make("p","glossary-links");
         for(const [index,n] of (item.propositions||[]).entries()){

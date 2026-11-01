@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "53c99ea466c0d3f84b0b315536409c5e2408c161f24721e14386005165f66998",
+  "sourceHash": "54f880ac3db57c06384478bbcbb1083945afcea30800d2cdf7a39f19e287e7e1",
   "inputs": {
     "edition.json": "7308d8d7f9067a3e0ce67589d39d7a8ebd019c02e8a5a3b80dc0f0b0a78bc488",
     "figurar.json": "4bba7d8aa59c6adb1f943518a7e99fd3902a7228d7ca266d4cf90454d31fa156",
-    "kjelder.json": "b94e90301f11e1ac9e0a7db98061388b0a56d9952799fbf21b2b57529d6f4226",
+    "kjelder.json": "0b468e2370672aae5653ec51f5c8f8fd7e0a1eda826a5e138498891ccfa18742",
     "layout/print.tex": "c2b820ac5dfb8bf1277fe790489a1c02c89e7ab0259c97c4c80a15f8fa5c232c",
     "nettstad/build.mjs": "56d26d225fdca2bbf0f16f7335da3d0fa1390a30ab581d18906dc5c0e99ea73b",
     "nettstad/illustrations/model-overview-20261101.jpg": "db15f648fcfd1b946f045beef67bd4f6d5b4055ea23a3fd22af93e74094910b6",
@@ -20,27 +20,27 @@
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
     "nettstad/reader.css": "bdf117eee76b23f1f9baa4e37fa6da13742d3ff794f3047e9cc70d85c0a6e18b",
     "nettstad/reader.html": "84b48d4a529cc04aeab98bd991829176b9cb4bd18e8ce814e8ba80d50380e80a",
-    "nettstad/reader.js": "55c39c516581f9a9170ca82d07831530c4069f07de21b7927ffc2d12b12b76fa",
-    "ordliste.json": "c517a70e4097c6c33a7a4ea1f853ea68dd171a1be04f870aeadd80ea65e7ff29",
+    "nettstad/reader.js": "c1c5aa8f70ab919da8b153fc60546d759536c5e7a824f184241510b6d115123a",
+    "ordliste.json": "f3181df1f2114eb4e3b742cd1bf0836e86202ed6c08b8977f4917fe02d546f40",
     "scripts/build.py": "b79ad215de793ac06522004a08693703ae8c1ac0820212ea36b36d9a11c01c27",
-    "scripts/content.py": "dbe2e7e4fae5d39e8953fae8377a53f5ca6ba46409750d02056d003e1f3329de",
+    "scripts/content.py": "f8b50f78c35de97bd3dc41aacb80ca234086386db0f30bdc3dd8b8c53bfaa841",
     "scripts/migrate_published.py": "b0b654affd5ca4aea819639f736b31dbc90ed34a09e1857b472a47e087c89129",
-    "scripts/render_latex.py": "fe909656701f57c792830ef6428947515a1b3d6689f1bb676f6132eee52a8281",
+    "scripts/render_latex.py": "65ca5d79d678e0e4a08a13aba6d2042d29939e0b59cc8987c9ec29c3b3e0ccd5",
     "tekst/formlaere.txt": "1226755e0f329054b26246556001d80fe788865970f2775688900e2ba87bf28c",
     "vercel.json": "d247ac19b640da2cfe2bf52d913749ce31187f60dac92b9723363ec3e5a01727"
   },
   "outputs": {
-    "formlaere.pdf": "4ec89d9dfba6e1a299e61404fd66e332b69d5c9bcc05c09965df99a6abb9f1d7",
-    "formlaere-latex.zip": "326694c1f985e89278c82123b1aae9f9d0685e2270e0f3561f0b55caff0309a1"
+    "formlaere.pdf": "93df1e4261bc1d4c8e91ae3a088dcc3dacc74f382e57d2f43e916e1702105fda",
+    "formlaere-latex.zip": "39bdcee77231fee7b78d2fb1b73cfb3a0f12b920f1a7198d269edda348ee52c5"
   },
   "quality": {
-    "pages": 42,
-    "destinations": 538,
+    "pages": 46,
+    "destinations": 565,
     "propositions": 375,
     "notes": 41,
-    "references": 110,
+    "references": 117,
     "figures": 6,
-    "glossary": 12
+    "glossary": 32
   },
   "engine": "XeLaTeX"
 }

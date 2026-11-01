@@ -653,6 +653,48 @@
       "id": "111",
       "citation": "Rothman, D. H. (2022). Nonlinear Dynamics: Chaos. Lectures 2–3: Flows and Bifurcations in One Dimension. MIT OpenCourseWare, 15. september 2022.",
       "url": "https://ocw.mit.edu/courses/12-006j-nonlinear-dynamics-chaos-fall-2022/mit12_006jf22_lec2-3.pdf"
+    },
+    {
+      "id": "112",
+      "citation": "Blei, D. M., Kucukelbir, A. & McAuliffe, J. D. (2017). Variational Inference: A Review for Statisticians. Journal of the American Statistical Association, 112(518), 859–877.",
+      "doi": "10.1080/01621459.2017.1285773",
+      "url": "https://www.cs.columbia.edu/~blei/papers/BleiKucukelbirMcAuliffe2017.pdf"
+    },
+    {
+      "id": "113",
+      "citation": "Jaynes, E. T. (1957). Information Theory and Statistical Mechanics. Physical Review, 106(4), 620–630.",
+      "doi": "10.1103/PhysRev.106.620",
+      "url": "https://files.batistalab.com/teaching/attachments/chem584/Jaynes.pdf"
+    },
+    {
+      "id": "114",
+      "citation": "Shannon, C. E. (1948). A Mathematical Theory of Communication. Bell System Technical Journal, 27, 379–423, 623–656.",
+      "doi": "10.1002/j.1538-7305.1948.tb01338.x",
+      "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+    },
+    {
+      "id": "115",
+      "citation": "Boyd, S. & Vandenberghe, L. (2004). Convex Optimization. Cambridge University Press.",
+      "doi": "10.1017/CBO9780511804441",
+      "url": "https://web.stanford.edu/~boyd/cvxbook/"
+    },
+    {
+      "id": "116",
+      "citation": "Kitano, H. (2004). Biological robustness. Nature Reviews Genetics, 5, 826–837.",
+      "doi": "10.1038/nrg1471",
+      "url": "https://www.nature.com/articles/nrg1471"
+    },
+    {
+      "id": "117",
+      "citation": "Rosenblum, E. B., Römpler, H., Schöneberg, T. & Hoekstra, H. E. (2010). Molecular and functional basis of phenotypic convergence in white lizards at White Sands. Proceedings of the National Academy of Sciences, 107(5), 2113–2117.",
+      "doi": "10.1073/pnas.0911042107",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2836677/"
+    },
+    {
+      "id": "118",
+      "citation": "Sterling, P. (2012). Allostasis: A model of predictive regulation. Physiology & Behavior, 106(1), 5–15.",
+      "doi": "10.1016/j.physbeh.2011.06.004",
+      "url": "https://doi.org/10.1016/j.physbeh.2011.06.004"
     }
   ],
   "notes": [

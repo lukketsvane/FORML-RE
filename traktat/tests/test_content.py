@@ -259,6 +259,23 @@ class GlossaryValidation(unittest.TestCase):
         doc = load_document(self.root)
         self.assertEqual(doc["glossary"][0]["sources"], ["1"])
 
+    def test_cross_field_context_is_shared_and_validated(self):
+        self.entries[0].update(fields=["Biologi", "Reguleringsteknikk"], connection="Teksten samanliknar to faglege bruksmåtar.")
+        self.write_glossary()
+        doc = load_document(self.root)
+        self.assertEqual(doc["glossary"][0]["fields"], self.entries[0]["fields"])
+        self.assertEqual(doc["glossary"][0]["connection"], self.entries[0]["connection"])
+        for fields in ([], ["Biologi", "Biologi"], [""]):
+            self.entries[0]["fields"] = fields
+            self.write_glossary()
+            with self.assertRaisesRegex(ValueError, "Invalid glossary fields"):
+                load_document(self.root)
+        self.entries[0]["fields"] = ["Biologi"]
+        self.entries[0]["connection"] = " "
+        self.write_glossary()
+        with self.assertRaisesRegex(ValueError, "Empty glossary connection"):
+            load_document(self.root)
+
 
 if __name__ == "__main__":
     unittest.main()
