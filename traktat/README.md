@@ -1,5 +1,9 @@
 # FORMLÆRE
 
+## Redaksjonell norm
+
+Proposisjonane skal seie påstandane direkte. Statusbokstavane og det logiske nummerhierarkiet viser kva som er definisjon, postulat og følgje. Kutt metakommentarar som «under postulatet i ...», «dette er ...postulatet» og nummerreferansar som berre seier om att det strukturen alt viser. Ta vare på vilkår som faktisk avgrensar ei slutning eller ei empirisk prøve.
+
 LaTeX-manuskriptet er kjelda for både nettstaden og PDF-en. Begge vert bygde frå den same validerte dokumentmodellen, lesen frå `tekst/formlaere.tex`. Føreord, lesekode, proposisjonar, ordliste, notat, referansar og figurar høyrer til same utgåve.
 
 ## Kva me redigerer
