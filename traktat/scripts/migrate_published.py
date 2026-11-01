@@ -97,6 +97,9 @@ def migrate(root: Path = ROOT, force: bool = False) -> dict:
     for path, content in outputs.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
+    glossary_path = root / "ordliste.json"
+    if not glossary_path.exists():
+        glossary_path.write_text(json.dumps({"schemaVersion": 1, "entries": []}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (archive / "unused-intro-notes.json").write_text(json.dumps({"reason": "Not displayed in the migrated published edition; older introduction wording.", "notes": unused_intro}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return {"citationGroups": sum(len(e["spans"]) for e in reviewed["entries"]), "notes": len(notes), "sources": len(catalog["sources"])}
 
