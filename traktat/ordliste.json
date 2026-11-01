@@ -140,7 +140,7 @@
         "Designteori",
         "Innovasjonsforsking"
       ],
-      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, kriterium, prøvevilkår og tidspunkt. Det er ei operasjonell tilpassing av C–K, ikkje ei identifisering av kunnskapsutsegner med geometriske former. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna."
+      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, omsyn, prøvevilkår og tidspunkt. Det er ei operasjonell tilpassing av C–K, ikkje ei identifisering av kunnskapsutsegner med geometriske former. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna; det utenkjelege U_k markerer per omsyn k at ein kunnskapsstand òg har ei grense han ikkje kan sjå innanfrå."
     },
     {
       "id": "distribuert-kognisjon",
@@ -276,13 +276,14 @@
         "Optimering"
       ],
       "definition": "Ei sannsynsfordeling som gjev lågare energi eller kostnad større vekt gjennom ein eksponentialfunksjon. Ein normaliseringskonstant gjer at sannsyn til saman vert éin.",
-      "connection": "6.6 nyttar den same eksponentielle vektinga som statistisk mekanikk og stokastisk optimering; β er her seleksjonsstyrke, medan han i den termiske fordelinga er knytt til invers temperatur.",
+      "connection": "6.6 nyttar den same eksponentielle vektinga som statistisk mekanikk og stokastisk optimering, med grunnfordeling og toleranseskalerte avvik. β er her dimensjonslaus seleksjonsstyrke, medan han i den termiske fordelinga er knytt til invers temperatur. Den dynamiske tolkinga krev dei reversible utforskingsvilkåra i 6.64.",
       "propositions": [
         "6.6",
         "6.61",
         "6.64"
       ],
       "sources": [
+        "110",
         "113"
       ]
     },
@@ -536,7 +537,8 @@
         "5.141"
       ],
       "sources": [
-        "115"
+        "115",
+        "120"
       ]
     },
     {
