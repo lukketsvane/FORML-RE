@@ -6,6 +6,7 @@ import json
 import sys
 import tempfile
 import unittest
+import zipfile
 from copy import deepcopy
 from pathlib import Path
 from unittest.mock import patch
@@ -73,12 +74,60 @@ class CommittedReleaseGuard(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "counts differ"):
             build.require_fresh_pdf(self.document)
 
-    def test_web_uses_only_mathml_for_the_current_canonical_tex(self):
+    def install_mathematics(self):
         key = "a" * 24
         self.document["mathematics"] = {key: {"tex": "a", "display": False}}
         self.manifest["mathematics"] = {key: {"tex": "a", "display": False,
             "mathml": '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math>'}}
+        self.write_bound_cache()
+        return key
+
+    def write_bound_cache(self, payload=None, name="mathematics.json"):
+        bundle = self.pdf / "formlaere-latex.zip"
+        with zipfile.ZipFile(bundle, "w") as archive:
+            archive.writestr(name, json.dumps(self.manifest["mathematics"]) if payload is None else payload)
+        self.manifest["outputs"][bundle.name] = hashlib.sha256(bundle.read_bytes()).hexdigest()
         self.write_manifest()
+
+    def test_manifest_mathml_edit_cannot_change_the_website_with_unchanged_print_files(self):
+        key = self.install_mathematics()
+        before = deepcopy(self.document)
+        original_outputs = deepcopy(self.manifest["outputs"])
+        self.manifest["mathematics"][key]["mathml"] = '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>WRONG</mi></math>'
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, "hash-checked LaTeX bundle"):
+            build.require_fresh_pdf(self.document)
+        self.assertEqual(self.document, before)
+        self.assertEqual(self.manifest["outputs"], original_outputs)
+
+    def test_missing_or_invalid_bound_mathml_cache_is_rejected(self):
+        self.install_mathematics()
+        for name, payload in [("other.json", "{}"), ("mathematics.json", "not JSON"),
+                              ("mathematics.json", b"\xff"), ("mathematics.json", "[]")]:
+            with self.subTest(name=name, payload=payload):
+                self.write_bound_cache(payload, name)
+                with self.assertRaisesRegex(ValueError, "mathematics"):
+                    build.require_fresh_pdf(self.document)
+        bundle = self.pdf / "formlaere-latex.zip"
+        bundle.write_bytes(b"Broken ZIP cache")
+        self.manifest["outputs"][bundle.name] = hashlib.sha256(bundle.read_bytes()).hexdigest()
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, "mathematics cache.*invalid"):
+            build.require_fresh_pdf(self.document)
+
+    def test_invalid_later_mathml_does_not_partly_mutate_the_document(self):
+        self.install_mathematics()
+        key = "b" * 24
+        self.document["mathematics"][key] = {"tex": "b", "display": False}
+        self.manifest["mathematics"][key] = {"tex": "b", "display": False, "mathml": "<math"}
+        self.write_bound_cache()
+        before = deepcopy(self.document)
+        with self.assertRaisesRegex(ValueError, "Invalid MathML"):
+            build.require_fresh_pdf(self.document)
+        self.assertEqual(self.document, before)
+
+    def test_web_uses_only_mathml_for_the_current_canonical_tex(self):
+        key = self.install_mathematics()
         with patch("subprocess.run", side_effect=AssertionError("Web publication must not need Pandoc")):
             build.require_fresh_pdf(self.document)
         self.assertIn("mathml", self.document["mathematics"][key])

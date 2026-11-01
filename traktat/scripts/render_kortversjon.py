@@ -4,6 +4,7 @@ from pathlib import Path
 import re
 import hashlib
 import subprocess
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 head = """<!doctype html>
@@ -51,20 +52,47 @@ window.addEventListener("load",()=>navigator.serviceWorker.register("/service-wo
 """
 
 
+SOURCE_STAMP = re.compile(rb"<!-- form-source: ([a-f0-9]{64}) -->\n")
+OUTPUT_STAMP = re.compile(rb"<!-- form-output: ([a-f0-9]{64}) -->\n")
+
+
+def source_fingerprint(source: bytes, renderer: bytes) -> str:
+    return hashlib.sha256(source + b"\0" + renderer).hexdigest()
+
+
 def short_source_hash(root: Path) -> str:
-    source = (root / "nettstad" / "kortversjon.tex").read_bytes()
-    return hashlib.sha256(source + b"\0" + Path(__file__).read_bytes()).hexdigest()
+    return source_fingerprint((root / "nettstad" / "kortversjon.tex").read_bytes(), Path(__file__).read_bytes())
+
+
+def stamped_html(content: str) -> bytes:
+    """Cover the entire generated page, excluding only its own integrity line."""
+    raw = content.encode("utf-8")
+    if len(SOURCE_STAMP.findall(raw)) != 1 or OUTPUT_STAMP.search(raw):
+        raise ValueError("The short edition has invalid generation markers.")
+    stamp = b"<!-- form-output: " + hashlib.sha256(raw).hexdigest().encode("ascii") + b" -->\n"
+    source_stamp = SOURCE_STAMP.search(raw)
+    return raw[:source_stamp.end()] + stamp + raw[source_stamp.end():]
 
 
 def require_fresh_short(root: Path) -> None:
     target = root / "nettstad" / "kortversjon.html"
-    expected = "<!-- form-source: " + short_source_hash(root) + " -->"
-    if not target.is_file() or expected not in target.read_text(encoding="utf-8"):
-        raise ValueError("Short LaTeX edition is stale. Run make all or python3 scripts/render_kortversjon.py.")
+    expected = short_source_hash(root)
+    try:
+        raw = target.read_bytes()
+    except FileNotFoundError:
+        raw = b""
+    sources, outputs = SOURCE_STAMP.findall(raw), OUTPUT_STAMP.findall(raw)
+    valid = (len(sources) == len(outputs) == 1
+             and sources[0].decode("ascii") == expected
+             and hashlib.sha256(OUTPUT_STAMP.sub(b"", raw, count=1)).hexdigest() == outputs[0].decode("ascii"))
+    if not valid or short_source_hash(root) != expected:
+        raise ValueError("Short LaTeX edition is stale or modified. Run make all or python3 scripts/render_kortversjon.py.")
 
 
 def render_short(root: Path = ROOT) -> None:
-    source = (root / "nettstad" / "kortversjon.tex").read_text(encoding="utf-8")
+    source_bytes = (root / "nettstad" / "kortversjon.tex").read_bytes()
+    initial_hash = source_fingerprint(source_bytes, Path(__file__).read_bytes())
+    source = source_bytes.decode("utf-8")
     if not source.rstrip().endswith(r"\end{document}"):
         raise ValueError("The short source must terminate cleanly.")
     process = subprocess.run(
@@ -84,8 +112,19 @@ def render_short(root: Path = ROOT) -> None:
         body,
     )
     target = root / "nettstad" / "kortversjon.html"
-    stamp = "<!-- form-source: " + short_source_hash(root) + " -->\n"
-    target.write_text(head + stamp + body + foot, encoding="utf-8")
+    stamp = "<!-- form-source: " + initial_hash + " -->\n"
+    output = stamped_html(head + stamp + body + foot)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile("wb", dir=target.parent, prefix=".kortversjon-", suffix=".tmp", delete=False) as staged:
+            temporary = Path(staged.name)
+            staged.write(output)
+        if short_source_hash(root) != initial_hash:
+            raise ValueError("Short LaTeX source changed during rendering; run the build again.")
+        temporary.replace(target)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
     print(f"Native MathML expressions: {body.count('<math')}; output: {target}")
 
 

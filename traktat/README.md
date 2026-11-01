@@ -16,7 +16,7 @@ Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseri
 
 Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av manuskriptet i tekstfiler eller HTML. LaTeX-kjelda er handredigert; PDF-oppsettet og nettutgåva er genererte. Ordlista har éi felles JSON-kjelde. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
 
-Den særskilde matematiske kortversjonen under «tl;dr» er redigert i `nettstad/kortversjon.tex` og kompilert til `nettstad/kortversjon.html` med Pandoc og native MathML. Ho ligg på `/kortversjon/` og får to spalter ved utskrift. `make all` byggjer kortversjonen automatisk frå LaTeX. `make web` og `make check-generated` avviser ein HTML-kopi som ikkje svarar til kortversjonen si LaTeX-kjelde og renderaren. Den fulltekstbaserte propisjonsoversikta ligg i tillegg på `/kort/`. Kortversjonen følgjer dei vanlege utgåvekontrollane.
+Den særskilde matematiske kortversjonen under «tl;dr» er redigert i `nettstad/kortversjon.tex` og kompilert til `nettstad/kortversjon.html` med Pandoc og native MathML. Ho ligg på `/kortversjon/` og får to spalter ved utskrift. `make all` byggjer kortversjonen automatisk frå LaTeX. `make web` og `make check-generated` kontrollerer både kjeldefingeravtrykket og heile den genererte HTML-fila, utan å krevje Pandoc. Endra eller avkorta HTML vert avvist sjølv om kjeldemarkøren står att. Ei kjeldeendring under konvertering stoppar byggjet og bevarer førre HTML-utgåve. Den fulltekstbaserte proposisjonsoversikta ligg i tillegg på `/kort/`. Kortversjonen følgjer dei vanlege utgåvekontrollane.
 
 ## Tekst og kjelder
 
@@ -128,7 +128,7 @@ Den trykte boka nyttar dei faste EB Garamond-filene i `layout/fonts/`, med optis
 | `make check-generated` | Avviser manglande, endra eller utdaterte utskriftsfiler. |
 | `make clean` | Fjernar mellombelse byggjefiler og nettbyggjet, men bevarer `pdf/`. |
 
-Kjeldehashen tek med innhald, figurar, utforming og byggjekode. Nettstad og PDF ber den same hashen. `make web` nektar å kopiere ein gammal PDF inn i ei ny nettutgåve; løysinga er å køyre `make all` og committe dei oppdaterte utskriftsfilene.
+Kjeldehashen tek med innhald, figurar, utforming og byggjekode. Nettstad og PDF ber den same hashen. Den avleidde MathML-cachen ligg òg i den hashkontrollerte LaTeX-pakka; nettbyggjet krev at cachen der og i utskriftsmanifestet er identiske før formlane vert tekne i bruk. `make web` nektar å kopiere ein gammal PDF inn i ei ny nettutgåve; løysinga er å køyre `make all` og committe dei oppdaterte utskriftsfilene.
 
 GitHub-kontrollen køyrer `make check-generated` før han byggjer på nytt. Ein commit med tekstendringar og gammal PDF vert difor avvist. Deretter byggjer kontrollen heile utgåva og prøver å kompilere den portable LaTeX-pakka for seg. Ferdig nettutgåve og utskriftsfiler vert lagra som byggjeartefaktar. Kontrollen endrar ikkje git og publiserer ikkje nettstaden.
 
