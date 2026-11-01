@@ -1,0 +1,131 @@
+{
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "python3 traktat/scripts/build.py web",
+  "outputDirectory": "traktat/nettstad/dist",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/les",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/les/",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/traktat",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/traktat/",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/traktat/index.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/traktat/scroll.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/reader.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/reader.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/service-worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/traktat/document.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/traktat/formlaere.pdf",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/kortversjon",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/kortversjon/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/kortversjon.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
+}
