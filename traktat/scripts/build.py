@@ -171,6 +171,12 @@ def build_web(doc: dict) -> None:
             raise ValueError("Short reader source-hash placeholder is missing or duplicated")
         (stage / "kort").mkdir()
         (stage / "kort" / "index.html").write_text(short_template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
+        math_template = (ROOT / "nettstad" / "kortversjon.html").read_text(encoding="utf-8")
+        if math_template.count("@@SOURCE_HASH@@") != 1:
+            raise ValueError("MathML short reader source hash placeholder missing or duplicated")
+        (stage / "kortversjon").mkdir()
+        (stage / "kortversjon" / "index.html").write_text(math_template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
+        shutil.copyfile(ROOT / "nettstad" / "kortversjon.css", stage / "kortversjon.css")
         for name in ("reader.css", "reader.js"):
             shutil.copyfile(ROOT / "nettstad" / name, stage / name)
         data = stage / "traktat"
@@ -194,7 +200,7 @@ def build_web(doc: dict) -> None:
         (stage / "les" / "index.html").write_text(legacy)
         for name in ("index.html", "scroll.html"):
             (data / name).write_text(legacy)
-        precache = ["/", "/kort/", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
+        precache = ["/", "/kort/", "/kortversjon/", "/kortversjon.css", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
                     "/traktat/formlaere.pdf", *["/icons/" + p.name for p in sorted((stage / "icons").glob("*.png"))],
                     *["/traktat/illustrations/" + figure["file"] for figure in doc["figures"]]]
         worker = (pwa / "service-worker.template.js").read_text(encoding="utf-8")

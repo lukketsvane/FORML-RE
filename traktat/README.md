@@ -16,6 +16,8 @@ Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseri
 
 Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av teksten eller ordlista i HTML eller LaTeX. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
 
+Den særskilde matematiske kortversjonen under «tl;dr» er redigert i `nettstad/kortversjon.tex` og kompilert til `nettstad/kortversjon.html` med Pandoc og native MathML. Ho ligg på `/kortversjon/` og får to spalter ved utskrift. Kjør `python3 scripts/render_kortversjon.py` før `make all` når LaTeX-kjelda er endra. Den fulltekstbaserte propisjonsoversikta ligg i tillegg på `/kort/`. Kortversjonen følgjer dei vanlege utgåvekontrollane.
+
 ## Tekst og kjelder
 
 Ein proposisjon har ei logisk adresse og ein statusbokstav:
