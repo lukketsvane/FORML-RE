@@ -258,7 +258,7 @@ Den relasjonelle strukturen i den fysiske skildringa kan vere ordning i opplevin
 \begin{formproposition}{1.2342}{t}
 Oppleving er alt gjeven i kvar måling. Den fysiske strukturen kan vere ordna oppleving utan at den relasjonelle skildringa må endrast. Ein ukjend indre natur legg då inkje nødvendig til; minimalitetskravet vel oppleving som den eine substansen i denne læra.
 
-Andre ontologiar kan gje dei same målbare relasjonane.
+Andre ontologiar kan gje dei same målbare relasjonane. Dei operasjonelle følgjene om grammatikk, overgangar, kapasitet og svikt står på eigne målbare premiss; dei krev ikkje at dette ontologiske valet er sant.
 \end{formproposition}
 
 \begin{formproposition}{1.2343}{t}
@@ -657,7 +657,7 @@ Seleksjonstrykka spenner ut eit landskap over formrommet.
 \end{formproposition}
 
 \begin{formproposition}{3.01}{a}
-Lat \(μ\) vere ei oppgjeven grunnfordeling. Dersom trykk j endrar vekta i x med ein positiv faktor \(f_{j}\)(x), og faktorane verkar multiplikativt, vert den samla vekta \(μ\)(x) \(∏_{j}\) \(f_{j}\)(x). Logaritmen av produktet er ein sum.
+Lat \(\mu_0\) vere ei oppgjeven grunnvekt på dei tillatne formene. Dersom kvart trykk \(j\) multipliserer vekta i \(x\) med ein positiv faktor \(f_j(x)\), er den samla fordelinga \(\mu(x)\propto\mu_0(x)\prod_j f_j(x)\), føresett at normaliseringa er mogleg. Logaritmen av trykkfaktorane er då ein sum.
 
 Dette er additivitetsvilkåret for landskapet. Der trykka samverkar ikkje-multiplikativt, må samspelsledda skiljast ut som eigne ledd i summen, eller faktorane definerast betinga av ei fastsett referanseordning.
 \end{formproposition}
@@ -1672,6 +1672,8 @@ Sterk seleksjon er ikkje nødvendigvis eitt utfall. Ho kan heller ikkje gjere ei
 Z \(=\) \(∑_{x∈D}\) \(μ_{\mathrm{SG}}\)(x) exp(\(−\)\(β\) \(Φ\)(x)) normaliserer fordelinga. I det endelege tilfellet med endelege verdiar er 0 \(<\) Z \(<\) \(∞\).
 
 I eit teljeleg rom er Z endeleg når \(μ_{\mathrm{SG}}\) er ei sannsynsfordeling og \(Φ\) er avgrensa nedanfrå; han er positiv når D har positiv grunnvekt.
+
+Ein atomlaus formalgebra (1.611) er ikkje i seg sjølv eit atomlaust sannsynsrom. For eit kontinuerleg operativt rom vert summen erstatta med \(Z=\int_D\exp[-\beta\Phi(x)]\,\mu_{\mathrm{SG}}(dx)\), der grunnmålet må oppgjevast og \(0<Z<\infty\). Når ei ny objektdeling eller akse endrar D, må grunnmålet og koplinga mellom dei to formromma òg oppgjevast.
 \end{formproposition}
 
 \begin{formproposition}{6.63}{t}
@@ -1716,6 +1718,8 @@ Når vekter, estimat eller tilgjengelege steg endrar seg før prosessen har blan
 
 Eit framlegg i ei skisse kan trekkjast attende; eit materialsteg kan vere irreversibelt. Når \(q(x',x)=0\), avviser Hastings-regelen steget frå \(x\) til \(x'\). Korreksjonen kan difor ikkje i seg sjølv gje ei likevektsforklaring av slike materielle forløp.
 
+Me må difor skilje den epistemiske søkjekjernen for skisser og simuleringar frå den materielle overgangskjernen for gjennomføringa. Søkjekjernen kan gje fordelinga i 6.6 når vilkåra i 6.64 held og kjeda blandar seg før vilkåra endrar seg. Den materielle kjernen kan vere einsretta og treng ikkje oppfylle detaljert balanse. Ei lokal likevekt i skissa er ikkje ei likevekt i historia.
+
 I eit historisk forløp må tilstanden ta med det minnet dei vidare overgangane krev. Med tidsavhengige kjernar er utviklinga \(p_{t+1}(x')=\sum_x p_t(x)T_t(x,x')\). Fordelinga i 6.6 kan nyttast som eit lokalt valbilete berre der dei oppgjevne vilkåra ber det.
 \end{formproposition}
 
@@ -1756,6 +1760,8 @@ Med separerbar spenning, flat lokal grunnfordeling og felles estimert krumming v
 
 Var(\(x_{k}\)) \(≈\) 1 / (\(β\) \(W_{k}\) \(\hat{Λ}_{k}\)\(″\)).
 
+I fleire dimensjonar, ved eit glatt indre minimum \(x_0\) med positivt definitt Hessian \(H=\nabla^2\Phi(x_0)\) og lokalt flat grunnfordeling, er \(\operatorname{Cov}(x)\approx(\beta H)^{-1}\). Kryssledd i H koplar aksane. Dette er ei lokal Gauss-tilnærming; ved varierande grunnvekt må krumminga av \(-\log\mu_{\mathrm{SG}}\) òg reknast med.
+
 Dette er ei lokal, kvadratisk tilnærming på ein samanhengande skala. Spreiinga bestemmer produktet av seleksjonsstyrke, prioritering og krumming. Dei kan skiljast ved å endre eitt ledd medan dei andre står faste.
 \end{formproposition}
 
@@ -1765,6 +1771,8 @@ Setehøgd kan variere lite medan ornamentet varierer mykje. Det er ei oppgåve f
 
 \begin{formproposition}{6.673}{t}
 For eit endeleg \(D\), skriv \(\beta\Phi(x)=\sum_k\theta_k\hat e_k(x)\), der kvar \(k\) no merkar eit bestemt par av agent og omsyn, \(\hat e_k(x)\) er det toleranseskalerte estimatet \(\hat\Lambda_{ik}(x)\) (6.61), og \(\theta_k=\beta w_i\omega_k(A_i)\) er den samla vekta til dette estimatet. Lat \(D\), \(\mu_{SG}\) og alle \(\hat e_k\) stå faste.
+
+Her er \(\theta_k\) ein fri parameter i den statistiske familien: éin kan endrast medan dei andre står faste. Ei endring av éi normalisert omhugsvekt \(\omega_k(A_i)\) endrar derimot minst éi anna vekt (6.61). Desse to inngrepa må skiljast.
 
 Derivasjon av den normaliserte eksponentialfamilien gjev\kjelder{122}
 
@@ -1783,6 +1791,10 @@ For eit faktisk avvik \(e_j(x)\), målt uavhengig av agenten sitt estimat og hal
 \[
 \frac{\partial\mathbb E[e_j]}{\partial\theta_k}=-\operatorname{Cov}(e_j,\hat e_k).
 \]
+
+Når standardavvika er positive, kan den deriverte skrivast \(-\rho_{j,k}\sigma(e_j)\sigma(\hat e_k)\), der \(\rho_{j,k}\) er korrelasjonen mellom faktisk avvik og estimat. Absoluttverdien er høgst \(\sigma(e_j)\sigma(\hat e_k)\) ved Cauchy–Schwarz.
+
+Flyttar ein i staden prioritering frå omsyn m til k innan same normaliserte agentprofil, med \(\beta\), \(w_i\) og alle estimat faste, vert den lokale deriverte \(-\beta w_i\operatorname{Cov}(e_j,\hat\Lambda_{ik}-\hat\Lambda_{im})\). Teiknet kan då ikkje lesast frå kovariansen med k åleine.
 
 Meir prioritering betrar det faktiske utfallet lokalt når kovariansen er positiv, og gjer det verre når han er negativ. Ved null kovarians er førstederiverten null. For ei endeleg endring må samvariasjonen følgjast langs endringa.
 
