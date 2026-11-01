@@ -50,8 +50,6 @@ head = """<!doctype html>
 <article class="short-article">
 <header class="short-header">
 <p class="short-label">Kortversjon</p>
-<h1>FORMLÆRE</h1>
-<p class="short-subtitle">Ein allmenn teori om form, tilpassingslandskap og avgrensa agens</p>
 <p class="short-byline">Iver Finne · Oslo, 2026</p>
 </header>
 """
