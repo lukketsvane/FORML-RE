@@ -2,6 +2,20 @@
   "version": 1,
   "assets": [
     {
+      "after": "1.54",
+      "file": "tankerom-kunnskapsrom-20261101.png",
+      "alt": "C–K-skjema: kunnskap opnar konsept; konsept vert delte i nye greiner og kan avgjerast som kunnskap.",
+      "printWidth": "wide",
+      "caption": "Rørsle mellom tankerom og kunnskapsrom for eit fast omsyn og oppgjevne prøvevilkår (1.5–1.54). C₀, C₁, … og K₁, K₂, … nummererer konsept og kunnskapsutsegner, ikkje omsynsaksar. Disjunksjon opnar eit konsept frå kunnskap; partisjon utvidar konseptet; konjunksjon avgjer eit tenkt alternativ. K→K-rørsla er ikkje teikna. I C–K-teorien er K kunnskapsutsegner; i denne teksten er kunnskapsrommet kjende formposisjonar langs omsynet (notatet ved 1.5)."
+    },
+    {
+      "after": "1.61",
+      "file": "formgrammatikk-20261101.png",
+      "alt": "Tre formgrammatikkreglar: A vert delt i C og B, B får eit høgre utspring, og C får eit venstre innsnitt. Sluttforma kombinerer dei to.",
+      "printWidth": "wide",
+      "caption": "Tre omskrivingsreglar og ei avleiing frå startforma A (1.61). Venstre side nyttar symbola A, B og C; høgre side nyttar punktmerke i den aktuelle geometrien for å velje regel. Regel 1 vert følgd av regel 3 på C og regel 2 på B. Sluttforma får innsnitt til venstre og utspring til høgre. Figuren illustrerer regelbruk; atomlaus innleiring er presisert i 1.611."
+    },
+    {
       "after": "6.66",
       "file": "model-overview-20261101.svg",
       "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala"

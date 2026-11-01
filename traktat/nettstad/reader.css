@@ -96,8 +96,11 @@ body{
 .prop.active .n{color:var(--fg);font-weight:500}
 
 /* Book drawings live in the normal text stream, never in a floating overlay. */
-.figure-set{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;width:calc(100% - 3.35rem);max-width:calc(100% - 3.35rem);min-width:0;margin:.5rem 0 1.65rem 3.35rem;padding:0}
+.figure-set{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;width:100%;max-width:100%;min-width:0;margin:.5rem 0 1.65rem 0;padding:0}
 .tractate-figure{margin:0;padding:0;max-width:100%;width:100%;text-align:left}
+.figure-open{display:block;color:inherit}
+.figure-open:focus-visible{outline:1px solid var(--dim);outline-offset:3px}
+.figure-caption{font-size:.85em;line-height:1.5;margin-top:.6rem;color:var(--dim)}
 .tractate-figure img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;object-position:left center}
 @media(prefers-color-scheme:dark){
  :root:not([data-theme="light"]) .tractate-figure img{filter:invert(1)}

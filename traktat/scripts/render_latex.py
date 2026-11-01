@@ -267,7 +267,11 @@ class Renderer:
                     if not asset.is_file():
                         raise FileNotFoundError(f"Missing illustration: {asset}")
                     portable_asset = print_figure_path(figure["file"])
-                    output.append(r"\bookfigure{" + portable_asset.as_posix() + "}{" + tex_escape(figure["alt"]) + "}")
+                    if figure.get("printWidth", "text") == "wide":
+                        output.append(r"\begin{widebody}")
+                    output.append(r"\bookfigure{" + portable_asset.as_posix() + "}{" + literal(figure.get("caption", "")) + "}")
+                    if figure.get("printWidth", "text") == "wide":
+                        output.append(r"\end{widebody}")
 
         if wide:
             output.append(r"\end{widebody}")

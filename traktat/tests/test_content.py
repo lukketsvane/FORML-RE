@@ -173,6 +173,32 @@ class SharedSourceValidation(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing"):
             load_document(self.root)
 
+    def test_figure_caption_and_print_width_share_the_validated_model(self):
+        catalog_path = self.root / "figurar.json"
+        figures = json.loads(catalog_path.read_text(encoding="utf-8"))
+        figures["assets"][0].update(caption="C & K: eit samspel mellom spørsmål og kunnskap.", printWidth="wide")
+        catalog_path.write_text(json.dumps(figures, ensure_ascii=False), encoding="utf-8")
+        model = load_document(self.root)
+        self.assertEqual(model["figures"][0]["caption"], figures["assets"][0]["caption"])
+        self.assertEqual(model["figures"][0]["printWidth"], "wide")
+        self.assertNotEqual(model["sourceHash"], self.doc["sourceHash"])
+
+    def test_invalid_figure_caption_and_print_width_are_rejected(self):
+        for value in ("", "  ", None, 42, []):
+            with self.subTest(caption=value):
+                doc = deepcopy(self.doc)
+                doc["figures"][0]["caption"] = value
+                with self.assertRaisesRegex(ValueError, "figure caption"):
+                    validate_document(doc, self.root)
+        for value in ("full", "", None, 85, []):
+            with self.subTest(printWidth=value):
+                doc = deepcopy(self.doc)
+                doc["figures"][0]["printWidth"] = value
+                with self.assertRaisesRegex(ValueError, "figure print width"):
+                    validate_document(doc, self.root)
+        # Existing catalog entries remain valid without the optional fields.
+        validate_document(self.doc, self.root)
+
     def test_unknown_note_target_and_duplicate_source_are_rejected(self):
         doc = deepcopy(self.doc)
         doc["notes"][1]["proposition"] = "99.9"

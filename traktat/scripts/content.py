@@ -298,6 +298,10 @@ def validate_document(document: dict, root: Path) -> None:
         filename = figure.get("file", "")
         if not filename or Path(filename).name != filename or not figure.get("alt", "").strip():
             raise ValueError("Invalid figure metadata")
+        if "caption" in figure and (not isinstance(figure["caption"], str) or not figure["caption"].strip()):
+            raise ValueError("Invalid figure caption")
+        if figure.get("printWidth", "text") not in ("text", "wide"):
+            raise ValueError("Invalid figure print width")
         if not (root / "nettstad" / "illustrations" / filename).is_file():
             raise ValueError("Figure asset is missing: " + filename)
     figure_names = [figure["file"] for figure in document.get("figures", [])]

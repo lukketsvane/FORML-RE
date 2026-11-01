@@ -69,6 +69,19 @@ class PortableVectorFigures(unittest.TestCase):
             self.assertTrue(archive.read("illustrations/diagram.pdf").startswith(b"%PDF-"))
         self.assertFalse(retired.exists(), "Removed placements cannot leak from a previous build")
 
+    def test_shared_figure_caption_is_escaped_once_and_wide_layout_is_explicit(self):
+        self.doc["figures"][0].update(caption="C & K: 50% av eit utval.", printWidth="wide")
+        tex = render_latex.Renderer(self.doc).content()
+        caption = r"C \& K: 50\% av eit utval."
+        figure = r"\bookfigure{illustrations/diagram.pdf}{" + caption + "}"
+        self.assertIn(r"\begin{widebody}" + "\n" + figure + "\n" + r"\end{widebody}", tex)
+        self.assertEqual(tex.count(caption), 1)
+        self.assertIn(r"\bookfigure{illustrations/raster.png}{}", tex)
+        self.assertNotIn(r"\bookfigure{illustrations/diagram.pdf}{Modell}", tex,
+                         "Alternative text is not a visible caption")
+        self.assertEqual(tex.count(r"\begin{widebody}"), 1,
+                         "Only a figure explicitly marked wide may enter the number margin")
+
     def test_portable_bundle_carries_fixed_fonts_licence_and_cover(self):
         layout = self.root / "layout"
         source_fonts = layout / "fonts"

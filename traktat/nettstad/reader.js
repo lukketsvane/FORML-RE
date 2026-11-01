@@ -424,7 +424,11 @@
           img.alt=item.alt;
           img.loading="lazy";
           img.decoding="async";
-          figure.appendChild(img);
+          const open=make("a","figure-open");
+          open.href=img.src;open.target="_blank";open.rel="noopener noreferrer";
+          open.setAttribute("aria-label","Opne figuren i full storleik: "+item.alt);
+          open.appendChild(img);figure.appendChild(open);
+          if(item.caption)figure.appendChild(make("figcaption","figure-caption",item.caption));
           group.appendChild(figure);
         }
         propositionSection.appendChild(group);

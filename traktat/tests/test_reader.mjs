@@ -52,7 +52,7 @@ class Element {
 
 function descendants(element) { return [element, ...element.children.flatMap(descendants)]; }
 
-async function reader({ mathText, mathematics = {}, extraSource = false, status = 't' } = {}) {
+async function reader({ mathText, mathematics = {}, extraSource = false, status = 't', figures = [] } = {}) {
   const props = [
     { n: '1', status: 'd', paragraphs: ['Form med kjelde.[[kjelde:7]] Sjå (1.1).'], notes: ['note-one'] },
     { n: '1.1', status, paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
@@ -66,7 +66,7 @@ async function reader({ mathText, mathematics = {}, extraSource = false, status 
       { kind: 'heading', text: 'Lesekode' }, ...props.map(prop => ({ kind: 'prop', ...prop }))],
     notes: [{ id: 'note-one', number: 1, proposition: '1', relation: 'grunnlag', note: 'Dette er notatet.', sources: ['7'] }],
     sources: [{ id: '7', number: 1, citation: 'Ei fullstendig bibliografisk kjelde.', doi: '10.1234/example' }],
-    figures: [], glossary: [{ id: 'form', term: 'Form', symbol: 'F', fields: ['Biologi', 'Dynamiske system'],
+    figures, glossary: [{ id: 'form', term: 'Form', symbol: 'F', fields: ['Biologi', 'Dynamiske system'],
       definition: 'Ei ordning av skilnader.', connection: 'Omgrepet knyter saman faglege perspektiv.', propositions: ['1'], sources: ['7'] }],
   };
   if(extraSource){
@@ -357,4 +357,22 @@ test('proposition previews describe hypotheses and conditional consequences usin
     app.proposition.dispatch('pointerenter', { pointerType: 'mouse' });
     assert.equal(app.preview.children[0].textContent, '1.1 · ' + label);
   }
+});
+
+
+test('shared figure captions remain visible and original images can be opened at full size', async () => {
+  const caption = 'Konseptnummer er ikkje omsynsaksar. K→K er ikkje teikna.';
+  const app = await reader({figures: [{after: '1', file: 'ck.png', alt: 'Tankerom og kunnskapsrom', caption, printWidth: 'wide'}]});
+  const figure = app.nodes.find(node => node.tagName === 'FIGURE');
+  assert.ok(figure);
+  const image = descendants(figure).find(node => node.tagName === 'IMG');
+  const link = descendants(figure).find(node => node.tagName === 'A');
+  const visible = descendants(figure).find(node => node.tagName === 'FIGCAPTION');
+  assert.equal(image.src, '/traktat/illustrations/ck.png');
+  assert.equal(image.alt, 'Tankerom og kunnskapsrom');
+  assert.equal(link.href, image.src);
+  assert.equal(link.target, '_blank');
+  assert.equal(link.rel, 'noopener noreferrer');
+  assert.match(link.getAttribute('aria-label'), /full storleik/);
+  assert.equal(visible.textContent, caption);
 });
