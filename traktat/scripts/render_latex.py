@@ -239,11 +239,11 @@ class Renderer:
         if glossary:
             output.append(r"\clearpage\sectionlabel{ordliste}{Ordliste}")
             for entry in glossary:
-                output.append(r"\begin{referenceentry}{ord-" + target(entry["id"]) + "}{}")
+                output.append(r"\begin{referenceentry}[2]{ord-" + target(entry["id"]) + "}{}")
                 heading = r"\textbf{" + self.prose(entry["term"]) + "}"
                 if entry.get("symbol"):
                     heading += r"\quad " + self.prose(entry["symbol"])
-                output.append(heading + r"\par\nobreak\vspace{3pt}\nobreak")
+                output.append(heading + r"\par\nobreak\vspace{2pt}\nobreak")
                 output.append(self.prose(entry["definition"]))
                 links = []
                 for proposition in entry.get("propositions", []):
@@ -251,8 +251,11 @@ class Renderer:
                     if proposition not in self.numbers:
                         raise ValueError(f"Unknown glossary proposition: {proposition}")
                     links.append(r"\hyperlink{" + target(proposition) + "}{" + proposition + "}")
-                if links:
-                    output.append(r"\entrylinks{" + ", ".join(links) + "}")
+                metadata = [", ".join(links)] if links else []
+                if entry.get("sources"):
+                    metadata.append("Kjelder: " + self.source_links(entry["sources"]))
+                if metadata:
+                    output.append(r"\entrylinks{" + " · ".join(metadata) + "}")
                 output.append(r"\end{referenceentry}")
 
         for title, items in [("Notat", self.document["notes"]), ("Referansar", self.document["sources"])]:

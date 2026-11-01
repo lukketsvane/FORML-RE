@@ -38,11 +38,15 @@
       if(item.symbol)term.appendChild(make("span","glossary-symbol",item.symbol));
       const definition=make("dd","glossary-definition");
       definition.appendChild(make("p","",item.definition));
-      if(item.propositions?.length){
+      if(item.propositions?.length||item.sources?.length){
         const refs=make("p","glossary-links");
-        for(const [index,n] of item.propositions.entries()){
+        for(const [index,n] of (item.propositions||[]).entries()){
           if(index)refs.appendChild(document.createTextNode(", "));
           refs.appendChild(propositionLink(n,true));
+        }
+        if(item.sources?.length){
+          refs.appendChild(document.createTextNode((item.propositions?.length?" · ":"")+"Kjelder: "));
+          appendSources(refs,item.sources);
         }
         definition.appendChild(refs);
       }

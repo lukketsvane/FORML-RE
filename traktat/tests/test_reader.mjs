@@ -61,7 +61,7 @@ async function reader() {
       { kind: 'heading', text: 'Lesekode' }, ...props.map(prop => ({ kind: 'prop', ...prop }))],
     notes: [{ id: 'note-one', number: 1, proposition: '1', relation: 'grunnlag', note: 'Dette er notatet.', sources: ['7'] }],
     sources: [{ id: '7', citation: 'Ei fullstendig bibliografisk kjelde.', doi: '10.1234/example' }],
-    figures: [], glossary: [{ id: 'form', term: 'Form', symbol: 'F', definition: 'Ei ordning av skilnader.', propositions: ['1'] }],
+    figures: [], glossary: [{ id: 'form', term: 'Form', symbol: 'F', definition: 'Ei ordning av skilnader.', propositions: ['1'], sources: ['7'] }],
   };
   const document = new Element('document'); document.body = new Element('body');
   const read = new Element('main'); read.id = 'read'; read.scrollTop = 0;
@@ -156,6 +156,23 @@ test('the semantic glossary precedes notes and references and reuses proposition
   assert.equal(app.preview.children[0].textContent, '1 · definisjon');
   assert.ok(app.byId('notat-note-one').textContent.includes('Dette er notatet.'));
   assert.ok(app.byId('referanse-7').textContent.includes('Ei fullstendig bibliografisk kjelde.'));
+});
+
+test('glossary bibliography links share the existing source tooltip and native anchor behavior', async () => {
+  const app = await reader();
+  const entry = app.byId('ord-form');
+  const refs = descendants(entry).find(node => node.classList.contains('glossary-links'));
+  assert.equal(refs.textContent, '1 · Kjelder: 7');
+  const source = descendants(refs).find(node => node.href === '#referanse-7');
+  assert.equal(source.tagName, 'A');
+  app.source.dispatch('pointerenter', { pointerType: 'mouse' });
+  const inlineContent = app.preview.textContent;
+  source.dispatch('pointerenter', { pointerType: 'mouse' });
+  assert.strictEqual(app.byId('prop-preview'), app.preview, 'The same tooltip element is reused');
+  assert.equal(app.preview.textContent, inlineContent);
+  assert.equal(source.getAttribute('aria-describedby'), 'prop-preview');
+  assert.equal(source.dispatch('click').defaultPrevented, false);
+  assert.equal(app.preview.hidden, true);
 });
 
 test('the tree viewBox ends just below its longest visible branch', async () => {

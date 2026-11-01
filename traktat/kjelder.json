@@ -642,6 +642,17 @@
       "verification_note": "OUP sitt samandrag til kapittel 8, Candidate Laws For The Coconstruction Of A Biosphere (s.159–209), nemner uttrykkeleg adjacent possible. Dette er ei betre direkte kjelde for namngjeve omgrep enn å la The Origins of Order (1993) bere det åleine. Ny ID må sjekkast mot noverande katalog før bruk.",
       "id": "109",
       "verified_on": "2026-11-01"
+    },
+    {
+      "id": "110",
+      "citation": "Levin, D. A. & Peres, Y. (2017). Markov Chains and Mixing Times. 2. utg., med bidrag av E. L. Wilmer. American Mathematical Society.",
+      "doi": "10.1090/mbk/107",
+      "url": "https://pages.uoregon.edu/dlevin/MARKOV/"
+    },
+    {
+      "id": "111",
+      "citation": "Rothman, D. H. (2022). Nonlinear Dynamics: Chaos. Lectures 2–3: Flows and Bifurcations in One Dimension. MIT OpenCourseWare, 15. september 2022.",
+      "url": "https://ocw.mit.edu/courses/12-006j-nonlinear-dynamics-chaos-fall-2022/mit12_006jf22_lec2-3.pdf"
     }
   ],
   "notes": [

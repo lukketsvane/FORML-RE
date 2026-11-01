@@ -245,6 +245,20 @@ class GlossaryValidation(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "glossary schema"):
             load_document(self.root)
 
+    def test_unknown_or_duplicate_glossary_sources_are_rejected(self):
+        for ids, error in [(["9999"], "Unknown"), (["1", "1"], "Duplicate")]:
+            with self.subTest(sources=ids):
+                self.entries[0]["sources"] = ids
+                self.write_glossary()
+                with self.assertRaisesRegex(ValueError, error + " glossary source"):
+                    load_document(self.root)
+
+    def test_glossary_sources_share_the_existing_bibliography(self):
+        self.entries[0]["sources"] = ["1"]
+        self.write_glossary()
+        doc = load_document(self.root)
+        self.assertEqual(doc["glossary"][0]["sources"], ["1"])
+
 
 if __name__ == "__main__":
     unittest.main()
