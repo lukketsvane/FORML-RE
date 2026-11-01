@@ -32,11 +32,6 @@
       "year": "1948"
     },
     {
-      "id": "6",
-      "citation": "Turing, A. M. (1950). Computing machinery and intelligence. Mind, 59(236), 433–460.",
-      "year": "1950"
-    },
-    {
       "id": "7",
       "citation": "Ashby, W. R. (1956). An Introduction to Cybernetics. Chapman & Hall.",
       "year": "1956"
@@ -144,151 +139,9 @@
       "year": "2025"
     },
     {
-      "id": "25",
-      "citation": "Trentmann, F. (2016). Empire of Things: How We Became a World of Consumers. Allen Lane.",
-      "year": "2016"
-    },
-    {
       "id": "26",
       "citation": "Pye, D. (1968). The Nature and Art of Workmanship. Cambridge University Press.",
       "year": "1968"
-    },
-    {
-      "id": "27",
-      "citation": "Blackiston, D. J., Casey, E. S. & Bhatt, A. L. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? PLoS ONE, 3(3), e1736.",
-      "year": "2008"
-    },
-    {
-      "id": "28",
-      "citation": "NOAA Marine Debris Program (2024). Estimated decomposition rates of common marine debris items. National Oceanic and Atmospheric Administration.",
-      "year": "2024"
-    },
-    {
-      "id": "29",
-      "citation": "NOAA Global Monitoring Laboratory (2024). Trends in atmospheric carbon dioxide. National Oceanic and Atmospheric Administration.",
-      "year": "2024"
-    },
-    {
-      "id": "30",
-      "citation": "FAO & UNCCD (2024). Global Soil Partnership: estimated annual topsoil loss. Food and Agriculture Organization of the United Nations.",
-      "year": "2024"
-    },
-    {
-      "id": "31",
-      "citation": "UN-Habitat (2024). World Cities Report: 1.8 billion people in inadequate housing. United Nations Human Settlements Programme.",
-      "year": "2024"
-    },
-    {
-      "id": "32",
-      "citation": "Biddle, S. (2019–2024). Palantir and ICE reporting series. The Intercept. Sjå òg Mijente, Who's Behind ICE?",
-      "year": "2019"
-    },
-    {
-      "id": "33",
-      "citation": "Abraham, Y. (2024). «Lavender» og «Where's Daddy?»: AI-baserte målrettingssystem i Gaza. +972 Magazine / Local Call. Sjå òg ICJ rådgjevande fråsegn (2024).",
-      "year": "2024"
-    },
-    {
-      "id": "34",
-      "citation": "Autoriteit Persoonsgegevens (2020). SyRI-dommen; Amnesty International (2021). Toeslagenaffaire: systematisk diskriminering gjennom algoritmisk profilering i nederlandsk velferd.",
-      "year": "2020"
-    },
-    {
-      "id": "35",
-      "citation": "Lindsey, J. et al. (2025). On the Biology of a Large Language Model. Transformer Circuits, Anthropic. Sjå òg Butlin, P. et al. (2023). Consciousness in Artificial Intelligence. arXiv:2308.08708.",
-      "year": "2025",
-      "url": "https://www.transformer-circuits.pub/2025/attribution-graphs/biology.html",
-      "verification_note": "Fjerna den udokumenterte undertittelen Probing emotion. Posten blanda denne artikkelen (27.3.2025) med Sofroniew et al. (2.4.2026), Emotion Concepts and their Function in a Large Language Model, https://www.transformer-circuits.pub/2026/emotions/index.html . Det siste arbeidet viser kausalt verksame representasjonar av emosjonsomgrep, ikkje dokumentasjon av subjektiv oppleving. Butlin-posten er ikkje nyverifisert i denne gjennomgangen.",
-      "verified_on": "2026-11-01"
-    },
-    {
-      "id": "36",
-      "citation": "Biswas, S., Manicka, S., Hoel, E. & Levin, M. (2021). Gene regulatory networks exhibit several kinds of memory: Quantification of memory in biological and random transcriptional networks. iScience, 24(3), 102131.",
-      "year": "2021",
-      "url": "https://doi.org/10.1016/j.isci.2021.102131",
-      "doi": "10.1016/j.isci.2021.102131",
-      "verification_note": "Retta feil år, volum, hefte og artikkelnummer. Full publisert artikkel ligg i PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC7970124/ . Studien analyserer GRN-modellar; ikkje framstill alle resultata som direkte våtlabforsøk.",
-      "verified_on": "2026-11-01"
-    },
-    {
-      "id": "37",
-      "citation": "Vandenberg, L. N., Adams, D. S. & Levin, M. (2012). Normalized shape and location of perturbed craniofacial structures in the Xenopus tadpole reveal an innate ability to achieve correct morphology. Developmental Dynamics, 241(5), 863–878.",
-      "year": "2012"
-    },
-    {
-      "id": "38",
-      "citation": "Shomrat, T. & Levin, M. (2013). An automated training paradigm reveals long-term memory in planarians and its persistence through head regeneration. Journal of Experimental Biology, 216(20), 3799–3810.",
-      "year": "2013"
-    },
-    {
-      "id": "39",
-      "citation": "Fankhauser, G. (1945). The effects of changes in chromosome number on amphibian development. Quarterly Review of Biology, 20(1), 20–78.",
-      "year": "1945"
-    },
-    {
-      "id": "40",
-      "citation": "Kriegman, S., Blackiston, D., Levin, M. & Bongard, J. (2021). Kinematic self-replication in reconfigurable organisms. Proceedings of the National Academy of Sciences, 118(49), e2112672118.",
-      "year": "2021"
-    },
-    {
-      "id": "41",
-      "citation": "Gumuskaya, G., Srivastava, P., Cooper, B. G., Lesser, H., Semegran, B., Garber, S. & Levin, M. (2023). Motile living biobots self-construct from adult human somatic progenitor seed cells. Advanced Science, 10(34), 2303575.",
-      "year": "2023"
-    },
-    {
-      "id": "42",
-      "citation": "UNEP (2024). Plastics: annual global production. United Nations Environment Programme. Sjå òg Plastics Europe, Plastics - The Fast Facts 2023.",
-      "year": "2024"
-    },
-    {
-      "id": "43",
-      "citation": "Ellen MacArthur Foundation (2017). A New Textiles Economy: average number of times a garment is worn before disposal.",
-      "year": "2017"
-    },
-    {
-      "id": "44",
-      "citation": "Richardson, K. et al. (2023). Earth beyond six of nine planetary boundaries. Science Advances, 9(37), eadh2458.",
-      "year": "2023"
-    },
-    {
-      "id": "45",
-      "citation": "IPBES (2019). Global Assessment Report on Biodiversity and Ecosystem Services: approximately 1 million species threatened with extinction.",
-      "year": "2019"
-    },
-    {
-      "id": "46",
-      "citation": "WWF (2022). Living Planet Report 2022: 69 % average decline in monitored wildlife populations since 1970.",
-      "year": "2022"
-    },
-    {
-      "id": "47",
-      "citation": "FAO (2022). Global Forest Resources Assessment: approximately 10 million hectares of forest lost per year (2015–2020).",
-      "year": "2022"
-    },
-    {
-      "id": "48",
-      "citation": "WHO/UNICEF Joint Monitoring Programme (2023). Progress on household drinking water, sanitation and hygiene: 2.4 billion people lack basic sanitation.",
-      "year": "2023"
-    },
-    {
-      "id": "49",
-      "citation": "UNHCR (2024). Global Trends: Forced Displacement in 2023: 120 million people displaced worldwide.",
-      "year": "2024"
-    },
-    {
-      "id": "50",
-      "citation": "IPCC (2022). Climate Change 2022: Impacts, Adaptation and Vulnerability (AR6 WGII): 3.3–3.6 billion people highly vulnerable to climate change.",
-      "year": "2022"
-    },
-    {
-      "id": "51",
-      "citation": "UCDP/PRIO (2024). Armed Conflict Dataset v24.1: 56 active state-based armed conflicts in 2023.",
-      "year": "2024"
-    },
-    {
-      "id": "52",
-      "citation": "Ecovative Design / GROWN.bio (2024). Mycelium-based packaging and construction materials as polystyrene replacement.",
-      "year": "2024"
     },
     {
       "id": "53",
@@ -313,11 +166,6 @@
       "doi": "10.31269/triplec.v5i2.59",
       "verification_note": "Tidsskriftets primærside stadfestar at forfattaren er John Pickering, ikkje Søren Brier, og at år/volum/hefte var feil. Kjeldeapparatet sine tekstnotar må òg rette namnet Brier der dei meiner denne artikkelen.",
       "verified_on": "2026-11-01"
-    },
-    {
-      "id": "57",
-      "citation": "Fultot, M. & Turvey, M. T. (2019). Von Uexküll's theory of meaning and Gibson's organism–environment reciprocity. Ecological Psychology, 31(4), 289–315.",
-      "year": "2019"
     },
     {
       "id": "58",
@@ -357,11 +205,6 @@
       "year": "2019"
     },
     {
-      "id": "63",
-      "citation": "Friston, K. (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience, 11(2), 127–138.",
-      "year": "2010"
-    },
-    {
       "id": "64",
       "citation": "Niv, Y. (2009). Reinforcement learning in the brain. Journal of Mathematical Psychology, 53(3), 139–154.",
       "year": "2009"
@@ -385,11 +228,6 @@
       "id": "68",
       "citation": "Tronto, J. C. (1993). Moral Boundaries: A Political Argument for an Ethic of Care. Routledge.",
       "year": "1993"
-    },
-    {
-      "id": "69",
-      "citation": "Dewey, J. (1934). Art as Experience. Minton, Balch & Company.",
-      "year": "1934"
     },
     {
       "id": "70",
@@ -424,23 +262,6 @@
       "verified_on": "2026-11-01"
     },
     {
-      "id": "75",
-      "citation": "Coatanéa, E., Choulier, D. & Forest, J. (2011). CK, an engineering design theory? Contributions, limits and proposals. DS 68-2: Proceedings of ICED 11, Vol. 2: Design Theory and Research Methodology, 323–333. Design Society.",
-      "year": "2011",
-      "url": "https://theory.designsociety.org/publication/30483/CK%2C%2BAN%2BENGINEERING%2BDESIGN%2BTHEORY%3F%2BCONTRIBUTIONS%2C%2BLIMITS%2BAND%2BPROPOSALS",
-      "verification_note": "Retta feil forfattar Kazakçi og år 2015. Arrangøren sin primærkatalog gjev denne tittelen til Coatanéa, Choulier og Forest i 2011. Dersom målet eigentleg var ei særskild Kazakçi-kjelde, må det veljast og dokumenterast som ei anna kjelde, ikkje kamuflerast under denne tittelen.",
-      "verified_on": "2026-11-01"
-    },
-    {
-      "id": "76",
-      "citation": "Ma, K., Brubaker, E. R. & Goucher-Lambert, K. (2025). Simulating Design Theory Using LLM Agents: A Case Study of C-K Theory. Proceedings of the ASME International Design Engineering Technical Conferences, Vol. 4.",
-      "year": "2025",
-      "url": "https://codesign.berkeley.edu/papers/ma-ck/",
-      "doi": "10.1115/DETC2025-169634",
-      "verification_note": "Retta Ma M. 2023 og lagt til medforfattarar og publikasjonsstad. Berkeley-labside/PDF stadfestar tittel, 2025 og forfattarar; medforfattaren sin Duke-post stadfestar DOI: https://scholars.duke.edu/publication/1698341 .",
-      "verified_on": "2026-11-01"
-    },
-    {
       "id": "77",
       "citation": "Michl, J. (1989). On forms following functions and post-modernism. Pro Forma, 1, 5–15.",
       "year": "1989"
@@ -470,8 +291,10 @@
     },
     {
       "id": "82",
-      "citation": "Seifert, U., Sealander, P., Marzen, S. & Levin, M. (2024). Reinforcement learning and developmental biology: A shared computational structure. BioSystems, 235, 105107.",
-      "year": "2024"
+      "citation": "Seifert, G., Sealander, A., Marzen, S. & Levin, M. (2024). From reinforcement learning to agency: Frameworks for understanding basal cognition. BioSystems, 235, 105107.",
+      "year": "2024",
+      "doi": "10.1016/j.biosystems.2023.105107",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0303264723002824"
     },
     {
       "id": "83",
@@ -564,53 +387,11 @@
       "verified_on": "2026-11-01"
     },
     {
-      "id": "94",
-      "citation": "Haidt, J. (2024). The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness. Penguin Press. Sjå òg Twenge, J. M. (2017). iGen. Atria Books.",
-      "year": "2024"
-    },
-    {
-      "id": "95",
-      "citation": "Haugen, F. (2021). Testimony before U.S. Senate Subcommittee on Consumer Protection; The Facebook Files, Wall Street Journal investigation series.",
-      "year": "2021"
-    },
-    {
-      "id": "96",
-      "citation": "Cadwalladr, C. & Graham-Harrison, E. (2018). Revealed: 50 million Facebook profiles harvested for Cambridge Analytica in major data breach. The Guardian, 17 March.",
-      "year": "2018"
-    },
-    {
-      "id": "97",
-      "citation": "Ovid. Metamorfosar III: Ekko og Narcissus."
-    },
-    {
-      "id": "98",
-      "citation": "Rajan, D., Makushok, T., Kalantari, A. et al. (2023). Single-cell analysis of habituation in Stentor coeruleus. Current Biology, 33, 241–251.",
-      "year": "2023"
-    },
-    {
-      "id": "99",
-      "citation": "Boisseau, R. P., Vogel, D. & Dussutour, A. (2016). Habituation in non-neural organisms: Evidence from slime moulds. Proceedings of the Royal Society B, 283, 20160446.",
-      "year": "2016"
-    },
-    {
-      "id": "100",
-      "citation": "Netea, M. G., Joosten, L. A. B., Latz, E. et al. (2016). Trained immunity: A program of innate immune memory in health and disease. Science, 352(6284), aaf1098.",
-      "year": "2016"
-    },
-    {
       "id": "101",
       "citation": "Kandel, E. R. (2001). The molecular biology of memory storage: A dialogue between genes and synapses. Science, 294(5544), 1030–1038.",
-      "year": "2001"
-    },
-    {
-      "id": "102",
-      "citation": "Pavlov, I. P. (1927). Conditioned Reflexes. Oxford University Press.",
-      "year": "1927"
-    },
-    {
-      "id": "103",
-      "citation": "Friston, K. & Frith, C. (2015). A duet for one. Consciousness and Cognition, 36, 390–405.",
-      "year": "2015"
+      "year": "2001",
+      "doi": "10.1126/science.1067020",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11691980/"
     },
     {
       "id": "104",
@@ -618,21 +399,6 @@
       "year": "1991",
       "url": "https://doi.org/10.1287/orsc.2.1.71",
       "verified_on": "2026-11-01"
-    },
-    {
-      "id": "105",
-      "citation": "Kuhn, T. S. (1962). The Structure of Scientific Revolutions. University of Chicago Press.",
-      "year": "1962"
-    },
-    {
-      "id": "106",
-      "citation": "Wigner, E. P. (1960). The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics, 13(1), 1–14.",
-      "year": "1960"
-    },
-    {
-      "id": "107",
-      "citation": "Brandel, J. (2024). Usynlige landskap. IDEALTID.org, 17.12.2024. Essay om interstitium som væskefylt organ i bindevevet, omklassifisert frå barrière i 2018.",
-      "year": "2024"
     },
     {
       "citation": "Kauffman, S. A. (2000). Investigations. Oxford University Press.",
@@ -1009,6 +775,7 @@
       "sources": [
         "22",
         "67",
+        "82",
         "85",
         "87"
       ],
@@ -1152,5 +919,8 @@
       ],
       "relation": "vidareføring"
     }
-  ]
+  ],
+  "aliases": {
+    "63": "19"
+  }
 }

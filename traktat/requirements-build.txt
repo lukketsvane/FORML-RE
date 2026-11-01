@@ -1,1 +1,2 @@
 pypdf==6.10.0
+CairoSVG==2.9.1

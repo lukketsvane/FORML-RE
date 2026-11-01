@@ -48,7 +48,7 @@ class Element {
 
 function descendants(element) { return [element, ...element.children.flatMap(descendants)]; }
 
-async function reader() {
+async function reader({ mathText } = {}) {
   const props = [
     { n: '1', status: 'd', paragraphs: ['Form med kjelde.[[kjelde:7]] Sjå (1.1).'], notes: ['note-one'] },
     { n: '1.1', status: 't', paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
@@ -56,6 +56,7 @@ async function reader() {
     { n: '1.111', status: 'i', paragraphs: ['Eit døme.'], notes: [] },
     { n: '1.1111', status: 'o', paragraphs: ['Den siste i greina.'], notes: [] },
   ];
+  if (mathText) props[1].paragraphs = [mathText];
   const data = { schemaVersion: 1, sourceHash: 'edition', props,
     tokens: [{ kind: 'heading', text: 'Føreord' }, { kind: 'paragraph', text: 'Eit føreord.' },
       { kind: 'heading', text: 'Lesekode' }, ...props.map(prop => ({ kind: 'prop', ...prop }))],
@@ -112,6 +113,57 @@ test('notes, sources and propositions share the same hover and focus preview', a
     link.dispatch('blur'); assert.equal(app.preview.hidden, true);
     assert.equal(link.getAttribute('aria-describedby'), null);
   }
+});
+
+test('inline scripts stay legible in the reader and the shared proposition preview', async () => {
+  const text = 'I_Γ(A) og τ^Γ_k(A): e^β. ∑_{k∈I_Γ(A_i)} ω_k. Sjå (1.1). År 2026 og 6.65.';
+  const app = await reader({ mathText: text });
+  const paragraph = descendants(app.byId('1.1')).find(node => node.classList.contains('prop-paragraph'));
+  const runs = descendants(paragraph).filter(node => node.classList.contains('math-inline'));
+  const power = runs.find(node => node.getAttribute('data-source') === 'e^β');
+  assert.ok(power, 'An explicit exponent becomes a mathematical run');
+  assert.equal(power.children[0].textContent, 'e');
+  assert.equal(power.children[1].children[0].tagName, 'SUP');
+  assert.equal(power.children[1].children[0].textContent, 'β');
+  const horizon = runs.find(node => node.getAttribute('data-source') === 'τ^Γ_k');
+  assert.deepEqual(horizon.children[1].children.map(node => [node.tagName, node.textContent]), [['SUP', 'Γ'], ['SUB', 'k']]);
+  const sum = runs.find(node => node.getAttribute('data-source') === '∑_{k∈I_Γ(A_i)}');
+  assert.ok(sum, 'Balanced, nested script groups are retained');
+  assert.ok(descendants(sum).some(node => node.getAttribute('data-source') === 'I_Γ'));
+  assert.ok(descendants(sum).some(node => node.getAttribute('data-source') === 'A_i'));
+  assert.ok(paragraph.textContent.includes('År 2026 og 6.65.'));
+  assert.equal(descendants(paragraph).filter(node => node.tagName === 'BUTTON').length, 1, 'Only the explicit proposition reference becomes a link');
+  app.proposition.dispatch('pointerenter', { pointerType: 'mouse' });
+  assert.ok(descendants(app.preview).some(node => node.getAttribute('data-source') === 'e^β'), 'The existing tooltip uses the same mathematical typography');
+});
+
+function cloneElement(element) {
+  const clone = new Element(element.tagName);
+  clone.className = element.className; clone.ownText = element.ownText;
+  for (const [name, value] of element.attributes) clone.setAttribute(name, value);
+  element.children.forEach(child => clone.appendChild(cloneElement(child)));
+  return clone;
+}
+
+test('copying a formula retains its canonical scripts while ordinary copy is untouched', async () => {
+  const text = 'τ^Γ_k(A), I_Γ(A_i), ∑_{k∈I_Γ(A_i)} ω_k og e^β; 2026 (1.1).';
+  const app = await reader({ mathText: text });
+  const paragraph = descendants(app.byId('1.1')).find(node => node.classList.contains('prop-paragraph'));
+  const fragment = new Element('fragment'); fragment.append(cloneElement(paragraph));
+  app.window.getSelection = () => ({ isCollapsed: false, rangeCount: 1,
+    anchorNode: paragraph.children[0], focusNode: paragraph.children.at(-1),
+    containsNode: node => paragraph.contains(node), getRangeAt: () => ({ cloneContents: () => fragment }) });
+  const clipboard = new Map();
+  const event = app.document.dispatch('copy', { clipboardData: { setData: (type, value) => clipboard.set(type, value) } });
+  assert.equal(event.defaultPrevented, true);
+  assert.equal(clipboard.get('text/plain'), text, 'Whole equations copy as the original source, including nested braces');
+
+  const plain = descendants(app.byId('1')).find(node => node.classList.contains('prop-paragraph'));
+  app.window.getSelection = () => ({ isCollapsed: false, rangeCount: 1,
+    anchorNode: plain.children[0], focusNode: plain.children.at(-1),
+    containsNode: node => plain.contains(node), getRangeAt: () => ({ cloneContents: () => cloneElement(plain) }) });
+  const untouched = app.document.dispatch('copy', { clipboardData: { setData() { assert.fail('Ordinary copy must use the browser default'); } } });
+  assert.equal(untouched.defaultPrevented, false);
 });
 
 test('native note and source anchors preview on first touch and navigate on second', async () => {

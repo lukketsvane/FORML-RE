@@ -19,6 +19,7 @@ from migrate_published import migrate, migrate_text, utf16_index
 def historical_fixture(root: Path) -> None:
     """An immutable migration specimen, independent of future author edits."""
     shutil.copy2(ROOT / "vercel.json", root / "vercel.json")
+    shutil.copy2(ROOT / "requirements-build.txt", root / "requirements-build.txt")
     archive = root / "archive" / "2026-11-01"
     archive.mkdir(parents=True)
     original_archive = ROOT / "archive" / "2026-11-01"
@@ -274,6 +275,42 @@ class GlossaryValidation(unittest.TestCase):
         self.entries[0]["connection"] = " "
         self.write_glossary()
         with self.assertRaisesRegex(ValueError, "Empty glossary connection"):
+            load_document(self.root)
+
+
+class ActiveReferenceIntegrity(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        historical_fixture(self.root)
+        (self.root / "tekst/formlaere.txt").write_text("# FORMLÆRE\n\n## Føreord\n\nFøreord.\n\n## Lesekode\n\nKode.\n\n**1d** Form.[[kjelde:1]]\n", encoding="utf-8")
+        self.catalog = {"sources": [{"id": "1", "citation": "Ei brukt kjelde."}], "notes": [], "aliases": {"9001": "1"}}
+        (self.root / "figurar.json").write_text(json.dumps({"assets": []}))
+        edition_path = self.root / "edition.json"
+        edition = json.loads(edition_path.read_text())
+        edition["requireReferencedSources"] = True
+        edition_path.write_text(json.dumps(edition))
+        self.write_catalog()
+
+    def write_catalog(self):
+        (self.root / "kjelder.json").write_text(json.dumps(self.catalog), encoding="utf-8")
+
+    def test_alias_preserves_a_retired_id_without_a_duplicate_entry(self):
+        document = load_document(self.root)
+        self.assertEqual(document["sourceAliases"], {"9001": "1"})
+        self.assertEqual([source["id"] for source in document["sources"]], ["1"])
+
+    def test_alias_must_point_directly_to_an_active_source(self):
+        self.catalog["aliases"] = {"9001": "9002"}
+        self.write_catalog()
+        with self.assertRaisesRegex(ValueError, "Invalid source alias"):
+            load_document(self.root)
+
+    def test_unused_active_reference_is_rejected(self):
+        self.catalog["sources"].append({"id": "2", "citation": "Ei ukopla kjelde."})
+        self.write_catalog()
+        with self.assertRaisesRegex(ValueError, "Unreferenced active sources: 2"):
             load_document(self.root)
 
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -13,6 +14,7 @@ import tempfile
 import zipfile
 
 from content import load_document, input_manifest
+from render_latex import print_figure_path
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "build"
@@ -52,6 +54,7 @@ def verify_pdf(path: Path, doc: dict) -> dict:
     required = ({prop["n"] for prop in doc["props"]}
                 | {"notat-" + note["id"] for note in doc["notes"]}
                 | {"referanse-" + str(source["id"]) for source in doc["sources"]}
+                | {"referanse-" + str(alias) for alias in doc.get("sourceAliases", {})}
                 | {"ord-" + entry["id"] for entry in doc.get("glossary", [])})
     if required - destinations:
         raise ValueError("PDF destinations missing: " + ", ".join(sorted(required - destinations)))
@@ -61,13 +64,57 @@ def verify_pdf(path: Path, doc: dict) -> dict:
     return {"pages": len(reader.pages), "destinations": len(required), **counts(doc)}
 
 
+def convert_svg(source: Path, destination: Path) -> None:
+    """Keep the drawing vector-based and remove converter clock metadata."""
+    import cairosvg
+    from pypdf import PdfReader, PdfWriter
+
+    converted = cairosvg.svg2pdf(url=str(source), unsafe=False)
+    reader = PdfReader(BytesIO(converted))
+    if len(reader.pages) != 1 or any(float(edge) <= 0 for edge in
+                                     (reader.pages[0].mediabox.width, reader.pages[0].mediabox.height)):
+        raise ValueError("SVG did not produce one nonempty PDF page: " + source.name)
+    writer = PdfWriter()
+    writer.append_pages_from_reader(reader)
+    writer.add_metadata({"/Producer": "CairoSVG " + cairosvg.__version__,
+                         "/CreationDate": "D:20000101000000Z", "/ModDate": "D:20000101000000Z"})
+    writer.write(destination)
+
+
+def prepare_print_figures(doc: dict, work: Path) -> list[Path]:
+    """Rebuild only active print assets, excluding retired or stale figures."""
+    images = work / "illustrations"
+    if images.exists():
+        shutil.rmtree(images)
+    images.mkdir(parents=True)
+    prepared = {}
+    for figure in doc["figures"]:
+        source = ROOT / "nettstad" / "illustrations" / figure["file"]
+        destination = work / print_figure_path(figure["file"])
+        if destination in prepared:
+            raise ValueError("Conflicting print figure filename: " + destination.name)
+        if source.suffix.lower() == ".svg":
+            convert_svg(source, destination)
+        else:
+            shutil.copyfile(source, destination)
+        prepared[destination] = source
+    return sorted(prepared)
+
+
+def package_latex(work: Path, figures: list[Path], bundle: Path) -> None:
+    """The portable package contains ready-to-use figures, never a converter."""
+    with zipfile.ZipFile(bundle.with_suffix(".zip.tmp"), "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for path in [work / "formlaere.tex", *figures]:
+            info = zipfile.ZipInfo(path.relative_to(work).as_posix(), date_time=(2000, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            archive.writestr(info, path.read_bytes())
+    bundle.with_suffix(".zip.tmp").replace(bundle)
+
+
 def build_pdf(doc: dict) -> None:
     work = BUILD / "latex"
     work.mkdir(parents=True, exist_ok=True)
-    images = work / "illustrations"
-    images.mkdir(exist_ok=True)
-    for figure in doc["figures"]:
-        shutil.copyfile(ROOT / "nettstad" / "illustrations" / figure["file"], images / figure["file"])
+    figures = prepare_print_figures(doc, work)
     subprocess.run(["python3", str(ROOT / "scripts" / "render_latex.py"),
                     "--document", str(BUILD / "document.json"), "--output", str(work / "formlaere.tex")], check=True)
     env = dict(os.environ, SOURCE_DATE_EPOCH="946684800", FORCE_SOURCE_DATE="1")
@@ -85,12 +132,7 @@ def build_pdf(doc: dict) -> None:
     shutil.copyfile(work / "formlaere.pdf", staged_pdf)
     staged_pdf.replace(PDF / "formlaere.pdf")
     bundle = PDF / "formlaere-latex.zip"
-    with zipfile.ZipFile(bundle.with_suffix(".zip.tmp"), "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in [work / "formlaere.tex", *sorted(images.glob("*"))]:
-            info = zipfile.ZipInfo(path.relative_to(work).as_posix(), date_time=(2000, 1, 1, 0, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
-            archive.writestr(info, path.read_bytes())
-    bundle.with_suffix(".zip.tmp").replace(bundle)
+    package_latex(work, figures, bundle)
     manifest = {"schemaVersion": 1, "sourceHash": doc["sourceHash"], "inputs": input_manifest(ROOT),
                 "outputs": {"formlaere.pdf": digest(PDF / "formlaere.pdf"), "formlaere-latex.zip": digest(bundle)},
                 "quality": quality, "engine": "XeLaTeX"}

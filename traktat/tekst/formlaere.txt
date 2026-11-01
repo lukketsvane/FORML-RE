@@ -538,17 +538,17 @@ Han er ein agent, ikkje eit sjølv.
 
 **5.123i**  Kolonien: millionar av agentar. Reiret trer fram i feltet mellom agentane.
 
-**5.124i**  Pattedyret: prediksjon, minne, planlegging.[[kjelde:64,65]] Representasjonen strekkjer seg over tid.
+**5.124i**  Pattedyret: prediksjon, minne[[kjelde:101]], planlegging.[[kjelde:64,65]] Representasjonen strekkjer seg over tid.
 
 **5.125i**  Den som formgjev for andre: representasjonen strekkjer seg forbi behova til agenten sjølv, til dei som skal leve med forma.
 
 **5.13a**  Agenten føretrekkjer låg spenning langs dei omsyna måla gjeld. Han svarar på avvik slik dei når han gjennom hinna, og vel etter dei følgjene modellen hans ventar.
 
-Å gå ned i estimert mål-avvik kan då føre mot målet. Det fører ned i det verkelege landskapet berre i den mon estimatet er rett og det som er valt, kan gjennomførast.[[kjelde:63,64]]
+Å gå ned i estimert mål-avvik kan då føre mot målet. Det fører ned i det verkelege landskapet berre i den mon estimatet er rett og det som er valt, kan gjennomførast.[[kjelde:19,64]]
 
 **5.131t**  Målet er ein region i eit gjeve rom, men agenten kan endre kva region han held som mål. Det moglege vert ikkje laga av ønsket; retninga til arbeidet kan verte det.
 
-**5.132t**  Lokal navigasjon kan gje global form utan at nokon ser heilskapen.[[kjelde:63]] Men lokale fall kan stengje vegen til eit betre mål. Kompetanse kan krevje å gå opp ei stund for å kome ned ein annan stad.
+**5.132t**  Lokal navigasjon kan gje global form utan at nokon ser heilskapen.[[kjelde:19]] Men lokale fall kan stengje vegen til eit betre mål. Kompetanse kan krevje å gå opp ei stund for å kome ned ein annan stad.
 
 **5.14d**  Spenninga i 3.1 ligg over formrommet. Den indre spenninga σk (A) er avstanden langs Xk mellom det agenten møter og målregionen hans, slik han verkar inne i agenten. Ho set politikken i rørsle.
 
@@ -600,6 +600,8 @@ Ei eventuell innstillingstid må vere fastsett før prøva. Å kjenne ein politi
 
 Lyskjegla er ikkje grensa for kva agenten sansar eller når, men for kva han kan ha som mål.
 
+I_Γ(A) = {k: ω_k(A) > 0} er akseprojeksjonen av lyskjegla. τ^Γ_k(A) nemner kor langt målet langs X_k rekk fram i tid, rekna frå same starttid som haldsprøva.
+
 **5.221o**  Lyskjegler spenner frå cellulær millisekundrespons til tiårslang konsensus.
 
 **5.222t**  Det som ligg utanfor lyskjegla, set ikkje målretta arbeid i gang. Det kan likevel vere kjent, og det kan verke på agenten anten han kjenner det eller ikkje.
@@ -632,9 +634,7 @@ Blindskap er her ei operativ nemning: ho seier at agenten verken svarar eller ka
 
 **5.2321t**  Vilkåra verkar vidare under blindskap, likesæle og avmakt. Utfallet kan verte verna eller skadd gjennom andre omsyn og gjennom substratet; det uhaldne manglar eit eige hald.
 
-**5.2322t**  Ein akse kan ikkje haldast lenger enn haldshorisonten rekk. Lyskjegla er ikkje bunden av han, men av kor langt måla rekk.
-
-Gapet er avmakt i tid, òg når agenten kan føreseie det som vil skje.
+**5.2322t**  Ein akse kan ikkje haldast lenger enn haldshorisonten τ_k(A) rekk. Lyskjegla er ikkje bunden av denne horisonten. Når τ^Γ_k(A) > τ_k(A), er det overskytande framovervende tidsrommet avmakt i tid, under dei oppgjevne prøvevilkåra. Det gjeld òg når agenten kan føreseie kva som vil skje.
 
 **5.233t**  Ein målregion må skilje mellom tilstandar. Ein region som femner alle alternativ likt, gjev inga retning. Å halde den tilstanden agenten alt er i, kan derimot krevje vedvarande arbeid.
 
@@ -690,7 +690,7 @@ Kapasiteten vert ikkje større berre fordi noko nytt er tenkt eller kjent. Han v
 
 Som «agent av nullte orden» nemner det grensa der berre den materielle verknaden står att, utan modell, politikk og omhug.
 
-**5.401o**  Substratet har to lag: strukturparametrar (den initiale konfigurasjonen) og funksjonsparametrar (reglane som verkar på konfigurasjonen).[[kjelde:92]] Under støy akselererer funksjonsparametrane navigasjonen i formrommet.
+**5.401o**  For eit konkret materielt utgangspunkt skil me mellom strukturparametrar (startkonfigurasjonen) og funksjonsparametrar (reglane som verkar på henne).[[kjelde:92]] Under støy akselererer funksjonsparametrane navigasjonen i formrommet.
 
 **5.4011t**  Strukturparametrane og funksjonsparametrane svarar til startforma og reglane i ein formgrammatikk (1.61).
 
@@ -750,13 +750,13 @@ Skilnaden er kor mykje av hinna det indre held sjølv (5.0222). Han er ikkje i s
 
 T_A(x, x′) = q_A(x, x′) min{1, exp(−β[Φ_A(x′) − Φ_A(x)])}, for x′ ≠ x.
 
-Φ_A(x) = ∑_{k∈Γ(A)} ω_k(A) Λ̂_{A,k}(x).
+Φ_A(x) = ∑_{k∈I_Γ(A)} ω_k(A) Λ̂_{A,k}(x).
 
 q_A føreslår dei grammatikkstega agenten faktisk kan ta under dei materielle vilkåra. Resten av sannsynet vert verande i x. Form = SG(T_A): utfalla av dei gjentekne stega.
 
 Også arbeid som ikkje kan nå toleransen, kan endre forma. Kapasiteten κ seier kva som kan haldast; q_A seier kva som kan gjerast.
 
-Ved små, symmetriske steg i eit glatt, separerbart landskap gjev kjernen lokal rørsle mot lågare estimert spenning, vekta med omhugen. I den grensa kjem gradientskjemaet fram. Ved endeleg β kan politikken òg godta steg oppover.
+Ved små, symmetriske og lokalt isotrope steg, i det indre av eit glatt, tilgjengeleg koordinatrom med lokalt flat grunnfordeling, er gjennomsnittsdrifta for endeleg β proporsjonal med −β ∇Φ_A. Når landskapet er separerbart, kjem den aksevise vektinga med omhug fram. Dette er ei lokal tilnærming; ved endeleg β kan politikken òg godta steg oppover.
 
 **5.71d**  Kjernelikninga bind reglar, vurdering og gjennomføring saman i ein stegprosess. Den eksponentielle politikken er ein presis hypotese om valet mellom stega. Stega, estimata og vektene kan prøvast kvar for seg.
 
@@ -942,7 +942,7 @@ Her er D ei ikkje-tom mengd former som kan nåast frå startforma med tillatne s
 
 For eit endeleg D med endelege verdiar er fordelinga alltid veldefinert. Normaliseringsvilkåra for eit vidare rom står i 6.62. Stegprosessen i 6.64 utleier fordelinga i det endelege tilfellet.
 
-**6.61d**  Λ̂_i(x) = ∑_{k∈Γ(A_i)} ω_k(A_i) Λ̂_{ik}(x), der Λ̂_{ik} er agenten sitt estimerte mål-avvik langs omsyn k og kan avhenge av heile konfigurasjonen.
+**6.61d**  Λ̂_i(x) = ∑_{k∈I_Γ(A_i)} ω_k(A_i) Λ̂_{ik}(x), der Λ̂_{ik} er agenten sitt estimerte mål-avvik langs omsyn k og kan avhenge av heile konfigurasjonen.
 
 w_i ≥ 0 er agenten sin relative innverknad, med ∑_i w_i = 1; β ≥ 0 er seleksjonsstyrken. Estimata må vere skalerte slik at den vekta summen har ei bestemt tyding.
 
@@ -992,7 +992,7 @@ Lokal rørsle og stasjonær fordeling er difor ulike spørsmål. Historia og dei
 
 (i) Ved β = 0 eller konstant Φ er P grunnfordelinga avgrensa til D.
 
-(ii) Med éin agent og Λ̂ = 𝟙 utanfor K+ får ei kjend vellukka form e^β gonger vekta til ei anna med same grunnvekt. Dette er ei føreseiing om val, ikkje ei utleiing av tanke-kunnskapsrørsla.
+(ii) Med éin agent og samla, vekta vurdering Λ̂ som er 0 i K+ og 1 elles, får ei kjend vellukka form e^β gonger så stort sannsyn som ei anna med same grunnvekt. Dette er ei føreseiing om val, ikkje ei utleiing av tanke-kunnskapsrørsla.
 
 (iii) Med fast parameterrom og ei vurdering av alle aksar er modellen ein seleksjonsmodell for optimering. Ein gradientprosess krev ytterlegare vilkår om stega.
 
@@ -1006,7 +1006,7 @@ Lokal rørsle og stasjonær fordeling er difor ulike spørsmål. Historia og dei
 
 Dersom Φ berre avheng av dei haldne koordinatane x_H, får dei andre den vilkårsfordelinga μ_SG gjev når x_H og D er faste. Dette gjev ikkje uavhengigheit mellom aksane; nettopp vilkårsfordelinga kan bere eit indirekte vern.
 
-**6.672t**  Med separerbar spenning, flat lokal grunnfordeling og felles estimert krumming ved eit indre minimum, er
+**6.672t**  Med separerbar spenning, flat lokal grunnfordeling og felles estimert krumming ved eit ikkje-degenerert indre minimum, for β > 0, W_k > 0 og Λ̂_k″ > 0, er
 
 Var(x_k) ≈ 1 / (β W_k Λ̂_k″).
 

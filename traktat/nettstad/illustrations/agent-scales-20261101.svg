@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="806" viewBox="0 0 780 806" role="img" aria-labelledby="title desc">
+  <title id="title">Same svarstruktur, ulik oppløysing</title>
+  <desc id="desc">Fem skjematiske døme frå 5.121–5.125. Termostaten har éi enkel svarsløyfe. Treet har lokale svarsløyfer på fleire greiner. Kolonien har mange samverkande delar rundt eit reir. Hos pattedyret strekkjer modellen seg gjennom minne og venta framtidige tilstandar. Hos den som formgjev for andre, strekkjer representasjonen seg til ein annan svarande agent. Heiltrekte piler viser verknad og tilbakekopling; stipla piler viser representasjon. Teikningane samanliknar organisering, utan ein talfesta rangskala.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#202020"/>
+    </marker>
+    <marker id="model-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L7 3.5 L0 7" fill="none" stroke="#686868" stroke-width="1"/>
+    </marker>
+    <g id="local-loop">
+      <circle r="13" fill="#fff" stroke="#202020" stroke-width="1.4"/>
+      <path d="M-21 -13 C-45 -13 -43 25 -6 29 C30 33 44 -8 18 -24" fill="none" stroke="#202020" stroke-width="1.3" marker-end="url(#arrow)"/>
+    </g>
+    <style>
+      text { font-family: "DejaVu Serif", serif; fill: #202020; }
+      .name { font-size: 22px; }
+      .number { font-family: "DejaVu Sans Mono", monospace; font-size: 14px; fill: #686868; }
+      .link { fill: none; stroke: #202020; stroke-width: 1.4; marker-end: url(#arrow); }
+      .line { fill: none; stroke: #202020; stroke-width: 1.4; }
+      .model { fill: none; stroke: #686868; stroke-width: 1.4; stroke-dasharray: 5 5; }
+      .model-link { fill: none; stroke: #686868; stroke-width: 1.4; stroke-dasharray: 5 5; marker-end: url(#model-arrow); }
+      .state { fill: #fff; stroke: #202020; stroke-width: 1.3; }
+      .rule { stroke: #d2d2d2; stroke-width: 1; }
+      .legend { font-size: 15px; fill: #686868; }
+    </style>
+  </defs>
+
+  <text x="390" y="31" text-anchor="middle" font-size="24">Same svarstruktur · ulik oppløysing</text>
+
+  <!-- One responding unit with one closed feedback path. -->
+  <text class="name" x="20" y="105">Termostat</text>
+  <text class="number" x="20" y="130">5.121</text>
+  <use href="#local-loop" transform="translate(480 109) scale(1.45)"/>
+  <path class="rule" d="M20 179 H760"/>
+
+  <!-- A connected organism; response is local in the branches. -->
+  <text class="name" x="20" y="245">Tre</text>
+  <text class="number" x="20" y="270">5.122</text>
+  <path class="line" d="M480 296 V263 M480 263 L361 228 M480 263 V219 M480 263 L600 228"/>
+  <path class="line" d="M469 294 H491"/>
+  <use href="#local-loop" transform="translate(360 220)"/>
+  <use href="#local-loop" transform="translate(480 211)"/>
+  <use href="#local-loop" transform="translate(600 220)"/>
+  <path class="rule" d="M20 319 H760"/>
+
+  <!-- Local responding units interact; the nest lies between them. -->
+  <text class="name" x="20" y="385">Koloni</text>
+  <text class="number" x="20" y="410">5.123</text>
+  <path class="link" d="M378 360 L432 349"/>
+  <path class="link" d="M458 348 H522"/>
+  <path class="link" d="M548 352 L596 380"/>
+  <path class="link" d="M605 397 L568 425"/>
+  <path class="link" d="M542 432 H428"/>
+  <path class="link" d="M406 425 L370 375"/>
+  <path class="line" d="M378 364 L448 389 M535 364 L510 389 M553 421 L515 405 M427 428 L451 406"/>
+  <use href="#local-loop" transform="translate(365 363) scale(.68)"/>
+  <use href="#local-loop" transform="translate(445 347) scale(.68)"/>
+  <use href="#local-loop" transform="translate(535 350) scale(.68)"/>
+  <use href="#local-loop" transform="translate(608 388) scale(.68)"/>
+  <use href="#local-loop" transform="translate(555 432) scale(.68)"/>
+  <use href="#local-loop" transform="translate(415 434) scale(.68)"/>
+  <path class="line" d="M449 401 Q480 367 512 401 M451 402 Q480 414 510 402 M455 407 Q481 418 506 407 M459 412 Q480 420 502 412"/>
+  <path class="rule" d="M20 459 H760"/>
+
+  <!-- A shared feedback structure with an extended internal model. -->
+  <text class="name" x="20" y="525">Pattedyr</text>
+  <text class="number" x="20" y="550">5.124</text>
+  <ellipse class="state" cx="423" cy="535" rx="68" ry="31"/>
+  <path class="link" d="M368 505 C332 492 324 565 380 580 C446 598 509 559 493 514"/>
+  <rect class="state" x="380" y="527" width="14" height="16"/>
+  <rect class="state" x="416" y="527" width="14" height="16"/>
+  <rect class="state" x="452" y="527" width="14" height="16"/>
+  <path class="link" d="M396 535 H413 M432 535 H449"/>
+  <path class="model-link" d="M468 535 C496 535 515 506 541 506"/>
+  <rect class="model" x="545" y="496" width="22" height="20"/>
+  <path class="model-link" d="M569 506 H609"/>
+  <rect class="model" x="613" y="496" width="22" height="20"/>
+  <path class="model-link" d="M637 506 H677"/>
+  <rect class="model" x="681" y="496" width="22" height="20"/>
+  <path class="rule" d="M20 599 H760"/>
+
+  <!-- Representation reaches another responding agent, beyond own needs. -->
+  <text class="name" x="20" y="664">Formgjevar for andre</text>
+  <text class="number" x="20" y="689">5.125</text>
+  <use href="#local-loop" transform="translate(410 673) scale(1.25)"/>
+  <use href="#local-loop" transform="translate(660 673) scale(1.25)"/>
+  <rect class="state" x="404" y="666" width="12" height="14"/>
+  <path class="model-link" d="M416 666 C479 611 589 613 648 652"/>
+  <path class="link" d="M431 674 H641"/>
+  <path class="link" d="M660 714 V728 H410 V713"/>
+
+  <path class="line" d="M234 775 H280" marker-end="url(#arrow)"/>
+  <text class="legend" x="292" y="781">svarsløyfe</text>
+  <path class="model-link" d="M436 775 H482"/>
+  <text class="legend" x="494" y="781">representasjon</text>
+</svg>
