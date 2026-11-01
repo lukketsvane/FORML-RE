@@ -2,6 +2,24 @@
   "schemaVersion": 1,
   "entries": [
     {
+      "id": "adaptivt-landskap",
+      "term": "Adaptivt landskap",
+      "definition": "Wright sitt bilete av korleis genetiske samansetjingar heng saman med biologisk tilpassing. Toppane står for betre tilpassing, og mellomliggjande dalar kan hindre ein populasjon i å nå ein annan topp.",
+      "propositions": [
+        "3.1",
+        "3.12",
+        "3.41"
+      ],
+      "sources": [
+        "3"
+      ],
+      "fields": [
+        "Evolusjonsbiologi",
+        "Populasjonsgenetikk"
+      ],
+      "connection": "Her vert landskapsbiletet overført til formgjeving, der låg spenning svarar til god tilpassing; likskapen er modelleringsforma, ikkje at design og biologisk seleksjon har same mål eller mekanisme."
+    },
+    {
       "id": "affordanse",
       "term": "Affordanse",
       "definition": "Ei handlingsmoglegheit i forholdet mellom omgjevnadene og evnene til ein organisme. Ei flate kan til dømes bere ein lett kropp og gje etter under ein tung; kva ho tilbyr, avheng av begge.",
@@ -12,7 +30,29 @@
       ],
       "sources": [
         "12"
-      ]
+      ],
+      "fields": [
+        "Økologisk psykologi",
+        "Design"
+      ],
+      "connection": "Handlingsmoglegheiter bind kropp og omgjevnad saman, medan omhugen gjev nokre av dei vekt: det eit sjølv kan gjere, og det som har noko å seie for det, møtest i dei haldne aksane."
+    },
+    {
+      "id": "aktornettverk",
+      "term": "Aktørnettverk",
+      "definition": "Latour si tilnærming til sosial orden som samband mellom menneske, gjenstandar og teknologiar. Ein aktør er noko som gjer ein skilnad i sambanda; analysen følgjer korleis verknader vert sette saman gjennom nettverket.",
+      "propositions": [
+        "6.1",
+        "6.14"
+      ],
+      "sources": [
+        "66"
+      ],
+      "fields": [
+        "Sosiologi",
+        "Vitskapsstudiar"
+      ],
+      "connection": "Saman med distribuert kognisjon opnar dette for å lese formgjeving som fleire samtidige verknader; teksten avgrensar så kven som er agent og designar gjennom eigne krav om hald og omhug."
     },
     {
       "id": "attraktor",
@@ -24,6 +64,28 @@
       ],
       "sources": [
         "19"
+      ],
+      "fields": [
+        "Dynamiske system",
+        "Nevrovitskap"
+      ],
+      "connection": "Eit stabilt mønster kan vere både ei form som går att, og ei regulering som finn attende etter forstyrring; dalbiletet lèt teksten samanlikne desse skalaene."
+    },
+    {
+      "id": "bayesiansk-inferens",
+      "term": "Bayesiansk inferens",
+      "fields": [
+        "Statistisk inferens",
+        "Maskinlæring"
+      ],
+      "definition": "Å oppdatere sannsyn for ukjende storleikar ved å kombinere ei førehandsfordeling med kor sannsynlege dei observerte data er under kvar forklaring.",
+      "connection": "Forventing møter erfaring i ein presis oppdateringsregel; teksten bruker dette sannsynsspråket til å skildre korleis ein modell vert justert gjennom det agenten møter.",
+      "propositions": [
+        "5.11",
+        "5.641"
+      ],
+      "sources": [
+        "112"
       ]
     },
     {
@@ -37,7 +99,12 @@
       ],
       "sources": [
         "111"
-      ]
+      ],
+      "fields": [
+        "Dynamiske system",
+        "Utviklingsbiologi"
+      ],
+      "connection": "Små endringar i vilkåra kan endre kva forløp som er stabile, og gjev teksten eit språk for at nye former kan kome brått; sjølve bifurkasjonen er ei kvalitativ endring i dynamikken."
     },
     {
       "id": "blandingstid",
@@ -49,6 +116,101 @@
       ],
       "sources": [
         "110"
+      ],
+      "fields": [
+        "Sannsynsteori",
+        "Statistisk fysikk"
+      ],
+      "connection": "Fordelingsbiletet i 6.6 krev at stega får tid til å blande; 6.641 markerer grensa der verda endrar seg raskare enn denne tidsskalaen."
+    },
+    {
+      "id": "c-k-teori",
+      "term": "C–K-teori",
+      "definition": "Hatchuel og Weil sin designteori om samspelet mellom konsept og kunnskap. Eit konsept er eit framlegg som den tilgjengelege kunnskapen enno ikkje kan avgjere; design utviklar både framlegga og kunnskapen som kan avgjere dei.",
+      "propositions": [
+        "1.5",
+        "1.54",
+        "5.72"
+      ],
+      "sources": [
+        "16",
+        "17"
+      ],
+      "fields": [
+        "Designteori",
+        "Innovasjonsforsking"
+      ],
+      "connection": "Utvidinga av det tenkte og det kjende vert her kopla til materiale, prøving og agentar; det utenkjelege markerer at ein kunnskapsstand også har ei grense han ikkje kan sjå innanfrå."
+    },
+    {
+      "id": "distribuert-kognisjon",
+      "term": "Distribuert kognisjon",
+      "fields": [
+        "Kognisjonsvitskap",
+        "Antropologi",
+        "Menneske–maskin-samspel"
+      ],
+      "definition": "Eit perspektiv der kognitive oppgåver kan vere organiserte på tvers av personar, reiskapar og ytre representasjonar. Eit navigasjonslag og karta det nyttar, kan til dømes analyserast som eitt oppgåvesystem.",
+      "connection": "Kunnskap og kontroll kan vere fordelte medan ei form vert til; teksten spør vidare når slikt samspel også held noko som ingen av delane kan halde åleine.",
+      "propositions": [
+        "6.1",
+        "6.11",
+        "6.14"
+      ],
+      "sources": [
+        "67"
+      ]
+    },
+    {
+      "id": "entropi",
+      "term": "Entropi",
+      "fields": [
+        "Informasjonsteori",
+        "Statistisk fysikk"
+      ],
+      "definition": "Eit mål på uvissa i ei sannsynsfordeling, eller den gjennomsnittlege overraskinga ved eit utfall. I statistisk fysikk gjeld fordelinga fysiske mikrotilstandar.",
+      "connection": "Uvissa i 5.112 høyrer til informasjonsteorien; denne uvissa og den termodynamiske entropien gjeld ulike fordelingar og kan difor endre seg på ulike måtar.",
+      "propositions": [
+        "5.112",
+        "6.6"
+      ],
+      "sources": [
+        "114"
+      ]
+    },
+    {
+      "id": "epigenetisk-landskap",
+      "term": "Epigenetisk landskap",
+      "definition": "Waddington sitt bilete av korleis utvikling kan følgje ulike stabiliserte baner mot bestemte endtilstandar, som ulike celle- eller vevstypar. Dalane skildrar utviklingsforløp som toler ei viss forstyrring utan å skifte endemål.",
+      "propositions": [
+        "3.1",
+        "3.2"
+      ],
+      "sources": [
+        "8"
+      ],
+      "fields": [
+        "Utviklingsbiologi",
+        "Genetikk"
+      ],
+      "connection": "Biletet gjev teksten eit språk for stabilitet og alternative utviklingsvegar, medan skiljet frå Wright gjer to tidsskalaer synlege: utviklinga av eit individ og evolusjon gjennom generasjonar."
+    },
+    {
+      "id": "overgangar-i-individualitet",
+      "term": "Evolusjonære overgangar i individualitet",
+      "fields": [
+        "Evolusjonsbiologi",
+        "Fleirskalasystem"
+      ],
+      "definition": "Overgangar der tidlegare sjølvstendige einingar vert delar av ei ny biologisk eining som seleksjon kan verke på, som når encella organismar inngår i eit fleircella individ.",
+      "connection": "Frå celle til vev og organisme går spørsmålet frå mange lokale reguleringar til eit felles hald; teksten les den nye sjølvhaldne hinna som ei ny avgrensing i det same opplevingsfeltet.",
+      "propositions": [
+        "6.12",
+        "6.123",
+        "6.211"
+      ],
+      "sources": [
+        "87"
       ]
     },
     {
@@ -62,33 +224,86 @@
       ],
       "sources": [
         "19"
-      ]
+      ],
+      "fields": [
+        "Teoretisk nevrovitskap",
+        "Informasjonsteori"
+      ],
+      "connection": "For eit sjølv les teksten reguleringa utanfrå som minsking av modellavvik og innanfrå som rørsla mellom uro og ro."
     },
     {
       "id": "generativ-modell",
       "term": "Generativ modell",
-      "definition": "Ein sannsynsmodell for korleis skjulte årsaker kan gje opphav til observerbare data. Han kan lage føreseiingar og brukast omvendt: frå det ein observerer til kva årsaker som er sannsynlege.",
+      "definition": "Ein sannsynsmodell som bind ukjende storleikar til observerbare data. Han kan lage føreseiingar og brukast til å slutte frå observasjonar til kva underliggjande storleikar som er sannsynlege.",
       "propositions": [
         "5.11",
         "6.02",
         "7.2"
       ],
       "sources": [
-        "19"
+        "112"
+      ],
+      "fields": [
+        "Statistikk",
+        "Kognisjonsvitskap"
+      ],
+      "connection": "Modellen gjev eit felles språk for føreseiing, minne og mål: kva eit sjølv ventar å møte, er òg med på å forme kva det søkjer."
+    },
+    {
+      "id": "gibbs-boltzmann-fordeling",
+      "term": "Gibbs–Boltzmann-fordeling",
+      "fields": [
+        "Statistisk mekanikk",
+        "Sannsynsteori",
+        "Optimering"
+      ],
+      "definition": "Ei sannsynsfordeling som gjev lågare energi eller kostnad større vekt gjennom ein eksponentialfunksjon. Ein normaliseringskonstant gjer at sannsyn til saman vert éin.",
+      "connection": "6.6 nyttar den same eksponentielle vektinga som statistisk mekanikk og stokastisk optimering; β er her seleksjonsstyrke, medan han i den termiske fordelinga er knytt til invers temperatur.",
+      "propositions": [
+        "6.6",
+        "6.61",
+        "6.64"
+      ],
+      "sources": [
+        "113"
       ]
     },
     {
       "id": "gradient",
       "term": "Gradient",
       "symbol": "∇",
-      "definition": "Ei matematisk pil som viser retninga ein storleik aukar raskast i, og kor bratt auken er. Å følgje den negative gradienten er å ta steg i retning av brattaste fall.",
+      "definition": "Gradienten er ei pil som viser den lokale endringa i ein storleik. Med euklidisk avstand peikar han mot brattaste auke, medan den negative gradienten peikar mot brattaste fall.",
       "propositions": [
         "2.1",
         "5.13",
         "6.642"
       ],
       "sources": [
-        "19"
+        "115"
+      ],
+      "fields": [
+        "Matematisk optimering",
+        "Fysikk"
+      ],
+      "connection": "Landskapsbiletet knyter optimering til regulering; i eit konkret formrom må ein først avgjere kva avstand, retning og tillatne steg tyder."
+    },
+    {
+      "id": "homeostase-allostase",
+      "term": "Homeostase og allostase",
+      "fields": [
+        "Fysiologi",
+        "Reguleringsteori",
+        "Kognisjonsvitskap"
+      ],
+      "definition": "Homeostase er regulering som held viktige indre tilstandar innanfor levelege grenser. Allostase framhevar at regulering òg kan førebu venta behov og samordne fleire prosessar på førehand.",
+      "connection": "Behov, føreseiing og handling møtest i ei regulering som både svarar på og førebur det som kjem; for eit sjølv les teksten dette innanfrå som at noko har noko å seie.",
+      "propositions": [
+        "5.14",
+        "5.114",
+        "5.261"
+      ],
+      "sources": [
+        "118"
       ]
     },
     {
@@ -101,7 +316,12 @@
       "sources": [
         "7",
         "111"
-      ]
+      ],
+      "fields": [
+        "Reguleringsteknikk",
+        "Dynamiske system"
+      ],
+      "connection": "Vegen inn i ein tilstand kan setje vilkåra for vegen ut, slik formhistoria i teksten legg føringar på det neste valet."
     },
     {
       "id": "kanalisering",
@@ -113,7 +333,12 @@
       ],
       "sources": [
         "8"
-      ]
+      ],
+      "fields": [
+        "Utviklingsbiologi",
+        "Dynamiske system"
+      ],
+      "connection": "Det robuste utviklingsforløpet møter formhistoria i biletet av dalvegger: forstyrringar kan endre eit forløp utan å endre mønsteret det vender attende til."
     },
     {
       "id": "kl-divergens",
@@ -125,6 +350,66 @@
       ],
       "sources": [
         "19"
+      ],
+      "fields": [
+        "Informasjonsteori",
+        "Statistikk"
+      ],
+      "connection": "Langs ei akse i lyskjegla les teksten divergens over toleransen utanfrå som modellavvik og innanfrå som uro."
+    },
+    {
+      "id": "konvergent-evolusjon",
+      "term": "Konvergent evolusjon",
+      "fields": [
+        "Evolusjonsbiologi",
+        "Formhistorie"
+      ],
+      "definition": "At liknande trekk utviklar seg uavhengig i ulike utviklingsliner. Likskap i resultatet kan oppstå gjennom ulike genetiske eller utviklingsmessige mekanismar.",
+      "connection": "Uavhengige tradisjonar som nærmar seg liknande former, gjev teksten ein parallell til biologisk konvergens; sams resultat kan vise sams vilkår sjølv når vegane fram er ulike.",
+      "propositions": [
+        "3.41",
+        "4.2"
+      ],
+      "sources": [
+        "117"
+      ]
+    },
+    {
+      "id": "kybernetikk",
+      "term": "Kybernetikk",
+      "fields": [
+        "Reguleringsteori",
+        "Biologi",
+        "Kognisjonsvitskap"
+      ],
+      "definition": "Fagtradisjon som undersøker styring, kommunikasjon og tilbakekopling i dyr, menneske og maskiner.",
+      "connection": "Termostaten, cella og mennesket kan samanliknast gjennom mål, avvik og justering; teksten les denne strukturen vidare innanfrå når reguleringa høyrer til eit sjølv.",
+      "propositions": [
+        "5.1",
+        "5.113"
+      ],
+      "sources": [
+        "4",
+        "5",
+        "7"
+      ]
+    },
+    {
+      "id": "maksimalentropiprinsippet",
+      "term": "Maksimalentropiprinsippet",
+      "fields": [
+        "Informasjonsteori",
+        "Statistisk fysikk",
+        "Inferens"
+      ],
+      "definition": "Ein metode for å velje sannsynsfordeling ut frå avgrensa kunnskap: blant fordelingar som oppfyller dei kjende vilkåra, vel ein den med størst entropi.",
+      "connection": "Eksponentiell vekting kan kome både frå ein slik inferensregel og frå dynamikk som i 6.64; same fordeling kan såleis ha ulike tilblivingsprosessar.",
+      "propositions": [
+        "5.112",
+        "6.6"
+      ],
+      "sources": [
+        "113"
       ]
     },
     {
@@ -136,6 +421,30 @@
       ],
       "sources": [
         "83"
+      ],
+      "fields": [
+        "Sannsynsteori",
+        "Teoretisk biologi"
+      ],
+      "connection": "Den statistiske grensa er her den ytre skildringa av avgrensa tilgang i eitt opplevingsfelt; sjølvhald skil ei verksam hinne frå ei rein analysegrense."
+    },
+    {
+      "id": "morforom",
+      "term": "Morforom",
+      "fields": [
+        "Morfometri",
+        "Evolusjonsbiologi",
+        "Geometri"
+      ],
+      "definition": "Matematisk representasjon av biologisk formvariasjon, der målte eller modellerte eigenskapar plasserer organismar som punkt. Kva avstand og retning tyder, avheng av geometrien i rommet.",
+      "connection": "Tilstandar i dynamikk og morfologi i biologi kan kartleggjast som punkt; formrommet i teksten generaliserer dette grepet, medan geometrien framleis må veljast for kvart empirisk rom.",
+      "propositions": [
+        "1.31",
+        "1.32",
+        "1.322"
+      ],
+      "sources": [
+        "20"
       ]
     },
     {
@@ -150,6 +459,121 @@
       "sources": [
         "4",
         "7"
+      ],
+      "fields": [
+        "Kybernetikk",
+        "Reguleringsteknikk"
+      ],
+      "connection": "For eit sjølv får sløyfa ei innside: eit avvik vert kjent som uro, handlinga svarar, og roa kjem når avviket fell under toleransen."
+    },
+    {
+      "id": "nisjekonstruksjon",
+      "term": "Nisjekonstruksjon",
+      "fields": [
+        "Evolusjonsbiologi",
+        "Økologi"
+      ],
+      "definition": "At organismar endrar miljøvilkår på måtar som endrar seleksjonen på dei sjølve eller andre. Eit døme er at ei beverdemning endrar levevilkåra i området.",
+      "connection": "Som organismar endrar sine levevilkår, endrar realiserte former vilkåra for ny formgjeving; materialet tek vare på følgjer av handlinga og verkar vidare etter henne.",
+      "propositions": [
+        "4.4",
+        "6.4"
+      ],
+      "sources": [
+        "79"
+      ]
+    },
+    {
+      "id": "paretooptimalitet",
+      "term": "Paretooptimalitet",
+      "fields": [
+        "Fleirmålsoptimering",
+        "Økonomi",
+        "Design"
+      ],
+      "definition": "Ei løysing er Paretooptimal når ingen annan mogleg løysing gjer minst eitt mål betre utan å gjere noko anna mål dårlegare.",
+      "connection": "Trykk som strir mot kvarandre, gjer formgjeving til ei avveging mellom fleire mål; Paretoomgrepet skil mellom sjølve kompromisset og spørsmålet om det framleis kan betrast.",
+      "propositions": [
+        "2.13",
+        "2.131",
+        "5.141"
+      ],
+      "sources": [
+        "115"
+      ]
+    },
+    {
+      "id": "politikk",
+      "term": "Politikk",
+      "fields": [
+        "Reguleringsteori",
+        "Maskinlæring",
+        "Nevrovitskap"
+      ],
+      "definition": "Ein regel eller strategi for å velje handling ut frå ein tilstand eller observasjon, kalla policy på engelsk. Han kan gje éi handling eller sannsyn for fleire moglege handlingar.",
+      "connection": "Politikken er staden der modellen vert verksam: kva avvik som utløyser arbeid, lèt omhugen setje spor i handling og seinare i forma.",
+      "propositions": [
+        "5.11",
+        "5.113",
+        "7.03"
+      ],
+      "sources": [
+        "64"
+      ]
+    },
+    {
+      "id": "robustheit",
+      "term": "Robustheit",
+      "fields": [
+        "Systembiologi",
+        "Reguleringsteori",
+        "Ingeniørfag"
+      ],
+      "definition": "At bestemte funksjonar vert oppretthaldne trass i indre eller ytre forstyrringar. Eit system kan vere robust mot éin type påverknad og sårbart for ein annan.",
+      "connection": "Kanalisering i utvikling og feilretting mellom kompetente delar møtest i spørsmålet om kva som vert halde gjennom endring; robustheita gjeld alltid bestemte funksjonar og forstyrringar.",
+      "propositions": [
+        "3.2",
+        "6.132",
+        "6.1321"
+      ],
+      "sources": [
+        "116"
+      ]
+    },
+    {
+      "id": "stiavhengigheit",
+      "term": "Stiavhengigheit",
+      "fields": [
+        "Økonomi",
+        "Teknologihistorie",
+        "Evolusjon"
+      ],
+      "definition": "At rekkjefølgja av tidlegare hendingar påverkar kva utfall som seinare er moglege eller sannsynlege. Sjølvforsterking kan gjere små tidlege skilnader varige.",
+      "connection": "Formhistoria vert eit minne i vilkåra: det som alt er realisert, endrar kva neste agent møter, sjølv om ingen hugsar hendinga som laga sporet.",
+      "propositions": [
+        "4.3",
+        "6.4"
+      ],
+      "sources": [
+        "14"
+      ]
+    },
+    {
+      "id": "variasjonell-inferens",
+      "term": "Variasjonell inferens",
+      "fields": [
+        "Statistisk inferens",
+        "Maskinlæring",
+        "Nevrovitskap"
+      ],
+      "definition": "Å erstatte ei vanskeleg utreknbar sannsynsfordeling med ei enklare tilnærming, vald ved optimering. I vanleg variasjonell inferens vert KL-divergensen frå tilnærminga til den ønskte fordelinga minimert.",
+      "connection": "Optimering av ein modell og navigasjon i eit landskap får eit sams matematisk språk; her er det sannsynsfordelinga som vert tilpassa, medan formgjeving også endrar det modellen handlar om.",
+      "propositions": [
+        "5.11",
+        "5.112"
+      ],
+      "sources": [
+        "112"
       ]
     }
   ]

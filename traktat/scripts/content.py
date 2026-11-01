@@ -207,6 +207,12 @@ def validate_document(document: dict, root: Path) -> None:
                 raise ValueError("Glossary text must use proposition targets, not source markers")
         if "symbol" in entry and (not isinstance(entry["symbol"], str) or not entry["symbol"].strip()):
             raise ValueError("Empty glossary symbol")
+        if "fields" in entry:
+            fields = entry["fields"]
+            if not isinstance(fields, list) or not fields or any(not isinstance(field, str) or not field.strip() for field in fields) or len(fields) != len(set(fields)):
+                raise ValueError("Invalid glossary fields")
+        if "connection" in entry and (not isinstance(entry["connection"], str) or not entry["connection"].strip()):
+            raise ValueError("Empty glossary connection")
         targets = entry.get("propositions")
         if not isinstance(targets, list) or not targets or any(not isinstance(target, str) or target not in numbers for target in targets):
             raise ValueError("Invalid glossary proposition target")

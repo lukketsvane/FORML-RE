@@ -42,7 +42,7 @@ Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vil
 
 ## Ordliste
 
-Ordlista forklarer innlånte fagomgrep teksten føreset at lesaren kjenner. Ho skal ikkje gjenta definisjonane i proposisjonane. Ho står før notat og referansar i begge framstillingane og vert redigert berre i `ordliste.json`:
+Ordlista forklarer innlånte fagomgrep teksten føreset at lesaren kjenner, og viser korleis omgrep frå ulike fagfelt møtest i teksten. Ho skal ikkje gjenta definisjonane i proposisjonane. Ho står før notat og referansar i begge framstillingane og vert redigert berre i `ordliste.json`:
 
 ```json
 {
@@ -59,7 +59,7 @@ Ordlista forklarer innlånte fagomgrep teksten føreset at lesaren kjenner. Ho s
 }
 ```
 
-`symbol` er eit valfritt felt med vanleg Unicode-notasjon. ID-en skal vere ein stabil slug med små ASCII-bokstavar, tal og bindestrek. `propositions` peikar til kvar omgrepet vert brukt; `sources` peikar til grunnlaget i den felles bibliografien. Forklaringane skal vere korte, på nynorsk og forklare fagleg bakgrunn utan å omdefinere modellen. Parseren avviser duplikat, tomme forklaringar og ukjende tilvisingar. Ei endring i ordlista krev eit nytt komplett bygg på same måte som ei tekstendring.
+`symbol` er eit valfritt felt med vanleg Unicode-notasjon. ID-en skal vere ein stabil slug med små ASCII-bokstavar, tal og bindestrek. `propositions` peikar til kvar omgrepet vert brukt; `sources` peikar til grunnlaget i den felles bibliografien. `fields` er ei valfri liste over fagfelt. `connection` vert vist under «I teksten:» og forklarer koplinga til teksten, med skilje mellom analogi, overlapp og fagleg identitet. Forklaringane skal vere korte og på nynorsk; krysskoplingar skal ikkje omdefinere modellen eller framstille ulike fagomgrep som synonym. Parseren avviser duplikat, tomme forklaringar og ukjende tilvisingar. Ei endring i ordlista krev eit nytt komplett bygg på same måte som ei tekstendring.
 
 ## Éin kommando etter ei endring
 

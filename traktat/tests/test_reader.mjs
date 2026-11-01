@@ -61,7 +61,8 @@ async function reader() {
       { kind: 'heading', text: 'Lesekode' }, ...props.map(prop => ({ kind: 'prop', ...prop }))],
     notes: [{ id: 'note-one', number: 1, proposition: '1', relation: 'grunnlag', note: 'Dette er notatet.', sources: ['7'] }],
     sources: [{ id: '7', citation: 'Ei fullstendig bibliografisk kjelde.', doi: '10.1234/example' }],
-    figures: [], glossary: [{ id: 'form', term: 'Form', symbol: 'F', definition: 'Ei ordning av skilnader.', propositions: ['1'], sources: ['7'] }],
+    figures: [], glossary: [{ id: 'form', term: 'Form', symbol: 'F', fields: ['Biologi', 'Dynamiske system'],
+      definition: 'Ei ordning av skilnader.', connection: 'Omgrepet knyter saman faglege perspektiv.', propositions: ['1'], sources: ['7'] }],
   };
   const document = new Element('document'); document.body = new Element('body');
   const read = new Element('main'); read.id = 'read'; read.scrollTop = 0;
@@ -173,6 +174,23 @@ test('glossary bibliography links share the existing source tooltip and native a
   assert.equal(source.getAttribute('aria-describedby'), 'prop-preview');
   assert.equal(source.dispatch('click').defaultPrevented, false);
   assert.equal(app.preview.hidden, true);
+});
+
+test('glossary fields and scoped connections render without changing linked previews', async () => {
+  const app = await reader();
+  const definition = app.byId('ord-form').children.find(node => node.tagName === 'DD');
+  assert.equal(definition.children[0].className, 'endnote-meta');
+  assert.equal(definition.children[0].textContent, 'Biologi · Dynamiske system');
+  assert.equal(definition.children[1].textContent, 'Ei ordning av skilnader.');
+  assert.equal(definition.children[2].textContent, 'I teksten: Omgrepet knyter saman faglege perspektiv.');
+  const proposition = descendants(definition).find(node => node.href === '#1');
+  proposition.dispatch('pointerenter', { pointerType: 'mouse' });
+  assert.equal(app.preview.children[0].textContent, '1 · definisjon');
+  assert.ok(!app.preview.textContent.includes('I teksten:'));
+  const source = descendants(definition).find(node => node.href === '#referanse-7');
+  source.dispatch('pointerenter', { pointerType: 'mouse' });
+  assert.equal(app.preview.children[0].textContent, 'Referanse 7');
+  assert.ok(app.preview.children[1].textContent.includes('Ei fullstendig bibliografisk kjelde.'));
 });
 
 test('the tree viewBox ends just below its longest visible branch', async () => {
