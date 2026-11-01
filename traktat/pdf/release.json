@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "cad11b0624bada51672201c592b6436cbdd54804c6f0c78e45eda331e100d14e",
+  "sourceHash": "33ffd2dbf8c7f881b1223a013c06d08034d0803623d0ad31330b4ffbc5c4ef61",
   "inputs": {
     "edition.json": "7308d8d7f9067a3e0ce67589d39d7a8ebd019c02e8a5a3b80dc0f0b0a78bc488",
     "figurar.json": "4bba7d8aa59c6adb1f943518a7e99fd3902a7228d7ca266d4cf90454d31fa156",
@@ -17,11 +17,11 @@
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "898f680d1def34b940b77112a44448eea63b5b35a5cc393afeb819a360509049",
-    "nettstad/pwa/service-worker.template.js": "468cefac3514752bf70316260fabcdf19c9b94d6f4ec198124e5fe88e6c89c8c",
+    "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
     "nettstad/reader.css": "8ea8d5fa1ba00ba912060c98e14b46feb3a70d06b42c1190f7de68f18e7934cc",
     "nettstad/reader.html": "84b48d4a529cc04aeab98bd991829176b9cb4bd18e8ce814e8ba80d50380e80a",
     "nettstad/reader.js": "e497ad33c792b762d2ed39f49b9fa83575f9bbd206dd4df7348cea490c16ae8b",
-    "scripts/build.py": "6775ba3843a809a622a4dde0769627b75c9eb60b6084b5978abae9d8a8c0f4a5",
+    "scripts/build.py": "2398e04f1fd404ad0244a464f72cfe98b9fdb8b9fa2c0d57e48031e77350980d",
     "scripts/content.py": "2a406c67d9ea48ea428dd685871813646a1ff4b8d3d0b5fba7a897f92e646bbe",
     "scripts/migrate_published.py": "6f818d6e56ede3b0d3d69a24d3c52d1ba6ffe91e5fe86527e824965a5132edf5",
     "scripts/render_latex.py": "cf8f12f3b87b922871df18d0cda5783b6ee1ce2c352e6701317e160e136d922c",
@@ -29,8 +29,8 @@
     "vercel.json": "d247ac19b640da2cfe2bf52d913749ce31187f60dac92b9723363ec3e5a01727"
   },
   "outputs": {
-    "formlaere.pdf": "9a5bf43198cc4173c4147666274c76392e86aeac822abad336b1d7b2281ad7bf",
-    "formlaere-latex.zip": "1555e44fc78e5aea7a6fd6ac132dd27226a5f5fc464eb45f23e3ffa73b58316c"
+    "formlaere.pdf": "b5e70126331459f85e6a5597a4c3620573ecd4e0c0820bfa81c3b619e0ee6c8c",
+    "formlaere-latex.zip": "ee3fb3d70b3f276166969e93f6b3a89dc8c970dc98f006c920e3f031c0ecb712"
   },
   "quality": {
     "pages": 41,

@@ -77,6 +77,9 @@ async function networkFirst(event, navigation = false) {
   let networkResponse;
   try {
     networkResponse = await fetch(event.request);
+    // Navigation redirects have status 0 and ok=false. Let the browser follow
+    // them instead of replacing the requested route with a cached document.
+    if (networkResponse.type === 'opaqueredirect') return networkResponse;
     if (networkResponse.ok) {
       event.waitUntil(remember(event.request, networkResponse.clone()));
       return networkResponse;
