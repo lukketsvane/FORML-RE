@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Shared source parser and validation for web, LaTeX and PDF.
 
-Only the files tekst/formlaere.txt, kjelder.json, figurar.json and edition.json
-are editable content. Neither renderer may infer citations from ordinary numbers.
+The five canonical files are editable content. Neither renderer may infer
+citations from ordinary numbers or maintain a separate glossary.
 """
 from __future__ import annotations
 
@@ -17,7 +17,8 @@ CITE = re.compile(r"\[\[kjelde:(\d+(?:,\d+)*)\]\]")
 NOTE = re.compile(r"\[\[notat:([A-Za-z][A-Za-z0-9_.-]*)\]\]")
 NUMBER = re.compile(r"[1-9]\d*(?:\.\d+)*")
 NOTE_ID = re.compile(r"[A-Za-z][A-Za-z0-9_.-]*")
-CANONICAL = ("tekst/formlaere.txt", "kjelder.json", "figurar.json", "edition.json")
+GLOSSARY_ID = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*")
+CANONICAL = ("tekst/formlaere.txt", "kjelder.json", "figurar.json", "edition.json", "ordliste.json")
 
 
 def parse_source(source: str) -> tuple[list[dict], list[dict]]:
@@ -118,6 +119,9 @@ def load_document(root: Path) -> dict:
     catalog = json.loads((root / "kjelder.json").read_text(encoding="utf-8"))
     figures = json.loads((root / "figurar.json").read_text(encoding="utf-8"))
     edition = json.loads((root / "edition.json").read_text(encoding="utf-8"))
+    glossary = json.loads((root / "ordliste.json").read_text(encoding="utf-8"))
+    if not isinstance(glossary, dict) or glossary.get("schemaVersion") != 1 or not isinstance(glossary.get("entries"), list):
+        raise ValueError("Unsupported glossary schema")
     tokens, props = parse_source(source)
     prop_order = {prop["n"]: index for index, prop in enumerate(props)}
     raw_notes = deepcopy(catalog.get("notes", []))
@@ -148,7 +152,8 @@ def load_document(root: Path) -> dict:
                 token["notes"] = placements
         explicit_note_occurrences.extend(placements)
     document = {"schemaVersion": 1, "sourceHash": source_hash(root), "title": edition["title"], "author": edition["author"],
-                "tokens": tokens, "props": props, "sources": deepcopy(catalog["sources"]), "notes": notes, "figures": deepcopy(figures["assets"])}
+                "tokens": tokens, "props": props, "sources": deepcopy(catalog["sources"]), "notes": notes,
+                "figures": deepcopy(figures["assets"]), "glossary": deepcopy(glossary["entries"])}
     # Placement markers are only used for section notes. Proposition notes
     # already have a stable target and must not acquire duplicate placements.
     for note_id in explicit_note_occurrences:
@@ -181,6 +186,31 @@ def validate_document(document: dict, root: Path) -> None:
     headings = [token.get("text") for token in document["tokens"] if token.get("kind") == "heading"]
     if headings.count("Føreord") != 1 or headings.count("Lesekode") != 1:
         raise ValueError("The shared foreword or reading code is missing or duplicated")
+    glossary = document.get("glossary")
+    if not isinstance(glossary, list):
+        raise ValueError("The shared glossary must be a list")
+    glossary_ids = set()
+    for entry in glossary:
+        if not isinstance(entry, dict):
+            raise ValueError("Invalid glossary entry")
+        entry_id = entry.get("id")
+        if not isinstance(entry_id, str) or not GLOSSARY_ID.fullmatch(entry_id):
+            raise ValueError("Invalid glossary identifier")
+        if entry_id in glossary_ids:
+            raise ValueError("Duplicate glossary identifier")
+        glossary_ids.add(entry_id)
+        for field in ("term", "definition"):
+            if not isinstance(entry.get(field), str) or not entry[field].strip():
+                raise ValueError("Empty glossary " + field)
+            if "[[" in entry[field] or "]]" in entry[field]:
+                raise ValueError("Glossary text must use proposition targets, not source markers")
+        if "symbol" in entry and (not isinstance(entry["symbol"], str) or not entry["symbol"].strip()):
+            raise ValueError("Empty glossary symbol")
+        targets = entry.get("propositions")
+        if not isinstance(targets, list) or not targets or any(not isinstance(target, str) or target not in numbers for target in targets):
+            raise ValueError("Invalid glossary proposition target")
+        if len(targets) != len(set(targets)):
+            raise ValueError("Duplicate glossary proposition target")
     sources = document.get("sources", [])
     ids = [str(source.get("id", "")) for source in sources]
     if not sources or any(not re.fullmatch(r"\d+", value) for value in ids) or len(ids) != len(set(ids)):

@@ -20,7 +20,7 @@ class CommittedReleaseGuard(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.pdf = Path(self.temporary.name)
         self.document = {"sourceHash": "current-source", "props": [{"n": "1"}],
-                         "notes": [], "sources": [{"id": "1"}], "figures": []}
+                         "notes": [], "sources": [{"id": "1"}], "figures": [], "glossary": []}
         # These specimens test release identity, not PDF rendering. The real
         # release renderer separately checks PDF destinations and glyphs.
         assets = {"formlaere.pdf": b"committed PDF specimen", "formlaere-latex.zip": b"committed TeX specimen"}
@@ -28,7 +28,7 @@ class CommittedReleaseGuard(unittest.TestCase):
             (self.pdf / name).write_bytes(data)
         self.manifest = {"sourceHash": "current-source",
                          "outputs": {name: hashlib.sha256(data).hexdigest() for name, data in assets.items()},
-                         "quality": {"propositions": 1, "notes": 0, "references": 1, "figures": 0}}
+                         "quality": {"propositions": 1, "notes": 0, "references": 1, "figures": 0, "glossary": 0}}
         self.write_manifest()
         self.patcher = patch.object(build, "PDF", self.pdf)
         self.patcher.start()
@@ -65,6 +65,11 @@ class CommittedReleaseGuard(unittest.TestCase):
     def test_disagreeing_content_counts_are_rejected(self):
         self.manifest["quality"]["notes"] = 1
         self.write_manifest()
+        with self.assertRaisesRegex(ValueError, "counts differ"):
+            build.require_fresh_pdf(self.document)
+
+    def test_changed_glossary_cannot_reuse_an_edition_without_it(self):
+        self.document["glossary"] = [{"id": "form", "term": "Form"}]
         with self.assertRaisesRegex(ValueError, "counts differ"):
             build.require_fresh_pdf(self.document)
 

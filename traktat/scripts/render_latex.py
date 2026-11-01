@@ -234,6 +234,26 @@ class Renderer:
                     portable_asset = Path("illustrations") / figure["file"]
                     output.append(r"\bookfigure{" + portable_asset.as_posix() + "}{" + tex_escape(figure["alt"]) + "}")
 
+        glossary = self.document.get("glossary", [])
+        if glossary:
+            output.append(r"\clearpage\sectionlabel{ordliste}{Ordliste}")
+            for entry in glossary:
+                output.append(r"\begin{referenceentry}{ord-" + target(entry["id"]) + "}{}")
+                heading = r"\textbf{" + self.prose(entry["term"]) + "}"
+                if entry.get("symbol"):
+                    heading += r"\quad " + self.prose(entry["symbol"])
+                output.append(heading + r"\par\nobreak\vspace{3pt}\nobreak")
+                output.append(self.prose(entry["definition"]))
+                links = []
+                for proposition in entry.get("propositions", []):
+                    proposition = str(proposition)
+                    if proposition not in self.numbers:
+                        raise ValueError(f"Unknown glossary proposition: {proposition}")
+                    links.append(r"\hyperlink{" + target(proposition) + "}{" + proposition + "}")
+                if links:
+                    output.append(r"\entrylinks{" + ", ".join(links) + "}")
+                output.append(r"\end{referenceentry}")
+
         for title, items in [("Notat", self.document["notes"]), ("Referansar", self.document["sources"])]:
             output.append(r"\clearpage\sectionlabel{" + ("notat" if title == "Notat" else "referansar") + "}{" + title + "}")
             for item in items:
@@ -275,7 +295,7 @@ def main() -> None:
     tex = Renderer(document).render()
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(tex, encoding="utf-8")
-    print(json.dumps({"output": str(args.output), "propositions": len(document["props"]), "notes": len(document["notes"]), "sources": len(document["sources"]), "figures": len(document["figures"]), "sourceHash": document["sourceHash"]}, ensure_ascii=False))
+    print(json.dumps({"output": str(args.output), "propositions": len(document["props"]), "glossary": len(document.get("glossary", [])), "notes": len(document["notes"]), "sources": len(document["sources"]), "figures": len(document["figures"]), "sourceHash": document["sourceHash"]}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

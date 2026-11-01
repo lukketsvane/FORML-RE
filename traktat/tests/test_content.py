@@ -31,6 +31,9 @@ def historical_fixture(root: Path) -> None:
         # Real image rendering is checked by the release renderer.
         (assets / item["file"]).write_bytes(b"migration fixture asset")
     migrate(root)
+    # The migration specimen predates the editorial glossary. Its independent
+    # empty catalog keeps future glossary revisions out of historical tests.
+    (root / "ordliste.json").write_text(json.dumps({"schemaVersion": 1, "entries": []}) + "\n", encoding="utf-8")
 
 
 class PublishedMigration(unittest.TestCase):
@@ -182,6 +185,65 @@ class SharedSourceValidation(unittest.TestCase):
         source.write_text(source.read_text() + "\n**8d**  Ei ny utsegn.\n")
         document = load_document(self.root)
         self.assertEqual(len(document["props"]), 376)
+
+
+class GlossaryValidation(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp.name)
+        historical_fixture(self.root)
+        self.entries = [{"id": "form", "term": "Form", "definition": "Ei ordning av skilnader.", "propositions": ["1"]},
+                        {"id": "formrom", "term": "Formrom", "symbol": "𝕄", "definition": "Mengda av alle moglege konfigurasjonar i ein klasse.", "propositions": ["1.31"]}]
+        self.write_glossary()
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def write_glossary(self):
+        (self.root / "ordliste.json").write_text(json.dumps({"schemaVersion": 1, "entries": self.entries}, ensure_ascii=False), encoding="utf-8")
+
+    def test_one_glossary_source_reaches_the_document_and_edition_hash(self):
+        before = load_document(self.root)
+        self.assertEqual(before["glossary"], self.entries)
+        self.entries[0]["definition"] = "Ei ordning av skilnader mellom delar."
+        self.write_glossary()
+        after = load_document(self.root)
+        self.assertEqual(after["glossary"][0]["definition"], self.entries[0]["definition"])
+        self.assertEqual(before["props"], after["props"])
+        self.assertNotEqual(before["sourceHash"], after["sourceHash"])
+
+    def test_duplicate_or_unstable_glossary_ids_are_rejected(self):
+        self.entries[1]["id"] = "form"
+        self.write_glossary()
+        with self.assertRaisesRegex(ValueError, "Duplicate glossary identifier"):
+            load_document(self.root)
+        self.entries[1]["id"] = "form rom"
+        self.write_glossary()
+        with self.assertRaisesRegex(ValueError, "Invalid glossary identifier"):
+            load_document(self.root)
+
+    def test_untraceable_or_duplicate_proposition_targets_are_rejected(self):
+        for targets in ([], ["99.99"], ["1", "1"]):
+            with self.subTest(targets=targets):
+                self.entries[0]["propositions"] = targets
+                self.write_glossary()
+                with self.assertRaisesRegex(ValueError, "glossary proposition target"):
+                    load_document(self.root)
+
+    def test_empty_definitions_terms_and_symbols_are_rejected(self):
+        for field in ("definition", "term", "symbol"):
+            with self.subTest(field=field):
+                original = deepcopy(self.entries)
+                self.entries[0][field] = " "
+                self.write_glossary()
+                with self.assertRaisesRegex(ValueError, "Empty glossary " + field):
+                    load_document(self.root)
+                self.entries = original
+
+    def test_unsupported_glossary_schema_is_rejected(self):
+        (self.root / "ordliste.json").write_text(json.dumps({"schemaVersion": 2, "entries": self.entries}))
+        with self.assertRaisesRegex(ValueError, "glossary schema"):
+            load_document(self.root)
 
 
 if __name__ == "__main__":

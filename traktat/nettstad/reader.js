@@ -20,11 +20,35 @@
   function sourceButton(id){
     const link=make("a","xref",id);link.href="#referanse-"+id;
     link.setAttribute("aria-label","Til referanse "+id);
-    link.addEventListener("click",e=>{clearTimeout(hashTimer);e.stopPropagation();closePreview();});
+    bindPreview(link,()=>sourcePreview(id));
     return link;
   }
   function appendSources(el,ids){
     ids.forEach((id,index)=>{if(index)el.appendChild(document.createTextNode(", "));el.appendChild(sourceButton(String(id)));});
+  }
+  function appendGlossary(){
+    if(!documentData.glossary?.length)return;
+    const section=make("section","endmatter glossary");section.id="ordliste";
+    const heading=make("h2","section-title","Ordliste");heading.id="ordliste-tittel";
+    section.setAttribute("aria-labelledby",heading.id);section.appendChild(heading);
+    const list=make("dl","glossary-list");
+    for(const item of documentData.glossary){
+      const entry=make("div","glossary-entry");entry.id="ord-"+item.id;
+      const term=make("dt","glossary-term",item.term);
+      if(item.symbol)term.appendChild(make("span","glossary-symbol",item.symbol));
+      const definition=make("dd","glossary-definition");
+      definition.appendChild(make("p","",item.definition));
+      if(item.propositions?.length){
+        const refs=make("p","glossary-links");
+        for(const [index,n] of item.propositions.entries()){
+          if(index)refs.appendChild(document.createTextNode(", "));
+          refs.appendChild(propositionLink(n,true));
+        }
+        definition.appendChild(refs);
+      }
+      entry.append(term,definition);list.appendChild(entry);
+    }
+    section.appendChild(list);stream.appendChild(section);
   }
   function appendEndmatter(){
     for(const [kind,title,items] of [["notat","Notat",allNotes],["referansar","Referansar",[...sources.values()]]]){
@@ -39,9 +63,8 @@
         const body=make("div","endnote-body");
         if(isNote){
           const meta=make("div","endnote-meta");
-          const back=make("a","xref",item.proposition||"Føreord");
-          back.href=item.proposition?"#"+item.proposition:"#introduksjon";
-          back.setAttribute("aria-label",item.proposition?"Til proposisjon "+item.proposition:"Til føreordet");
+          const back=item.proposition?propositionLink(item.proposition,true):make("a","xref","Føreord");
+          if(!item.proposition){back.href="#introduksjon";back.setAttribute("aria-label","Til føreordet");}
           meta.appendChild(back);
           if(item.relation)meta.appendChild(document.createTextNode(" · "+item.relation));
           body.appendChild(meta);body.appendChild(make("p","",item.note));
@@ -61,7 +84,7 @@
   let addressWindow=window;
   try{if(window.parent!==window&&window.parent.location.hostname===window.location.hostname)addressWindow=window.parent;}catch(e){}
   function hashNumber(){try{return decodeURIComponent(addressWindow.location.hash.slice(1));}catch(e){return "";}}
-  // A single transient preview for every reference: mouse hover, or first touch.
+  // Every internal reference uses one preview and one interaction model.
   const preview=document.createElement("aside");
   preview.className="prop-preview";
   preview.id="prop-preview";
@@ -77,9 +100,24 @@
     }
     previewAnchor=null;previewMode="";preview.hidden=true;
   }
-  function showPreview(anchor,mode){
-    const n=anchor.dataset.ref,d=byNum.get(n);
-    if(!d)return;
+  function propositionPreview(n){
+    const d=byNum.get(n);if(!d)return null;
+    return {title:d.n+" · "+({d:"definisjon",a:"postulat",t:"teorem",o:"observasjon",i:"illustrasjon"}[d.status]||""),
+      text:d.paragraphs.join("\n\n").replace(/\[\[kjelde:[\d,]+\]\]/g,"").replace(/\*{1,2}/g,"").trim()};
+  }
+  function notePreview(id){
+    const note=noteById.get(id);if(!note)return null;
+    const relation=note.relation?" · "+note.relation:"";
+    const refs=note.sources?.length?"\n\nReferansar: "+note.sources.join(", "):"";
+    return {title:"Notat "+note.number+" · "+(note.proposition||"Føreord")+relation,text:note.note+refs};
+  }
+  function sourcePreview(id){
+    const source=sources.get(String(id));if(!source)return null;
+    const doi=source.doi&&!source.citation.includes(source.doi)?"\n\nDOI: "+source.doi:"";
+    return {title:"Referanse "+source.id,text:source.citation+doi};
+  }
+  function showPreview(anchor,mode,content){
+    if(!content)return;
     if(previewAnchor&&previewAnchor!==anchor)closePreview();
     previewAnchor=anchor;previewMode=mode;
     anchor.classList.add("previewing");
@@ -87,10 +125,10 @@
     anchor.setAttribute("aria-expanded","true");
     const number=document.createElement("div");
     number.className="prop-preview-num";
-    number.textContent=d.n+" · "+({d:"definisjon",a:"postulat",t:"teorem",o:"observasjon",i:"illustrasjon"}[d.status]||"");
+    number.textContent=content.title;
     const body=document.createElement("div");
     body.className="prop-preview-body";
-    const full=d.paragraphs.join("\n\n").replace(/\[\[kjelde:[\d,]+\]\]/g,"").replace(/\*{1,2}/g,"").trim();
+    const full=content.text.trim();
     body.textContent=full.length>335?full.slice(0,332).trimEnd()+"…":full;
     preview.replaceChildren(number,body);
     preview.hidden=false;
@@ -103,6 +141,40 @@
     if(top+height>window.innerHeight-8&&roomAbove>roomBelow)top=rect.top-height-9;
     preview.style.left=left+"px";
     preview.style.top=Math.max(8,Math.min(top,window.innerHeight-height-8))+"px";
+  }
+  function bindPreview(link,content,navigate){
+    let pointerType="mouse";
+    link.addEventListener("pointerdown",e=>{pointerType=e.pointerType;});
+    link.addEventListener("touchstart",()=>{pointerType="touch";},{passive:true});
+    link.addEventListener("pointerenter",e=>{
+      if(e.pointerType==="mouse"||e.pointerType==="pen")showPreview(link,"hover",content());
+    });
+    link.addEventListener("pointerleave",e=>{
+      if((e.pointerType==="mouse"||e.pointerType==="pen")&&previewAnchor===link&&previewMode==="hover")closePreview();
+    });
+    link.addEventListener("focus",()=>{
+      if(link.matches(":focus-visible"))showPreview(link,"focus",content());
+    });
+    link.addEventListener("blur",()=>{if(previewAnchor===link)closePreview();});
+    link.addEventListener("click",e=>{
+      e.stopPropagation();clearTimeout(hashTimer);
+      const modified=e.metaKey||e.ctrlKey||e.shiftKey||e.altKey;
+      const touch=pointerType==="touch"&&e.detail!==0&&!modified;
+      pointerType="mouse";
+      if(touch&&!(previewAnchor===link&&previewMode==="tap")){
+        e.preventDefault();showPreview(link,"tap",content());return;
+      }
+      closePreview();
+      // Native anchors retain keyboard, modifier-key and browser hash behavior.
+      if(navigate&&!(link.tagName==="A"&&modified)){e.preventDefault();navigate();}
+    });
+  }
+  function propositionLink(n,native=false){
+    const link=make(native?"a":"button","xref",n);link.dataset.ref=n;
+    if(native)link.href="#"+n;else link.type="button";
+    link.setAttribute("aria-label","Vis proposisjon "+n);
+    bindPreview(link,()=>propositionPreview(n),()=>go(n));
+    return link;
   }
   function addLinkedText(el,text){
     // Only parenthesized proposition citations become links; numbers in
@@ -117,32 +189,7 @@
         el.appendChild(document.createTextNode(inner.slice(last,match.index)));
         const n=match[0];
         if(byNum.has(n)){
-          const link=document.createElement("button");
-          link.type="button";link.className="xref";link.dataset.ref=n;
-          link.textContent=n;
-          link.setAttribute("aria-label","Vis proposisjon "+n);
-          let pointerType="mouse";
-          link.addEventListener("pointerdown",e=>{pointerType=e.pointerType;});
-          link.addEventListener("touchstart",()=>{pointerType="touch";},{passive:true});
-          link.addEventListener("pointerenter",e=>{
-            if(e.pointerType==="mouse"||e.pointerType==="pen")showPreview(link,"hover");
-          });
-          link.addEventListener("pointerleave",e=>{
-            if((e.pointerType==="mouse"||e.pointerType==="pen")&&previewAnchor===link&&previewMode==="hover")closePreview();
-          });
-          link.addEventListener("focus",()=>{
-            if(link.matches(":focus-visible"))showPreview(link,"hover");
-          });
-          link.addEventListener("click",e=>{
-            e.stopPropagation();e.preventDefault();
-            if(pointerType==="touch"){
-              if(previewAnchor===link&&previewMode==="tap"){closePreview();go(n);}
-              else showPreview(link,"tap");
-            }else{
-              closePreview();go(n);
-            }
-          });
-          el.appendChild(link);
+          el.appendChild(propositionLink(n));
         }else el.appendChild(document.createTextNode(n));
         last=match.index+n.length;
       }
@@ -174,13 +221,13 @@
     for(const id of ids){const note=noteById.get(id);if(!note)continue;
       const link=make("a","xref note-ref","n"+note.number);link.href="#notat-"+id;
       link.setAttribute("aria-label","Til notat "+note.number);
-      link.addEventListener("click",e=>{clearTimeout(hashTimer);e.stopPropagation();closePreview();});el.appendChild(link);
+      bindPreview(link,()=>notePreview(id));el.appendChild(link);
     }
   }
   // Dismiss previews on scrolling, tapping elsewhere, rotating or Escape.
   read.addEventListener("scroll",closePreview,{passive:true});
   document.addEventListener("pointerdown",e=>{
-    if(previewAnchor&&!e.target.closest(".xref"))closePreview();
+    if(previewAnchor&&!previewAnchor.contains(e.target))closePreview();
   },{capture:true});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closePreview();});
   window.addEventListener("resize",closePreview,{passive:true});
@@ -224,7 +271,7 @@
       }
     }
   }
-  appendEndmatter();
+  appendGlossary();appendEndmatter();
   const VW=358,PAD=5,SGAP=5,YROOT=17,YLAB=8,UNIT=75;
   const branches=roots.flatMap(r=>r.kids);
   const STEP=(VW-2*PAD-SGAP*(roots.length-1))/Math.max(1,branches.length);
@@ -272,7 +319,8 @@
     if(performance.now()<navUntil)return;
     if(read.scrollTop<=2){if(current!==order[0])setCurrent(order[0],false);return;}
     const line=read.getBoundingClientRect().top+32;
-    if(document.getElementById("notat")?.getBoundingClientRect().top<=line)return;
+    const endmatter=document.getElementById("ordliste")||document.getElementById("notat");
+    if(endmatter?.getBoundingClientRect().top<=line)return;
     let candidate=null;
     for(const n of order){
       const r=byRow.get(n).getBoundingClientRect();

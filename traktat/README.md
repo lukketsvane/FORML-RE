@@ -1,6 +1,6 @@
 # FORMLÆRE
 
-Teksten vert redigert éin stad og lesen av den same parseren før nettstad, LaTeX og PDF vert bygde. Føreord, lesekode, proposisjonar, notat, referansar og figurar høyrer til same utgåve.
+Teksten vert redigert éin stad og lesen av den same parseren før nettstad, LaTeX og PDF vert bygde. Føreord, lesekode, proposisjonar, ordliste, notat, referansar og figurar høyrer til same utgåve.
 
 ## Kva me redigerer
 
@@ -10,10 +10,11 @@ Teksten vert redigert éin stad og lesen av den same parseren før nettstad, LaT
 | `kjelder.json` | Bibliografipostar og notat med stabile ID-ar og mål i teksten. |
 | `figurar.json` | Plassering, filnamn og alternativ tekst for figurar. |
 | `edition.json` | Tittel, forfattar og reglar for utgåva, mellom anna utelatne kjelde-ID-ar. |
+| `ordliste.json` | Omgrep med stabile ID-ar, korte forklaringar og tilvisingar til proposisjonane dei byggjer på. |
 
 Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseringa skal gjerast i `figurar.json`, slik at begge formata får same figur på same stad.
 
-Dette er dei fire felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av teksten i HTML eller LaTeX. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
+Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av teksten eller ordlista i HTML eller LaTeX. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
 
 ## Tekst og kjelder
 
@@ -38,6 +39,26 @@ Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat
 Migreringa bevarer den publiserte utgåva med 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala er ein kontroll av overføringa, ikkje ei fast grense i lesaren. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
 
 Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vilje, og holet i nummereringa skal stå.
+
+## Ordliste
+
+Ordlista står etter proposisjonane og før notat og referansar i begge framstillingane. Ho vert redigert berre i `ordliste.json`, med denne strukturen:
+
+```json
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "form",
+      "term": "Form",
+      "definition": "Ei ordning av skilnader.",
+      "propositions": ["1"]
+    }
+  ]
+}
+```
+
+`symbol` er eit valfritt felt med vanleg Unicode-notasjon. ID-en skal vere ein stabil slug med små ASCII-bokstavar, tal og bindestrek; han gjev ankeret `ord-form` i dømet. Forklaringane skal vere korte, på nynorsk og bygde på dei oppgjevne proposisjonane, utan å leggje til nye teoretiske påstandar. Parseren avviser duplikat, tomme forklaringar og tilvisingar til proposisjonar som ikkje finst. Ei endring i ordlista endrar kjeldehashen og krev eit nytt komplett bygg på same måte som ei tekstendring.
 
 ## Éin kommando etter ei endring
 

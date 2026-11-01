@@ -39,7 +39,8 @@ def document() -> dict:
 
 def counts(doc: dict) -> dict:
     return {"propositions": len(doc["props"]), "notes": len(doc["notes"]),
-            "references": len(doc["sources"]), "figures": len(doc["figures"])}
+            "references": len(doc["sources"]), "figures": len(doc["figures"]),
+            "glossary": len(doc.get("glossary", []))}
 
 
 def verify_pdf(path: Path, doc: dict) -> dict:
@@ -50,7 +51,8 @@ def verify_pdf(path: Path, doc: dict) -> dict:
     destinations = set(reader.named_destinations)
     required = ({prop["n"] for prop in doc["props"]}
                 | {"notat-" + note["id"] for note in doc["notes"]}
-                | {"referanse-" + str(source["id"]) for source in doc["sources"]})
+                | {"referanse-" + str(source["id"]) for source in doc["sources"]}
+                | {"ord-" + entry["id"] for entry in doc.get("glossary", [])})
     if required - destinations:
         raise ValueError("PDF destinations missing: " + ", ".join(sorted(required - destinations)))
     extracted = "\n".join(page.extract_text() or "" for page in reader.pages)
@@ -165,7 +167,7 @@ def build_web(doc: dict) -> None:
 def check() -> None:
     subprocess.run(["python3", "-m", "unittest", "discover", "-s", "tests", "-v"], cwd=ROOT, check=True)
     subprocess.run(["node", "--check", "nettstad/reader.js"], cwd=ROOT, check=True)
-    subprocess.run(["node", "--test", "tests/test_service_worker.mjs"], cwd=ROOT, check=True)
+    subprocess.run(["node", "--test", "tests/test_service_worker.mjs", "tests/test_reader.mjs"], cwd=ROOT, check=True)
 
 
 def main() -> None:

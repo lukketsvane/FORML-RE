@@ -132,6 +132,13 @@ body{
 .endmatter{margin-top:3rem;scroll-margin-top:1rem}
 .endmatter .section-title{margin-bottom:.8rem}
 .endmatter-list{list-style:none;margin:0;padding:0}
+.glossary-list{margin:0;padding:0}
+.glossary-entry{margin:0 0 .8rem 3.35rem;font-size:.81rem;line-height:1.45;scroll-margin-top:1rem}
+.glossary-term{font-weight:600;margin:0 0 .15rem}
+.glossary-symbol{font-weight:400;font-style:italic;margin-left:.45em}
+.glossary-definition{margin:0;min-width:0;overflow-wrap:anywhere}
+.glossary-definition p{margin:0}
+.glossary-definition .glossary-links{margin-top:.2rem;font:400 .65rem var(--mono);color:var(--dim)}
 .endnote{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:.35rem;padding:.45rem 0;font-size:.81rem;line-height:1.45;scroll-margin-top:1rem}
 .endnote-number{font:400 .65rem var(--mono);color:var(--dim);padding-top:.12rem}
 .endnote-body{min-width:0;overflow-wrap:anywhere}
@@ -153,6 +160,7 @@ body{
   .prop .n{font-size:8pt}
   .endmatter{break-before:page}
   .endnote{break-inside:avoid;font-size:9pt}
+  .glossary-entry{break-inside:avoid;font-size:9pt}
   p{orphans:3;widows:3}
   .xref{text-decoration:none}
   .tractate-figure{break-inside:avoid}
