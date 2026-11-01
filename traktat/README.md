@@ -77,7 +77,7 @@ Frå `traktat/`:
 make all
 ```
 
-Kommandoen kontrollerer kjeldene, byggjer LaTeX, kompilerer PDF-en og lagar nettutgåva. Først når heile byggjet har lukkast, er utgåva klar til å publiserast. Dette er eit lokalt byggjesteg som må køyrast etter redigering; det skjer ingen automatisk publisering berre ved å lagre LaTeX-kjelda.
+Kommandoen kontrollerer kjeldene, byggjer LaTeX, kompilerer PDF-en og lagar nettutgåva. Utskriftsfilene vert klargjorde som éi komplett mappe med PDF, LaTeX-pakke og manifest før dei erstattar førre utgåve. Nettbyggjet vert òg klargjort før utskifting. Ved feil under pakking eller utskifting vert førre komplette utgåve bevart. Byggjet stoppar dersom kjelder, figurar eller byggjeinngangar endrar seg undervegs; køyr kommandoen på nytt etter redigeringa. Først når heile byggjet har lukkast, er utgåva klar til å publiserast. Dette er eit lokalt byggjesteg som må køyrast etter redigering; det skjer ingen automatisk publisering berre ved å lagre LaTeX-kjelda.
 
 Etterpå skal dei endra kjeldefilene og heile `pdf/` leggjast i same commit. Dersom me har endra utforming eller byggjekode, må dei endringane òg vere med. Me redigerer aldri den genererte PDF-en eller LaTeX-byggjefila i `build/latex/` for hand. Den handredigerte kjelda er `tekst/formlaere.tex`.
 

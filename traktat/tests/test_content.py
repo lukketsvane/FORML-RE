@@ -9,6 +9,7 @@ import tempfile
 import unittest
 from copy import deepcopy
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -115,6 +116,26 @@ class SharedSourceValidation(unittest.TestCase):
     def write_source(self, text):
         (self.root / "tekst" / "formlaere.txt").write_text(text, encoding="utf-8")
         (self.root / "tekst" / "formlaere.tex").write_text(migrate_to_latex(text), encoding="utf-8")
+
+    def test_edit_during_loading_cannot_label_old_content_with_a_new_hash(self):
+        source = self.root / "tekst" / "formlaere.tex"
+        original_read = Path.read_text
+        changed = False
+
+        def edit_after_read(path, *args, **kwargs):
+            nonlocal changed
+            value = original_read(path, *args, **kwargs)
+            if path == source and not changed:
+                changed = True
+                path.write_text(value + "\n% Endra medan dokumentet vart lese.\n", encoding="utf-8")
+            return value
+
+        with patch.object(Path, "read_text", edit_after_read):
+            with self.assertRaisesRegex(ValueError, "Source changed while loading"):
+                load_document(self.root)
+        self.assertTrue(changed)
+        # A clean retry uses the edited source and its own fingerprint.
+        self.assertEqual(load_document(self.root)["sourceHash"], source_hash(self.root))
 
     def test_unknown_citation_fails_instead_of_silent_missing_link(self):
         text = (self.root / "tekst" / "formlaere.txt").read_text()

@@ -117,7 +117,7 @@
   }
   function propositionPreview(n){
     const d=byNum.get(n);if(!d)return null;
-    return {title:d.n+" · "+({d:"definisjon",a:"postulat",t:"teorem",o:"observasjon",i:"illustrasjon"}[d.status]||""),
+    return {title:d.n+" · "+({d:"definisjon",a:"postulat/hypotese",t:"følgje under oppgjevne vilkår",o:"observasjon",i:"illustrasjon"}[d.status]||""),
       text:d.paragraphs.join("\n\n").replace(/\[\[kjelde:[\d,]+\]\]/g,"").replace(/\*{1,2}/g,"").trim()};
   }
   function notePreview(id){

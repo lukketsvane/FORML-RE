@@ -52,10 +52,10 @@ class Element {
 
 function descendants(element) { return [element, ...element.children.flatMap(descendants)]; }
 
-async function reader({ mathText, mathematics = {}, extraSource = false } = {}) {
+async function reader({ mathText, mathematics = {}, extraSource = false, status = 't' } = {}) {
   const props = [
     { n: '1', status: 'd', paragraphs: ['Form med kjelde.[[kjelde:7]] Sjå (1.1).'], notes: ['note-one'] },
-    { n: '1.1', status: 't', paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
+    { n: '1.1', status, paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
     { n: '1.11', status: 't', paragraphs: ['Ei nærare utgreiing.'], notes: [] },
     { n: '1.111', status: 'i', paragraphs: ['Eit døme.'], notes: [] },
     { n: '1.1111', status: 'o', paragraphs: ['Den siste i greina.'], notes: [] },
@@ -111,7 +111,7 @@ async function reader({ mathText, mathematics = {}, extraSource = false } = {}) 
 
 test('notes, sources and propositions share the same hover and focus preview', async () => {
   const app = await reader();
-  for (const [link, title, text] of [[app.proposition, '1.1 · teorem', 'Ein utfyllande proposisjon.'],
+  for (const [link, title, text] of [[app.proposition, '1.1 · følgje under oppgjevne vilkår', 'Ein utfyllande proposisjon.'],
     [app.note, 'Notat 1 · 1 · grunnlag', 'Referansar: 1'],
     [app.source, 'Referanse 1', 'DOI: 10.1234/example']]) {
     link.dispatch('pointerenter', { pointerType: 'mouse' });
@@ -348,4 +348,13 @@ test('whole display math copies as TeX when Chromium containsNode reports only p
     containsNode:()=>false,getRangeAt:()=>({cloneContents:()=>fragment,compareBoundaryPoints:point=>point===0?-1:1})});
   const clipboard=new Map();app.document.dispatch('copy',{clipboardData:{setData:(type,value)=>clipboard.set(type,value)}});
   assert.equal(clipboard.get('text/plain'),String.raw`\[\frac{a}{b}\]`);
+});
+
+
+test('proposition previews describe hypotheses and conditional consequences using the reading code', async () => {
+  for (const [status, label] of [['a', 'postulat/hypotese'], ['t', 'følgje under oppgjevne vilkår']]) {
+    const app = await reader({ status });
+    app.proposition.dispatch('pointerenter', { pointerType: 'mouse' });
+    assert.equal(app.preview.children[0].textContent, '1.1 · ' + label);
+  }
 });
