@@ -1,0 +1,102 @@
+name: FORMLÆRE
+
+on:
+  push:
+    paths:
+      - 'traktat/**'
+      - '.github/workflows/formlaere.yml'
+  pull_request:
+    paths:
+      - 'traktat/**'
+      - '.github/workflows/formlaere.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: formlaere-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: traktat
+        shell: bash
+    env:
+      SOURCE_DATE_EPOCH: '946684800'
+      FORCE_SOURCE_DATE: '1'
+    steps:
+      - name: Check out the exact commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: traktat/requirements-build.txt
+
+      - name: Install pinned Python dependencies
+        run: python3 -m pip install -r requirements-build.txt
+
+      - name: Reject stale committed print files before rebuilding
+        run: make check-generated
+
+      - name: Install the TeX toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            texlive-xetex texlive-latex-extra texlive-lang-european \
+            texlive-fonts-recommended fonts-dejavu-core poppler-utils
+
+      - name: Build and validate the complete edition
+        run: make all
+
+      - name: Compile the portable LaTeX bundle independently
+        run: |
+          portable_dir="$RUNNER_TEMP/formlaere-portable"
+          python3 -m zipfile -e pdf/formlaere-latex.zip "$portable_dir"
+          cd "$portable_dir"
+          for pass in 1 2; do
+            if ! xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error formlaere.tex > compile.log 2>&1; then
+              tail -n 100 compile.log
+              exit 1
+            fi
+          done
+
+      - name: Validate the portable PDF against the same source
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          from pathlib import Path
+          root = Path.cwd()
+          sys.path.insert(0, str(root / 'scripts'))
+          from build import verify_pdf
+          from content import load_document
+          portable = Path(os.environ['RUNNER_TEMP']) / 'formlaere-portable' / 'formlaere.pdf'
+          print(json.dumps(verify_pdf(portable, load_document(root)), ensure_ascii=False))
+          PY
+
+      - name: Keep the static release
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: formlaere-static-release
+          path: traktat/nettstad/dist/
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Keep the print edition and its provenance
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: formlaere-print
+          path: traktat/pdf/
+          if-no-files-found: error
+          retention-days: 14

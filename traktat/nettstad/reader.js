@@ -1,148 +1,112 @@
-import {splitCitations, plainText, validateEdition} from "./content.mjs";
-
-// WebKit can ignore user-scalable=no on iPhone. Suppress pinch gestures,
-// but keep single-finger scrolling and reader controls entirely native.
-(function preventPagePinch(){
-  const stopIfMultitouch = event => {
-    if (event.touches && event.touches.length > 1 && event.cancelable) {
-      event.preventDefault();
-    }
-  };
-  document.addEventListener('touchstart', stopIfMultitouch, {passive:false, capture:true});
-  document.addEventListener('touchmove', stopIfMultitouch, {passive:false, capture:true});
-  for (const name of ['gesturestart','gesturechange']) {
-    document.addEventListener(name, event => {
-      if (event.cancelable) event.preventDefault();
-    }, {passive:false, capture:true});
-  }
-})();
 (async function siteInit(){
-  const [response, sourceResponse] = await Promise.all([
-    fetch("/data/formlaere.txt", {cache:"no-store"}),
-    fetch("/data/kjelder.json", {cache:"no-store"})
-  ]);
-  if(!response.ok || !sourceResponse.ok) throw new Error("Kunne ikkje laste FORMLÆRE");
-  const [sourceText, catalog] = await Promise.all([response.text(), sourceResponse.json()]);
-  const parsed=validateEdition(sourceText,catalog), DATA=parsed.props, TOKENS=parsed.tokens;
-  const sources = new Map(catalog.sources.map(source=>[source.id,source]));
+  const response=await fetch("/traktat/document.json",{cache:"no-cache"});
+  if(!response.ok)throw new Error("Kunne ikkje laste FORMLÆRE");
+  const documentData=await response.json(),DATA=documentData.props,TOKENS=documentData.tokens;
+  if(documentData.schemaVersion!==1||!DATA.length)throw new Error("Ufullstendig utgåve av FORMLÆRE");
+  const expectedSource=document.querySelector('meta[name="formlaere-source"]').content;
+  if(expectedSource!==documentData.sourceHash)throw new Error("Utgåva er oppdatert. Last sida på nytt.");
   const byNum=new Map(DATA.map(d=>[d.n,d]));
   for(const d of DATA){d.kids=[];let p=d.n.slice(0,-1);while(p&&!byNum.has(p))p=p.slice(0,-1);d.parent=p||null;}
   for(const d of DATA){if(d.parent)byNum.get(d.parent).kids.push(d);}
   function depthOf(d){return d.parent?1+depthOf(byNum.get(d.parent)):0;}
   for(const d of DATA)d.depth=depthOf(d);
   const roots=DATA.filter(d=>!d.parent),order=DATA.map(d=>d.n);
-  const byRow=new Map(),read=document.getElementById("read"),stream=document.getElementById("stream"),pos=document.getElementById("pos"),svg=document.getElementById("tree"),NS="http://www.w3.org/2000/svg";
+  const byRow=new Map(),read=document.getElementById("read"),stream=document.getElementById("stream"),svg=document.getElementById("tree"),NS="http://www.w3.org/2000/svg";
   let current=order[0],hashTimer=0,scrollFrame=0,navUntil=0;
   const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+  const catalog={sources:documentData.sources};
+  const sources=new Map(documentData.sources.map(s=>[String(s.id),s]));
+  const allNotes=documentData.notes,noteById=new Map(allNotes.map(note=>[note.id,note]));
+  function sourceButton(id){
+    const link=make("a","xref",id);link.href="#referanse-"+id;
+    link.setAttribute("aria-label","Til referanse "+id);
+    link.addEventListener("click",e=>{clearTimeout(hashTimer);e.stopPropagation();closePreview();});
+    return link;
+  }
+  function appendSources(el,ids){
+    ids.forEach((id,index)=>{if(index)el.appendChild(document.createTextNode(", "));el.appendChild(sourceButton(String(id)));});
+  }
+  function appendEndmatter(){
+    for(const [kind,title,items] of [["notat","Notat",allNotes],["referansar","Referansar",[...sources.values()]]]){
+      const section=make("section","endmatter");section.id=kind;
+      const heading=make("h2","section-title",title);heading.id=kind+"-tittel";
+      section.setAttribute("aria-labelledby",heading.id);section.appendChild(heading);
+      const list=make("ol","endmatter-list");
+      items.forEach((item,index)=>{
+        const isNote=kind==="notat",number=isNote?item.number:item.id;
+        const entry=make("li","endnote");entry.id=(isNote?"notat-":"referanse-")+(isNote?item.id:item.id);
+        entry.appendChild(make("span","endnote-number",isNote?"n"+number:String(number)));
+        const body=make("div","endnote-body");
+        if(isNote){
+          const meta=make("div","endnote-meta");
+          const back=make("a","xref",item.proposition||"Føreord");
+          back.href=item.proposition?"#"+item.proposition:"#introduksjon";
+          back.setAttribute("aria-label",item.proposition?"Til proposisjon "+item.proposition:"Til føreordet");
+          meta.appendChild(back);
+          if(item.relation)meta.appendChild(document.createTextNode(" · "+item.relation));
+          body.appendChild(meta);body.appendChild(make("p","",item.note));
+          const refs=make("p","source-links","[");appendSources(refs,item.sources||[]);refs.appendChild(document.createTextNode("]"));body.appendChild(refs);
+        }else{
+          body.appendChild(make("p","",item.citation));
+          const url=item.url||(item.doi?"https://doi.org/"+item.doi:null);
+          if(url){try{const parsedUrl=new URL(url);if(["https:","http:"].includes(parsedUrl.protocol)){
+            const link=make("a","source-links",item.doi?"DOI: "+item.doi:"Opne kjelda");link.href=parsedUrl.href;link.target="_blank";link.rel="noopener noreferrer";body.appendChild(link);
+          }}catch(e){}}
+        }
+        entry.appendChild(body);list.appendChild(entry);
+      });
+      section.appendChild(list);stream.appendChild(section);
+    }
+  }
   let addressWindow=window;
   try{if(window.parent!==window&&window.parent.location.hostname===window.location.hostname)addressWindow=window.parent;}catch(e){}
   function hashNumber(){try{return decodeURIComponent(addressWindow.location.hash.slice(1));}catch(e){return "";}}
-  // One quiet overlay serves both proposition and source previews.
+  // A single transient preview for every reference: mouse hover, or first touch.
   const preview=document.createElement("aside");
   preview.className="prop-preview";
-  preview.id="reference-preview";
+  preview.id="prop-preview";
   preview.setAttribute("role","tooltip");
   preview.hidden=true;
   document.body.appendChild(preview);
-  const anchorNotes=new WeakMap();
-  const renderedNotes=new WeakSet();
-  let previewAnchor=null,previewMode="",closeTimer=0;
+  let previewAnchor=null,previewMode="";
   function closePreview(){
-    clearTimeout(closeTimer);
     if(previewAnchor){
       previewAnchor.classList.remove("previewing");
       previewAnchor.removeAttribute("aria-describedby");
+      previewAnchor.removeAttribute("aria-expanded");
     }
     previewAnchor=null;previewMode="";preview.hidden=true;
   }
-  function scheduleClose(){
-    clearTimeout(closeTimer);
-    closeTimer=setTimeout(()=>{
-      if(previewMode==="hover"&&!preview.matches(":hover")&&!previewAnchor?.matches(":hover"))closePreview();
-    },160);
-  }
-  function positionPreview(anchor){
-    const rect=anchor.getBoundingClientRect();
-    const view=window.visualViewport;
-    const vw=view?.width||window.innerWidth,vh=view?.height||window.innerHeight;
-    const width=preview.getBoundingClientRect().width;
-    const left=Math.max(12,Math.min(vw-width-12,rect.left+rect.width/2-width/2));
-    const height=preview.getBoundingClientRect().height;
-    const roomAbove=rect.top-12,roomBelow=vh-rect.bottom-12;
-    let top=roomAbove>=height?rect.top-height-7:rect.bottom+7;
-    if(top+height>vh-8&&roomAbove>roomBelow)top=rect.top-height-7;
-    preview.style.left=left+"px";
-    preview.style.top=Math.max(8,Math.min(top,vh-height-8))+"px";
-  }
   function showPreview(anchor,mode){
-    clearTimeout(closeTimer);
+    const n=anchor.dataset.ref,d=byNum.get(n);
+    if(!d)return;
     if(previewAnchor&&previewAnchor!==anchor)closePreview();
-    const note=anchorNotes.get(anchor),d=byNum.get(anchor.dataset.ref);
-    if(!note&&!d)return;
     previewAnchor=anchor;previewMode=mode;
     anchor.classList.add("previewing");
-    anchor.setAttribute("aria-describedby",preview.id);
-    const number=make("div","prop-preview-num");
-    const body=make("div","prop-preview-body");
-    if(note){
-      preview.classList.add("source-preview");
-      number.textContent=note.sources.length===1?"Kjelde":"Kjelder";
-      for(const id of note.sources){
-        const source=sources.get(id);
-        if(!source)continue;
-        body.appendChild(make("p","source-citation","["+id+"] "+source.citation));
-      }
-      for(const explanation of note.notes||(note.note?[note]:[])){
-        const relation=explanation.relation?explanation.relation+": ":"";
-        body.appendChild(make("p","source-note",relation+explanation.note));
-      }
-    }else{
-      preview.classList.remove("source-preview");
-      number.textContent=d.n+" · "+({d:"definisjon",a:"postulat",t:"modellvilkårsvis følgje",o:"observasjon",i:"illustrasjon"}[d.status]||"");
-      const full=plainText(d.paragraphs.join("\n\n")).trim();
-      body.textContent=full.length>450?full.slice(0,447).trimEnd()+"…":full;
-    }
+    anchor.setAttribute("aria-describedby","prop-preview");
+    anchor.setAttribute("aria-expanded","true");
+    const number=document.createElement("div");
+    number.className="prop-preview-num";
+    number.textContent=d.n+" · "+({d:"definisjon",a:"postulat",t:"teorem",o:"observasjon",i:"illustrasjon"}[d.status]||"");
+    const body=document.createElement("div");
+    body.className="prop-preview-body";
+    const full=d.paragraphs.join("\n\n").replace(/\[\[kjelde:[\d,]+\]\]/g,"").replace(/\*{1,2}/g,"").trim();
+    body.textContent=full.length>335?full.slice(0,332).trimEnd()+"…":full;
     preview.replaceChildren(number,body);
     preview.hidden=false;
-    positionPreview(anchor);
-  }
-  preview.addEventListener("pointerenter",()=>clearTimeout(closeTimer));
-  preview.addEventListener("pointerleave",scheduleClose);
-  function bindPreview(anchor,activate){
-    let pointerType="mouse";
-    anchor.addEventListener("pointerdown",event=>{pointerType=event.pointerType;});
-    anchor.addEventListener("pointerenter",event=>{
-      if(event.pointerType==="mouse"||event.pointerType==="pen")showPreview(anchor,"hover");
-    });
-    anchor.addEventListener("pointerleave",()=>{
-      if(previewAnchor===anchor&&previewMode==="hover")scheduleClose();
-    });
-    anchor.addEventListener("focus",()=>{
-      if(anchor.matches(":focus-visible"))showPreview(anchor,"focus");
-    });
-    anchor.addEventListener("blur",()=>{
-      if(previewAnchor===anchor)closePreview();
-    });
-    anchor.addEventListener("keydown",event=>{
-      pointerType="keyboard";
-      if(previewAnchor===anchor&&["ArrowDown","ArrowUp","PageDown","PageUp"].includes(event.key)){
-        event.preventDefault();
-        const body=preview.querySelector(".prop-preview-body");
-        const amount=event.key.startsWith("Page")?body.clientHeight:40;
-        body.scrollTop+=(event.key.endsWith("Down")?1:-1)*amount;
-      }
-    });
-    anchor.addEventListener("click",event=>{
-      event.stopPropagation();event.preventDefault();
-      if(activate){
-        if(pointerType==="touch"&&!(previewAnchor===anchor&&previewMode==="tap"))showPreview(anchor,"tap");
-        else{closePreview();activate();}
-      }else if(previewAnchor===anchor&&previewMode==="tap")closePreview();
-      else showPreview(anchor,"tap");
-    });
+    const rect=anchor.getBoundingClientRect();
+    const width=preview.getBoundingClientRect().width;
+    const left=Math.max(12,Math.min(window.innerWidth-width-12,rect.left+rect.width/2-width/2));
+    const height=preview.getBoundingClientRect().height;
+    const roomAbove=rect.top-12,roomBelow=window.innerHeight-rect.bottom-12;
+    let top=roomAbove>=height?rect.top-height-9:rect.bottom+9;
+    if(top+height>window.innerHeight-8&&roomAbove>roomBelow)top=rect.top-height-9;
+    preview.style.left=left+"px";
+    preview.style.top=Math.max(8,Math.min(top,window.innerHeight-height-8))+"px";
   }
   function addLinkedText(el,text){
-    // Parenthesized proposition citations alone become navigation links.
+    // Only parenthesized proposition citations become links; numbers in
+    // mathematical expressions, dates and note numbers stay untouched.
     const group=/\((\s*\d+(?:\.\d+)*(?:\s*[,;–—−-]\s*\d+(?:\.\d+)*)*\s*)\)/g;
     let start=0,m;
     while((m=group.exec(text))!==null){
@@ -153,10 +117,31 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
         el.appendChild(document.createTextNode(inner.slice(last,match.index)));
         const n=match[0];
         if(byNum.has(n)){
-          const link=make("button","xref",n);
-          link.type="button";link.dataset.ref=n;
+          const link=document.createElement("button");
+          link.type="button";link.className="xref";link.dataset.ref=n;
+          link.textContent=n;
           link.setAttribute("aria-label","Vis proposisjon "+n);
-          bindPreview(link,()=>go(n));
+          let pointerType="mouse";
+          link.addEventListener("pointerdown",e=>{pointerType=e.pointerType;});
+          link.addEventListener("touchstart",()=>{pointerType="touch";},{passive:true});
+          link.addEventListener("pointerenter",e=>{
+            if(e.pointerType==="mouse"||e.pointerType==="pen")showPreview(link,"hover");
+          });
+          link.addEventListener("pointerleave",e=>{
+            if((e.pointerType==="mouse"||e.pointerType==="pen")&&previewAnchor===link&&previewMode==="hover")closePreview();
+          });
+          link.addEventListener("focus",()=>{
+            if(link.matches(":focus-visible"))showPreview(link,"hover");
+          });
+          link.addEventListener("click",e=>{
+            e.stopPropagation();e.preventDefault();
+            if(pointerType==="touch"){
+              if(previewAnchor===link&&previewMode==="tap"){closePreview();go(n);}
+              else showPreview(link,"tap");
+            }else{
+              closePreview();go(n);
+            }
+          });
           el.appendChild(link);
         }else el.appendChild(document.createTextNode(n));
         last=match.index+n.length;
@@ -166,98 +151,59 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
     }
     el.appendChild(document.createTextNode(text.slice(start)));
   }
-  function addSourceText(el,text){
-    for(const part of splitCitations(text)){
-      if(part.kind==="text")addLinkedText(el,part.text);
-      else{
-        const button=make("button","source-ref",part.ids.join(","));
-        button.type="button";
-        button.dataset.sources=part.ids.join(",");
-        button.setAttribute("aria-label",(part.ids.length===1?"Vis kjelde ":"Vis kjelder ")+part.ids.join(", "));
-        anchorNotes.set(button,{sources:part.ids});
-        bindPreview(button);
-        // Keep the mark with the preceding word, including an italic word
-        // whose emphasis ends immediately before the citation.
-        el.appendChild(document.createTextNode("\u2060"));
-        el.appendChild(button);
-      }
-    }
-  }
-  function addAnnotations(el,notes){
-    for(const note of notes){
-      if(renderedNotes.has(note))continue;
-      const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
-      let node;
-      while((node=walker.nextNode())){
-        if(node.parentElement.closest("button"))continue;
-        const index=node.data.indexOf(note.anchor);
-        if(index<0)continue;
-        renderedNotes.add(note);
-        // An existing source number carries the explanation as well. Avoid a
-        // second clickable term for the same source in the same paragraph.
-        const anchorRange=document.createRange();
-        anchorRange.selectNodeContents(el);
-        anchorRange.setEnd(node,index+note.anchor.length);
-        const anchorEnd=anchorRange.toString().length;
-        const matches=Array.from(el.querySelectorAll(".source-ref"))
-          .filter(ref=>ref.dataset.sources.split(",").some(id=>note.sources.includes(id)))
-          .map(ref=>{
-            const range=document.createRange();
-            range.selectNodeContents(el);range.setEndBefore(ref);
-            return {ref,distance:Math.abs(range.toString().length-anchorEnd)};
-          }).sort((a,b)=>a.distance-b.distance);
-        if(matches.length){
-          const ref=matches[0].ref,existing=anchorNotes.get(ref);
-          anchorNotes.set(ref,{
-            sources:[...new Set([...existing.sources,...note.sources])],
-            notes:[...(existing.notes||[]),note]
-          });
-          break;
-        }
-        const before=node.data.slice(0,index),after=node.data.slice(index+note.anchor.length);
-        const button=make("button","source-term",note.anchor);
-        button.type="button";
-        button.dataset.sources=note.sources.join(",");
-        button.setAttribute("aria-label",note.anchor+", vis kjeldegrunnlag");
-        anchorNotes.set(button,note);bindPreview(button);
-        node.replaceWith(document.createTextNode(before),button,document.createTextNode(after));
-        break;
-      }
-    }
-  }
-  function rich(el,s,notes=[]){
+  function richText(el,s){
     for(const part of s.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g)){
       if(!part)continue;
       if(part.startsWith("**")&&part.endsWith("**")){
-        const b=document.createElement("strong");addSourceText(b,part.slice(2,-2));el.appendChild(b);
+        const b=document.createElement("strong");addLinkedText(b,part.slice(2,-2));el.appendChild(b);
       }else if(part.startsWith("*")&&part.endsWith("*")){
-        const em=document.createElement("em");addSourceText(em,part.slice(1,-1));el.appendChild(em);
-      }else addSourceText(el,part);
+        const em=document.createElement("em");addLinkedText(em,part.slice(1,-1));el.appendChild(em);
+      }else addLinkedText(el,part);
     }
-    addAnnotations(el,notes);
   }
-  // Scrolling the text dismisses the overlay; scrolling a source itself does not.
+  function rich(el,s){
+    const pattern=/\[\[kjelde:(\d+(?:,\d+)*)\]\]/g;let cursor=0;
+    for(const match of s.matchAll(pattern)){
+      richText(el,s.slice(cursor,match.index));
+      const sup=make("sup","source-ref");appendSources(sup,match[1].split(","));el.appendChild(sup);
+      cursor=match.index+match[0].length;
+    }
+    richText(el,s.slice(cursor));
+  }
+  function addNoteLinks(el,ids=[]){
+    for(const id of ids){const note=noteById.get(id);if(!note)continue;
+      const link=make("a","xref note-ref","n"+note.number);link.href="#notat-"+id;
+      link.setAttribute("aria-label","Til notat "+note.number);
+      link.addEventListener("click",e=>{clearTimeout(hashTimer);e.stopPropagation();closePreview();});el.appendChild(link);
+    }
+  }
+  // Dismiss previews on scrolling, tapping elsewhere, rotating or Escape.
   read.addEventListener("scroll",closePreview,{passive:true});
-  document.addEventListener("pointerdown",event=>{
-    if(previewAnchor&&!event.target.closest(".xref,.source-ref,.source-term,.prop-preview"))closePreview();
+  document.addEventListener("pointerdown",e=>{
+    if(previewAnchor&&!e.target.closest(".xref"))closePreview();
   },{capture:true});
-  document.addEventListener("keydown",event=>{
-    if(event.key==="Escape"&&previewAnchor){event.preventDefault();closePreview();}
-  });
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closePreview();});
   window.addEventListener("resize",closePreview,{passive:true});
-  window.visualViewport?.addEventListener("resize",closePreview,{passive:true});
   function make(tag,cls,text){
     const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;
   }
-  const FIGURES_AFTER={"1.54":[{"file":"scan-20261031-p13-c-k-operator-tabell-og-rorsle.png","alt":"C–K-operasjonane: retning og lyskjegleoperasjonar"}],"2.212":[{"file":"scan-20261031-p16-royrstol-utvikling.png","alt":"Frå sykkelramme til røyrstol"}],"5.125":[{"file":"scan-20261031-p21-agentrang.png","alt":"Agens frå termostat til designar"}],"6.66":[{"file":"scan-20261031-p35-d-modell-diagram.png","alt":"Formrom, partisjon, grammatikk, landskap og agenthierarki"}],"7.142":[{"file":"scan-20261031-p41-sommarfugl-livslop.png","alt":"Larve, puppe og sommarfugl"}],"1.4":[{"file":"scan-20261031-p11-busette-opne-forbodne.png","alt":"Busette, opne og forbodne regionar"}]};
-  for(const tok of TOKENS){
-    if(tok.kind==="title"){const h=make("h1","doc-title",tok.text);stream.appendChild(h);}
-    else if(tok.kind==="heading"){const h=make("h2","section-title",tok.text);h.id="del-"+tok.text.toLowerCase().replace(/[^a-z0-9æøå]+/g,"-").replace(/^-|-$/g,"");stream.appendChild(h);}
-    else if(tok.kind==="paragraph"){const p=make("p","plain-paragraph");rich(p,tok.text,catalog.intro||[]);stream.appendChild(p);}
+  const FIGURES_AFTER={};
+  for(const figure of documentData.figures)(FIGURES_AFTER[figure.after]??=[]).push(figure);
+  // The reader begins at "Føreord". Title, subtitle and byline are
+  // source metadata, not part of the reading stream.
+  const bodyStart=TOKENS.findIndex(tok=>tok.kind==="heading"&&tok.text==="Føreord");
+  if(bodyStart<0)throw new Error("Føreord manglar i FORMLÆRE");
+  const readingStart=TOKENS.findIndex(tok=>tok.kind==="heading"&&tok.text==="Lesekode");
+  if(readingStart<0)throw new Error("Lesekode manglar i FORMLÆRE");
+  const visibleTokens=TOKENS.slice(bodyStart);
+  for(const tok of visibleTokens){
+    if(tok.kind==="heading"){const h=make("h2","section-title",tok.text);h.id=tok.text==="Føreord"?"introduksjon":"del-"+tok.text.toLowerCase().replace(/[^a-z0-9æøå]+/g,"-").replace(/^-|-$/g,"");stream.appendChild(h);}
+    else if(tok.kind==="paragraph"){const p=make("p","plain-paragraph");rich(p,tok.text);addNoteLinks(p,tok.notes);stream.appendChild(p);}
     else if(tok.kind==="prop"){
-      const row=make("article","prop depth"+Math.min(tok.depth,4));row.dataset.n=tok.n;row.id=tok.n;
+      const row=make("article","prop depth"+Math.min(byNum.get(tok.n).depth,4));row.dataset.n=tok.n;row.id=tok.n;
       const n=make("span","n",tok.n);const sup=make("sup","status",tok.status);n.appendChild(sup);
-      const body=make("div","t");for(const para of tok.paragraphs){const p=make("p","prop-paragraph");rich(p,para,(catalog.annotations||[]).filter(note=>note.proposition===tok.n));body.appendChild(p);}
+      const body=make("div","t");for(const para of tok.paragraphs){const p=make("p","prop-paragraph");rich(p,para);body.appendChild(p);}
+      addNoteLinks(body.lastElementChild,tok.notes);
       row.append(n,body);row.addEventListener("click",()=>{if(!window.getSelection()?.toString())setCurrent(tok.n,true,false);});
       byRow.set(tok.n,row);stream.appendChild(row);
       const figures=FIGURES_AFTER[tok.n];
@@ -267,7 +213,7 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
         for(const item of figures){
           const figure=make("figure","tractate-figure");
           const img=document.createElement("img");
-          img.src="/illustrations/"+item.file;
+          img.src="/traktat/illustrations/"+item.file;
           img.alt=item.alt;
           img.loading="lazy";
           img.decoding="async";
@@ -278,26 +224,7 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
       }
     }
   }
-  stream.appendChild(make("div","endmark",order[order.length-1]+" · SLUTT"));
-  const bibliography=make("details","bibliography");
-  bibliography.id="kjelder";
-  bibliography.appendChild(make("summary","", "Kjelder · "+catalog.sources.length));
-  const referenceList=make("ol","source-list");
-  for(const source of catalog.sources){
-    const item=make("li","source-record");
-    item.id="kjelde-"+source.id;item.value=Number(source.id);
-    item.appendChild(document.createTextNode(source.citation));
-    if(source.url && /^https?:\/\//.test(source.url)){
-      const link=make("a","source-url","Les kjelda");
-      link.href=source.url;link.target="_blank";link.rel="noopener noreferrer";
-      item.appendChild(link);
-    }
-    referenceList.appendChild(item);
-  }
-  bibliography.appendChild(referenceList);
-  const pdfLink=make("a","source-url","Last ned PDF");
-  pdfLink.href="/traktat.pdf";
-  bibliography.appendChild(pdfLink);stream.appendChild(bibliography);
+  appendEndmatter();
   const VW=358,PAD=5,SGAP=5,YROOT=17,YLAB=8,UNIT=75;
   const branches=roots.flatMap(r=>r.kids);
   const STEP=(VW-2*PAD-SGAP*(roots.length-1))/Math.max(1,branches.length);
@@ -329,9 +256,6 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
   }
   function paint(){
     for(const [n,el] of byRow)el.classList.toggle("active",n===current);
-    const i=order.indexOf(current);pos.textContent=current+" · "+(i+1)+"/"+order.length;
-    document.getElementById("prev").disabled=i===0;
-    document.getElementById("next").disabled=i===order.length-1;
     drawTree();
   }
   function hashWrite(){
@@ -344,13 +268,11 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
     if(scroll){const motion=reducedMotion.matches?"auto":behavior;navUntil=performance.now()+(motion==="smooth"?520:80);byRow.get(n)?.scrollIntoView({block:"start",behavior:motion});}
   }
   function go(n,behavior="smooth"){setCurrent(n,true,true,behavior);}
-  function step(k){const i=order.indexOf(current)+k;if(i>=0&&i<order.length)go(order[i]);}
-  document.getElementById("prev").addEventListener("click",()=>step(-1));
-  document.getElementById("next").addEventListener("click",()=>step(1));
   function currentFromScroll(){
     if(performance.now()<navUntil)return;
-    if(read.scrollTop<=2){if(current!==order[0])setCurrent(order[0]);return;}
+    if(read.scrollTop<=2){if(current!==order[0])setCurrent(order[0],false);return;}
     const line=read.getBoundingClientRect().top+32;
+    if(document.getElementById("notat")?.getBoundingClientRect().top<=line)return;
     let candidate=null;
     for(const n of order){
       const r=byRow.get(n).getBoundingClientRect();
@@ -358,7 +280,7 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
       if(r.top>line){candidate=n;break;}
     }
     if(!candidate)candidate=order[order.length-1];
-    if(candidate!==current)setCurrent(candidate);
+    if(candidate!==current)setCurrent(candidate,false);
   }
   read.addEventListener("scroll",()=>{if(scrollFrame)return;scrollFrame=requestAnimationFrame(()=>{scrollFrame=0;currentFromScroll();});},{passive:true});
   for(const ev of ["wheel","touchstart","keydown"])read.addEventListener(ev,()=>{navUntil=0;},{passive:true});
@@ -381,10 +303,13 @@ import {splitCitations, plainText, validateEdition} from "./content.mjs";
   svg.addEventListener("pointermove",e=>{if(scrubbing)scrubTo(e.clientX,e.clientY);});
   svg.addEventListener("pointerup",()=>{scrubbing=false;});
   svg.addEventListener("pointercancel",()=>{scrubbing=false;});
-  let sx=0,sy=0,tracking=false;
-  read.addEventListener("touchstart",e=>{if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;tracking=true;}},{passive:true});
-  read.addEventListener("touchend",e=>{if(!tracking)return;tracking=false;const t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Math.abs(dx)>64&&Math.abs(dy)<44)step(dx<0?1:-1);},{passive:true});
   const h=hashNumber();if(byNum.has(h))current=h;
-  paint();if(byNum.has(h))requestAnimationFrame(()=>go(h,"auto"));
-  addressWindow.addEventListener("hashchange",()=>{const n=hashNumber();if(byNum.has(n))setCurrent(n,false,true,"auto");});
+  paint();
+  if(byNum.has(h))requestAnimationFrame(()=>go(h,"auto"));
+  else if(h)requestAnimationFrame(()=>document.getElementById(h)?.scrollIntoView({block:"start"}));
+  addressWindow.addEventListener("hashchange",()=>{clearTimeout(hashTimer);const n=hashNumber();if(byNum.has(n))setCurrent(n,false,true,"auto");else document.getElementById(n)?.scrollIntoView({block:"start"});});
 })().catch(err=>{const read=document.getElementById("read");if(read)read.textContent="Klarte ikkje laste FORMLÆRE.";console.error(err);});
+
+if('serviceWorker' in navigator && window.isSecureContext){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js',{scope:'/',updateViaCache:'none'}).catch(()=>{}),{once:true});
+}

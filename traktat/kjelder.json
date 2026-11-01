@@ -1,10 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
   "language": "nn",
   "provenance": {
-    "bibliography": "traktat/src/traktat.tex",
-    "text": "traktat/tekst/formlaere.txt",
-    "note": "Nummera 1–107 følgjer den opphavlege kjeldelista; 108 viser til tekstlege parallellar med Tractatus, og 109 til Investigations. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
+    "text": "tekst/formlaere.txt",
+    "note": "Kjeldenummera følgjer den opphavlege kjeldelista. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
   },
   "sources": [
     {
@@ -636,15 +635,6 @@
       "year": "2024"
     },
     {
-      "id": "108",
-      "citation": "Wittgenstein, L. (1922). Tractatus Logico-Philosophicus. Engelsk utgåve ved F. P. Ramsey og C. K. Ogden. Kegan Paul, Trench, Trubner & Co. Digital primærtekst: The Ludwig Wittgenstein Project.",
-      "year": "1922",
-      "url": "https://wittgensteinproject.org/w/index.php/Tractatus_Logico-Philosophicus_(English)",
-      "note": "Tilføyd for tekstlege parallellar og omarbeidingar av namngjevne proposisjonar. Tilvisinga er ikkje empirisk støtte til formmodellen.",
-      "verification_note": "Digitalutgåva opplyser eksplisitt at ho byggjer på 1922-utgåva og gjev denne oversetjar/redaktørkrediteringa. Brukast for tekstlege parallellar; ikkje empirisk støtte.",
-      "verified_on": "2026-11-01"
-    },
-    {
       "citation": "Kauffman, S. A. (2000). Investigations. Oxford University Press.",
       "year": "2000",
       "url": "https://academic.oup.com/book/51166/chapter-abstract/421882688",
@@ -654,582 +644,460 @@
       "verified_on": "2026-11-01"
     }
   ],
-  "annotations": [
+  "notes": [
     {
-      "proposition": "1.1",
-      "anchor": "Formverda er alt som er tilfelle",
+      "id": "intro-1",
+      "proposition": null,
+      "section": "foreword",
+      "note": "Stiny og Gips gjev eit språk for korleis former kan genererast. Samankoplinga med landskap og omhug er vidareføringa i denne teksten.",
       "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 1 og 1.1. Opninga omarbeider skiljet mellom verda som det som er tilfelle og som totalitet av ting."
+        "11",
+        "18"
+      ]
     },
     {
-      "proposition": "1.203",
-      "anchor": "Substansen finst uavhengig av kva som er tilfelle",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.021 og 2.024. Substansomgrepet er ein tekstleg parallell; ledd- og nivåargumentet er forma om for denne teksten."
-    },
-    {
-      "proposition": "1.2031",
-      "anchor": "Utan substans",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.0211. Regressargumentet omarbeider ein passasje om korleis meining elles ville avhenge av ei anna sann proposisjon."
-    },
-    {
-      "proposition": "1.204",
-      "anchor": "Konfigurasjonen er det skiftande",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.0271. Skiljet mellom det faste objektet og den skiftande konfigurasjonen er omarbeidd til eit skilje mellom analysenivå."
-    },
-    {
-      "proposition": "1.21",
-      "anchor": "Måten objekta heng saman på",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.032. Definisjonen av struktur har ein nær tekstleg parallell."
-    },
-    {
-      "proposition": "1.211",
-      "anchor": "som lenkene i ei kjede",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.03. Kjedebiletet er omarbeidd til sambandet mellom delane i ein stol."
-    },
-    {
-      "proposition": "1.2123",
-      "anchor": "moglegheita strukturen har",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.033. Forma som strukturens moglegheit er her vidareført gjennom at strukturen kan gå att i andre objekt."
-    },
-    {
-      "proposition": "1.22",
-      "anchor": "Moglegheita eit objekt har for å inngå i konfigurasjonar",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.0141. Teksten kallar denne moglegheita valens, der Tractatus nyttar form."
-    },
-    {
-      "proposition": "1.221",
-      "anchor": "alle moglege former gjevne",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.0124. Den modal-logiske tanken om at moglege samanhengar er gjevne med objekta, er overført til valensane."
-    },
-    {
-      "proposition": "1.223",
-      "anchor": "Å kjenne objektet fullt ut",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 2.0123. Parallellen gjeld sambandet mellom å kjenne objektet og å kjenne samanhengane det kan inngå i."
-    },
-    {
-      "proposition": "1.53",
-      "anchor": "Grensa mellom C og U kan ikkje sjåast frå C",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus føreordet. Føreordet til Tractatus drøftar problemet med å trekkje ei grense for tanken utan å kunne tenkje begge sider. C/U-formaliseringa er denne teksten si eiga."
-    },
-    {
-      "proposition": "7.3",
-      "anchor": "Dei er ein stige",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 6.54. Stigebiletet er ein tydeleg litterær parallell til Tractatus."
-    },
-    {
-      "proposition": "7.33",
-      "anchor": "Stigen vert difor ikkje kasta",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 6.54. Dette er ei uttrykkeleg vending av stigebiletet: FORMLÆRE held fram lesinga der Tractatus skildrar overskriding."
-    },
-    {
-      "proposition": "7.4",
-      "anchor": "Formverda er alt som er tilfelle",
-      "sources": [
-        "108"
-      ],
-      "relation": "tekstleg parallell",
-      "note": "Tractatus 1. Slutten tek opp att opningsparallellen og fører henne vidare med verknad og navigasjon."
-    },
-    {
+      "id": "prop-1",
       "proposition": "1",
-      "anchor": "ordning av skilnader",
+      "section": null,
+      "note": "Semper undersøker teknikk, materiale og form. Definisjonen «ordning av skilnader» er formuleringa i denne teksten, ikkje eit dokumentert sitat frå Semper.",
       "sources": [
         "1"
       ],
-      "relation": "historisk bakgrunn",
-      "note": "Semper undersøker teknikk, materiale og form. Definisjonen «ordning av skilnader» er formuleringa i denne teksten, ikkje eit dokumentert sitat frå Semper."
+      "relation": "historisk bakgrunn"
     },
     {
+      "id": "prop-1-2",
       "proposition": "1.2",
-      "anchor": "valde analysenivået",
+      "section": null,
+      "note": "Notata skil klassisk mereologi frå den operasjonelle objektdelinga her. Eit objekt er udeleleg innanfor analysen, ikkje utan vidare fysisk udeleleg.",
       "sources": [
         "71"
       ],
-      "relation": "omgrepsleg samanlikning",
-      "note": "Notata skil klassisk mereologi frå den operasjonelle objektdelinga her. Eit objekt er udeleleg innanfor analysen, ikkje utan vidare fysisk udeleleg."
+      "relation": "omgrepsleg samanlikning"
     },
     {
+      "id": "prop-1-31",
       "proposition": "1.31",
-      "anchor": "formrommet",
+      "section": null,
+      "note": "Raup undersøker formvariasjon i skjell; Mitteroecker og Huttegger drøftar morforom. Den substratuavhengige bruken er ei vidareføring i FORMLÆRE.",
       "sources": [
         "2",
         "10",
         "20"
       ],
-      "relation": "vidareføring",
-      "note": "Raup undersøker formvariasjon i skjell; Mitteroecker og Huttegger drøftar morforom. Den substratuavhengige bruken er ei vidareføring i FORMLÆRE."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-1-432",
       "proposition": "1.432",
-      "anchor": "nærliggande moglege",
+      "section": null,
+      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom; det skil seg frå skiljet her mellom eit fast logisk rom og skiftande tilgang (4.41).",
       "sources": [
         "109",
         "59"
       ],
-      "relation": "omgrepsleg bakgrunn",
-      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom; det skil seg frå skiljet her mellom eit fast logisk rom og skiftande tilgang (4.41)."
+      "relation": "omgrepsleg bakgrunn"
     },
     {
+      "id": "prop-1-5",
       "proposition": "1.5",
-      "anchor": "epistemisk",
+      "section": null,
+      "note": "Den materielle delinga er skild frå delinga mellom det kjende, det tenkte og det utenkjelege. Dette er FORMLÆRE si kopling til C-K-teorien.",
       "sources": [
         "16",
         "17"
       ],
-      "relation": "vidareføring",
-      "note": "Den materielle delinga er skild frå delinga mellom det kjende, det tenkte og det utenkjelege. Dette er FORMLÆRE si kopling til C-K-teorien."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-1-6",
       "proposition": "1.6",
-      "anchor": "formalgebra",
+      "section": null,
+      "note": "Formgrammatikk-tradisjonen ligg til grunn for algebraen og innleiringa. Stiny utviklar dette omgrepsapparatet i Shape: Talking about seeing and doing.",
       "sources": [
         "11",
         "18"
       ],
-      "relation": "kjeldegrunnlag",
-      "note": "Formgrammatikk-tradisjonen ligg til grunn for algebraen og innleiringa. Stiny utviklar dette omgrepsapparatet i Shape: Talking about seeing and doing."
+      "relation": "kjeldegrunnlag"
     },
     {
+      "id": "prop-1-611",
       "proposition": "1.611",
-      "anchor": "innleiringa",
+      "section": null,
+      "note": "Å finne delformer gjennom innleiring er sentralt i formgrammatikk. Delformene treng ikkje følgje ei objektdeling som er fastsett på førehand.",
       "sources": [
         "11",
         "18"
       ],
-      "relation": "kjeldegrunnlag",
-      "note": "Å finne delformer gjennom innleiring er sentralt i formgrammatikk. Delformene treng ikkje følgje ei objektdeling som er fastsett på førehand."
+      "relation": "kjeldegrunnlag"
     },
     {
+      "id": "prop-2-101",
       "proposition": "2.101",
-      "anchor": "står att",
+      "section": null,
+      "note": "Michls funksjonalismekritikk er bakgrunn. Påstanden om forma som det som står att etter samtidige trykk, er ei positiv vidareføring i denne teksten.",
       "sources": [
         "15",
         "77",
         "78"
       ],
-      "relation": "vidareføring",
-      "note": "Michls funksjonalismekritikk er bakgrunn. Påstanden om forma som det som står att etter samtidige trykk, er ei positiv vidareføring i denne teksten."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-2-14",
       "proposition": "2.14",
-      "anchor": "affordansestruktur",
+      "section": null,
+      "note": "Affordanse er relasjonell hos Gibson. Notata koplar henne vidare til landskap og semiotikk; å definere klassen gjennom ei delt konstellasjon av operasjonar er teksten sitt grep.",
       "sources": [
         "12",
         "55",
         "56",
         "73"
       ],
-      "relation": "vidareføring",
-      "note": "Affordanse er relasjonell hos Gibson. Notata koplar henne vidare til landskap og semiotikk; å definere klassen gjennom ei delt konstellasjon av operasjonar er teksten sitt grep."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-3-1",
       "proposition": "3.1",
-      "anchor": "Tilpassingslandskapet",
+      "section": null,
+      "note": "Det adaptive landskapet og det epigenetiske landskapet har ulik historisk bruk. FORMLÆRE fører dei saman i eit formrom; det er ikkje ei uendra overtaking av éin modell.",
       "sources": [
         "3",
         "8",
         "58"
       ],
-      "relation": "sameining av tradisjonar",
-      "note": "Det adaptive landskapet og det epigenetiske landskapet har ulik historisk bruk. FORMLÆRE fører dei saman i eit formrom; det er ikkje ei uendra overtaking av éin modell."
+      "relation": "sameining av tradisjonar"
     },
     {
+      "id": "prop-3-2",
       "proposition": "3.2",
-      "anchor": "kanalisering",
+      "section": null,
+      "note": "Kanalisering er knytt til Waddingtons arbeid om utviklingsrobustheit. Landskapsbiletet vert her brukt på dimensjonar i formrommet.",
       "sources": [
         "8"
       ],
-      "relation": "vidareføring",
-      "note": "Kanalisering er knytt til Waddingtons arbeid om utviklingsrobustheit. Landskapsbiletet vert her brukt på dimensjonar i formrommet."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-4-3",
       "proposition": "4.3",
-      "anchor": "Stiavhengigheit",
+      "section": null,
+      "note": "Arthur er bakgrunn for stiavhengigheit: tidlegare realiseringar endrar vilkåra for seinare val. Bruken på formhistoria er vidareføringa her.",
       "sources": [
         "14"
       ],
-      "relation": "vidareføring",
-      "note": "Arthur er bakgrunn for stiavhengigheit: tidlegare realiseringar endrar vilkåra for seinare val. Bruken på formhistoria er vidareføringa her."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-4-4",
       "proposition": "4.4",
-      "anchor": "Materialstraumane",
+      "section": null,
+      "note": "Nisjekonstruksjon skildrar korleis organismar endrar vilkåra for vidare evolusjon. Her er det ein biologisk parallell til at realiserte former endrar landskapet, ikkje eit empirisk prov for alle formdomene.",
       "sources": [
         "79"
       ],
-      "relation": "omgrepsleg samanlikning",
-      "note": "Nisjekonstruksjon skildrar korleis organismar endrar vilkåra for vidare evolusjon. Her er det ein biologisk parallell til at realiserte former endrar landskapet, ikkje eit empirisk prov for alle formdomene."
+      "relation": "omgrepsleg samanlikning"
     },
     {
+      "id": "prop-5-02",
       "proposition": "5.02",
-      "anchor": "Ei hinne",
+      "section": null,
+      "note": "Den formelle skildringa viser til Markov-teppe: tilstandar som skil indre og ytre ved vilkårsbestemd uavhengigheit. «Hinne» og sambandet til sjølvet er formulerte i denne teksten.",
       "sources": [
         "83"
       ],
-      "relation": "vidareføring",
-      "note": "Den formelle skildringa viser til Markov-teppe: tilstandar som skil indre og ytre ved vilkårsbestemd uavhengigheit. «Hinne» og sambandet til sjølvet er formulerte i denne teksten."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-5-11",
       "proposition": "5.11",
-      "anchor": "generativ modell",
+      "section": null,
+      "note": "Fri energi, modell og politikk har grunnlag i desse arbeida. Den presise agentdefinisjonen og korleis han vert brukt på formgjeving, er eit val i FORMLÆRE.",
       "sources": [
         "19",
         "21",
         "83",
         "84"
       ],
-      "relation": "modellgrunnlag",
-      "note": "Fri energi, modell og politikk har grunnlag i desse arbeida. Den presise agentdefinisjonen og korleis han vert brukt på formgjeving, er eit val i FORMLÆRE."
+      "relation": "modellgrunnlag"
     },
     {
+      "id": "prop-5-113",
       "proposition": "5.113",
-      "anchor": "negativ tilbakekopling",
+      "section": null,
+      "note": "Kybernetikken gjev den historiske mål–avvik–justering-strukturen. Den probabilistiske omskrivinga og vilkåra for grensetilfellet er teksten sine.",
       "sources": [
         "4",
         "5",
         "7"
       ],
-      "relation": "historisk bakgrunn",
-      "note": "Kybernetikken gjev den historiske mål–avvik–justering-strukturen. Den probabilistiske omskrivinga og vilkåra for grensetilfellet er teksten sine."
+      "relation": "historisk bakgrunn"
     },
     {
+      "id": "prop-5-2",
       "proposition": "5.2",
-      "anchor": "omhug",
+      "section": null,
+      "note": "Doctor og medforfattarar drøftar omhug som drivkraft for intelligens; Tronto gjev ein omsorgsetisk bakgrunn. Skiljet mellom kapasitet, lyskjegle og omhug er formalisert her.",
       "sources": [
         "23",
         "68"
       ],
-      "relation": "vidareføring",
-      "note": "Doctor og medforfattarar drøftar omhug som drivkraft for intelligens; Tronto gjev ein omsorgsetisk bakgrunn. Skiljet mellom kapasitet, lyskjegle og omhug er formalisert her."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-5-21",
       "proposition": "5.21",
-      "anchor": "Kapasiteten",
+      "section": null,
+      "note": "Kompetanse og navigasjon i rom er kjeldegrunnlaget. Den særskilde terskelmengda κ(A) er definert i teksten og må vurderast som del av modellen.",
       "sources": [
         "21",
         "86"
       ],
-      "relation": "operasjonell vidareføring",
-      "note": "Kompetanse og navigasjon i rom er kjeldegrunnlaget. Den særskilde terskelmengda κ(A) er definert i teksten og må vurderast som del av modellen."
+      "relation": "operasjonell vidareføring"
     },
     {
+      "id": "prop-5-22",
       "proposition": "5.22",
-      "anchor": "kognitive lyskjegla",
+      "section": null,
+      "note": "Kognitive lyskjegler namngjev grenser for kva mål eit system kan arbeide mot. Den aksevise og tidslege definisjonen her er teksten si presisering.",
       "sources": [
         "21",
         "22",
         "85",
         "90"
       ],
-      "relation": "vidareføring",
-      "note": "Kognitive lyskjegler namngjev grenser for kva mål eit system kan arbeide mot. Den aksevise og tidslege definisjonen her er teksten si presisering."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-5-263",
       "proposition": "5.263",
-      "anchor": "si eiga grense",
+      "section": null,
+      "note": "Tilvisinga gjeld prinsipielle grenser for sjølvrepresentasjon. Koplinga til det utenkjelege og til blindskap er vidareføringa i teksten.",
       "sources": [
         "70"
       ],
-      "relation": "omgrepsleg bakgrunn",
-      "note": "Tilvisinga gjeld prinsipielle grenser for sjølvrepresentasjon. Koplinga til det utenkjelege og til blindskap er vidareføringa i teksten."
+      "relation": "omgrepsleg bakgrunn"
     },
     {
+      "id": "prop-5-4",
       "proposition": "5.4",
-      "anchor": "agent av nullte orden",
+      "section": null,
+      "note": "«Agent av nullte orden» er eit grensetilfelle definert her. Pyes handverksomgrep, genregulatoriske modellar og arbeidet med kompetente materiale gjev ulike samanlikningar; ingen av dei etablerer denne agentdefinisjonen.",
       "sources": [
         "26",
         "81",
         "92",
         "93"
       ],
-      "relation": "omgrepsleg samanlikning",
-      "note": "«Agent av nullte orden» er eit grensetilfelle definert her. Pyes handverksomgrep, genregulatoriske modellar og arbeidet med kompetente materiale gjev ulike samanlikningar; ingen av dei etablerer denne agentdefinisjonen."
+      "relation": "omgrepsleg samanlikning"
     },
     {
+      "id": "prop-5-401",
       "proposition": "5.401",
-      "anchor": "funksjonsparametrar",
+      "section": null,
+      "note": "Hartl, Risi og Levin undersøker arva startkonfigurasjonar og reglar i ein simulert nevral celleautomat. Resultata gjeld denne modellen. Avgjerder under støy endrar avveginga mellom struktur og kompetanse; dei viser ikkje at meir kompetanse alltid er betre.",
       "sources": [
         "92"
       ],
-      "relation": "simuleringsresultat",
-      "note": "Hartl, Risi og Levin undersøker arva startkonfigurasjonar og reglar i ein simulert nevral celleautomat. Resultata gjeld denne modellen. Avgjerder under støy endrar avveginga mellom struktur og kompetanse; dei viser ikkje at meir kompetanse alltid er betre."
+      "relation": "simuleringsresultat"
     },
     {
+      "id": "prop-5-6",
       "proposition": "5.6",
-      "anchor": "si eiga lyskjegle",
+      "section": null,
+      "note": "Liv som oppretthald av lyskjegla er ein definisjon i FORMLÆRE, utvikla med bakgrunn i desse arbeida. Tilvisinga åleine etablerer ikkje definisjonen som allmenn biologisk semje.",
       "sources": [
         "22",
         "24",
         "85",
         "89"
       ],
-      "relation": "definisjonsforslag",
-      "note": "Liv som oppretthald av lyskjegla er ein definisjon i FORMLÆRE, utvikla med bakgrunn i desse arbeida. Tilvisinga åleine etablerer ikkje definisjonen som allmenn biologisk semje."
+      "relation": "definisjonsforslag"
     },
     {
+      "id": "prop-5-7",
       "proposition": "5.7",
-      "anchor": "Kjernelikninga",
+      "section": null,
+      "note": "Dei tre kjeldetradisjonane er grunnlag for komponentane. Kjernelikninga er syntesen som vert føreslått i FORMLÆRE, ikkje ei likning henta frå desse kjeldene.",
       "sources": [
         "11",
         "17",
         "21"
       ],
-      "relation": "syntese i denne teksten",
-      "note": "Dei tre kjeldetradisjonane er grunnlag for komponentane. Kjernelikninga er syntesen som vert føreslått i FORMLÆRE, ikkje ei likning henta frå desse kjeldene."
+      "relation": "syntese i denne teksten"
     },
     {
+      "id": "prop-5-72",
       "proposition": "5.72",
-      "anchor": "fire grensetilfelle",
+      "section": null,
+      "note": "Identifikasjonen av formgrammatikk og C-K som grensetilfelle er eit argument i FORMLÆRE. Tilvisingane namngjev tradisjonane som vert samanlikna.",
       "sources": [
         "11",
         "17"
       ],
-      "relation": "modellvilkårsvis følgje",
-      "note": "Identifikasjonen av formgrammatikk og C-K som grensetilfelle er eit argument i FORMLÆRE. Tilvisingane namngjev tradisjonane som vert samanlikna."
+      "relation": "modellvilkårsvis følgje"
     },
     {
+      "id": "prop-6-1",
       "proposition": "6.1",
-      "anchor": "polyagentisk kompromiss",
+      "section": null,
+      "note": "Aktørnettverk og distribuert kognisjon er bakgrunn for fleiragentperspektivet. Den bestemte formaliseringa gjennom lyskjegler er teksten si eiga.",
       "sources": [
         "66",
         "67"
       ],
-      "relation": "vidareføring",
-      "note": "Aktørnettverk og distribuert kognisjon er bakgrunn for fleiragentperspektivet. Den bestemte formaliseringa gjennom lyskjegler er teksten si eiga."
+      "relation": "vidareføring"
     },
     {
+      "id": "prop-6-11",
       "proposition": "6.11",
-      "anchor": "mange skalaer",
+      "section": null,
+      "note": "Desse arbeida er bakgrunn for distribuert og fleirskala kompetanse. Overføringa til materiale, handverk og marknad skjer i FORMLÆRE.",
       "sources": [
         "22",
         "67",
         "85",
         "87"
       ],
-      "relation": "kjeldegrunnlag",
-      "note": "Desse arbeida er bakgrunn for distribuert og fleirskala kompetanse. Overføringa til materiale, handverk og marknad skjer i FORMLÆRE."
+      "relation": "kjeldegrunnlag"
     },
     {
+      "id": "prop-6-12",
       "proposition": "6.12",
-      "anchor": "overgangar i individualitet",
+      "section": null,
+      "note": "Den biologiske overgangen frå mange agentar til éin er bakgrunn. Vilkåret om delt spenning er teksten si presisering av koplinga.",
       "sources": [
         "87"
       ],
-      "relation": "biologisk modellbakgrunn",
-      "note": "Den biologiske overgangen frå mange agentar til éin er bakgrunn. Vilkåret om delt spenning er teksten si presisering av koplinga."
+      "relation": "biologisk modellbakgrunn"
     },
     {
+      "id": "prop-6-14",
       "proposition": "6.14",
-      "anchor": "aldri åleine",
+      "section": null,
+      "note": "Tilvisingane gjev bakgrunn for distribuert kontroll og samarbeid med kompetente materiale. Koordinering av lyskjegler er teksten si designfaglege formulering.",
       "sources": [
         "66",
         "67",
         "93"
       ],
-      "relation": "designfagleg vidareføring",
-      "note": "Tilvisingane gjev bakgrunn for distribuert kontroll og samarbeid med kompetente materiale. Koordinering av lyskjegler er teksten si designfaglege formulering."
+      "relation": "designfagleg vidareføring"
     },
     {
+      "id": "prop-6-31",
       "proposition": "6.31",
-      "anchor": "grensesnitt",
+      "section": null,
+      "note": "Normans arbeid om daglegdagse ting og bruk er bakgrunn. Stilarten som grensesnitt er ei overføring i FORMLÆRE, ikkje eit direkte sitat.",
       "sources": [
         "80"
       ],
-      "relation": "omgrepsleg samanlikning",
-      "note": "Normans arbeid om daglegdagse ting og bruk er bakgrunn. Stilarten som grensesnitt er ei overføring i FORMLÆRE, ikkje eit direkte sitat."
+      "relation": "omgrepsleg samanlikning"
     },
     {
+      "id": "prop-6-6",
       "proposition": "6.6",
-      "anchor": "Formmodellen",
+      "section": null,
+      "note": "Den eksponentielle formmodellen er formulert her. Dei oppførte kjeldene gjev bakgrunn for kompetanse og persistente system, ikkje åleine eit prov for denne fordelinga.",
       "sources": [
         "86",
         "89"
       ],
-      "relation": "syntese i denne teksten",
-      "note": "Den eksponentielle formmodellen er formulert her. Dei oppførte kjeldene gjev bakgrunn for kompetanse og persistente system, ikkje åleine eit prov for denne fordelinga."
+      "relation": "syntese i denne teksten"
     },
     {
+      "id": "prop-7-13",
       "proposition": "7.13",
-      "anchor": "geologi leseleg",
+      "section": null,
+      "note": "Notata knyter lesinga på tvers av domene til Batesons mønsterperspektiv. Det er same lesemåte som vert prøvd, ikkje eit prov på ontologisk identitet.",
       "sources": [
         "72"
       ],
-      "relation": "omgrepsleg parallell",
-      "note": "Notata knyter lesinga på tvers av domene til Batesons mønsterperspektiv. Det er same lesemåte som vert prøvd, ikkje eit prov på ontologisk identitet."
+      "relation": "omgrepsleg parallell"
     },
     {
+      "id": "prop-7-15",
       "proposition": "7.15",
-      "anchor": "Sviktsignatur",
+      "section": null,
+      "note": "Kjeldene gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i FORMLÆRE som krev eiga empirisk prøving.",
       "sources": [
         "21",
         "70"
       ],
-      "relation": "hypotese i denne teksten",
-      "note": "Kjeldene gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i FORMLÆRE som krev eiga empirisk prøving."
+      "relation": "hypotese i denne teksten"
     },
     {
+      "id": "prop-1-54",
       "proposition": "1.54",
-      "anchor": "fire retningar",
+      "section": null,
+      "note": "Dei fire operatorane C→C, C→K, K→C og K→K er henta frå C-K-teorien. Koplinga til dei materielle regionane og U er utvikla her.",
       "sources": [
         "16",
         "17"
       ],
-      "relation": "kjeldegrunnlag",
-      "note": "Dei fire operatorane C→C, C→K, K→C og K→K er henta frå C-K-teorien. Koplinga til dei materielle regionane og U er utvikla her."
+      "relation": "kjeldegrunnlag"
     },
     {
+      "id": "prop-1-61",
       "proposition": "1.61",
-      "anchor": "innleiring",
+      "section": null,
+      "note": "Innleiring lèt ei delform utløyse ein regel utan at delinga var fastsett på førehand. Dette er sentralt i Stiny sin formgrammatikk.",
       "sources": [
         "18"
       ],
-      "relation": "kjeldegrunnlag",
-      "note": "Innleiring lèt ei delform utløyse ein regel utan at delinga var fastsett på førehand. Dette er sentralt i Stiny sin formgrammatikk."
+      "relation": "kjeldegrunnlag"
     },
     {
+      "id": "prop-2-202",
       "proposition": "2.202",
-      "anchor": "Stil kan predikere",
+      "section": null,
+      "note": "Riegl drøftar stilhistoriske samanhengar. Samanlikninga av prediksjonsevne er her ei hypotese som krev eit definert datasett og ei eiga prøving.",
       "sources": [
         "53"
       ],
-      "relation": "historisk bakgrunn",
-      "note": "Riegl drøftar stilhistoriske samanhengar. Samanlikninga av prediksjonsevne er her ei hypotese som krev eit definert datasett og ei eiga prøving."
+      "relation": "historisk bakgrunn"
     },
     {
+      "id": "prop-5-1",
       "proposition": "5.1",
-      "anchor": "negativ tilbakekopling",
+      "section": null,
+      "note": "Målretta tilbakekopling har kybernetisk bakgrunn; Schlosser drøftar agens filosofisk. At denne strukturen finst i kvar klasse, er postulatet her.",
       "sources": [
         "4",
         "5",
         "7",
         "62"
       ],
-      "relation": "postulat og bakgrunn",
-      "note": "Målretta tilbakekopling har kybernetisk bakgrunn; Schlosser drøftar agens filosofisk. At denne strukturen finst i kvar klasse, er postulatet her."
+      "relation": "postulat og bakgrunn"
     },
     {
+      "id": "prop-5-15",
       "proposition": "5.15",
-      "anchor": "kompetanse",
+      "section": null,
+      "note": "Fields og Levin undersøker målretta navigasjon i ulike rom. Definisjonen held fram denne bruken; det særskilde målet ν i 5.152 er føreslått i FORMLÆRE.",
       "sources": [
         "21"
       ],
-      "relation": "kjeldegrunnlag",
-      "note": "Fields og Levin undersøker målretta navigasjon i ulike rom. Definisjonen held fram denne bruken; det særskilde målet ν i 5.152 er føreslått i FORMLÆRE."
+      "relation": "kjeldegrunnlag"
     },
     {
+      "id": "prop-5-152",
       "proposition": "5.152",
-      "anchor": "Kompetansen kan teljast",
+      "section": null,
+      "note": "Litteraturen om ulike former for intelligens er bakgrunn. Logaritmen av steg spart mot blind leiting er eit måleforslag her, ikkje eit ferdig validert mål henta frå kjelda.",
       "sources": [
         "86"
       ],
-      "relation": "måleforslag",
-      "note": "Litteraturen om ulike former for intelligens er bakgrunn. Logaritmen av steg spart mot blind leiting er eit måleforslag her, ikkje eit ferdig validert mål henta frå kjelda."
+      "relation": "måleforslag"
     },
     {
+      "id": "prop-6-131",
       "proposition": "6.131",
-      "anchor": "Utforsking",
+      "section": null,
+      "note": "March analyserer avveginga mellom utforsking av nye moglegheiter og utnytting av kjend kunnskap. Påstanden om kva koplingane bør tillate, er vidareføringa her.",
       "sources": [
         "104"
       ],
-      "relation": "vidareføring",
-      "note": "March analyserer avveginga mellom utforsking av nye moglegheiter og utnytting av kjend kunnskap. Påstanden om kva koplingane bør tillate, er vidareføringa her."
-    }
-  ],
-  "intro": [
-    {
-      "anchor": "Formgrammatikken",
-      "sources": [
-        "11",
-        "18"
-      ],
-      "note": "Stiny og Gips gjev eit språk for korleis former kan genererast. Samankoplinga med landskap og omhug er vidareføringa i denne teksten."
-    },
-    {
-      "anchor": "teori om designkunnskap",
-      "sources": [
-        "16",
-        "17",
-        "74"
-      ],
-      "note": "Hatchuel og Weil sin tanke–kunnskapsteori skil mellom konsept og kunnskap. Koplinga til regionane i formrommet er ei vidareføring i FORMLÆRE."
-    },
-    {
-      "anchor": "utviklingsbiologi, kybernetikk og agentteori",
-      "sources": [
-        "4",
-        "5",
-        "7",
-        "21",
-        "22"
-      ],
-      "note": "Desse tradisjonane gjev bakgrunn for målretta system, tilbakekopling og kompetanse på tvers av skalaer. Den samla formmodellen er ikkje eit resultat kjeldene åleine etablerer."
-    },
-    {
-      "anchor": "Omhug",
-      "sources": [
-        "23",
-        "68"
-      ],
-      "note": "Doctor og medforfattarar drøftar omhug som drivkraft for intelligens; Tronto gjev ein omsorgsetisk bakgrunn. Den avgrensa definisjonen her er teksten si eiga."
-    },
-    {
-      "anchor": "Kapasitet",
-      "sources": [
-        "21",
-        "86"
-      ],
-      "note": "Arbeida om navigasjonskompetanse er bakgrunn. Skiljet mellom kapasitet, omhug og prediksjon vert formulert og prøvd i FORMLÆRE."
+      "relation": "vidareføring"
     }
   ]
 }

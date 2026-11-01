@@ -1,0 +1,241 @@
+#!/usr/bin/env python3
+"""Shared source parser and validation for web, LaTeX and PDF.
+
+Only the files tekst/formlaere.txt, kjelder.json, figurar.json and edition.json
+are editable content. Neither renderer may infer citations from ordinary numbers.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import re
+from copy import deepcopy
+from pathlib import Path
+
+PROP = re.compile(r"^\*\*(\d+(?:\.\d+)*)([datio])\*\*\s+(.*)$")
+CITE = re.compile(r"\[\[kjelde:(\d+(?:,\d+)*)\]\]")
+NOTE = re.compile(r"\[\[notat:([A-Za-z][A-Za-z0-9_.-]*)\]\]")
+NUMBER = re.compile(r"[1-9]\d*(?:\.\d+)*")
+NOTE_ID = re.compile(r"[A-Za-z][A-Za-z0-9_.-]*")
+CANONICAL = ("tekst/formlaere.txt", "kjelder.json", "figurar.json", "edition.json")
+
+
+def parse_source(source: str) -> tuple[list[dict], list[dict]]:
+    tokens, props, buffer = [], [], []
+    active = None
+
+    def flush() -> None:
+        value = "\n".join(buffer).strip()
+        buffer.clear()
+        if not value:
+            return
+        if active is not None:
+            active["paragraphs"].append(value)
+        else:
+            tokens.append({"kind": "paragraph", "text": value})
+
+    for line in source.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
+        if line.startswith("## ") or line.startswith("# "):
+            flush()
+            active = None
+            tokens.append({"kind": "heading" if line.startswith("## ") else "title", "text": line[3 if line.startswith("## ") else 2:].strip()})
+            continue
+        match = PROP.match(line)
+        if match:
+            flush()
+            active = {"kind": "prop", "n": match[1], "status": match[2], "paragraphs": [], "notes": []}
+            tokens.append(active)
+            props.append(active)
+            if match[3]:
+                buffer.append(match[3])
+        elif not line.strip():
+            flush()
+        else:
+            if line.startswith("**") and re.match(r"^\*\*\d", line):
+                raise ValueError("Malformed proposition heading: " + line[:60])
+            buffer.append(line)
+    flush()
+    return tokens, props
+
+
+def marker_ids(text: str) -> tuple[list[str], list[str]]:
+    citation_ids = [value for group in CITE.findall(text) for value in group.split(",")]
+    note_ids = NOTE.findall(text)
+    residue = NOTE.sub("", CITE.sub("", text))
+    if "[[" in residue or "]]" in residue:
+        raise ValueError("Unknown or malformed source marker")
+    for group in CITE.findall(text):
+        values = group.split(",")
+        if len(values) != len(set(values)):
+            raise ValueError("Duplicate source ID in citation group")
+    return citation_ids, note_ids
+
+
+def _number_key(number: str) -> tuple[int, str]:
+    first, *rest = number.split(".")
+    # The digits after the decimal form a logical address, not an integer:
+    # 1.0111 precedes 1.012. Keep chapter numbers numerically ordered.
+    return int(first), ".".join(rest)
+
+
+def input_manifest(root: Path) -> dict[str, str]:
+    root = root.resolve()
+    paths = {root / name for name in (*CANONICAL, "vercel.json")}
+    for folder in ("scripts", "layout", "nettstad"):
+        directory = root / folder
+        if not directory.exists():
+            continue
+        for path in directory.rglob("*"):
+            if not path.is_file():
+                continue
+            relative = path.relative_to(root)
+            if any(part in {"__pycache__", "dist", "build", "tmp", ".git", "node_modules"} for part in relative.parts):
+                continue
+            if path.suffix in {".pyc", ".pyo", ".log", ".aux", ".pdf", ".tex~"} or path.name.startswith("."):
+                continue
+            paths.add(path)
+    figure_path = root / "figurar.json"
+    if figure_path.exists():
+        figures = json.loads(figure_path.read_text(encoding="utf-8"))
+        for figure in figures.get("assets", []):
+            paths.add(root / "nettstad" / "illustrations" / figure["file"])
+    result = {}
+    for path in sorted(paths, key=lambda value: value.relative_to(root).as_posix()):
+        if not path.is_file():
+            raise ValueError(f"Build input is missing: {path.relative_to(root)}")
+        result[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return result
+
+
+def source_hash(root: Path) -> str:
+    payload = json.dumps(input_manifest(root), sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def load_document(root: Path) -> dict:
+    root = root.resolve()
+    source = (root / "tekst" / "formlaere.txt").read_text(encoding="utf-8")
+    catalog = json.loads((root / "kjelder.json").read_text(encoding="utf-8"))
+    figures = json.loads((root / "figurar.json").read_text(encoding="utf-8"))
+    edition = json.loads((root / "edition.json").read_text(encoding="utf-8"))
+    tokens, props = parse_source(source)
+    prop_order = {prop["n"]: index for index, prop in enumerate(props)}
+    raw_notes = deepcopy(catalog.get("notes", []))
+    ordered_notes = sorted(enumerate(raw_notes), key=lambda pair: (-1 if pair[1].get("section") == "foreword" else prop_order.get(pair[1].get("proposition"), len(props)), pair[0]))
+    notes = []
+    for _, item in ordered_notes:
+        item.setdefault("proposition", None)
+        item.setdefault("section", None)
+        item["number"] = len(notes) + 1
+        notes.append(item)
+    note_by_id = {note["id"]: note for note in notes}
+    explicit_note_occurrences = []
+    for token in tokens:
+        texts = token.get("paragraphs", []) if token["kind"] == "prop" else [token.get("text", "")]
+        clean = []
+        placements = []
+        for text in texts:
+            marker_ids(text)  # Validate before stripping placement metadata.
+            placements.extend(NOTE.findall(text))
+            clean.append(NOTE.sub("", text))
+        if token["kind"] == "prop":
+            token["paragraphs"] = clean
+            implicit = [note["id"] for note in notes if note.get("proposition") == token["n"]]
+            token["notes"] = list(dict.fromkeys(placements + implicit))
+        else:
+            token["text"] = clean[0]
+            if placements:
+                token["notes"] = placements
+        explicit_note_occurrences.extend(placements)
+    document = {"schemaVersion": 1, "sourceHash": source_hash(root), "title": edition["title"], "author": edition["author"],
+                "tokens": tokens, "props": props, "sources": deepcopy(catalog["sources"]), "notes": notes, "figures": deepcopy(figures["assets"])}
+    # Placement markers are only used for section notes. Proposition notes
+    # already have a stable target and must not acquire duplicate placements.
+    for note_id in explicit_note_occurrences:
+        if note_id not in note_by_id:
+            raise ValueError("Unknown note marker: " + note_id)
+        if note_by_id[note_id].get("proposition"):
+            raise ValueError("Use the catalog proposition target for note " + note_id)
+    validate_document(document, root)
+    return document
+
+
+def validate_document(document: dict, root: Path) -> None:
+    if document.get("schemaVersion") != 1:
+        raise ValueError("Unsupported document schema")
+    props = document.get("props", [])
+    if not props:
+        raise ValueError("The document contains no propositions")
+    numbers = [prop.get("n", "") for prop in props]
+    if any(not NUMBER.fullmatch(number) for number in numbers):
+        raise ValueError("Invalid proposition identifier")
+    if len(set(numbers)) != len(numbers):
+        raise ValueError("Duplicate proposition identifiers")
+    if numbers != sorted(numbers, key=_number_key):
+        raise ValueError("Propositions are not in logical address order")
+    if any(prop.get("status") not in {"d", "a", "t", "i", "o"} or not prop.get("paragraphs") for prop in props):
+        raise ValueError("Invalid proposition status or empty proposition")
+    token_props = [token for token in document.get("tokens", []) if token.get("kind") == "prop"]
+    if token_props != props:
+        raise ValueError("Proposition list and document stream disagree")
+    headings = [token.get("text") for token in document["tokens"] if token.get("kind") == "heading"]
+    if headings.count("Føreord") != 1 or headings.count("Lesekode") != 1:
+        raise ValueError("The shared foreword or reading code is missing or duplicated")
+    sources = document.get("sources", [])
+    ids = [str(source.get("id", "")) for source in sources]
+    if not sources or any(not re.fullmatch(r"\d+", value) for value in ids) or len(ids) != len(set(ids)):
+        raise ValueError("Invalid or duplicate source identifier")
+    if any(not source.get("citation", "").strip() for source in sources):
+        raise ValueError("Source citation is empty")
+    excluded = set(json.loads((root / "edition.json").read_text(encoding="utf-8")).get("excludedSourceIds", []))
+    if excluded.intersection(ids):
+        raise ValueError("An excluded source identifier is present")
+    source_ids = set(ids)
+    note_ids = [note.get("id", "") for note in document.get("notes", [])]
+    if len(note_ids) != len(set(note_ids)) or any(not NOTE_ID.fullmatch(value) for value in note_ids):
+        raise ValueError("Invalid or duplicate note identifier")
+    expected_note_numbers = list(range(1, len(note_ids) + 1))
+    if [note.get("number") for note in document["notes"]] != expected_note_numbers:
+        raise ValueError("Note display numbers are not consecutive")
+    attached = []
+    note_locations = {}
+    section = None
+    for token in document["tokens"]:
+        if token["kind"] == "heading":
+            section = {"Føreord": "foreword", "Lesekode": "reading-code"}.get(token.get("text"), token.get("text"))
+        for text in token.get("paragraphs", []) if token["kind"] == "prop" else [token.get("text", "")]:
+            citation_ids, residual_notes = marker_ids(text)
+            if residual_notes:
+                raise ValueError("Unresolved note placement metadata")
+            if set(citation_ids) - source_ids:
+                raise ValueError("Unknown cited source identifier")
+        attached.extend(token.get("notes", []))
+        for note_id in token.get("notes", []):
+            note_locations[note_id] = (token["kind"], section)
+    if sorted(attached) != sorted(note_ids):
+        raise ValueError("Each note must have exactly one placement")
+    for note in document["notes"]:
+        if not note.get("note", "").strip() or set(note.get("sources", [])) - source_ids:
+            raise ValueError("Empty note or unknown note source")
+        proposition, section = note.get("proposition"), note.get("section")
+        if proposition:
+            if proposition not in numbers or section is not None:
+                raise ValueError("Invalid note proposition target")
+            prop = props[numbers.index(proposition)]
+            if note["id"] not in prop.get("notes", []):
+                raise ValueError("Note is attached to the wrong proposition")
+        elif section != "foreword":
+            raise ValueError("Invalid note section target")
+        elif note_locations.get(note["id"]) != ("paragraph", "foreword"):
+            raise ValueError("Section note is placed outside its target section")
+    for figure in document.get("figures", []):
+        if figure.get("after") not in numbers:
+            raise ValueError("Figure proposition target does not exist")
+        filename = figure.get("file", "")
+        if not filename or Path(filename).name != filename or not figure.get("alt", "").strip():
+            raise ValueError("Invalid figure metadata")
+        if not (root / "nettstad" / "illustrations" / filename).is_file():
+            raise ValueError("Figure asset is missing: " + filename)
+    figure_names = [figure["file"] for figure in document.get("figures", [])]
+    if len(figure_names) != len(set(figure_names)):
+        raise ValueError("Duplicate figure placement")

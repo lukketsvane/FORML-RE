@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "after": "1.4",
+      "file": "scan-20261031-p11-busette-opne-forbodne.png",
+      "alt": "Busette, opne og forbodne regionar"
+    },
+    {
+      "after": "1.54",
+      "file": "scan-20261031-p13-c-k-operator-tabell-og-rorsle.png",
+      "alt": "C–K-operasjonane: retning og lyskjegleoperasjonar"
+    },
+    {
+      "after": "2.212",
+      "file": "scan-20261031-p16-royrstol-utvikling.png",
+      "alt": "Frå sykkelramme til røyrstol"
+    },
+    {
+      "after": "5.125",
+      "file": "scan-20261031-p21-agentrang.png",
+      "alt": "Agens frå termostat til designar"
+    },
+    {
+      "after": "6.66",
+      "file": "model-overview-20261101.jpg",
+      "alt": "Formrom, partisjon, grammatikk, landskap og agenthierarki"
+    },
+    {
+      "after": "7.142",
+      "file": "scan-20261031-p41-sommarfugl-livslop.png",
+      "alt": "Larve, puppe og sommarfugl"
+    }
+  ]
+}
