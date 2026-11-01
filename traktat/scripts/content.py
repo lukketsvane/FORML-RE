@@ -81,7 +81,7 @@ def _number_key(number: str) -> tuple[int, str]:
 
 def input_manifest(root: Path) -> dict[str, str]:
     root = root.resolve()
-    paths = {root / name for name in (*CANONICAL, "vercel.json")}
+    paths = {root / name for name in (*CANONICAL, "vercel.json", "requirements-build.txt")}
     for folder in ("scripts", "layout", "nettstad"):
         directory = root / folder
         if not directory.exists():
@@ -153,7 +153,8 @@ def load_document(root: Path) -> dict:
         explicit_note_occurrences.extend(placements)
     document = {"schemaVersion": 1, "sourceHash": source_hash(root), "title": edition["title"], "author": edition["author"],
                 "tokens": tokens, "props": props, "sources": deepcopy(catalog["sources"]), "notes": notes,
-                "figures": deepcopy(figures["assets"]), "glossary": deepcopy(glossary["entries"])}
+                "figures": deepcopy(figures["assets"]), "glossary": deepcopy(glossary["entries"]),
+                "sourceAliases": deepcopy(catalog.get("aliases", {}))}
     # Placement markers are only used for section notes. Proposition notes
     # already have a stable target and must not acquire duplicate placements.
     for note_id in explicit_note_occurrences:
@@ -233,6 +234,9 @@ def validate_document(document: dict, root: Path) -> None:
     if excluded.intersection(ids):
         raise ValueError("An excluded source identifier is present")
     source_ids = set(ids)
+    aliases = document.get("sourceAliases", {})
+    if not isinstance(aliases, dict) or any(not isinstance(alias, str) or not isinstance(target, str) or not re.fullmatch(r"\d+", alias) or alias in source_ids or target not in source_ids for alias, target in aliases.items()):
+        raise ValueError("Invalid source alias")
     note_ids = [note.get("id", "") for note in document.get("notes", [])]
     if len(note_ids) != len(set(note_ids)) or any(not NOTE_ID.fullmatch(value) for value in note_ids):
         raise ValueError("Invalid or duplicate note identifier")
@@ -281,3 +285,12 @@ def validate_document(document: dict, root: Path) -> None:
     figure_names = [figure["file"] for figure in document.get("figures", [])]
     if len(figure_names) != len(set(figure_names)):
         raise ValueError("Duplicate figure placement")
+    edition = json.loads((root / "edition.json").read_text(encoding="utf-8"))
+    if edition.get("requireReferencedSources"):
+        used = {value for token in document["tokens"]
+                for text in (token.get("paragraphs", []) if token["kind"] == "prop" else [token.get("text", "")])
+                for group in CITE.findall(text) for value in group.split(",")}
+        used.update(value for note in document["notes"] for value in note.get("sources", []))
+        used.update(value for entry in glossary for value in entry.get("sources", []))
+        if source_ids - used:
+            raise ValueError("Unreferenced active sources: " + ", ".join(sorted(source_ids - used, key=int)))

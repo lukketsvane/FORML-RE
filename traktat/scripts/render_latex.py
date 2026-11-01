@@ -31,6 +31,12 @@ def tex_escape(text: str) -> str:
     return "".join(ESCAPE.get(char, char) for char in text)
 
 
+def print_figure_path(filename: str) -> Path:
+    """XeLaTeX consumes the derived PDF; the web keeps the canonical SVG."""
+    asset = Path("illustrations") / filename
+    return asset.with_suffix(".pdf") if asset.suffix.lower() == ".svg" else asset
+
+
 def target(value: object) -> str:
     value = str(value)
     if not re.fullmatch(r"[A-Za-z0-9_.:-]+", value):
@@ -232,7 +238,7 @@ class Renderer:
                     asset = ROOT / "nettstad" / "illustrations" / figure["file"]
                     if not asset.is_file():
                         raise FileNotFoundError(f"Missing illustration: {asset}")
-                    portable_asset = Path("illustrations") / figure["file"]
+                    portable_asset = print_figure_path(figure["file"])
                     output.append(r"\bookfigure{" + portable_asset.as_posix() + "}{" + tex_escape(figure["alt"]) + "}")
 
         glossary = self.document.get("glossary", [])
@@ -276,6 +282,9 @@ class Renderer:
                     output.append(r"\entrylinks{[" + self.source_links(item.get("sources", [])) + "]}")
                 else:
                     output.append(r"\begin{referenceentry}{referanse-" + target(item["id"]) + "}{" + tex_escape(str(item["id"])) + "}")
+                    for alias, canonical in self.document.get("sourceAliases", {}).items():
+                        if str(canonical) == str(item["id"]):
+                            output.append(r"\hypertarget{referanse-" + target(alias) + "}{}")
                     output.append(literal(item["citation"]))
                     url = item.get("url") or ("https://doi.org/" + item["doi"] if item.get("doi") else None)
                     if url and re.match(r"^https?://", url):

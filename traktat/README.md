@@ -12,7 +12,7 @@ Teksten vert redigert éin stad og lesen av den same parseren før nettstad, LaT
 | `edition.json` | Tittel, forfattar og reglar for utgåva, mellom anna utelatne kjelde-ID-ar. |
 | `ordliste.json` | Omgrep med stabile ID-ar, korte forklaringar og tilvisingar til proposisjonane dei byggjer på. |
 
-Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseringa skal gjerast i `figurar.json`, slik at begge formata får same figur på same stad.
+Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseringa skal gjerast i `figurar.json`, slik at begge formata får same figur på same stad. Nye diagram vert redigerte som SVG. Nettstaden nyttar SVG-fila direkte; utskriftsbyggjet lagar ein vektor-PDF av henne til LaTeX og den portable pakka. Pakka inneheld berre figurane den aktive utgåva nyttar.
 
 Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av teksten eller ordlista i HTML eller LaTeX. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
 
@@ -35,6 +35,8 @@ Ei utsegn.[[kjelde:3,8,58]]
 Vanlege tal, proposisjonsnummer og matematiske eksponentar vert ikkje tolka som kjelder. Ei ukjend eller feilforma tilvising stoppar byggjet. Me treng difor ikkje lenger å halde ved like teiknplasseringar eller kopiar av heile avsnitt for å lenkje ei kjelde.
 
 Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat som høyrer til føreordet, får ei uttrykkeleg plassering i tekstfila, til dømes `[[notat:intro-1]]`. Notat-ID-en vert verande den same sjølv om visningsnummeret endrar seg. Kjelde-ID-ar er òg stabile: hòl i nummereringa skal ikkje fyllast ved å flytte seinare nummer.
+
+Alle aktive kjelder skal vere brukte i teksten, notata eller ordlista. `requireReferencedSources` i `edition.json` gjer dette til ein byggjekontroll. Dublettar kan få eit direkte alias i `kjelder.json`, til dømes `"aliases": {"63": "19"}`. Gamle lenkjer og PDF-anker vert då bevarte utan ei ekstra bibliografioppføring. Kjelder som vert tekne ut, vert arkiverte med opphavleg metadata og grunn for uttaket.
 
 Migreringa bevarer den publiserte utgåva med 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala er ein kontroll av overføringa, ikkje ei fast grense i lesaren. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
 
@@ -96,10 +98,10 @@ På Ubuntu 24.04 kan TeX og kontrollverktøya installerast slik:
 
 ```sh
 sudo apt-get update
-sudo apt-get install --no-install-recommends texlive-xetex texlive-latex-extra texlive-lang-european texlive-fonts-recommended fonts-dejavu-core poppler-utils
+sudo apt-get install --no-install-recommends texlive-xetex texlive-latex-extra texlive-lang-european texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2
 ```
 
-PDF-byggjet nyttar mellom anna `fontspec`, `polyglossia` og `unicode-math`. Det stoppar ved manglande glyffar eller linjer som går ut over tekstfeltet. Figurane følgjer LaTeX-pakka, så ho kan kompilerast etter utpakking med same TeX-avhengnader:
+PDF-byggjet nyttar mellom anna `fontspec`, `polyglossia` og `unicode-math`. CairoSVG lagar vektor-PDF frå SVG-kjeldene. Byggjet stoppar ved manglande glyffar eller linjer som går ut over tekstfeltet. Dei ferdig konverterte figurane følgjer LaTeX-pakka; ho kan kompilerast etter utpakking med same TeX-avhengnader, utan CairoSVG:
 
 ```sh
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error formlaere.tex
@@ -128,4 +130,6 @@ På Vercel skal prosjektrota vere `traktat`. `vercel.json` i denne mappa er det 
 
 `archive/2026-11-01/` tek vare på migreringsgrunnlaget og det som ikkje var med i den publiserte utgåva. Testane nyttar dette som eit fast samanlikningsgrunnlag. Tidlegare LaTeX-oppsett og PDF-filer ligg i `archive/legacy-layout/` og `archive/legacy-pdf/`. Pensjonerte byggjarar og nettlesarfiler ligg i git-historia.
 
-Vidare tekstarbeid skal gjerast i dei fire aktive innhaldsfilene over. Arkivet er dokumentasjon av tidlegare tilstand.
+Kjeldeoppryddinga tek vare på bibliografien før gjennomgangen i `bibliography-before-audit-b2a208.json` og på uttaka med grunngjeving i `retired-references-b2a208.json`. Erstatta og uttekne illustrasjonar ligg uendra i `archive/2026-11-01/illustrations/`.
+
+Vidare tekstarbeid skal gjerast i dei fem aktive innhaldsfilene over. Arkivet er dokumentasjon av tidlegare tilstand.

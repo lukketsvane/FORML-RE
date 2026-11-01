@@ -1,0 +1,378 @@
+{
+  "basisCommit": "b2a20865164b395e27ccebe40fbeccc7dea6823d",
+  "records": [
+    {
+      "source": {
+        "id": "6",
+        "citation": "Turing, A. M. (1950). Computing machinery and intelligence. Mind, 59(236), 433–460.",
+        "year": "1950"
+      },
+      "reason": "No current claim about the imitation game or the criteria for machine intelligence; generic language-model mention is not a matching claim."
+    },
+    {
+      "source": {
+        "id": "25",
+        "citation": "Trentmann, F. (2016). Empire of Things: How We Became a World of Consumers. Allen Lane.",
+        "year": "2016"
+      },
+      "reason": "Current foreword no longer develops the historical growth of material consumption; no direct present attachment."
+    },
+    {
+      "source": {
+        "id": "27",
+        "citation": "Blackiston, D. J., Casey, E. S. & Bhatt, A. L. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? PLoS ONE, 3(3), e1736.",
+        "year": "2008"
+      },
+      "reason": "Memory across metamorphosis is not claimed in the current prose; a butterfly illustration alone does not make the experiment evidence for the text."
+    },
+    {
+      "source": {
+        "id": "28",
+        "citation": "NOAA Marine Debris Program (2024). Estimated decomposition rates of common marine debris items. National Oceanic and Atmospheric Administration.",
+        "year": "2024"
+      },
+      "reason": "No universal 400-year cup decomposition estimate is established. A material- and environment-unspecified illustrative example must not be supported by a generic marine-debris estimate."
+    },
+    {
+      "source": {
+        "id": "29",
+        "citation": "NOAA Global Monitoring Laboratory (2024). Trends in atmospheric carbon dioxide. National Oceanic and Atmospheric Administration.",
+        "year": "2024"
+      },
+      "reason": "No current atmospheric CO2 time-series claim."
+    },
+    {
+      "source": {
+        "id": "30",
+        "citation": "FAO & UNCCD (2024). Global Soil Partnership: estimated annual topsoil loss. Food and Agriculture Organization of the United Nations.",
+        "year": "2024"
+      },
+      "reason": "No current global topsoil-loss statistic."
+    },
+    {
+      "source": {
+        "id": "31",
+        "citation": "UN-Habitat (2024). World Cities Report: 1.8 billion people in inadequate housing. United Nations Human Settlements Programme.",
+        "year": "2024"
+      },
+      "reason": "No current global inadequate-housing statistic."
+    },
+    {
+      "source": {
+        "id": "32",
+        "citation": "Biddle, S. (2019–2024). Palantir and ICE reporting series. The Intercept. Sjå òg Mijente, Who's Behind ICE?",
+        "year": "2019"
+      },
+      "reason": "No current Palantir/ICE case-study claim."
+    },
+    {
+      "source": {
+        "id": "33",
+        "citation": "Abraham, Y. (2024). «Lavender» og «Where's Daddy?»: AI-baserte målrettingssystem i Gaza. +972 Magazine / Local Call. Sjå òg ICJ rådgjevande fråsegn (2024).",
+        "year": "2024"
+      },
+      "reason": "No current Lavender/Where’s Daddy case-study claim."
+    },
+    {
+      "source": {
+        "id": "34",
+        "citation": "Autoriteit Persoonsgegevens (2020). SyRI-dommen; Amnesty International (2021). Toeslagenaffaire: systematisk diskriminering gjennom algoritmisk profilering i nederlandsk velferd.",
+        "year": "2020"
+      },
+      "reason": "No current SyRI/Toeslagenaffaire case-study claim."
+    },
+    {
+      "source": {
+        "id": "35",
+        "citation": "Lindsey, J. et al. (2025). On the Biology of a Large Language Model. Transformer Circuits, Anthropic. Sjå òg Butlin, P. et al. (2023). Consciousness in Artificial Intelligence. arXiv:2308.08708.",
+        "year": "2025",
+        "url": "https://www.transformer-circuits.pub/2025/attribution-graphs/biology.html",
+        "verification_note": "Fjerna den udokumenterte undertittelen Probing emotion. Posten blanda denne artikkelen (27.3.2025) med Sofroniew et al. (2.4.2026), Emotion Concepts and their Function in a Large Language Model, https://www.transformer-circuits.pub/2026/emotions/index.html . Det siste arbeidet viser kausalt verksame representasjonar av emosjonsomgrep, ikkje dokumentasjon av subjektiv oppleving. Butlin-posten er ikkje nyverifisert i denne gjennomgangen.",
+        "verified_on": "2026-11-01"
+      },
+      "reason": "No current empirical claim about LLM emotion representations or consciousness; language-model attention is a different mechanism."
+    },
+    {
+      "source": {
+        "id": "36",
+        "citation": "Biswas, S., Manicka, S., Hoel, E. & Levin, M. (2021). Gene regulatory networks exhibit several kinds of memory: Quantification of memory in biological and random transcriptional networks. iScience, 24(3), 102131.",
+        "year": "2021",
+        "url": "https://doi.org/10.1016/j.isci.2021.102131",
+        "doi": "10.1016/j.isci.2021.102131",
+        "verification_note": "Retta feil år, volum, hefte og artikkelnummer. Full publisert artikkel ligg i PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC7970124/ . Studien analyserer GRN-modellar; ikkje framstill alle resultata som direkte våtlabforsøk.",
+        "verified_on": "2026-11-01"
+      },
+      "reason": "No current gene-regulatory-network memory-model claim. Do not cite the model as wet-laboratory evidence for a generic biological-agent claim."
+    },
+    {
+      "source": {
+        "id": "37",
+        "citation": "Vandenberg, L. N., Adams, D. S. & Levin, M. (2012). Normalized shape and location of perturbed craniofacial structures in the Xenopus tadpole reveal an innate ability to achieve correct morphology. Developmental Dynamics, 241(5), 863–878.",
+        "year": "2012"
+      },
+      "reason": "No current perturbed Xenopus craniofacial-shape recovery claim."
+    },
+    {
+      "source": {
+        "id": "38",
+        "citation": "Shomrat, T. & Levin, M. (2013). An automated training paradigm reveals long-term memory in planarians and its persistence through head regeneration. Journal of Experimental Biology, 216(20), 3799–3810.",
+        "year": "2013"
+      },
+      "reason": "No current planarian memory across head-regeneration claim."
+    },
+    {
+      "source": {
+        "id": "39",
+        "citation": "Fankhauser, G. (1945). The effects of changes in chromosome number on amphibian development. Quarterly Review of Biology, 20(1), 20–78.",
+        "year": "1945"
+      },
+      "reason": "No current chromosome-number/amphibian-development claim."
+    },
+    {
+      "source": {
+        "id": "40",
+        "citation": "Kriegman, S., Blackiston, D., Levin, M. & Bongard, J. (2021). Kinematic self-replication in reconfigurable organisms. Proceedings of the National Academy of Sciences, 118(49), e2112672118.",
+        "year": "2021"
+      },
+      "reason": "No current kinematic self-replication/xenobot claim."
+    },
+    {
+      "source": {
+        "id": "41",
+        "citation": "Gumuskaya, G., Srivastava, P., Cooper, B. G., Lesser, H., Semegran, B., Garber, S. & Levin, M. (2023). Motile living biobots self-construct from adult human somatic progenitor seed cells. Advanced Science, 10(34), 2303575.",
+        "year": "2023"
+      },
+      "reason": "No current anthrobot/ciliated-human-cell biobot claim."
+    },
+    {
+      "source": {
+        "id": "42",
+        "citation": "UNEP (2024). Plastics: annual global production. United Nations Environment Programme. Sjå òg Plastics Europe, Plastics - The Fast Facts 2023.",
+        "year": "2024"
+      },
+      "reason": "No current annual global plastics statistic."
+    },
+    {
+      "source": {
+        "id": "43",
+        "citation": "Ellen MacArthur Foundation (2017). A New Textiles Economy: average number of times a garment is worn before disposal.",
+        "year": "2017"
+      },
+      "reason": "No current clothing-wear/textile-waste statistic."
+    },
+    {
+      "source": {
+        "id": "44",
+        "citation": "Richardson, K. et al. (2023). Earth beyond six of nine planetary boundaries. Science Advances, 9(37), eadh2458.",
+        "year": "2023"
+      },
+      "reason": "No current quantitative planetary-boundaries assertion."
+    },
+    {
+      "source": {
+        "id": "45",
+        "citation": "IPBES (2019). Global Assessment Report on Biodiversity and Ecosystem Services: approximately 1 million species threatened with extinction.",
+        "year": "2019"
+      },
+      "reason": "No current threatened-species statistic."
+    },
+    {
+      "source": {
+        "id": "46",
+        "citation": "WWF (2022). Living Planet Report 2022: 69 % average decline in monitored wildlife populations since 1970.",
+        "year": "2022"
+      },
+      "reason": "No current Living Planet population-trend statistic."
+    },
+    {
+      "source": {
+        "id": "47",
+        "citation": "FAO (2022). Global Forest Resources Assessment: approximately 10 million hectares of forest lost per year (2015–2020).",
+        "year": "2022"
+      },
+      "reason": "No current global forest-loss statistic."
+    },
+    {
+      "source": {
+        "id": "48",
+        "citation": "WHO/UNICEF Joint Monitoring Programme (2023). Progress on household drinking water, sanitation and hygiene: 2.4 billion people lack basic sanitation.",
+        "year": "2023"
+      },
+      "reason": "No current sanitation-access statistic."
+    },
+    {
+      "source": {
+        "id": "49",
+        "citation": "UNHCR (2024). Global Trends: Forced Displacement in 2023: 120 million people displaced worldwide.",
+        "year": "2024"
+      },
+      "reason": "No current forced-displacement statistic."
+    },
+    {
+      "source": {
+        "id": "50",
+        "citation": "IPCC (2022). Climate Change 2022: Impacts, Adaptation and Vulnerability (AR6 WGII): 3.3–3.6 billion people highly vulnerable to climate change.",
+        "year": "2022"
+      },
+      "reason": "No current IPCC vulnerability-population statistic."
+    },
+    {
+      "source": {
+        "id": "51",
+        "citation": "UCDP/PRIO (2024). Armed Conflict Dataset v24.1: 56 active state-based armed conflicts in 2023.",
+        "year": "2024"
+      },
+      "reason": "No current conflict-count statistic."
+    },
+    {
+      "source": {
+        "id": "52",
+        "citation": "Ecovative Design / GROWN.bio (2024). Mycelium-based packaging and construction materials as polystyrene replacement.",
+        "year": "2024"
+      },
+      "reason": "No current mycelium-packaging case-study claim."
+    },
+    {
+      "source": {
+        "id": "57",
+        "citation": "Fultot, M. & Turvey, M. T. (2019). Von Uexküll's theory of meaning and Gibson's organism–environment reciprocity. Ecological Psychology, 31(4), 289–315.",
+        "year": "2019"
+      },
+      "reason": "Metadata is real (DOI 10.1080/10407413.2019.1619455), but the current affordance definition already cites Gibson directly and does not discuss this paper’s Uexküll/Gibson interpretation. Avoid a redundant background attachment."
+    },
+    {
+      "source": {
+        "id": "63",
+        "citation": "Friston, K. (2010). The free-energy principle: a unified brain theory? Nature Reviews Neuroscience, 11(2), 127–138.",
+        "year": "2010"
+      },
+      "reason": "Exact duplicate of source 19. Remap two prose markers to 19 and retain 63 only in the archive plus compatibility alias, without renumbering."
+    },
+    {
+      "source": {
+        "id": "69",
+        "citation": "Dewey, J. (1934). Art as Experience. Minton, Balch & Company.",
+        "year": "1934"
+      },
+      "reason": "The text does not attribute a claim to Dewey or develop his art-as-experience account; thematic affinity alone is insufficient."
+    },
+    {
+      "source": {
+        "id": "75",
+        "citation": "Coatanéa, E., Choulier, D. & Forest, J. (2011). CK, an engineering design theory? Contributions, limits and proposals. DS 68-2: Proceedings of ICED 11, Vol. 2: Design Theory and Research Methodology, 323–333. Design Society.",
+        "year": "2011",
+        "url": "https://theory.designsociety.org/publication/30483/CK%2C%2BAN%2BENGINEERING%2BDESIGN%2BTHEORY%3F%2BCONTRIBUTIONS%2C%2BLIMITS%2BAND%2BPROPOSALS",
+        "verification_note": "Retta feil forfattar Kazakçi og år 2015. Arrangøren sin primærkatalog gjev denne tittelen til Coatanéa, Choulier og Forest i 2011. Dersom målet eigentleg var ei særskild Kazakçi-kjelde, må det veljast og dokumenterast som ei anna kjelde, ikkje kamuflerast under denne tittelen.",
+        "verified_on": "2026-11-01"
+      },
+      "reason": "A critique of C–K is not evidence for FORMLÆRE’s own newly formulated reduction/limits. No current direct summary of this critique."
+    },
+    {
+      "source": {
+        "id": "76",
+        "citation": "Ma, K., Brubaker, E. R. & Goucher-Lambert, K. (2025). Simulating Design Theory Using LLM Agents: A Case Study of C-K Theory. Proceedings of the ASME International Design Engineering Technical Conferences, Vol. 4.",
+        "year": "2025",
+        "url": "https://codesign.berkeley.edu/papers/ma-ck/",
+        "doi": "10.1115/DETC2025-169634",
+        "verification_note": "Retta Ma M. 2023 og lagt til medforfattarar og publikasjonsstad. Berkeley-labside/PDF stadfestar tittel, 2025 og forfattarar; medforfattaren sin Duke-post stadfestar DOI: https://scholars.duke.edu/publication/1698341 .",
+        "verified_on": "2026-11-01"
+      },
+      "reason": "A C–K/LLM-agent design simulation is not direct evidence for transformer attention mechanics or the internal formal reductions."
+    },
+    {
+      "source": {
+        "id": "94",
+        "citation": "Haidt, J. (2024). The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness. Penguin Press. Sjå òg Twenge, J. M. (2017). iGen. Atria Books.",
+        "year": "2024"
+      },
+      "reason": "No current social-media/youth-mental-health case-study claim."
+    },
+    {
+      "source": {
+        "id": "95",
+        "citation": "Haugen, F. (2021). Testimony before U.S. Senate Subcommittee on Consumer Protection; The Facebook Files, Wall Street Journal investigation series.",
+        "year": "2021"
+      },
+      "reason": "No current Facebook whistleblower/Facebook Files case-study claim."
+    },
+    {
+      "source": {
+        "id": "96",
+        "citation": "Cadwalladr, C. & Graham-Harrison, E. (2018). Revealed: 50 million Facebook profiles harvested for Cambridge Analytica in major data breach. The Guardian, 17 March.",
+        "year": "2018"
+      },
+      "reason": "No current Cambridge Analytica case-study claim."
+    },
+    {
+      "source": {
+        "id": "97",
+        "citation": "Ovid. Metamorfosar III: Ekko og Narcissus."
+      },
+      "reason": "No current Narcissus/Ovid textual quotation or explicit interpretive claim."
+    },
+    {
+      "source": {
+        "id": "98",
+        "citation": "Rajan, D., Makushok, T., Kalantari, A. et al. (2023). Single-cell analysis of habituation in Stentor coeruleus. Current Biology, 33, 241–251.",
+        "year": "2023"
+      },
+      "reason": "No current Stentor habituation claim. Bibliographic record also has an incorrect third author (Kalantari should be Kalish) and incomplete pages; archive unchanged original and flag correction if restored."
+    },
+    {
+      "source": {
+        "id": "99",
+        "citation": "Boisseau, R. P., Vogel, D. & Dussutour, A. (2016). Habituation in non-neural organisms: Evidence from slime moulds. Proceedings of the Royal Society B, 283, 20160446.",
+        "year": "2016"
+      },
+      "reason": "No current slime-mould habituation claim; 5.1111 concerns oscillatory contractions, a different claim from habituation."
+    },
+    {
+      "source": {
+        "id": "100",
+        "citation": "Netea, M. G., Joosten, L. A. B., Latz, E. et al. (2016). Trained immunity: A program of innate immune memory in health and disease. Science, 352(6284), aaf1098.",
+        "year": "2016"
+      },
+      "reason": "No current trained-immunity mechanism claim."
+    },
+    {
+      "source": {
+        "id": "102",
+        "citation": "Pavlov, I. P. (1927). Conditioned Reflexes. Oxford University Press.",
+        "year": "1927"
+      },
+      "reason": "No current Pavlovian conditioning experiment or theoretical attribution."
+    },
+    {
+      "source": {
+        "id": "103",
+        "citation": "Friston, K. & Frith, C. (2015). A duet for one. Consciousness and Cognition, 36, 390–405.",
+        "year": "2015"
+      },
+      "reason": "No current detailed account of this duet/joint-action active-inference paper; generic collective navigation already has directly matched sources."
+    },
+    {
+      "source": {
+        "id": "105",
+        "citation": "Kuhn, T. S. (1962). The Structure of Scientific Revolutions. University of Chicago Press.",
+        "year": "1962"
+      },
+      "reason": "No current attributed Kuhnian paradigm-change claim; the internal knowledge expansion is not itself a citation to Kuhn."
+    },
+    {
+      "source": {
+        "id": "106",
+        "citation": "Wigner, E. P. (1960). The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics, 13(1), 1–14.",
+        "year": "1960"
+      },
+      "reason": "No current attributed claim about the unreasonable effectiveness of mathematics."
+    },
+    {
+      "source": {
+        "id": "107",
+        "citation": "Brandel, J. (2024). Usynlige landskap. IDEALTID.org, 17.12.2024. Essay om interstitium som væskefylt organ i bindevevet, omklassifisert frå barrière i 2018.",
+        "year": "2024"
+      },
+      "reason": "No current interstitium anatomical/essay claim."
+    }
+  ]
+}

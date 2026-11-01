@@ -79,7 +79,7 @@ body{
 .plain-paragraph em,.prop em{font-style:italic}.plain-paragraph strong,.prop strong{font-weight:600}
 .prop{position:relative;display:grid;grid-template-columns:3rem minmax(0,1fr);gap:0 .35rem;align-items:start;width:100%;min-width:0;font-size:.93rem;line-height:1.45;font-weight:400;padding:.18rem 0;scroll-margin-top:12px}
 .prop .n{font-family:var(--mono);font-size:.69rem;line-height:1.4;padding-top:.15rem;color:var(--dim);font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:left}
-.prop .status{font-size:.58rem;margin-left:.05rem;font-weight:400}
+.prop .status{font-family:var(--serif);font-size:.56rem;font-style:italic;margin-left:.12em;font-weight:400}
 .prop .t{font:inherit;min-width:0;width:100%;letter-spacing:0;text-wrap:pretty;text-align:left;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;-webkit-user-select:text;user-select:text}
 .prop-paragraph{white-space:pre-line;margin:0;max-width:none}.prop-paragraph+.prop-paragraph{margin-top:.57em}
 /* One fixed left edge for every proposition. Depth is communicated by
@@ -123,6 +123,11 @@ body{
 .prop-preview[hidden]{display:none!important}
 .prop-preview-num{font-family:var(--mono);font-size:.75rem;font-weight:500;margin-bottom:3px}
 .prop-preview-body{white-space:pre-line;max-height:min(26vh,180px);overflow:hidden}
+.math-inline{white-space:nowrap}
+.math-scripts{display:inline-grid;grid-template-rows:.85em .85em;vertical-align:middle;font-size:.72em;line-height:.85em;margin-left:.025em}
+.math-scripts>.math-script{position:static;vertical-align:baseline;font:inherit;line-height:inherit;text-align:left}
+.math-scripts>sup{grid-row:1;grid-column:1}
+.math-scripts>sub{grid-row:2;grid-column:1}
 
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .prop-preview{box-shadow:0 8px 30px rgba(0,0,0,.6)}

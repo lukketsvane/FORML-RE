@@ -89,7 +89,13 @@
   }
   let addressWindow=window;
   try{if(window.parent!==window&&window.parent.location.hostname===window.location.hostname)addressWindow=window.parent;}catch(e){}
-  function hashNumber(){try{return decodeURIComponent(addressWindow.location.hash.slice(1));}catch(e){return "";}}
+  function hashNumber(){
+    try{
+      const hash=decodeURIComponent(addressWindow.location.hash.slice(1));
+      const source=hash.match(/^referanse-(\d+)$/);
+      return source&&documentData.sourceAliases?.[source[1]]?"referanse-"+documentData.sourceAliases[source[1]]:hash;
+    }catch(e){return "";}
+  }
   // Every internal reference uses one preview and one interaction model.
   const preview=document.createElement("aside");
   preview.className="prop-preview";
@@ -122,6 +128,97 @@
     const doi=source.doi&&!source.citation.includes(source.doi)?"\n\nDOI: "+source.doi:"";
     return {title:"Referanse "+source.id,text:source.citation+doi};
   }
+  const mathRuns=new Map();let mathSerial=0;
+  const superDigits=new Map([..."⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺"].map((char,index)=>[char,"0123456789-+"[index]]));
+  const subDigits=new Map([..."₀₁₂₃₄₅₆₇₈₉₋₊₌₍₎ᵣ"].map((char,index)=>[char,"0123456789-+=()r"[index]]));
+  const mathCharacter=char=>!!char&&(/[\p{Sm}\p{Script=Greek}]/u.test(char)||char.codePointAt(0)>=0x1d400&&char.codePointAt(0)<=0x1d7ff);
+  function mathScript(text,start){
+    if(text[start]==="{"){
+      let depth=1;
+      for(let i=start+1;i<text.length;i++){
+        if(text[i]==="{")depth++;
+        if(text[i]==="}"&&!--depth)return {text:text.slice(start+1,i),end:i+1};
+      }
+      return null;
+    }
+    const ascii=text.slice(start).match(/^[A-Za-z0-9]+/);
+    const value=ascii?ascii[0]:String.fromCodePoint(text.codePointAt(start));
+    return {text:value,end:start+value.length};
+  }
+  function appendMathText(el,text){
+    // Scripts are presentation only. Ordinary numbers, dates and citation IDs
+    // remain plain text; source spelling is retained for copying a formula.
+    let plain=0,index=0;
+    while(index<text.length){
+      const start=index,char=String.fromCodePoint(text.codePointAt(index));
+      let end=index+char.length;
+      if(/[A-Za-z0-9]/.test(char)){
+        const ascii=text.slice(index).match(/^[A-Za-z0-9]+/)[0];end=index+ascii.length;
+      }else if(!mathCharacter(char)){index=end;continue;}
+      if(text[end]==="̂")end++;
+      const baseEnd=end;
+      const scripts=[];
+      while(end<text.length){
+        const operator=text[end];
+        if((operator==="_"||operator==="^")&&end+1<text.length){
+          const value=mathScript(text,end+1);if(!value)break;
+          scripts.push({operator,text:value.text});end=value.end;
+        }else if(superDigits.has(operator)||subDigits.has(operator)){
+          const mapping=superDigits.has(operator)?superDigits:subDigits;
+          let value="";while(end<text.length&&mapping.has(text[end]))value+=mapping.get(text[end++]);
+          scripts.push({operator:mapping===superDigits?"^":"_",text:value});
+        }else break;
+      }
+      if(!scripts.length){index=end;continue;}
+      if(start>plain)el.appendChild(document.createTextNode(text.slice(plain,start)));
+      const run=make("span","math-inline"),key=String(++mathSerial);
+      run.setAttribute("data-source",text.slice(start,end));run.setAttribute("data-math-id",key);
+      run.setAttribute("aria-label",text.slice(start,end));mathRuns.set(key,run);
+      run.appendChild(make("span","math-base",text.slice(start,baseEnd)));
+      const stack=make("span","math-scripts");
+      for(const script of scripts){
+        const node=make(script.operator==="^"?"sup":"sub","math-script");
+        appendMathText(node,script.text);stack.appendChild(node);
+      }
+      run.appendChild(stack);el.appendChild(run);index=end;plain=end;
+    }
+    if(plain<text.length)el.appendChild(document.createTextNode(text.slice(plain)));
+  }
+  function childrenOf(node){return [...(node.childNodes||node.children||[])];}
+  function hasMath(node){return node.classList?.contains("math-inline")||childrenOf(node).some(hasMath);}
+  function forgetMath(node){
+    if(node.classList?.contains("math-inline"))mathRuns.delete(node.getAttribute("data-math-id"));
+    childrenOf(node).forEach(forgetMath);
+  }
+  function copiedMath(node,selection,inFormula=false){
+    if(node.nodeType===3||node.tagName==="#TEXT")return node.textContent;
+    if(node.classList?.contains("math-inline")){
+      const original=mathRuns.get(node.getAttribute("data-math-id"));
+      if(original&&selection.containsNode(original,false))return original.getAttribute("data-source");
+      const children=childrenOf(node);
+      const hasBase=children.some(child=>child.classList?.contains("math-base")&&child.textContent);
+      return children.map(child=>copiedMath(child,selection,hasBase)).join("");
+    }
+    const children=childrenOf(node);
+    let value=children.length?children.map(child=>copiedMath(child,selection,inFormula)).join(""):node.textContent;
+    if(inFormula&&node.classList?.contains("math-script")){
+      const operator=node.tagName==="SUP"?"^":"_";
+      return operator+([...value].length===1?value:"{"+value+"}");
+    }
+    if(node.tagName==="BR")return "\n";
+    if(["P","ARTICLE","H2","LI","DT","DD","SECTION"].includes(node.tagName))value+="\n";
+    return value;
+  }
+  document.addEventListener("copy",event=>{
+    const selection=window.getSelection();
+    if(!event.clipboardData||!selection||selection.isCollapsed||selection.rangeCount!==1)return;
+    const within=container=>container.contains(selection.anchorNode)&&container.contains(selection.focusNode);
+    if(!within(read)&&!within(preview))return;
+    const fragment=selection.getRangeAt(0).cloneContents();
+    if(!hasMath(fragment))return;
+    event.clipboardData.setData("text/plain",copiedMath(fragment,selection).replace(/\n{3,}/g,"\n\n").trimEnd());
+    event.preventDefault();
+  });
   function showPreview(anchor,mode,content){
     if(!content)return;
     if(previewAnchor&&previewAnchor!==anchor)closePreview();
@@ -135,8 +232,8 @@
     const body=document.createElement("div");
     body.className="prop-preview-body";
     const full=content.text.trim();
-    body.textContent=full.length>335?full.slice(0,332).trimEnd()+"…":full;
-    preview.replaceChildren(number,body);
+    appendMathText(body,full.length>335?full.slice(0,332).trimEnd()+"…":full);
+    forgetMath(preview);preview.replaceChildren(number,body);
     preview.hidden=false;
     const rect=anchor.getBoundingClientRect();
     const width=preview.getBoundingClientRect().width;
@@ -188,21 +285,21 @@
     const group=/\((\s*\d+(?:\.\d+)*(?:\s*[,;–—−-]\s*\d+(?:\.\d+)*)*\s*)\)/g;
     let start=0,m;
     while((m=group.exec(text))!==null){
-      el.appendChild(document.createTextNode(text.slice(start,m.index)+"("));
+      appendMathText(el,text.slice(start,m.index)+"(");
       const inner=m[1],numberPattern=/\d+(?:\.\d+)*/g;
       let last=0,match;
       while((match=numberPattern.exec(inner))!==null){
-        el.appendChild(document.createTextNode(inner.slice(last,match.index)));
+        appendMathText(el,inner.slice(last,match.index));
         const n=match[0];
         if(byNum.has(n)){
           el.appendChild(propositionLink(n));
         }else el.appendChild(document.createTextNode(n));
         last=match.index+n.length;
       }
-      el.appendChild(document.createTextNode(inner.slice(last)+")"));
+      appendMathText(el,inner.slice(last)+")");
       start=group.lastIndex;
     }
-    el.appendChild(document.createTextNode(text.slice(start)));
+    appendMathText(el,text.slice(start));
   }
   function richText(el,s){
     for(const part of s.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g)){

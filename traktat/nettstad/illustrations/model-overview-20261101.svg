@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="662" viewBox="0 0 780 662" role="img" aria-labelledby="title desc">
+  <title id="title">Formrom, kunnskapsstand, grammatikk, landskap og agentar</title>
+  <desc id="desc">Modellen har fem ledd: formrommet 𝕄, kunnskapsstanden Π = (K, C, U), grammatikken SG = (S, R, s₀), landskapet Λ og agentane {Aᵢ}. Grammatikken genererer former i formrommet. Agentane vel og utfører steg og estimerer landskapet. Vala vert vekta gjennom estimata, medan prøving gjev kunnskap om følgjene. Dei materielle vilkåra avgrensar kva former som kan nåast med tillatne steg utanfor V.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#202020"/>
+    </marker>
+    <style>
+      text { font-family: "DejaVu Serif", serif; fill: #202020; text-anchor: middle; }
+      .box { fill: #fff; stroke: #202020; stroke-width: 1.5; }
+      .edge { fill: none; stroke: #202020; stroke-width: 1.5; marker-end: url(#arrow); }
+      .name { font-size: 23px; }
+      .body { font-size: 19px; }
+      .small { font-size: 17px; }
+      .relation { font-size: 17px; }
+      .formula { font-size: 23px; }
+    </style>
+  </defs>
+
+  <text class="formula" x="390" y="35">(𝕄, Π, SG, Λ, {Aᵢ})</text>
+
+  <!-- The arrows name relations; they are not a single causal sequence. -->
+  <path class="edge" d="M470 141 H310"/>
+  <path class="edge" d="M165 300 V204"/>
+  <path class="edge" d="M615 300 V204"/>
+  <path class="edge" d="M470 363 H310"/>
+  <path class="edge" d="M230 535 H165 V426"/>
+  <path class="edge" d="M550 535 H615 V426"/>
+
+  <text class="relation" x="390" y="108">epistemisk</text>
+  <text class="relation" x="390" y="130">deling</text>
+  <text class="relation" x="244" y="244">genererer</text>
+  <text class="relation" x="244" y="268">L(SG) ⊆ 𝕄</text>
+  <text class="relation" x="687" y="244">prøving</text>
+  <text class="relation" x="687" y="268">endrar Π</text>
+  <text class="relation" x="390" y="330">vala vert vekta</text>
+  <text class="relation" x="390" y="352">via estimata Λ̂ᵢ</text>
+  <text class="relation" x="88" y="468">vel og utfører</text>
+  <text class="relation" x="88" y="491">steg</text>
+  <text class="relation" x="692" y="468">estimerer og</text>
+  <text class="relation" x="692" y="491">svarar på Λ</text>
+
+  <rect class="box" x="20" y="78" width="290" height="126"/>
+  <text class="name" x="165" y="110">Formrom 𝕄</text>
+  <text class="body" x="165" y="145">moglege konfigurasjonar</text>
+  <text class="small" x="165" y="177">grunnen i modellen</text>
+
+  <rect class="box" x="470" y="78" width="290" height="126"/>
+  <text class="name" x="615" y="110">Kunnskapsstand Π</text>
+  <text class="formula" x="615" y="145">Π = (K, C, U)</text>
+  <text class="small" x="615" y="177">kjent · tenkt · utenkjeleg</text>
+
+  <rect class="box" x="20" y="300" width="290" height="126"/>
+  <text class="name" x="165" y="332">Grammatikk SG</text>
+  <text class="formula" x="165" y="367">SG = (S, R, s₀)</text>
+  <text class="body" x="165" y="399">språk: L(SG)</text>
+
+  <rect class="box" x="470" y="300" width="290" height="126"/>
+  <text class="name" x="615" y="332">Landskap Λ</text>
+  <text class="body" x="615" y="367">samla vekting av trykk</text>
+  <text class="body" x="615" y="399">spenning Λ(x, t)</text>
+
+  <rect class="box" x="230" y="480" width="320" height="110"/>
+  <text class="name" x="390" y="509">Agentar {Aᵢ}</text>
+  <text class="body" x="390" y="540">modell · mål · politikk</text>
+  <text class="formula" x="390" y="572">Φ = ∑ᵢ wᵢ Λ̂ᵢ</text>
+
+  <text class="small" x="390" y="631">D: former som kan nåast frå s₀ med tillatne steg utanfor V.</text>
+</svg>
