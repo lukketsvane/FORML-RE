@@ -151,8 +151,11 @@ def render_mathml(math: dict) -> None:
     keys = sorted(math)
     content = "\n\n".join((r"\[" if math[key]["display"] else r"\(") + math[key]["tex"] + (r"\]" if math[key]["display"] else r"\)") for key in keys)
     result = subprocess.run(["pandoc", "--from=latex", "--to=html5", "--mathml"], input=content, capture_output=True, text=True, check=True)
-    if result.stderr.strip():
-        raise ValueError("LaTeX mathematics cannot be rendered consistently: " + result.stderr.strip())
+    pandoc_warnings = result.stderr.replace(
+        "[WARNING] Deprecated: --mathml. Use --math-method=mathml instead.", ""
+    ).strip()
+    if pandoc_warnings:
+        raise ValueError("LaTeX mathematics cannot be rendered consistently: " + pandoc_warnings)
     expressions = re.findall(r"<math\b[\s\S]*?</math>", result.stdout)
     if len(expressions) != len(keys):
         raise ValueError("MathML expression count differs from the LaTeX source")
@@ -163,8 +166,11 @@ def render_mathml(math: dict) -> None:
 def validate_mathml(markup: str) -> str:
     # Pandoc encodes aligned equations with harmless CSS on table cells.
     # Normalize it to the corresponding native MathML attribute.
-    markup = re.sub(r'(<mtd\b[^>]*?) style="text-align:\s*(left|right|center);?"',
-                    lambda match: match[1] if 'columnalign=' in match[1] else match[1] + ' columnalign="' + match[2] + '"', markup)
+    markup = re.sub(
+        r'(<mtd\b[^>]*?) style="text-align:\s*(left|right|center);?(?:\s*padding-(?:left|right):\s*0;?)?"',
+        lambda match: match[1] if 'columnalign=' in match[1] else match[1] + ' columnalign="' + match[2] + '"',
+        markup,
+    )
     root = ET.fromstring(markup)
     if root.tag != "{http://www.w3.org/1998/Math/MathML}math":
         raise ValueError("Expected MathML root")
