@@ -166,6 +166,11 @@ def build_web(doc: dict) -> None:
         if template.count("@@SOURCE_HASH@@") != 1:
             raise ValueError("Reader source-hash placeholder is missing or duplicated")
         (stage / "index.html").write_text(template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
+        short_template = (ROOT / "nettstad" / "kort.html").read_text(encoding="utf-8")
+        if short_template.count("@@SOURCE_HASH@@") != 1:
+            raise ValueError("Short reader source-hash placeholder is missing or duplicated")
+        (stage / "kort").mkdir()
+        (stage / "kort" / "index.html").write_text(short_template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
         for name in ("reader.css", "reader.js"):
             shutil.copyfile(ROOT / "nettstad" / name, stage / name)
         data = stage / "traktat"
@@ -189,7 +194,7 @@ def build_web(doc: dict) -> None:
         (stage / "les" / "index.html").write_text(legacy)
         for name in ("index.html", "scroll.html"):
             (data / name).write_text(legacy)
-        precache = ["/", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
+        precache = ["/", "/kort/", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
                     "/traktat/formlaere.pdf", *["/icons/" + p.name for p in sorted((stage / "icons").glob("*.png"))],
                     *["/traktat/illustrations/" + figure["file"] for figure in doc["figures"]]]
         worker = (pwa / "service-worker.template.js").read_text(encoding="utf-8")
