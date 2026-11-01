@@ -12,9 +12,9 @@ head = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Kortversjonen av FORMLÆRE: ein allmenn teori om form, tilpassingslandskap og avgrensa agens.">
+<meta name="description" content="Kortversjonen av formlære: ein allmenn teori om form, tilpassingslandskap og avgrensa agens.">
 <meta name="formlaere-source" content="@@SOURCE_HASH@@">
-<title>FORMLÆRE · tl;dr · Iver Finne</title>
+<title>formlære · tl;dr · Iver Finne</title>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@ head = """<!doctype html>
   <a href="/kortversjon/" aria-current="page">tl;dr</a></span>
   <a href="/">heile teksten</a>
 </nav>
-<main class="read" tabindex="0" aria-label="FORMLÆRE, kortversjonen">
+<main class="read" tabindex="0" aria-label="formlære, kortversjonen">
 <article class="short-article">
 <header class="short-header">
 <p class="short-label">Kortversjon</p>
@@ -38,7 +38,7 @@ head = """<!doctype html>
 """
 foot = """
 <footer class="short-footer">
-<a href="/">Les heile FORMLÆRE</a>
+<a href="/">Les heile formlære</a>
 <a href="/kort/">Konsentrert proposisjonsutval</a>
 <a href="https://iverfinne.no">iverfinne.no</a>
 </footer>
@@ -98,7 +98,7 @@ def render_short(root: Path = ROOT) -> None:
     process = subprocess.run(
         ["pandoc", "-f", "latex", "-t", "html5", "--mathml",
          "--section-divs", "--number-sections", "--shift-heading-level-by=1",
-         "--wrap=none", "--metadata", "title=FORMLÆRE"],
+         "--wrap=none", "--metadata", "title=formlære"],
         input=source, text=True, capture_output=True, check=True,
     )
     pandoc_warnings = process.stderr.replace(

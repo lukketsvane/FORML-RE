@@ -305,7 +305,7 @@ def build_web(doc: dict) -> None:
         for icon in pwa.glob("*.png"):
             shutil.copyfile(icon, stage / "icons" / icon.name)
         # Plain static previews preserve legacy paths too. Production redirects are declared below.
-        legacy = '<!doctype html><meta charset="utf-8"><script>location.replace("/"+location.search+location.hash)</script><a href="/">FORMLÆRE</a>'
+        legacy = '<!doctype html><meta charset="utf-8"><script>location.replace("/"+location.search+location.hash)</script><a href="/">formlære</a>'
         (stage / "les").mkdir()
         (stage / "les" / "index.html").write_text(legacy)
         for name in ("index.html", "scroll.html"):

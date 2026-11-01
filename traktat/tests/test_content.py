@@ -335,7 +335,7 @@ class ActiveReferenceIntegrity(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         historical_fixture(self.root)
-        (self.root / "tekst/formlaere.txt").write_text("# FORMLÆRE\n\n## Føreord\n\nFøreord.\n\n## Lesekode\n\nKode.\n\n**1d** Form.[[kjelde:1]]\n", encoding="utf-8")
+        (self.root / "tekst/formlaere.txt").write_text("# formlære\n\n## Føreord\n\nFøreord.\n\n## Lesekode\n\nKode.\n\n**1d** Form.[[kjelde:1]]\n", encoding="utf-8")
         (self.root / "tekst/formlaere.tex").write_text(migrate_to_latex((self.root / "tekst/formlaere.txt").read_text()), encoding="utf-8")
         self.catalog = {"sources": [{"id": "1", "citation": "Ei brukt kjelde."}], "notes": [], "aliases": {"9001": "1"}}
         (self.root / "figurar.json").write_text(json.dumps({"assets": []}))
