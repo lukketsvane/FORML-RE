@@ -3,7 +3,7 @@
   "language": "nn",
   "provenance": {
     "text": "tekst/formlaere.tex",
-    "note": "Kjeldenummera følgjer den opphavlege kjeldelista. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
+    "note": "Kjelde-ID-ane følgjer den opphavlege kjeldelista; visningsnummera vert tildelte samanhengande av det felles byggjet. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
   },
   "sources": [
     {
@@ -485,6 +485,16 @@
       "doi": "10.1561/2200000001",
       "url": "https://www.cs.columbia.edu/~blei/fogm/2018F/materials/WainwrightJordan2008.pdf",
       "verification_note": "Forfattarbibliografien ved Berkeley stadfestar 2008-utgåva. Del 3.5, proposisjon 3.1 og likning 3.41 gjev moment- og kovariansidentitetane."
+    },
+    {
+      "id": "123",
+      "citation": "Spencer-Brown, G. (1969). Laws of Form. George Allen & Unwin.",
+      "year": "1969"
+    },
+    {
+      "id": "124",
+      "citation": "Russell, B. (1927). The Analysis of Matter. Kegan Paul, Trench, Trubner & Co.",
+      "year": "1927"
     }
   ],
   "notes": [
@@ -502,9 +512,10 @@
       "id": "prop-1",
       "proposition": "1",
       "section": null,
-      "note": "Semper undersøker teknikk, materiale og form. Definisjonen «ordning av skilnader» er formuleringa i denne teksten, ikkje eit dokumentert sitat frå Semper.",
+      "note": "Semper undersøker teknikk, materiale og form; Spencer-Brown formaliserer det å trekkje ein skilnad som grunnoperasjon. Definisjonen «ordning av skilnader» og koplinga til materiell realisering er formuleringa i denne teksten, ikkje eit dokumentert sitat frå desse kjeldene.",
       "sources": [
-        "1"
+        "1",
+        "123"
       ],
       "relation": "historisk bakgrunn"
     },
@@ -545,7 +556,7 @@
       "id": "prop-1-5",
       "proposition": "1.5",
       "section": null,
-      "note": "Dette er ei operasjonell tilpassing av C–K-teorien. Hos Hatchuel og Weil er K eit rom av kunnskapsutsegner; her vert statusen til eit spørsmål om ei form ført som ein partisjon relativ til agent, kriterium, prøvevilkår og tidspunkt. Ei kjend bereevne avgjer ikkje andre verknader av den same forma.",
+      "note": "Den materielle delinga er skild frå den aksevise delinga mellom det kjende K_k, det tenkte C_k og det utenkjelege U_k. Dette er ei operasjonell tilpassing av C–K-teorien. Hos Hatchuel og Weil er K eit rom av kunnskapsutsegner; her vert statusen til eit spørsmål om ei form ført som ein partisjon relativ til agent, omsyn, prøvevilkår og tidspunkt. Ei kjend bereevne avgjer ikkje andre verknader av den same forma.",
       "sources": [
         "16",
         "17"
@@ -758,11 +769,12 @@
       "id": "prop-5-7",
       "proposition": "5.7",
       "section": null,
-      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane.",
+      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val, med r_A som korreksjon ved reversibel utforsking. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane.",
       "sources": [
         "11",
         "17",
         "21",
+        "110",
         "121"
       ],
       "relation": "kjernelikninga i FORMLÆRE"
@@ -840,10 +852,11 @@
       "id": "prop-6-6",
       "proposition": "6.6",
       "section": null,
-      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. FORMLÆRE føreslår ei bestemt tolking av grunnvekt, estimerte avvik og agentinnverknad. Syntesen må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet.",
+      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. Jaynes gjev maksimalentropigrunnlaget, her nytta relativt til grunnfordelinga, og Levin og Peres gjev vilkår for konvergens i Markov-kjeder. Kjeldene om kompetanse og persistente system gjev bakgrunn for tolkinga av grunnvekt, estimerte avvik og agentinnverknad. FORMLÆRE si syntese må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet.",
       "sources": [
         "86",
         "89",
+        "110",
         "113",
         "122"
       ],
@@ -863,10 +876,11 @@
       "id": "prop-7-15",
       "proposition": "7.15",
       "section": null,
-      "note": "Kjeldene gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i FORMLÆRE som krev eiga empirisk prøving.",
+      "note": "Alexander analyserer form gjennom feilindikatorar (misfits); Fields, Glazebrook og Levin gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i FORMLÆRE som krev eiga empirisk prøving.",
       "sources": [
         "21",
-        "70"
+        "70",
+        "120"
       ],
       "relation": "hypotese i denne teksten"
     },
@@ -905,12 +919,13 @@
       "id": "prop-5-1",
       "proposition": "5.1",
       "section": null,
-      "note": "Målretta tilbakekopling er eit grunntema i kybernetikken. Schlosser drøftar agens i handlingsfilosofien. Agensdefinisjonen i 5.11 er Iver Raknes Finne sin.",
+      "note": "Målretta tilbakekopling er eit grunntema i kybernetikken; Simon analyserer design gjennom avgrensa rasjonalitet og tilfredsstillande løysingar (satisficing), og Schlosser drøftar agens i handlingsfilosofien. Agensdefinisjonen i 5.11 er Iver Raknes Finne sin.",
       "sources": [
         "4",
         "5",
         "7",
-        "62"
+        "62",
+        "119"
       ],
       "relation": "historisk bakgrunn"
     },
@@ -992,6 +1007,16 @@
       "note": "Prediksjons-, mål- og haldshorisonten må fastsetjast relativt til same starttid, omsyn og prøvevilkår. Ingen minimumsformel for dei tre er føresett: eit førebyggjande vern kan verke utan at kvar seinare følgje vert føresagd.",
       "sources": [],
       "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-1-2321",
+      "proposition": "1.2321",
+      "section": null,
+      "note": "Russell drøftar korleis fysikken gjev den relasjonelle og matematiske strukturen til det målte utan dermed å fastsetje den indre naturen til ledda. Dette er vitskapsteoretisk bakgrunn for skiljet i teksten, ikkje eit bevis for oppleving som substans. Utvidinga gjennom minimalitetspostulatet (1.234), feltpostulatet (1.24) og individuasjonspostulatet (5.024) er utvikla i denne teksten.",
+      "sources": [
+        "124"
+      ],
+      "relation": "vitskapsteoretisk bakgrunn"
     }
   ],
   "aliases": {

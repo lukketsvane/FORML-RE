@@ -56,7 +56,7 @@ Ei følgje krev premiss.
         def both(text):
             tokens, props, math = parse_latex(text)
             render_mathml(math)
-            renderer = Renderer({"schemaVersion": 1, "props": props, "sources": [{"id": "1"}], "notes": [], "mathematics": math})
+            renderer = Renderer({"schemaVersion": 1, "props": props, "sources": [{"id": "1", "number": 1}], "notes": [], "mathematics": math})
             return props, math, renderer.prose(props[0]["paragraphs"][0])
         before, old_math, print_before = both(source)
         after, new_math, print_after = both(source.replace(r"\frac{a}{b}", r"\frac{a}{c}"))

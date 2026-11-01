@@ -161,7 +161,7 @@ class Renderer:
             value = str(value)
             if value not in self.sources:
                 raise ValueError(f"Unknown source: {value}")
-            result.append(r"\hyperlink{referanse-" + target(value) + "}{" + tex_escape(value) + "}")
+            result.append(r"\hyperlink{referanse-" + target(value) + "}{" + tex_escape(str(self.sources[value]["number"])) + "}")
         return ", ".join(result)
 
     def note_links(self, ids: list[str]) -> str:
@@ -294,7 +294,7 @@ class Renderer:
                     if item.get("sources"):
                         output.append(r"\entrylinks{[" + self.source_links(item["sources"]) + "]}")
                 else:
-                    output.append(r"\begin{referenceentry}{referanse-" + target(item["id"]) + "}{" + tex_escape(str(item["id"])) + "}")
+                    output.append(r"\begin{referenceentry}{referanse-" + target(item["id"]) + "}{" + tex_escape(str(item["number"])) + "}")
                     for alias, canonical in self.document.get("sourceAliases", {}).items():
                         if str(canonical) == str(item["id"]):
                             output.append(r"\hypertarget{referanse-" + target(alias) + "}{}")
