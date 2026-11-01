@@ -94,7 +94,7 @@ Etterpå skal dei endra kjeldefilene og heile `pdf/` leggjast i same commit. Der
 | `build/latex/` | Mellombelse LaTeX-filer og kompileringsloggar. |
 | `nettstad/dist/` | Ferdig nettutgåve med same PDF, LaTeX-pakke og kjeldehash. |
 
-Berre utskriftsfilene i `pdf/` vert lagde i git. `build/` og `nettstad/dist/` er mellombelse byggjeresultat.
+Både utskriftsfilene i `pdf/` og den hashmerkte `nettstad/kortversjon.html` vert lagde i git etter `make all`. `build/` og `nettstad/dist/` er mellombelse byggjeresultat. Ein ny utskriftsutgåve må ha same kjeldehash som den lagra kortversjonen.
 
 ## Avhengnader
 
