@@ -118,7 +118,9 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error formlaere.tex
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error formlaere.tex
 ```
 
-PDF-en har bokformatet 125 × 200 mm, med eiga tittelside, marginale proposisjonsnummer og seksjon/sidetal i toppteksten. Tittelsida hentar tittel, undertittel og forfattaropplysningar frå den same LaTeX-kjelda som nettstaden.
+PDF-en har bokformatet 125 × 200 mm, med eiga tittelside, marginale proposisjonsnummer og seksjon/sidetal i toppteksten.
+
+Statusmarkørane er skilde frå desimaladressene med hakeparentesar, til dømes `1.1 [a]` og `5.2231 [t]`. Kvar proposisjon har éi stabil adresse og éin eksplisitt status i både nett- og PDF-utgåva. Tittelsida hentar tittel, undertittel og forfattaropplysningar frå den same LaTeX-kjelda som nettstaden.
 
 Den trykte boka nyttar dei faste EB Garamond-filene i `layout/fonts/`, med optiske variantar for brødtekst og liten skrift. Fontane er uendra frå pakkene `fonts-ebgaramond` og `fonts-ebgaramond-extra`, versjon `0.016+git20230418-2`; opphav og SIL Open Font License følgjer i same mappe. Byggjet kopierer fontane og lisensen til den portable LaTeX-pakka, så utforminga ikkje avheng av kva Garamond-versjon som er installert på maskina. Omslagsbiletet i `layout/cover-stolar.png` er den uendra stolmosaikken frå den tidlegare bokutgåva og følgjer òg pakka. Desse filene høyrer til utforminga og er med i den felles kjeldehashen.
 
