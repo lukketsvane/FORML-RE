@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "341d688cde0e0aba88d8a67013b6109cc7fd06c46712f3f4f05df7f2d7d875b9",
+  "sourceHash": "dad665d4cf924397e75042ee355e008281338d4c3f391b81588de4f3bb7acdba",
   "inputs": {
     "edition.json": "ae77c3706b1e5fb4146b8301cb20684e11f676d38fdd561c694c8a3dd48c4ada",
     "figurar.json": "6ebe288dcf88aa1e53dd4d9cb616f14c151bbe0120ffd22e631ce92a8f96ca05",
-    "kjelder.json": "972e8b832153b03c0cfcc7168da539b06bf87bb7c0d8756964d99bf81e356bc6",
+    "kjelder.json": "c81dd95d37febbab95355c963ef087eb4ddfd53eeec6efb5c900c8b8e4ccb9b3",
     "layout/authoring.tex": "d411efb9615cbbe34c276cdb5918daa4a70cd8312a1436b3b61f31264379f065",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
     "layout/fonts/EBGaramond08-Italic.otf": "c9717f40d3d87bbcd874cbd31fca568f9e27cbaf68ac1d8886ad9c2122fc488f",
@@ -41,19 +41,19 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "92bc84f43fc7dc3b87eb540c4c6a7537ebc6815a1595c2869393613c0c5145e1",
     "scripts/render_latex.py": "3398d65f28edefc39a40e3c271a118a703f9d6d97383e6ea4f3abfe59276c937",
-    "tekst/formlaere.tex": "5cb3cf58258873886e4488d60493537dca29780a5ccfb8674df16a272a8dbdfe",
+    "tekst/formlaere.tex": "36186bfe61d69bce7b71c9541f6951821fa065440d379dd334febc263316e9f6",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "60b2189d3813317a5422eb91df61bd5c2d23271f75a980602c1a0ca2e34b0c82",
-    "formlaere-latex.zip": "ea1522b2ecd32c36a60256392b043ecec4c49489faa7e46d54e5fda4be12dc49"
+    "formlaere.pdf": "2f517b2360ed4cc65b5460a634ef15c1585cf3fe2752efc4e2e95c1792347d2f",
+    "formlaere-latex.zip": "fea0d6a5628c711b7f131914f30c41d13350558840c567be474c4c99f59e3786"
   },
   "quality": {
-    "pages": 78,
-    "destinations": 537,
+    "pages": 84,
+    "destinations": 572,
     "propositions": 377,
     "notes": 47,
-    "references": 78,
+    "references": 113,
     "figures": 3,
     "glossary": 34
   },
