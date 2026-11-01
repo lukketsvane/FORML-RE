@@ -1,0 +1,13 @@
+# The build hashes raw source bytes; use identical LF source on all platforms.
+*.py text eol=lf
+*.tex text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.svg text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.webmanifest text eol=lf
+Makefile text eol=lf
