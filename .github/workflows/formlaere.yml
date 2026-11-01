@@ -45,15 +45,15 @@ jobs:
       - name: Install pinned Python dependencies
         run: python3 -m pip install -r requirements-build.txt
 
-      - name: Reject stale committed print files before rebuilding
-        run: make check-generated
-
       - name: Install the TeX toolchain
         run: |
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends \
             texlive-xetex texlive-latex-extra texlive-lang-european \
-            texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2
+            texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2 pandoc
+
+      - name: Reject stale committed print files before rebuilding
+        run: make check-generated
 
       - name: Build and validate the complete edition
         run: make all

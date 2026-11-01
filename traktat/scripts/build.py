@@ -34,6 +34,8 @@ def write_json(path: Path, value: dict) -> None:
 
 
 def document() -> dict:
+    from render_kortversjon import require_fresh_short
+    require_fresh_short(ROOT)
     value = load_document(ROOT)
     write_json(BUILD / "document.json", value)
     return value
@@ -108,10 +110,20 @@ def package_latex(work: Path, figures: list[Path], bundle: Path) -> None:
             info = zipfile.ZipInfo(path.relative_to(work).as_posix(), date_time=(2000, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             archive.writestr(info, path.read_bytes())
+        # Carry the editable manuscript and its shared catalogs with the ready-to-compile edition.
+        for name in ("tekst/formlaere.tex", "kjelder.json", "ordliste.json", "figurar.json", "edition.json", "layout/authoring.tex"):
+            path = ROOT / name
+            if path.is_file():
+                info = zipfile.ZipInfo("source/" + name, date_time=(2000, 1, 1, 0, 0, 0))
+                info.compress_type = zipfile.ZIP_DEFLATED
+                archive.writestr(info, path.read_bytes())
     bundle.with_suffix(".zip.tmp").replace(bundle)
 
 
 def build_pdf(doc: dict) -> None:
+    from latex_source import render_mathml
+    render_mathml(doc.get("mathematics", {}))
+    write_json(BUILD / "document.json", doc)
     work = BUILD / "latex"
     work.mkdir(parents=True, exist_ok=True)
     figures = prepare_print_figures(doc, work)
@@ -135,7 +147,7 @@ def build_pdf(doc: dict) -> None:
     package_latex(work, figures, bundle)
     manifest = {"schemaVersion": 1, "sourceHash": doc["sourceHash"], "inputs": input_manifest(ROOT),
                 "outputs": {"formlaere.pdf": digest(PDF / "formlaere.pdf"), "formlaere-latex.zip": digest(bundle)},
-                "quality": quality, "engine": "XeLaTeX"}
+                "quality": quality, "engine": "XeLaTeX", "mathematics": doc.get("mathematics", {})}
     write_json(PDF / "release.json", manifest)
     print(json.dumps({"pdf": str(PDF / "formlaere.pdf"), **quality, "sourceHash": doc["sourceHash"]}, ensure_ascii=False))
 
@@ -155,11 +167,23 @@ def require_fresh_pdf(doc: dict) -> dict:
             raise ValueError("Print output is missing or modified: " + filename)
     if {key: manifest["quality"][key] for key in counts(doc)} != counts(doc):
         raise ValueError("Print and web content counts differ")
+    if "mathematics" in doc:
+        from latex_source import validate_mathml
+        cached = manifest.get("mathematics", {})
+        expected = doc["mathematics"]
+        if set(cached) != set(expected):
+            raise ValueError("Print release mathematics differ from the LaTeX manuscript")
+        for key, expression in expected.items():
+            saved = cached[key]
+            if any(saved.get(field) != expression[field] for field in ("tex", "display")):
+                raise ValueError("Stale mathematics in print release: " + key)
+            expression["mathml"] = validate_mathml(saved.get("mathml", ""))
     return manifest
 
 
 def build_web(doc: dict) -> None:
     manifest = require_fresh_pdf(doc)
+    write_json(BUILD / "document.json", doc)
     stage = Path(tempfile.mkdtemp(prefix="web-", dir=BUILD))
     try:
         template = (ROOT / "nettstad" / "reader.html").read_text(encoding="utf-8")
@@ -182,7 +206,7 @@ def build_web(doc: dict) -> None:
         data = stage / "traktat"
         data.mkdir()
         write_json(data / "document.json", doc)
-        shutil.copyfile(ROOT / "tekst" / "formlaere.txt", data / "formlaere.txt")
+        shutil.copyfile(ROOT / "tekst" / "formlaere.tex", data / "formlaere.tex")
         images = data / "illustrations"
         images.mkdir()
         for figure in doc["figures"]:
@@ -235,6 +259,9 @@ def main() -> None:
         check()
         document()
         return
+    if args.target in {"all", "pdf"}:
+        from render_kortversjon import render_short
+        render_short(ROOT)
     if args.target == "all":
         check()
     doc = document()

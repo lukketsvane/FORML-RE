@@ -74,7 +74,9 @@
           meta.appendChild(back);
           if(item.relation)meta.appendChild(document.createTextNode(" · "+item.relation));
           body.appendChild(meta);body.appendChild(make("p","",item.note));
-          const refs=make("p","source-links","[");appendSources(refs,item.sources||[]);refs.appendChild(document.createTextNode("]"));body.appendChild(refs);
+          if(item.sources?.length){
+            const refs=make("p","source-links","[");appendSources(refs,item.sources);refs.appendChild(document.createTextNode("]"));body.appendChild(refs);
+          }
         }else{
           body.appendChild(make("p","",item.citation));
           const url=item.url||(item.doi?"https://doi.org/"+item.doi:null);
@@ -146,6 +148,27 @@
     return {text:value,end:start+value.length};
   }
   function appendMathText(el,text){
+    const native=/⟦math:([a-f0-9]{24})⟧/g;
+    if(native.test(text)){
+      native.lastIndex=0;let cursor=0;
+      for(const match of text.matchAll(native)){
+        appendMathText(el,text.slice(cursor,match.index));
+        const expression=documentData.mathematics?.[match[1]];
+        if(!expression?.mathml)throw new Error("Manglande matematikk i utgåva");
+        const node=make("span",expression.display?"native-math math-display":"native-math");
+        const key=String(++mathSerial);
+        node.setAttribute("data-source",expression.tex);node.setAttribute("data-math-id",key);
+        node.setAttribute("data-display",expression.display?"block":"inline");mathRuns.set(key,node);
+        if(expression.display){
+          node.setAttribute("tabindex","0");node.setAttribute("role","region");
+          node.setAttribute("aria-label","Matematisk uttrykk; rull vassrett ved behov");
+        }
+        // Build-time Pandoc output is restricted to validated MathML elements.
+        node.innerHTML=expression.mathml;el.appendChild(node);
+        cursor=match.index+match[0].length;
+      }
+      appendMathText(el,text.slice(cursor));return;
+    }
     // Scripts are presentation only. Ordinary numbers, dates and citation IDs
     // remain plain text; source spelling is retained for copying a formula.
     let plain=0,index=0;
@@ -185,16 +208,35 @@
     if(plain<text.length)el.appendChild(document.createTextNode(text.slice(plain)));
   }
   function childrenOf(node){return [...(node.childNodes||node.children||[])];}
-  function hasMath(node){return node.classList?.contains("math-inline")||childrenOf(node).some(hasMath);}
+  function hasMath(node){return node.classList?.contains("math-inline")||node.classList?.contains("native-math")||childrenOf(node).some(hasMath);}
   function forgetMath(node){
-    if(node.classList?.contains("math-inline"))mathRuns.delete(node.getAttribute("data-math-id"));
+    if(node.classList?.contains("math-inline")||node.classList?.contains("native-math"))mathRuns.delete(node.getAttribute("data-math-id"));
     childrenOf(node).forEach(forgetMath);
+  }
+  function includesMathNode(selection,node){
+    if(selection.containsNode(node,false))return true;
+    // Chromium can report false for a fully selected MathML block. Compare
+    // DOM range boundaries so a whole formula still copies as canonical TeX.
+    if(!document.createRange||!selection.getRangeAt)return false;
+    const selected=selection.getRangeAt(0),contents=document.createRange();
+    if(!selected.compareBoundaryPoints)return false;
+    contents.selectNodeContents(node);
+    return selected.compareBoundaryPoints(0,contents)<=0&&selected.compareBoundaryPoints(2,contents)>=0;
   }
   function copiedMath(node,selection,inFormula=false){
     if(node.nodeType===3||node.tagName==="#TEXT")return node.textContent;
+    if(["annotation","annotation-xml"].includes((node.localName||node.tagName||"").toLowerCase()))return "";
+    if(node.classList?.contains("native-math")){
+      const original=mathRuns.get(node.getAttribute("data-math-id"));
+      if(original&&includesMathNode(selection,original)){
+        const display=original.getAttribute("data-display")==="block";
+        return (display?"\\[":"\\(")+original.getAttribute("data-source")+(display?"\\]":"\\)");
+      }
+      return childrenOf(node).map(child=>copiedMath(child,selection)).join("");
+    }
     if(node.classList?.contains("math-inline")){
       const original=mathRuns.get(node.getAttribute("data-math-id"));
-      if(original&&selection.containsNode(original,false))return original.getAttribute("data-source");
+      if(original&&includesMathNode(selection,original))return original.getAttribute("data-source");
       const children=childrenOf(node);
       const hasBase=children.some(child=>child.classList?.contains("math-base")&&child.textContent);
       return children.map(child=>copiedMath(child,selection,hasBase)).join("");
@@ -232,7 +274,10 @@
     const body=document.createElement("div");
     body.className="prop-preview-body";
     const full=content.text.trim();
-    appendMathText(body,full.length>335?full.slice(0,332).trimEnd()+"…":full);
+    let excerpt=full.length>335?full.slice(0,332).trimEnd():full;
+    const partialMath=excerpt.lastIndexOf("⟦math:");
+    if(partialMath>excerpt.lastIndexOf("⟧"))excerpt=excerpt.slice(0,partialMath).trimEnd();
+    appendMathText(body,excerpt+(excerpt.length<full.length?"…":""));
     forgetMath(preview);preview.replaceChildren(number,body);
     preview.hidden=false;
     const rect=anchor.getBoundingClientRect();

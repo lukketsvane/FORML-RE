@@ -180,3 +180,8 @@ body{
   *{transition:none!important}
   .read{scroll-behavior:auto}
 }
+
+/* Native mathematics comes from the shared LaTeX manuscript. */
+.native-math{font-size:1em}
+.native-math math{font-size:1em}
+.math-display{display:block;max-width:100%;overflow-x:auto;padding:.65em 0}

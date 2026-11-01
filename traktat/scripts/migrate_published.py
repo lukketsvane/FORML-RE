@@ -2,7 +2,7 @@
 """One-time, exact migration of the published edition to explicit source markers.
 
 Historical inputs stay in archive/2026-11-01. Never run this to edit a later
-canonical edition. The normal build reads tekst/formlaere.txt directly.
+canonical edition. The normal build reads tekst/formlaere.tex. This script is a historical fixture only.
 """
 from __future__ import annotations
 

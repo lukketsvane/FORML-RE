@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from content import CITE, NOTE, load_document, parse_source, source_hash, validate_document
+from latex_source import migrate_to_latex
 from migrate_published import migrate, migrate_text, utf16_index
 
 
@@ -32,6 +33,8 @@ def historical_fixture(root: Path) -> None:
         # Real image rendering is checked by the release renderer.
         (assets / item["file"]).write_bytes(b"migration fixture asset")
     migrate(root)
+    legacy = root / "tekst" / "formlaere.txt"
+    (root / "tekst" / "formlaere.tex").write_text(migrate_to_latex(legacy.read_text()), encoding="utf-8")
     # The migration specimen predates the editorial glossary. Its independent
     # empty catalog keeps future glossary revisions out of historical tests.
     (root / "ordliste.json").write_text(json.dumps({"schemaVersion": 1, "entries": []}) + "\n", encoding="utf-8")
@@ -111,6 +114,7 @@ class SharedSourceValidation(unittest.TestCase):
 
     def write_source(self, text):
         (self.root / "tekst" / "formlaere.txt").write_text(text, encoding="utf-8")
+        (self.root / "tekst" / "formlaere.tex").write_text(migrate_to_latex(text), encoding="utf-8")
 
     def test_unknown_citation_fails_instead_of_silent_missing_link(self):
         text = (self.root / "tekst" / "formlaere.txt").read_text()
@@ -167,7 +171,7 @@ class SharedSourceValidation(unittest.TestCase):
     def test_hash_is_deterministic_and_changes_with_text_asset_and_layout(self):
         initial = source_hash(self.root)
         self.assertEqual(initial, source_hash(self.root))
-        source = self.root / "tekst" / "formlaere.txt"
+        source = self.root / "tekst" / "formlaere.tex"
         source.write_text(source.read_text() + "\n")
         changed_text = source_hash(self.root)
         self.assertNotEqual(initial, changed_text)
@@ -183,7 +187,7 @@ class SharedSourceValidation(unittest.TestCase):
         # An added, correctly ordered, uncited proposition is valid without
         # changing generator constants or edition metadata.
         source = self.root / "tekst" / "formlaere.txt"
-        source.write_text(source.read_text() + "\n**8d**  Ei ny utsegn.\n")
+        self.write_source(source.read_text() + "\n**8d**  Ei ny utsegn.\n")
         document = load_document(self.root)
         self.assertEqual(len(document["props"]), 376)
 
@@ -285,6 +289,7 @@ class ActiveReferenceIntegrity(unittest.TestCase):
         self.root = Path(self.temp.name)
         historical_fixture(self.root)
         (self.root / "tekst/formlaere.txt").write_text("# FORMLÆRE\n\n## Føreord\n\nFøreord.\n\n## Lesekode\n\nKode.\n\n**1d** Form.[[kjelde:1]]\n", encoding="utf-8")
+        (self.root / "tekst/formlaere.tex").write_text(migrate_to_latex((self.root / "tekst/formlaere.txt").read_text()), encoding="utf-8")
         self.catalog = {"sources": [{"id": "1", "citation": "Ei brukt kjelde."}], "notes": [], "aliases": {"9001": "1"}}
         (self.root / "figurar.json").write_text(json.dumps({"assets": []}))
         edition_path = self.root / "edition.json"

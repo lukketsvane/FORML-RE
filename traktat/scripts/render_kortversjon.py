@@ -2,28 +2,10 @@
 """Reproduce the author's LaTeX short edition as static, native MathML."""
 from pathlib import Path
 import re
+import hashlib
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-source = (ROOT / "nettstad" / "kortversjon.tex").read_text(encoding="utf-8")
-if not source.rstrip().endswith(r"\end{document}"):
-    raise ValueError("The short source must terminate cleanly.")
-process = subprocess.run(
-    ["pandoc", "-f", "latex", "-t", "html5", "--mathml",
-     "--section-divs", "--number-sections", "--shift-heading-level-by=1",
-     "--wrap=none", "--metadata", "title=FORMLÆRE"],
-    input=source, text=True, capture_output=True, check=True,
-)
-if process.stderr.strip():
-    print(process.stderr)
-body = process.stdout
-if not body or body.count("<math") < 35:
-    raise ValueError("The short edition lost its mathematical expressions.")
-body = re.sub(
-    r'(<math\b[^>]*\bdisplay="block"[^>]*>[\s\S]*?</math>)',
-    r'<div class="math-scroll" tabindex="0" role="region" aria-label="Matematisk uttrykk">\1</div>',
-    body,
-)
 head = """<!doctype html>
 <html lang="nn">
 <head>
@@ -67,6 +49,45 @@ window.addEventListener("load",()=>navigator.serviceWorker.register("/service-wo
 </script>
 </body></html>
 """
-target = ROOT / "nettstad" / "kortversjon.html"
-target.write_text(head + body + foot, encoding="utf-8")
-print(f"Native MathML expressions: {body.count('<math')}; output: {target}")
+
+
+def short_source_hash(root: Path) -> str:
+    source = (root / "nettstad" / "kortversjon.tex").read_bytes()
+    return hashlib.sha256(source + b"\0" + Path(__file__).read_bytes()).hexdigest()
+
+
+def require_fresh_short(root: Path) -> None:
+    target = root / "nettstad" / "kortversjon.html"
+    expected = "<!-- form-source: " + short_source_hash(root) + " -->"
+    if not target.is_file() or expected not in target.read_text(encoding="utf-8"):
+        raise ValueError("Short LaTeX edition is stale. Run make all or python3 scripts/render_kortversjon.py.")
+
+
+def render_short(root: Path = ROOT) -> None:
+    source = (root / "nettstad" / "kortversjon.tex").read_text(encoding="utf-8")
+    if not source.rstrip().endswith(r"\end{document}"):
+        raise ValueError("The short source must terminate cleanly.")
+    process = subprocess.run(
+        ["pandoc", "-f", "latex", "-t", "html5", "--mathml",
+         "--section-divs", "--number-sections", "--shift-heading-level-by=1",
+         "--wrap=none", "--metadata", "title=FORMLÆRE"],
+        input=source, text=True, capture_output=True, check=True,
+    )
+    if process.stderr.strip():
+        raise ValueError(process.stderr)
+    body = process.stdout
+    if not body or body.count("<math") < 35 or "<merror" in body:
+        raise ValueError("The short edition lost its mathematical expressions.")
+    body = re.sub(
+        r'(<math\b[^>]*\bdisplay="block"[^>]*>[\s\S]*?</math>)',
+        r'<div class="math-scroll" tabindex="0" role="region" aria-label="Matematisk uttrykk">\1</div>',
+        body,
+    )
+    target = root / "nettstad" / "kortversjon.html"
+    stamp = "<!-- form-source: " + short_source_hash(root) + " -->\n"
+    target.write_text(head + stamp + body + foot, encoding="utf-8")
+    print(f"Native MathML expressions: {body.count('<math')}; output: {target}")
+
+
+if __name__ == "__main__":
+    render_short()

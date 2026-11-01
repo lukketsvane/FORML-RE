@@ -73,6 +73,19 @@ class CommittedReleaseGuard(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "counts differ"):
             build.require_fresh_pdf(self.document)
 
+    def test_web_uses_only_mathml_for_the_current_canonical_tex(self):
+        key = "a" * 24
+        self.document["mathematics"] = {key: {"tex": "a", "display": False}}
+        self.manifest["mathematics"] = {key: {"tex": "a", "display": False,
+            "mathml": '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math>'}}
+        self.write_manifest()
+        with patch("subprocess.run", side_effect=AssertionError("Web publication must not need Pandoc")):
+            build.require_fresh_pdf(self.document)
+        self.assertIn("mathml", self.document["mathematics"][key])
+        self.document["mathematics"][key]["tex"] = "b"
+        with self.assertRaisesRegex(ValueError, "Stale mathematics"):
+            build.require_fresh_pdf(self.document)
+
 
 if __name__ == "__main__":
     unittest.main()
