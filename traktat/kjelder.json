@@ -3,7 +3,7 @@
   "language": "nn",
   "provenance": {
     "text": "tekst/formlaere.tex",
-    "note": "Kjelde-ID-ane følgjer den opphavlege kjeldelista; visningsnummera vert tildelte samanhengande av det felles byggjet. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
+    "note": "Kjelde-ID-ane følgjer den opphavlege kjeldelista; visningsnummera vert tildelte samanhengande av det felles byggjet. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og formlære sine eigne vidareføringar."
   },
   "sources": [
     {
@@ -187,7 +187,7 @@
       "year": "2023",
       "url": "https://mitpress.mit.edu/9780262546409/evolution-on-purpose/",
       "doi": "10.7551/mitpress/14642.001.0001",
-      "verification_note": "MIT Press stadfestar dei seks redaktørane. Huneman og Walsh redigerte ei anna bok, Challenging the Modern Synthesis (OUP), og skal ikkje stå som redaktørar her. Antologien drøftar teleonomi og aktiv påverknad på evolusjon; ho provar ikkje åleine kvar formalisering i FORMLÆRE.",
+      "verification_note": "MIT Press stadfestar dei seks redaktørane. Huneman og Walsh redigerte ei anna bok, Challenging the Modern Synthesis (OUP), og skal ikkje stå som redaktørar her. Antologien drøftar teleonomi og aktiv påverknad på evolusjon; ho provar ikkje åleine kvar formalisering i formlære.",
       "verified_on": "2026-11-01"
     },
     {
@@ -329,7 +329,7 @@
       "year": "2025",
       "url": "https://link.springer.com/article/10.1007/s11229-025-05319-6",
       "doi": "10.1007/s11229-025-05319-6",
-      "verification_note": "Stadfesta hos Springer, publisert 6.11.2025. Formaliserer intelligens som søkjeeffektivitet i problemrom. FORMLÆRE si bestemte terskelmengd er framleis ei eiga vidareføring.",
+      "verification_note": "Stadfesta hos Springer, publisert 6.11.2025. Formaliserer intelligens som søkjeeffektivitet i problemrom. formlære si bestemte terskelmengd er framleis ei eiga vidareføring.",
       "verified_on": "2026-11-01"
     },
     {
@@ -774,7 +774,7 @@
       "id": "intro-1",
       "proposition": null,
       "section": "foreword",
-      "note": "Stiny og Gips gjev formgrammatikken, Wright og Waddington landskapsbileta og kybernetikken eit mål- og avviksspråk. FORMLÆRE si binding til omhug, kapasitet og agentar er eit forslag som må prøvast empirisk. Omtalen av Simon, Rittel og Webber, Schön og Cross skil deira eigne forskingsbidrag frå den mangelen på ein sams forklaringsarkitektur teksten kritiserer. Samanlikninga med historisk raseantropologi gjeld sirkelargument og målestokk, ikkje ei likestilling av skadane. Eit utval frå nordisk og internasjonal designforsking ligg som kjeldegrunnlag for påstanden om eit rikt, men fragmentert kunnskapsfelt. Dei mange tilvisingane dokumenterer historikk og forskingsliner, ikkje at det er bevist at ingen samlande teori finst.",
+      "note": "Stiny og Gips gjev formgrammatikken, Wright og Waddington landskapsbileta og kybernetikken eit mål- og avviksspråk. formlære si binding til omhug, kapasitet og agentar er eit forslag som må prøvast empirisk. Omtalen av Simon, Rittel og Webber, Schön og Cross skil deira eigne forskingsbidrag frå den mangelen på ein sams forklaringsarkitektur teksten kritiserer. Samanlikninga med historisk raseantropologi gjeld sirkelargument og målestokk, ikkje ei likestilling av skadane. Eit utval frå nordisk og internasjonal designforsking ligg som kjeldegrunnlag for påstanden om eit rikt, men fragmentert kunnskapsfelt. Dei mange tilvisingane dokumenterer historikk og forskingsliner, ikkje at det er bevist at ingen samlande teori finst.",
       "sources": [
         "11",
         "18",
@@ -839,7 +839,7 @@
       "id": "prop-1-31",
       "proposition": "1.31",
       "section": null,
-      "note": "Raup undersøker formvariasjon i skjell; Mitteroecker og Huttegger drøftar morforom. Den substratuavhengige bruken er ei vidareføring i FORMLÆRE.",
+      "note": "Raup undersøker formvariasjon i skjell; Mitteroecker og Huttegger drøftar morforom. Den substratuavhengige bruken er ei vidareføring i formlære.",
       "sources": [
         "2",
         "10",
@@ -920,7 +920,7 @@
       "id": "prop-3-1",
       "proposition": "3.1",
       "section": null,
-      "note": "Det adaptive landskapet og det epigenetiske landskapet har ulik historisk bruk. FORMLÆRE fører dei saman i eit formrom; det er ikkje ei uendra overtaking av éin modell.",
+      "note": "Det adaptive landskapet og det epigenetiske landskapet har ulik historisk bruk. formlære fører dei saman i eit formrom; det er ikkje ei uendra overtaking av éin modell.",
       "sources": [
         "3",
         "8",
@@ -1062,7 +1062,7 @@
       "id": "prop-5-6",
       "proposition": "5.6",
       "section": null,
-      "note": "Liv som oppretthald av lyskjegla er ein definisjon i FORMLÆRE, utvikla med bakgrunn i desse arbeida. Tilvisinga åleine etablerer ikkje definisjonen som allmenn biologisk semje.",
+      "note": "Liv som oppretthald av lyskjegla er ein definisjon i formlære, utvikla med bakgrunn i desse arbeida. Tilvisinga åleine etablerer ikkje definisjonen som allmenn biologisk semje.",
       "sources": [
         "22",
         "24",
@@ -1083,13 +1083,13 @@
         "110",
         "121"
       ],
-      "relation": "kjernelikninga i FORMLÆRE"
+      "relation": "kjernelikninga i formlære"
     },
     {
       "id": "prop-5-72",
       "proposition": "5.72",
       "section": null,
-      "note": "Grensetilfella isolerer komponentar i FORMLÆRE. Binær vekting av kjent suksess er ikkje ei utleiing av heile C–K-teorien: korleis konsept og kunnskap vert utvida, krev eigne overgangar. Tilvisingane namngjev tradisjonane som vert samanlikna.",
+      "note": "Grensetilfella isolerer komponentar i formlære. Binær vekting av kjent suksess er ikkje ei utleiing av heile C–K-teorien: korleis konsept og kunnskap vert utvida, krev eigne overgangar. Tilvisingane namngjev tradisjonane som vert samanlikna.",
       "sources": [
         "11",
         "17"
@@ -1111,7 +1111,7 @@
       "id": "prop-6-11",
       "proposition": "6.11",
       "section": null,
-      "note": "Desse arbeida er bakgrunn for distribuert og fleirskala kompetanse. Overføringa til materiale, handverk og marknad skjer i FORMLÆRE.",
+      "note": "Desse arbeida er bakgrunn for distribuert og fleirskala kompetanse. Overføringa til materiale, handverk og marknad skjer i formlære.",
       "sources": [
         "22",
         "67",
@@ -1148,7 +1148,7 @@
       "id": "prop-6-31",
       "proposition": "6.31",
       "section": null,
-      "note": "Normans arbeid om daglegdagse ting og bruk er bakgrunn. Stilarten som grensesnitt er ei overføring i FORMLÆRE, ikkje eit direkte sitat.",
+      "note": "Normans arbeid om daglegdagse ting og bruk er bakgrunn. Stilarten som grensesnitt er ei overføring i formlære, ikkje eit direkte sitat.",
       "sources": [
         "80"
       ],
@@ -1158,7 +1158,7 @@
       "id": "prop-6-6",
       "proposition": "6.6",
       "section": null,
-      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. Jaynes gjev maksimalentropigrunnlaget, her nytta relativt til grunnfordelinga, og Levin og Peres gjev vilkår for konvergens i Markov-kjeder. Kjeldene om kompetanse og persistente system gjev bakgrunn for tolkinga av grunnvekt, estimerte avvik og agentinnverknad. FORMLÆRE si syntese må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet.",
+      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. Jaynes gjev maksimalentropigrunnlaget, her nytta relativt til grunnfordelinga, og Levin og Peres gjev vilkår for konvergens i Markov-kjeder. Kjeldene om kompetanse og persistente system gjev bakgrunn for tolkinga av grunnvekt, estimerte avvik og agentinnverknad. formlære si syntese må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet.",
       "sources": [
         "86",
         "89",
@@ -1182,7 +1182,7 @@
       "id": "prop-7-15",
       "proposition": "7.15",
       "section": null,
-      "note": "Alexander analyserer form gjennom feilindikatorar (misfits); Fields, Glazebrook og Levin gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i FORMLÆRE som krev eiga empirisk prøving.",
+      "note": "Alexander analyserer form gjennom feilindikatorar (misfits); Fields, Glazebrook og Levin gjev omgrep om kompetansegrenser og sjølvrepresentasjon. Den predikerte sviktsignaturen er ein påstand i formlære som krev eiga empirisk prøving.",
       "sources": [
         "21",
         "70",
@@ -1239,7 +1239,7 @@
       "id": "prop-5-15",
       "proposition": "5.15",
       "section": null,
-      "note": "Fields og Levin undersøker målretta navigasjon i ulike rom. Definisjonen held fram denne bruken; det særskilde målet ν i 5.152 er føreslått i FORMLÆRE.",
+      "note": "Fields og Levin undersøker målretta navigasjon i ulike rom. Definisjonen held fram denne bruken; det særskilde målet ν i 5.152 er føreslått i formlære.",
       "sources": [
         "21"
       ],
@@ -1249,7 +1249,7 @@
       "id": "prop-5-152",
       "proposition": "5.152",
       "section": null,
-      "note": "Chis-Ciure og Levin drøftar intelligens i ulike slag system. I FORMLÆRE vert kompetanse prøvd ved å samanlikne med blind leiting. Målet i 5.152 krev at samanlikninga vert fastsett for den aktuelle oppgåva.",
+      "note": "Chis-Ciure og Levin drøftar intelligens i ulike slag system. I formlære vert kompetanse prøvd ved å samanlikne med blind leiting. Målet i 5.152 krev at samanlikninga vert fastsett for den aktuelle oppgåva.",
       "sources": [
         "86",
         "88"
@@ -1300,7 +1300,7 @@
       "id": "prop-6-673",
       "proposition": "6.673",
       "section": null,
-      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. FORMLÆRE nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ein ny matematisk oppdaging. Deriverten gjeld ein fri parameter i eksponentialfamilien. Normaliserte omhugsvekter kan ikkje endrast éi om gongen utan at andre vekter vert endra.",
+      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. formlære nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ein ny matematisk oppdaging. Deriverten gjeld ein fri parameter i eksponentialfamilien. Normaliserte omhugsvekter kan ikkje endrast éi om gongen utan at andre vekter vert endra.",
       "sources": [
         "122"
       ],

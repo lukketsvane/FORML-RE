@@ -29,9 +29,9 @@ class CompiledBookLayout(unittest.TestCase):
         ]
         document = {
             "schemaVersion": 1, "sourceHash": "a" * 64,
-            "title": "FORMLÆRE", "author": "Testforfattar",
+            "title": "formlære", "author": "Testforfattar",
             "tokens": [
-                {"kind": "title", "text": "FORMLÆRE"},
+                {"kind": "title", "text": "formlære"},
                 {"kind": "paragraph", "text": "*Ei prøve av bokforma*\nTestforfattar · 2026"},
                 {"kind": "heading", "text": "Føreord"},
                 {"kind": "paragraph", "text": "Bokprøva byrjar på sida etter omslaget."},
@@ -65,7 +65,7 @@ class CompiledBookLayout(unittest.TestCase):
                 self.assertAlmostEqual(float(page.mediabox.width), 125 / 25.4 * 72, delta=0.02)
                 self.assertAlmostEqual(float(page.mediabox.height), 200 / 25.4 * 72, delta=0.02)
             cover_text = reader.pages[0].extract_text() or ""
-            self.assertIn("FORMLÆRE", cover_text)
+            self.assertIn("formlære", cover_text)
             self.assertIn("Testforfattar", re.sub(r"\s+", "", cover_text))
             self.assertGreater(len(reader.pages[0].images), 0, "The cover must contain the chair mosaic")
             second_page = reader.pages[1].extract_text() or ""

@@ -1,8 +1,8 @@
 (async function siteInit(){
   const response=await fetch("/traktat/document.json",{cache:"no-cache"});
-  if(!response.ok)throw new Error("Kunne ikkje laste FORMLÆRE");
+  if(!response.ok)throw new Error("Kunne ikkje laste formlære");
   const documentData=await response.json(),DATA=documentData.props,TOKENS=documentData.tokens;
-  if(documentData.schemaVersion!==1||!DATA.length)throw new Error("Ufullstendig utgåve av FORMLÆRE");
+  if(documentData.schemaVersion!==1||!DATA.length)throw new Error("Ufullstendig utgåve av formlære");
   const expectedSource=document.querySelector('meta[name="formlaere-source"]').content;
   if(expectedSource!==documentData.sourceHash)throw new Error("Utgåva er oppdatert. Last sida på nytt.");
   const byNum=new Map(DATA.map(d=>[d.n,d]));
@@ -388,9 +388,9 @@
   // The reader begins at "Føreord". Title, subtitle and byline are
   // source metadata, not part of the reading stream.
   const bodyStart=TOKENS.findIndex(tok=>tok.kind==="heading"&&tok.text==="Føreord");
-  if(bodyStart<0)throw new Error("Føreord manglar i FORMLÆRE");
+  if(bodyStart<0)throw new Error("Føreord manglar i formlære");
   const readingStart=TOKENS.findIndex(tok=>tok.kind==="heading"&&tok.text==="Lesekode");
-  if(readingStart<0)throw new Error("Lesekode manglar i FORMLÆRE");
+  if(readingStart<0)throw new Error("Lesekode manglar i formlære");
   const visibleTokens=TOKENS.slice(bodyStart);
   // The tree belongs to the propositions, not the foreword or reading code.
   // Its sticky position is bounded by this section, so it leaves the screen
@@ -525,7 +525,7 @@
   if(byNum.has(h))requestAnimationFrame(()=>go(h,"auto"));
   else if(h)requestAnimationFrame(()=>document.getElementById(h)?.scrollIntoView({block:"start"}));
   addressWindow.addEventListener("hashchange",()=>{clearTimeout(hashTimer);const n=hashNumber();if(byNum.has(n))setCurrent(n,false,true,"auto");else document.getElementById(n)?.scrollIntoView({block:"start"});});
-})().catch(err=>{const read=document.getElementById("read");if(read)read.textContent="Klarte ikkje laste FORMLÆRE.";console.error(err);});
+})().catch(err=>{const read=document.getElementById("read");if(read)read.textContent="Klarte ikkje laste formlære.";console.error(err);});
 
 if('serviceWorker' in navigator && window.isSecureContext){
   window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js',{scope:'/',updateViaCache:'none'}).catch(()=>{}),{once:true});

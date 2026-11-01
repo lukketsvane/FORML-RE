@@ -1,4 +1,4 @@
-# FORMLÆRE
+# formlære
 
 ## Redaksjonell norm
 
