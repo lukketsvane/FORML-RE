@@ -1,9 +1,12 @@
-% Layout only. Document content is generated from build/document.json.
-\documentclass[10pt,a4paper]{article}
-\usepackage[a4paper,top=16mm,bottom=16mm,left=14mm,right=14mm,footskip=9mm]{geometry}
+% Book layout only. All text is rendered from the shared document model.
+\documentclass[10pt,oneside]{book}
+\usepackage[paperwidth=125mm,paperheight=200mm,top=20mm,bottom=18mm,left=28mm,right=12mm,headheight=12pt,headsep=6mm,footskip=8mm]{geometry}
 \usepackage{fontspec}
-\setmainfont{DejaVu Serif}[Ligatures=TeX,AutoFakeSlant=0.18]
-\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+% Bundle the exact optical fonts; never silently substitute a system font.
+% Common ligatures are disabled so copying and screen readers retain letters.
+\setmainfont{EBGaramond12-Regular.otf}[Path=fonts/,ItalicFont=EBGaramond12-Italic.otf,AutoFakeBold=2.5,Numbers={Lining,Proportional},Ligatures={TeX,NoCommon},SmallCapsFeatures={LetterSpace=4}]
+\newfontfamily\smallbookfont{EBGaramond08-Regular.otf}[Path=fonts/,ItalicFont=EBGaramond08-Italic.otf,AutoFakeBold=2.5,Ligatures={TeX,NoCommon}]
+\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=nynorsk]{norwegian}
 \usepackage{amsmath}
@@ -11,14 +14,14 @@
 \setmathfont{Latin Modern Math}
 \usepackage{microtype}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{xcolor}
 \usepackage{changepage}
 \usepackage{needspace}
 \usepackage{fancyhdr}
 \usepackage[hidelinks,unicode]{hyperref}
 \hypersetup{pdftitle={%%TITLE%%},pdfauthor={%%AUTHOR%%},pdfsubject={SourceHash: %%SOURCE_HASH%%},pdfkeywords={sourceHash,%%SOURCE_HASH%%}}
-\definecolor{muted}{gray}{0.4}
-\definecolor{hairline}{gray}{0.86}
+\definecolor{muted}{gray}{0.3}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{2em}
@@ -29,30 +32,43 @@
 \raggedright
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{{\color{muted}\ttfamily\fontsize{7.5}{9}\selectfont\thepage}}
+\fancyhead[L]{\smallbookfont\fontsize{9}{11}\selectfont\MakeUppercase{\leftmark}}
+\fancyhead[R]{\fontsize{10}{12}\selectfont\thepage}
+\fancyheadoffset[L]{16mm}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 \newlength{\numbergutter}
-\setlength{\numbergutter}{40.2pt}
-\newcommand{\sectionlabel}[3][0]{\par\addvspace{20pt}\Needspace{4\baselineskip}\hypertarget{#2}{}\begingroup\fontsize{13.8}{18}\selectfont #3\par\endgroup\ifnum#1=1\vspace{6pt}{\color{hairline}\hrule height .3pt}\fi\vspace{9.6pt}}
+\setlength{\numbergutter}{15mm}
+\newenvironment{widebody}{\begin{adjustwidth}{-16mm}{0mm}}{\par\end{adjustwidth}}
+\newcommand{\editioncover}[3]{%
+  \begin{titlepage}\thispagestyle{empty}\null%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west,inner sep=0] at ([xshift=12mm,yshift=-18mm]current page.north west) {{\fontsize{36}{40}\selectfont\bfseries #1}};
+    \node[anchor=north west,inner sep=0] at ([xshift=12mm,yshift=-32mm]current page.north west) {{\fontsize{11.5}{13}\selectfont #2}};
+    \node[anchor=center,inner sep=0] at ([yshift=-10mm]current page.center) {\includegraphics[width=0.86\paperwidth]{cover-stolar.png}};
+    \node[anchor=south west,inner sep=0,text width=101mm] at ([xshift=12mm,yshift=16mm]current page.south west) {{\fontsize{9}{12}\selectfont #3}};
+  \end{tikzpicture}\end{titlepage}\setcounter{page}{2}%
+}
+% Sections are identified by the running head, as in the original book.
+\newcommand{\sectionlabel}[3][0]{\clearpage\markboth{#3}{}\hypertarget{#2}{}\Needspace{4\baselineskip}}
 \newenvironment{proposition}[3]{%
-  \par\addvspace{#3pt}\Needspace{3\baselineskip}%
-  \begin{adjustwidth}{\numbergutter}{0pt}\noindent
-  \llap{\makebox[\numbergutter][l]{{\color{muted}\ttfamily\fontsize{8}{11}\selectfont #1\,\textsuperscript{\normalfont\itshape\fontsize{6.5}{8}\selectfont #2}}}}%
+  \par\addvspace{#3pt}\Needspace{3\baselineskip}\noindent
+  \llap{\makebox[13mm][l]{\textbf{#1}\textsuperscript{\normalfont\itshape\fontsize{7}{8}\selectfont #2}}\hspace{2mm}}%
   \ignorespaces
-}{\par\end{adjustwidth}}
+}{\par}
 \newenvironment{referenceentry}[3][6]{%
   \par\addvspace{#1pt}\Needspace{4\baselineskip}%
-  \begin{adjustwidth}{\numbergutter}{0pt}\fontsize{9}{13.05}\selectfont\noindent
-  \hypertarget{#2}{}\llap{\makebox[\numbergutter][l]{{\color{muted}\ttfamily\fontsize{7.8}{10}\selectfont #3}}}%
+  \begin{adjustwidth}{-12mm}{0pt}\smallbookfont\fontsize{9}{11.5}\selectfont\noindent
+  \hypertarget{#2}{}\llap{\makebox[4mm][l]{{\fontsize{8}{10}\selectfont #3}}}%
   \ignorespaces
 }{\par\end{adjustwidth}}
-\newcommand{\entrymeta}[1]{{\color{muted}\ttfamily\fontsize{7.44}{10}\selectfont #1\par}\nobreak\vspace{3pt}\nobreak}
-\newcommand{\entrylinks}[1]{\par\nobreak\vspace{3pt}{\ttfamily\fontsize{7.8}{10}\selectfont #1\par}}
-\newcommand{\sourceref}[1]{\nobreak\textsuperscript{\normalfont\ttfamily\fontsize{6.8}{8}\selectfont #1}}
-\newcommand{\noteref}[1]{\nobreak\hspace{3pt}\textsuperscript{\normalfont\ttfamily\color{muted}\fontsize{6.5}{8}\selectfont #1}}
-\newcommand{\bodyparagraph}{\par\vspace{5.985pt}\noindent}
-\newcommand{\bookfigure}[2]{\par\vspace{6pt}\begin{adjustwidth}{\numbergutter}{0pt}\noindent\includegraphics[width=\linewidth,height=135mm,keepaspectratio]{#1}\par\end{adjustwidth}\vspace{19.8pt}}
+\newcommand{\entrymeta}[1]{{\color{muted}\fontsize{8}{10}\selectfont #1\par}\nobreak\vspace{2pt}\nobreak}
+\newcommand{\entrylinks}[1]{\par\nobreak\vspace{2pt}{\fontsize{8}{10}\selectfont #1\par}}
+\newcommand{\sourceref}[1]{\nobreak\textsuperscript{\normalfont\fontsize{7}{8}\selectfont #1}}
+\newcommand{\noteref}[1]{\nobreak\hspace{2pt}\textsuperscript{\normalfont\color{muted}\fontsize{7}{8}\selectfont #1}}
+\newcommand{\bodyparagraph}{\par\vspace{3pt}\noindent}
+\newcommand{\bookfigure}[2]{\par\vspace{5pt}\noindent\includegraphics[width=\linewidth,height=125mm,keepaspectratio]{#1}\par\vspace{8pt}}
 \begin{document}
-\fontsize{10.5}{14.91}\selectfont
+\fontsize{10.5}{12.5}\selectfont
 %%CONTENT%%
 \end{document}

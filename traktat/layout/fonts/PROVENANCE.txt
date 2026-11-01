@@ -1,0 +1,7 @@
+EB Garamond by Georg Duffner. Unmodified OpenType files.
+Source packages: fonts-ebgaramond and fonts-ebgaramond-extra
+Version: 0.016+git20230418-2 (Ubuntu archive)
+https://archive.ubuntu.com/ubuntu/pool/universe/f/fonts-ebgaramond/
+fonts-ebgaramond_0.016+git20230418-2_all.deb
+fonts-ebgaramond-extra_0.016+git20230418-2_all.deb
+Licence and copyright: OFL.txt
