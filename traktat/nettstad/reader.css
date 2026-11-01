@@ -21,21 +21,20 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
 html,body{
-  height:100%;margin:0;background:var(--bg);color:var(--fg);
+  width:100%;height:100%;margin:0;background:var(--bg);color:var(--fg);
   overflow:hidden;overscroll-behavior:none;
-  touch-action:pan-y;
 }
 body{
   font-family:var(--serif);font-size:.90625rem;line-height:1.47;
   font-weight:400;font-optical-sizing:auto;
   -webkit-font-smoothing:antialiased;
-  -webkit-user-select:none;user-select:none;
+  -webkit-user-select:text;user-select:text;
 }
 
 .app{
-  height:100vh;height:100dvh;
-  max-width:520px;margin:0 auto;
-  display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;
+  width:100%;height:100vh;height:100svh;height:100dvh;
+  max-width:520px;margin:0 auto;overflow:hidden;
+  display:grid;grid-template-rows:auto auto minmax(0,1fr);
   border-left:1px solid var(--hair);border-right:1px solid var(--hair);
   padding-left:env(safe-area-inset-left,0px);
   padding-right:env(safe-area-inset-right,0px);
@@ -44,12 +43,17 @@ body{
 
 /* ---- top ---- */
 .bar{
-  padding:calc(var(--top) + 10px) 16px 7px;
-  font-family:var(--mono);font-size:9px;letter-spacing:.19em;color:var(--dim);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:calc(var(--top) + 6px) 16px 4px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.02em;color:var(--dim);
 }
+.bar a{display:inline-flex;align-items:center;min-height:28px;color:inherit;text-decoration:none}
+.bar a:hover{color:var(--fg)}
+.bar a:focus-visible{outline:1px solid var(--dim);outline-offset:3px}
 
 /* ---- tree strip ---- */
 .strip{padding:1px 14px 8px;border-bottom:1px solid var(--hair)}
+.strip[hidden]{display:none}
 .strip svg{display:block;width:100%;height:auto;overflow:visible;touch-action:none}
 .strip{-webkit-user-select:none;user-select:none}
 .rbar{stroke:var(--line);stroke-width:1.1;fill:none;stroke-linecap:round}
@@ -64,11 +68,12 @@ body{
 
 
 /* ---- reading / continuous stream ---- */
-.read{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 1.2rem 1.5rem .5rem;scroll-behavior:auto;touch-action:pan-y}
+.read{min-width:0;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;padding:0 1.2rem calc(1.5rem + var(--bot)) .5rem;touch-action:pan-y pinch-zoom;scrollbar-width:none}
+.read::-webkit-scrollbar{display:none}
 .read:focus-visible{outline:1px solid var(--dim);outline-offset:-1px}
 .stream{padding:.375rem 0 1.25rem}
-.doc-title{font-family:var(--serif);font-size:2rem;line-height:1.12;letter-spacing:-.025em;font-weight:400;margin:2.25rem 0 .7rem}
 .section-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;line-height:1.3;margin:2.4rem 0 .8rem;padding-top:.65rem;border-top:1px solid var(--hair);scroll-margin-top:12px}
+.section-title:first-child{margin-top:.65rem;padding-top:0;border-top:0}
 .plain-paragraph{font-size:.90rem;line-height:1.49;font-weight:400;white-space:pre-line;margin:.67rem 0;overflow-wrap:anywhere;-webkit-user-select:text;user-select:text}
 .plain-paragraph em,.prop em{font-style:italic}.plain-paragraph strong,.prop strong{font-weight:600}
 .prop{position:relative;display:grid;grid-template-columns:3rem minmax(0,1fr);gap:0 .35rem;align-items:start;width:100%;min-width:0;font-size:.93rem;line-height:1.45;font-weight:400;padding:.18rem 0;scroll-margin-top:12px}
@@ -84,7 +89,6 @@ body{
 .prop.depth3{margin-left:0;margin-top:.34rem}
 .prop.depth4{margin-left:0;margin-top:.24rem}
 .prop.active .n{color:var(--fg);font-weight:500}
-.endmark{padding:2rem 0 1rem;text-align:center;font-family:var(--mono);font-size:.61rem;letter-spacing:.16em;color:var(--dim)}
 
 /* Book drawings live in the normal text stream, never in a floating overlay. */
 .figure-set{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;width:calc(100% - 3.35rem);max-width:calc(100% - 3.35rem);min-width:0;margin:.5rem 0 1.65rem 3.35rem;padding:0}
@@ -112,61 +116,47 @@ body{
   width:min(302px,calc(100vw - 24px));padding:9px 11px;
   color:var(--fg);background:var(--bg);border:1px solid var(--line);
   border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.17);
-  pointer-events:auto;font-family:var(--serif);font-size:.81rem;line-height:1.39;
+  pointer-events:none;font-family:var(--serif);font-size:.81rem;line-height:1.39;
   text-align:left;overflow-wrap:break-word;
 }
 .prop-preview[hidden]{display:none!important}
 .prop-preview-num{font-family:var(--mono);font-size:.75rem;font-weight:500;margin-bottom:3px}
-.prop-preview-body{white-space:pre-line;max-height:min(38vh,300px);overflow-y:auto;overscroll-behavior:contain;-webkit-user-select:text;user-select:text}
-.source-preview{width:min(330px,calc(100vw - 24px))}
-.source-ref,.source-term{
-  display:inline;color:inherit;background:none;border:0;border-radius:0;
-  padding:0;margin:0;font:inherit;cursor:pointer;touch-action:manipulation;
-  -webkit-appearance:none;
-}
-.source-ref{position:relative;display:inline-block;font-family:inherit;font-size:.65em;font-weight:400;font-style:normal;line-height:0;height:1em;vertical-align:super;color:inherit;margin:-.5em 0 -.5em .06em;letter-spacing:0;white-space:nowrap}
-.source-ref::after{content:"";position:absolute;inset:-7px -3px}
-.source-term{text-decoration:none}
-.source-ref:hover,.source-ref.previewing,.source-ref:focus-visible,.source-term:hover,.source-term.previewing,.source-term:focus-visible{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
-.source-ref:focus-visible,.source-term:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
-.source-citation,.source-note{margin:0;white-space:normal}
-.source-citation+.source-citation,.source-citation+.source-note,.source-note+.source-note{margin-top:.65em}
-.source-note{color:var(--dim);font-style:italic}
-.bibliography{margin:1.5rem 0 1rem 3.35rem;border-top:1px solid var(--hair);padding-top:.8rem;-webkit-user-select:text;user-select:text}
-.bibliography summary{font-family:var(--mono);font-size:.67rem;color:var(--dim);cursor:pointer;padding:.25rem 0}
-.bibliography summary:focus-visible{outline:1px solid var(--fg);outline-offset:3px}
-.source-list{padding-left:2.1em;font-size:.78rem;line-height:1.45}
-.source-record{padding-left:.2em;margin:.85rem 0;overflow-wrap:anywhere;scroll-margin-top:12px}
-.source-record::marker{font-family:var(--mono);font-size:.65rem;color:var(--dim)}
-.source-url{display:block;color:var(--dim);text-underline-offset:.16em;margin-top:.15em}
+.prop-preview-body{white-space:pre-line;max-height:min(26vh,180px);overflow:hidden}
 
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .prop-preview{box-shadow:0 8px 30px rgba(0,0,0,.6)}
 }
 :root[data-theme="dark"] .prop-preview{box-shadow:0 8px 30px rgba(0,0,0,.6)}
 
-/* Text remains selectable while the reader behaves like a fixed-scale iPhone app. */
-@supports (-webkit-touch-callout: none){
-  .read{overscroll-behavior-y:contain}
-}
-
-/* ---- pager ---- */
-.pager{
-  display:grid;grid-template-columns:64px 1fr 64px;align-items:center;
-  border-top:1px solid var(--hair);
-  padding-bottom:var(--bot);
-}
-.pager button{
-  height:48px;background:none;border:0;color:var(--fg);
-  font-family:var(--serif);font-size:23px;line-height:1;
-  touch-action:manipulation;-webkit-appearance:none;
-}
-.pager button:focus-visible{outline:1px solid var(--dim);outline-offset:-6px}
-.pager button:disabled{color:var(--hair)}
-.pager button:active:not(:disabled){background:var(--hair)}
-.pos{
-  text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--dim);
-  font-variant-numeric:tabular-nums;letter-spacing:.06em;
+/* Endnotes belong to the document, with the same left edge as the text. */
+.endmatter{margin-top:3rem;scroll-margin-top:1rem}
+.endmatter .section-title{margin-bottom:.8rem}
+.endmatter-list{list-style:none;margin:0;padding:0}
+.endnote{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:.35rem;padding:.45rem 0;font-size:.81rem;line-height:1.45;scroll-margin-top:1rem}
+.endnote-number{font:400 .65rem var(--mono);color:var(--dim);padding-top:.12rem}
+.endnote-body{min-width:0;overflow-wrap:anywhere}
+.endnote-body p{margin:0}.endnote-body p+p{margin-top:.3rem}
+.endnote-meta{font:400 .62rem var(--mono);color:var(--dim);margin-bottom:.25rem}
+.endnote a{color:inherit;text-underline-offset:.16em}
+.source-links{font:400 .65rem var(--mono)}
+.source-ref{font-family:var(--mono);font-size:.63em;line-height:0;vertical-align:super;text-decoration:none;padding:0 .1em}
+.source-ref .xref{display:inline-block;line-height:1;padding:.2em .1em;margin:-.2em 0}
+.note-ref{display:inline-block;margin-left:.3em;color:var(--dim);font-family:var(--mono);font-size:.62em;line-height:1;vertical-align:super}
+@media print{
+  @page{margin:16mm 14mm}
+  :root{--bg:#fff;--fg:#000;--dim:#555;--line:#bbb;--hair:#ddd}
+  html,body{width:auto;height:auto;overflow:visible}
+  .app{display:block;max-width:none;height:auto;min-height:0;margin:0;border:0;padding:0;overflow:visible}
+  .bar,.strip,.prop-preview{display:none!important}
+  .read{padding:0;overflow:visible}.stream{padding:0}
+  .prop,.plain-paragraph{font-size:10.5pt;line-height:1.42}
+  .prop .n{font-size:8pt}
+  .endmatter{break-before:page}
+  .endnote{break-inside:avoid;font-size:9pt}
+  p{orphans:3;widows:3}
+  .xref{text-decoration:none}
+  .tractate-figure{break-inside:avoid}
+  .tractate-figure img{filter:none!important}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important}

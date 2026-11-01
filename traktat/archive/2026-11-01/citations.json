@@ -1,0 +1,1008 @@
+{
+  "version": 1,
+  "provenance": {
+    "repository": "lukketsvane/iverfinne.no",
+    "path": "public/traktat/formlaere.txt",
+    "blob": "7ce1d18cfd5ba5e089b083a6a53f062020e854d4",
+    "note": "Explicitly reviewed legacy citation marks in the current reader text. Offsets use UTF-16 code units. Mathematical powers Z⁻¹ and 10⁷ are deliberately excluded. Match the complete paragraph before applying spans; ordinary numbers must never be inferred as citations."
+  },
+  "entries": [
+    {
+      "paragraph": "Kvifor har ting den forma dei har? I over hundre år har faget lent seg på ein variant av Sullivans formel, *form følgjer funksjon*. Michl¹⁵ har vist at formelen forklarte alt og difor ingenting. Semper¹ kopla materialteknikk, form og kulturell meining, men disiplinen arva splittinga heller enn syntesen. Thompson² viste at biologisk form følgjer fysiske krefter; designfaget tok aldri steget frå biologi til artefakt. Tradisjonane har skildra formverda stykkevis; ingen har sameint dei.",
+      "proposition": null,
+      "spans": [
+        {
+          "start": 137,
+          "end": 139,
+          "text": "¹⁵",
+          "sourceIds": [
+            "15"
+          ]
+        },
+        {
+          "start": 201,
+          "end": 202,
+          "text": "¹",
+          "sourceIds": [
+            "1"
+          ]
+        },
+        {
+          "start": 313,
+          "end": 314,
+          "text": "²",
+          "sourceIds": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Rammeverket kviler på tre pilarar. **Formgrammatikken** til Stiny og Gips¹¹ gjev det generative laget. **Tanke–kunnskapsteorien** til Hatchuel og Weil¹⁶, ¹⁷ formaliserer den epistemiske navigasjonen. Det substratuavhengige **agensrammeverket** til Levin og Fields²¹, ²² gjev den ontologiske grunnen. At tre uavhengige tradisjonar konvergerer om same struktur, tyder på at definisjonen grip noko reelt.",
+      "proposition": null,
+      "spans": [
+        {
+          "start": 73,
+          "end": 75,
+          "text": "¹¹",
+          "sourceIds": [
+            "11"
+          ]
+        },
+        {
+          "start": 150,
+          "end": 156,
+          "text": "¹⁶, ¹⁷",
+          "sourceIds": [
+            "16",
+            "17"
+          ]
+        },
+        {
+          "start": 263,
+          "end": 269,
+          "text": "²¹, ²²",
+          "sourceIds": [
+            "21",
+            "22"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Form er ei ordning av skilnader.1",
+      "proposition": "1",
+      "spans": [
+        {
+          "start": 32,
+          "end": 33,
+          "text": "1",
+          "sourceIds": [
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Mengda av alle moglege konfigurasjonar i ein klasse er formrommet 𝕄 til klassen.2, 10, 20",
+      "proposition": "1.31",
+      "spans": [
+        {
+          "start": 81,
+          "end": 90,
+          "text": "2, 10, 20",
+          "sourceIds": [
+            "2",
+            "10",
+            "20"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Det empiriske formrommet er alltid ein slik projeksjon. Sidan strukturen held fram under kvart valt nivå (1.202), fangar inga endeleg mengd parametrar heile den latente kompleksiteten.2",
+      "proposition": "1.322",
+      "spans": [
+        {
+          "start": 184,
+          "end": 185,
+          "text": "2",
+          "sourceIds": [
+            "2"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Dei opne posisjonane som grensar til det busette, er det nærliggande moglege.13",
+      "proposition": "1.432",
+      "spans": [
+        {
+          "start": 77,
+          "end": 79,
+          "text": "13",
+          "sourceIds": [
+            "13"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Ved sida av den materielle delinga går ei epistemisk.16, 17",
+      "proposition": "1.5",
+      "spans": [
+        {
+          "start": 53,
+          "end": 59,
+          "text": "16, 17",
+          "sourceIds": [
+            "16",
+            "17"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Konfigurasjonar lukka under sum, differanse og produkt, og under transformasjonar θ, med delrelasjonen ≤, utgjer ein formalgebra.11, 13, 18",
+      "proposition": "1.6",
+      "spans": [
+        {
+          "start": 129,
+          "end": 139,
+          "text": "11, 13, 18",
+          "sourceIds": [
+            "11",
+            "13",
+            "18"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Det som endrar sannsynsfordelinga over det som ikkje er forbode, er eit seleksjonstrykk.3",
+      "proposition": "2.1",
+      "spans": [
+        {
+          "start": 88,
+          "end": 89,
+          "text": "3",
+          "sourceIds": [
+            "3"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Forma er det som står att når trykka har utelukka alt anna.15, 77, 78",
+      "proposition": "2.101",
+      "spans": [
+        {
+          "start": 59,
+          "end": 69,
+          "text": "15, 77, 78",
+          "sourceIds": [
+            "15",
+            "77",
+            "78"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Den delte moglegheita for operasjonar som avgrensar ein klasse (1.3), er klassen sin affordansestruktur.12, 55, 56",
+      "proposition": "2.14",
+      "spans": [
+        {
+          "start": 104,
+          "end": 114,
+          "text": "12, 55, 56",
+          "sourceIds": [
+            "12",
+            "55",
+            "56"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Materialaffordansen er operasjonane materialet tillèt og hindrar.12",
+      "proposition": "2.2",
+      "spans": [
+        {
+          "start": 65,
+          "end": 67,
+          "text": "12",
+          "sourceIds": [
+            "12"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Formhistoria er systematisk langsamare enn materialhistoria. Stål fanst i hundreår før stålrøyrstolen.54",
+      "proposition": "2.201",
+      "spans": [
+        {
+          "start": 102,
+          "end": 104,
+          "text": "54",
+          "sourceIds": [
+            "54"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Materiale predikerer formvariasjon dårlegare enn stil.53",
+      "proposition": "2.202",
+      "spans": [
+        {
+          "start": 54,
+          "end": 56,
+          "text": "53",
+          "sourceIds": [
+            "53"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Tilpassingslandskapet Λ er det dei verksame seleksjonstrykka legg over formrommet når dei verkar samstundes.3, 8, 58",
+      "proposition": "3.1",
+      "spans": [
+        {
+          "start": 108,
+          "end": 116,
+          "text": "3, 8, 58",
+          "sourceIds": [
+            "3",
+            "8",
+            "58"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Éin universell botn er eit teoretisk unntak.58 Den eine fullkomne forma finst ikkje i noko observert landskap.",
+      "proposition": "3.122",
+      "spans": [
+        {
+          "start": 44,
+          "end": 46,
+          "text": "58",
+          "sourceIds": [
+            "58"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Stabiliteten til ein dal svarar til djupna og brattleiken på dalveggane.8",
+      "proposition": "3.2",
+      "spans": [
+        {
+          "start": 72,
+          "end": 73,
+          "text": "8",
+          "sourceIds": [
+            "8"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Formene si sverming kring eit felles tyngdepunkt i landskapet er ein stilart.9, 53",
+      "proposition": "3.3",
+      "spans": [
+        {
+          "start": 77,
+          "end": 82,
+          "text": "9, 53",
+          "sourceIds": [
+            "9",
+            "53"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Landskapet har minne.14",
+      "proposition": "4.3",
+      "spans": [
+        {
+          "start": 21,
+          "end": 23,
+          "text": "14",
+          "sourceIds": [
+            "14"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Med kvar realisering flyttar det nærliggande moglege (1.432) seg.13, 59, 60, 79",
+      "proposition": "4.4",
+      "spans": [
+        {
+          "start": 65,
+          "end": 79,
+          "text": "13, 59, 60, 79",
+          "sourceIds": [
+            "13",
+            "59",
+            "60",
+            "79"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Når eitt trykk dominerer, samlar fordelinga seg om éin attraktor (3.1).59",
+      "proposition": "4.5",
+      "spans": [
+        {
+          "start": 71,
+          "end": 73,
+          "text": "59",
+          "sourceIds": [
+            "59"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Ei hinne er ei mengd tilstandar som skil eit indre frå eit ytre, slik at det indre og det ytre er uavhengige av kvarandre når desse tilstandane er gjevne (1.011).83 Gjennom hinna går observasjonane inn og handlingane ut.",
+      "proposition": "5.02",
+      "spans": [
+        {
+          "start": 162,
+          "end": 164,
+          "text": "83",
+          "sourceIds": [
+            "83"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Landskapet til kvar klasse vert navigert av minst eitt system via negativ tilbakekopling.62",
+      "proposition": "5.1",
+      "spans": [
+        {
+          "start": 89,
+          "end": 91,
+          "text": "62",
+          "sourceIds": [
+            "62"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Formelt er A = (m, π, ε).¹⁹, ²¹, ⁸³, ⁸⁴",
+      "proposition": "5.11",
+      "spans": [
+        {
+          "start": 25,
+          "end": 39,
+          "text": "¹⁹, ²¹, ⁸³, ⁸⁴",
+          "sourceIds": [
+            "19",
+            "21",
+            "83",
+            "84"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Definisjonen er uavhengig av kva agenten er laga av.88, 89 Eit kvart system som oppfyller vilkåra, er ein agent.",
+      "proposition": "5.111",
+      "spans": [
+        {
+          "start": 52,
+          "end": 58,
+          "text": "88, 89",
+          "sourceIds": [
+            "88",
+            "89"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Biologisk vev navigerer via bioelektrisk polarisering;22, 24, 85 menneskeleg praksis via materiell friksjon; ein slimsopp via oscillerande samandragingar; ein språkmodell via vektoriell merksemd.",
+      "proposition": "5.1111",
+      "spans": [
+        {
+          "start": 54,
+          "end": 64,
+          "text": "22, 24, 85",
+          "sourceIds": [
+            "22",
+            "24",
+            "85"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Den eldre kybernetiske forma (mål, avvik, justering)4, 5, 7 er eit spesialtilfelle: målet er eit smalt band kring éin konfigurasjon g, avviket divergensen frå bandet, og justeringa politikkoppdateringa. (Termostaten har bandet i hysteresen til brytaren.)",
+      "proposition": "5.113",
+      "spans": [
+        {
+          "start": 52,
+          "end": 59,
+          "text": "4, 5, 7",
+          "sourceIds": [
+            "4",
+            "5",
+            "7"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Pattedyret: prediksjon, minne, planlegging.64, 65 Representasjonen strekkjer seg over tid.",
+      "proposition": "5.124",
+      "spans": [
+        {
+          "start": 43,
+          "end": 49,
+          "text": "64, 65",
+          "sourceIds": [
+            "64",
+            "65"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Agenten svarar på gradienten slik han når agenten gjennom hinna (5.025), ikkje på forma.63, 64",
+      "proposition": "5.13",
+      "spans": [
+        {
+          "start": 88,
+          "end": 94,
+          "text": "63, 64",
+          "sourceIds": [
+            "63",
+            "64"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Navigasjon krev berre den lokale gradienten.63 Lokale steg gjev global form, utan at nokon ser forma.",
+      "proposition": "5.132",
+      "spans": [
+        {
+          "start": 44,
+          "end": 46,
+          "text": "63",
+          "sourceIds": [
+            "63"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Talet på storleiksordenar av steg politikken sparar samanlikna med blind leiting mot målet G, er⁸⁶",
+      "proposition": "5.152",
+      "spans": [
+        {
+          "start": 96,
+          "end": 98,
+          "text": "⁸⁶",
+          "sourceIds": [
+            "86"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "At avvik ikkje er likegyldige for agenten, er omhug ω(A).23, 68",
+      "proposition": "5.2",
+      "spans": [
+        {
+          "start": 57,
+          "end": 63,
+          "text": "23, 68",
+          "sourceIds": [
+            "23",
+            "68"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kapasiteten κ(A) er dei aksane der A, med ein politikk han kan ta i bruk, kan halde divergensen under toleransen: κ(A) = {Xk: det finst π ∈ 𝒫A med Dk (π) ≤ ε}.21, 86 Kapasiteten fell direkte ut av agentdefinisjonen i 5.11 og seier kva agenten kan halde.",
+      "proposition": "5.21",
+      "spans": [
+        {
+          "start": 160,
+          "end": 166,
+          "text": "21, 86",
+          "sourceIds": [
+            "21",
+            "86"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Det som kan setje agenten i spenning, er den kognitive lyskjegla Γ(A): aksane der ωk > 0, kvar med så lang utstrekning fram og attende i tid som måla hans rekk langs han.21, 85, 90",
+      "proposition": "5.22",
+      "spans": [
+        {
+          "start": 170,
+          "end": 180,
+          "text": "21, 85, 90",
+          "sourceIds": [
+            "21",
+            "85",
+            "90"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Innanfor henne møter han ikkje former (5.13), men operasjonane konfigurasjonen tillèt han, affordansar.12, 55",
+      "proposition": "5.223",
+      "spans": [
+        {
+          "start": 103,
+          "end": 109,
+          "text": "12, 55",
+          "sourceIds": [
+            "12",
+            "55"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Utviding av lyskjegla aktualiserer latente affordansar; innsnevring deaktiverer reelle.55, 70",
+      "proposition": "5.2231",
+      "spans": [
+        {
+          "start": 87,
+          "end": 93,
+          "text": "55, 70",
+          "sourceIds": [
+            "55",
+            "70"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Og frå innsida kan inkje system fastslå kva det sjølv kan observere, for ein sjølvmodell som femna si eiga grense, måtte stå utanfor grensa.70",
+      "proposition": "5.263",
+      "spans": [
+        {
+          "start": 140,
+          "end": 142,
+          "text": "70",
+          "sourceIds": [
+            "70"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kompetanse i eit rom er intelligens: evna til å finne vegar til målregionen, òg vegar som fører bort frå han ei stund og nærare seinare.23, 86, 91",
+      "proposition": "5.27",
+      "spans": [
+        {
+          "start": 136,
+          "end": 146,
+          "text": "23, 86, 91",
+          "sourceIds": [
+            "23",
+            "86",
+            "91"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Substratet verkar som ein agent av nullte orden, grensetilfellet av 5.11 utan modell og politikk, der berre vetoet står att.26, 81, 92, 93 Det legg ned veto mot somme konfigurasjonar og gjev resonans til andre gjennom ufråvikelege avgrensingar.",
+      "proposition": "5.4",
+      "spans": [
+        {
+          "start": 124,
+          "end": 138,
+          "text": "26, 81, 92, 93",
+          "sourceIds": [
+            "26",
+            "81",
+            "92",
+            "93"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Substratet har to lag: strukturparametrar (den initiale konfigurasjonen) og funksjonsparametrar (reglane som verkar på konfigurasjonen).92 Under støy akselererer funksjonsparametrane navigasjonen i formrommet.",
+      "proposition": "5.401",
+      "spans": [
+        {
+          "start": 136,
+          "end": 138,
+          "text": "92",
+          "sourceIds": [
+            "92"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Evna til å navigere hopar seg opp som strukturert informasjon.64",
+      "proposition": "5.5",
+      "spans": [
+        {
+          "start": 62,
+          "end": 64,
+          "text": "64",
+          "sourceIds": [
+            "64"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Å følgje læra er ikkje rasjonalitet, men systematisk likesæle, og når handlaget er tapt, blindskap (5.232).15, 78",
+      "proposition": "5.521",
+      "spans": [
+        {
+          "start": 107,
+          "end": 113,
+          "text": "15, 78",
+          "sourceIds": [
+            "15",
+            "78"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Den prosessen der eit system held oppe si eiga lyskjegle mot oppløysing over tid, og vidar henne ut der det kan, er liv.85, 89",
+      "proposition": "5.6",
+      "spans": [
+        {
+          "start": 120,
+          "end": 126,
+          "text": "85, 89",
+          "sourceIds": [
+            "85",
+            "89"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Grensa mellom levande og ikkje-levande er ikkje ei grense mellom to slag substans, for same felt er på begge sider (1.24).89",
+      "proposition": "5.64",
+      "spans": [
+        {
+          "start": 122,
+          "end": 124,
+          "text": "89",
+          "sourceIds": [
+            "89"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Alle system som held seg ved å svare (5.011), kan skildrast som om dei minimerer variasjonell fri energi; dei er formelt aktørar som oppdaterer etter sannsyn.89",
+      "proposition": "5.641",
+      "spans": [
+        {
+          "start": 158,
+          "end": 160,
+          "text": "89",
+          "sourceIds": [
+            "89"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kjernelikninga.¹¹, ¹⁷, ²¹ Forma er grammatikken sin respons på gradienten i landskapet slik agenten estimerer det, projisert på det han kan halde og vekta med omhugen hans:",
+      "proposition": "5.7",
+      "spans": [
+        {
+          "start": 15,
+          "end": 25,
+          "text": "¹¹, ¹⁷, ²¹",
+          "sourceIds": [
+            "11",
+            "17",
+            "21"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Reduksjon.11, 17 Likninga kan reduserast til fire grensetilfelle, alt etter kva som vert gjort trivielt:",
+      "proposition": "5.72",
+      "spans": [
+        {
+          "start": 10,
+          "end": 16,
+          "text": "11, 17",
+          "sourceIds": [
+            "11",
+            "17"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kvar form er eit polyagentisk kompromiss.66, 67",
+      "proposition": "6.1",
+      "spans": [
+        {
+          "start": 41,
+          "end": 47,
+          "text": "66, 67",
+          "sourceIds": [
+            "66",
+            "67"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Agens finst på mange skalaer samstundes: kvar agent er sett saman av agentar og er sjølv del av agentar.22, 67, 85, 87",
+      "proposition": "6.11",
+      "spans": [
+        {
+          "start": 104,
+          "end": 118,
+          "text": "22, 67, 85, 87",
+          "sourceIds": [
+            "22",
+            "67",
+            "85",
+            "87"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kvart nivå navigerer innanfor si eiga lyskjegle (5.272).67 Delane på lågare nivå kan difor fremje mål langs aksar som ligg i lyskjegla til heilskapen (6.111), men ikkje i deira eiga.",
+      "proposition": "6.112",
+      "spans": [
+        {
+          "start": 56,
+          "end": 58,
+          "text": "67",
+          "sourceIds": [
+            "67"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Reduksjonisme og holisme er difor komplementære. Begge er sanne; ingen er tilstrekkeleg åleine.72",
+      "proposition": "6.113",
+      "spans": [
+        {
+          "start": 95,
+          "end": 97,
+          "text": "72",
+          "sourceIds": [
+            "72"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Den biologiske mekanismen for at mange agentar vert éin, er evolusjonære overgangar i individualitet.87",
+      "proposition": "6.12",
+      "spans": [
+        {
+          "start": 101,
+          "end": 103,
+          "text": "87",
+          "sourceIds": [
+            "87"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Agenten vel; landskapet filtrerer.66 Kontrollen er alltid delt.",
+      "proposition": "6.13",
+      "spans": [
+        {
+          "start": 34,
+          "end": 36,
+          "text": "66",
+          "sourceIds": [
+            "66"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Designaren er aldri åleine i landskapet (6.1).66, 67, 93",
+      "proposition": "6.14",
+      "spans": [
+        {
+          "start": 46,
+          "end": 56,
+          "text": "66, 67, 93",
+          "sourceIds": [
+            "66",
+            "67",
+            "93"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Selektiv samanbinding etablerer globale tilbakekoplingssløyfer.66",
+      "proposition": "6.2",
+      "spans": [
+        {
+          "start": 63,
+          "end": 65,
+          "text": "66",
+          "sourceIds": [
+            "66"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Utanom agentane har ein stilart inga kausal kraft (2.212).9, 15, 53",
+      "proposition": "6.3",
+      "spans": [
+        {
+          "start": 58,
+          "end": 67,
+          "text": "9, 15, 53",
+          "sourceIds": [
+            "9",
+            "15",
+            "53"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "For brukaren er stilarten ikkje eit symptom, men eit grensesnitt.80",
+      "proposition": "6.31",
+      "spans": [
+        {
+          "start": 65,
+          "end": 67,
+          "text": "80",
+          "sourceIds": [
+            "80"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Designaren som ignorerer grensesnittet, ignorerer agenten ho formgjev for.80",
+      "proposition": "6.311",
+      "spans": [
+        {
+          "start": 74,
+          "end": 76,
+          "text": "80",
+          "sourceIds": [
+            "80"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kvar realisert form utvidar det kjende for alle som ser henne (1.52), og forskyv det nærliggande moglege (1.432, 4.4).14, 79",
+      "proposition": "6.4",
+      "spans": [
+        {
+          "start": 118,
+          "end": 124,
+          "text": "14, 79",
+          "sourceIds": [
+            "14",
+            "79"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Kvar balanse vert med tida suboptimal under dei trykka som då verkar.60, 61",
+      "proposition": "6.5",
+      "spans": [
+        {
+          "start": 69,
+          "end": 75,
+          "text": "60, 61",
+          "sourceIds": [
+            "60",
+            "61"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Formmodellen for x, realisert av agentar {A_i} som navigerer med grammatikken SG, er:⁸⁶, ⁸⁹",
+      "proposition": "6.6",
+      "spans": [
+        {
+          "start": 85,
+          "end": 91,
+          "text": "⁸⁶, ⁸⁹",
+          "sourceIds": [
+            "86",
+            "89"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "I formmodellen går grensetilfella i 5.72 att:92",
+      "proposition": "6.65",
+      "spans": [
+        {
+          "start": 45,
+          "end": 47,
+          "text": "92",
+          "sourceIds": [
+            "92"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Arkivet er ikkje ei skulding, men eit faktum. (Same faktumet som gjer geologi leseleg, gjer design leseleg.72 )",
+      "proposition": "7.13",
+      "spans": [
+        {
+          "start": 107,
+          "end": 109,
+          "text": "72",
+          "sourceIds": [
+            "72"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Sviktsignatur kan ikkje predikerast av ein designteori utan omgrep om omhug, lyskjegle og kapasitet.21, 70 Ein slik teori kan berre registrere signaturen i ettertid.",
+      "proposition": "7.15",
+      "spans": [
+        {
+          "start": 100,
+          "end": 106,
+          "text": "21, 70",
+          "sourceIds": [
+            "21",
+            "70"
+          ]
+        }
+      ]
+    },
+    {
+      "paragraph": "Prediksjonen krev at teorien namngjev grensa for det agentane held.70",
+      "proposition": "7.151",
+      "spans": [
+        {
+          "start": 67,
+          "end": 69,
+          "text": "70",
+          "sourceIds": [
+            "70"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,19 +1,11 @@
-build
-
-# LaTeX build artifacts (regenerable; never track)
+/build/
+/nettstad/dist/
+__pycache__/
+*.py[cod]
 *.aux
-*.bcf
-*.bcf-SAVE-ERROR
-*.fdb_latexmk
-*.fls
 *.log
 *.out
 *.toc
-*.ent
-*.run.xml
-*.bbl
-*.blg
 *.xdv
 *.synctex.gz
-__pycache__/
-*.py[cod]
+*.tmp

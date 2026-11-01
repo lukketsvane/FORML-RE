@@ -1,0 +1,41 @@
+{
+  "reason": "Not displayed in the migrated published edition; older introduction wording.",
+  "notes": [
+    {
+      "anchor": "teori om designkunnskap",
+      "sources": [
+        "16",
+        "17",
+        "74"
+      ],
+      "note": "Hatchuel og Weil sin tanke–kunnskapsteori skil mellom konsept og kunnskap. Koplinga til regionane i formrommet er ei vidareføring i FORMLÆRE."
+    },
+    {
+      "anchor": "utviklingsbiologi, kybernetikk og agentteori",
+      "sources": [
+        "4",
+        "5",
+        "7",
+        "21",
+        "22"
+      ],
+      "note": "Desse tradisjonane gjev bakgrunn for målretta system, tilbakekopling og kompetanse på tvers av skalaer. Den samla formmodellen er ikkje eit resultat kjeldene åleine etablerer."
+    },
+    {
+      "anchor": "Omhug",
+      "sources": [
+        "23",
+        "68"
+      ],
+      "note": "Doctor og medforfattarar drøftar omhug som drivkraft for intelligens; Tronto gjev ein omsorgsetisk bakgrunn. Den avgrensa definisjonen her er teksten si eiga."
+    },
+    {
+      "anchor": "Kapasitet",
+      "sources": [
+        "21",
+        "86"
+      ],
+      "note": "Arbeida om navigasjonskompetanse er bakgrunn. Skiljet mellom kapasitet, omhug og prediksjon vert formulert og prøvd i FORMLÆRE."
+    }
+  ]
+}
