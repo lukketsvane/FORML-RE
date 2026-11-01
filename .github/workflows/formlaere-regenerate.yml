@@ -56,7 +56,7 @@ jobs:
           git status --short
           git add -- traktat/nettstad/kortversjon.html traktat/pdf/formlaere.pdf traktat/pdf/formlaere-latex.zip traktat/pdf/release.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Rebuild formlære after title and foreword edits'
+            git commit -m 'Rebuild formlære with corrected title and shorter foreword'
             git push origin HEAD:main
           else
             echo 'Generated release already matches the source.'
