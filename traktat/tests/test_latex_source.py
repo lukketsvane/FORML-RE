@@ -147,7 +147,7 @@ class ShortEditionIntegrity(unittest.TestCase):
     def test_body_wrapper_and_truncation_cannot_keep_a_valid_source_stamp(self):
         for modified in (
             self.previous.replace(b"Converted manuscript.", b"Manually edited content."),
-            self.previous.replace(b"<title>FORML", b"<title>WRONG FORML"),
+            self.previous.replace(b"<title>formlære", b"<title>feil formlære"),
             self.previous.split(b"<p>Converted manuscript.")[0],
         ):
             with self.subTest(modified=modified[:70]):
