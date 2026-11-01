@@ -1075,7 +1075,7 @@
       "id": "prop-5-7",
       "proposition": "5.7",
       "section": null,
-      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val, med r_A som korreksjon ved reversibel utforsking. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane.",
+      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val, med r_A som korreksjon ved reversibel utforsking. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane. Kjernen må knytast til eit oppgjeve tilstandsrom: reversibel prøving på representasjonar og einsretta materialsteg krev ikkje same overgangsregel.",
       "sources": [
         "11",
         "17",
@@ -1289,7 +1289,7 @@
       "id": "prop-6-64",
       "proposition": "6.64",
       "section": null,
-      "note": "Metropolis–Hastings er ein standardkonstruksjon for ei oppgjeven stasjonær fordeling. Detaljert balanse gjev invarians; samanheng og aperiodisitet gjev konvergens i det endelege tilfellet. Ein einsretta produksjonsprosess vert ikkje reversibel ved å skrive inn korreksjonen: forslag utan motsett overgang vert avviste.",
+      "note": "Metropolis–Hastings er ein standardkonstruksjon for ei oppgjeven stasjonær fordeling. Detaljert balanse gjev invarians; samanheng og aperiodisitet gjev konvergens i det endelege tilfellet. Ein einsretta produksjonsprosess vert ikkje reversibel ved å skrive inn korreksjonen: forslag utan motsett overgang vert avviste. Fordelinga er eit betinga, lokalt valbilete når grunnmål, estimat og alternative steg står faste; ho er ikkje ei stasjonær lov for den irreversible produksjonshistoria.",
       "sources": [
         "110",
         "121"
@@ -1300,7 +1300,7 @@
       "id": "prop-6-673",
       "proposition": "6.673",
       "section": null,
-      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. FORMLÆRE nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ein ny matematisk oppdaging.",
+      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. FORMLÆRE nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ein ny matematisk oppdaging. Deriverten gjeld ein fri parameter i eksponentialfamilien. Normaliserte omhugsvekter kan ikkje endrast éi om gongen utan at andre vekter vert endra.",
       "sources": [
         "122"
       ],

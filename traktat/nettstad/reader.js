@@ -408,7 +408,7 @@
         stream.appendChild(propositionSection);
       }
       const row=make("article","prop depth"+Math.min(byNum.get(tok.n).depth,4));row.dataset.n=tok.n;row.id=tok.n;
-      const n=make("span","n",tok.n);const sup=make("sup","status",tok.status);n.appendChild(sup);
+      const n=make("span","n",tok.n);const marker=make("span","status","["+tok.status+"]");n.appendChild(document.createTextNode(" "));n.appendChild(marker);
       const body=make("div","t");for(const para of tok.paragraphs){const p=make("p","prop-paragraph");rich(p,para);body.appendChild(p);}
       addNoteLinks(body.lastElementChild,tok.notes);
       row.append(n,body);row.addEventListener("click",()=>{if(!window.getSelection()?.toString())setCurrent(tok.n,true,false);});

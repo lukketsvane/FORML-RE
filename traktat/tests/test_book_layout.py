@@ -71,6 +71,8 @@ class CompiledBookLayout(unittest.TestCase):
             second_page = reader.pages[1].extract_text() or ""
             self.assertIn("Bokprøvabyrjar", re.sub(r"\s+", "", second_page), "No blank page may separate cover and foreword")
             searchable = re.sub(r"\s+", "", "".join(page.extract_text() or "" for page in reader.pages))
+            for label in ("[d]", "[t]"):
+                self.assertIn(label, searchable, "Status must remain separate from decimal proposition numbers")
             for word in ("Thompson", "Kauffman", "Mifflin", "skifte", "ÆØÅ", "æøå"):
                 self.assertIn(word, searchable, "Letters and ligatures must retain their Unicode text")
             fonts = {
