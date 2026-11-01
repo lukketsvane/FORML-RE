@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "947019815f14a9163879aabc5bc455cc8844c5d8a4531e7ca687655aaa261066",
+  "sourceHash": "d53fe299a5f6a4da92e6be410d28086ca1dde604e0b4655815ed78c4d7a1d7d4",
   "inputs": {
     "edition.json": "ae77c3706b1e5fb4146b8301cb20684e11f676d38fdd561c694c8a3dd48c4ada",
     "figurar.json": "4d8f1e8e287e3a693d631b7a5b9458121f26da75b6df28e7b9445629f8eb864c",
@@ -11,17 +11,18 @@
     "nettstad/illustrations/model-overview-20261101.svg": "fa9d45d91f5aee395ebd8a49ae01976a741e86cba8ebefb8a2477a7cc3ed9ee9",
     "nettstad/illustrations/scan-20261031-p11-busette-opne-forbodne.png": "73ccfe947557cfc0e659f944a59f5c24c4f858461d078bccf5e07185e6382192",
     "nettstad/illustrations/scan-20261031-p16-royrstol-utvikling.png": "81fc638b6981e98d5d4300488d1c4c166de3e0c340403877f95db541bbf33092",
+    "nettstad/kort.html": "73a64241eb36178a8eb3e0d996d57407f1d301b9f8aa27d9927712f6026e18b4",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "898f680d1def34b940b77112a44448eea63b5b35a5cc393afeb819a360509049",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "e0a581169b11e69e29faf6f499153b2a5ee498275efa0fc9d1dd4b3d57b90a9c",
-    "nettstad/reader.html": "84b48d4a529cc04aeab98bd991829176b9cb4bd18e8ce814e8ba80d50380e80a",
+    "nettstad/reader.css": "f5816828290d73014e7f6414e9ed44670793343056af4ca31c05a790613f0af5",
+    "nettstad/reader.html": "e250d3a8bad6853a04c0489e618f930c7a4d8ce62109d73244920b67e7fd94ea",
     "nettstad/reader.js": "7f2b6e5aa8f41d041887a424b873e2b4f054a035f31ac800f33cc88ed5cab5ed",
     "ordliste.json": "5060b76eef2f2f90865d8ea7e60e83f1b41b08ad1683fce12b92dd966b4d3504",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
-    "scripts/build.py": "68742da56af6aa9729dcf74a3f7be2ac7f9ece070e34433324a7a1f9ddb37214",
+    "scripts/build.py": "07bca38c43e4f894ff9185b35617046c048848a00fa0ee742cf2f9e00043f58a",
     "scripts/content.py": "448dd9b6a008611af52890a7c268e8bcf11267528985438131236a8d3e83a991",
     "scripts/migrate_published.py": "b0b654affd5ca4aea819639f736b31dbc90ed34a09e1857b472a47e087c89129",
     "scripts/render_latex.py": "1826016530580dae1db67c754fcc58cfb8963061ca4e551e6cf0b0e621bb74a5",
@@ -29,8 +30,8 @@
     "vercel.json": "d247ac19b640da2cfe2bf52d913749ce31187f60dac92b9723363ec3e5a01727"
   },
   "outputs": {
-    "formlaere.pdf": "fe6a140d638ee7ac165e7af3586f9d5a304703c507b0d351256bd2de71a721bf",
-    "formlaere-latex.zip": "b7148739bf2a9dc09f668a90474396f51e735fdfd1356a74e245122f9bb940be"
+    "formlaere.pdf": "1cc6fdf8e25f61f024dcb663721d08f4b63e0bad477724d91c96feb6c224fa78",
+    "formlaere-latex.zip": "fc94f63fc47f9e711aa0c6facfc29bb4ad59bc5384344d51be15679024aeff8e"
   },
   "quality": {
     "pages": 43,
