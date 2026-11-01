@@ -152,8 +152,13 @@ def load_document(root: Path) -> dict:
             if placements:
                 token["notes"] = placements
         explicit_note_occurrences.extend(placements)
+    sources = deepcopy(catalog["sources"])
+    for number, item in enumerate(sources, 1):
+        # IDs and destinations survive editorial deletions; visible numbers
+        # follow the active bibliography without leaving gaps.
+        item["number"] = number
     document = {"schemaVersion": 1, "sourceHash": source_hash(root), "title": edition["title"], "author": edition["author"],
-                "tokens": tokens, "props": props, "sources": deepcopy(catalog["sources"]), "notes": notes,
+                "tokens": tokens, "props": props, "sources": sources, "notes": notes,
                 "figures": deepcopy(figures["assets"]), "glossary": deepcopy(glossary["entries"]),
                 "sourceAliases": deepcopy(catalog.get("aliases", {})), "mathematics": mathematics}
     # Placement markers are only used for section notes. Proposition notes
@@ -231,6 +236,9 @@ def validate_document(document: dict, root: Path) -> None:
         raise ValueError("Invalid or duplicate source identifier")
     if any(not source.get("citation", "").strip() for source in sources):
         raise ValueError("Source citation is empty")
+    if ([source.get("number") for source in sources] != list(range(1, len(sources) + 1))
+            or any(type(source.get("number")) is not int for source in sources)):
+        raise ValueError("Source display numbers are not consecutive")
     excluded = set(json.loads((root / "edition.json").read_text(encoding="utf-8")).get("excludedSourceIds", []))
     if excluded.intersection(ids):
         raise ValueError("An excluded source identifier is present")

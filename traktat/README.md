@@ -40,13 +40,13 @@ Ei utsegn.\kjelder{3,8,58}
 
 Vanlege tal, proposisjonsnummer og matematiske eksponentar vert ikkje tolka som kjelder. Ei ukjend eller feilforma tilvising stoppar byggjet. Me treng difor ikkje lenger å halde ved like teiknplasseringar eller kopiar av heile avsnitt for å lenkje ei kjelde.
 
-Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat som høyrer til føreordet, får ei uttrykkeleg plassering i manuskriptet, til dømes `\notat{intro-1}`. Notat-ID-en vert verande den same sjølv om visningsnummeret endrar seg. Kjelde-ID-ar er òg stabile: hòl i nummereringa skal ikkje fyllast ved å flytte seinare nummer.
+Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat som høyrer til føreordet, får ei uttrykkeleg plassering i manuskriptet, til dømes `\notat{intro-1}`. Notat-ID-en vert verande den same sjølv om visningsnummeret endrar seg. Kjelde-ID-ar er òg stabile og skal ikkje flyttast for å fylle hòl. Byggjet gjev dei aktive kjeldene samanhengande visningsnummer frå 1 i bibliografirekkjefølgje. Tilvisingar i tekst, ordliste og notat nyttar desse same nummera i PDF og nettutgåva; lenkjer og PDF-anker nyttar framleis kjelde-ID-en.
 
 Alle aktive kjelder skal vere brukte i teksten, notata eller ordlista. `requireReferencedSources` i `edition.json` gjer dette til ein byggjekontroll. Dublettar kan få eit direkte alias i `kjelder.json`, til dømes `"aliases": {"63": "19"}`. Gamle lenkjer og PDF-anker vert då bevarte utan ei ekstra bibliografioppføring. Kjelder som vert tekne ut, vert arkiverte med opphavleg metadata og grunn for uttaket.
 
 Det historiske migreringsgrunnlaget i arkivet har 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala høyrer til arkivprøva, ikkje den gjeldande utgåva eller ei fast grense i lesaren. LaTeX-migreringa bevarer alle dei 377 proposisjonsadressene i den gjeldande teksten. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
 
-Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vilje, og holet i nummereringa skal stå.
+Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vilje og skal ikkje brukast på nytt. Utelatne ID-ar gjev ikkje hòl i den synlege referanselista.
 
 ## Ordliste
 

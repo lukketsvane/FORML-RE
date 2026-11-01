@@ -18,8 +18,9 @@
   const sources=new Map(documentData.sources.map(s=>[String(s.id),s]));
   const allNotes=documentData.notes,noteById=new Map(allNotes.map(note=>[note.id,note]));
   function sourceButton(id){
-    const link=make("a","xref",id);link.href="#referanse-"+id;
-    link.setAttribute("aria-label","Til referanse "+id);
+    const number=sources.get(id).number;
+    const link=make("a","xref",String(number));link.href="#referanse-"+id;
+    link.setAttribute("aria-label","Til referanse "+number);
     bindPreview(link,()=>sourcePreview(id));
     return link;
   }
@@ -63,7 +64,7 @@
       section.setAttribute("aria-labelledby",heading.id);section.appendChild(heading);
       const list=make("ol","endmatter-list");
       items.forEach((item,index)=>{
-        const isNote=kind==="notat",number=isNote?item.number:item.id;
+        const isNote=kind==="notat",number=item.number;
         const entry=make("li","endnote");entry.id=(isNote?"notat-":"referanse-")+(isNote?item.id:item.id);
         entry.appendChild(make("span","endnote-number",isNote?"n"+number:String(number)));
         const body=make("div","endnote-body");
@@ -122,13 +123,13 @@
   function notePreview(id){
     const note=noteById.get(id);if(!note)return null;
     const relation=note.relation?" · "+note.relation:"";
-    const refs=note.sources?.length?"\n\nReferansar: "+note.sources.join(", "):"";
+    const refs=note.sources?.length?"\n\nReferansar: "+note.sources.map(id=>sources.get(String(id)).number).join(", "):"";
     return {title:"Notat "+note.number+" · "+(note.proposition||"Føreord")+relation,text:note.note+refs};
   }
   function sourcePreview(id){
     const source=sources.get(String(id));if(!source)return null;
     const doi=source.doi&&!source.citation.includes(source.doi)?"\n\nDOI: "+source.doi:"";
-    return {title:"Referanse "+source.id,text:source.citation+doi};
+    return {title:"Referanse "+source.number,text:source.citation+doi};
   }
   const mathRuns=new Map();let mathSerial=0;
   const superDigits=new Map([..."⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺"].map((char,index)=>[char,"0123456789-+"[index]]));
