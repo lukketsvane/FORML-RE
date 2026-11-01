@@ -190,6 +190,7 @@ def validate_document(document: dict, root: Path) -> None:
     if not isinstance(glossary, list):
         raise ValueError("The shared glossary must be a list")
     glossary_ids = set()
+    glossary_source_ids = {str(source.get("id", "")) for source in document.get("sources", [])}
     for entry in glossary:
         if not isinstance(entry, dict):
             raise ValueError("Invalid glossary entry")
@@ -211,6 +212,11 @@ def validate_document(document: dict, root: Path) -> None:
             raise ValueError("Invalid glossary proposition target")
         if len(targets) != len(set(targets)):
             raise ValueError("Duplicate glossary proposition target")
+        cited_sources = entry.get("sources", [])
+        if not isinstance(cited_sources, list) or any(not isinstance(source, str) or source not in glossary_source_ids for source in cited_sources):
+            raise ValueError("Unknown glossary source identifier")
+        if len(cited_sources) != len(set(cited_sources)):
+            raise ValueError("Duplicate glossary source identifier")
     sources = document.get("sources", [])
     ids = [str(source.get("id", "")) for source in sources]
     if not sources or any(not re.fullmatch(r"\d+", value) for value in ids) or len(ids) != len(set(ids)):

@@ -40,10 +40,10 @@
   \llap{\makebox[\numbergutter][l]{{\color{muted}\ttfamily\fontsize{8}{11}\selectfont #1\textsuperscript{\fontsize{6.5}{8}\selectfont #2}}}}%
   \ignorespaces
 }{\par\end{adjustwidth}}
-\newenvironment{referenceentry}[2]{%
-  \par\addvspace{6pt}\Needspace{4\baselineskip}%
+\newenvironment{referenceentry}[3][6]{%
+  \par\addvspace{#1pt}\Needspace{4\baselineskip}%
   \begin{adjustwidth}{\numbergutter}{0pt}\fontsize{9}{13.05}\selectfont\noindent
-  \hypertarget{#1}{}\llap{\makebox[\numbergutter][l]{{\color{muted}\ttfamily\fontsize{7.8}{10}\selectfont #2}}}%
+  \hypertarget{#2}{}\llap{\makebox[\numbergutter][l]{{\color{muted}\ttfamily\fontsize{7.8}{10}\selectfont #3}}}%
   \ignorespaces
 }{\par\end{adjustwidth}}
 \newcommand{\entrymeta}[1]{{\color{muted}\ttfamily\fontsize{7.44}{10}\selectfont #1\par}\nobreak\vspace{3pt}\nobreak}

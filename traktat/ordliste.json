@@ -2,208 +2,155 @@
   "schemaVersion": 1,
   "entries": [
     {
-      "id": "form",
-      "term": "Form",
-      "definition": "Ei ordning av skilnader. Konfigurasjonar med ulike objekt kan dele form når dei har same struktur.",
-      "propositions": ["1", "1.2122"]
+      "id": "affordanse",
+      "term": "Affordanse",
+      "definition": "Ei handlingsmoglegheit i forholdet mellom omgjevnadene og evnene til ein organisme. Ei flate kan til dømes bere ein lett kropp og gje etter under ein tung; kva ho tilbyr, avheng av begge.",
+      "propositions": [
+        "2.14",
+        "2.2",
+        "5.223"
+      ],
+      "sources": [
+        "12"
+      ]
     },
     {
-      "id": "konfigurasjon",
-      "term": "Konfigurasjon",
-      "definition": "Ei bestemt ordning av bestemde delar. Konfigurasjonen er realisert når han er tilfelle.",
-      "propositions": ["1.11"]
+      "id": "attraktor",
+      "term": "Attraktor",
+      "definition": "Ei mengd tilstandar som eit dynamisk system nærmar seg frå eit område av starttilstandar. Ho kan vere eit kvilepunkt, ei gjenteken rørsle eller eit meir samansett mønster.",
+      "propositions": [
+        "3.121",
+        "4.5"
+      ],
+      "sources": [
+        "19"
+      ]
     },
     {
-      "id": "objekt",
-      "term": "Objekt",
-      "definition": "Ein konfigurasjonsdel som ikkje vert delt vidare på det valde analysenivået. Kva som vert rekna som objekt, avheng av nivået ein vel.",
-      "propositions": ["1.2", "1.201"]
+      "id": "bifurkasjon",
+      "term": "Bifurkasjon",
+      "definition": "Ei kvalitativ endring i oppførselen til eit dynamisk system når ein styringsparameter passerer ein kritisk verdi. Til dømes kan ein stabil kviletilstand forsvinne eller bli ustabil.",
+      "propositions": [
+        "4.12",
+        "4.21",
+        "6.641"
+      ],
+      "sources": [
+        "111"
+      ]
     },
     {
-      "id": "struktur",
-      "term": "Struktur",
-      "definition": "Måten objekta heng saman på i ein konfigurasjon. Strukturen er ordninga av skilnadene mellom objekta, utan å seie kva objekt som står i ordninga.",
-      "propositions": ["1.21", "1.212"]
+      "id": "blandingstid",
+      "term": "Blandingstid",
+      "definition": "Kor mange steg ein tilfeldig prosess treng før fordelinga over moglege tilstandar ligg tilstrekkeleg nær ei stasjonær fordeling. Ei slik fordeling held seg uendra når prosessen tek eitt steg til.",
+      "propositions": [
+        "6.64",
+        "6.641"
+      ],
+      "sources": [
+        "110"
+      ]
     },
     {
-      "id": "oppleving",
-      "term": "Oppleving",
-      "definition": "Det som er kjent utan måling, ved å vere det. Teksten tek oppleving som substansen i formverda.",
-      "propositions": ["1.23", "1.233"]
+      "id": "fri-energi-prinsippet",
+      "term": "Fri energi-prinsippet",
+      "definition": "Friston sitt rammeverk for å skildre korleis tilpassande system held seg i eit avgrensa repertoar av tilstandar ved å minimere variasjonell fri energi. Denne storleiken er eit informasjonsteoretisk øvre tak på kor uventa observasjonane er ifølgje ein modell.",
+      "propositions": [
+        "5.11",
+        "5.112",
+        "5.641"
+      ],
+      "sources": [
+        "19"
+      ]
     },
     {
-      "id": "medvit",
-      "term": "Medvit",
-      "definition": "Oppleving av opplevinga, framstilt på nytt i seg sjølv. Oppleving føreset ikkje medvit.",
-      "propositions": ["1.2332", "1.2333"]
+      "id": "generativ-modell",
+      "term": "Generativ modell",
+      "definition": "Ein sannsynsmodell for korleis skjulte årsaker kan gje opphav til observerbare data. Han kan lage føreseiingar og brukast omvendt: frå det ein observerer til kva årsaker som er sannsynlege.",
+      "propositions": [
+        "5.11",
+        "6.02",
+        "7.2"
+      ],
+      "sources": [
+        "19"
+      ]
     },
     {
-      "id": "formrom",
-      "term": "Formrom",
-      "symbol": "𝕄",
-      "definition": "Mengda av alle moglege konfigurasjonar i ein klasse som tillèt dei same operasjonane. Kvar konfigurasjon i klassen er eitt eksakt punkt i dette rommet.",
-      "propositions": ["1.3", "1.31", "1.32"]
+      "id": "gradient",
+      "term": "Gradient",
+      "symbol": "∇",
+      "definition": "Ei matematisk pil som viser retninga ein storleik aukar raskast i, og kor bratt auken er. Å følgje den negative gradienten er å ta steg i retning av brattaste fall.",
+      "propositions": [
+        "2.1",
+        "5.13",
+        "6.642"
+      ],
+      "sources": [
+        "19"
+      ]
     },
     {
-      "id": "akse",
-      "term": "Akse",
-      "symbol": "Xₖ",
-      "definition": "Ein målbar eigenskap i formrommet. Eit val av aksar er ein projeksjon av rommet, og fangar ikkje heile den latente kompleksiteten.",
-      "propositions": ["1.32", "1.321", "1.322"]
+      "id": "hysterese",
+      "term": "Hysterese",
+      "definition": "At tilstanden til eit system avheng av historia, slik at same påverknad kan gje ulike utfall. Ein termostat kan til dømes slå varmen på ved éin temperatur og av ved ein annan.",
+      "propositions": [
+        "5.113"
+      ],
+      "sources": [
+        "7",
+        "111"
+      ]
     },
     {
-      "id": "materiell-deling",
-      "term": "Materiell deling",
-      "definition": "Delinga av formrommet i busette, forbodne og opne regionar. Dei busette er eller har vore realiserte; dei forbodne er utelukka av materielle vilkår; dei opne er ikkje busette, men materielt moglege.",
-      "propositions": ["1.4", "1.41", "1.42", "1.43"]
+      "id": "kanalisering",
+      "term": "Kanalisering",
+      "definition": "I utviklingsbiologi: at utviklinga endar i om lag same resultat trass i variasjon i gen eller miljø. Waddington brukte omgrepet om kor robuste utviklingsforløp er mot forstyrringar.",
+      "propositions": [
+        "3.2",
+        "6.672"
+      ],
+      "sources": [
+        "8"
+      ]
     },
     {
-      "id": "naerliggande-moglege",
-      "term": "Det nærliggande moglege",
-      "definition": "Dei opne posisjonane som grensar til det busette. Frå det busette ligg dei eitt grammatikksteg unna.",
-      "propositions": ["1.432", "1.62"]
+      "id": "kl-divergens",
+      "term": "KL-divergens",
+      "definition": "Eit retningsavhengig mål på skilnaden mellom to sannsynsfordelingar. Verdien er null når fordelingane er like, men å byte om rekkjefølgja kan gje ein annan verdi.",
+      "propositions": [
+        "5.11",
+        "5.113"
+      ],
+      "sources": [
+        "19"
+      ]
     },
     {
-      "id": "epistemisk-partisjon",
-      "term": "Epistemisk partisjon",
-      "symbol": "Π = (K, C, U)",
-      "definition": "Delinga som gjeld relativt til ein kunnskapsstand: K er posisjonane ein veit verkar eller sviktar, C dei tenkte som ikkje er avgjorde, og U resten. Kunnskapsrommet K og tankerommet C har inkje felles.",
-      "propositions": ["1.5", "1.501"]
+      "id": "markov-teppe",
+      "term": "Markov-teppe",
+      "definition": "Ei gruppe variablar som gjev ei statistisk grense mellom to delar av ein modell. Når desse variablane er kjende, gjev opplysningar om utsida ikkje meir informasjon om innsida; grensa treng ikkje vere ei fysisk hinne.",
+      "propositions": [
+        "5.02"
+      ],
+      "sources": [
+        "83"
+      ]
     },
     {
-      "id": "formgjeving",
-      "term": "Formgjeving",
-      "definition": "Rørsla i og mellom tankerommet og kunnskapsrommet, medan ho går gjennom dei materielle regionane.",
-      "propositions": ["1.501", "1.54"]
-    },
-    {
-      "id": "formgrammatikk",
-      "term": "Formgrammatikk",
-      "symbol": "SG",
-      "definition": "Ei mengd posisjonar, reglar og ei startform som gjev diskrete overgangar ved å kjenne att og byte ut delformer. I teksten tyder SG den historiske grammatikken: den delen av den fullstendige grammatikken som er kjend og i bruk.",
-      "propositions": ["1.61", "1.62"]
-    },
-    {
-      "id": "seleksjonstrykk",
-      "term": "Seleksjonstrykk",
-      "definition": "Det som endrar sannsynsfordelinga over det som ikkje er forbode. Eit trykk gjer posisjonar ulikt sannsynlege utan sjølv å forby dei.",
-      "propositions": ["2.1", "3.01"]
-    },
-    {
-      "id": "tilpassingslandskap",
-      "term": "Tilpassingslandskap",
-      "symbol": "Λ",
-      "definition": "Det dei verksame seleksjonstrykka legg over formrommet når dei verkar samstundes. Kvar posisjon har ein spenningsverdi; di lågare spenninga er, di meir sannsynleg er posisjonen.",
-      "propositions": ["3.1"]
-    },
-    {
-      "id": "spenning",
-      "term": "Spenning",
-      "definition": "Spenninga i landskapet er kor mykje av trykka som står uforløyst i ein posisjon. Indre spenning er avstanden mellom det agenten møter og målregionen hans langs ein akse, slik han verkar inne i agenten og set politikken i rørsle.",
-      "propositions": ["3.1", "5.14"]
-    },
-    {
-      "id": "stilart",
-      "term": "Stilart",
-      "definition": "Formene si sverming kring eit felles tyngdepunkt i landskapet. Stilarten verkar gjennom agentane som kjenner han att, som eit mønsterminne.",
-      "propositions": ["3.3", "6.3"]
-    },
-    {
-      "id": "hinne",
-      "term": "Hinne",
-      "definition": "Tilstandane som skil eit indre frå eit ytre, slik at det indre og det ytre er uavhengige når desse tilstandane er gjevne; gjennom hinna går observasjonane inn og handlingane ut. Hinna er sjølvhalden i den grad verksemda i det indre held henne oppe.",
-      "propositions": ["5.02", "5.021"]
-    },
-    {
-      "id": "sjolv",
-      "term": "Sjølv",
-      "definition": "Eit mønster i feltet, avgrensa av ei sjølvhalden hinne. Innanfrå er sjølvet ei oppleving som ikkje når inn i andre mønster; utanfrå er det hinna og det ho held.",
-      "propositions": ["5.022", "5.024"]
-    },
-    {
-      "id": "agent",
-      "term": "Agent",
-      "symbol": "A = (m, π, ε)",
-      "definition": "Eit system som held avviket mellom forventing og møte under ein terskel, med ein generativ modell, ein politikk og ein toleranse. Agens krev denne strukturen, men krev ikkje medvit, intensjon eller nervesystem.",
-      "propositions": ["5.11", "5.111"]
-    },
-    {
-      "id": "prediksjonshorisont",
-      "term": "Prediksjonshorisont",
-      "symbol": "τₖ(A)",
-      "definition": "Kor langt fram ein agent, med ein politikk han kan ta i bruk, kan halde divergensen langs ein akse under toleransen. Horisonten til agenten er den lengste av desse horisontane.",
-      "propositions": ["5.114"]
-    },
-    {
-      "id": "kompetanse",
-      "term": "Kompetanse",
-      "definition": "Evna til å nå same målregion frå ulike utgangspunkt og på ulike vegar. Kompetansen syner seg under forstyrring, når agenten finn ein annan veg til målet.",
-      "propositions": ["5.15", "5.151"]
-    },
-    {
-      "id": "omhug",
-      "term": "Omhug",
-      "symbol": "ω(A)",
-      "definition": "At avvik ikkje er likegyldige for agenten, målt som kor mykje arbeid ei eining indre spenning set i gang langs kvar akse. Omhug er ein profil over aksane, og kan finnast utan kapasitet til å halde dei.",
-      "propositions": ["5.2", "5.201", "5.23"]
-    },
-    {
-      "id": "kapasitet",
-      "term": "Kapasitet",
-      "symbol": "κ(A)",
-      "definition": "Dei aksane der agenten med ein politikk han kan ta i bruk kan halde divergensen under toleransen. Kapasiteten seier kva agenten kan halde, òg når han ikkje bryr seg om det.",
-      "propositions": ["5.21", "5.23"]
-    },
-    {
-      "id": "kognitiv-lyskjegle",
-      "term": "Kognitiv lyskjegle",
-      "symbol": "Γ(A)",
-      "definition": "Aksane som kan setje agenten i spenning, kvar med så lang utstrekning fram og attende i tid som måla hans rekk. Lyskjegla avgrensar kva agenten kan ha som mål, medan kapasiteten avgrensar kva han kan halde.",
-      "propositions": ["5.21", "5.22", "5.23"]
-    },
-    {
-      "id": "haldne-aksar",
-      "term": "Haldne aksar",
-      "symbol": "H(A)",
-      "definition": "Aksane som ligg både i lyskjegla og i kapasiteten. Langs dei bryr agenten seg og kan halde divergensen under toleransen.",
-      "propositions": ["5.231"]
-    },
-    {
-      "id": "uhaldne-aksar",
-      "term": "Uhaldne aksar",
-      "definition": "Aksar utanfor det agenten held: utan omhug og kapasitet er det blindskap; med kapasitet, men utan omhug, er det likesæle; med omhug, men utan kapasitet, er det avmakt. Trykka langs aksane verkar vidare i alle tre tilfella.",
-      "propositions": ["5.232", "5.2321"]
-    },
-    {
-      "id": "intelligens",
-      "term": "Intelligens",
-      "definition": "Kompetanse i eit rom: evna til å finne vegar til målregionen, òg vegar som fører bort frå han ei stund og nærare seinare. Omhugen gjev intelligensen noko å gjelde; intelligensen gjev omhugen vegar.",
-      "propositions": ["5.27"]
-    },
-    {
-      "id": "substrat",
-      "term": "Substrat",
-      "definition": "Lovene i feltet der inkje indre held ei hinne. Substratet verkar både ved å leggje ned veto mot posisjonar og som eitt trykk i landskapet.",
-      "propositions": ["5.4", "5.402"]
-    },
-    {
-      "id": "designar",
-      "term": "Designar",
-      "definition": "Ein agent som langs minst éin akse verkar inn på den generative modellen til ein annan agent, og der avviket hjå den andre set arbeid i gang hjå den første. Designar tyder her ein konfigurasjon av verknad og omhug.",
-      "propositions": ["6.02", "6.021"]
-    },
-    {
-      "id": "sviktlatens",
-      "term": "Sviktlatens",
-      "symbol": "ρₖ(A)",
-      "definition": "Forholdet mellom tida før ein konsekvens viser seg langs ein akse og prediksjonshorisonten til agenten langs aksen. Forholdstalet seier kor mange horisontar svikten ventar, og er relativt til den som les.",
-      "propositions": ["7.14", "7.144"]
-    },
-    {
-      "id": "predikert-sviktrom",
-      "term": "Predikert sviktrom",
-      "definition": "Mengda av aksar som ingen agent held, og der trykk verkar. Formmodellen predikerer at forma ber signatur langs desse aksane.",
-      "propositions": ["7.23"]
+      "id": "negativ-tilbakekopling",
+      "term": "Negativ tilbakekopling",
+      "definition": "Ei sløyfe der ei endring gjev eit svar som motverkar endringa. Termostaten er eit døme: når temperaturen fell under grensa, aukar oppvarminga.",
+      "propositions": [
+        "5.1",
+        "5.113",
+        "6.201"
+      ],
+      "sources": [
+        "4",
+        "7"
+      ]
     }
   ]
 }

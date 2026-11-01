@@ -42,23 +42,24 @@ Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vil
 
 ## Ordliste
 
-Ordlista står etter proposisjonane og før notat og referansar i begge framstillingane. Ho vert redigert berre i `ordliste.json`, med denne strukturen:
+Ordlista forklarer innlånte fagomgrep teksten føreset at lesaren kjenner. Ho skal ikkje gjenta definisjonane i proposisjonane. Ho står før notat og referansar i begge framstillingane og vert redigert berre i `ordliste.json`:
 
 ```json
 {
   "schemaVersion": 1,
   "entries": [
     {
-      "id": "form",
-      "term": "Form",
-      "definition": "Ei ordning av skilnader.",
-      "propositions": ["1"]
+      "id": "fri-energi-prinsippet",
+      "term": "Fri energi-prinsippet",
+      "definition": "Teoretisk ramme for persepsjon og handling i sjølvorganiserte system.",
+      "propositions": ["5.11"],
+      "sources": ["19"]
     }
   ]
 }
 ```
 
-`symbol` er eit valfritt felt med vanleg Unicode-notasjon. ID-en skal vere ein stabil slug med små ASCII-bokstavar, tal og bindestrek; han gjev ankeret `ord-form` i dømet. Forklaringane skal vere korte, på nynorsk og bygde på dei oppgjevne proposisjonane, utan å leggje til nye teoretiske påstandar. Parseren avviser duplikat, tomme forklaringar og tilvisingar til proposisjonar som ikkje finst. Ei endring i ordlista endrar kjeldehashen og krev eit nytt komplett bygg på same måte som ei tekstendring.
+`symbol` er eit valfritt felt med vanleg Unicode-notasjon. ID-en skal vere ein stabil slug med små ASCII-bokstavar, tal og bindestrek. `propositions` peikar til kvar omgrepet vert brukt; `sources` peikar til grunnlaget i den felles bibliografien. Forklaringane skal vere korte, på nynorsk og forklare fagleg bakgrunn utan å omdefinere modellen. Parseren avviser duplikat, tomme forklaringar og ukjende tilvisingar. Ei endring i ordlista krev eit nytt komplett bygg på same måte som ei tekstendring.
 
 ## Éin kommando etter ei endring
 
