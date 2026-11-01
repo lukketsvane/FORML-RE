@@ -56,7 +56,7 @@ jobs:
           git status --short
           git add -- traktat/nettstad/kortversjon.html traktat/pdf/formlaere.pdf traktat/pdf/formlaere-latex.zip traktat/pdf/release.json
           if ! git diff --cached --quiet; then
-            git commit -m 'Rebuild formlære PDF, LaTeX bundle and release manifest'
+            git commit -m 'Rebuild formlære after title and foreword edits'
             git push origin HEAD:main
           else
             echo 'Generated release already matches the source.'
