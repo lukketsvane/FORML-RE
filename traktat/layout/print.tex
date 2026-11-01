@@ -18,6 +18,7 @@
 \usepackage[hidelinks,unicode]{hyperref}
 \hypersetup{pdftitle={%%TITLE%%},pdfauthor={%%AUTHOR%%},pdfsubject={SourceHash: %%SOURCE_HASH%%},pdfkeywords={sourceHash,%%SOURCE_HASH%%}}
 \definecolor{muted}{gray}{0.4}
+\definecolor{hairline}{gray}{0.86}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{2em}
@@ -32,7 +33,7 @@
 \fancyfoot[C]{{\color{muted}\ttfamily\fontsize{7.5}{9}\selectfont\thepage}}
 \newlength{\numbergutter}
 \setlength{\numbergutter}{40.2pt}
-\newcommand{\sectionlabel}[2]{\par\addvspace{20pt}\Needspace{4\baselineskip}\hypertarget{#1}{}\begingroup\fontsize{13.8}{18}\selectfont #2\par\endgroup\vspace{9.6pt}}
+\newcommand{\sectionlabel}[3][0]{\par\addvspace{20pt}\Needspace{4\baselineskip}\hypertarget{#2}{}\begingroup\fontsize{13.8}{18}\selectfont #3\par\endgroup\ifnum#1=1\vspace{6pt}{\color{hairline}\hrule height .3pt}\fi\vspace{9.6pt}}
 \newenvironment{proposition}[3]{%
   \par\addvspace{#3pt}\Needspace{3\baselineskip}%
   \begin{adjustwidth}{\numbergutter}{0pt}\noindent

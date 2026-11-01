@@ -42,6 +42,7 @@ class Element {
   matches(selector) { return selector === ':focus-visible' && !!this.focusVisible; }
   contains(target) { return this === target || this.children.some(child => child.contains(target)); }
   getBoundingClientRect() { return { left: 40, top: 220, right: 100, bottom: 240, width: 60, height: 20 }; }
+  setPointerCapture(pointerId) { this.capturedPointer = pointerId; }
   scrollIntoView() { this.scrolls += 1; }
 }
 
@@ -51,6 +52,9 @@ async function reader() {
   const props = [
     { n: '1', status: 'd', paragraphs: ['Form med kjelde.[[kjelde:7]] Sjå (1.1).'], notes: ['note-one'] },
     { n: '1.1', status: 't', paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
+    { n: '1.11', status: 't', paragraphs: ['Ei nærare utgreiing.'], notes: [] },
+    { n: '1.111', status: 'i', paragraphs: ['Eit døme.'], notes: [] },
+    { n: '1.1111', status: 'o', paragraphs: ['Den siste i greina.'], notes: [] },
   ];
   const data = { schemaVersion: 1, sourceHash: 'edition', props,
     tokens: [{ kind: 'heading', text: 'Føreord' }, { kind: 'paragraph', text: 'Eit føreord.' },
@@ -73,14 +77,16 @@ async function reader() {
   window.history = { replaceState() {} }; window.innerWidth = 390; window.innerHeight = 844;
   window.matchMedia = () => ({ matches: false }); window.getSelection = () => null;
   const errors = [];
+  const frames = [];
   runInNewContext(script, { document, window, navigator: {}, URL, Map, Set, Promise,
     fetch: async () => ({ ok: true, json: async () => data }),
-    setTimeout: () => 1, clearTimeout() {}, requestAnimationFrame: () => 1,
+    setTimeout: () => 1, clearTimeout() {}, requestAnimationFrame: callback => { frames.push(callback); return frames.length; },
     performance: { now: () => 0 }, console: { error: error => errors.push(error) } });
   await new Promise(resolve => setImmediate(resolve));
   assert.deepEqual(errors, [], 'The reader fixture must initialize successfully');
   const nodes = descendants(document.body);
   return { document, window, stream, nodes, byId: id => document.getElementById(id),
+    flushFrames() { while (frames.length) frames.shift()(); },
     preview: document.getElementById('prop-preview'),
     source: nodes.find(node => node.href === '#referanse-7'),
     note: nodes.find(node => node.href === '#notat-note-one'),
@@ -150,4 +156,27 @@ test('the semantic glossary precedes notes and references and reuses proposition
   assert.equal(app.preview.children[0].textContent, '1 · definisjon');
   assert.ok(app.byId('notat-note-one').textContent.includes('Dette er notatet.'));
   assert.ok(app.byId('referanse-7').textContent.includes('Ei fullstendig bibliografisk kjelde.'));
+});
+
+test('the tree viewBox ends just below its longest visible branch', async () => {
+  const app = await reader();
+  const tree = app.byId('tree');
+  const [, , width, height] = tree.getAttribute('viewBox').split(' ').map(Number);
+  const stems = descendants(tree).filter(node => node.classList.contains('stem'));
+  const bottom = Math.max(...stems.map(node => Number(node.getAttribute('d').split(' V')[1])));
+  assert.equal(width, 358, 'The horizontal geometry stays unchanged');
+  assert.equal(height - bottom, 5, 'Only the small drawing margin remains below the stems');
+});
+
+test('scrubbing the visible bottom of a short branch reaches its last proposition', async () => {
+  const app = await reader();
+  const tree = app.byId('tree');
+  const [, , width, height] = tree.getAttribute('viewBox').split(' ').map(Number);
+  tree.getBoundingClientRect = () => ({ left: 0, top: 0, width, height });
+  const stem = descendants(tree).find(node => node.classList.contains('stem'));
+  const [, x, , bottom] = stem.getAttribute('d').match(/^M([\d.]+) ([\d.]+) V([\d.]+)$/).map(Number);
+  tree.dispatch('pointerdown', { pointerId: 1, clientX: x, clientY: bottom });
+  app.flushFrames();
+  assert.equal(app.byId('1.1111').scrolls, 1, 'The full member range fits the actual drawn stem');
+  assert.ok(app.byId('1.1111').classList.contains('active'));
 });

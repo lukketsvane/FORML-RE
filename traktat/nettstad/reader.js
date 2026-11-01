@@ -277,13 +277,14 @@
   const STEP=(VW-2*PAD-SGAP*(roots.length-1))/Math.max(1,branches.length);
   let x=PAD;
   for(const r of roots){r.x0=x;for(const b of r.kids){b.x=x+STEP/2;x+=STEP;}r.x1=x;x+=SGAP;}
-  const VH=YROOT+UNIT+7;
   function ancestorBranch(d){
     if(!d||!d.parent)return null;
     while(d.parent&&byNum.get(d.parent)?.parent)d=byNum.get(d.parent);
     return d;
   }
   for(const b of branches)b.members=DATA.filter(d=>ancestorBranch(d)?.n===b.n);
+  function branchHeight(b){return 12+Math.min(UNIT-14,6*Math.sqrt(b.members.length));}
+  const VH=YROOT+Math.max(0,...branches.map(branchHeight))+5;
   function mk(tag,attrs){const e=document.createElementNS(NS,tag);for(const key in attrs)e.setAttribute(key,attrs[key]);return e;}
   function drawTree(){
     svg.setAttribute("viewBox",`0 0 ${VW} ${VH}`);svg.innerHTML="";
@@ -294,7 +295,7 @@
       const lab=mk("text",{x:(r.x0+r.x1)/2,y:YLAB,class:"rlab"+(on?" on":"")});lab.textContent=r.n;g.appendChild(lab);
       for(const b of r.kids){
         const isBranch=group&&group.n===b.n;
-        const ht=12+Math.min(UNIT-14,6*Math.sqrt(b.members.length));
+        const ht=branchHeight(b);
         g.appendChild(mk("path",{d:`M${b.x} ${YROOT} V${YROOT+ht}`,class:"stem"+(isBranch?" on":on?" sec":"")}));
         if(isBranch){const i=b.members.findIndex(d=>d.n===current);if(i>=0){const cy=YROOT+5+(i+.5)/Math.max(1,b.members.length)*(ht-5);g.appendChild(mk("circle",{cx:b.x,cy,r:2.5,class:"dot"}));}}
       }
@@ -340,7 +341,7 @@
     for(const c of branches){const d=Math.abs(c.x-u);if(d<dist){dist=d;b=c;}}
     if(!b)return null;
     if(v<YROOT)return b.parent;
-    const t=Math.max(0,Math.min(1,(v-YROOT)/UNIT));
+    const t=Math.max(0,Math.min(1,(v-YROOT-5)/(branchHeight(b)-5)));
     return (b.members[Math.min(b.members.length-1,Math.floor(t*b.members.length))]||b).n;
   }
   function scrubTo(cx,cy){
