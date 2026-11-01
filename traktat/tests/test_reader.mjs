@@ -52,7 +52,7 @@ class Element {
 
 function descendants(element) { return [element, ...element.children.flatMap(descendants)]; }
 
-async function reader({ mathText, mathematics = {} } = {}) {
+async function reader({ mathText, mathematics = {}, extraSource = false } = {}) {
   const props = [
     { n: '1', status: 'd', paragraphs: ['Form med kjelde.[[kjelde:7]] Sjå (1.1).'], notes: ['note-one'] },
     { n: '1.1', status: 't', paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
@@ -65,10 +65,17 @@ async function reader({ mathText, mathematics = {} } = {}) {
     tokens: [{ kind: 'heading', text: 'Føreord' }, { kind: 'paragraph', text: 'Eit føreord.' },
       { kind: 'heading', text: 'Lesekode' }, ...props.map(prop => ({ kind: 'prop', ...prop }))],
     notes: [{ id: 'note-one', number: 1, proposition: '1', relation: 'grunnlag', note: 'Dette er notatet.', sources: ['7'] }],
-    sources: [{ id: '7', citation: 'Ei fullstendig bibliografisk kjelde.', doi: '10.1234/example' }],
+    sources: [{ id: '7', number: 1, citation: 'Ei fullstendig bibliografisk kjelde.', doi: '10.1234/example' }],
     figures: [], glossary: [{ id: 'form', term: 'Form', symbol: 'F', fields: ['Biologi', 'Dynamiske system'],
       definition: 'Ei ordning av skilnader.', connection: 'Omgrepet knyter saman faglege perspektiv.', propositions: ['1'], sources: ['7'] }],
   };
+  if(extraSource){
+    data.sources.push({id:'110',number:2,citation:'Ei anna kjelde.'});
+    data.sourceAliases={'63':'7'};
+    data.props[0].paragraphs[0]+='[[kjelde:110]]';
+    data.notes[0].sources.push('110');
+    data.glossary[0].sources.push('110');
+  }
   const document = new Element('document'); document.body = new Element('body');
   const read = new Element('main'); read.id = 'read'; read.scrollTop = 0;
   const stream = new Element('div'); stream.id = 'stream'; read.append(stream);
@@ -105,8 +112,8 @@ async function reader({ mathText, mathematics = {} } = {}) {
 test('notes, sources and propositions share the same hover and focus preview', async () => {
   const app = await reader();
   for (const [link, title, text] of [[app.proposition, '1.1 · teorem', 'Ein utfyllande proposisjon.'],
-    [app.note, 'Notat 1 · 1 · grunnlag', 'Referansar: 7'],
-    [app.source, 'Referanse 7', 'DOI: 10.1234/example']]) {
+    [app.note, 'Notat 1 · 1 · grunnlag', 'Referansar: 1'],
+    [app.source, 'Referanse 1', 'DOI: 10.1234/example']]) {
     link.dispatch('pointerenter', { pointerType: 'mouse' });
     assert.equal(app.preview.hidden, false);
     assert.equal(app.preview.children[0].textContent, title);
@@ -221,7 +228,7 @@ test('glossary bibliography links share the existing source tooltip and native a
   const app = await reader();
   const entry = app.byId('ord-form');
   const refs = descendants(entry).find(node => node.classList.contains('glossary-links'));
-  assert.equal(refs.textContent, '1 · Kjelder: 7');
+  assert.equal(refs.textContent, '1 · Kjelder: 1');
   const source = descendants(refs).find(node => node.href === '#referanse-7');
   assert.equal(source.tagName, 'A');
   app.source.dispatch('pointerenter', { pointerType: 'mouse' });
@@ -247,8 +254,26 @@ test('glossary fields and scoped connections render without changing linked prev
   assert.ok(!app.preview.textContent.includes('I teksten:'));
   const source = descendants(definition).find(node => node.href === '#referanse-7');
   source.dispatch('pointerenter', { pointerType: 'mouse' });
-  assert.equal(app.preview.children[0].textContent, 'Referanse 7');
+  assert.equal(app.preview.children[0].textContent, 'Referanse 1');
   assert.ok(app.preview.children[1].textContent.includes('Ei fullstendig bibliografisk kjelde.'));
+});
+
+test('continuous source numbers share labels across citations, glossary, notes and reference entries while IDs remain stable', async () => {
+  const app=await reader({extraSource:true});
+  const inline=descendants(app.byId('1')).find(node=>node.href==='#referanse-110');
+  assert.equal(inline.textContent,'2');
+  assert.equal(inline.getAttribute('aria-label'),'Til referanse 2');
+  assert.equal(descendants(app.byId('ord-form')).find(node=>node.classList.contains('glossary-links')).textContent,'1 · Kjelder: 1, 2');
+  assert.equal(app.byId('referanse-7').children[0].textContent,'1');
+  assert.equal(app.byId('referanse-110').children[0].textContent,'2');
+  app.note.dispatch('pointerenter',{pointerType:'mouse'});
+  assert.ok(app.preview.textContent.includes('Referansar: 1, 2'));
+  inline.dispatch('pointerenter',{pointerType:'mouse'});
+  assert.equal(app.preview.children[0].textContent,'Referanse 2');
+  app.window.location.hash='#referanse-63';
+  app.window.dispatch('hashchange');
+  assert.equal(app.byId('referanse-7').scrolls,1,'A historical alias still reaches its canonical reference');
+  assert.equal(app.byId('referanse-63'),undefined,'An alias does not add a numbered bibliography entry');
 });
 
 test('the proposition tree begins after Lesekode and is bounded before endnotes', async () => {

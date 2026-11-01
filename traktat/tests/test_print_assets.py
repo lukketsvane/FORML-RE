@@ -71,11 +71,29 @@ class PortableVectorFigures(unittest.TestCase):
 
     def test_legacy_source_destination_does_not_duplicate_the_printed_reference(self):
         self.doc["sourceAliases"] = {"63": "19"}
-        self.doc["sources"] = [{"id": "19", "citation": "One canonical reference."}]
+        self.doc["sources"] = [{"id": "19", "number": 1, "citation": "One canonical reference."}]
         tex = render_latex.Renderer(self.doc).content()
         self.assertIn(r"\hypertarget{referanse-63}{}", tex)
         self.assertNotIn(r"\begin{referenceentry}{referanse-63}", tex)
         self.assertEqual(tex.count("One canonical reference."), 1)
+
+    def test_source_numbers_are_shared_by_inline_glossary_notes_and_bibliography(self):
+        self.doc["sources"] = [{"id": "7", "number": 1, "citation": "First reference."},
+                               {"id": "110", "number": 2, "citation": "Second reference."}]
+        self.doc["sourceAliases"] = {"63": "7"}
+        self.doc["props"][0]["paragraphs"] = ["Ei utsegn.[[kjelde:110]]"]
+        self.doc["glossary"] = [{"id": "form", "term": "Form", "definition": "Ei ordning.",
+                                 "propositions": ["1"], "sources": ["110"]}]
+        self.doc["notes"] = [{"id": "n1", "number": 1, "proposition": "1", "note": "Eit notat.",
+                              "sources": ["7", "110"]}]
+        tex = render_latex.Renderer(self.doc).content()
+        self.assertIn(r"\sourceref{\hyperlink{referanse-110}{2}}", tex)
+        self.assertIn(r"Kjelder: \hyperlink{referanse-110}{2}", tex)
+        self.assertIn(r"\entrylinks{[\hyperlink{referanse-7}{1}, \hyperlink{referanse-110}{2}]}", tex)
+        self.assertIn(r"\begin{referenceentry}{referanse-7}{1}", tex)
+        self.assertIn(r"\begin{referenceentry}{referanse-110}{2}", tex)
+        self.assertIn(r"\hypertarget{referanse-63}{}", tex)
+        self.assertNotIn(r"\hyperlink{referanse-110}{110}", tex)
 
 
 if __name__ == "__main__":

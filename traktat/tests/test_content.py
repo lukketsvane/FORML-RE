@@ -306,6 +306,22 @@ class ActiveReferenceIntegrity(unittest.TestCase):
         self.assertEqual(document["sourceAliases"], {"9001": "1"})
         self.assertEqual([source["id"] for source in document["sources"]], ["1"])
 
+    def test_gaps_in_stable_ids_do_not_leave_gaps_in_display_numbers(self):
+        self.catalog["sources"] = [{"id": "7", "citation": "Første kjelde."},
+                                   {"id": "110", "citation": "Andre kjelde."}]
+        self.catalog["aliases"] = {"63": "7"}
+        self.write_catalog()
+        source = self.root / "tekst/formlaere.tex"
+        source.write_text(source.read_text().replace(r"\kjelder{1}", r"\kjelder{7,110}"))
+        document = load_document(self.root)
+        self.assertEqual([(s["id"], s["number"]) for s in document["sources"]], [("7", 1), ("110", 2)])
+        self.assertEqual(document["sourceAliases"], {"63": "7"})
+        self.assertNotIn("108", [s["id"] for s in document["sources"]])
+        self.assertNotIn("number", self.catalog["sources"][0], "Display numbering is derived, not written into the catalog")
+        document["sources"][1]["number"] = 110
+        with self.assertRaisesRegex(ValueError, "Source display numbers"):
+            validate_document(document, self.root)
+
     def test_alias_must_point_directly_to_an_active_source(self):
         self.catalog["aliases"] = {"9001": "9002"}
         self.write_catalog()

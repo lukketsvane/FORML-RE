@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="780" height="662" viewBox="0 0 780 662" role="img" aria-labelledby="title desc">
   <title id="title">Formrom, kunnskapsstand, grammatikk, landskap og agentar</title>
-  <desc id="desc">Modellen har fem ledd: formrommet 𝕄, kunnskapsstanden Π = (K, C, U), grammatikken SG = (S, R, s₀), landskapet Λ og agentane {Aᵢ}. Grammatikken genererer former i formrommet. Agentane vel og utfører steg og estimerer landskapet. Vala vert vekta gjennom estimata, medan prøving gjev kunnskap om følgjene. Dei materielle vilkåra avgrensar kva former som kan nåast med tillatne steg utanfor V.</desc>
+  <desc id="desc">Modellen har fem ledd: formrommet 𝕄, kunnskapsstanden Π = {Πₖ}, der Πₖ = (Kₖ, Cₖ, Uₖ) er delinga per omsyn k, grammatikken SG = (S, R, s₀), landskapet Λ og agentane {Aᵢ}. Grammatikken genererer former i formrommet. Agentane vel og utfører steg og estimerer landskapet. Vala vert vekta gjennom estimata, medan prøving gjev kunnskap om følgjene. Dei materielle vilkåra avgrensar kva former som kan nåast med tillatne steg utanfor V.</desc>
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0 0 L8 4 L0 8 Z" fill="#202020"/>
@@ -46,9 +46,9 @@
   <text class="small" x="165" y="177">grunnen i modellen</text>
 
   <rect class="box" x="470" y="78" width="290" height="126"/>
-  <text class="name" x="615" y="110">Kunnskapsstand Π</text>
-  <text class="formula" x="615" y="145">Π = (K, C, U)</text>
-  <text class="small" x="615" y="177">kjent · tenkt · utenkjeleg</text>
+  <text class="name" style="font-size:20px" x="615" y="110">Kunnskapsstand Π = {Πₖ}</text>
+  <text class="formula" x="615" y="145">Πₖ = (Kₖ, Cₖ, Uₖ)</text>
+  <text class="small" x="615" y="177">kjent · tenkt · utenkjeleg per k</text>
 
   <rect class="box" x="20" y="300" width="290" height="126"/>
   <text class="name" x="165" y="332">Grammatikk SG</text>
