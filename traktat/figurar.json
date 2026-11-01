@@ -2,21 +2,6 @@
   "version": 1,
   "assets": [
     {
-      "after": "1.4",
-      "file": "scan-20261031-p11-busette-opne-forbodne.png",
-      "alt": "Busette, opne og forbodne regionar"
-    },
-    {
-      "after": "2.211",
-      "file": "scan-20261031-p16-royrstol-utvikling.png",
-      "alt": "Frå sykkelramme til røyrstol"
-    },
-    {
-      "after": "5.125",
-      "file": "agent-scales-20261101.svg",
-      "alt": "Same svarstruktur i termostat, tre, koloni, pattedyr og formgjevar for andre, med ulike oppløysingar"
-    },
-    {
       "after": "6.66",
       "file": "model-overview-20261101.svg",
       "alt": "Formrommet 𝕄, den epistemiske kunnskapsstanden Π=(K,C,U), grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala"
