@@ -101,8 +101,11 @@ def render_short(root: Path = ROOT) -> None:
          "--wrap=none", "--metadata", "title=FORMLÆRE"],
         input=source, text=True, capture_output=True, check=True,
     )
-    if process.stderr.strip():
-        raise ValueError(process.stderr)
+    pandoc_warnings = process.stderr.replace(
+        "[WARNING] Deprecated: --mathml. Use --math-method=mathml instead.", ""
+    ).strip()
+    if pandoc_warnings:
+        raise ValueError(pandoc_warnings)
     body = process.stdout
     if not body or body.count("<math") < 35 or "<merror" in body:
         raise ValueError("The short edition lost its mathematical expressions.")

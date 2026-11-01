@@ -724,6 +724,49 @@
       "year": "2014",
       "citation": "Arnall, T. D. (2014). Making Visible: Mediating the Material of Emerging Technology. Doctoral dissertation, The Oslo School of Architecture and Design.",
       "url": "https://hdl.handle.net/11250/2364779"
+    },
+    {
+      "id": "160",
+      "citation": "Rittel, H. W. J. & Webber, M. M. (1973). Dilemmas in a General Theory of Planning. Policy Sciences, 4(2), 155–169.",
+      "year": "1973",
+      "doi": "10.1007/BF01405730",
+      "url": "https://doi.org/10.1007/BF01405730",
+      "verified_on": "2026-11-01",
+      "verification_note": "Wicked problems gjeld særleg samfunnsplanlegging, ikkje ei allmenn avvising av empirisk designforsking."
+    },
+    {
+      "id": "161",
+      "citation": "Schön, D. A. (1983). The Reflective Practitioner: How Professionals Think in Action. Basic Books.",
+      "year": "1983",
+      "url": "https://books.google.com/books?id=oYNHAAAAMAAJ",
+      "verified_on": "2026-11-01",
+      "verification_note": "Om refleksjon-i-handling og kunnskap i profesjonell praksis."
+    },
+    {
+      "id": "162",
+      "citation": "Cross, N. (1982). Designerly Ways of Knowing. Design Studies, 3(4), 221–227.",
+      "year": "1982",
+      "doi": "10.1016/0142-694X(82)90040-0",
+      "url": "https://doi.org/10.1016/0142-694X(82)90040-0",
+      "verified_on": "2026-11-01",
+      "verification_note": "Arbeider for eit sjølvstendig designfag og eksplisitte kriterium for kunnskapsproduksjon; ikkje ein avvising av forsking."
+    },
+    {
+      "id": "163",
+      "citation": "Kyllingstad, J. R. (2012). Norwegian Physical Anthropology and the Idea of a Nordic Master Race. Current Anthropology, 53(S5), S46–S56.",
+      "year": "2012",
+      "doi": "10.1086/662332",
+      "url": "https://doi.org/10.1086/662332",
+      "verified_on": "2026-11-01",
+      "verification_note": "Historisk kjelde til raseantropologi og samiske skallemålingar. Analogien gjeld slutningslogikken, ikkje moralsk ekvivalens."
+    },
+    {
+      "id": "164",
+      "citation": "Universitetet i Oslo, Institutt for medisinske basalfag. (2022). Sami remains held at the Schreiner Collection.",
+      "year": "2022",
+      "url": "https://www.med.uio.no/imb/english/research/about/biological-anthropology-collection/collection/sami.html",
+      "verified_on": "2026-11-01",
+      "verification_note": "UiO stadfestar innsamlingshistoria, koplinga til raseforsking og lokal motstand."
     }
   ],
   "notes": [
@@ -731,10 +774,44 @@
       "id": "intro-1",
       "proposition": null,
       "section": "foreword",
-      "note": "Stiny og Gips gjev eit språk for korleis former kan genererast. Samankoplinga med landskap og omhug er vidareføringa i denne teksten.",
+      "note": "Stiny og Gips gjev formgrammatikken, Wright og Waddington landskapsbileta og kybernetikken eit mål- og avviksspråk. FORMLÆRE si binding til omhug, kapasitet og agentar er eit forslag som må prøvast empirisk. Omtalen av Simon, Rittel og Webber, Schön og Cross skil deira eigne forskingsbidrag frå den mangelen på ein sams forklaringsarkitektur teksten kritiserer. Samanlikninga med historisk raseantropologi gjeld sirkelargument og målestokk, ikkje ei likestilling av skadane. Eit utval frå nordisk og internasjonal designforsking ligg som kjeldegrunnlag for påstanden om eit rikt, men fragmentert kunnskapsfelt. Dei mange tilvisingane dokumenterer historikk og forskingsliner, ikkje at det er bevist at ingen samlande teori finst.",
       "sources": [
         "11",
-        "18"
+        "18",
+        "126",
+        "127",
+        "128",
+        "129",
+        "130",
+        "131",
+        "132",
+        "133",
+        "134",
+        "135",
+        "136",
+        "137",
+        "138",
+        "139",
+        "140",
+        "141",
+        "142",
+        "143",
+        "144",
+        "145",
+        "146",
+        "147",
+        "148",
+        "149",
+        "150",
+        "151",
+        "152",
+        "153",
+        "154",
+        "155",
+        "156",
+        "157",
+        "158",
+        "159"
       ]
     },
     {
