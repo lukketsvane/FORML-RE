@@ -372,7 +372,7 @@ Der ein gradient er definert, er −∇λ_j retninga mot lågare spenning, ikkje
 
 **3.11t**  Eit landskap lese ut av dei same formene det skal forklare, kan berre omnamne fordelinga. For å bere framover må vilkår eller overgangar fastsetjast uavhengig av det nye utfallet.
 
-**3.12a**  Landskapet kan ha mange lokale minimum. Motstridande trykk kan gje eitt kompromiss eller fleire dalar; talet på trykk avgjer ikkje talet på minimum.
+**3.12a**  Eit landskap kan ha fleire lokale minimum. Frå botnen av ein grunn dal kan alle dei tillatne stega føre opp, sjølv når det finst ein djupare dal på andre sida av ryggen.
 
 **3.121d**  Eit lokalt minimum er ein posisjon utan betre tillatne nabosteg. Ein dal er ein region som ein bestemt navigasjonsmåte fører mot eit slikt minimum.
 
@@ -438,9 +438,9 @@ Materialstraumar, nye operasjonar og læring kan opne vegar; tap av stoff, handl
 
 **4.41t**  Det tilgjengelege kan vekse; det moglege (1.2231) veks ikkje.
 
-**4.5t**  Eitt dominerande trykk kan trongne utvalet, men kan òg tillate mange jamgode former. Eit mangfald av trykk kan samlast i eitt kompromiss.[[kjelde:59]]
+**4.5t**  Eitt trykk kan ha fleire dalbotnar. Fleire trykk kan møtast i éin. Av talet på dalar kan ein difor ikkje lese kor mange trykk som forma landskapet.[[kjelde:59]]
 
-Variasjonen må forklarast gjennom strukturen i landskapet og stega som vert tekne, ikkje gjennom talet på trykk åleine.
+Kva dal ei form hamnar i, kjem òg an på kva vegar som stod opne då ho vart til (4.3).
 
 **5t**  Formverda rommar agentar som svarar på landskapet.
 
@@ -902,11 +902,9 @@ Det som må forklarast, er korleis den felles reguleringa vert halden, og kva ti
 
 **6.3t**  Utanom agentane har ein stilart inga kausal kraft (2.212).[[kjelde:9,15,53]]
 
-Han er ikkje ei kraft, men eit mønsterminne. Han verkar berre gjennom agentane som kjenner han att: som del av det kjende verkar han som trykk på det neste (5.53), og kanaliserer lyskjeglene deira slik bratte dalveggar kanaliserer formene (3.2).
+I den første verkstaden bøygde snikkaren stolryggane etter malen. I den neste skar ein annan snikkar malen etter bogen ho kjende att i stolane.
 
-Det som var aggregat i statistikken (2.211) og sverm i landskapet (3.3), er minne mellom agentane.
-
-Stilarten forenklar navigasjonen ved å tilby eit attkjenneleg tyngdepunkt. Men å formgje «i ein stil» utan å forstå trykka som skapte svermen, er ein kategorifeil.
+Likskapen mellom stolane var eit spor etter arbeidet (2.211, 3.3). Då snikkaren lét bogen styre snittet, fekk sporet verknad i det neste arbeidet (5.53). Ein kan slik føre ein stil vidare utan å kjenne trykka som gav han form.
 
 **6.31o**  For brukaren er stilarten ikkje eit symptom, men eit grensesnitt.[[kjelde:80]]
 
@@ -1068,6 +1066,8 @@ Blindskap, likesæle og avmakt kan gje liknande utfall. For å skilje dei må ku
 
 **7.12a**  Når alternativ, vilkår og handlag står faste, skal endra prioritering endre nye val slik 6.673 føreseier. Samsvaret mellom estimat og faktisk avvik avgjer kva det gjer med forma i bruk (6.674).
 
+Lat ein designar velje mellom to sete. Ho ventar at den som skal sitje ei heil vakt, får minst vondt på det mjuke. Di meir smerta tel i valet, di oftare vil ho velje det mjuke setet. Viser prøva at det er der folk får mest vondt, får den same feilvurderinga større følgjer di meir ho bryr seg.
+
 **7.13t**  Arkivet er eit grunnlag for gransking, ikkje ein ferdig dom. Ei kausal lesing må skilje mellom fleire forløp som kunne ha gjeve same spor.[[kjelde:72]]
 
 **7.14d**  Sviktlatensen er ρ_k(A) = Δ_k / τ^pred_k(A): tida før konsekvensen viser seg, delt på prediksjonshorisonten langs omsynet. Han skil seg frå haldshorisonten τ_k (5.114).
@@ -1131,7 +1131,7 @@ Fordelinga av innsikt, avgjerdsmakt og kostnad må difor undersøkjast kvar for 
 
 **7.23d**  Det predikerte sviktrommet er omsyna der R_k ligg over ei fastsett akseptgrense. Både haldne og uhaldne aksar kan liggje i det.
 
-Det uhaldne er eit rom for uhandtert risiko der vilkåra krev eit svar. Risikoen må forklarast gjennom feil estimat, utelaten prioritering, utilstrekkeleg kapasitet, konflikt eller endra vilkår.
+Eit omsyn kan vere verna gjennom eit anna (6.675). Når vern manglar, kan grunnen vere feil estimat, utelaten prioritering, utilstrekkeleg kapasitet, konflikt eller endra vilkår. Sjølv når alle veit kva form som vil svikte, står risikoen att så lenge den forma har positivt valsannsyn (7.152).
 
 **7.24t**  Modellen kan undersøkje kva noko har å seie ved å følgje prioriteringar, svar og følgjer. Han kan ikkje avgjere kor mykje det bør telje berre ved å telje kor sterkt agentane alt prioriterer det.
 
@@ -1155,9 +1155,7 @@ Det som varer, er kunnskap om kva som ber og kva endringar det toler.
 
 **7.32t**  Ein lesar kan finne eit motdøme, eit betre mellomledd eller ei prøve som skil forklaringar teksten let falle saman. Lesinga er eit svar i sløyfa når ho endrar kva læra kan forklare og halde.
 
-**7.33t**  Stigen vert halden ved like gjennom det han let oss nå. Kvar ombygging må gjere stega betre, ikkje berre stigen lengre.
-
-Han vert lesen, brukt og prøvd.
+**7.33t**  Når eit trinn sviktar under foten, hjelper det lite å gjere stigen lengre.
 
 **7.34t**  Fjellet er ikkje i kartet. Men den som les kartet (1.3211), står på fjellet.
 
