@@ -4,7 +4,7 @@
     {
       "after": "6.66",
       "file": "model-overview-20261101.svg",
-      "alt": "Formrommet 𝕄, den epistemiske kunnskapsstanden Π=(K,C,U), grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala"
+      "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala"
     }
   ]
 }

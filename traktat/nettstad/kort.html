@@ -34,6 +34,9 @@ h1{font-weight:400;font-size:2.2rem;line-height:1.15;letter-spacing:-.02em;margi
 .prop p{margin:0 0 .35rem;white-space:pre-line;overflow-wrap:break-word}
 .prop p:last-child{margin-bottom:0}
 .prop em{font-style:italic}.prop strong{font-weight:600}
+.native-math,.native-math math{font-size:1em}
+.math-display{display:block;max-width:100%;overflow-x:auto;padding:.5em 0}
+.math-display:focus-visible{outline:1px solid var(--dim);outline-offset:2px}
 footer{border-top:1px solid var(--line);padding-top:.7rem;font:10px/1.6 var(--mono);color:var(--dim);margin-top:3rem}
 footer a{color:inherit}
 @media(min-width:880px){.page{width:min(100%,920px);padding:0 36px 90px}.chapters{columns:2;column-gap:3.25rem}.chapter{break-inside:avoid-page;margin-top:0}.chapter h2{margin-top:0}}
@@ -72,12 +75,34 @@ if(data.sourceHash!==expected)throw new Error("Nettutgåva er endra. Last sida p
 const props=new Map(data.props.map(item=>[item.n,item]));
 const fragment=document.createDocumentFragment();
 const make=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;};
+const mathRuns=new Map();let mathSerial=0;
+function appendMathText(el,text){
+ const marker=/⟦math:([a-f0-9]{24})⟧/g;let cursor=0;
+ for(const match of text.matchAll(marker)){
+  if(match.index>cursor)el.appendChild(document.createTextNode(text.slice(cursor,match.index)));
+  const expression=data.mathematics?.[match[1]];
+  if(!expression?.mathml)throw new Error("Manglande matematikk i utgåva");
+  const node=make("span",expression.display?"native-math math-display":"native-math");
+  const id=String(++mathSerial);node.setAttribute("data-math-id",id);
+  node.setAttribute("data-source",expression.tex);node.setAttribute("data-display",expression.display?"block":"inline");
+  if(expression.display){
+   node.setAttribute("tabindex","0");node.setAttribute("role","region");
+   node.setAttribute("aria-label","Matematisk uttrykk; rull vassrett ved behov");
+  }
+  // The shared builder validates this MathML before publication.
+  node.innerHTML=expression.mathml;mathRuns.set(id,node);el.appendChild(node);
+  cursor=match.index+match[0].length;
+ }
+ if(cursor<text.length)el.appendChild(document.createTextNode(text.slice(cursor)));
+}
 function rich(el,raw){
  const parts=raw.split(/(\[\[(?:kjelde|notat):[^\]]+\]\]|\*\*[^*]+\*\*|\*[^*\n]+\*)/g);
  for(const part of parts){if(!part||/^\[\[(?:kjelde|notat):/.test(part))continue;
-   if(part.startsWith("**")&&part.endsWith("**"))el.appendChild(make("strong","",part.slice(2,-2)));
-   else if(part.startsWith("*")&&part.endsWith("*"))el.appendChild(make("em","",part.slice(1,-1)));
-   else el.appendChild(document.createTextNode(part));
+   if(part.startsWith("**")&&part.endsWith("**")){
+    const strong=make("strong","");appendMathText(strong,part.slice(2,-2));el.appendChild(strong);
+   }else if(part.startsWith("*")&&part.endsWith("*")){
+    const em=make("em","");appendMathText(em,part.slice(1,-1));el.appendChild(em);
+   }else appendMathText(el,part);
  }
 }
 for(const [heading,numbers] of groups){
@@ -97,6 +122,42 @@ for(const [heading,numbers] of groups){
  fragment.appendChild(section);
 }
 host.replaceChildren(fragment);
+const childrenOf=node=>[...(node.childNodes||node.children||[])];
+const hasMath=node=>node.classList?.contains("native-math")||childrenOf(node).some(hasMath);
+function includesMathNode(selection,node){
+ if(selection.containsNode(node,false))return true;
+ // Chromium may classify a completely selected MathML block as partial.
+ if(!document.createRange||!selection.getRangeAt)return false;
+ const selected=selection.getRangeAt(0),contents=document.createRange();
+ if(!selected.compareBoundaryPoints)return false;
+ contents.selectNodeContents(node);
+ return selected.compareBoundaryPoints(0,contents)<=0&&selected.compareBoundaryPoints(2,contents)>=0;
+}
+function copiedMath(node,selection){
+ if(node.nodeType===3||node.tagName==="#TEXT")return node.textContent;
+ if(["annotation","annotation-xml"].includes((node.localName||node.tagName||"").toLowerCase()))return "";
+ if(node.classList?.contains("native-math")){
+  const original=mathRuns.get(node.getAttribute("data-math-id"));
+  if(original&&includesMathNode(selection,original)){
+   const display=original.getAttribute("data-display")==="block";
+   return (display?"\\[":"\\(")+original.getAttribute("data-source")+(display?"\\]":"\\)");
+  }
+ }
+ const children=childrenOf(node);
+ let value=children.length?children.map(child=>copiedMath(child,selection)).join(""):node.textContent;
+ if(node.tagName==="BR")return "\n";
+ if(["P","ARTICLE","H2","LI","SECTION"].includes(node.tagName))value+="\n";
+ return value;
+}
+document.addEventListener("copy",event=>{
+ const selection=window.getSelection();
+ if(!event.clipboardData||!selection||selection.isCollapsed||selection.rangeCount!==1)return;
+ if(!host.contains(selection.anchorNode)||!host.contains(selection.focusNode))return;
+ const fragment=selection.getRangeAt(0).cloneContents();
+ if(!hasMath(fragment))return;
+ event.clipboardData.setData("text/plain",copiedMath(fragment,selection).replace(/\n{3,}/g,"\n\n").trimEnd());
+ event.preventDefault();
+});
 })().catch(error=>{
  const host=document.getElementById("chapters");
  host.replaceChildren();

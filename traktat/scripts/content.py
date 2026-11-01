@@ -108,13 +108,20 @@ def input_manifest(root: Path) -> dict[str, str]:
     return result
 
 
-def source_hash(root: Path) -> str:
-    payload = json.dumps(input_manifest(root), sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+def manifest_hash(manifest: dict[str, str]) -> str:
+    payload = json.dumps(manifest, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
     return hashlib.sha256(payload).hexdigest()
+
+
+def source_hash(root: Path) -> str:
+    return manifest_hash(input_manifest(root))
 
 
 def load_document(root: Path) -> dict:
     root = root.resolve()
+    # A model may only carry the fingerprint of the files it actually read.
+    # Reject edits during parsing instead of labelling an old AST as current.
+    initial_hash = source_hash(root)
     source = (root / "tekst" / "formlaere.tex").read_text(encoding="utf-8")
     catalog = json.loads((root / "kjelder.json").read_text(encoding="utf-8"))
     figures = json.loads((root / "figurar.json").read_text(encoding="utf-8"))
@@ -157,7 +164,7 @@ def load_document(root: Path) -> dict:
         # IDs and destinations survive editorial deletions; visible numbers
         # follow the active bibliography without leaving gaps.
         item["number"] = number
-    document = {"schemaVersion": 1, "sourceHash": source_hash(root), "title": edition["title"], "author": edition["author"],
+    document = {"schemaVersion": 1, "sourceHash": initial_hash, "title": edition["title"], "author": edition["author"],
                 "tokens": tokens, "props": props, "sources": sources, "notes": notes,
                 "figures": deepcopy(figures["assets"]), "glossary": deepcopy(glossary["entries"]),
                 "sourceAliases": deepcopy(catalog.get("aliases", {})), "mathematics": mathematics}
@@ -169,6 +176,8 @@ def load_document(root: Path) -> dict:
         if note_by_id[note_id].get("proposition"):
             raise ValueError("Use the catalog proposition target for note " + note_id)
     validate_document(document, root)
+    if source_hash(root) != initial_hash:
+        raise ValueError("Source changed while loading the document; run the build again.")
     return document
 
 

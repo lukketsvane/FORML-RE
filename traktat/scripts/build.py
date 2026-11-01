@@ -13,7 +13,7 @@ import subprocess
 import tempfile
 import zipfile
 
-from content import load_document, input_manifest
+from content import load_document, input_manifest, manifest_hash
 from render_latex import print_figure_path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +31,34 @@ def write_json(path: Path, value: dict) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temporary.replace(path)
+
+
+def require_current_source(doc: dict) -> dict[str, str]:
+    """Reject a document snapshot if any canonical build input has changed."""
+    inputs = input_manifest(ROOT)
+    if manifest_hash(inputs) != doc["sourceHash"]:
+        raise ValueError("Build inputs changed during the build. Reload the source and run make all.")
+    return inputs
+
+
+def publish_directory(stage: Path, destination: Path) -> None:
+    """Install a complete staged release, restoring its predecessor on failure."""
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    previous = stage.with_name(stage.name + "-previous")
+    if previous.exists():
+        raise FileExistsError("Release backup already exists: " + str(previous))
+    had_previous = destination.exists()
+    if had_previous:
+        destination.replace(previous)
+    try:
+        stage.replace(destination)
+    except BaseException:
+        if had_previous:
+            previous.replace(destination)
+        raise
+    else:
+        if had_previous:
+            shutil.rmtree(previous, ignore_errors=True)
 
 
 def document() -> dict:
@@ -145,6 +173,7 @@ def package_latex(work: Path, figures: list[Path], bundle: Path) -> None:
 
 
 def build_pdf(doc: dict) -> None:
+    require_current_source(doc)
     from latex_source import render_mathml
     render_mathml(doc.get("mathematics", {}))
     write_json(BUILD / "document.json", doc)
@@ -164,16 +193,21 @@ def build_pdf(doc: dict) -> None:
     if "Missing character:" in log or "Overfull \\hbox" in log:
         raise ValueError("PDF has missing glyphs or overflowing lines; inspect build/latex/formlaere.log")
     quality = verify_pdf(work / "formlaere.pdf", doc)
-    PDF.mkdir(exist_ok=True)
-    staged_pdf = PDF / "formlaere.pdf.tmp"
-    shutil.copyfile(work / "formlaere.pdf", staged_pdf)
-    staged_pdf.replace(PDF / "formlaere.pdf")
-    bundle = PDF / "formlaere-latex.zip"
-    package_latex(work, figures + layout_assets, bundle)
-    manifest = {"schemaVersion": 1, "sourceHash": doc["sourceHash"], "inputs": input_manifest(ROOT),
-                "outputs": {"formlaere.pdf": digest(PDF / "formlaere.pdf"), "formlaere-latex.zip": digest(bundle)},
-                "quality": quality, "engine": "XeLaTeX", "mathematics": doc.get("mathematics", {})}
-    write_json(PDF / "release.json", manifest)
+    stage = Path(tempfile.mkdtemp(prefix="print-release-", dir=BUILD))
+    try:
+        shutil.copyfile(work / "formlaere.pdf", stage / "formlaere.pdf")
+        bundle = stage / "formlaere-latex.zip"
+        package_latex(work, figures + layout_assets, bundle)
+        inputs = require_current_source(doc)
+        manifest = {"schemaVersion": 1, "sourceHash": doc["sourceHash"], "inputs": inputs,
+                    "outputs": {"formlaere.pdf": digest(stage / "formlaere.pdf"), "formlaere-latex.zip": digest(bundle)},
+                    "quality": quality, "engine": "XeLaTeX", "mathematics": doc.get("mathematics", {})}
+        write_json(stage / "release.json", manifest)
+        require_current_source(doc)
+        publish_directory(stage, PDF)
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)
     print(json.dumps({"pdf": str(PDF / "formlaere.pdf"), **quality, "sourceHash": doc["sourceHash"]}, ensure_ascii=False))
 
 
@@ -207,6 +241,7 @@ def require_fresh_pdf(doc: dict) -> dict:
 
 
 def build_web(doc: dict) -> None:
+    require_current_source(doc)
     manifest = require_fresh_pdf(doc)
     write_json(BUILD / "document.json", doc)
     stage = Path(tempfile.mkdtemp(prefix="web-", dir=BUILD))
@@ -236,8 +271,10 @@ def build_web(doc: dict) -> None:
         images.mkdir()
         for figure in doc["figures"]:
             shutil.copyfile(ROOT / "nettstad" / "illustrations" / figure["file"], images / figure["file"])
-        for filename in manifest["outputs"]:
+        for filename, expected in manifest["outputs"].items():
             shutil.copyfile(PDF / filename, data / filename)
+            if digest(data / filename) != expected:
+                raise ValueError("Print output changed while staging the website: " + filename)
         pwa = ROOT / "nettstad" / "pwa"
         shutil.copyfile(pwa / "manifest.webmanifest", stage / "manifest.webmanifest")
         (stage / "icons").mkdir()
@@ -257,9 +294,8 @@ def build_web(doc: dict) -> None:
         (stage / "service-worker.js").write_text(worker, encoding="utf-8")
         files = {p.relative_to(stage).as_posix(): digest(p) for p in sorted(stage.rglob("*")) if p.is_file()}
         write_json(stage / "release.json", {"sourceHash": doc["sourceHash"], "counts": counts(doc), "files": files})
-        if DIST.exists():
-            shutil.rmtree(DIST)
-        stage.replace(DIST)
+        require_current_source(doc)
+        publish_directory(stage, DIST)
     finally:
         if stage.exists():
             shutil.rmtree(stage)
@@ -269,7 +305,7 @@ def build_web(doc: dict) -> None:
 def check() -> None:
     subprocess.run(["python3", "-m", "unittest", "discover", "-s", "tests", "-v"], cwd=ROOT, check=True)
     subprocess.run(["node", "--check", "nettstad/reader.js"], cwd=ROOT, check=True)
-    subprocess.run(["node", "--test", "tests/test_service_worker.mjs", "tests/test_reader.mjs"], cwd=ROOT, check=True)
+    subprocess.run(["node", "--test", "tests/test_service_worker.mjs", "tests/test_reader.mjs", "tests/test_kort.mjs"], cwd=ROOT, check=True)
 
 
 def main() -> None:
