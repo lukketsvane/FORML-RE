@@ -10,7 +10,8 @@ const script = readFileSync(new URL('../nettstad/reader.js', import.meta.url), '
 class Element {
   constructor(tag) {
     this.tagName = tag.toUpperCase(); this.children = []; this.dataset = {};
-    this.attributes = new Map(); this.listeners = new Map(); this.style = {};
+    this.attributes = new Map(); this.listeners = new Map();
+    this.style = { values: new Map(), setProperty(name,value){ this.values.set(name,value); } };
     this.className = ''; this.ownText = ''; this.hidden = false; this.scrolls = 0;
     this.classList = {
       contains: name => this.className.split(/\s+/).includes(name),
@@ -23,7 +24,10 @@ class Element {
   get textContent() { return this.ownText + this.children.map(child => child.textContent).join(''); }
   set innerHTML(text) { this.textContent = text; }
   get lastElementChild() { return this.children.filter(child => child.tagName !== '#TEXT').at(-1); }
-  appendChild(child) { child.parentNode = this; this.children.push(child); return child; }
+  appendChild(child) {
+    if(child.parentNode)child.parentNode.children=child.parentNode.children.filter(node=>node!==child);
+    child.parentNode = this; this.children.push(child); return child;
+  }
   append(...children) { children.forEach(child => this.appendChild(child)); }
   replaceChildren(...children) { this.ownText = ''; this.children = []; this.append(...children); }
   setAttribute(name, value) { this.attributes.set(name, String(value)); if (name === 'class') this.className = String(value); }
@@ -68,12 +72,14 @@ async function reader({ mathText } = {}) {
   const document = new Element('document'); document.body = new Element('body');
   const read = new Element('main'); read.id = 'read'; read.scrollTop = 0;
   const stream = new Element('div'); stream.id = 'stream'; read.append(stream);
-  const tree = new Element('svg'); tree.id = 'tree'; document.body.append(tree, read);
+  const tree = new Element('svg'); tree.id = 'tree';
+  const strip = new Element('div'); strip.className = 'strip'; strip.offsetHeight = 72; strip.append(tree);
+  document.body.append(strip, read);
   document.createElement = tag => new Element(tag);
   document.createElementNS = (_, tag) => new Element(tag);
   document.createTextNode = text => { const node = new Element('#text'); node.textContent = text; return node; };
   document.getElementById = id => descendants(document.body).find(node => node.id === id);
-  document.querySelector = () => ({ content: 'edition' });
+  document.querySelector = selector => selector === '.strip' ? strip : { content: 'edition' };
   const window = new Element('window'); window.parent = window;
   window.location = { hash: '', hostname: 'formlaere.example' };
   window.history = { replaceState() {} }; window.innerWidth = 390; window.innerHeight = 844;
@@ -198,7 +204,7 @@ test('keyboard activation after touch navigates and shared previews dismiss cons
 test('the semantic glossary precedes notes and references and reuses proposition previews', async () => {
   const app = await reader();
   const sections = app.stream.children.filter(node => node.tagName === 'SECTION');
-  assert.deepEqual(sections.map(node => node.id), ['ordliste', 'notat', 'referansar']);
+  assert.deepEqual(sections.filter(node=>node.classList.contains('endmatter')).map(node => node.id), ['ordliste', 'notat', 'referansar']);
   const glossary = app.byId('ordliste');
   assert.equal(glossary.children[1].tagName, 'DL');
   const entry = app.byId('ord-form');
@@ -243,6 +249,23 @@ test('glossary fields and scoped connections render without changing linked prev
   source.dispatch('pointerenter', { pointerType: 'mouse' });
   assert.equal(app.preview.children[0].textContent, 'Referanse 7');
   assert.ok(app.preview.children[1].textContent.includes('Ei fullstendig bibliografisk kjelde.'));
+});
+
+test('the proposition tree begins after Lesekode and is bounded before endnotes', async () => {
+  const app = await reader();
+  const blocks = app.stream.children;
+  const section = blocks.find(node => node.classList.contains('proposition-section'));
+  assert.ok(section, 'The numbered propositions have a dedicated container');
+  assert.equal(section.children[0].className, 'strip', 'Tree is the first item of the proposition section');
+  assert.equal(section.children[0].children[0].id, 'tree');
+  assert.equal(section.children[1].id, '1');
+  assert.equal(section.children.at(-1).id, '1.1111', 'The last subproposition closes the sticky section');
+  const readingCode = blocks.findIndex(node => node.id === 'del-lesekode');
+  const start = blocks.indexOf(section);
+  const glossary = blocks.findIndex(node => node.id === 'ordliste');
+  assert.ok(readingCode < start && start < glossary,
+    'Foreword and reading code precede the tree, while endnotes follow its containing section');
+  assert.equal(app.byId('read').style.values.get('--tree-height'), '72px');
 });
 
 test('the tree viewBox ends just below its longest visible branch', async () => {
