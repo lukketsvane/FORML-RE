@@ -436,7 +436,7 @@
     }
   }
   appendGlossary();appendEndmatter();
-  const VW=358,PAD=5,SGAP=5,YROOT=17,YLAB=8,UNIT=75;
+  const VW=358,PAD=0,SGAP=5,YROOT=17,YLAB=8,UNIT=75;
   const branches=roots.flatMap(r=>r.kids);
   const STEP=(VW-2*PAD-SGAP*(roots.length-1))/Math.max(1,branches.length);
   let x=PAD;
