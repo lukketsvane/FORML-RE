@@ -1,0 +1,18 @@
+% Standalone manuscript preview. The complete edition is built with make all.
+% Run from layout/: xelatex -no-shell-escape authoring.tex
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=20mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\usepackage{amsmath,unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=nynorsk]{norwegian}
+\newenvironment{formproposition}[2]{\par\medskip\noindent\textbf{#1}\textsuperscript{#2}\quad\ignorespaces}{\par}
+\newcommand{\kjelder}[1]{\textsuperscript{[#1]}}
+\newcommand{\notat}[1]{\textsuperscript{[#1]}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\begin{document}
+\input{../tekst/formlaere.tex}
+\end{document}

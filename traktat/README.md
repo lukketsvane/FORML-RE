@@ -1,12 +1,12 @@
 # FORMLÆRE
 
-Teksten vert redigert éin stad og lesen av den same parseren før nettstad, LaTeX og PDF vert bygde. Føreord, lesekode, proposisjonar, ordliste, notat, referansar og figurar høyrer til same utgåve.
+LaTeX-manuskriptet er kjelda for både nettstaden og PDF-en. Begge vert bygde frå den same validerte dokumentmodellen, lesen frå `tekst/formlaere.tex`. Føreord, lesekode, proposisjonar, ordliste, notat, referansar og figurar høyrer til same utgåve.
 
 ## Kva me redigerer
 
 | Fil | Innhald |
 | --- | --- |
-| `tekst/formlaere.txt` | Føreord, lesekode og alle proposisjonar, med formatering og kjeldemarkørar. |
+| `tekst/formlaere.tex` | Autoritativt LaTeX-manuskript: føreord, lesekode og alle proposisjonar, med matematikk, formatering og kjeldemarkørar. |
 | `kjelder.json` | Bibliografipostar og notat med stabile ID-ar og mål i teksten. |
 | `figurar.json` | Plassering, filnamn og alternativ tekst for figurar. |
 | `edition.json` | Tittel, forfattar og reglar for utgåva, mellom anna utelatne kjelde-ID-ar. |
@@ -14,33 +14,37 @@ Teksten vert redigert éin stad og lesen av den same parseren før nettstad, LaT
 
 Sjølve biletfilene ligg i `nettstad/illustrations/`. Ei endring i figurplasseringa skal gjerast i `figurar.json`, slik at begge formata får same figur på same stad. Nye diagram vert redigerte som SVG. Nettstaden nyttar SVG-fila direkte; utskriftsbyggjet lagar ein vektor-PDF av henne til LaTeX og den portable pakka. Pakka inneheld berre figurane den aktive utgåva nyttar.
 
-Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av teksten eller ordlista i HTML eller LaTeX. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
+Dette er dei fem felles innhaldsfilene. Me vedlikeheld ingen eigen kopi av manuskriptet i tekstfiler eller HTML. LaTeX-kjelda er handredigert; PDF-oppsettet og nettutgåva er genererte. Ordlista har éi felles JSON-kjelde. Utforming og funksjon ligg i `layout/`, `nettstad/` og `scripts/`.
 
-Den særskilde matematiske kortversjonen under «tl;dr» er redigert i `nettstad/kortversjon.tex` og kompilert til `nettstad/kortversjon.html` med Pandoc og native MathML. Ho ligg på `/kortversjon/` og får to spalter ved utskrift. Kjør `python3 scripts/render_kortversjon.py` før `make all` når LaTeX-kjelda er endra. Den fulltekstbaserte propisjonsoversikta ligg i tillegg på `/kort/`. Kortversjonen følgjer dei vanlege utgåvekontrollane.
+Den særskilde matematiske kortversjonen under «tl;dr» er redigert i `nettstad/kortversjon.tex` og kompilert til `nettstad/kortversjon.html` med Pandoc og native MathML. Ho ligg på `/kortversjon/` og får to spalter ved utskrift. `make all` byggjer kortversjonen automatisk frå LaTeX. `make web` og `make check-generated` avviser ein HTML-kopi som ikkje svarar til kortversjonen si LaTeX-kjelde og renderaren. Den fulltekstbaserte propisjonsoversikta ligg i tillegg på `/kort/`. Kortversjonen følgjer dei vanlege utgåvekontrollane.
 
 ## Tekst og kjelder
 
 Ein proposisjon har ei logisk adresse og ein statusbokstav:
 
-```text
-**1.01d** Å skilje noko ut er å halde noko anna utanfor.
+```latex
+\begin{formproposition}{1.01}{d}
+Å skilje noko ut er å halde noko anna utanfor.
+\end{formproposition}
 ```
 
-Statusane er `d`, `a`, `t`, `o` og `i`. Fleire avsnitt høyrer til same proposisjon fram til neste adresse eller overskrift. Bruk `*kursiv*` og `**feit**` i teksten.
+Statusane er `d`, `a`, `t`, `o` og `i`. Tom line skil avsnitt innanfor same proposisjon. Bruk `\emph{kursiv}`, `\textbf{feit}`, `\section{Føreord}` og `\section{Lesekode}`. Skriv matematikk som vanleg LaTeX, til dømes `\(\frac{a}{b}\)` i ei line eller `\[ ... \]` som ei eiga likning. PDF-en nyttar uttrykket direkte; Pandoc omset det same uttrykket til native MathML for nettlesaren. Begge utgåvene får den same kjeldehashen.
 
-Kjeldetilvisingar er uttrykkelege markørar:
+Parseren støttar eit avgrensa LaTeX-språk og avviser ukjende kommandoar, uavslutta grupper og ugyldig matematikk. Dette hindrar at innhald forsvinn eller vert ulikt i dei to formata. Escape spesialteikn i brødtekst (`\%`, `\&`, `\_`); makrodefinisjonar og vilkårleg `\input` høyrer ikkje til manuskriptet.
 
-```text
-Ei utsegn.[[kjelde:3,8,58]]
+Kjeldetilvisingar er uttrykkelege kommandoar:
+
+```latex
+Ei utsegn.\kjelder{3,8,58}
 ```
 
 Vanlege tal, proposisjonsnummer og matematiske eksponentar vert ikkje tolka som kjelder. Ei ukjend eller feilforma tilvising stoppar byggjet. Me treng difor ikkje lenger å halde ved like teiknplasseringar eller kopiar av heile avsnitt for å lenkje ei kjelde.
 
-Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat som høyrer til føreordet, får ei uttrykkeleg plassering i tekstfila, til dømes `[[notat:intro-1]]`. Notat-ID-en vert verande den same sjølv om visningsnummeret endrar seg. Kjelde-ID-ar er òg stabile: hòl i nummereringa skal ikkje fyllast ved å flytte seinare nummer.
+Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat som høyrer til føreordet, får ei uttrykkeleg plassering i manuskriptet, til dømes `\notat{intro-1}`. Notat-ID-en vert verande den same sjølv om visningsnummeret endrar seg. Kjelde-ID-ar er òg stabile: hòl i nummereringa skal ikkje fyllast ved å flytte seinare nummer.
 
 Alle aktive kjelder skal vere brukte i teksten, notata eller ordlista. `requireReferencedSources` i `edition.json` gjer dette til ein byggjekontroll. Dublettar kan få eit direkte alias i `kjelder.json`, til dømes `"aliases": {"63": "19"}`. Gamle lenkjer og PDF-anker vert då bevarte utan ei ekstra bibliografioppføring. Kjelder som vert tekne ut, vert arkiverte med opphavleg metadata og grunn for uttaket.
 
-Migreringa bevarer den publiserte utgåva med 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala er ein kontroll av overføringa, ikkje ei fast grense i lesaren. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
+Det historiske migreringsgrunnlaget i arkivet har 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala høyrer til arkivprøva, ikkje den gjeldande utgåva eller ei fast grense i lesaren. LaTeX-migreringa bevarer alle dei 377 proposisjonsadressene i den gjeldande teksten. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
 
 Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vilje, og holet i nummereringa skal stå.
 
@@ -73,14 +77,14 @@ Frå `traktat/`:
 make all
 ```
 
-Kommandoen kontrollerer kjeldene, byggjer LaTeX, kompilerer PDF-en og lagar nettutgåva. Først når heile byggjet har lukkast, er utgåva klar til å publiserast. Dette er eit lokalt byggjesteg som må køyrast etter redigering; det skjer ingen automatisk publisering berre ved å lagre tekstfila.
+Kommandoen kontrollerer kjeldene, byggjer LaTeX, kompilerer PDF-en og lagar nettutgåva. Først når heile byggjet har lukkast, er utgåva klar til å publiserast. Dette er eit lokalt byggjesteg som må køyrast etter redigering; det skjer ingen automatisk publisering berre ved å lagre LaTeX-kjelda.
 
-Etterpå skal dei endra kjeldefilene og heile `pdf/` leggjast i same commit. Dersom me har endra utforming eller byggjekode, må dei endringane òg vere med. Me redigerer aldri den genererte PDF-en eller LaTeX-fila for hand.
+Etterpå skal dei endra kjeldefilene og heile `pdf/` leggjast i same commit. Dersom me har endra utforming eller byggjekode, må dei endringane òg vere med. Me redigerer aldri den genererte PDF-en eller LaTeX-byggjefila i `build/latex/` for hand. Den handredigerte kjelda er `tekst/formlaere.tex`.
 
 | Resultat | Rolle |
 | --- | --- |
 | `pdf/formlaere.pdf` | Utskriftsversjonen, kompilert med XeLaTeX. |
-| `pdf/formlaere-latex.zip` | Portabel LaTeX-fil med dei figurane ho nyttar. |
+| `pdf/formlaere-latex.zip` | Portabel LaTeX-utgåve med aktive figurar; `source/` inneheld det redigerbare manuskriptet og felles katalogar. |
 | `pdf/release.json` | Kjeldehash, inngangsfiler, kontrolltal og hashar for utskriftsfilene. |
 | `build/document.json` | Felles, validert dokumentmodell som begge framstillingane nyttar. |
 | `build/latex/` | Mellombelse LaTeX-filer og kompileringsloggar. |
@@ -90,7 +94,7 @@ Berre utskriftsfilene i `pdf/` vert lagde i git. `build/` og `nettstad/dist/` er
 
 ## Avhengnader
 
-Byggjet krev Python 3.12, Node.js, GNU Make og XeLaTeX. Python-avhengnadene er festa i `requirements-build.txt`:
+Heile byggjet krev Python 3.12, Node.js, GNU Make, Pandoc og XeLaTeX. Publiseringssteget `make web` krev berre Python: MathML-en vert henta frå den kontrollerte utskriftsutgåva, og kvar formel må svare til den gjeldande LaTeX-kjelda. Python-avhengnadene er festa i `requirements-build.txt`:
 
 ```sh
 python3 -m pip install -r requirements-build.txt
@@ -100,7 +104,7 @@ På Ubuntu 24.04 kan TeX og kontrollverktøya installerast slik:
 
 ```sh
 sudo apt-get update
-sudo apt-get install --no-install-recommends texlive-xetex texlive-latex-extra texlive-lang-european texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2
+sudo apt-get install --no-install-recommends texlive-xetex texlive-latex-extra texlive-lang-european texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2 pandoc
 ```
 
 PDF-byggjet nyttar mellom anna `fontspec`, `polyglossia` og `unicode-math`. CairoSVG lagar vektor-PDF frå SVG-kjeldene. Byggjet stoppar ved manglande glyffar eller linjer som går ut over tekstfeltet. Dei ferdig konverterte figurane følgjer LaTeX-pakka; ho kan kompilerast etter utpakking med same TeX-avhengnader, utan CairoSVG:
@@ -129,6 +133,8 @@ Nettutgåva vert publisert frå `nettstad/dist/`. Ho er éi side med føreordet 
 På Vercel skal prosjektrota vere `traktat`. `vercel.json` i denne mappa er det eine aktive oppsettet for byggjekommando, resultatmappe, omdirigeringar og mellomlagring.
 
 ## Kvar den tidlegare teksten ligg
+
+Den tidlegare aktive `tekst/formlaere.txt` er fjerna; git-historia tek vare på henne. Ho er ikkje eit byggjeinngangspunkt. `layout/authoring.tex` kan nyttast til ein enkel, sjølvstendig førehandsvising av LaTeX-manuskriptet; `make all` byggjer den komplette utgåva med ordliste, notat, kjelder og figurar.
 
 `archive/2026-11-01/` tek vare på migreringsgrunnlaget og det som ikkje var med i den publiserte utgåva. Testane nyttar dette som eit fast samanlikningsgrunnlag. Tidlegare LaTeX-oppsett og PDF-filer ligg i `archive/legacy-layout/` og `archive/legacy-pdf/`. Pensjonerte byggjarar og nettlesarfiler ligg i git-historia.
 

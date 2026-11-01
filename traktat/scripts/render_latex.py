@@ -176,6 +176,18 @@ class Renderer:
 
     def prose(self, text: str) -> str:
         def xrefs(value: str) -> str:
+            from latex_source import MATH_TOKEN
+            if MATH_TOKEN.search(value):
+                parts, cursor = [], 0
+                for match in MATH_TOKEN.finditer(value):
+                    parts.append(xrefs(value[cursor:match.start()]))
+                    expression = self.document.get("mathematics", {}).get(match[1])
+                    if expression is None:
+                        raise ValueError("Missing native mathematics: " + match[1])
+                    parts.append((r"\[" if expression["display"] else r"\(") + expression["tex"] + (r"\]" if expression["display"] else r"\)"))
+                    cursor = match.end()
+                parts.append(xrefs(value[cursor:]))
+                return "".join(parts)
             result, cursor = [], 0
             for match in XREF.finditer(value):
                 result.append(literal(value[cursor:match.start()] + "("))
@@ -279,7 +291,8 @@ class Renderer:
                     metadata = back + (" · " + tex_escape(item["relation"]) if item.get("relation") else "")
                     output.append(r"\entrymeta{" + metadata + "}")
                     output.append(self.prose(item["note"]))
-                    output.append(r"\entrylinks{[" + self.source_links(item.get("sources", [])) + "]}")
+                    if item.get("sources"):
+                        output.append(r"\entrylinks{[" + self.source_links(item["sources"]) + "]}")
                 else:
                     output.append(r"\begin{referenceentry}{referanse-" + target(item["id"]) + "}{" + tex_escape(str(item["id"])) + "}")
                     for alias, canonical in self.document.get("sourceAliases", {}).items():

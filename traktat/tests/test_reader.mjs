@@ -52,7 +52,7 @@ class Element {
 
 function descendants(element) { return [element, ...element.children.flatMap(descendants)]; }
 
-async function reader({ mathText } = {}) {
+async function reader({ mathText, mathematics = {} } = {}) {
   const props = [
     { n: '1', status: 'd', paragraphs: ['Form med kjelde.[[kjelde:7]] Sjå (1.1).'], notes: ['note-one'] },
     { n: '1.1', status: 't', paragraphs: ['Ein utfyllande proposisjon.'], notes: [] },
@@ -61,7 +61,7 @@ async function reader({ mathText } = {}) {
     { n: '1.1111', status: 'o', paragraphs: ['Den siste i greina.'], notes: [] },
   ];
   if (mathText) props[1].paragraphs = [mathText];
-  const data = { schemaVersion: 1, sourceHash: 'edition', props,
+  const data = { schemaVersion: 1, sourceHash: 'edition', props, mathematics,
     tokens: [{ kind: 'heading', text: 'Føreord' }, { kind: 'paragraph', text: 'Eit føreord.' },
       { kind: 'heading', text: 'Lesekode' }, ...props.map(prop => ({ kind: 'prop', ...prop }))],
     notes: [{ id: 'note-one', number: 1, proposition: '1', relation: 'grunnlag', note: 'Dette er notatet.', sources: ['7'] }],
@@ -289,4 +289,38 @@ test('scrubbing the visible bottom of a short branch reaches its last propositio
   app.flushFrames();
   assert.equal(app.byId('1.1111').scrolls, 1, 'The full member range fits the actual drawn stem');
   assert.ok(app.byId('1.1111').classList.contains('active'));
+});
+
+
+test('native LaTeX math is rendered from the shared MathML and copied once as TeX', async () => {
+  const key='a'.repeat(24),tex=String.raw`\frac{a}{b}`;
+  const app=await reader({mathText:`Verdien er ⟦math:${key}⟧.`,mathematics:{[key]:{tex,display:false,
+    mathml:'<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>a</mi><mi>b</mi></mfrac></math>'}}});
+  const paragraph=descendants(app.byId('1.1')).find(node=>node.classList.contains('prop-paragraph'));
+  const native=descendants(paragraph).find(node=>node.classList.contains('native-math'));
+  assert.equal(native.getAttribute('data-source'),tex);
+  assert.ok(native.textContent.includes('<mfrac>'));
+  const fragment=new Element('fragment');fragment.append(cloneElement(paragraph));
+  app.window.getSelection=()=>({isCollapsed:false,rangeCount:1,anchorNode:paragraph.children[0],focusNode:paragraph.children.at(-1),
+    containsNode:node=>paragraph.contains(node),getRangeAt:()=>({cloneContents:()=>fragment})});
+  const clipboard=new Map();app.document.dispatch('copy',{clipboardData:{setData:(type,value)=>clipboard.set(type,value)}});
+  assert.equal(clipboard.get('text/plain'),String.raw`Verdien er \(\frac{a}{b}\).`);
+});
+
+
+test('whole display math copies as TeX when Chromium containsNode reports only partial containment', async () => {
+  const key='b'.repeat(24),tex=String.raw`\frac{a}{b}`;
+  const app=await reader({mathText:`⟦math:${key}⟧`,mathematics:{[key]:{tex,display:true,
+    mathml:'<math xmlns="http://www.w3.org/1998/Math/MathML"><mfrac><mi>a</mi><mi>b</mi></mfrac></math>'}}});
+  const paragraph=descendants(app.byId('1.1')).find(node=>node.classList.contains('prop-paragraph'));
+  const native=descendants(paragraph).find(node=>node.classList.contains('native-math'));
+  assert.equal(native.getAttribute('tabindex'),'0');
+  assert.equal(native.getAttribute('role'),'region');
+  assert.ok(native.getAttribute('aria-label'));
+  const fragment=new Element('fragment');fragment.append(cloneElement(native));
+  app.document.createRange=()=>({selectNodeContents(node){assert.equal(node,native);}});
+  app.window.getSelection=()=>({isCollapsed:false,rangeCount:1,anchorNode:paragraph,focusNode:paragraph,
+    containsNode:()=>false,getRangeAt:()=>({cloneContents:()=>fragment,compareBoundaryPoints:point=>point===0?-1:1})});
+  const clipboard=new Map();app.document.dispatch('copy',{clipboardData:{setData:(type,value)=>clipboard.set(type,value)}});
+  assert.equal(clipboard.get('text/plain'),String.raw`\[\frac{a}{b}\]`);
 });

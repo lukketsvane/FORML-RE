@@ -18,7 +18,7 @@ NOTE = re.compile(r"\[\[notat:([A-Za-z][A-Za-z0-9_.-]*)\]\]")
 NUMBER = re.compile(r"[1-9]\d*(?:\.\d+)*")
 NOTE_ID = re.compile(r"[A-Za-z][A-Za-z0-9_.-]*")
 GLOSSARY_ID = re.compile(r"[a-z][a-z0-9]*(?:-[a-z0-9]+)*")
-CANONICAL = ("tekst/formlaere.txt", "kjelder.json", "figurar.json", "edition.json", "ordliste.json")
+CANONICAL = ("tekst/formlaere.tex", "kjelder.json", "figurar.json", "edition.json", "ordliste.json")
 
 
 def parse_source(source: str) -> tuple[list[dict], list[dict]]:
@@ -115,14 +115,15 @@ def source_hash(root: Path) -> str:
 
 def load_document(root: Path) -> dict:
     root = root.resolve()
-    source = (root / "tekst" / "formlaere.txt").read_text(encoding="utf-8")
+    source = (root / "tekst" / "formlaere.tex").read_text(encoding="utf-8")
     catalog = json.loads((root / "kjelder.json").read_text(encoding="utf-8"))
     figures = json.loads((root / "figurar.json").read_text(encoding="utf-8"))
     edition = json.loads((root / "edition.json").read_text(encoding="utf-8"))
     glossary = json.loads((root / "ordliste.json").read_text(encoding="utf-8"))
     if not isinstance(glossary, dict) or glossary.get("schemaVersion") != 1 or not isinstance(glossary.get("entries"), list):
         raise ValueError("Unsupported glossary schema")
-    tokens, props = parse_source(source)
+    from latex_source import parse_latex
+    tokens, props, mathematics = parse_latex(source)
     prop_order = {prop["n"]: index for index, prop in enumerate(props)}
     raw_notes = deepcopy(catalog.get("notes", []))
     ordered_notes = sorted(enumerate(raw_notes), key=lambda pair: (-1 if pair[1].get("section") == "foreword" else prop_order.get(pair[1].get("proposition"), len(props)), pair[0]))
@@ -154,7 +155,7 @@ def load_document(root: Path) -> dict:
     document = {"schemaVersion": 1, "sourceHash": source_hash(root), "title": edition["title"], "author": edition["author"],
                 "tokens": tokens, "props": props, "sources": deepcopy(catalog["sources"]), "notes": notes,
                 "figures": deepcopy(figures["assets"]), "glossary": deepcopy(glossary["entries"]),
-                "sourceAliases": deepcopy(catalog.get("aliases", {}))}
+                "sourceAliases": deepcopy(catalog.get("aliases", {})), "mathematics": mathematics}
     # Placement markers are only used for section notes. Proposition notes
     # already have a stable target and must not acquire duplicate placements.
     for note_id in explicit_note_occurrences:

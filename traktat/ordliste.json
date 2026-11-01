@@ -120,7 +120,7 @@
         "Sannsynsteori",
         "Statistisk fysikk"
       ],
-      "connection": "Fordelingsbiletet i 6.6 krev at stega får tid til å blande; 6.641 markerer grensa der verda endrar seg raskare enn denne tidsskalaen."
+      "connection": "Likevektslesinga av 6.6 krev at dei faste overgangane får tid til å blande seg. Ei tidsavhengig formhistorie kan krevje ein annan dynamisk modell."
     },
     {
       "id": "c-k-teori",
@@ -140,7 +140,7 @@
         "Designteori",
         "Innovasjonsforsking"
       ],
-      "connection": "Utvidinga av det tenkte og det kjende vert her kopla til materiale, prøving og agentar; det utenkjelege markerer at ein kunnskapsstand også har ei grense han ikkje kan sjå innanfrå."
+      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, kriterium, prøvevilkår og tidspunkt. Det er ei operasjonell tilpassing av C–K, ikkje ei identifisering av kunnskapsutsegner med geometriske former. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna."
     },
     {
       "id": "distribuert-kognisjon",
@@ -160,6 +160,26 @@
       "sources": [
         "67"
       ]
+    },
+    {
+      "id": "eksponentialfamilie",
+      "term": "Eksponentialfamilie",
+      "definition": "Ei familie sannsynsfordelingar der parameterane vektar faste statistiske storleikar i ein eksponent, med ein normaliseringsfaktor som avheng av parameterane.",
+      "propositions": [
+        "6.6",
+        "6.673",
+        "6.674",
+        "7.1521"
+      ],
+      "sources": [
+        "113",
+        "122"
+      ],
+      "fields": [
+        "Statistikk",
+        "Statistisk fysikk"
+      ],
+      "connection": "Derivasjon gjev samvariasjonen mellom følgjer og vurderingar når grunnvekt, utfallsrom og følgjefunksjonar står faste. Det kjende resultatet vert her brukt til å formulere prøver av prioritering og svikt."
     },
     {
       "id": "entropi",
@@ -425,6 +445,25 @@
         "Teoretisk biologi"
       ],
       "connection": "Den statistiske grensa er her den ytre skildringa av avgrensa tilgang i eitt opplevingsfelt; sjølvhald skil ei verksam hinne frå ei rein analysegrense."
+    },
+    {
+      "id": "metropolis-hastings",
+      "term": "Metropolis–Hastings",
+      "definition": "Ein metode som korrigerer aksepten av føreslåtte steg slik at ei fastsett sannsynsfordeling vert invariant. Korreksjonen tek omsyn til både grunnvekta og sannsynet for motsett forslag.",
+      "propositions": [
+        "5.7",
+        "6.64",
+        "6.641"
+      ],
+      "sources": [
+        "110",
+        "121"
+      ],
+      "fields": [
+        "Sannsynsteori",
+        "Statistikk"
+      ],
+      "connection": "Her skil metoden ei prøvbar hypotese om lokale val frå vilkåra for ei Gibbs-likevekt. Einsretta materiell realisering treng ei eiga dynamisk skildring."
     },
     {
       "id": "morforom",

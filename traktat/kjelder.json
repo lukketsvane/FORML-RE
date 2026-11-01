@@ -2,7 +2,7 @@
   "version": 2,
   "language": "nn",
   "provenance": {
-    "text": "tekst/formlaere.txt",
+    "text": "tekst/formlaere.tex",
     "note": "Kjeldenummera følgjer den opphavlege kjeldelista. Eit sentralt utval er kontrollert mot primærkjelder 1. november 2026; kontrollerte postar har verified_on og primærlenkje. Resten av metadataa er overførte og ikkje systematisk nyverifiserte. Notata skil kjeldegrunnlag, omgrepslege parallellar og FORMLÆRE sine eigne vidareføringar."
   },
   "sources": [
@@ -461,6 +461,30 @@
       "citation": "Sterling, P. (2012). Allostasis: A model of predictive regulation. Physiology & Behavior, 106(1), 5–15.",
       "doi": "10.1016/j.physbeh.2011.06.004",
       "url": "https://doi.org/10.1016/j.physbeh.2011.06.004"
+    },
+    {
+      "id": "119",
+      "citation": "Simon, H. A. (1969). The Sciences of the Artificial. MIT Press.",
+      "url": "https://mitpress.mit.edu/9780262190510/the-sciences-of-the-artificial/",
+      "verification_note": "Forlagsposten stadfestar førsteutgåva 1969, men blandar òg inn metadata frå tredjeutgåva. Her er 1969-utgåva oppført."
+    },
+    {
+      "id": "120",
+      "citation": "Alexander, C. (1964). Notes on the Synthesis of Form. Harvard University Press.",
+      "url": "https://christopher-alexander-ces-archive.org/book-overview/notes-on-the-synthesis-of-form/"
+    },
+    {
+      "id": "121",
+      "citation": "Hastings, W. K. (1970). Monte Carlo sampling methods using Markov chains and their applications. Biometrika, 57(1), 97–109.",
+      "doi": "10.1093/biomet/57.1.97",
+      "url": "https://doi.org/10.1093/biomet/57.1.97"
+    },
+    {
+      "id": "122",
+      "citation": "Wainwright, M. J. & Jordan, M. I. (2008). Graphical Models, Exponential Families, and Variational Inference. Foundations and Trends in Machine Learning, 1(1–2), 1–305.",
+      "doi": "10.1561/2200000001",
+      "url": "https://www.cs.columbia.edu/~blei/fogm/2018F/materials/WainwrightJordan2008.pdf",
+      "verification_note": "Forfattarbibliografien ved Berkeley stadfestar 2008-utgåva. Del 3.5, proposisjon 3.1 og likning 3.41 gjev moment- og kovariansidentitetane."
     }
   ],
   "notes": [
@@ -510,7 +534,7 @@
       "id": "prop-1-432",
       "proposition": "1.432",
       "section": null,
-      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom. FORMLÆRE skil mellom det logisk moglege og det som materiala og operasjonane gjer tilgjengeleg (1.422, 4.4).",
+      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom. Det globale moglege i 1.222 er eit ontologisk postulat; eit empirisk formrom og dei tilgjengelege operasjonane må fastsetjast og kunne reviderast. Postulatet gjev ingen algoritme for å rekne opp nye affordansar.",
       "sources": [
         "109",
         "59"
@@ -521,7 +545,7 @@
       "id": "prop-1-5",
       "proposition": "1.5",
       "section": null,
-      "note": "Den materielle delinga er skild frå delinga mellom det kjende, det tenkte og det utenkjelege. Dette er FORMLÆRE si kopling til C-K-teorien.",
+      "note": "Dette er ei operasjonell tilpassing av C–K-teorien. Hos Hatchuel og Weil er K eit rom av kunnskapsutsegner; her vert statusen til eit spørsmål om ei form ført som ein partisjon relativ til agent, kriterium, prøvevilkår og tidspunkt. Ei kjend bereevne avgjer ikkje andre verknader av den same forma.",
       "sources": [
         "16",
         "17"
@@ -664,7 +688,7 @@
       "id": "prop-5-21",
       "proposition": "5.21",
       "section": null,
-      "note": "Kompetanse og navigasjon i rom er kjeldegrunnlaget. Den særskilde terskelmengda κ(A) er definert i teksten og må vurderast som del av modellen.",
+      "note": "Kompetanse og navigasjon i rom er kjeldegrunnlaget. Terskelmengda κ(A) og familien av samstundes haldbare aksemengder er operasjonelle definisjonar i teksten. Kvart omsyn kan ha sin politikk utan at éin politikk held dei samla.",
       "sources": [
         "21",
         "86"
@@ -734,11 +758,12 @@
       "id": "prop-5-7",
       "proposition": "5.7",
       "section": null,
-      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Iver Raknes Finne nyttar overgangsregelen til å knyte dei tilgjengelege stega til kva agenten legg vekt på.",
+      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane.",
       "sources": [
         "11",
         "17",
-        "21"
+        "21",
+        "121"
       ],
       "relation": "kjernelikninga i FORMLÆRE"
     },
@@ -746,7 +771,7 @@
       "id": "prop-5-72",
       "proposition": "5.72",
       "section": null,
-      "note": "Identifikasjonen av formgrammatikk og C-K som grensetilfelle er eit argument i FORMLÆRE. Tilvisingane namngjev tradisjonane som vert samanlikna.",
+      "note": "Grensetilfella isolerer komponentar i FORMLÆRE. Binær vekting av kjent suksess er ikkje ei utleiing av heile C–K-teorien: korleis konsept og kunnskap vert utvida, krev eigne overgangar. Tilvisingane namngjev tradisjonane som vert samanlikna.",
       "sources": [
         "11",
         "17"
@@ -815,10 +840,12 @@
       "id": "prop-6-6",
       "proposition": "6.6",
       "section": null,
-      "note": "Den eksponentielle formmodellen er formulert her. Dei oppførte kjeldene gjev bakgrunn for kompetanse og persistente system, ikkje åleine eit prov for denne fordelinga.",
+      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. FORMLÆRE føreslår ei bestemt tolking av grunnvekt, estimerte avvik og agentinnverknad. Syntesen må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet.",
       "sources": [
         "86",
-        "89"
+        "89",
+        "113",
+        "122"
       ],
       "relation": "syntese i denne teksten"
     },
@@ -847,7 +874,7 @@
       "id": "prop-1-54",
       "proposition": "1.54",
       "section": null,
-      "note": "Dei fire operatorane C→C, C→K, K→C og K→K er henta frå C-K-teorien. Koplinga til dei materielle regionane og U er utvikla her.",
+      "note": "Dei fire retningane C→C, C→K, K→C og K→K er henta frå C–K-teorien. Koplinga til materielle regionar og U er utvikla her, med forkorta notasjon for dei kriteriumbundne partisjonane i 1.5. Ho er ikkje ei identifisering av det opphavlege kunnskapsrommet med ei mengd geometriske posisjonar.",
       "sources": [
         "16",
         "17"
@@ -868,7 +895,7 @@
       "id": "prop-2-202",
       "proposition": "2.202",
       "section": null,
-      "note": "Riegl drøftar stilhistoriske samanhengar. Samanlikninga av prediksjonsevne er her ei hypotese som krev eit definert datasett og ei eiga prøving.",
+      "note": "Riegl er stilhistorisk bakgrunn, ikkje dokumentasjon av den statistiske samanlikninga. Hypotesen krev same utval og målbare aksar, uavhengig fastsette stilkategoriar og prøving utanfor materialet modellane er tilpassa til. Elles kan stilnamnet berre kode formene ein prøver å forklare.",
       "sources": [
         "53"
       ],
@@ -917,6 +944,54 @@
         "104"
       ],
       "relation": "vidareføring"
+    },
+    {
+      "id": "prop-1-2342",
+      "proposition": "1.2342",
+      "section": null,
+      "note": "Oppleving som indre natur og eitt felt er ontologiske postulat. Skiljet mellom direkte tilgang og måling inneber ikkje at oppleving manglar struktur. Dei formelle resultata om overgangar, kapasitet og kovarians krev sine eigne oppgjevne premiss, ikkje tilslutning til denne ontologien.",
+      "sources": [],
+      "relation": "avgrensing av det filosofiske argumentet"
+    },
+    {
+      "id": "prop-5-11-design",
+      "proposition": "5.11",
+      "section": null,
+      "note": "Simon undersøker målretta kunstige system i møtet mellom indre og ytre vilkår, med avgrensa rasjonalitet og tilfredsstillande løysingar. Alexander analyserer form som tilpassing til kontekst gjennom samanhengande krav. Dette er sentrale føregangarar; toleransar og mål-avvik her er operasjonelle presiseringar, ikkje historisk nye grunnidear.",
+      "sources": [
+        "119",
+        "120"
+      ],
+      "relation": "designteoretiske føregangarar"
+    },
+    {
+      "id": "prop-6-64",
+      "proposition": "6.64",
+      "section": null,
+      "note": "Metropolis–Hastings er ein standardkonstruksjon for ei oppgjeven stasjonær fordeling. Detaljert balanse gjev invarians; samanheng og aperiodisitet gjev konvergens i det endelege tilfellet. Ein einsretta produksjonsprosess vert ikkje reversibel ved å skrive inn korreksjonen: forslag utan motsett overgang vert avviste.",
+      "sources": [
+        "110",
+        "121"
+      ],
+      "relation": "kjend matematisk konstruksjon"
+    },
+    {
+      "id": "prop-6-673",
+      "proposition": "6.673",
+      "section": null,
+      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. FORMLÆRE nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ein ny matematisk oppdaging.",
+      "sources": [
+        "122"
+      ],
+      "relation": "standardresultat og føreslått bruk"
+    },
+    {
+      "id": "prop-7-14",
+      "proposition": "7.14",
+      "section": null,
+      "note": "Prediksjons-, mål- og haldshorisonten må fastsetjast relativt til same starttid, omsyn og prøvevilkår. Ingen minimumsformel for dei tre er føresett: eit førebyggjande vern kan verke utan at kvar seinare følgje vert føresagd.",
+      "sources": [],
+      "relation": "operasjonell presisering"
     }
   ],
   "aliases": {
