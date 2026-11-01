@@ -1,0 +1,138 @@
+\documentclass[9pt,twocolumn,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[nynorsk]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,bm,bbm}
+\usepackage[margin=1.35cm,top=1.4cm,bottom=1.4cm,columnsep=0.55cm]{geometry}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=1.4em}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{1.6ex plus 0.4ex minus 0.2ex}{0.8ex plus 0.2ex}
+\titleformat{\section}{\normalfont\fontsize{10}{11}\bfseries}{\thesection.}{0.5em}{}
+
+\newtheoremstyle{formstyle}{4pt}{4pt}{\itshape}{0pt}{\bfseries}{.}{0.4em}{}
+\newtheoremstyle{defstyle}{4pt}{4pt}{\normalfont}{0pt}{\bfseries}{.}{0.4em}{}
+\theoremstyle{defstyle}
+\newtheorem{definisjon}{Definisjon}
+\newtheorem{postulat}{Postulat}
+\theoremstyle{formstyle}
+\newtheorem{teorem}{Teorem}
+\newtheorem{folgje}{Følgje}
+
+\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{0.9em}
+\setlength{\parskip}{1pt}
+
+\title{\vspace{-1.2cm}\textbf{\large FORMLÆRE}\\[0.2em]
+\normalsize Ein allmenn teori om form, tilpassingslandskap og avgrensa agens}
+\author{\small Iver Finne \\ \scriptsize Oslo, 2026}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-0.8cm}
+
+\begin{abstract}
+\noindent Form er ei ordning av skilnader, realisert mellom moglege alternativ under samtidige trykk, gjennom agentar med avgrensa omhug og kapasitet. Her vert formgenerering, epistemisk konseptutvikling og seleksjon bundne saman i femtuppelet $(\mathbb{M}, \Pi, SG, \Lambda, \{A_i\})$. Frå ein lokal overgangskjerne over formgrammatikksteg utleier me den stasjonære fordelinga over realiserte former og dei eksakte kovariansrelasjonane mellom prioritering, estimert avvik og faktisk svikt.
+\end{abstract}
+
+\section{Skilnad, struktur og substans}
+
+\begin{definisjon}[Form, konfigurasjon og objekt]
+Å skilje noko ut er å halde noko anna utanfor; det som står mellom dei, er ein \emph{skilnad}. Kvar side er det ho er, berre mot den andre. Skilnader i bestemde samanhengar utgjer ei \emph{ordning}, eller \emph{form}. Ein \emph{konfigurasjon} er ei bestemt ordning av bestemde delar; \emph{formverda} er totaliteten av realiserte konfigurasjonar. Ingen konfigurasjon er delvis realisert: anten er han tilfelle, eller han er det ikkje. Å forklare kvifor ein konfigurasjon vart realisert, er å vise kva vilkår og overgangar som førte til han, og å skilje mellom alternativ som var \emph{umoglege}, \emph{utilgjengelege}, \emph{uprøvde} og \emph{forkasta}.
+\end{definisjon}
+
+Ein konfigurasjonsdel som ikkje vert delt vidare på det valde analysenivået, er eit \emph{objekt}. Under kvart valt nivå held strukturen fram. Måten objekta heng saman på i konfigurasjonen, er \emph{strukturen} hans; \emph{forma} til konfigurasjonen er strukturen teken uavhengig av dei eigenskapane ved objekta analysen ser bort frå. Moglegheita eit objekt har for å inngå i konfigurasjonar på nivået, er \emph{valensen} til objektet. I og med valensane er alle moglege former gjevne: ei moglegheit kan ikkje finnast opp, berre avdekkjast.
+
+\begin{definisjon}[Måling og oppleving]
+Substans er den indre naturen til det som står i relasjonane, teke uavhengig av korleis ledda er ordna. Ei \emph{måling} er ein relasjon mellom det som vert målt og det som måler. Sidan fysikken uttrykkjer alt i målte storleikar og relasjonar mellom dei, seier fysikken kva det målte \emph{gjer}, ikkje kva leddet sjølv \emph{er}. Det som er kjent utan måling, ikkje gjennom ein relasjon, men ved å vere det, er \emph{oppleving}. Kvar måling er gjeven som oppleving. Oppleving framstilt på nytt i seg sjølv er \emph{medvit}; oppleving føreset ikkje medvit.
+\end{definisjon}
+
+\begin{postulat}[Minimalitet, suffisiens og felt]
+(i) Når ein natur som er kjend, strekkjer til, har det verkelege ingen natur som ingen kan møte. (ii) Den relasjonelle strukturen i den fysiske skildringa kan vere ordning i oppleving utan at dei målte relasjonane må endrast. (iii) Opplevinga er eitt felt; det som vert skilt ut i feltet, er mønster i det, ikkje bitar av det.
+\end{postulat}
+
+\begin{folgje}
+Å byte oppleving ut med ein ukjend indre natur endrar ikkje den relasjonelle skildringa og legg inkje nødvendig til; Postulat 1(i) utelukkar han. Substansen i formverda er difor oppleving. Å kjenne noko innanfrå er å vere det; å kjenne det utanfrå er å kjenne relasjonane det står i. Materie er oppleving sett utanfrå, og form er korleis éin del av substansen tek seg ut for ein annan. Måten feltet oppfører seg regelmessig på, er naturlovene.
+\end{folgje}
+
+\section{Formrommet $\mathbb{M}$, delingane og formalgebraen}
+
+\begin{definisjon}[Klasse og formrom]
+Ei mengd konfigurasjonar som tillèt same operasjonar (delt \emph{affordansestruktur}), er ein \emph{klasse}. Mengda av alle moglege konfigurasjonar i klassen er \emph{formrommet} $\mathbb{M}$. Kvar konfigurasjon er eitt punkt $x \in \mathbb{M}$; eit empirisk formrom er ein projeksjon av $\mathbb{M}$ langs eit valt sett målbare aksar $X_k$.
+\end{definisjon}
+
+\begin{definisjon}[Materiell og epistemisk deling]
+Ved tidspunkt $t$ er $\mathbb{M}$ delt langs to uavhengige delingar:
+\begin{enumerate}
+\item \textbf{Materiell (ontologisk) deling:} Gjeven ved lovene i feltet brukte på materiala og operasjonane som er for hand ved $t$:
+\begin{itemize}
+\item \emph{Busette regionar} $B_t \subset \mathbb{M}$: posisjonar som er eller har vore realiserte (\emph{formhistoria}). Naboar er posisjonar skilde med eitt tillate steg.
+\item \emph{Forbodne regionar} $V_t \subset \mathbb{M}$: logisk skildra posisjonar som er materielt utelukka under vilkåra ved $t$.
+\item \emph{Opne regionar} $O_t = \mathbb{M} \setminus (B_t \cup V_t)$: ikkje-busette posisjonar som er materielt tillatne. Ein open region som kan nåast frå $B_t$ utan å krysse $V_t$, er \emph{tilgjengeleg}; elles \emph{utilgjengeleg} utan materialskifte. Dei opne posisjonane som grensar direkte til $B_t$, er \emph{det nærliggande moglege} $\partial B_t$.
+\end{itemize}
+\item \textbf{Epistemisk deling:} Relativ til kunnskapsstanden til ein agent ved $t$, utgjer $\Pi_t = (K_t, C_t, U_t)$ ein partisjon av $\mathbb{M}$:
+\begin{itemize}
+\item \emph{Kunnskapsrommet} $K_t$: posisjonar ein veit verkar ($K_t^+$) eller sviktar under oppgjevne kriterium.
+\item \emph{Tankerommet} $C_t$: posisjonar som er tenkte (konjekturar), men ikkje avgjorde ($K_t \cap C_t = \emptyset$).
+\item \emph{Det utenkjelege} $U_t = \mathbb{M} \setminus (K_t \cup C_t)$: kan innanfrå berre nemnast som komplement; kvart konkret element forlèt $U_t$ i same stund det vert tenkt og nemnt.
+\end{itemize}
+\end{enumerate}
+\end{definisjon}
+
+Ein forboden region kan vere tenkt ($V_t \cap C_t \neq \emptyset$), og ein open region kan vere utenkjeleg ($O_t \cap U_t \neq \emptyset$). Epistemisk rørsle har fire retningar: $C \to C$ (konseptekspansjon), $C \to K$ (kollaps ved avgjerd/prøving), $K \to C$ (opning av nye konjekturar) og $K \to K$ (oppløysingsauke). Snittet $F_t = C_t \cap \partial B_t$ er \emph{fronten}: tilgjengeleg og tenkt, men ikkje kjend.
+
+\begin{definisjon}[Formalgebra og formgrammatikk]
+Konfigurasjonar lukka under sum $+$, differanse $-$, produkt $\times$ og euklidiske eller affine transformasjonar $\theta$, med innleiringsrelasjonen $\leq$, utgjer ein \emph{formalgebra}. Der delane er liner, flater og lekamar, ser formalgebraen gjennom objektdelinga på nivået og finn delformer som inga førehandsdeling gav. Ein historisk \emph{formgrammatikk} er eit trippel $SG = (S, R, s_0)$ der $S \subseteq \mathbb{M}$, $R = \{a_r \to b_r\}$ er omskrivingsreglar, og $s_0 \in S$ er startforma:
+\begin{align*}
+\text{Utløysing:} &\quad \theta(a_r) \leq s \quad (\text{noverande geometri er einaste premiss}), \\
+\text{Regelbruk:} &\quad s \to \big(s - \theta(a_r)\big) + \theta(b_r), \\
+\text{Språk:} &\quad L(SG) = \{s \in S : s_0 \to^* s\}.
+\end{align*}
+Eitt regelbruk er eitt steg; $\partial B_t$ ligg eitt steg frå $B_t$. Ein grammatikkoperasjon kan gjere ei moglegheit tenkt ($C_t$); realisering og prøving som avgjer utfallet, gjennomfører $C \to K$.
+\end{definisjon}
+
+\section{Seleksjonstrykk og tilpassingslandskapet $\Lambda$}
+
+Affordansestrukturen som definerer ein klasse, er konstant innanfor klassen. Sidan ein konstant ikkje kan forklare ein variabel, seier det klassen er til for, ingenting om kvifor formene i han er ulike. Skilnadene krev \emph{seleksjonstrykk} som endrar sannsynsfordelinga over $\mathbb{M} \setminus V_t$ relativt til ei grunnfordeling $\mu(x)$.
+
+\begin{postulat}[Additivitetsvilkåret og tilpassingslandskapet]
+Dersom kvart verksamt trykk $j$ ved tid $t$ endrar vekta i $x$ med ein positiv faktor $f_j(x, t)$ og faktorane verkar multiplikativt til $\mu(x)\prod_j f_j(x, t)$ (med eventuelt samspel bakt inn i faktorane), definerer $\lambda_j(x, t) = -\ln f_j(x, t)$ \emph{tilpassingslandskapet}:
+\begin{equation}
+\Lambda(x, t) = \sum_j \lambda_j(x, t).
+\end{equation}
+\end{postulat}
+
+Verdien $\Lambda(x, t)$ er \emph{spenninga} i posisjonen $x$. Ved lik grunnvekt er lågare spenning meir sannsynleg; der ein gradient eksisterer, peikar $-\nabla\Lambda$ mot lågare samla spenning. Eit \emph{lokalt minimum} er ein posisjon utan betre tillatne nabosteg; ein \emph{dal} er attraktorregionen som ein gjeven navigasjonsmåte fører ned mot minimumet. Bratte dalveggar og etterfølgjande korrigerande rørsle \emph{kanaliserer} og fryser dimensjonane; slake dalar rommar fluktuasjon.
+
+\begin{definisjon}[Stilart og landskapsdynamikk]
+Formene si sverming kring eit felles tyngdepunkt i $\Lambda$ er ein \emph{stilart}. Som samlevariabel kan stilen predikere betre enn eit einskildtrykk (som materialaffordansen) fordi han fangar opp mange samtidige trykk i éin etikett; han er eit symptom på trykka, ikkje ei sjølvstendig kausal kraft.
+\end{definisjon}
+
+Kvar realisert form tek plass, bind stoff og endrar tyngda i $B_t$ gjennom verktøy, vane og forventing. Realiseringa endrar difor $\Lambda(x, t)$ lokalt: landskapet har minne (\emph{stiavhengigheit}), og all formgjeving er omformgjeving. Når gradvise trykkforskyvingar får ein dal til å forsvinne, gjer minimumet eit sprang (\emph{bifurkasjon}), som i formhistoria viser seg som brå skifte (radiasjon etterfølgd av konvergens) etter lange periodar med stillstand.
+
+\section{Hinne, sjølv, omhug, lyskjegle og kapasitet}
+
+\begin{definisjon}[Hinne og sjølv]
+Ei \emph{hinne} (Markov-teppe) er ei mengd tilstandar som skil eit indre frå eit ytre slik at indre og ytre er vilkårsbestemt uavhengige når tilstandane i hinna er gjevne. Gjennom hinna går observasjonar inn og handlingar ut. Ei hinne er \emph{sjølvhalden} i den grad regulering innanfor henne motverkar forstyrringar som elles ville løyse henne opp. Eit \emph{sjølv} er eit mønster i opplevingsfeltet avgrensa av ei sjølvhalden hinne.
+\end{definisjon}
+
+\begin{postulat}[Individuasjon]
+Den sjølvhaldne regulerande avgrensinga utanfrå er òg ei avgrensing innanfrå: sjølvet er ei avgrensa oppleving som berre når resten av feltet gjennom tilstandane på hinna. Persepsjon er difor eit grensesnitt, ikkje eit vindauge; kroppen er korleis den avgrensa opplevinga tek seg ut utanfrå.
+\end{postulat}
+
+\begin{definisjon}[Agent, spenning og horisontar]
+Ein \emph{agent} er eit tilbakekopla system $A = (m, \pi, G, \varepsilon)$, der modellen $m$ knyter observasjonar og handlingar til venta følgjer, $G$ er målregionen, $\pi \in \mathcal{P}_A$ er politikken agenten tek i bruk, og $\varepsilon_k$ er toleransen langs omsyn $X_k$. Definisjonen er uavhengig av substrat; sjølve substratet (dei materielle vilkåra som gjev motstand, resonans og veto $V_t$ utan modell og politikk) er ein agent av nullte orden.
+\end{definisjon}
+
+Lat $e_k(t; \pi, d)$ vere det faktiske avstanden frå $G$ langs $X_k$ ved tid $t$ under politikken $\pi$ og forstyrringa $d$, og lat $D_k = D_{\mathrm{KL}}(p_{\mathrm{obs}} \parallel p_m)$ vere prediksjonsfeilen. Den \emph{indre spenninga} $\sigma_k(A)$ kjem frå tre kjelder som krev ulike svar:
+\begin{enumerate}
+\item \emph{Mål-avvik} $e_k$ (verda mot målet) $\to$ krev handling som endrar vilkåra.
+\item \emph{Prediksjonsfeil} $D_k$ (sansinga mot forventinga) $\to$ krev oppdatering av modellen $m$.
+\item \emph{Konflikt mellom omsyn} (mål langs éin akse mot mål langs ein annan) $\to$ krev kompromiss eller utviding av stegrepertoaret.
+\end{enumerate}
+Låg $D_k$ er ikkje låg $e_k$: ein agent kan føreseie samanbrotet presist utan å kunne hindre det. For eit sjølv er registrert mål-avvik over $\varepsilon_k$ kjent innanfrå som \emph{uro}, og under $\varepsilon_k$ som \emph{ro}. \emph{Haldshorisonten} $\tau_k(A)$ er kor lenge ein politikk $\pi \in \mathcal{P}_A$ kan halde $e_k(t; \pi, d) \leq \varepsilon_k$; \emph{prediksjonshorisonten} $\tau_k^{\mathrm{pred}}(A)$ er kor lenge $m$ føreseier følgjene med oppgjeven presisjon.
+\end{document}
