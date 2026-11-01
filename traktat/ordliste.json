@@ -79,9 +79,8 @@
         "Maskinlæring"
       ],
       "definition": "Å oppdatere sannsyn for ukjende storleikar ved å kombinere ei førehandsfordeling med kor sannsynlege dei observerte data er under kvar forklaring.",
-      "connection": "Forventing møter erfaring i ein presis oppdateringsregel; teksten bruker dette sannsynsspråket til å skildre korleis ein modell vert justert gjennom det agenten møter.",
+      "connection": "Ein modell som føreseier følgjene av ei handling, kan justerast med ein slik regel når nye observasjonar kjem til.",
       "propositions": [
-        "5.11",
         "5.641"
       ],
       "sources": [
@@ -219,7 +218,6 @@
       "term": "Fri energi-prinsippet",
       "definition": "Friston sitt rammeverk for å skildre korleis tilpassande system held seg i eit avgrensa repertoar av tilstandar ved å minimere variasjonell fri energi. Denne storleiken er eit informasjonsteoretisk øvre tak på kor uventa observasjonane er ifølgje ein modell.",
       "propositions": [
-        "5.11",
         "5.112",
         "5.641"
       ],
@@ -230,7 +228,7 @@
         "Teoretisk nevrovitskap",
         "Informasjonsteori"
       ],
-      "connection": "For eit sjølv les teksten reguleringa utanfrå som minsking av modellavvik og innanfrå som rørsla mellom uro og ro."
+      "connection": "I 5.112 gjeld fri energi kor godt modellen kan forklare det observerte. Eit sjølv kan føreseie ein fare presist og likevel mangle evne til å avverje han."
     },
     {
       "id": "generativ-modell",
@@ -238,8 +236,7 @@
       "definition": "Ein sannsynsmodell som bind ukjende storleikar til observerbare data. Han kan lage føreseiingar og brukast til å slutte frå observasjonar til kva underliggjande storleikar som er sannsynlege.",
       "propositions": [
         "5.11",
-        "6.02",
-        "7.2"
+        "5.112"
       ],
       "sources": [
         "112"
@@ -248,7 +245,7 @@
         "Statistikk",
         "Kognisjonsvitskap"
       ],
-      "connection": "Modellen gjev eit felles språk for føreseiing, minne og mål: kva eit sjølv ventar å møte, er òg med på å forme kva det søkjer."
+      "connection": "Når ein modell gjev ei fordeling over venta observasjonar, kan denne fordelinga samanliknast med det agenten faktisk møter."
     },
     {
       "id": "gibbs-boltzmann-fordeling",
@@ -347,7 +344,7 @@
       "definition": "Eit retningsavhengig mål på skilnaden mellom to sannsynsfordelingar. Verdien er null når fordelingane er like, men å byte om rekkjefølgja kan gje ein annan verdi.",
       "propositions": [
         "5.11",
-        "5.113"
+        "5.141"
       ],
       "sources": [
         "19"
@@ -356,7 +353,7 @@
         "Informasjonsteori",
         "Statistikk"
       ],
-      "connection": "Langs ei akse i lyskjegla les teksten divergens over toleransen utanfrå som modellavvik og innanfrå som uro."
+      "connection": "I 5.11 måler divergensen skilnaden mellom observerte og føresagde fordelingar. Kor langt det observerte ligg frå målet, må målast for seg."
     },
     {
       "id": "konvergent-evolusjon",
@@ -512,7 +509,7 @@
         "Nevrovitskap"
       ],
       "definition": "Ein regel eller strategi for å velje handling ut frå ein tilstand eller observasjon, kalla policy på engelsk. Han kan gje éi handling eller sannsyn for fleire moglege handlingar.",
-      "connection": "Politikken er staden der modellen vert verksam: kva avvik som utløyser arbeid, lèt omhugen setje spor i handling og seinare i forma.",
+      "connection": "Iver Raknes Finne nyttar π om politikken i agensdefinisjonen sin. Brytaren i termostaten viser kor enkel ein slik regel kan vere.",
       "propositions": [
         "5.11",
         "5.113",
@@ -570,7 +567,6 @@
       "definition": "Å erstatte ei vanskeleg utreknbar sannsynsfordeling med ei enklare tilnærming, vald ved optimering. I vanleg variasjonell inferens vert KL-divergensen frå tilnærminga til den ønskte fordelinga minimert.",
       "connection": "Optimering av ein modell og navigasjon i eit landskap får eit sams matematisk språk; her er det sannsynsfordelinga som vert tilpassa, medan formgjeving også endrar det modellen handlar om.",
       "propositions": [
-        "5.11",
         "5.112"
       ],
       "sources": [

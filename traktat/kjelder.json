@@ -510,7 +510,7 @@
       "id": "prop-1-432",
       "proposition": "1.432",
       "section": null,
-      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom; det skil seg frå skiljet her mellom eit fast logisk rom og skiftande tilgang (4.41).",
+      "note": "Kauffman nyttar det nærliggande moglege i Investigations, kapittel 8. Her er nærleiken presisert som eitt grammatikksteg frå det busette. Kauffman og Roli problematiserer førehandsfastsette moglegheitsrom. FORMLÆRE skil mellom det logisk moglege og det som materiala og operasjonane gjer tilgjengeleg (1.422, 4.4).",
       "sources": [
         "109",
         "59"
@@ -629,22 +629,19 @@
     },
     {
       "id": "prop-5-11",
-      "proposition": "5.11",
+      "proposition": "5.112",
       "section": null,
-      "note": "Fri energi, modell og politikk har grunnlag i desse arbeida. Den presise agentdefinisjonen og korleis han vert brukt på formgjeving, er eit val i FORMLÆRE.",
+      "note": "Hjå Friston gjev variasjonell fri energi ei øvre grense for kor uventa ein observasjon er under ein modell. Eit venta utfall kan likevel liggje langt frå målet agenten prøver å halde.",
       "sources": [
-        "19",
-        "21",
-        "83",
-        "84"
+        "19"
       ],
-      "relation": "modellgrunnlag"
+      "relation": "variasjonell fri energi"
     },
     {
       "id": "prop-5-113",
       "proposition": "5.113",
       "section": null,
-      "note": "Kybernetikken gjev den historiske mål–avvik–justering-strukturen. Den probabilistiske omskrivinga og vilkåra for grensetilfellet er teksten sine.",
+      "note": "Kybernetikken skildrar korleis tilbakekopling kan halde ein målverdi under forstyrring. I termostaten kan ein følgje heile sløyfa frå måling gjennom brytaren til endringa i temperatur.",
       "sources": [
         "4",
         "5",
@@ -701,7 +698,7 @@
       "id": "prop-5-4",
       "proposition": "5.4",
       "section": null,
-      "note": "«Agent av nullte orden» er eit grensetilfelle definert her. Pyes handverksomgrep, genregulatoriske modellar og arbeidet med kompetente materiale gjev ulike samanlikningar; ingen av dei etablerer denne agentdefinisjonen.",
+      "note": "Pye undersøker kva materialet og arbeidet har å seie for forma. Genregulatoriske modellar og arbeid med kompetente materiale gjev døme på regulering som kan verke i eit substrat. Rein materiell motstand fell utanfor agensdefinisjonen i 5.11.",
       "sources": [
         "26",
         "81",
@@ -737,13 +734,13 @@
       "id": "prop-5-7",
       "proposition": "5.7",
       "section": null,
-      "note": "Dei tre kjeldetradisjonane er grunnlag for komponentane. Kjernelikninga er syntesen som vert føreslått i FORMLÆRE, ikkje ei likning henta frå desse kjeldene.",
+      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Iver Raknes Finne nyttar overgangsregelen til å knyte dei tilgjengelege stega til kva agenten legg vekt på.",
       "sources": [
         "11",
         "17",
         "21"
       ],
-      "relation": "syntese i denne teksten"
+      "relation": "kjernelikninga i FORMLÆRE"
     },
     {
       "id": "prop-5-72",
@@ -776,6 +773,7 @@
         "22",
         "67",
         "82",
+        "84",
         "85",
         "87"
       ],
@@ -880,14 +878,14 @@
       "id": "prop-5-1",
       "proposition": "5.1",
       "section": null,
-      "note": "Målretta tilbakekopling har kybernetisk bakgrunn; Schlosser drøftar agens filosofisk. At denne strukturen finst i kvar klasse, er postulatet her.",
+      "note": "Målretta tilbakekopling er eit grunntema i kybernetikken. Schlosser drøftar agens i handlingsfilosofien. Agensdefinisjonen i 5.11 er Iver Raknes Finne sin.",
       "sources": [
         "4",
         "5",
         "7",
         "62"
       ],
-      "relation": "postulat og bakgrunn"
+      "relation": "historisk bakgrunn"
     },
     {
       "id": "prop-5-15",
@@ -903,9 +901,10 @@
       "id": "prop-5-152",
       "proposition": "5.152",
       "section": null,
-      "note": "Litteraturen om ulike former for intelligens er bakgrunn. Logaritmen av steg spart mot blind leiting er eit måleforslag her, ikkje eit ferdig validert mål henta frå kjelda.",
+      "note": "Chis-Ciure og Levin drøftar intelligens i ulike slag system. I FORMLÆRE vert kompetanse prøvd ved å samanlikne med blind leiting. Målet i 5.152 krev at samanlikninga vert fastsett for den aktuelle oppgåva.",
       "sources": [
-        "86"
+        "86",
+        "88"
       ],
       "relation": "måleforslag"
     },

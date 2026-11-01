@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "63d4c2fdb91ba3a4912f253990955ff45fd65ed47afe6bbe425591cf18588565",
+  "sourceHash": "947019815f14a9163879aabc5bc455cc8844c5d8a4531e7ca687655aaa261066",
   "inputs": {
     "edition.json": "ae77c3706b1e5fb4146b8301cb20684e11f676d38fdd561c694c8a3dd48c4ada",
-    "figurar.json": "c01119bbefdd82f5e96c2222938de9e05b3812f1997d467bde7f92af199497cc",
-    "kjelder.json": "2a8e0e32ff57474d8f07fd4aef544d85e3d9ff9af8bc0f161059b76dc4644e9e",
+    "figurar.json": "4d8f1e8e287e3a693d631b7a5b9458121f26da75b6df28e7b9445629f8eb864c",
+    "kjelder.json": "c4fe423dc2d42c99091fa5a41d68e99a82241b3a9abc8adbd3e48f14c6f941ba",
     "layout/print.tex": "558543c786561281e26db0a38950354de4abb0018caa48c60d2df56464fb8591",
     "nettstad/build.mjs": "56d26d225fdca2bbf0f16f7335da3d0fa1390a30ab581d18906dc5c0e99ea73b",
     "nettstad/illustrations/agent-scales-20261101.svg": "88851cbc81bef5ef196fca7cd2c301b71fb403e579c66b36673a416571782474",
@@ -19,23 +19,23 @@
     "nettstad/reader.css": "e0a581169b11e69e29faf6f499153b2a5ee498275efa0fc9d1dd4b3d57b90a9c",
     "nettstad/reader.html": "84b48d4a529cc04aeab98bd991829176b9cb4bd18e8ce814e8ba80d50380e80a",
     "nettstad/reader.js": "7f2b6e5aa8f41d041887a424b873e2b4f054a035f31ac800f33cc88ed5cab5ed",
-    "ordliste.json": "43fc8744f8c98f9e9dd239c455bdf35f8604b0057d724b9c145f178eab73291a",
+    "ordliste.json": "5060b76eef2f2f90865d8ea7e60e83f1b41b08ad1683fce12b92dd966b4d3504",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "68742da56af6aa9729dcf74a3f7be2ac7f9ece070e34433324a7a1f9ddb37214",
     "scripts/content.py": "448dd9b6a008611af52890a7c268e8bcf11267528985438131236a8d3e83a991",
     "scripts/migrate_published.py": "b0b654affd5ca4aea819639f736b31dbc90ed34a09e1857b472a47e087c89129",
     "scripts/render_latex.py": "1826016530580dae1db67c754fcc58cfb8963061ca4e551e6cf0b0e621bb74a5",
-    "tekst/formlaere.txt": "cca105636bdfb8b63e0ff54df615df3c5451adf0fae6ed9e30f4db2fdf3d965e",
+    "tekst/formlaere.txt": "74a0085712afbda92da7b9d6b526acc1618bc5874954a4301c59b6f8b361bfb0",
     "vercel.json": "d247ac19b640da2cfe2bf52d913749ce31187f60dac92b9723363ec3e5a01727"
   },
   "outputs": {
-    "formlaere.pdf": "3ed46e540642e6e3b29de5ff624540445e5f895320cd3d8ee207a0aa7f645374",
-    "formlaere-latex.zip": "6aafd9d008a77eff19fd593090b9b41621de3af447674183d4e06eb2672854be"
+    "formlaere.pdf": "fe6a140d638ee7ac165e7af3586f9d5a304703c507b0d351256bd2de71a721bf",
+    "formlaere-latex.zip": "b7148739bf2a9dc09f668a90474396f51e735fdfd1356a74e245122f9bb940be"
   },
   "quality": {
     "pages": 43,
-    "destinations": 526,
-    "propositions": 380,
+    "destinations": 523,
+    "propositions": 377,
     "notes": 41,
     "references": 72,
     "figures": 4,
