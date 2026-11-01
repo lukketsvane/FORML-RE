@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import sys
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -95,13 +97,14 @@ Ein tekst\notat{intro-1}. 50\%.
 
 class ShortLatexFreshness(unittest.TestCase):
     def test_editing_short_tex_invalidates_committed_html(self):
-        from render_kortversjon import short_source_hash, require_fresh_short
+        from render_kortversjon import short_source_hash, require_fresh_short, stamped_html
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "nettstad").mkdir()
             source = root / "nettstad/kortversjon.tex"
             source.write_text("first manuscript")
-            (root / "nettstad/kortversjon.html").write_text("<!-- form-source: " + short_source_hash(root) + " -->")
+            content = "<!-- form-source: " + short_source_hash(root) + " -->\n<p>First page.</p>"
+            (root / "nettstad/kortversjon.html").write_bytes(stamped_html(content))
             require_fresh_short(root)
             source.write_text("changed manuscript")
             with self.assertRaisesRegex(ValueError, "stale"):
@@ -114,6 +117,108 @@ class ShortLatexFreshness(unittest.TestCase):
         self.assertNotIn('style=', normalized)
         with self.assertRaisesRegex(ValueError, "error"):
             validate_mathml('<math xmlns="http://www.w3.org/1998/Math/MathML"><merror>invalid</merror></math>')
+
+
+class ShortEditionIntegrity(unittest.TestCase):
+    def setUp(self):
+        import render_kortversjon
+        self.renderer = render_kortversjon
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name)
+        (self.root / "nettstad").mkdir()
+        self.source = self.root / "nettstad/kortversjon.tex"
+        self.source.write_text(r"\begin{document}First manuscript.\end{document}", encoding="utf-8")
+        self.target = self.root / "nettstad/kortversjon.html"
+        self.body = "<p>Converted manuscript.</p>" + '<math><mi>a</mi></math>' * 35
+        self.success = subprocess.CompletedProcess(["pandoc"], 0, stdout=self.body, stderr="")
+        with patch.object(self.renderer.subprocess, "run", return_value=self.success):
+            self.renderer.render_short(self.root)
+        self.previous = self.target.read_bytes()
+
+    def assert_previous_preserved(self):
+        self.assertEqual(self.target.read_bytes(), self.previous)
+        self.assertFalse(list(self.target.parent.glob(".kortversjon-*.tmp")))
+
+    def test_verified_generated_page_needs_no_converter_for_publication(self):
+        with patch.object(self.renderer.subprocess, "run", side_effect=AssertionError("Publication must not need Pandoc")):
+            self.renderer.require_fresh_short(self.root)
+
+    def test_body_wrapper_and_truncation_cannot_keep_a_valid_source_stamp(self):
+        for modified in (
+            self.previous.replace(b"Converted manuscript.", b"Manually edited content."),
+            self.previous.replace(b"<title>FORML", b"<title>WRONG FORML"),
+            self.previous.split(b"<p>Converted manuscript.")[0],
+        ):
+            with self.subTest(modified=modified[:70]):
+                self.target.write_bytes(modified)
+                with self.assertRaisesRegex(ValueError, "stale or modified"):
+                    self.renderer.require_fresh_short(self.root)
+
+    def test_missing_or_duplicate_generation_markers_are_rejected(self):
+        source_stamp = self.renderer.SOURCE_STAMP.search(self.previous)[0]
+        output_stamp = self.renderer.OUTPUT_STAMP.search(self.previous)[0]
+        for modified in (
+            self.previous.replace(output_stamp, b""),
+            self.previous + source_stamp,
+            self.previous + output_stamp,
+        ):
+            self.target.write_bytes(modified)
+            with self.assertRaisesRegex(ValueError, "stale or modified"):
+                self.renderer.require_fresh_short(self.root)
+
+    def test_source_edit_during_conversion_preserves_previous_page(self):
+        def convert_then_edit(*args, **kwargs):
+            self.assertIn("First manuscript.", kwargs["input"])
+            self.source.write_text(r"\begin{document}New manuscript.\end{document}", encoding="utf-8")
+            return self.success
+
+        with patch.object(self.renderer.subprocess, "run", side_effect=convert_then_edit):
+            with self.assertRaisesRegex(ValueError, "source changed during rendering"):
+                self.renderer.render_short(self.root)
+        self.assert_previous_preserved()
+
+    def test_renderer_edit_during_conversion_preserves_previous_page(self):
+        original_read = Path.read_bytes
+        changed = False
+
+        def read_snapshot(path):
+            data = original_read(path)
+            return data + b"\n# Renderer changed.\n" if changed and path == Path(self.renderer.__file__) else data
+
+        def convert_then_edit(*args, **kwargs):
+            nonlocal changed
+            changed = True
+            return self.success
+
+        with patch.object(Path, "read_bytes", read_snapshot), patch.object(self.renderer.subprocess, "run", side_effect=convert_then_edit):
+            with self.assertRaisesRegex(ValueError, "source changed during rendering"):
+                self.renderer.render_short(self.root)
+        self.assert_previous_preserved()
+
+    def test_converter_or_invalid_output_failure_preserves_previous_page(self):
+        with patch.object(self.renderer.subprocess, "run", side_effect=subprocess.CalledProcessError(1, "pandoc")):
+            with self.assertRaises(subprocess.CalledProcessError):
+                self.renderer.render_short(self.root)
+        self.assert_previous_preserved()
+        invalid = subprocess.CompletedProcess(["pandoc"], 0, stdout="<p>No mathematics.</p>", stderr="")
+        with patch.object(self.renderer.subprocess, "run", return_value=invalid):
+            with self.assertRaisesRegex(ValueError, "lost its mathematical"):
+                self.renderer.render_short(self.root)
+        self.assert_previous_preserved()
+
+    def test_failed_install_keeps_previous_html_and_removes_temporary_file(self):
+        replace = Path.replace
+
+        def failed_install(path, destination):
+            if Path(destination) == self.target:
+                raise OSError("HTML replacement failed")
+            return replace(path, destination)
+
+        with patch.object(self.renderer.subprocess, "run", return_value=self.success), patch.object(Path, "replace", failed_install):
+            with self.assertRaisesRegex(OSError, "HTML replacement failed"):
+                self.renderer.render_short(self.root)
+        self.assert_previous_preserved()
 
 
 if __name__ == "__main__":

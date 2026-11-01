@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import zipfile
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
@@ -80,7 +81,7 @@ class ReleaseStaging(unittest.TestCase):
         (self.root / "tekst/formlaere.tex").write_text("Edited while the edition was building.")
 
     def test_failed_bundle_preserves_all_previous_print_files(self):
-        def fail_bundle(work, figures, bundle):
+        def fail_bundle(work, figures, bundle, mathematics=None):
             bundle.with_suffix(".zip.tmp").write_bytes(b"Partial ZIP.")
             raise OSError("Bundle storage failed")
         with patch.object(build, "package_latex", side_effect=fail_bundle):
@@ -90,11 +91,15 @@ class ReleaseStaging(unittest.TestCase):
         self.assertFalse(list(self.build.glob("print-release-*")))
 
     def test_complete_print_release_replaces_the_old_files_together(self):
+        self.doc["mathematics"] = {"a" * 24: {"tex": "a", "display": False,
+            "mathml": '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi></math>'}}
         build.build_pdf(self.doc)
         self.assertEqual((self.pdf / "formlaere.pdf").read_bytes(), b"New complete PDF.")
         manifest = json.loads((self.pdf / "release.json").read_text())
         for name, expected in manifest["outputs"].items():
             self.assertEqual(hashlib.sha256((self.pdf / name).read_bytes()).hexdigest(), expected)
+        with zipfile.ZipFile(self.pdf / "formlaere-latex.zip") as archive:
+            self.assertEqual(json.loads(archive.read("mathematics.json")), manifest["mathematics"])
         self.assertEqual(build.require_fresh_pdf(self.doc), manifest)
         self.assertFalse(list(self.build.glob("print-release-*")))
 

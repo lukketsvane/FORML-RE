@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "59a02808290784e54bdb4a2249ef308fdba2972b6d9024b491f832f60808536f",
+  "sourceHash": "e52b4de1ebd2b38fabc3079cfd2b3402cb4af764ac1e5c31aec14abd67f77757",
   "inputs": {
     "edition.json": "ae77c3706b1e5fb4146b8301cb20684e11f676d38fdd561c694c8a3dd48c4ada",
     "figurar.json": "86afd0cd5194babed0403200a23bec716111bb6427c697d8b8c7b3f64d348f9b",
@@ -21,7 +21,7 @@
     "nettstad/illustrations/scan-20261031-p16-royrstol-utvikling.png": "81fc638b6981e98d5d4300488d1c4c166de3e0c340403877f95db541bbf33092",
     "nettstad/kort.html": "6afddbf1aabe66b87c30f4d2328cbcbc6690989b0e214f50fe4014fbdc901a27",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
-    "nettstad/kortversjon.html": "efc1ae99767e5995a5f3be9e5f7d75c75ae89e66c5a69bd00aad44cd108dca04",
+    "nettstad/kortversjon.html": "a814a2456bb68689f4b6097f92d31dad02b58c8ca9704cb53269aa05e2150f11",
     "nettstad/kortversjon.tex": "ac152cd0ef71e332129dcdc9dc83804f279388a47f3d9d19dcbef8946cbb8a34",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
@@ -33,18 +33,18 @@
     "nettstad/reader.js": "37af678666df88a0a593f94b8dcf30a168459a2a2f6aff153e7b681aa8c635ee",
     "ordliste.json": "6aa7351e0f3757fbabd0ef49330f05635ffbdd3bf39ba3b46036320c23fcb8c9",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
-    "scripts/build.py": "1a4b8fafa6c9e82ae9e4c778fc0cc3f98612da373be9dc291ff016f4f054d392",
+    "scripts/build.py": "b6c16758195c7da24b69dee80f1e513f7ffb83fe1f79fe4de4b8f586cb0ee1a3",
     "scripts/content.py": "d8a55275e5f437203f2d5e66d4e4ae3cdd9fa35f7a9b9541eb2c1a9d30244e6d",
     "scripts/latex_source.py": "2ac92437d06bf7f975b1d867cb745586a76cbb0e349eabd5ef2482e7f21179eb",
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
-    "scripts/render_kortversjon.py": "501545e886e03fc43ee4f8b47719e24de75b5c82a65cd6602f3f16504df03e20",
+    "scripts/render_kortversjon.py": "92bc84f43fc7dc3b87eb540c4c6a7537ebc6815a1595c2869393613c0c5145e1",
     "scripts/render_latex.py": "4b74a9cf377380b83d41db3283d7ad32d299f22c986d52d4720dd0eee449261d",
     "tekst/formlaere.tex": "5d2c88876ce28f129e7e62527a98459ee417a05b7b84588846f6dff1689cb6b1",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "3bdb03d50fd6fe958505b45edadf1c85bd20bb6f1e2342c5f1b1f5df4a0ad348",
-    "formlaere-latex.zip": "f923b129ed0b31ad621d08d8e36d7753e0a1065e4dc137ac16582da57392bd73"
+    "formlaere.pdf": "c79f509a7b518e43e7e5b1c1b817d3ae780bc8719966d5963990c70e092841fd",
+    "formlaere-latex.zip": "eed0a2750144f36524f6676bb89a96847bf7f920e49328796ef4bdf9072a4f57"
   },
   "quality": {
     "pages": 77,

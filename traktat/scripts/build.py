@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import tempfile
 import zipfile
+import xml.etree.ElementTree as ET
 
 from content import load_document, input_manifest, manifest_hash
 from render_latex import print_figure_path
@@ -155,7 +156,7 @@ def prepare_print_layout(work: Path) -> list[Path]:
     return prepared
 
 
-def package_latex(work: Path, figures: list[Path], bundle: Path) -> None:
+def package_latex(work: Path, figures: list[Path], bundle: Path, mathematics: dict | None = None) -> None:
     """Include ready-to-use figures, cover and fonts with their licence."""
     with zipfile.ZipFile(bundle.with_suffix(".zip.tmp"), "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for path in [work / "formlaere.tex", *figures]:
@@ -169,6 +170,12 @@ def package_latex(work: Path, figures: list[Path], bundle: Path) -> None:
                 info = zipfile.ZipInfo("source/" + name, date_time=(2000, 1, 1, 0, 0, 0))
                 info.compress_type = zipfile.ZIP_DEFLATED
                 archive.writestr(info, path.read_bytes())
+        if mathematics is not None:
+            # The ZIP is hash-checked before publication, binding the web's
+            # derived MathML cache to this exact portable print release.
+            info = zipfile.ZipInfo("mathematics.json", date_time=(2000, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            archive.writestr(info, (json.dumps(mathematics, ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode("utf-8"))
     bundle.with_suffix(".zip.tmp").replace(bundle)
 
 
@@ -197,7 +204,7 @@ def build_pdf(doc: dict) -> None:
     try:
         shutil.copyfile(work / "formlaere.pdf", stage / "formlaere.pdf")
         bundle = stage / "formlaere-latex.zip"
-        package_latex(work, figures + layout_assets, bundle)
+        package_latex(work, figures + layout_assets, bundle, doc.get("mathematics", {}))
         inputs = require_current_source(doc)
         manifest = {"schemaVersion": 1, "sourceHash": doc["sourceHash"], "inputs": inputs,
                     "outputs": {"formlaere.pdf": digest(stage / "formlaere.pdf"), "formlaere-latex.zip": digest(bundle)},
@@ -230,13 +237,30 @@ def require_fresh_pdf(doc: dict) -> dict:
         from latex_source import validate_mathml
         cached = manifest.get("mathematics", {})
         expected = doc["mathematics"]
-        if set(cached) != set(expected):
+        if not isinstance(cached, dict) or set(cached) != set(expected):
             raise ValueError("Print release mathematics differ from the LaTeX manuscript")
+        if expected:
+            try:
+                with zipfile.ZipFile(PDF / "formlaere-latex.zip") as archive:
+                    if archive.namelist().count("mathematics.json") != 1:
+                        raise ValueError("Portable LaTeX mathematics cache is missing or duplicated")
+                    bound_cache = json.loads(archive.read("mathematics.json"))
+            except (OSError, zipfile.BadZipFile, KeyError, UnicodeError, json.JSONDecodeError, RuntimeError) as error:
+                raise ValueError("Portable LaTeX mathematics cache is missing or invalid") from error
+            if not isinstance(bound_cache, dict) or bound_cache != cached:
+                raise ValueError("Print release mathematics differ from the hash-checked LaTeX bundle")
+        validated = {}
         for key, expression in expected.items():
             saved = cached[key]
-            if any(saved.get(field) != expression[field] for field in ("tex", "display")):
+            if not isinstance(saved, dict) or any(saved.get(field) != expression[field] for field in ("tex", "display")):
                 raise ValueError("Stale mathematics in print release: " + key)
-            expression["mathml"] = validate_mathml(saved.get("mathml", ""))
+            try:
+                validated[key] = validate_mathml(saved.get("mathml", ""))
+            except (ET.ParseError, TypeError) as error:
+                raise ValueError("Invalid MathML in print release: " + key) from error
+        # Do not partly update the document when a later expression is invalid.
+        for key, markup in validated.items():
+            expected[key]["mathml"] = markup
     return manifest
 
 
