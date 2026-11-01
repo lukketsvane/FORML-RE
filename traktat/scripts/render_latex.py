@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the validated shared document AST into the A4 XeLaTeX edition.
+"""Render the validated shared document AST into the 125 × 200 mm XeLaTeX book edition.
 
 python scripts/render_latex.py --document build/document.json \
     --output build/latex/formlaere.tex
@@ -223,21 +223,37 @@ class Renderer:
         figures: dict[str, list[dict]] = {}
         for figure in self.document["figures"]:
             figures.setdefault(str(figure["after"]), []).append(figure)
+        # The cover reuses the manuscript's title and front-matter paragraph.
+        # There is no second copy of subtitle/author/publication text in layout.
+        front = [token for token in tokens[:start] if token["kind"] == "paragraph"]
+        if front:
+            subtitle, _, publication = front[0]["text"].partition("\n")
+            publication = publication.replace(" · ", "\n")
+            output.append(r"\editioncover{" + tex_escape(self.document["title"]) + "}{"
+                          + self.prose(subtitle) + "}{" + self.prose(publication) + "}")
+        wide = False
         for token in tokens[start:]:
             kind = token["kind"]
             if kind == "title":
                 continue
             if kind == "heading":
+                if wide:
+                    output.append(r"\end{widebody}")
                 slug = re.sub(r"[^a-z0-9æøå]+", "-", token["text"].lower()).strip("-")
                 # Hyperref destinations may be Unicode; proposition/note IDs remain strict.
                 style = "[1]" if token["text"] in {"Føreord", "Lesekode"} else ""
                 output.append(r"\sectionlabel" + style + "{del-" + slug + "}{" + tex_escape(token["text"]) + "}")
+                output.append(r"\begin{widebody}")
+                wide = True
             elif kind == "paragraph":
-                output.append(self.prose(token["text"]) + self.note_links(token.get("notes", [])) + r"\par\vspace{8pt}")
+                output.append(self.prose(token["text"]) + self.note_links(token.get("notes", [])) + r"\par\vspace{3pt}")
             elif kind == "prop":
+                if wide:
+                    output.append(r"\end{widebody}\markboth{proposisjonar}{}")
+                    wide = False
                 n = str(token["n"])
                 depth = len(n.partition(".")[2]) if "." in n else 0
-                spacing = [13.2, 9.36, 5.76, 4.08, 2.88][min(depth, 4)]
+                spacing = [6, 3, 3, 3, 3][min(depth, 4)]
                 output.append(r"\begin{proposition}{" + target(n) + "}{" + tex_escape(token["status"]) + "}{" + str(spacing) + "}")
                 paragraphs = token["paragraphs"]
                 for i, paragraph in enumerate(paragraphs):
@@ -253,6 +269,8 @@ class Renderer:
                     portable_asset = print_figure_path(figure["file"])
                     output.append(r"\bookfigure{" + portable_asset.as_posix() + "}{" + tex_escape(figure["alt"]) + "}")
 
+        if wide:
+            output.append(r"\end{widebody}")
         glossary = self.document.get("glossary", [])
         if glossary:
             output.append(r"\clearpage\sectionlabel{ordliste}{Ordliste}")

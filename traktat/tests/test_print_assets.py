@@ -69,6 +69,28 @@ class PortableVectorFigures(unittest.TestCase):
             self.assertTrue(archive.read("illustrations/diagram.pdf").startswith(b"%PDF-"))
         self.assertFalse(retired.exists(), "Removed placements cannot leak from a previous build")
 
+    def test_portable_bundle_carries_fixed_fonts_licence_and_cover(self):
+        layout = self.root / "layout"
+        source_fonts = layout / "fonts"
+        source_fonts.mkdir(parents=True)
+        expected = {"fonts/EBGaramond12-Regular.otf": b"font specimen",
+                    "fonts/OFL.txt": b"font licence specimen",
+                    "cover-stolar.png": self.raster.read_bytes()}
+        for name, data in expected.items():
+            (layout / name).write_bytes(data)
+        stale = self.work / "fonts" / "removed-font.otf"
+        stale.parent.mkdir()
+        stale.write_bytes(b"retired font")
+        assets = build.prepare_print_layout(self.work)
+        (self.work / "formlaere.tex").write_text("Portable edition.", encoding="utf-8")
+        bundle = self.root / "formlaere-latex.zip"
+        build.package_latex(self.work, assets, bundle)
+        with zipfile.ZipFile(bundle) as archive:
+            self.assertEqual(set(archive.namelist()), {"formlaere.tex", *expected})
+            for name, data in expected.items():
+                self.assertEqual(archive.read(name), data)
+        self.assertFalse(stale.exists(), "Retired fonts cannot enter the portable book")
+
     def test_legacy_source_destination_does_not_duplicate_the_printed_reference(self):
         self.doc["sourceAliases"] = {"63": "19"}
         self.doc["sources"] = [{"id": "19", "number": 1, "citation": "One canonical reference."}]

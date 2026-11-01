@@ -1023,7 +1023,10 @@ Kapasiteten \(\kappa(A)\) er dei omsyna agenten har ein tilgjengeleg politikk fo
 For ei prøve med tidsrom \(T\) og forstyrringar \(\mathcal D\):
 
 \[
-\kappa(A;T,\mathcal D)=\{X_k:\exists\pi\in\mathcal P_A\;\forall d\in\mathcal D\;\forall t\in T:\ e_k(t;\pi,d)\leq\varepsilon_k\}.
+\begin{aligned}
+\kappa(A;T,\mathcal D)=\{X_k:\ &\exists\pi\in\mathcal P_A\;\forall d\in\mathcal D,\\
+&\forall t\in T:\ e_k(t;\pi,d)\leq\varepsilon_k\}.
+\end{aligned}
 \]
 
 Dette er kapasitet langs kvar akse for seg. Den samla kapasiteten er ei mengd av aksemengder:
@@ -1087,7 +1090,10 @@ H_0(A)=\{X_k\in\kappa(A):\omega_k(A)>0\}.
 To aksar kan liggje i \(H_0(A)\) kvar for seg utan å kunne haldast samstundes. Eit samla hald under éin politikk \(\pi\in\mathcal P_A\) er
 
 \[
-H(A;\pi)=\{X_k\in H_0(A):e_k(t;\pi,d)\leq\varepsilon_k\text{ for alle }d\in\mathcal D,\ t\in T\}.
+\begin{aligned}
+H(A;\pi)=\{X_k\in H_0(A):\ &e_k(t;\pi,d)\leq\varepsilon_k\\
+&\text{for alle }d\in\mathcal D,\ t\in T\}.
+\end{aligned}
 \]
 
 For politikken \(\pi\) agenten faktisk tek i bruk, skriv me \(H(A)=H(A;\pi)\). Dette er det robuste haldet under dei oppgjevne prøvevilkåra, og \(H(A;\pi)\in\kappa_{\mathrm{samla}}(A;T,\mathcal D)\). Om politikken held aksane, må prøvast.
@@ -1307,7 +1313,11 @@ System som held seg ved å svare, kan modellerast ved prediksjon og regulering.\
 Kjernelikninga.\kjelder{11,17,21} Forma er grammatikken sitt utfall under agenten sin politikk. For éin agent kan ein lokal politikk skrivast som ein overgangskjerne:
 
 \[
-T_A(x,x')=q_A(x,x')\min\{1,r_A(x,x')\exp(-\beta[\Phi_A(x')-\Phi_A(x)])\},\qquad x'\ne x.
+\begin{aligned}
+T_A(x,x')&=q_A(x,x')\min\bigl\{1,\\
+&r_A(x,x')\exp(-\beta[\Phi_A(x')-\Phi_A(x)])\bigr\},\\
+&\quad x'\ne x.
+\end{aligned}
 \]
 
 \(Φ_{A}\)(x) \(=\) \(∑_{k∈I_{Γ}(A)}\) \(ω_{k}\)(A) \(\hat{Λ}_{A,k}\)(x).
@@ -1671,7 +1681,10 @@ Fleire agentar kan få plass i same modell, men ein vekta sum er ikkje heile teo
 Lat \(D\) vere endeleg, \(\mu_{SG}>0\) på \(D\), og \(\Phi\) og \(\beta\) vere endelege. Alle ledda står faste under utforskinga. Frå \(x\) føreslår stegprosessen \(x'\) med sannsyn \(q(x,x')\). Forslag utanfor \(D\) vert avviste. For \(q(x,x')>0\) er Metropolis–Hastings-regelen\kjelder{121}
 
 \[
-\alpha(x,x')=\min\left\{1,\frac{\mu_{SG}(x')q(x',x)}{\mu_{SG}(x)q(x,x')}\exp\bigl(-\beta[\Phi(x')-\Phi(x)]\bigr)\right\}.
+\begin{aligned}
+r(x,x')&=\frac{\mu_{SG}(x')q(x',x)}{\mu_{SG}(x)q(x,x')},\\
+\alpha(x,x')&=\min\{1,r(x,x')\exp(-\beta[\Phi(x')-\Phi(x)])\}.
+\end{aligned}
 \]
 
 Brøken er \(r(x,x')\) i den korrigerte politikken (5.7). Når \(q(x',x)=0\), er aksepten null. For \(x'\ne x\) er \(T(x,x')=q(x,x')\alpha(x,x')\); resten av sannsynet vert verande i \(x\). Straumen er

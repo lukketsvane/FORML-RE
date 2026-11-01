@@ -103,8 +103,32 @@ def prepare_print_figures(doc: dict, work: Path) -> list[Path]:
     return sorted(prepared)
 
 
+def prepare_print_layout(work: Path) -> list[Path]:
+    """Copy the fixed book cover and licensed fonts without host font lookup."""
+    prepared = []
+    fonts = work / "fonts"
+    if fonts.exists():
+        shutil.rmtree(fonts)
+    source_fonts = ROOT / "layout" / "fonts"
+    if source_fonts.is_dir():
+        fonts.mkdir()
+        for source in sorted(source_fonts.iterdir()):
+            if source.is_file():
+                destination = fonts / source.name
+                shutil.copyfile(source, destination)
+                prepared.append(destination)
+    cover = ROOT / "layout" / "cover-stolar.png"
+    destination = work / cover.name
+    if cover.is_file():
+        shutil.copyfile(cover, destination)
+        prepared.append(destination)
+    elif destination.exists():
+        destination.unlink()
+    return prepared
+
+
 def package_latex(work: Path, figures: list[Path], bundle: Path) -> None:
-    """The portable package contains ready-to-use figures, never a converter."""
+    """Include ready-to-use figures, cover and fonts with their licence."""
     with zipfile.ZipFile(bundle.with_suffix(".zip.tmp"), "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for path in [work / "formlaere.tex", *figures]:
             info = zipfile.ZipInfo(path.relative_to(work).as_posix(), date_time=(2000, 1, 1, 0, 0, 0))
@@ -127,6 +151,7 @@ def build_pdf(doc: dict) -> None:
     work = BUILD / "latex"
     work.mkdir(parents=True, exist_ok=True)
     figures = prepare_print_figures(doc, work)
+    layout_assets = prepare_print_layout(work)
     subprocess.run(["python3", str(ROOT / "scripts" / "render_latex.py"),
                     "--document", str(BUILD / "document.json"), "--output", str(work / "formlaere.tex")], check=True)
     env = dict(os.environ, SOURCE_DATE_EPOCH="946684800", FORCE_SOURCE_DATE="1")
@@ -144,7 +169,7 @@ def build_pdf(doc: dict) -> None:
     shutil.copyfile(work / "formlaere.pdf", staged_pdf)
     staged_pdf.replace(PDF / "formlaere.pdf")
     bundle = PDF / "formlaere-latex.zip"
-    package_latex(work, figures, bundle)
+    package_latex(work, figures + layout_assets, bundle)
     manifest = {"schemaVersion": 1, "sourceHash": doc["sourceHash"], "inputs": input_manifest(ROOT),
                 "outputs": {"formlaere.pdf": digest(PDF / "formlaere.pdf"), "formlaere-latex.zip": digest(bundle)},
                 "quality": quality, "engine": "XeLaTeX", "mathematics": doc.get("mathematics", {})}
