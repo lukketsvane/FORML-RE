@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#080808" media="(prefers-color-scheme:dark)">
+<meta name="formlaere-source" content="@@SOURCE_HASH@@">
+<title>FORMLÆRE · tl;dr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..400;1,7..72,300..400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{color-scheme:light dark;--bg:#fff;--fg:#0c0c0c;--dim:#777;--line:#dedede;--serif:"Literata",Charter,Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media(prefers-color-scheme:dark){:root{--bg:#080808;--fg:#f4f4f4;--dim:#9a9a9a;--line:#393939}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);font-size:15px;line-height:1.52;font-weight:400;-webkit-font-smoothing:antialiased}
+.page{width:min(100%,800px);padding:0 21px 80px;margin:0 auto}
+nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:calc(env(safe-area-inset-top,0px) + 12px) 0 8px;font:10px var(--mono);letter-spacing:.02em;color:var(--dim)}
+.links{display:flex;align-items:center;gap:19px}
+nav a{color:inherit;text-decoration:none;min-height:28px;display:inline-flex;align-items:center;white-space:nowrap}
+nav a[aria-current="page"]{color:var(--fg);text-decoration:underline;text-underline-offset:4px}
+a:hover,a:focus-visible{color:var(--fg)}
+header.intro{margin:3.1rem 0 2.2rem}
+h1{font-weight:400;font-size:2.2rem;line-height:1.15;letter-spacing:-.02em;margin:0 0 .45rem}
+.subtitle{font:10px var(--mono);color:var(--dim);margin:0 0 1.25rem}
+.lead{max-width:62ch;font-size:1.05rem;line-height:1.55;margin:0}
+.source-note{font:10px/1.7 var(--mono);color:var(--dim);max-width:70ch;margin:1.25rem 0 0}
+.chapter{margin:2.4rem 0 3rem}
+.chapter h2{font-weight:400;font-size:1.11rem;line-height:1.4;border-top:1px solid var(--line);padding-top:.8rem;margin:0 0 1rem;break-after:avoid}
+.prop{display:grid;grid-template-columns:3.5rem minmax(0,1fr);gap:.4rem;align-items:start;break-inside:avoid;margin:.65rem 0 1rem}
+.num{font:10px/1.7 var(--mono);color:var(--dim);text-decoration:none;white-space:nowrap}
+.num sup{font-size:.65em;margin-left:2px}
+.prop p{margin:0 0 .35rem;white-space:pre-line;overflow-wrap:break-word}
+.prop p:last-child{margin-bottom:0}
+.prop em{font-style:italic}.prop strong{font-weight:600}
+footer{border-top:1px solid var(--line);padding-top:.7rem;font:10px/1.6 var(--mono);color:var(--dim);margin-top:3rem}
+footer a{color:inherit}
+@media(min-width:880px){.page{width:min(100%,920px);padding:0 36px 90px}.chapters{columns:2;column-gap:3.25rem}.chapter{break-inside:avoid-page;margin-top:0}.chapter h2{margin-top:0}}
+@media(max-width:380px){.page{padding-inline:14px}.links{gap:13px}.prop{grid-template-columns:3.05rem minmax(0,1fr);gap:.35rem}.num{font-size:9px}}
+@media print{@page{size:A4;margin:14mm 13mm} :root{--bg:#fff;--fg:#000;--dim:#555;--line:#bbb}body{font-size:9pt;line-height:1.36}.page{width:auto;max-width:none;padding:0}nav{display:none}.intro{margin:0 0 1rem!important}h1{font-size:18pt}.lead{font-size:10pt}.source-note{font-size:7pt}.chapters{columns:2;column-gap:6mm}.chapter{break-inside:avoid-column;margin:0 0 1.4rem}.prop{grid-template-columns:2.9rem 1fr;gap:.25rem;margin:.45rem 0 .65rem}.num{font-size:7pt}footer{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+<nav aria-label="Dokument og lesemåte">
+  <span class="links"><a href="/traktat/formlaere.pdf" download="formlære.pdf">formlære.pdf</a><a href="/kort/" aria-current="page">tl;dr</a></span>
+  <a href="/">heile teksten</a>
+</nav>
+<main>
+<header class="intro">
+  <h1>FORMLÆRE</h1>
+  <p class="subtitle">Ei kort framstilling · Oslo, 2026</p>
+  <p class="lead">Form er ei ordning av skilnader, realisert mellom moglege alternativ under samtidige trykk, gjennom agentar med avgrensa omhug og kapasitet.</p>
+  <p class="source-note">Eit konsentrert utval frå same manuskript som fullutgåva. Proposisjonane er viste med sine opphavlege nummer; vel nummeret for å lese dei i samanheng. Kjeldetilvisingar og notemarkørar er utelatne her.</p>
+</header>
+<div id="chapters" class="chapters" aria-live="polite"><p>Lastar kortversjonen …</p></div>
+<footer>FORMLÆRE · <a href="/">Fulltekst</a> · <a href="/traktat/formlaere.pdf">Utskriftsutgåve</a></footer>
+</main>
+</div>
+<script>
+(async function(){
+"use strict";
+const groups = [["Skilnad, struktur og substans",["1","1.01","1.02","1.1","1.212","1.22","1.23","1.234","1.24"]],["Formrom, moglegheit og grammatikk",["1.31","1.4","1.43","1.5","1.501","1.55","1.61","1.62"]],["Trykk og tilpassingslandskap",["2.1","2.12","2.13","2.211","3.1","3.12","4.3"]],["Hinne, agens, omhug og kapasitet",["5.02","5.11","5.14","5.2","5.21","5.22","5.231","5.234"]],["Formgjeving og design",["5.7","6.02","6.11","6.6","6.67"]],["Svikt, prøving og ansvar",["7.03","7.1","7.14","7.25","7.26","7.4"]]];
+const host=document.getElementById("chapters");
+const response=await fetch("/traktat/document.json",{cache:"no-cache"});
+if(!response.ok)throw new Error("Dokumentet er ikkje tilgjengeleg");
+const data=await response.json();
+const expected=document.querySelector('meta[name="formlaere-source"]').content;
+if(data.sourceHash!==expected)throw new Error("Nettutgåva er endra. Last sida på nytt.");
+const props=new Map(data.props.map(item=>[item.n,item]));
+const fragment=document.createDocumentFragment();
+const make=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el;};
+function rich(el,raw){
+ const parts=raw.split(/(\[\[(?:kjelde|notat):[^\]]+\]\]|\*\*[^*]+\*\*|\*[^*\n]+\*)/g);
+ for(const part of parts){if(!part||/^\[\[(?:kjelde|notat):/.test(part))continue;
+   if(part.startsWith("**")&&part.endsWith("**"))el.appendChild(make("strong","",part.slice(2,-2)));
+   else if(part.startsWith("*")&&part.endsWith("*"))el.appendChild(make("em","",part.slice(1,-1)));
+   else el.appendChild(document.createTextNode(part));
+ }
+}
+for(const [heading,numbers] of groups){
+ const section=make("section","chapter");
+ section.appendChild(make("h2","",heading));
+ for(const n of numbers){
+  const prop=props.get(n);
+  if(!prop)throw new Error("Proposisjon "+n+" manglar frå utgåva.");
+  const row=make("article","prop");
+  const link=make("a","num",n);link.href="/#"+encodeURIComponent(n);link.setAttribute("aria-label","Les proposisjon "+n+" i fullteksten");
+  const status=make("sup","",prop.status||"");link.appendChild(status);
+  row.appendChild(link);
+  const text=make("div","");
+  for(const paragraph of prop.paragraphs||[]){const p=make("p","");rich(p,paragraph);text.appendChild(p);}
+  row.appendChild(text);section.appendChild(row);
+ }
+ fragment.appendChild(section);
+}
+host.replaceChildren(fragment);
+})().catch(error=>{
+ const host=document.getElementById("chapters");
+ host.replaceChildren();
+ const p=document.createElement("p");p.textContent="Kortversjonen kunne ikkje lastast. ";
+ const a=document.createElement("a");a.href="/";a.textContent="Opne heile teksten.";
+ p.appendChild(a);host.appendChild(p);console.error(error);
+});
+</script>
+</body>
+</html>
