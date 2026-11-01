@@ -212,7 +212,8 @@ class Renderer:
             if kind == "heading":
                 slug = re.sub(r"[^a-z0-9æøå]+", "-", token["text"].lower()).strip("-")
                 # Hyperref destinations may be Unicode; proposition/note IDs remain strict.
-                output.append(r"\sectionlabel{del-" + slug + "}{" + tex_escape(token["text"]) + "}")
+                style = "[1]" if token["text"] in {"Føreord", "Lesekode"} else ""
+                output.append(r"\sectionlabel" + style + "{del-" + slug + "}{" + tex_escape(token["text"]) + "}")
             elif kind == "paragraph":
                 output.append(self.prose(token["text"]) + self.note_links(token.get("notes", [])) + r"\par\vspace{8pt}")
             elif kind == "prop":

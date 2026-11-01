@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "32eac60f90baf9315c9c6734696deb5ba2e1291f367f632872f65bf6e1e36dd3",
+  "sourceHash": "6f2eae2cf01fc9286a8c0751f65bdc01250f8a75291c18ebd739323cad20f312",
   "inputs": {
     "edition.json": "7308d8d7f9067a3e0ce67589d39d7a8ebd019c02e8a5a3b80dc0f0b0a78bc488",
     "figurar.json": "4bba7d8aa59c6adb1f943518a7e99fd3902a7228d7ca266d4cf90454d31fa156",
     "kjelder.json": "3db5833e7574525ada8da543eeecee0294f54fb803666ecec91dc30629ca9e4b",
-    "layout/print.tex": "b991a27a2b0df839b0c1c0a46a9d1c4d7af6508f7f99edc56d47ac3c0c103e0c",
+    "layout/print.tex": "df82116f45d1c1a1ac8b72e2ca6c5236740d8255991efee91477a7b0648f55ac",
     "nettstad/build.mjs": "56d26d225fdca2bbf0f16f7335da3d0fa1390a30ab581d18906dc5c0e99ea73b",
     "nettstad/illustrations/model-overview-20261101.jpg": "db15f648fcfd1b946f045beef67bd4f6d5b4055ea23a3fd22af93e74094910b6",
     "nettstad/illustrations/scan-20261031-p11-busette-opne-forbodne.png": "73ccfe947557cfc0e659f944a59f5c24c4f858461d078bccf5e07185e6382192",
@@ -18,20 +18,20 @@
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "898f680d1def34b940b77112a44448eea63b5b35a5cc393afeb819a360509049",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "a2c877833c9db97d89cd88f86750e482a4cba0900cfe95ec30d97d72f31f96d5",
+    "nettstad/reader.css": "bdf117eee76b23f1f9baa4e37fa6da13742d3ff794f3047e9cc70d85c0a6e18b",
     "nettstad/reader.html": "84b48d4a529cc04aeab98bd991829176b9cb4bd18e8ce814e8ba80d50380e80a",
-    "nettstad/reader.js": "e88ac2c9c508649eac0aedd3093d49c88a286e24cea8ec9426d95e64973015b2",
+    "nettstad/reader.js": "663ace1d47f47f0339eccf01427e338cfc0c449e0c424f65ef8fe3efa657a705",
     "ordliste.json": "9ef46febfe908d09c7511e30fa74f7d3eb1b944b9f0b4914f2281299bcc13344",
     "scripts/build.py": "b79ad215de793ac06522004a08693703ae8c1ac0820212ea36b36d9a11c01c27",
     "scripts/content.py": "0764a8177c07cbefdaa80df1033a519126b8e6982ef0e8ce8acf48d5052a879f",
     "scripts/migrate_published.py": "b0b654affd5ca4aea819639f736b31dbc90ed34a09e1857b472a47e087c89129",
-    "scripts/render_latex.py": "ca80baab8e90800183b5916ab13b51e37e9f0e610699c52fd4076dd539e2ac2d",
+    "scripts/render_latex.py": "6e36709b6e4c89717a43c81e42ceb301d5a6f7d4003091e2a443181e3b277741",
     "tekst/formlaere.txt": "1226755e0f329054b26246556001d80fe788865970f2775688900e2ba87bf28c",
     "vercel.json": "d247ac19b640da2cfe2bf52d913749ce31187f60dac92b9723363ec3e5a01727"
   },
   "outputs": {
-    "formlaere.pdf": "2dea6baeb0323aea4d46fc30f26641a8c6652cc8865f86fa3555dc1d28268c45",
-    "formlaere-latex.zip": "912848eb4fbd0f93f5e4d9c0fec189cf9d57c7842c062a540e0fd123051dc2c9"
+    "formlaere.pdf": "9f0f8a4d2ae21f5ae175cc1ccfa417e5254688892c1234fae2ad43c96933a14b",
+    "formlaere-latex.zip": "9553ecd1e9e0bf3fa8595a889888a3b51ef4e9c7a5f689c2b64f14e79346f966"
   },
   "quality": {
     "pages": 44,
