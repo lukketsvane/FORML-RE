@@ -1,0 +1,170 @@
+{
+  "all_auto_included": {
+    "subset": "all_auto_included",
+    "works": 3729,
+    "edges": 3159,
+    "unique_citing_papers": 1264,
+    "same_theme_edges": 1572,
+    "shared_author_edges": 979,
+    "same_theme_rate_cluster_bootstrap_95pct": [
+      0.47406432748538013,
+      0.5204948485610549
+    ],
+    "all_edges": {
+      "observed_fraction": 0.4976258309591643,
+      "null_2_5pct": 0.1908831908831909,
+      "null_median": 0.2105096549540994,
+      "null_97_5pct": 0.23520101297879076,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    },
+    "excluding_shared_authors": {
+      "observed_fraction": 0.48440366972477067,
+      "null_2_5pct": 0.18599770642201835,
+      "null_median": 0.21146788990825688,
+      "null_97_5pct": 0.2371559633027523,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    }
+  },
+  "curated_design_venues": {
+    "subset": "curated_design_venues",
+    "works": 382,
+    "edges": 373,
+    "unique_citing_papers": 175,
+    "same_theme_edges": 162,
+    "shared_author_edges": 124,
+    "same_theme_rate_cluster_bootstrap_95pct": [
+      0.3760042868250177,
+      0.5014584244922156
+    ],
+    "all_edges": {
+      "observed_fraction": 0.4343163538873995,
+      "null_2_5pct": 0.15013404825737264,
+      "null_median": 0.1876675603217158,
+      "null_97_5pct": 0.23324396782841822,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    },
+    "excluding_shared_authors": {
+      "observed_fraction": 0.41767068273092367,
+      "null_2_5pct": 0.13253012048192772,
+      "null_median": 0.18473895582329317,
+      "null_97_5pct": 0.23694779116465864,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    }
+  },
+  "works_with_abstract": {
+    "subset": "works_with_abstract",
+    "works": 2922,
+    "edges": 2054,
+    "unique_citing_papers": 919,
+    "same_theme_edges": 1006,
+    "shared_author_edges": 575,
+    "same_theme_rate_cluster_bootstrap_95pct": [
+      0.4652555479598062,
+      0.5189020501286074
+    ],
+    "all_edges": {
+      "observed_fraction": 0.48977604673807207,
+      "null_2_5pct": 0.18062317429406036,
+      "null_median": 0.20399221032132425,
+      "null_97_5pct": 0.23005111976630963,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    },
+    "excluding_shared_authors": {
+      "observed_fraction": 0.4854631507775524,
+      "null_2_5pct": 0.1761156186612576,
+      "null_median": 0.2035158891142664,
+      "null_97_5pct": 0.23767748478701825,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    }
+  },
+  "original_top200": {
+    "subset": "original_top200",
+    "works": 2889,
+    "edges": 2389,
+    "unique_citing_papers": 930,
+    "same_theme_edges": 1208,
+    "shared_author_edges": 731,
+    "same_theme_rate_cluster_bootstrap_95pct": [
+      0.4788927905844656,
+      0.5354396388510975
+    ],
+    "all_edges": {
+      "observed_fraction": 0.5056508999581415,
+      "null_2_5pct": 0.16659690246965259,
+      "null_median": 0.18773545416492254,
+      "null_97_5pct": 0.20909376308078692,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    },
+    "excluding_shared_authors": {
+      "observed_fraction": 0.4969843184559711,
+      "null_2_5pct": 0.1586248492159228,
+      "null_median": 0.18516284680337755,
+      "null_97_5pct": 0.21534981905910736,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    }
+  },
+  "since_2010": {
+    "subset": "since_2010",
+    "works": 3354,
+    "edges": 2646,
+    "unique_citing_papers": 1082,
+    "same_theme_edges": 1314,
+    "shared_author_edges": 840,
+    "same_theme_rate_cluster_bootstrap_95pct": [
+      0.4698180038089107,
+      0.5215269722881599
+    ],
+    "all_edges": {
+      "observed_fraction": 0.4965986394557823,
+      "null_2_5pct": 0.18081065759637188,
+      "null_median": 0.20408163265306123,
+      "null_97_5pct": 0.2303949357520786,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    },
+    "excluding_shared_authors": {
+      "observed_fraction": 0.4867109634551495,
+      "null_2_5pct": 0.1777408637873754,
+      "null_median": 0.2040420819490587,
+      "null_97_5pct": 0.23506367663344407,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    }
+  },
+  "before_2015": {
+    "subset": "before_2015",
+    "works": 1005,
+    "edges": 331,
+    "unique_citing_papers": 212,
+    "same_theme_edges": 190,
+    "shared_author_edges": 141,
+    "same_theme_rate_cluster_bootstrap_95pct": [
+      0.5210355987055016,
+      0.6314199395770392
+    ],
+    "all_edges": {
+      "observed_fraction": 0.5740181268882175,
+      "null_2_5pct": 0.1903323262839879,
+      "null_median": 0.24471299093655588,
+      "null_97_5pct": 0.3097432024169184,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    },
+    "excluding_shared_authors": {
+      "observed_fraction": 0.5263157894736842,
+      "null_2_5pct": 0.16842105263157894,
+      "null_median": 0.24736842105263157,
+      "null_97_5pct": 0.3290789473684209,
+      "one_sided_permutation_p": 0.001996007984031936,
+      "n_permutations": 500
+    }
+  }
+}

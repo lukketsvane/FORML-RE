@@ -1,34 +1,44 @@
 id,doi,title,year,citations,theme
+W2112786892,https://doi.org/10.17705/1cais.02428,"Persuasive Systems Design: Key Issues, Process Model, and System Features",2009,1663,forsking/metode
 W1274426204,https://doi.org/10.4324/9780203108543,Routledge International Handbook of Participatory Design,2012,1606,deltaking
+W3151678985,https://doi.org/10.2307/23043488,Action Design Research1,2011,1473,forsking/metode
+W2110710386,https://doi.org/10.82444/warw.33619288,Action design research,2011,1215,forsking/metode
 W2076426378,https://doi.org/10.1111/caim.12023,"Design Thinking: Past, Present and Possible Futures",2013,1163,teneste/system
 W2079484041,https://doi.org/10.1057/ejis.2014.36,FEDS: a Framework for Evaluation in Design Science Research,2014,1084,grunnlagsteori
 W2523673892,https://doi.org/10.1016/j.destud.2016.09.002,Evolution of design for sustainability: From product design to design for system innovations and transitions,2016,956,produkt
 W3011186445,https://doi.org/10.1111/jpim.12523,Innovation and Design in the Age of Artificial Intelligence,2020,851,teneste/system
+W2592144218,https://doi.org/10.1016/j.neubiorev.2017.02.026,"Don’t fear ‘fear conditioning’: Methodological considerations for the design and analysis of studies on human fear acquisition, extinction, and return of fear",2017,837,forsking/metode
 W1968466585,https://doi.org/10.1162/desi_a_00165,Design Things and Design Thinking: Contemporary Participatory Design Challenges,2012,784,teneste/system
 W2017908192,https://doi.org/10.1162/desi_a_00250,Incremental and Radical Innovation: Design Research vs. Technology and Meaning Change,2013,774,forsking/metode
 W2090963801,https://doi.org/10.1111/j.1540-5885.2008.00313.x,"Design, Meanings, and Radical Innovation: A Metamodel and a Research Agenda *",2008,763,teneste/system
 W2136434542,https://doi.org/10.1057/jit.2009.19,Design Theory for Dynamic Complexity in Information Infrastructures: The Case of Building Internet,2010,754,grunnlagsteori
+W1985706759,https://doi.org/10.1080/dre.25.2.57.66,"Accessibility, usability and universal design—positioning and definition of concepts describing person-environment relationships",2003,725,forsking/metode
 W2161095991,https://doi.org/10.1007/pl00000019,Slow Technology – Designing for Reflection,2001,693,grunnlagsteori
 W2192248283,https://doi.org/10.1111/caim.12153,Framing Design Thinking: The Concept in Idea and Enactment,2016,624,teneste/system
 W2046182115,https://doi.org/10.1016/j.cad.2014.07.006,Cloud-based design and manufacturing: A new paradigm in digital manufacturing and design innovation,2014,614,deltaking
+W2989892707,https://doi.org/10.1109/tpel.2019.2954357,Guidelines for the Design of Finite Control Set Model Predictive Controllers,2019,594,forsking/metode
 W2109296781,https://doi.org/10.1109/tie.2011.2167117,Generalized Design of High Performance Shunt Active Power Filter With Output LCL Filter,2011,554,etikk/kritikk
 W2170820711,https://doi.org/10.1016/j.matdes.2005.09.006,Materials selection and design for development of sustainable products,2005,477,etikk/kritikk
 W2021383143,https://doi.org/10.1109/tie.2012.2217725,A New Design Method for the Passive Damped LCL and LLCL Filter-Based Single-Phase Grid-Tied Inverter,2012,474,forsking/metode
 W3010486890,https://doi.org/10.1038/s41467-020-15095-1,Design of AIEgens for near-infrared IIb imaging through structural modulation at molecular and morphological levels,2020,464,grunnlagsteori
 W2019609945,https://doi.org/10.1080/15710882.2012.672577,Agonistic participatory design: working with marginalised social movements,2012,454,deltaking
+W2520613901,https://doi.org/10.1038/nature19791,Accurate de novo design of hyperstable constrained peptides,2016,442,forsking/metode
 W3163494870,https://doi.org/10.1002/advs.202000636,"Engineering Origami: A Comprehensive Review of Recent Applications, Design Methods, and Tools",2021,412,forsking/metode
 W2066701512,https://doi.org/10.1680/macr.2005.57.8.445,Concrete strength for fire safety design,2005,408,forsking/metode
+W2047232920,https://doi.org/10.1109/tie.2014.2336632,Passivity-Based Controller Design of Grid-Connected VSCs for Prevention of Electrical Resonance Instability,2014,406,forsking/metode
 W2159255554,https://doi.org/10.1080/09544820412331271176,The design of functional (total care) products,2004,392,teneste/system
 W91901479,https://doi.org/10.5040/9781474214698,Design Anthropology : Theory and Practice,2013,390,utdanning/antropologi
 W2794258710,https://doi.org/10.1145/3152421,Participatory Design that Matters—Facing the Big Issues,2018,366,deltaking
-W2075849103,https://doi.org/10.1016/j.ijhcs.2014.09.003,The diversity of participatory design research practice at PDC 2002–2012,2014,365,deltaking
+W2075849103,https://doi.org/10.1016/j.ijhcs.2014.09.003,The diversity of participatory design research practice at PDC 2002–2012,2014,365,forsking/metode
 W2111327250,https://doi.org/10.1093/icc/dtr060,Design of innovation policy through diagnostic analysis: identification of systemic problems (or failures),2011,365,teneste/system
 W2038428546,https://doi.org/10.1080/15710882.2011.630474,Prototyping and infrastructuring in design for social innovation,2011,362,deltaking
 W2742669564,https://doi.org/10.1017/dsj.2017.10,"Design prototyping methods: state of the art in strategies, techniques, and guidelines",2017,354,historie
 W2948066738,https://doi.org/10.1080/14719037.2019.1619810,Co-design: from expert- to user-driven ideas in public service design,2019,349,deltaking
 W1600388698,,Participatory IT Design: Designing for Business and Workplace Realities,2004,346,forsking/metode
+W2109084453,https://doi.org/10.1049/ip-cta:20020102,Design of PID controllers based on constrained optimisation,2002,339,forsking/metode
 W2960506857,https://doi.org/10.1016/j.wasman.2019.07.005,"Closing the loop for PET, PE and PP waste from households: Influence of material properties and product design for plastic recycling",2019,333,produkt
 W3081716909,https://doi.org/10.1177/1094670520952537,"Service Ecosystem Design: Propositions, Process Model, and Future Research Agenda",2020,326,grunnlagsteori
+W2765506499,https://doi.org/10.1016/j.infsof.2017.10.015,How to design gamification? A method for engineering gamified software,2017,324,grunnlagsteori
 W2093109375,https://doi.org/10.1111/j.1540-5915.2009.00241.x,Service Architecture and Modularity*,2009,323,teneste/system
 W2088354014,https://doi.org/10.1016/j.oceaneng.2013.09.012,Loads for use in the design of ships and offshore structures,2013,318,grunnlagsteori
 W1531563883,https://doi.org/10.1201/9781410606723-41,User-Centered Design in Games,2002,317,deltaking
@@ -41,14 +51,20 @@ W3090022999,https://doi.org/10.1162/desi_a_00612,Technology and More-Than-Human 
 W4221069058,https://doi.org/10.1111/hex.13470,Mapping definitions of co‐production and co‐design in health and social care: A systematic scoping review providing lessons for the future,2022,286,deltaking
 W1989300329,https://doi.org/10.1016/s0142-694x(02)00029-7,"Product-service systems, a perspective shift for designers: A case study: the design of a telecentre",2003,286,forsking/metode
 W2999173853,https://doi.org/10.1111/caim.12353,"Four kinds of design thinking: From ideating to making, engaging, and criticizing",2020,276,teneste/system
+W2152762220,https://doi.org/10.2312/conf/eg2013/stars/039-063,"Glyph-based Visualization: Foundations, Design Guidelines, Techniques and Applications",2012,275,etikk/kritikk
+W2228254744,https://doi.org/10.1007/978-1-4471-4084-9,Personas - User Focused Design,2012,274,forsking/metode
 W2989137589,https://doi.org/10.1016/j.jclepro.2019.119037,Mycelium bio-composites in industrial design and architecture: Comparative review and experimental analysis,2019,274,produkt
-W2228254744,https://doi.org/10.1007/978-1-4471-4084-9,Personas - User Focused Design,2012,274,interaksjon
+W568887758,https://doi.org/10.4324/9780203795958,Public Innovation through Collaboration and Design,2014,268,teneste/system
 W2120750167,https://doi.org/10.1177/1049732306293664,Participatory Design in Health Sciences: Using Cooperative Experimental Methods in Developing Health Services and Computer Technology,2006,265,deltaking
-W4383982525,https://doi.org/10.5194/wes-8-1071-2023,"Grand challenges in the design, manufacture, and operation of future wind turbine systems",2023,264,deltaking
 W2109547013,https://doi.org/10.1097/00004872-200106000-00020,"Rationale, design, methods and baseline demography of participants of the Anglo-Scandinavian Cardiac Outcomes Trial",2001,264,forsking/metode
+W4383982525,https://doi.org/10.5194/wes-8-1071-2023,"Grand challenges in the design, manufacture, and operation of future wind turbine systems",2023,264,deltaking
+W3080486077,https://doi.org/10.1109/tlt.2020.3018503,Designing Engaging Games for Education: A Systematic Literature Review on Game Motivators and Design Principles,2020,263,grunnlagsteori
 W2114944548,https://doi.org/10.1016/j.ijhcs.2014.09.004,In pursuit of rigour and accountability in participatory design,2014,261,deltaking
+W4205178436,https://doi.org/10.1561/1000000053,Contracts for System Design,2018,253,forsking/metode
 W2119469003,https://doi.org/10.1109/tuffc.2002.1026019,Sparse 2-D arrays for 3-D phased array imaging - design methods,2002,250,forsking/metode
 W2046129519,https://doi.org/10.1115/1.1524585,Flow in a Centrifugal Pump Impeller at Design and Off-Design Conditions—Part I: Particle Image Velocimetry (PIV) and Laser Doppler Velocimetry (LDV) Measurements,2003,248,produkt
+W2091599782,https://doi.org/10.1080/17517575.2013.776118,Design of a terminal solution for integration of in-home health care devices and services towards the Internet-of-Things,2013,247,forsking/metode
+W2592422623,https://doi.org/10.1021/acsenergylett.7b00035,Rational Design: A High-Throughput Computational Screening and Experimental Validation Methodology for Lead-Free and Emergent Hybrid Perovskites,2017,247,forsking/metode
 W2741877032,https://doi.org/10.1080/15710882.2017.1355006,"Institutioning: Participatory Design, Co-Design and the public realm",2017,241,deltaking
 W3005501379,https://doi.org/10.1186/s12966-020-0917-z,Using a multi-stakeholder experience-based design process to co-develop the Creating Active Schools Framework,2020,238,deltaking
 W2521833710,https://doi.org/10.1016/j.jclepro.2016.09.111,A customization-oriented framework for design of sustainable product/service system,2016,237,forsking/metode
@@ -58,44 +74,28 @@ W3003264319,https://doi.org/10.5465/amr.2018.0285,Opportunities as Artifacts and
 W2170634487,https://doi.org/10.1007/s12599-010-0118-4,Explanatory Design Theory,2010,232,grunnlagsteori
 W2021677098,https://doi.org/10.1016/j.astropartphys.2012.10.002,Monte Carlo design studies for the Cherenkov Telescope Array,2012,231,forsking/metode
 W1532730203,https://doi.org/10.2307/25148870,The Design Theory Nexus1,2008,230,grunnlagsteori
+W1543707988,https://doi.org/10.1049/iet-pel:20070286,Frequency-domain passivity-based current controller design,2008,230,forsking/metode
 W2858768158,https://doi.org/10.1016/j.destud.2018.05.005,Participatory design for sustainable social change,2018,225,deltaking
 W2955641483,https://doi.org/10.1016/j.techfore.2019.06.015,Combining technology and entrepreneurial education through design thinking: Students' reflections on the learning process,2019,224,teneste/system
 W2027774333,https://doi.org/10.1371/journal.pone.0112392,The User-Centered Design as Novel Perspective for Evaluating the Usability of BCI-Controlled Applications,2014,222,deltaking
 W2025352501,https://doi.org/10.1016/j.gloenvcha.2014.06.009,University partnerships for co-designing and co-producing urban sustainability,2014,221,deltaking
+W1991988517,https://doi.org/10.1016/j.applthermaleng.2007.04.017,An Extended Pinch Analysis and Design procedure utilizing pressure based exergy for subambient cooling,2007,219,forsking/metode
 W2516684139,https://doi.org/10.1007/s10606-016-9259-4,Unpacking the Notion of Participation in Participatory Design,2016,219,deltaking
-W2064483571,https://doi.org/10.1109/tie.2013.2271601,Novel High-Performance SynRM Design Method: An Easy Approach for A Complicated Rotor Topology,2013,207,forsking/metode
-W2919057183,https://doi.org/10.1186/s13731-018-0098-z,University entrepreneurship education: a design thinking approach to learning,2019,207,teneste/system
+W1987764914,https://doi.org/10.1016/s1365-1609(03)00110-2,"Stress, instability and design of underground excavations",2003,215,forsking/metode
+W2029317430,https://doi.org/10.1080/07370020903586696,Concept-Driven Interaction Design Research,2010,214,forsking/metode
+W2431134676,https://doi.org/10.1109/tia.2016.2581152,"Analysis, Design, and Implementation of a Quasi-Proportional-Resonant Controller for a Multifunctional Capacitive-Coupling Grid-Connected Inverter",2016,210,forsking/metode
 W2920714770,https://doi.org/10.1007/s11187-019-00153-w,"Comparing effectuation to discovery-driven planning, prescriptive entrepreneurship, business planning, lean startup, and design thinking",2019,207,teneste/system
 W2786928326,https://doi.org/10.3390/informatics5010008,Embracing First-Person Perspectives in Soma-Based Design,2018,207,grunnlagsteori
+W2919057183,https://doi.org/10.1186/s13731-018-0098-z,University entrepreneurship education: a design thinking approach to learning,2019,207,teneste/system
+W2064483571,https://doi.org/10.1109/tie.2013.2271601,Novel High-Performance SynRM Design Method: An Easy Approach for A Complicated Rotor Topology,2013,207,forsking/metode
 W2172698735,https://doi.org/10.1016/j.ijcci.2015.10.002,Design thinking for digital fabrication in education,2015,206,teneste/system
+W2800970494,https://doi.org/10.1016/j.soildyn.2018.04.038,Seismic considerations in design of offshore wind turbines,2018,205,grunnlagsteori
 W2965406371,https://doi.org/10.1108/rpj-10-2018-0262,Design for additive manufacturing – a review of available design methods and software,2019,204,forsking/metode
 W2017500828,https://doi.org/10.1016/j.lrp.2009.10.006,Collaborative Strategies in Design-intensive Industries: Knowledge Diversity and Innovation,2009,203,produkt
 W2020562866,https://doi.org/10.1021/ie049328h,A New Decomposition-Based Computer-Aided Molecular/Mixture Design Methodology for the Design of Optimal Solvents and Solvent Mixtures,2005,202,forsking/metode
-W3190997225,https://doi.org/10.1177/10946705211031302,Service Research Priorities: Designing Sustainable Service Ecosystems,2021,202,teneste/system
 W1546222186,https://doi.org/10.1108/17410380910961073,Product design for product/service systems,2009,202,produkt
+W3190997225,https://doi.org/10.1177/10946705211031302,Service Research Priorities: Designing Sustainable Service Ecosystems,2021,202,teneste/system
 W2781880387,https://doi.org/10.1016/j.conbuildmat.2017.12.153,"Performance of structural glass facades under extreme loads – Design methods, existing research, current issues and trends",2018,202,forsking/metode
 W1830093444,https://doi.org/10.1080/15710882.2015.1081248,Democratic design experiments: between parliament and laboratory,2015,201,forsking/metode
 W2246181197,https://doi.org/10.4324/9780203108543-7,Participatory Design: an introduction,2012,198,deltaking
 W2528473844,https://doi.org/10.1111/caim.12176,The Challenges of Using Design Thinking in Industry – Experiences from Five Large Firms,2016,197,teneste/system
-W2142270433,https://doi.org/10.1162/desi_a_00249,What Happened to Empathic Design?,2013,195,deltaking
-W2323256624,https://doi.org/10.1109/tpel.2016.2549015,"Analysis, Design, Modeling, and Control of an Interleaved-Boost Full-Bridge Three-Port Converter for Hybrid Renewable Energy Systems",2016,193,etikk/kritikk
-W3018008359,https://doi.org/10.1108/josm-11-2019-0332,"Leveraging service design for healthcare transformation: toward people-centered, integrated, and technology-enabled healthcare systems",2020,187,teneste/system
-W2897047081,https://doi.org/10.1016/j.electacta.2018.10.008,"Towards uniformly distributed heat, mass and charge: A flow field design study for high pressure and high current density operation of PEM electrolysis cells",2018,185,forsking/metode
-W2883829010,https://doi.org/10.1016/j.cirp.2018.05.009,Tolerancing: Managing uncertainty from conceptual design to final product,2018,182,produkt
-W2994804642,https://doi.org/10.1080/15710882.2020.1722173,Computational empowerment: participatory design in education,2020,182,deltaking
-W3116257771,https://doi.org/10.1016/j.spc.2020.12.032,How circular is current design practice? Investigating perspectives across industrial design and architecture in the transition towards a circular economy,2020,179,forsking/metode
-W2956725128,https://doi.org/10.1007/s40565-019-0550-5,A review of offshore wind farm layout optimization and electrical system design methods,2019,179,forsking/metode
-W2067231723,https://doi.org/10.1016/j.clinthera.2004.11.016,"A multicenter, randomized, double-blind, placebo-controlled, factorial design study to evaluate the lipid-altering efficacy and safety profile of the ezetimibe/simvastatin tablet compared with ezetimibe and simvastatin monotherapy in patients with primary hypercholesterolemia",2004,179,forsking/metode
-W2795225254,https://doi.org/10.1016/j.destud.2018.03.002,Developing theory-driven design research,2018,176,forsking/metode
-W1985171157,https://doi.org/10.1016/s0376-0421(02)00050-7,Navier–Stokes solvers in European aircraft design,2002,176,produkt
-W1577819402,https://doi.org/10.1201/9781420088892-11,An ethnographic approach to design,2002,172,forsking/metode
-W4386177112,https://doi.org/10.1108/itp-07-2022-0519,Artificial intelligence (AI) for user experience (UX) design: a systematic literature review and future research agenda,2023,172,forsking/metode
-W3000967989,https://doi.org/10.1016/j.jclepro.2020.120295,Addressing the design-implementation gap of sustainable business models by prototyping: A tool for planning and executing small-scale pilots,2020,172,teneste/system
-W2025216641,https://doi.org/10.1016/j.energy.2013.05.038,Thermoeconomic design optimization of a thermo-electric energy storage system based on transcritical CO2 cycles,2013,168,etikk/kritikk
-W4200106916,https://doi.org/10.1016/j.destud.2021.101077,Sampling in design research: Eight key considerations,2021,167,forsking/metode
-W2095070434,https://doi.org/10.1007/s10676-006-9129-8,Ethics and technology design,2006,167,etikk/kritikk
-W2401682204,https://doi.org/10.3233/978-1-61499-635-4-139,"Participatory Design, User Involvement and Health IT Evaluation",2016,166,deltaking
-W2170217845,https://doi.org/10.1016/j.apergo.2010.09.006,Participatory ergonomics in design processes: The role of boundary objects,2010,164,forsking/metode
-W2055794314,https://doi.org/10.1016/j.powtec.2004.11.035,Heat transfer in fluidized beds: design methods,2005,161,forsking/metode
-W3043808923,https://doi.org/10.1016/j.jclepro.2020.123113,Implementing sustainable design theory in business practice: A call to action,2020,161,grunnlagsteori
-W65150484,https://doi.org/10.1007/978-0-387-76578-5_50,"Bringing Service Design to Service Sciences, Management and Engineering",2008,160,teneste/system

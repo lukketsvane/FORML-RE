@@ -1,0 +1,82 @@
+[
+  {
+    "signal": "hypothesis_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 72,
+    "prevalence_within_available_abstracts": 0.024640657084188913,
+    "wilson_95pct_given_this_sample": [
+      0.019612864999056727,
+      0.030916687254202962
+    ]
+  },
+  {
+    "signal": "explicit_testing",
+    "n_abstracts": 2922,
+    "n_with_phrase": 777,
+    "prevalence_within_available_abstracts": 0.26591375770020537,
+    "wilson_95pct_given_this_sample": [
+      0.25020905938302535,
+      0.2822331391347786
+    ]
+  },
+  {
+    "signal": "replication_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 25,
+    "prevalence_within_available_abstracts": 0.008555783709787816,
+    "wilson_95pct_given_this_sample": [
+      0.005801982213083165,
+      0.012600060289206906
+    ]
+  },
+  {
+    "signal": "empirical_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 1063,
+    "prevalence_within_available_abstracts": 0.36379192334017796,
+    "wilson_95pct_given_this_sample": [
+      0.34653777515568474,
+      0.3814037380169556
+    ]
+  },
+  {
+    "signal": "conceptual_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 905,
+    "prevalence_within_available_abstracts": 0.30971937029431895,
+    "wilson_95pct_given_this_sample": [
+      0.29321328820288445,
+      0.3267251070835175
+    ]
+  },
+  {
+    "signal": "negative_results_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 1,
+    "prevalence_within_available_abstracts": 0.00034223134839151266,
+    "wilson_95pct_given_this_sample": [
+      6.0414790474313564e-05,
+      0.001936090817703615
+    ]
+  },
+  {
+    "signal": "quantitative_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 56,
+    "prevalence_within_available_abstracts": 0.019164955509924708,
+    "wilson_95pct_given_this_sample": [
+      0.014788392081984986,
+      0.024804135575199934
+    ]
+  },
+  {
+    "signal": "qualitative_language",
+    "n_abstracts": 2922,
+    "n_with_phrase": 507,
+    "prevalence_within_available_abstracts": 0.1735112936344969,
+    "wilson_95pct_given_this_sample": [
+      0.160211651366559,
+      0.18766825709248328
+    ]
+  }
+]

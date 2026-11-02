@@ -1,128 +1,128 @@
 [
   {
     "cluster": 0,
-    "count": 731,
+    "count": 252,
     "descriptive_top_terms": [
-      "research",
-      "practice",
-      "designers",
-      "paper",
-      "new",
-      "article",
-      "process",
-      "practices"
-    ]
-  },
-  {
-    "cluster": 1,
-    "count": 299,
-    "descriptive_top_terms": [
-      "health",
-      "study",
-      "patients",
-      "care",
-      "intervention",
-      "results",
-      "design study",
-      "participants"
-    ]
-  },
-  {
-    "cluster": 2,
-    "count": 242,
-    "descriptive_top_terms": [
-      "methodology",
-      "design methodology",
-      "based",
-      "method",
-      "performance",
-      "high",
-      "model",
-      "optimization"
-    ]
-  },
-  {
-    "cluster": 3,
-    "count": 183,
-    "descriptive_top_terms": [
-      "service",
-      "service design",
-      "services",
-      "customer",
-      "innovation",
-      "approach",
-      "research",
-      "study"
-    ]
-  },
-  {
-    "cluster": 4,
-    "count": 278,
-    "descriptive_top_terms": [
-      "education",
-      "learning",
-      "students",
-      "design education",
-      "teaching",
-      "educational",
-      "research",
-      "process"
-    ]
-  },
-  {
-    "cluster": 5,
-    "count": 124,
-    "descriptive_top_terms": [
-      "interaction design",
-      "interaction",
-      "hci",
-      "human",
-      "user",
-      "designing",
-      "computer",
-      "work"
-    ]
-  },
-  {
-    "cluster": 6,
-    "count": 195,
-    "descriptive_top_terms": [
-      "participatory design",
       "participatory",
+      "participatory design",
       "pd",
       "participation",
       "research",
       "design pd",
       "process",
-      "information"
+      "project"
     ]
   },
   {
-    "cluster": 7,
-    "count": 659,
-    "descriptive_top_terms": [
-      "product",
-      "process",
-      "sustainable",
-      "systems",
-      "product design",
-      "research",
-      "engineering",
-      "industrial"
-    ]
-  },
-  {
-    "cluster": 8,
-    "count": 178,
+    "cluster": 1,
+    "count": 215,
     "descriptive_top_terms": [
       "design thinking",
       "thinking",
       "innovation",
       "dt",
       "education",
-      "learning",
       "approach",
+      "learning",
       "research"
+    ]
+  },
+  {
+    "cluster": 2,
+    "count": 191,
+    "descriptive_top_terms": [
+      "service",
+      "service design",
+      "services",
+      "innovation",
+      "customer",
+      "approach",
+      "research",
+      "development"
+    ]
+  },
+  {
+    "cluster": 3,
+    "count": 172,
+    "descriptive_top_terms": [
+      "method",
+      "design method",
+      "based",
+      "proposed",
+      "control",
+      "optimal",
+      "parameters",
+      "filter"
+    ]
+  },
+  {
+    "cluster": 4,
+    "count": 1200,
+    "descriptive_top_terms": [
+      "interaction",
+      "interaction design",
+      "designing",
+      "process",
+      "practice",
+      "research",
+      "new",
+      "human"
+    ]
+  },
+  {
+    "cluster": 5,
+    "count": 427,
+    "descriptive_top_terms": [
+      "product",
+      "product design",
+      "sustainable",
+      "products",
+      "process",
+      "development",
+      "sustainability",
+      "paper"
+    ]
+  },
+  {
+    "cluster": 6,
+    "count": 343,
+    "descriptive_top_terms": [
+      "methodology",
+      "design methodology",
+      "optimization",
+      "based",
+      "systems",
+      "performance",
+      "high",
+      "energy"
+    ]
+  },
+  {
+    "cluster": 7,
+    "count": 375,
+    "descriptive_top_terms": [
+      "health",
+      "study",
+      "care",
+      "patients",
+      "results",
+      "intervention",
+      "participants",
+      "design study"
+    ]
+  },
+  {
+    "cluster": 8,
+    "count": 554,
+    "descriptive_top_terms": [
+      "research",
+      "design research",
+      "education",
+      "learning",
+      "students",
+      "design education",
+      "teaching",
+      "based"
     ]
   }
 ]
