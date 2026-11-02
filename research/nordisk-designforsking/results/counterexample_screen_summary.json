@@ -1,0 +1,14 @@
+{
+  "generated_utc": "2026-11-02T17:30:43.856064+00:00",
+  "eligible_nonself_links_both_abstracts": 1475,
+  "selected_for_manual_counterevidence_audit": 150,
+  "automated_term_flags": {
+    "direct_test_words": 379,
+    "explicit_replication_words": 14,
+    "theory_development_words": 9,
+    "criticism_words": 533
+  },
+  "confirmed_replicated_findings": 0,
+  "confirmation_performed": false,
+  "limitation": "Regex and text similarity identify candidates only; no claims about factually verified cumulative design research."
+}

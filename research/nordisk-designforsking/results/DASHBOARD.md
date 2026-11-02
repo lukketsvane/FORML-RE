@@ -92,6 +92,48 @@ kontroll av forfattaroverlapp kan endre resultata. Full metodisk oversikt:
 - [Nullmodell og siteringskopling](robustness.json)
 - [Kodebok for etterprøving](../CODEBOOK.md)
 
+## 6. Går siteringane til liknande argument?
+
+![Semantisk kontrollert siteringslikskap](figures/15-siteringssemantikk-mot-nullmodell.png)
+
+![Endring i siteringskontinuitet mellom kohortar](figures/16-siteringssemantikk-over-tid.png)
+
+Ved 2 180 siteringskoplingar utan felles forfattarar er semantisk likskap i LSA-modellen
+i gjennomsnitt 0,199 høgare enn for jamførte alternative publikasjonar
+(bootstrap, klynga på siterande artikkel, 95 % intervall 0,188–0,210).
+Dette er **ikkje** prov for replikerte eller vidareutvikla teoriar.
+
+- [Siteringssemantikk og kontrollar](SITERINGSLINJER.md)
+- [200 kandidatpar til verifisering](lineage_review_queue.csv)
+- [Lokal nettlesar for uavhengig gransking](review.html)
+
+## 7. Frå ufullstendig bibliografi til testbare hypotesar
+
+![Stratifisert sannsynsutval av automatisk inklusjonsramme](figures/17-sannsynsutval-600.png)
+
+Eit separat tilfeldig uttrekk på 600 postar, fordelt over 54 fag- og tidsstrata,
+vert nytta til faktisk, uavhengig fulltekstkoding. Det er eit sannsynsutval
+frå **dei 3729 automatisk tittelinkluderte postane**, ikkje frå heile den nordiske
+forskingspopulasjonen. Kish-tilnærma effektivt utval ut frå vektene er 567.
+Per no er **0 av 600** kodingspar fullførte; ingen faglege kategoriar er funne på.
+
+- [Kodingsprotokoll og utvalsvekter](UTVALSPLAN.md)
+- [600-arbeids utvals- og kodeark](probability_sample_600_double_coder.csv)
+- [Faktisk kodingsstatus](CODING_PROGRESS.md)
+
+## 8. Forsøk på tilbakevising av hovudhypotesen
+
+Me har også søkt aktivt etter moglege motdøme. Av 1475 interne
+siteringspar utan felles forfattar og med begge samandrag tilgjengelege,
+blei 150 par valde ut for å granske mogleg eksplisitt prøving,
+replikasjon, teoriutvikling og kritikk. Ordtreff og tekstlikskap er
+berre kriterium for prioritering, ikkje stadfesta evidens.
+
+![Kandidatar til motprøving, berre ordtreff](figures/18-motprovesignal.png)
+
+- [Metode og trefftall for motdøme](MOTPROVER.md)
+- [150 kandidatpar til manuell vurdering](possible_counterexamples_to_non_cumulative_design.csv)
+
 **Vitskapleg konklusjon:** Strukturen i forskingslitteraturen kan målast,
 men påstanden om at designteori er ikkje-kumulativ er enno **ikkje testa
 med eit tilstrekkeleg validert mål**. Neste steg er eksplisitt, blind

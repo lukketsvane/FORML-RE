@@ -18,7 +18,7 @@ for ein testbar metascience-studie av kumulativitet i designteori.
 Toppsider sorterte etter OpenAlex-relevans har systematiske skeivskapar.
 Inkluderinga er regelbasert og førebels, ikkje fagleg verifisert.
 
-**[Sjå datadashboard med 14 figurar og alle hovudfunn](results/DASHBOARD.md).**
+**[Sjå datadashboard med 18 figurar og alle hovudfunn](results/DASHBOARD.md).**
 
 ## Datakjelde, søk og utval
 
@@ -60,7 +60,13 @@ Python 3.11+. På Windows:
     .venv\Scripts\python datakvalitet.py
     .venv\Scripts\python audit_sample.py --per-theme 25 --excluded 50
     .venv\Scripts\python database.py --archive
+    .venv\Scripts\python siteringslinjer.py
+    .venv\Scripts\python lag_vurderingsverktoy.py
+    .venv\Scripts\python utvalsprotokoll.py
+    .venv\Scripts\python kodingsanalyse.py
+    .venv\Scripts\python motprover.py
     .venv\Scripts\python validate.py
+    .venv\Scripts\python test_datavitskap.py
 
 På Linux/macOS, bytt til .venv/bin/python.
 Samlinga kan haldast oppdatert med nye sider; all import er idempotent på OpenAlex-ID
@@ -83,12 +89,26 @@ Søkje i databasen:
 - abstraktsignal.py — eksplisitte regex-treff om hypotesar, evaluering og replikasjon i samandrag (ikkje dokumenterte metodar)
 - datakvalitet.py — duplikat, tidsskjeve referansar, inklusjonsflagg og dekning
 - validate.py — dynamiske, verifiserte publiseringskontrollar
+- siteringslinjer.py — semantiske siteringspar mot tema-, år- og popularitetsjustert referansemodell
+- lag_vurderingsverktoy.py — lagar lokal nettlesar for dobbelkoding av 200 kandidatpar
+- utvalsprotokoll.py — trekt 600-postars sannsynsutval frå den **automatiske** inkluderingsramma, med vekter
+- kodingsanalyse.py — bereknar berre Kappa og indikatorar etter reell uavhengig manuell koding
+- test_datavitskap.py — kontroll av dataintegritet, metadataarkiv og analyseregresjonar
+- motprover.py — målretta søk etter moglege motdøme til ikkje-kumulativitet; ingen automatiske stadfestingar
 - CODEBOOK.md — uavhengig menneskeleg vurdering av kumulativitet
 - data/nordic_design_research.sqlite.gz — komprimert **offentleg metadata-only**-database; programmet gjenopprettar han automatisk
 - results/RAPPORT.md — generert rapport; sjå figurar, CSV, JSON
 - results/included_publications.csv — førebels tittelinkluderte postar, utan opphavsrettsleg verna samandrag
 - results/candidates_for_manual_review.csv — utelatne frå automatisk analyseseleksjon
 - results/lsa_vectors.npz — latent semantisk tekstrepresentasjon
+- results/SITERINGSLINJER.md — semantisk kontrollerte siteringar og bootstrap
+- results/lineage_review_queue.csv — 200 kandidatsiteringar med tittel/DOI for manuell gransking
+- results/review.html — lokal, nettlesarbasert blindpar-koding, inga nettverksopplasting
+- results/UTVALSPLAN.md — utvalsdesign, 600 postar, 54 strata og inverse utvalsvekter
+- results/probability_sample_600_double_coder.csv — fulltekstkodeark for to uavhengige kodarar
+- results/CODING_PROGRESS.md — faktisk, førebels tom kodingsstatus; ingen oppdikta funn
+- results/MOTPROVER.md — systematisk søk etter kandidatar som kan utfordre hovudhypotesen
+- results/possible_counterexamples_to_non_cumulative_design.csv — 150 kandidatsiteringar, enno ikkje verifiserte
 
 ## Analyser og kva dei faktisk seier
 
@@ -111,6 +131,13 @@ Søkje i databasen:
 9. **Ordsignal i samandrag:** strengtreff for hypotesar, prøving, replikasjon og
    konseptuelle arbeid. Dette er søkjesignal, ikkje fagfellevurdert koding.
 10. **Stabilitet:** kontroll av kor mykje K-means-klassifikasjonane skiftar med ulike frø.
+
+11. **Semantisk siteringskontinuitet:** 3 159 interne siteringar samanlikna med år-,
+    tema- og siteringspopularitetsjusterte alternativ, med eigne resultat utan
+    felles forfattarar og der begge samandrag er tilgjengelege.
+12. **Verifiserbar fulltekstrevisjon:** 200 målretta siteringspar i eit lokalt
+    annotasjonsverktøy, og eit separat stratifisert utval på 600 publikasjonar
+    frå den automatisk inkluderte ramma. Alle vurderingsfelt startar blanke.
 
 **Ingen av analysane kan åleine stadfeste at designforskinga ikkje er kumulativ.**
 Slutningar om replikasjon og kunnskapsvekst krev manuell koding av konkrete,

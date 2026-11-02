@@ -1,0 +1,66 @@
+{
+  "generated_utc": "2026-11-02T17:22:10.615134+00:00",
+  "semantic_definition": "Cosine in 40-dimensional title+abstract LSA; NOT claim content, validation or full text.",
+  "matching_definition": "cited paper same year +/-2, same search topic, similar global citation count; fallback +/-3 same topic or +/-4 year only.",
+  "matched_tier_counts": {
+    "year2_theme_pop": 2939,
+    "year3_theme": 220
+  },
+  "groups": {
+    "all_observed_edges": {
+      "mean_delta": 0.22830816153444822,
+      "cluster_bootstrap_95pct": [
+        0.21905546150327124,
+        0.23858730473163972
+      ],
+      "citing_paper_clusters": 1264,
+      "edges": 3159
+    },
+    "exclude_shared_author": {
+      "mean_delta": 0.19917893373067522,
+      "cluster_bootstrap_95pct": [
+        0.18826678730411417,
+        0.2100106659417643
+      ],
+      "citing_paper_clusters": 989,
+      "edges": 2180
+    },
+    "exclude_shared_author_both_abstracts_nonnegative_year": {
+      "mean_delta": 0.2185618972026948,
+      "cluster_bootstrap_95pct": [
+        0.20718652373104454,
+        0.2297352468240697
+      ],
+      "citing_paper_clusters": 721,
+      "edges": 1475
+    },
+    "same_theme_only": {
+      "mean_delta": 0.23356046676450537,
+      "cluster_bootstrap_95pct": [
+        0.21871890257314547,
+        0.24847713893789655
+      ],
+      "citing_paper_clusters": 577,
+      "edges": 1056
+    },
+    "cross_theme_only": {
+      "mean_delta": 0.16687742226828678,
+      "cluster_bootstrap_95pct": [
+        0.1535126679858992,
+        0.181008835478151
+      ],
+      "citing_paper_clusters": 681,
+      "edges": 1124
+    },
+    "ten_or_more_year_gap": {
+      "mean_delta": 0.20116273655440933,
+      "cluster_bootstrap_95pct": [
+        0.18333190970770422,
+        0.22038395476904626
+      ],
+      "citing_paper_clusters": 365,
+      "edges": 482
+    }
+  },
+  "critical_limit": "This is an exploratory, incomplete citation graph with search-based topic labels and corpus-specific LSA. Similarity != independent confirmation."
+}
