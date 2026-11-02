@@ -1,0 +1,13 @@
+{
+  "included_works": 3729,
+  "distinct_cited_external_or_internal_work_ids": 89009,
+  "reference_mentions": 126356,
+  "reference_filter": "include refs mentioned by >=2 and <=8% of included works",
+  "after_filter_cited_work_ids": 14277,
+  "pairs_with_at_least_3_shared_refs": 16916,
+  "strong_pairs_4_refs_and_jaccard_0_12": 1022,
+  "strong_pair_within_theme_rate": 0.6203522504892368,
+  "strong_pair_shared_author_rate": 0.5557729941291585,
+  "strong_pair_median_year_gap": 2.0,
+  "caveat": "Co-citation overlap is not proof of replication or theory improvement."
+}

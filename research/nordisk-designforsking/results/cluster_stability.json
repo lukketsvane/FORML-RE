@@ -1,0 +1,10 @@
+{
+  "seeds": 8,
+  "k": 9,
+  "median_adjusted_rand_index": 0.5523149125989801,
+  "range_5_to_95pct": [
+    0.3589494280844866,
+    0.8657825125401233
+  ],
+  "caveat": "Algorithm reproducibility is not human topic validation."
+}

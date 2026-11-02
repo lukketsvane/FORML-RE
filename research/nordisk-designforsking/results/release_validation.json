@@ -1,0 +1,13 @@
+{
+  "works": 7300,
+  "included": 3729,
+  "successful_search_pages": 96,
+  "failed_search_pages": 1,
+  "abstracts_republished": 0,
+  "raw_provider_payloads_republished": 0,
+  "title_search_records": 7300,
+  "csv_included_rows": 3729,
+  "archive_bytes": 10494132,
+  "sha256": "e58a71b5e72584e686c7879134ade6eb4fa5f4a767b4627665332ac6c3476efc",
+  "sqlite_integrity": "ok"
+}

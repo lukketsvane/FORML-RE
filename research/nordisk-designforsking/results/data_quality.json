@@ -1,0 +1,18 @@
+{
+  "generated_utc": "2026-11-02T17:13:37.735775+00:00",
+  "sqlite_integrity": "ok",
+  "unique_records": 7300,
+  "provisionally_included": 3729,
+  "auto_not_included": 3571,
+  "openalex_queries": 31,
+  "successful_query_pages": 96,
+  "failed_query_pages": 1,
+  "api_rate_limit_detected": true,
+  "papers_with_abstract": 2922,
+  "missing_abstract_count": 807,
+  "duplicate_DOI_rows": 2,
+  "duplicate_normalized_title_year_rows": 49,
+  "negative_reference_year_links": 15,
+  "manual_scope_flags": 22,
+  "not_quality_labels": true
+}

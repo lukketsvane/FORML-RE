@@ -8,14 +8,17 @@ for ein testbar metascience-studie av kumulativitet i designteori.
 ## Status 2. november 2026
 
 - 31 førehandsspesifiserte OpenAlex-søkjeuttrykk
-- 60 gjennomførte søkjesider (maks 100 treff per side, maks to sider per uttrykk)
-- 4 869 unike kandidatar; 2 889 med nordisk forfattartilknyting og relevansterm i tittelen
-- 1 980 kandidatpostar skal vurderast manuelt, ikkje teljast som feil eller irrelevante utan kontroll
+- 96 gjennomførte søkjesider (inntil fem per uttrykk, høgst 100 treff per side)
+- 7 300 unike kandidatar; 3 729 med nordisk forfattartilknyting og relevansterm i tittelen
+- 3 571 kandidatpostar skal vurderast manuelt, ikkje teljast som feil eller irrelevante utan kontroll
+- Utvidinga vart avbroten av HTTP 429 (API-grense) før alle frasar var gjennomgått til side 5
 - 0 fulltekst-PDF-ar lasta ned av dette systemet
 
 **NB:** Tala er ikkje eit anslag på kor mange nordiske designstudiar som finst.
 Toppsider sorterte etter OpenAlex-relevans har systematiske skeivskapar.
 Inkluderinga er regelbasert og førebels, ikkje fagleg verifisert.
+
+**[Sjå datadashboard med 14 figurar og alle hovudfunn](results/DASHBOARD.md).**
 
 ## Datakjelde, søk og utval
 
@@ -29,8 +32,10 @@ Kjelde: https://openalex.org og https://help.openalex.org/api/
 4. Søk i OpenAlex etter frasar som «design theory», «research through design»,
    «design methods», «participatory design», «design history», «design ethics» mfl.
    Full søkjestrategi står som konstantane QUERIES og FILTER i collect.py.
-5. Maksimalt 200 rangsorterte resultat per uttrykk. Det vert laga ein
-   revisjonssporbar logg med forespurnad, søketreff, side, hentedato og eventuelle feil.
+5. Opp til fem søkjesider à 100 rangsorterte treff per uttrykk vart freista.
+   Etter det første fullførte uttrekket på to sider per uttrykk stoppa utvidinga
+   ved API-grensa. Ein revisjonssporbar logg oppgir søk, treff, faktisk henta
+   sider, hentedato og registrerte feil, inkludert HTTP 429.
 6. Automatisk førehandsinkludering krev relevant designterm i tittelen.
    Dei andre treffkandidatane står i eiga CSV til manuell revisjon.
 7. Deduplisering skjer på OpenAlex-arbeids-ID; DOI-duplikat vert rapportert særskilt.
@@ -47,11 +52,15 @@ Python 3.11+. På Windows:
 
     py -3 -m venv .venv
     .venv\Scripts\python -m pip install -r requirements.txt
-    .venv\Scripts\python collect.py --pages 2
-    .venv\Scripts\python analyse.py --min-records 2001
+    .venv\Scripts\python collect.py --pages 5
+    .venv\Scripts\python analyse.py --min-records 3000
     .venv\Scripts\python nullmodell.py
-    .venv\Scripts\python audit_sample.py
+    .venv\Scripts\python robustheit.py
+    .venv\Scripts\python abstraktsignal.py
+    .venv\Scripts\python datakvalitet.py
+    .venv\Scripts\python audit_sample.py --per-theme 25 --excluded 50
     .venv\Scripts\python database.py --archive
+    .venv\Scripts\python validate.py
 
 På Linux/macOS, bytt til .venv/bin/python.
 Samlinga kan haldast oppdatert med nye sider; all import er idempotent på OpenAlex-ID
@@ -70,6 +79,10 @@ Søkje i databasen:
 - nullmodell.py — referansestratifisert sensitivitetsanalyse av temalikskap i interne siteringar
 - audit_sample.py — reproduserbart, tomt dobbeltkodingsskjema for uavhengig kontroll
 - database.py — gzip-pakking og integritetstest ved gjenoppretting
+- robustheit.py — stratifisert siteringsnullmodell, robustheitssjekkar, bibliografisk kopling og klyngestabilitet
+- abstraktsignal.py — eksplisitte regex-treff om hypotesar, evaluering og replikasjon i samandrag (ikkje dokumenterte metodar)
+- datakvalitet.py — duplikat, tidsskjeve referansar, inklusjonsflagg og dekning
+- validate.py — dynamiske, verifiserte publiseringskontrollar
 - CODEBOOK.md — uavhengig menneskeleg vurdering av kumulativitet
 - data/nordic_design_research.sqlite.gz — komprimert **offentleg metadata-only**-database; programmet gjenopprettar han automatisk
 - results/RAPPORT.md — generert rapport; sjå figurar, CSV, JSON
@@ -91,6 +104,13 @@ Søkje i databasen:
 5. **Jensen–Shannon-divergens:** endring i klyngefordeling mellom tidsbolkar,
    ikkje dokumentert framgang eller avgang for disiplinen.
 6. **Kvalitetskontroll:** manglande samandrag, DOI-duplikat, proveniens, utvalsskeivskap.
+7. **Robustheit:** permutasjon av temamerkelappar innan femårs- og siteringsstrata;
+   oppdelte analyser av utvalde designtidsskrift, samandrag og historiske kohortar.
+8. **Bibliografisk kopling:** publikasjonpar som viser til fleire av dei same kjeldene;
+   ulikt direkte sitering, og ikkje ekvivalent med fagleg prøving.
+9. **Ordsignal i samandrag:** strengtreff for hypotesar, prøving, replikasjon og
+   konseptuelle arbeid. Dette er søkjesignal, ikkje fagfellevurdert koding.
+10. **Stabilitet:** kontroll av kor mykje K-means-klassifikasjonane skiftar med ulike frø.
 
 **Ingen av analysane kan åleine stadfeste at designforskinga ikkje er kumulativ.**
 Slutningar om replikasjon og kunnskapsvekst krev manuell koding av konkrete,

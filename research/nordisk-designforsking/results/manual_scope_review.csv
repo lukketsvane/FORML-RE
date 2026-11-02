@@ -1,0 +1,23 @@
+id,doi,title,year,suspicious_clinical,engineering_design
+W2901695105,https://doi.org/10.1007/s10654-018-0459-8,"The Gothenburg H70 Birth cohort study 2014–16: design, methods and study population",2018,True,False
+W2343446686,https://doi.org/10.1109/mdat.2015.2497331,Estimating the Impact of Methodology on Analog Integrated Circuit Design Time,2015,False,True
+W2889420129,https://doi.org/10.1111/aos.13791,"The Glaucoma Intensive Treatment Study (GITS), a randomized clinical trial: design, methodology and baseline data",2018,True,False
+W4388014252,https://doi.org/10.2196/50463,Development of the Preferred Components for Co-Design in Research Guideline and Checklist: Protocol for a Scoping Review and a Modified Delphi Process,2023,True,False
+W4403087477,https://doi.org/10.2196/59455,Developing a Weight-Neutral Health Intervention in Denmark: Protocol for a Co-Design Process,2024,True,False
+W7122471010,https://doi.org/10.3310/nihropenres.14190.1,Development of a Cystic Fibrosis Weight Management Programme: protocol for a co-design study,2026,True,False
+W7128018878,https://doi.org/10.2196/81996,Kenyan Neonatal Mortality Risk Predictor: Protocol for a User-Centered Design Evaluation,2026,True,False
+W4411953442,https://doi.org/10.2196/66660,Design of a Mobile App and a Clinical Trial Management System for Cognitive Health and Dementia Risk Reduction: User-Centered Design Approach,2025,True,False
+W3096592201,https://doi.org/10.2196/20061,Integrating Key User Characteristics in User-Centered Design of Digital Support Systems for Seniors’ Physical Activity Interventions to Prevent Falls: Protocol for a Usability Study,2020,True,False
+W4251193112,https://doi.org/10.2196/34013,Exploring the Equity Impact of Current Digital Health Design Practices: Protocol for a Scoping Review,2022,True,False
+W3157444679,https://doi.org/10.1136/bmjopen-2020-042726,Evaluating pictorial support in person-centred care for children (PicPecc): a protocol for a crossover design study,2021,True,False
+W4388112754,https://doi.org/10.2196/46927,Internet-Delivered Therapy for Parents With Health Anxiety by Proxy: Protocol for a Single-Case Experimental Design Study,2023,True,False
+W2982120911,https://doi.org/10.2196/14588,Using Mobile Devices to Deliver Lifestyle Interventions Targeting At-Risk High School Students: Protocol for a Participatory Design Study,2019,True,False
+W7221553475,https://doi.org/10.1007/s10055-026-01530-z,Comprehensive analysis of virtual reality-based avatar therapy: study protocol for a multi-center waitlist-controlled pre-post design study,2026,True,False
+W7164004552,https://doi.org/10.2196/90096,Enhancing Mental Health and Psychosocial Support for Adolescents and Young Adults Through the Asenze Impilo Project: Protocol for a Human-Centered Design Study,2026,True,False
+W2565438827,https://doi.org/10.1109/tpel.2016.2639024,New Passive Filter Design Method for Overvoltage Suppression and Bearing Currents Mitigation in a Long Cable Based PWM Inverter-Fed Motor Drive System,2016,False,True
+W3000014120,https://doi.org/10.3390/en13020360,Fast Adaptive Robust Differentiator Based Robust-Adaptive Control of Grid-Tied Inverters with a New L Filter Design Method,2020,False,True
+W2691238064,https://doi.org/10.3390/nu9060632,"PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population Studies in Europe and around the World. Design, Methods, and Baseline Participant Description of an Adult Cohort Enrolled into a Three-Year Randomised Clinical Trial",2017,True,False
+W2024896119,https://doi.org/10.1177/1403494810394907,"SKARP - A population-based cohort study of childhood food-associated symptoms perceived by parents and food allergies diagnosed by physicians: Design, methods and participation",2011,True,False
+W2532705178,https://doi.org/10.1109/tsp.2016.2620960,Mismatched Filter Design and Interference Mitigation for MIMO Radars,2016,False,True
+W2085254275,https://doi.org/10.1049/iet-cta.2013.0308,Mixed L − / L 1 fault detection filter design for fuzzy positive linear systems with time‐varying delays,2014,False,True
+W3046132152,https://doi.org/10.1109/tcsi.2020.3009191,"An N-Path Filter Design Methodology With Harmonic Rejection, Power Reduction, Foldback Elimination, and Spectrum Shaping",2020,False,True
