@@ -1,10 +1,10 @@
 {
-  "utc": "2026-11-02T18:12:25.090370+00:00",
-  "audited_pairs_with_retrieved_pdf": 14,
+  "utc": "2026-11-02T18:25:48.974428+00:00",
+  "audited_pairs_with_retrieved_pdf": 32,
   "validation_tiers": {
-    "bibliographic-entry-only": 9,
-    "bibliography-and-intext-candidate": 4,
-    "not-located": 1
+    "bibliographic-entry-only": 17,
+    "bibliography-and-intext-candidate": 13,
+    "not-located": 2
   },
   "method": "First-author family name plus recorded publication year near each other in body; additionally first six normalized title words or DOI anywhere in PDF",
   "not_verified": "This script does not verify the exact bibliography entry, context, replicability, scientific effect or argument. Positive text matches are candidates only.",

@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-11-02T18:32:49.667883+00:00",
+  "database_work_records": 7300,
+  "candidate_title_author_groups": 59,
+  "candidate_pairs": 79,
+  "crossyear_pairs": 58,
+  "different_doi_pairs": 68,
+  "same_doi_pairs": 0,
+  "both_autoincluded_pairs": 51,
+  "case_example": "Juuti thesis 2005 and journal manifestation 2012",
+  "case_citing_papers_for_either": 2,
+  "case_citing_papers_with_both_ids_as_references": 1,
+  "case_overlapping_citing_ids": [
+    "W2995635751"
+  ],
+  "important_caveat": "Title+author matches can be genuine revised editions, separate chapters, corrections or versions. No automatic merge, deletion, citation discounting or inference of replicability."
+}

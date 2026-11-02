@@ -45,7 +45,7 @@ def main():
     tier=collections.Counter(row["validation_tier"] for row in check)
     totals={
         "created_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
-        "sample_definition":"First 100 pairs from a fixed-seed purposive shortlist of the 200 top semantic candidate citations; available HTTPS OpenAlex links; two-sided OA candidates prioritized.",
+        "sample_definition":"Up to 200 pairs from a fixed-seed purposive shortlist of the 200 top semantic candidate citations; only pairs with valid HTTPS OpenAlex links selected, with two-sided OA metadata prioritized.",
         "sample_pairs":len(rows),
         "readable_pdf_pair_attempts":sum(int(row["pdf_available"]) for row in rows),
         "unique_citing_pdfs_downloaded":unique_pdf,
@@ -114,7 +114,7 @@ def main():
        "- Automatiske treff er ikkje brukt som kodingsfasit for C2–C5 eller L4–L7.",
        "",
        "## Data og personvern",
-       "Dei 14 nedlasta fulltekstdokumenta er lokale, under data/oa_fulltexts_private/",
+       f"Dei {unique_pdf} unike nedlasta fulltekstdokumenta er lokale, under data/oa_fulltexts_private/",
        "på CYGNUS, og vert ikkje pusha til GitHub. Offentlege filer inneheld berre DOI,",
        "OA-lenkjer, hash-verdiar, kontrollstatus og PDF-sidetilvisingar.",
        "",

@@ -1,16 +1,17 @@
 {
-  "date_utc": "2026-11-02T18:05:01.643116+00:00",
+  "date_utc": "2026-11-02T18:24:00.240421+00:00",
   "sampling": "Targeted, non-probability subset of top-200 high-LSA-citation pairs, randomized among valid OA links",
   "seed": 20261102,
   "review_pairs": 200,
   "citing_oa_pairs": 162,
   "both_oa_pairs": 78,
-  "audited_pairs": 100,
-  "retrieved_pdf_count": 14,
+  "audited_pairs": 162,
+  "retrieved_pdf_count": 32,
   "locator_status_counts": {
-    "unavailable": 86,
-    "body-candidate": 9,
-    "not-located-by-author-year-heuristic": 5
+    "unavailable": 130,
+    "body-candidate": 21,
+    "not-located-by-author-year-heuristic": 10,
+    "reference-only-candidate": 1
   },
   "copyright": "PDFs and all extracted text are stored on CYGNUS, outside GitHub, not republished",
   "limits": "Author-year cooccurrence and reference heading patterns do not establish correct citation identity or any epistemic function. Some PDF links yield HTML, require permissions, or differ from the canonical version."

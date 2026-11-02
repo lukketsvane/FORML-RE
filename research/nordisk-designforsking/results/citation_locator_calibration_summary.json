@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-11-02T18:32:47.854806+00:00",
+  "verified_positive_contexts_from_purposive_sample": 15,
+  "positive_contexts_also_detected_by_strict_auto_heuristic": 12,
+  "observed_detection_fraction_among_positive_contexts": 0.8,
+  "unverified_or_ambiguous_cases_not_treated_as_negatives": 2,
+  "validation_scope": "Manual sighting of cited author/context in citing PDF, not testing that source's hypothesis or validating cited fulltext.",
+  "important_limit": "15 preselected positive contexts from a purposive sample are not a population sensitivity or specificity estimate; the rule can have both false negatives and false positives."
+}

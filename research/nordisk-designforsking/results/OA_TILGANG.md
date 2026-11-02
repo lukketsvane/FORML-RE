@@ -1,20 +1,20 @@
 # PDF-tilgang og tekstfunn — kontroll av OpenAlex-arbeidslista
 
-Generert 2026-11-02T18:12:25.747545+00:00. Dette er eit **målretta utval**, ikkje tilfeldig utval av alle nordiske forskingsartiklar.
+Generert 2026-11-02T18:29:42.323118+00:00. Dette er eit **målretta utval**, ikkje tilfeldig utval av alle nordiske forskingsartiklar.
 
-- 100 siteringspar undersøkte.
-- 14 par hadde ei lesbar PDF på den registrerte HTTPS-lenkja.
-- 13 unike siterande PDF-dokument vart henta; nokre dokument opptrer i fleire par.
-- 86 par gav tilkomstfeil, HTML, for store filer eller andre avvik.
+- 162 siteringspar undersøkte.
+- 32 par hadde ei lesbar PDF på den registrerte HTTPS-lenkja.
+- 26 unike siterande PDF-dokument vart henta; nokre dokument opptrer i fleire par.
+- 130 par gav tilkomstfeil, HTML, for store filer eller andre avvik.
 
 ## Tilkomsttilstand
 
 | Tilstand | Par |
 |---|---:|
-| HTTP 403 | 64 |
-| HTML / non-PDF | 18 |
-| readable PDF | 14 |
-| other | 2 |
+| HTTP 403 | 92 |
+| HTML / non-PDF | 33 |
+| readable PDF | 32 |
+| other | 3 |
 | over 14 MB | 1 |
 | blocked redirect | 1 |
 
@@ -22,9 +22,9 @@ Generert 2026-11-02T18:12:25.747545+00:00. Dette er eit **målretta utval**, ikk
 
 ## Finne ei konkret referanse
 
-Automatisk andrepass fann 4 par med både bibliografisk og in-text *kandidat*,
-9 med berre bibliografisk kandidat og
-1 utan kandidat.
+Automatisk andrepass fann 13 par med både bibliografisk og in-text *kandidat*,
+17 med berre bibliografisk kandidat og
+2 utan kandidat.
 
 Verken namn–år-nærleik eller registrert DOI/tittel kan åleine vise **korleis ein
 sitering vert brukt**. Dette krev kontroll av referansen, sjølve avsnittet og
@@ -44,7 +44,7 @@ replikasjon, og meir enn éin kategori kan vere relevant.
 - Automatiske treff er ikkje brukt som kodingsfasit for C2–C5 eller L4–L7.
 
 ## Data og personvern
-Dei 14 nedlasta fulltekstdokumenta er lokale, under data/oa_fulltexts_private/
+Dei 26 unike nedlasta fulltekstdokumenta er lokale, under data/oa_fulltexts_private/
 på CYGNUS, og vert ikkje pusha til GitHub. Offentlege filer inneheld berre DOI,
 OA-lenkjer, hash-verdiar, kontrollstatus og PDF-sidetilvisingar.
 
