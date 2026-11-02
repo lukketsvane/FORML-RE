@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-02",
+  "frame": "3729 title-screened publications from nonexhaustive ranked OpenAlex searches",
+  "middle_papers": 1597,
+  "observed_two_step_paths": 712,
+  "middle_papers_with_nonzero_path": 99,
+  "top1_paths": 146,
+  "top5_paths": 286,
+  "top10_paths": 404,
+  "top5_pct": 40.17,
+  "top10_pct": 56.74,
+  "permutation_tests": {
+    "within_middle_year": {
+      "observed": 712,
+      "null_mean": 234.5835,
+      "null_q025": 134,
+      "null_median": 226,
+      "null_q975": 378,
+      "p_greater_equal": 0.0004997501249375312
+    },
+    "within_middle_year_and_search_theme": {
+      "observed": 712,
+      "null_mean": 303.219,
+      "null_q025": 178,
+      "null_median": 292,
+      "null_q975": 474,
+      "p_greater_equal": 0.0004997501249375312
+    },
+    "within_middle_fiveyear_and_search_theme": {
+      "observed": 712,
+      "null_mean": 292.0735,
+      "null_q025": 169,
+      "null_median": 276,
+      "null_q975": 500,
+      "p_greater_equal": 0.0004997501249375312
+    },
+    "remove_five_largest_middle_hubs_then_year_theme": {
+      "observed": 426,
+      "null_mean": 248.232,
+      "null_q025": 153,
+      "null_median": 243,
+      "null_q975": 360,
+      "p_greater_equal": 0.0024987506246876563
+    },
+    "remove_ten_largest_middle_hubs_then_year_theme": {
+      "observed": 308,
+      "null_mean": 206.5865,
+      "null_q025": 134,
+      "null_median": 203,
+      "null_q975": 303,
+      "p_greater_equal": 0.022488755622188907
+    }
+  },
+  "seed": 20261102,
+  "replicates": 2000,
+  "caveat": "Exploratory network diagnostics conditional on a biased, incomplete citation graph. Strong significance in this graph does not quantify epistemic accumulation, re-use of hypotheses, or replicability."
+}
