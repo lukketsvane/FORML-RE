@@ -1,0 +1,128 @@
+[
+  {
+    "cluster": 0,
+    "count": 731,
+    "descriptive_top_terms": [
+      "research",
+      "practice",
+      "designers",
+      "paper",
+      "new",
+      "article",
+      "process",
+      "practices"
+    ]
+  },
+  {
+    "cluster": 1,
+    "count": 299,
+    "descriptive_top_terms": [
+      "health",
+      "study",
+      "patients",
+      "care",
+      "intervention",
+      "results",
+      "design study",
+      "participants"
+    ]
+  },
+  {
+    "cluster": 2,
+    "count": 242,
+    "descriptive_top_terms": [
+      "methodology",
+      "design methodology",
+      "based",
+      "method",
+      "performance",
+      "high",
+      "model",
+      "optimization"
+    ]
+  },
+  {
+    "cluster": 3,
+    "count": 183,
+    "descriptive_top_terms": [
+      "service",
+      "service design",
+      "services",
+      "customer",
+      "innovation",
+      "approach",
+      "research",
+      "study"
+    ]
+  },
+  {
+    "cluster": 4,
+    "count": 278,
+    "descriptive_top_terms": [
+      "education",
+      "learning",
+      "students",
+      "design education",
+      "teaching",
+      "educational",
+      "research",
+      "process"
+    ]
+  },
+  {
+    "cluster": 5,
+    "count": 124,
+    "descriptive_top_terms": [
+      "interaction design",
+      "interaction",
+      "hci",
+      "human",
+      "user",
+      "designing",
+      "computer",
+      "work"
+    ]
+  },
+  {
+    "cluster": 6,
+    "count": 195,
+    "descriptive_top_terms": [
+      "participatory design",
+      "participatory",
+      "pd",
+      "participation",
+      "research",
+      "design pd",
+      "process",
+      "information"
+    ]
+  },
+  {
+    "cluster": 7,
+    "count": 659,
+    "descriptive_top_terms": [
+      "product",
+      "process",
+      "sustainable",
+      "systems",
+      "product design",
+      "research",
+      "engineering",
+      "industrial"
+    ]
+  },
+  {
+    "cluster": 8,
+    "count": 178,
+    "descriptive_top_terms": [
+      "design thinking",
+      "thinking",
+      "innovation",
+      "dt",
+      "education",
+      "learning",
+      "approach",
+      "research"
+    ]
+  }
+]
