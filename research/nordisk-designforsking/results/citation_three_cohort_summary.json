@@ -1,0 +1,26 @@
+{
+  "source": "published FORML-RE sample at 2026-11-02",
+  "works": 3729,
+  "early_2000_2009": 375,
+  "mid_2010_2019": 1597,
+  "late_2020_2026": 1757,
+  "reference_edges": 3159,
+  "direct_late_to_early": 157,
+  "two_step_late_mid_early_paths": 712,
+  "unique_late_papers_on_paths": 321,
+  "unique_mid_papers_on_paths": 99,
+  "unique_early_papers_on_paths": 63,
+  "paths_one_search_theme": 197,
+  "permutation_test": {
+    "null_hypothesis": "Permute mid-period publications' counts of references to 2000-09 publications within the SAME publication year; keep each middle paper's count of citations received from 2020-26 fixed",
+    "seed": 20261102,
+    "repetitions": 2000,
+    "observed": 712,
+    "mean": 229.6105,
+    "q025": 133,
+    "median": 221,
+    "q975": 377,
+    "p_greater_or_equal": 0.0004997501249375312
+  },
+  "limit": "Every estimate is conditional on a relevance-ranked incomplete OpenAlex search graph; two-hop chains alone do not demonstrate empirical tests or cumulative theories."
+}
