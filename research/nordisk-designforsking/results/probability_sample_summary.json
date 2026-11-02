@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-11-02T17:25:18.195654+00:00",
+  "selection_seed": 20261102,
+  "target": 600,
+  "automatic_title_screened_frame": 3729,
+  "strata": 54,
+  "min_inclusion_probability": 0.13033175355450238,
+  "max_inclusion_probability": 1.0,
+  "max_design_weight": 7.672727272727273,
+  "min_design_weight": 1.0,
+  "ideal_SRS_worst_case_MOE_fraction_without_design_effect": 0.040008332465458575,
+  "kish_effective_sample_size_due_to_weight_dispersion": 566.6327439274046,
+  "weight_dispersion_approx_design_effect": 1.058886918255593,
+  "coding_complete": 0,
+  "population_covered": "The retrieved title-screened OpenAlex records ONLY; not Nordic design science",
+  "purpose": "Manual fulltext validation of claim and replication indicators with two blinded coders"
+}
