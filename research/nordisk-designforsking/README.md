@@ -161,3 +161,19 @@ Dei publiserte LSA-modellane og resultata er avleidde frå den lokale, rikare da
 full nyskaping av tekstanalysen krev at samandraga vert henta på nytt med gjeldande
 rettar og API-tilgang. Ikkje redistribuer PDF-fulltekst utan rettar.
 Kjeldeidentifikatorar og opphavleg referanse skal bevarast.
+
+## Tidsbruer og eksisterande metascience (kjeldekritisk utviding)
+
+Ei ny kontrollrunde kartlegg **712 indirekte siteringsvegar** frå 2020–26 via
+2010–19 til 2000–09. Fem mellomarbeid står for 40,2 % av vegane; det største
+er ei handbok, ikkje eit sjølvstendig empirisk replikeringsforsøk.
+Sjølv etter år-, tema- og knutepunktkontrollar er dette **bibliografisk
+kontinuitet**, ikkje eit mål på prøving eller teoretisk kumulativitet.
+
+- [Siteringsbruer og permutasjonssensitivitet](results/SITERINGSBRUER.md)
+- [Rå-ID-ar for 712 kjeder](results/citation_three_cohort_paths.csv)
+- [Knutepunkta og graden deira](results/citation_bridge_hubs.csv)
+- [Reproduserbar standardbibliotek-Python](citation_three_cohort.py)
+- [Kjeldekritisk pilot i utvalde fulltekstar](results/KJELDEKRITISK_PILOT.md)
+- [Eksterne systematiske oversyn og replikasjonstaksonomiar](results/EKSTERN_METAVITSKAP.md)
+- [Kontroll av korrelasjonar rapporterte ved replikasjon](replication_effect_checks.py)
