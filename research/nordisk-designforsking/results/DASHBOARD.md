@@ -140,3 +140,22 @@ med eit tilstrekkeleg validert mål**. Neste steg er eksplisitt, blind
 fulltekstkoding av prøvbare påstandar, korleis dei vert testet i seinare
 arbeid og eventuelle negative resultat. Ei streng hypotese må kunne
 verte tilbakevist.
+
+## 9. Tverrtiårige referanselinjer og kjeldekritisk kalibrering
+
+I det avgrensa siteringsnettverket har me **712** vegar der eit arbeid
+publisert 2020–26 siterer eit arbeid frå 2010–19 som igjen siterer eit
+arbeid frå 2000–09. Berre **99** mellomarbeid ber slike vegar; dei fem
+største står for **40,2 %**. Eitt dominerande knutepunkt er ei
+*handbok*, ikkje ein rapportert replikeringsstudie.
+
+Med omstokking av eldre referansetilvisingar innan **eksakt mellomår og
+operativ temagruppe** er nullmedianen **292** vegar, mot observerte **712**.
+Etter eksklusjon av ti største mellomarbeid er tala **203** mot **308**.
+Dette er berre ein *utforskande* strukturell nullmodell av eit skeivt,
+ufullstendig datasett. Resultatet seier ikkje noko åleine om eksistensen
+eller omfanget av kumulativ, prøvbar kunnskap.
+
+- [Full permutasjonsanalyse og konsentrasjonssjekk](SITERINGSBRUER.md)
+- [Kjeldekritiske døme på bakgrunn, metodebruk og empirisk testing](KJELDEKRITISK_PILOT.md)
+- [Relevant eksisterande metascience om design og replikasjon](EKSTERN_METAVITSKAP.md)
