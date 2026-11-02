@@ -1,0 +1,59 @@
+{
+  "date_utc": "2026-11-02T18:03:37.536463+00:00",
+  "sample": "3729 auto-title-screened works with 3159 observed within-sample citation edges",
+  "baseline_policy": "OpenAlex publication_year; source record and years preserved",
+  "scenarios": {
+    "openalex_year_baseline": {
+      "two_step_paths": 712,
+      "late_to_early_direct_edges": 157,
+      "future_dated_references": 15,
+      "paths_middle_nodes": 99,
+      "paths_early_nodes": 63,
+      "paths_late_nodes": 321
+    },
+    "journal_year_W1877690414": {
+      "two_step_paths": 712,
+      "late_to_early_direct_edges": 156,
+      "future_dated_references": 15,
+      "paths_middle_nodes": 99,
+      "paths_early_nodes": 63,
+      "paths_late_nodes": 321
+    },
+    "journal_year_W4405439335": {
+      "two_step_paths": 712,
+      "late_to_early_direct_edges": 157,
+      "future_dated_references": 15,
+      "paths_middle_nodes": 99,
+      "paths_early_nodes": 63,
+      "paths_late_nodes": 321
+    },
+    "both_journal_volume_years": {
+      "two_step_paths": 712,
+      "late_to_early_direct_edges": 156,
+      "future_dated_references": 15,
+      "paths_middle_nodes": 99,
+      "paths_early_nodes": 63,
+      "paths_late_nodes": 321
+    }
+  },
+  "curated_overrides": [
+    {
+      "work_id": "W1877690414",
+      "openalex_year": "2023",
+      "alternate_year": "2015",
+      "year_basis": "journal_volume_year",
+      "source_url": "https://files.eric.ed.gov/fulltext/EJ1119540.pdf",
+      "interpretation": "Journal volume 20(1) is dated 2015; OpenAlex work lists 2023 (likely repository migration)"
+    },
+    {
+      "work_id": "W4405439335",
+      "openalex_year": "2024",
+      "alternate_year": "2025",
+      "year_basis": "journal_volume_year",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S1871187124002803",
+      "interpretation": "Online availability 2024 and journal issue June 2025; both may be defensible depending on policy"
+    }
+  ],
+  "policy_warning": "Journal volume year, online-first year and institutional reporting year differ. Neither should be substituted without a declared analysis policy.",
+  "interpretation_warning": "Network year changes do not measure retractions, replicability or substantive theoretical continuity."
+}
