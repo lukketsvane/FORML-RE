@@ -8,7 +8,7 @@ PDFs and extracted text stay in local gitignored caches. Public exports
 contain bibliographic IDs and page numbers, never fulltext reproduction.
 """
 from __future__ import annotations
-import argparse,csv,datetime as dt,hashlib,json,random,re,sqlite3,time,urllib.parse
+import argparse,csv,datetime as dt,hashlib,ipaddress,json,random,re,sqlite3,time,urllib.parse
 from collections import Counter
 from pathlib import Path
 import requests
@@ -32,8 +32,18 @@ def validate_https(url):
     if o.scheme!="https" or not o.hostname:return False
     if o.username or o.password:return False
     host=o.hostname.lower()
-    if host in URL_DENY or host.endswith(".local") or host.endswith(".internal"):return False
-    if host.startswith("10.") or host.startswith("192.168.") or host.startswith("172.16."):return False
+    if host in URL_DENY or host.endswith((".local",".internal",".localhost")):return False
+    try:
+        # Reject all literal IP addresses, including IPv6 and link-local / reserved.
+        ipaddress.ip_address(host)
+        return False
+    except ValueError:
+        pass
+    try:
+        if o.port not in (None,443):return False
+    except ValueError:
+        return False
+    if "." not in host or not re.fullmatch(r"[a-z0-9.-]+",host):return False
     return True
 
 def extract_paper_info(conn,work_id):
@@ -57,11 +67,19 @@ def retrieve_pdf(session,work,url,bytes_limit=14_000_000):
     if not validate_https(url):
         return None,None,"invalid or non-HTTPS source"
     try:
-        res=session.get(url,timeout=(8,22),headers={"Accept":"application/pdf,*/*;q=0.6"},
-             stream=True,allow_redirects=True)
-        if not validate_https(res.url):
+        for _ in range(5):
+            if not validate_https(url):
+                return None,None,"redirect target denied"
+            res=session.get(url,timeout=(8,22),headers={"Accept":"application/pdf,*/*;q=0.6"},
+                 stream=True,allow_redirects=False)
+            if res.status_code not in (301,302,303,307,308):break
+            redirect=urllib.parse.urljoin(url,res.headers.get("Location",""))
             res.close()
-            return None,None,"redirect target denied"
+            if not validate_https(redirect):
+                return None,None,"redirect target denied"
+            url=redirect
+        else:
+            return None,None,"redirect limit exceeded"
         status=res.status_code
         res.raise_for_status()
         chunks=[];count=0

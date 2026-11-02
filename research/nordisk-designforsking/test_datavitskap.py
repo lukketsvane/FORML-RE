@@ -134,21 +134,21 @@ class Reproducibility(unittest.TestCase):
     def test_oa_retrievability_audit(self):
         import csv
         summary=json.loads((O/"oa_retrievability_quality.json").read_text(encoding="utf-8"))
-        self.assertEqual(summary["sample_pairs"],100)
-        self.assertEqual(summary["readable_pdf_pair_attempts"],14)
-        self.assertEqual(summary["unique_citing_pdfs_downloaded"],13)
-        self.assertEqual(sum(summary["reasons"].values()),100)
+        self.assertEqual(summary["sample_pairs"],162)
+        self.assertEqual(summary["readable_pdf_pair_attempts"],32)
+        self.assertEqual(summary["unique_citing_pdfs_downloaded"],26)
+        self.assertEqual(sum(summary["reasons"].values()),162)
         with (O/"oa_citation_locator_audit.csv").open(encoding="utf-8",newline="") as stream:
             rows=list(csv.DictReader(stream))
-        self.assertEqual(len(rows),100)
-        self.assertEqual(sum(r["pdf_available"]=="1" for r in rows),14)
+        self.assertEqual(len(rows),162)
+        self.assertEqual(sum(r["pdf_available"]=="1" for r in rows),32)
 
     def test_oa_reference_crosscheck_is_not_labelled_reproduction(self):
         import csv
         with (O/"oa_reference_crosscheck.csv").open(encoding="utf-8",newline="") as stream:
             rows=list(csv.DictReader(stream))
-        self.assertEqual(len(rows),14)
-        self.assertEqual(sum(r["validation_tier"]=="bibliography-and-intext-candidate" for r in rows),4)
+        self.assertEqual(len(rows),32)
+        self.assertEqual(sum(r["validation_tier"]=="bibliography-and-intext-candidate" for r in rows),13)
         self.assertTrue(all("replication" not in r["validation_tier"] for r in rows))
 
     def test_year_sensitivity_preserves_three_period_count(self):
@@ -167,15 +167,62 @@ class Reproducibility(unittest.TestCase):
         self.assertTrue(all(r["provisional_L_code"] in {"L0","L1","LNA"} for r in rows))
         self.assertIn("data/oa_fulltexts_private/",(R/".gitignore").read_text(encoding="utf-8"))
 
+    def test_manifestation_candidates_not_automatically_deduplicated(self):
+        manifest=json.loads((O/"manifestation_audit.json").read_text(encoding="utf-8"))
+        pairs=pd.read_csv(O/"candidate_same_title_same_author_manifestations.csv")
+        self.assertEqual(manifest["database_work_records"],self.summary["unique_candidates"])
+        self.assertEqual(manifest["candidate_title_author_groups"],59)
+        self.assertEqual(manifest["candidate_pairs"],79)
+        self.assertEqual(manifest["crossyear_pairs"],58)
+        self.assertEqual(len(pairs),79)
+        self.assertTrue(pairs.manual_same_underlying_study.isna().all())
+        self.assertEqual(manifest["case_citing_papers_with_both_ids_as_references"],1)
+
+    def test_oa_locator_calibration_nonrepresentative(self):
+        c=json.loads((O/"citation_locator_calibration_summary.json").read_text(encoding="utf-8"))
+        self.assertEqual(c["verified_positive_contexts_from_purposive_sample"],15)
+        self.assertEqual(c["positive_contexts_also_detected_by_strict_auto_heuristic"],12)
+        self.assertEqual(c["unverified_or_ambiguous_cases_not_treated_as_negatives"],2)
+        frame=pd.read_csv(O/"citation_locator_positive_calibration.csv")
+        self.assertEqual(len(frame),17)
+        self.assertTrue(frame.not_an_epistemic_quality_label.all())
+
+    def test_second_manual_context_pilot_is_not_blind(self):
+        r=pd.read_csv(O/"oa_manual_pilot_round2.csv")
+        self.assertEqual(len(r),10)
+        self.assertTrue((r.coder_status=="single_reader_context_pilot").all())
+        self.assertEqual(int((r.provisional_L_code=="L3").sum()),2)
+        self.assertTrue(set(r.provisional_L_code).issubset({"L0","L1","L3","LNA"}))
+
+    def test_open_access_url_safety(self):
+        from oa_fulltext_audit import validate_https
+        self.assertTrue(validate_https("https://doi.org/10.1017/dsj.2025.10027"))
+        self.assertTrue(validate_https("https://researchportal.helsinki.fi/publications/test"))
+        for url in ("http://example.com/a","https://localhost/a","https://127.0.0.1/a",
+                    "https://172.28.1.3/file","https://169.254.169.254/latest/meta-data/",
+                    "https://[::1]/a","https://example.com:8080/","https://a.local/file",
+                    "https://u:p@example.org/s"):
+            with self.subTest(url=url):
+                self.assertFalse(validate_https(url))
+
+    def test_external_meta_benchmarks_not_pooled(self):
+        d=json.loads((O/"external_methodological_benchmarks.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(d["sources"]),8)
+        self.assertEqual(sum(x["found_in_nordic_openalex_candidate_corpus"] is True for x in d["sources"]),1)
+        self.assertEqual([x["included_n"] for x in d["sources"] if x["id"]=="alaie2025"],[70])
+        self.assertEqual([x["included_n"] for x in d["sources"] if x["id"]=="bonnin2026"],[31])
+        self.assertIn("never add",d["pooling_forbidden"])
+
     def test_research_reports(self):
         expected=["RAPPORT.md","AVANSERT_ANALYSE.md","DASHBOARD.md",
              "SITERINGSLINJER.md","UTVALSPLAN.md","DATAKVALITET.md",
-             "OA_TILGANG.md","OA_MANUELL_PILOT.md","AARSKJELDEKRITIKK.md"]
+             "OA_TILGANG.md","OA_MANUELL_PILOT.md","AARSKJELDEKRITIKK.md",
+             "OA_MANUELL_PILOT_2.md","LOKALISERING_VALIDERING.md","MANIFESTASJONAR.md","KOMPARATORAR_2026.md"]
         for name in expected:
             with self.subTest(name=name):
                 self.assertTrue((O/name).exists(),name)
                 self.assertGreater((O/name).stat().st_size,600)
-        for j in range(1,20):
+        for j in range(1,22):
             files=list((O/"figures").glob(f"{j:02d}-*.png"))
             self.assertEqual(len(files),1,f"Missing or duplicated plot {j}")
             self.assertGreater(files[0].stat().st_size,3000)

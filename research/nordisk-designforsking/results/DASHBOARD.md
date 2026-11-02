@@ -186,7 +186,8 @@ tverrtiårige siteringskjedene uendra**, men flyttar éi direkte
 sitering mellom tiårskategoriar. Ingen råmetadata er overskrivne.
 
 - [Tilgang, feilklassar og publiseringsgrenser](OA_TILGANG.md)
-- [Førebels manuell gransking av sju konkret siteringspar](OA_MANUELL_PILOT.md)
+- [Førebels manuell gransking av sju konkrete siteringspar](OA_MANUELL_PILOT.md)
+- [Ti nye siteringspar, inklusive metodisk vidareutvikling](OA_MANUELL_PILOT_2.md)
 - [Årssensitivitet med dokumenterte alternative datogrunnlag](AARSKJELDEKRITIKK.md)
 - [Kandidat-ID-ar og PDF-sidetilvisingar](oa_reference_crosscheck.csv)
 
@@ -194,3 +195,44 @@ sitering mellom tiårskategoriar. Ingen råmetadata er overskrivne.
 men ingen av dei kan erstatte prøving av konkrete påstandar mellom
 to fulltekstar. Ei OA-lenkje er heller ikkje tilstrekkeleg dokumentasjon
 på at fulltekst var tilgjengeleg for analyse.
+
+## 11. Validitet til sjølve datavitskapen
+
+![Siteringslokaliseringskontroll](figures/20-lokaliseringskalibrering.png)
+
+Me lokaliserte 15 siteringskontekstar gjennom direkte lesing av kjeldedokument.
+Den strengare søkjeregelen fann 12 av dei (80 %). Det er ikkje eit
+populasjonsestimat, men ein vesentleg demonstrasjon av at automatisk
+namn–år-søk har falske negative. Tabellar, linebrot og omgrepsoverføring
+gjev særlege tolkingstrøbbel.
+
+![Moglege fleirregistreringar over tid](figures/21-manifestasjonar-aarsskilje.png)
+
+Eit søk på normalisert tittel og forfattar-ID i dei 7300 OpenAlex-postane
+gav **59** kandidatsamlingar og **79** ulike kandidatpar. **58** par
+har ulike årstal. Ingen er automatisk slått saman. Eitt dokumentert
+døme er Juuti sitt verk om fysikkundervisning, ført både som
+2005-avhandling og seinare tidsskriftregistrering.
+
+- [Kalibrering av sitatlokalisering](LOKALISERING_VALIDERING.md)
+- [Kandidatregister for fleirregistreringar](MANIFESTASJONAR.md)
+- [Fagleg gjennomlesing, andre pilotrunde](OA_MANUELL_PILOT_2.md)
+
+## 12. Samanlikningsgrunnlag og vitskapsteori
+
+Åtte kjeldekontrollerte metodologiske arbeid er samanstilte i ei eiga
+oversikt. Nyare systematiske gjennomgangar omfattar mellom anna
+**70 arkitektoniske forskingsstudiar** i Alaie mfl. (2025) og **31**
+publikasjonar om evidensbasert design i Bonnin (2026).
+Cash mfl. (2023) undersøkte **18 metodeartiklar** frå seks tidsskrift
+og problematiserte dokumentasjonen av ei full evidenskjede.
+Desse tala viser ulike *utval med ulike metodar*, ikkje same prevalensmål.
+
+- [Eksterne faglege komparatorar](KOMPARATORAR_2026.md)
+- [Metadata og separat register](external_methodological_benchmarks.json)
+- [Utvida kodebok for konseptstudium, metodar og replikeringsforsøk](../CODEBOOK.md)
+
+**Avgrensa konklusjon:** Bibliografisk kontinuitet, omgrepssamanheng
+og empirisk vitskap er ikkje det same. Hypotesen om svak kumulativitet
+kan ikkje avgjerast før påstandar er særskilt lesne, klassifiserte og
+prøvde av uavhengige kodarar.

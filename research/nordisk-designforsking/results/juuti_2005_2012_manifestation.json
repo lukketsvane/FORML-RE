@@ -1,0 +1,32 @@
+{
+  "work_A": {
+    "id": "W1595005902",
+    "doi": "https://doi.org/10.5617/nordina.456",
+    "title": "Towards Primary School Physics Teaching and Learning: Design Research Approach",
+    "year": 2012,
+    "kind": "article",
+    "source": "Nordic Studies in Science Education",
+    "author_id": "A5039012524",
+    "first_author": "Kalle Juuti",
+    "in_scope": 1,
+    "title_key": "towards primary school physics teaching and learning design research approach"
+  },
+  "work_B": {
+    "id": "W2971882061",
+    "doi": "",
+    "title": "Towards primary school physics teaching and learning: design research approach",
+    "year": 2005,
+    "kind": "article",
+    "source": "DOAJ (DOAJ: Directory of Open Access Journals)",
+    "author_id": "A5039012524",
+    "first_author": "Kalle Juuti",
+    "in_scope": 1,
+    "title_key": "towards primary school physics teaching and learning design research approach"
+  },
+  "sources": [
+    "https://researchportal.helsinki.fi/fi/publications/towards-primary-school-physics-teaching-and-learning-design-resea-2/",
+    "https://doi.org/10.5617/nordina.456",
+    "https://files.eric.ed.gov/fulltext/ED489993.pdf"
+  ],
+  "interpretation": "2005 University of Helsinki doctoral thesis, subsequently represented in a 2012 journal record under the same title; journal record is not independent evidence of a replicated experiment. This is a manual bibliographic caution, not a globally validated equivalence rule."
+}

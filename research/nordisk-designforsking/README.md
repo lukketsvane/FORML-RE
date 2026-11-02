@@ -12,13 +12,13 @@ for ein testbar metascience-studie av kumulativitet i designteori.
 - 7 300 unike kandidatar; 3 729 med nordisk forfattartilknyting og relevansterm i tittelen
 - 3 571 kandidatpostar skal vurderast manuelt, ikkje teljast som feil eller irrelevante utan kontroll
 - Utvidinga vart avbroten av HTTP 429 (API-grense) før alle frasar var gjennomgått til side 5
-- Hovudkorpuset er berre OpenAlex-metadata og samandrag; eit seinare, avgrensa OA-kontrollutval henta 13 unike siterande PDF-dokument lokalt på CYGNUS (ikkje publiserte i repoet).
+- Hovudkorpuset er berre OpenAlex-metadata og samandrag; eit seinare, avgrensa OA-kontrollutval henta **26** unike siterande PDF-dokument lokalt på CYGNUS (ikkje publiserte i repoet).
 
 **NB:** Tala er ikkje eit anslag på kor mange nordiske designstudiar som finst.
 Toppsider sorterte etter OpenAlex-relevans har systematiske skeivskapar.
 Inkluderinga er regelbasert og førebels, ikkje fagleg verifisert.
 
-**[Sjå datadashboard med 19 figurar og alle hovudfunn](results/DASHBOARD.md).**
+**[Sjå datadashboard med 21 figurar og alle hovudfunn](results/DASHBOARD.md).**
 
 ## Datakjelde, søk og utval
 
@@ -74,6 +74,9 @@ PDF- og siteringsaudit (avgrensa og berre frå legitime opne lenkjer):
     .venv\Scripts\python oa_reference_crosscheck.py
     .venv\Scripts\python oa_audit_report.py
     .venv\Scripts\python year_basis_sensitivity.py
+    .venv\Scripts\python locator_calibration.py
+    .venv\Scripts\python manifestasjonskontroll.py
+    .venv\Scripts\python metavitskap_komparatorar.py
 
 OBS: Last aldri rå-PDF-ar, html-fulltekstar eller tekstutdrag inn i GitHub.
 
@@ -107,6 +110,9 @@ Søkje i databasen:
 - oa_reference_crosscheck.py — meir konservativt forfattarnamn–år-kryssjekk og referansetittel/DOI, utan automatisk kodevurdering
 - oa_audit_report.py — analysar av PDF-tilgangsskeivleik og figur 19
 - year_basis_sensitivity.py — alternative publikasjonsår med opphavleg metadata uendra
+- locator_calibration.py — 15 særskilt lesekontrollerte positive tekststader mot heuristikken, ingen automatisk evidenskode
+- manifestasjonskontroll.py — moglege fleire registreringar av same dokument, utan automatisk samanslåing
+- metavitskap_komparatorar.py — åtte kjeldekontrollerte metodologiske samanlikningsstudiar, ikkje blanda med nordisk korpus
 - motprover.py — målretta søk etter moglege motdøme til ikkje-kumulativitet; ingen automatiske stadfestingar
 - CODEBOOK.md — uavhengig menneskeleg vurdering av kumulativitet
 - data/nordic_design_research.sqlite.gz — komprimert **offentleg metadata-only**-database; programmet gjenopprettar han automatisk
@@ -120,8 +126,12 @@ Søkje i databasen:
 - results/UTVALSPLAN.md — utvalsdesign, 600 postar, 54 strata og inverse utvalsvekter
 - results/probability_sample_600_double_coder.csv — fulltekstkodeark for to uavhengige kodarar
 - results/CODING_PROGRESS.md — faktisk, førebels tom kodingsstatus; ingen oppdikta funn
-- results/OA_TILGANG.md — audit av 100 PDF-lenker; 14 treff på parnivå, 13 unike dokument
+- results/OA_TILGANG.md — audit av 162 OA-lenkjer; 32 treff på parnivå, 26 unike PDF-dokument
 - results/OA_MANUELL_PILOT.md — sju førebelse, einskodar-lesingar av konkrete siteringspar
+- results/OA_MANUELL_PILOT_2.md — ti nye førebelse lesingar, inklusive eit 2023-oversyn med 57 inkluderte arbeid
+- results/LOKALISERING_VALIDERING.md — 15 lesekontrollerte positive tekststadtreff, 12 funne automatisk
+- results/MANIFESTASJONAR.md — 59 same-tittel+forfattar-grupper, manuell revisjon nødvendig
+- results/KOMPARATORAR_2026.md — åtte eksterne metodologiske kjelder; ikkje slå saman utvalstal
 - results/AARSKJELDEKRITIKK.md — sensitivitetskontroll av journalvolumår mot OpenAlex-år
 - results/MOTPROVER.md — systematisk søk etter kandidatar som kan utfordre hovudhypotesen
 - results/possible_counterexamples_to_non_cumulative_design.csv — 150 kandidatsiteringar, enno ikkje verifiserte
