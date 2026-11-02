@@ -131,14 +131,51 @@ class Reproducibility(unittest.TestCase):
             chk=subprocess.run([node,"--check",str(target)],capture_output=True,text=True)
             self.assertEqual(chk.returncode,0,chk.stderr)
 
+    def test_oa_retrievability_audit(self):
+        import csv
+        summary=json.loads((O/"oa_retrievability_quality.json").read_text(encoding="utf-8"))
+        self.assertEqual(summary["sample_pairs"],100)
+        self.assertEqual(summary["readable_pdf_pair_attempts"],14)
+        self.assertEqual(summary["unique_citing_pdfs_downloaded"],13)
+        self.assertEqual(sum(summary["reasons"].values()),100)
+        with (O/"oa_citation_locator_audit.csv").open(encoding="utf-8",newline="") as stream:
+            rows=list(csv.DictReader(stream))
+        self.assertEqual(len(rows),100)
+        self.assertEqual(sum(r["pdf_available"]=="1" for r in rows),14)
+
+    def test_oa_reference_crosscheck_is_not_labelled_reproduction(self):
+        import csv
+        with (O/"oa_reference_crosscheck.csv").open(encoding="utf-8",newline="") as stream:
+            rows=list(csv.DictReader(stream))
+        self.assertEqual(len(rows),14)
+        self.assertEqual(sum(r["validation_tier"]=="bibliography-and-intext-candidate" for r in rows),4)
+        self.assertTrue(all("replication" not in r["validation_tier"] for r in rows))
+
+    def test_year_sensitivity_preserves_three_period_count(self):
+        years=json.loads((O/"year_basis_sensitivity.json").read_text(encoding="utf-8"))["scenarios"]
+        self.assertEqual(years["openalex_year_baseline"]["two_step_paths"],712)
+        self.assertEqual(years["both_journal_volume_years"]["two_step_paths"],712)
+        self.assertEqual(years["openalex_year_baseline"]["future_dated_references"],15)
+        self.assertEqual(years["both_journal_volume_years"]["late_to_early_direct_edges"],156)
+
+    def test_manual_pdf_pilot_is_preliminary(self):
+        import csv
+        with (O/"oa_manual_pilot.csv").open(encoding="utf-8",newline="") as stream:
+            rows=list(csv.DictReader(stream))
+        self.assertEqual(len(rows),7)
+        self.assertTrue(all(r["coder_status"]=="single_reader_preliminary" for r in rows))
+        self.assertTrue(all(r["provisional_L_code"] in {"L0","L1","LNA"} for r in rows))
+        self.assertIn("data/oa_fulltexts_private/",(R/".gitignore").read_text(encoding="utf-8"))
+
     def test_research_reports(self):
         expected=["RAPPORT.md","AVANSERT_ANALYSE.md","DASHBOARD.md",
-             "SITERINGSLINJER.md","UTVALSPLAN.md","DATAKVALITET.md"]
+             "SITERINGSLINJER.md","UTVALSPLAN.md","DATAKVALITET.md",
+             "OA_TILGANG.md","OA_MANUELL_PILOT.md","AARSKJELDEKRITIKK.md"]
         for name in expected:
             with self.subTest(name=name):
                 self.assertTrue((O/name).exists(),name)
                 self.assertGreater((O/name).stat().st_size,600)
-        for j in range(1,19):
+        for j in range(1,20):
             files=list((O/"figures").glob(f"{j:02d}-*.png"))
             self.assertEqual(len(files),1,f"Missing or duplicated plot {j}")
             self.assertGreater(files[0].stat().st_size,3000)

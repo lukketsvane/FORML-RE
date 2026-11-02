@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-11-02T18:12:25.747545+00:00",
+  "sample_definition": "First 100 pairs from a fixed-seed purposive shortlist of the 200 top semantic candidate citations; available HTTPS OpenAlex links; two-sided OA candidates prioritized.",
+  "sample_pairs": 100,
+  "readable_pdf_pair_attempts": 14,
+  "unique_citing_pdfs_downloaded": 13,
+  "link_retrievability_in_this_audit_pct": 14.0,
+  "failed_or_nonpdf": 86,
+  "reasons": {
+    "HTTP 403": 64,
+    "over 14 MB": 1,
+    "HTML / non-PDF": 18,
+    "readable PDF": 14,
+    "blocked redirect": 1,
+    "other": 2
+  },
+  "validation_tiers": {
+    "bibliographic-entry-only": 9,
+    "bibliography-and-intext-candidate": 4,
+    "not-located": 1
+  },
+  "url_classes": {
+    "major_publisher_endpoint": {
+      "attempted": 40,
+      "retrieved": 0
+    },
+    "mixed_or_other_endpoint": {
+      "attempted": 51,
+      "retrieved": 6
+    },
+    "repository_or_other_open_portal": {
+      "attempted": 9,
+      "retrieved": 8
+    }
+  },
+  "nonrandom_sample": true,
+  "fulltext_epistemic_labels_assigned_automatically": 0,
+  "limitation": "A 403, paywall, non-PDF or missing text layer is an access/extraction event, not evidence against scientific content; author/year matches are not verified semantic citation functions."
+}

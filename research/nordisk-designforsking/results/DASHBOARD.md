@@ -159,3 +159,38 @@ eller omfanget av kumulativ, prøvbar kunnskap.
 - [Full permutasjonsanalyse og konsentrasjonssjekk](SITERINGSBRUER.md)
 - [Kjeldekritiske døme på bakgrunn, metodebruk og empirisk testing](KJELDEKRITISK_PILOT.md)
 - [Relevant eksisterande metascience om design og replikasjon](EKSTERN_METAVITSKAP.md)
+
+## 10. Fulltekst og kontroller av referansar
+
+![Kva OA-lenker faktisk leverte som PDF](figures/19-pdf-tilgjenge.png)
+
+Ei kontrollert, **ikkje-tilfeldig** undergruppe med 100 målretta siteringspar
+vart freista henta frå OA-lenkjer i OpenAlex. 14 par leverte lesbar PDF
+(13 unike siterande dokument); 86 gav feilsvar, HTML-landingssider, avviste
+redirectar eller større filer enn grensa på 14 MB.
+
+Etter meir konservativ forfattarnamn–år- og bibliografisøk gav sju par
+*moglege* treff både i hovudtekst og referanseområde, seks berre
+bibliografiske treff og eitt ingen treff. Desse må ikkje teljast som
+verifisert fagleg prøving, replikasjon eller tilbakevising.
+
+**Sju av para** er også vurderte i ein avgrensa éinkodar-pilot:
+bakgrunnssiteringar, konseptuell bruk og uavklarte referansar er skilde frå
+eksplisitt prøving og replikasjon. Ingen av sju har dokumentert L5-status
+basert på materialet som vart lese. Utvalet er ikkje representativt.
+
+Eit historisk publikasjonsår-problem vart identifisert (2023 i indeksen mot
+2015 i tidsskriftvolum), og eit anna tilfelle skil online-first 2024
+frå volumår 2025. Alternativ årskoding held talet på dei **712
+tverrtiårige siteringskjedene uendra**, men flyttar éi direkte
+sitering mellom tiårskategoriar. Ingen råmetadata er overskrivne.
+
+- [Tilgang, feilklassar og publiseringsgrenser](OA_TILGANG.md)
+- [Førebels manuell gransking av sju konkret siteringspar](OA_MANUELL_PILOT.md)
+- [Årssensitivitet med dokumenterte alternative datogrunnlag](AARSKJELDEKRITIKK.md)
+- [Kandidat-ID-ar og PDF-sidetilvisingar](oa_reference_crosscheck.csv)
+
+**Vitskapleg hovudpoeng:** Fleire automatiske mål er no etterprøvbare,
+men ingen av dei kan erstatte prøving av konkrete påstandar mellom
+to fulltekstar. Ei OA-lenkje er heller ikkje tilstrekkeleg dokumentasjon
+på at fulltekst var tilgjengeleg for analyse.

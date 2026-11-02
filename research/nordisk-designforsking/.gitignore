@@ -4,3 +4,4 @@ data/*.sqlite
 data/*.sqlite-shm
 data/*.sqlite-wal
 *.tmp
+data/oa_fulltexts_private/

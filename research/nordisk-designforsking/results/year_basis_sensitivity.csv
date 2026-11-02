@@ -1,0 +1,3 @@
+work_id,openalex_year,alternate_year,year_basis,source_url,interpretation
+W1877690414,2023,2015,journal_volume_year,https://files.eric.ed.gov/fulltext/EJ1119540.pdf,Journal volume 20(1) is dated 2015; OpenAlex work lists 2023 (likely repository migration)
+W4405439335,2024,2025,journal_volume_year,https://www.sciencedirect.com/science/article/pii/S1871187124002803,Online availability 2024 and journal issue June 2025; both may be defensible depending on policy
