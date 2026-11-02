@@ -33,6 +33,19 @@ Det tidlegare arbeidet viste høg semantisk likskap langs siteringar. Ei slik le
 - **Kontrollstatus:** Begge opne fulltekstar lesbare via tidsskriftets nettsider; Reaver sin referanse [4] kontrollert mot den bibliografiske lista. Independent dobbelkoding attstår.
 - **Primærkjelder:** [Häkkilä mfl. fulltekst](https://journals.oslomet.no/seminar/article/download/2584/2821?inline=1); [Reaver fulltekst](https://www.mdpi.com/2075-5309/12/11/1920).
 
+### K4 – Eit sjølvstendig empirisk designforsøk med negative resultat (Häkkilä mfl. 2018)
+
+Dette er ei **artikkelvurdering**, ikkje ei siteringslenkje. Den same publikasjonen i K3 gjev eit nyttig metodisk kontrolltilfelle:
+
+- **Studietype:** Tre eksplorative kasus med VR i designundervisning. Den første testen nyttar ei navigasjonsoppgåve der studentar prøver ulike simulerte synstilhøve, med tidtaking og vurdering av opplevd innsikt.
+- **Empiri:** 14 designstudentar i den første undersøkinga (gjennomsnittsalder 30 år, SD 8), og seinare to skriftlege spørjeundersøkingar med respektive 22 og 11 studentar.
+- **Resultat:** Deltakarane gav meir positive subjektive vurderingar av VR enn av papirvisualiseringar i dei rapporterte spørsmåla. For tidsbruken i navigasjonsoppgåvene rapporterte forfattarane **ingen signifikante forskjellar** mellom testvilkåra.
+- **Atterhald i artikkelen:** Mogleg nyheitseffekt, ukjende kontrollar og at simulerte funksjonsnedsetjingar ikkje kan erstatte medverknad frå menneske som faktisk lever med dei.
+- **Førebels metodekode:** `E1=1` (datagrunnlag og oppgåver dokumenterte); `E3=1` (negativt resultat og avgrensingar uttrykkeleg rapporterte); `H2` og `E2` må vurderast av uavhengige kodarar før endeleg kode. `C3` (replikasjon av ein eldre studie) vert **ikkje** stadfesta av dette.
+- **Primærkjelde:** [Häkkilä mfl., open HTML-fulltekst, Evaluation/Findings](https://journals.oslomet.no/seminar/article/download/2584/2821?inline=1).
+
+Denne artikkelen åleine er eit motdøme til påstanden om at designforsking *ikkje utfører empirisk prøving eller rapporterer negative resultat*. Han er ikkje eit motdøme til ei meir avgrensa hypotese om låg frekvens av uavhengig replikasjon.
+
 ## Kva piloten faktisk viser
 
 Den same siteringsgrafen inneheld minst to empirisk ulike relasjonstypar: **bakgrunnssitering** (K3) og **metodisk vidareutvikling** (K2). Dessutan kan ei empirisk studie (K1, K2, K3) ha fleire datakjelder utan å vere ei replikasjon av verket ho siterer.
@@ -43,4 +56,4 @@ Dette er konkret grunn til å **ikkje** bruke talet på siteringar, cosine-simil
 
 For kvar artikkeleining må ein kode sjanger, metode, datagrunnlag, operasjonaliserte utfall og om resultat kan prøvast. For kvar *retningsbestemt siteringslenkje* må ein separat kode setje fram **kva siteringa gjer**: bakgrunn, omgrep, metodebruk, vidareutvikling, eksplisitt test, replikasjon eller dokumentert motfunn. Fullstendig gransking krev plassering av påstanden i begge fulltekstar, konkret sidetilvising og to uavhengige kodarar. «Ikkje funne» skal ikkje automatisk reknast som «finst ikkje».
 
-**Merk:** Dette er ei ikkje-tilfeldig pilotgransking på tre lenkjer. Ingen prosentdel eller statistisk intervall for feltet kan estimerast frå desse.
+**Merk:** Dette er ei ikkje-tilfeldig pilotgransking på tre siteringslenkjer og eitt artikkelbasert metodeeksempel. Ingen prosentdel eller statistisk intervall for feltet kan estimerast frå desse.
