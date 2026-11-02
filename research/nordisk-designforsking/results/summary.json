@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-11-02T17:00:20.597294+00:00",
+  "sample_definition": "Nordic-affiliated OpenAlex 2000-2026, top two relevance-ranked pages per search, automatically screened by title",
+  "unique_candidates": 4869,
+  "provisionally_included": 2889,
+  "manual_review_pending": 1980,
+  "successful_search_pages": 60,
+  "with_abstract": 2224,
+  "abstract_coverage_pct": 77.0,
+  "duplicate_dois_in_included": 1,
+  "publication_sources": 1043,
+  "country_memberships": {
+    "DK": 1046,
+    "NO": 468,
+    "FI": 579,
+    "SE": 941,
+    "IS": 22
+  },
+  "cited_edges_within_retrieved_sample": 2389,
+  "internal_citation_graph_isolates": 1610,
+  "internal_citation_graph_largest_component": 1072,
+  "network_modularity_largest_component": 0.7220993591773153,
+  "internal_same_theme_edges": 1217,
+  "internal_cross_theme_edges": 1172,
+  "lsa_components": 40,
+  "lsa_explained_variance_ratio": 0.09628317463579834,
+  "cluster_count": 9,
+  "cluster_silhouette_exploratory": 0.10039223696448771,
+  "full_text_pdfs_collected": 0,
+  "methodological_limit": "Descriptive, capped search sample; no validated inference about scientific cumulativity."
+}

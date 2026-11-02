@@ -1,0 +1,15 @@
+{
+  "conditioning": "For each observed citation, sample alternative cited works from same cited year +/-1 and citation-count quartile; fallback +/-2 years when fewer than 10; titlescreened OpenAlex sample.",
+  "edges": 2389,
+  "observed_same_topic_edges": 1217,
+  "observed_same_topic_rate": 0.5094181665969024,
+  "conditional_null_mean_rate": 0.18049914342722742,
+  "observed_minus_null_percentage_points": 32.8919023169675,
+  "permutation_draws": 2000,
+  "one_sided_monte_carlo_p": 0.0004997501249375312,
+  "median_reference_lag_years": 5.0,
+  "negative_reference_lag_edges": 10,
+  "shared_author_edges": 731,
+  "shared_author_rate": 0.3059857681038091,
+  "limitation": "Internal-graph comparison only. Search ranking, missing full text, discipline misclassification and omitted nodes preclude population-wide cumulativity inference."
+}
