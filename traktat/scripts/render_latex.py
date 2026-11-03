@@ -246,14 +246,14 @@ class Renderer:
                 output.append(r"\begin{widebody}")
                 wide = True
             elif kind == "paragraph":
-                output.append(self.prose(token["text"]) + self.note_links(token.get("notes", [])) + r"\par\vspace{3pt}")
+                output.append(self.prose(token["text"]) + self.note_links(token.get("notes", [])) + r"\par\vspace{8pt}")
             elif kind == "prop":
                 if wide:
                     output.append(r"\end{widebody}\markboth{proposisjonar}{}")
                     wide = False
                 n = str(token["n"])
                 depth = len(n.partition(".")[2]) if "." in n else 0
-                spacing = [6, 3, 3, 3, 3][min(depth, 4)]
+                spacing = 12 if depth == 0 else 8
                 output.append(r"\begin{proposition}{" + target(n) + "}{" + tex_escape(token["status"]) + "}{" + str(spacing) + "}")
                 paragraphs = token["paragraphs"]
                 for i, paragraph in enumerate(paragraphs):

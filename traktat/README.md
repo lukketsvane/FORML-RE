@@ -118,7 +118,7 @@ xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error formlaere.tex
 xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error formlaere.tex
 ```
 
-PDF-en har bokformatet 125 × 200 mm, med eiga tittelside, marginale proposisjonsnummer og seksjon/sidetal i toppteksten.
+PDF-en har bokformatet 125 × 200 mm, med eiga tittelside, regulære proposisjonsnummer i margen, blokkjustert tekst og sentrert sidetal nedst. Seksjonsnamna står ved seksjonsstart. Proposisjonar og nye avsnitt har 8 punkt mellomrom, med 12 punkt ved hovudproposisjonane.
 
 Statusmarkørane er skilde frå desimaladressene med hakeparentesar, til dømes `1.1 [a]` og `5.2231 [t]`. Kvar proposisjon har éi stabil adresse og éin eksplisitt status i både nett- og PDF-utgåva. Tittelsida hentar tittel, undertittel og forfattaropplysningar frå den same LaTeX-kjelda som nettstaden.
 

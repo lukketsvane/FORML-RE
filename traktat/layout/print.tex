@@ -1,6 +1,6 @@
 % Book layout only. All text is rendered from the shared document model.
 \documentclass[10pt,oneside]{book}
-\usepackage[paperwidth=125mm,paperheight=200mm,top=20mm,bottom=18mm,left=28mm,right=12mm,headheight=12pt,headsep=6mm,footskip=8mm]{geometry}
+\usepackage[paperwidth=125mm,paperheight=200mm,top=20mm,bottom=18mm,left=28mm,right=12mm,headheight=12pt,headsep=6mm,footskip=5mm]{geometry}
 \usepackage{fontspec}
 % Bundle the exact optical fonts; never silently substitute a system font.
 % Common ligatures are disabled so copying and screen readers retain letters.
@@ -29,16 +29,14 @@
 \hyphenpenalty=500
 \clubpenalty=10000
 \widowpenalty=10000
-\raggedright
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\smallbookfont\fontsize{9}{11}\selectfont\leftmark}
-\fancyhead[R]{\fontsize{10}{12}\selectfont\thepage}
-\fancyheadoffset[L]{16mm}
-\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[C]{\fontsize{10}{12}\selectfont\thepage}
+\fancyhfoffset[L]{16mm}
+\renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \newlength{\numbergutter}
-\setlength{\numbergutter}{15mm}
+\setlength{\numbergutter}{16mm}
 \newenvironment{widebody}{\begin{adjustwidth}{-16mm}{0mm}}{\par\end{adjustwidth}}
 \newcommand{\editioncover}[3]{%
   \begin{titlepage}\thispagestyle{empty}\null%
@@ -49,11 +47,10 @@
     \node[anchor=south west,inner sep=0,text width=101mm] at ([xshift=12mm,yshift=16mm]current page.south west) {{\fontsize{9}{12}\selectfont #3}};
   \end{tikzpicture}\end{titlepage}\setcounter{page}{2}%
 }
-% Sections are identified by the running head, as in the original book.
-\newcommand{\sectionlabel}[3][0]{\clearpage\markboth{#3}{}\hypertarget{#2}{}\Needspace{4\baselineskip}}
+\newcommand{\sectionlabel}[3][0]{\clearpage\markboth{#3}{}\hypertarget{#2}{}\begin{widebody}\noindent{\fontsize{13}{16}\selectfont #3}\par\vspace{12pt}\end{widebody}\Needspace{4\baselineskip}}
 \newenvironment{proposition}[3]{%
   \par\addvspace{#3pt}\Needspace{3\baselineskip}\noindent
-  \llap{\makebox[22mm][l]{\textbf{#1}\hspace{.5em}{\normalfont\itshape\fontsize{7}{8}\selectfont [#2]}}\hspace{2mm}}%
+  \llap{\makebox[\numbergutter][l]{#1\hspace{.5em}{\normalfont\itshape\fontsize{7}{8}\selectfont [#2]}}\hspace{2mm}}%
   \ignorespaces
 }{\par}
 \newenvironment{referenceentry}[3][6]{%
@@ -66,7 +63,7 @@
 \newcommand{\entrylinks}[1]{\par\nobreak\vspace{2pt}{\fontsize{8}{10}\selectfont #1\par}}
 \newcommand{\sourceref}[1]{\nobreak\textsuperscript{\normalfont\fontsize{7}{8}\selectfont #1}}
 \newcommand{\noteref}[1]{\nobreak\hspace{2pt}\textsuperscript{\normalfont\color{muted}\fontsize{7}{8}\selectfont #1}}
-\newcommand{\bodyparagraph}{\par\vspace{3pt}\noindent}
+\newcommand{\bodyparagraph}{\par\vspace{8pt}\noindent}
 \newcommand{\bookfigure}[2]{%
   \par\addvspace{5pt}\noindent\begin{minipage}{\linewidth}%
   \includegraphics[width=\linewidth,height=125mm,keepaspectratio]{#1}\par%

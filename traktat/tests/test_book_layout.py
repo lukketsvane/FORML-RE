@@ -26,6 +26,11 @@ class CompiledBookLayout(unittest.TestCase):
              "paragraphs": ["Thompson Kauffman Mifflin skifte. ÆØÅ æøå."]},
             {"kind": "prop", "n": "1.01", "status": "t", "notes": ["test-note"],
              "paragraphs": ["*Ei kursiv utsegn.* Ei kjelde.[[kjelde:7]]"]},
+            {"kind": "prop", "n": "6.1111", "status": "t", "notes": [],
+             "paragraphs": ["Langadresse prøver at nummeret og statusen står ved første tekstline, medan denne lengre utsegna held fram over fleire liner i tekstkolonnen.",
+                            "Eit nytt avsnitt høyrer til den same proposisjonen."]},
+            {"kind": "prop", "n": "6.1112", "status": "t", "notes": [],
+             "paragraphs": ["Etterfølgjaren byrjar med si eiga adresse."]},
         ]
         document = {
             "schemaVersion": 1, "sourceHash": "a" * 64,
@@ -73,6 +78,11 @@ class CompiledBookLayout(unittest.TestCase):
             searchable = re.sub(r"\s+", "", "".join(page.extract_text() or "" for page in reader.pages))
             for label in ("[d]", "[t]"):
                 self.assertIn(label, searchable, "Status must remain separate from decimal proposition numbers")
+            for label in ("6.1111[t]", "6.1112[t]"):
+                self.assertIn(label, searchable)
+            long_page = next(page.extract_text() or "" for page in reader.pages
+                             if "6.1111" in (page.extract_text() or ""))
+            self.assertIn("Langadresse", long_page, "A long address must stay on the page with its first text line")
             for word in ("Thompson", "Kauffman", "Mifflin", "skifte", "ÆØÅ", "æøå"):
                 self.assertIn(word, searchable, "Letters and ligatures must retain their Unicode text")
             fonts = {
