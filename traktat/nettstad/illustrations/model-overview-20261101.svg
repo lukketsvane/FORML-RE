@@ -17,7 +17,11 @@
     </style>
   </defs>
 
-  <text class="formula" x="390" y="35">(𝕄, Π, SG, Λ, {Aᵢ})</text>
+  <g class="formula" aria-label="(𝕄, Π, SG, Λ, {Aᵢ})">
+<text x="278.7703" y="35" style="text-anchor:start" xml:space="preserve">(</text>
+<path fill="#202020" transform="translate(287.7703 35) scale(0.01123047 -0.01123047)" d="M86 0V121H276V1372H86V1493H702L1128 535L1556 1493H2171V1372H1980V121H2171V0H1403V121H1593V1260L1130 219H877L416 1260V121H606V0ZM1859 1372H1714V121H1859ZM1067 375 623 1372H499L956 340H1051Z"/>
+<text x="313.2297" y="35" style="text-anchor:start" xml:space="preserve">, Π, SG, Λ, {Aᵢ})</text>
+</g>
 
   <!-- The arrows name relations; they are not a single causal sequence. -->
   <path class="edge" d="M470 141 H310"/>
@@ -30,7 +34,10 @@
   <text class="relation" x="390" y="108">epistemisk</text>
   <text class="relation" x="390" y="130">deling</text>
   <text class="relation" x="244" y="244">genererer</text>
-  <text class="relation" x="244" y="268">L(SG) ⊆ 𝕄</text>
+  <g class="relation" aria-label="L(SG) ⊆ 𝕄">
+<text x="197.5911" y="268" style="text-anchor:start" xml:space="preserve">L(SG) ⊆ </text>
+<path fill="#202020" transform="translate(271.5911 268) scale(0.00830078 -0.00830078)" d="M86 0V121H276V1372H86V1493H702L1128 535L1556 1493H2171V1372H1980V121H2171V0H1403V121H1593V1260L1130 219H877L416 1260V121H606V0ZM1859 1372H1714V121H1859ZM1067 375 623 1372H499L956 340H1051Z"/>
+</g>
   <text class="relation" x="687" y="244">prøving</text>
   <text class="relation" x="687" y="268">endrar Π</text>
   <text class="relation" x="390" y="330">vala vert vekta</text>
@@ -41,7 +48,10 @@
   <text class="relation" x="692" y="491">svarar på Λ</text>
 
   <rect class="box" x="20" y="78" width="290" height="126"/>
-  <text class="name" x="165" y="110">Formrom 𝕄</text>
+  <g class="name" aria-label="Formrom 𝕄">
+<text x="93.7703" y="110" style="text-anchor:start" xml:space="preserve">Formrom </text>
+<path fill="#202020" transform="translate(210.7703 110) scale(0.01123047 -0.01123047)" d="M86 0V121H276V1372H86V1493H702L1128 535L1556 1493H2171V1372H1980V121H2171V0H1403V121H1593V1260L1130 219H877L416 1260V121H606V0ZM1859 1372H1714V121H1859ZM1067 375 623 1372H499L956 340H1051Z"/>
+</g>
   <text class="body" x="165" y="145">moglege konfigurasjonar</text>
   <text class="small" x="165" y="177">grunnen i modellen</text>
 
