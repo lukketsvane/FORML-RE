@@ -6,7 +6,7 @@
       "file": "tankerom-kunnskapsrom-20261101.png",
       "alt": "C–K-skjema: kunnskap opnar konsept; konsept vert delte i nye greiner og kan avgjerast som kunnskap.",
       "printWidth": "wide",
-      "caption": "Rørsle mellom tankerom og kunnskapsrom for eit fast omsyn og oppgjevne prøvevilkår (1.5–1.54). C₀, C₁, … og K₁, K₂, … nummererer konsept og kunnskapsutsegner, ikkje omsynsaksar. Disjunksjon opnar eit konsept frå kunnskap; partisjon utvidar konseptet; konjunksjon avgjer eit tenkt alternativ. K→K-rørsla er ikkje teikna. I C–K-teorien er K kunnskapsutsegner; i denne teksten er kunnskapsrommet kjende formposisjonar langs omsynet (notatet ved 1.5)."
+      "caption": "Tanke og kunnskap flyttar seg i fire retningar (1.54). C og K viser her statusen til formposisjonar langs eitt oppgjeve omsyn, ikkje dei to romma i den historiske C–K-teorien utan vidare. K→K-rørsla er ikkje teikna."
     },
     {
       "after": "1.61",
@@ -20,7 +20,7 @@
       "file": "lyskjegle-20261105.svg",
       "alt": "Den kognitive lyskjegla Γ(A), teikna som to spisse kjegler over og under punktet «her og no». Pilene peikar mot framtid, fortid og romleg rekkjevidd. Tre ellipsar ligg rundt midtplanet; bakre kant på kjegla er stipla.",
       "printWidth": "wide",
-      "caption": "Den kognitive lyskjegla Γ(A), skjematisk vist langs tid og romleg rekkjevidd."
+      "caption": "Lyskjegla Γ(A) viser skjematisk kor langt måla til ein agent rekk gjennom tid. «Romleg rekkjevidd» er ein projeksjon i figuren, ikkje ei fysisk grense for sansing eller handling (5.22)."
     },
     {
       "after": "5.125",
@@ -31,7 +31,8 @@
     {
       "after": "6.66",
       "file": "model-overview-20261101.svg",
-      "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala"
+      "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala",
+      "caption": "Fem ledd i modellen: formrom, kunnskapsstand, grammatikk, landskap og agentar. Pilene viser ulike verkemåtar, ikkje éi lineær årsakskjede (6.66)."
     }
   ]
 }
