@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "804e4affe88bf78186734c2f40465f186b3954ecd93e3e337da9a06b87c7a6f4",
+  "sourceHash": "126698dcc813c0a81313f0f470b1e342104d3204c4a69cfac72addae42c2760c",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
-    "figurar.json": "b1d298aa6b795dc8204fe2d9b8bc415f7481dbe26744ef7d98fdc4524a1099d8",
+    "figurar.json": "ddb40dd19e466f915f69bd283d3135c5409e830bd4e2a9427090b66f6635f0b7",
     "kjelder.json": "7fceb0a70e100c84d32ce7c4956d8182a24a4f88ab07a435ef68884ddf092a5b",
     "layout/authoring.tex": "0ac14df9ba935c57df5270b10ed30ddb61be09016c483f7966e7315360031279",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
@@ -43,15 +43,15 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "f4347de044f52fdc7d8c1e0be6f47eb85874835d19f8ea69792c8a72da15a4a3",
+    "tekst/formlaere.tex": "757643029105c73de650fb83764a495cf765a7f05ee4f9697542c8f92c3a4111",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "dd8e929a0ff49855c4860ccad7934bda89efca04c7a6fbced1d24e489d48577d",
-    "formlaere-latex.zip": "34772377429baaa9d8fa01c5c3bb1343a21a51f05c3af5e86d12c3ca50a063c8"
+    "formlaere.pdf": "153539b9340fa76532981d356490cd941cca157c93b382cd6dc14252734b914d",
+    "formlaere-latex.zip": "4410bb6df91096aa3a1558a4e6903f3e8f259638c1de47f183e5d8f0b3531916"
   },
   "quality": {
-    "pages": 90,
+    "pages": 92,
     "destinations": 577,
     "propositions": 377,
     "notes": 47,
