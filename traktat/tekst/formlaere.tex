@@ -797,7 +797,7 @@ Somme formtypar går att gjennom skiftande vilkår. Stolar vert laga på nytt kr
 \end{formproposition}
 
 \begin{formproposition}{5.02}{d}
-Ei hinne er ei grense av tilstandar mellom eit indre \(I\) og eit ytre \(E\). I ein oppgjeven stokastisk modell er grensa eit Markov-teppe \(B\) når \(I\) og \(E\) er vilkårsvis uavhengige gjevne \(B\): \(I\perp E\mid B\).\kjelder{83}
+Ei hinne er ei grense av tilstandar mellom eit indre \(I\) og eit ytre \(E\). I ein oppgjeven stokastisk modell er grensa eit Markov-teppe \(B\) når det indre \(I\) og det ytre \(E\) er vilkårsvis uavhengige når \(B\) er kjent.\kjelder{83}
 
 Ei statistisk grense er ikkje nødvendigvis ei fysisk membran. Observasjon og handling går gjennom dei koplingane grensa tillèt. Sjølvhald krev i tillegg at systemet regulerer vilkåra for si eiga grense (5.021).
 \end{formproposition}
@@ -871,7 +871,7 @@ Formelt er \(A=(m,\pi,G,\varepsilon)\). Modellen \(m\) knyter observasjonar, han
 
 Lat \(e_k(t;\pi,d)\) vere avstanden frå målregionen langs omsynet \(X_k\), ved tid \(t\) under politikken \(\pi\) og forstyrringa \(d\). Avstanden og eininga må fastsetjast for kvart omsyn. \(\mathcal{P}_A\) er politikkområdet agenten faktisk har tilgang til.
 
-Prediksjonsfeilen er ein annan storleik. Når observasjon og prediksjon er sannsynsfordelingar, kan han målast som \(D_k=D_{\mathrm{KL}}(p_{\mathrm{obs}}\parallel p_m)\).\kjelder{112} Låg \(D_k\) tyder at modellen treff det observerte; låg \(e_k\) tyder at utfallet møter målet. Eit godt estimat kan difor føreseie ein skade presist.
+Prediksjonsfeilen er ein annan storleik. Når observasjon og prediksjon er sannsynsfordelingar, kan han målast som \(D_k=D_{\mathrm{KL}}(p_{\mathrm{obs}}\Vert p_m)\).\kjelder{112} Låg \(D_k\) tyder at modellen treff det observerte; låg \(e_k\) tyder at utfallet møter målet. Eit godt estimat kan difor føreseie ein skade presist.
 
 Agens krev denne svarstrukturen, ikkje medvit, nervesystem eller erklært intensjon. At svaret lukkast, er eit anna spørsmål.
 \end{formproposition}
@@ -1323,7 +1323,7 @@ Kjernelikninga er ein prøvbar hypotese om korleis ein agent vel mellom tilgjeng
 \begin{aligned}
 T_A(x,x')={}&q_A(x,x')\min\bigl\{1,\\
 & r_A(x,x')e^{-\beta[\Phi_A(x')-\Phi_A(x)]}\bigr\},\\
-&\hspace{15mm}x'\ne x .
+&\quad x'\ne x .
 \end{aligned}
 \]
 
