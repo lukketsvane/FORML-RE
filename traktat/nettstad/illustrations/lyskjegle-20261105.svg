@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="1254" viewBox="0 0 1254 1254" role="img" aria-labelledby="cone-title cone-desc">
+  <title id="cone-title">Den kognitive lyskjegla Γ(A)</title>
+  <desc id="cone-desc">Skjematisk dobbel lyskjegle med topp mot framtid og botn mot fortid. Ei svart prikk i midtplanet markerer her og no. Konsentriske ellipsar syner romleg rekkjevidd. Den stipla halvsirkelen viser den bakre kanten av midtplanet.</desc>
+  <rect x="0" y="0" width="1254" height="1254" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="1.9">
+    <!-- Spatial planes, drawn behind the cones. -->
+    <ellipse cx="577" cy="629" rx="525" ry="169"/>
+    <ellipse cx="577" cy="629" rx="423" ry="131"/>
+    <ellipse cx="577" cy="629" rx="319" ry="100"/>
+  </g>
+  <!-- The white cone masks the spatial planes and preserves depth order. -->
+  <path d="M377 616 L579 246 L780 616 L578 987 Z" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M377 616 L579 246 L780 616"/>
+    <path d="M377 616 L578 987 L780 616"/>
+    <path d="M377 616 C377 702 780 702 780 616"/>
+    <path d="M377 616 C381 525 775 525 780 616" stroke-width="1.9" stroke-dasharray="9 14"/>
+  </g>
+  <g stroke="#080808" stroke-width="2.1" fill="none">
+    <path d="M579 246 V133"/>
+    <path d="M578 987 V1108"/>
+    <path d="M781 616 H940"/>
+  </g>
+  <g fill="#080808">
+    <path d="M579 129 l-10 21 10 -5 10 5 Z"/>
+    <path d="M578 1114 l-10 -20 10 5 10 -5 Z"/>
+    <path d="M945 616 l-22 -11 5 11 -5 11 Z"/>
+    <circle cx="580" cy="617" r="8"/>
+  </g>
+  <g fill="#080808" font-family="EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="579" y="108" font-size="44" text-anchor="middle">framtid</text>
+    <text x="579" y="1160" font-size="44" text-anchor="middle">fortid</text>
+    <text x="389" y="346" font-size="45" font-style="italic" font-family="DejaVu Serif, serif">Γ(A)</text>
+    <text x="594" y="601" font-size="39">her og no</text>
+    <text x="951" y="622" font-size="38">romleg rekkjevidd</text>
+  </g>
+</svg>
