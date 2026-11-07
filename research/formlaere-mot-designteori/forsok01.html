@@ -48,7 +48,7 @@ progress{width:100%;accent-color:#333}table{border-collapse:collapse;width:100%}
 <script>
 "use strict";
 const $ = id => document.getElementById(id);
-let manifest=null, ratingsA=null, ratingsB=null, role="", panel="", actor="", caseIndex=0, answers=[];
+let manifest=null, ratingsA=null, ratingsB=null, role="", panel="", actor="", caseIndex=0, answers=[], consentTime=null;
 const ROLES={agent1:"produksjon / montering",agent2:"bruk / form"};
 function fail(msg){$("error").textContent=msg;$("error").hidden=false;}
 function hideError(){$("error").hidden=true;}
@@ -97,6 +97,7 @@ $("start").onclick=async()=>{
     if(!/^[A-Za-z0-9_-]{3,48}$/.test(panel)||!/^[A-Za-z0-9_-]{3,48}$/.test(actor))
       throw Error("Panel- og aktørkodar skal ha 3–48 bokstavar/tal/teikn.");
     if(!$("consent").checked)throw Error("Frivillig samtykke må stadfestast.");
+    consentTime=new Date().toISOString();
     if(role==="decision"){
       ratingsA=await readJson($("ratings1").files[0]);
       ratingsB=await readJson($("ratings2").files[0]);
@@ -176,6 +177,7 @@ function exported(){
     schema_version:"formlaere-pilot-response-v1",
     study_id:manifest.study_id,manifest_sha256:manifest.manifest_sha256,
     panel_id:panel,actor_id:actor,role:role,
+    voluntary:true,consent_confirmed_at:consentTime,
     axis:ROLES[role]||"panelbeslutning",
     generated_at:new Date().toISOString(),answers,
   };
