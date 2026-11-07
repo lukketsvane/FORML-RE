@@ -127,6 +127,9 @@ def responses_check(m, files, roster):
             raise ValueError("Svarfil har ukjent panel/rolle " + str(file))
         if not actor or not isinstance(actor, str) or len(actor) > 48:
             raise ValueError("Manglande/ugyldig aktørkode " + str(file))
+        if response.get("voluntary") is not True or not response.get("consent_confirmed_at"):
+            raise ValueError("Manglande dokumentert frivillig samtykke i " + str(file))
+        timestamp(response["consent_confirmed_at"])
         if role in collected[panel]:
             raise ValueError("Fleire filer frå same rolle i same panel")
         responses = response.get("answers")
