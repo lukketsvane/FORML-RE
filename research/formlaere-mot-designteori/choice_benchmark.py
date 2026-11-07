@@ -179,15 +179,31 @@ def score_cases(test, model, *, beta=0.0, theta=None):
     }
 
 
-def bootstrap_difference(loss_a, loss_b, *, draws=2000, seed=20261107):
-    """B - A; positiv verdi tyder at modell A har lågare tap."""
-    values = np.asarray(loss_b) - np.asarray(loss_a)
+def bootstrap_difference(loss_a, loss_b, group_ids, *, draws=2000, seed=20261107):
+    """B - A; bootsrap av grupper, ikkje tilfeldig oppdeling av same prosjekt.
+
+    Ei gruppe kan innehalde fleire påfølgjande val. Vi resamplar heile
+    gruppa og reknar eit tal som er vekta med kor mange val gruppa bidreg.
+    """
+    values = np.asarray(loss_b, dtype=float) - np.asarray(loss_a, dtype=float)
+    if len(values) != len(group_ids):
+        raise ValueError("Ulik lengd mellom tap og gruppe-ID-ar")
+    group_sums, group_counts = defaultdict(float), defaultdict(int)
+    for value, group_id in zip(values, group_ids):
+        group_sums[group_id] += float(value)
+        group_counts[group_id] += 1
+    groups = sorted(group_sums)
+    if len(groups) < 2:
+        raise ValueError("Minst to uavhengige grupper trengst for bootstrap")
+    total = np.array([group_sums[g] for g in groups])
+    sizes = np.array([group_counts[g] for g in groups])
     rng = np.random.default_rng(seed)
-    samples = rng.integers(0, len(values), size=(draws, len(values)))
-    distribution = values[samples].mean(axis=1)
+    samples = rng.integers(0, len(groups), size=(draws, len(groups)))
+    distribution = total[samples].sum(axis=1) / sizes[samples].sum(axis=1)
     return {
         "delta_log_loss_B_minus_form": round(float(values.mean()), 6),
-        "ci95": [round(float(x), 6) for x in np.quantile(distribution, [0.025, 0.975])],
+        "ci95_cluster_bootstrap": [round(float(x), 6) for x in np.quantile(distribution, [0.025, 0.975])],
+        "independent_groups": len(groups),
     }
 
 
@@ -206,7 +222,10 @@ def benchmark(cases):
     }
     scores = {name: score_cases(test, name, **params) for name, params in opts.items()}
     comparison = {
-        name: bootstrap_difference(scores["form"]["per_case_losses"], scores[name]["per_case_losses"])
+        name: bootstrap_difference(
+            scores["form"]["per_case_losses"], scores[name]["per_case_losses"],
+            [c.group_id for c in test],
+        )
         for name in scores if name != "form"
     }
     for entry in scores.values():
