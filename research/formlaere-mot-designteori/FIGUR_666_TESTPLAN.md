@@ -29,6 +29,18 @@ Den viste femdelte figuren manglar eit eige **registrert resultat og konsekvens*
 
 Det er ein **protokoll for data**, ikkje ein påvist allmenn dynamikklov. Ein kan ikkje rekne med at alt oppdaterer seg etter kvar intervensjon. Ei observasjon kan ikkje endre naturen sin fysikk, men kan endre kunnskapen, vurderinga og seinare praksis. Ei skråpil frå landskap til grammatikk bør ikkje sjølvstendig tolkast som at preferansar konstituerer generering. Dersom preferansar **faktisk endrar reglar**, krev det dokumentert lærings- eller institusjonsmekanisme.
 
+## Det sjuande, ofte usynlege leddet: registrering
+
+Når eit realisert objekt dukkar opp i ein katalog eller eit museum, har det gått gjennom endå eitt utval. Dette er ikkje den same pila som frå generator til val. §6.668 gjev, for ei registreringssannsyn \(r(x)\),
+
+\[
+Q_{\mathrm{arkiv}}(x)
+=\frac{r(x)P_{\mathrm{realisert}}(x)}
+{\sum_y r(y)P_{\mathrm{realisert}}(y)}.
+\]
+
+Det observerte korpuset kan derfor ikkje utan vidare identifisere korkje generatoren, landskapet eller kva som var materielt mogleg. Samle objekt-ID, kjelde, registreringsgrunn, eventuell duplikathistorikk og fråfallsforklaring separat frå formdata. STOLAR-piloten dokumenterer at dette er nødvendig i praksis. Sjå [STOLAR_ROBUSTHET_20261107.md](STOLAR_ROBUSTHET_20261107.md).
+
 ## Fire skilje som ikkje må glattast over
 
 1. **Formrom vs listbare alternativ.** C–K-teori opnar ukjende objektidentitetar. Ei finitt, kjend kandidatliste kan berre vere eit mellombels lokalt snitt. Sjå [CK_DIREKTE_PROEVE.md](CK_DIREKTE_PROEVE.md).
@@ -40,7 +52,7 @@ Det er ein **protokoll for data**, ikkje ein påvist allmenn dynamikklov. Ein ka
 
 Bruk ei konkret CNC-oppgåve med avgrensa emne og operasjonar: 12 mm bjørkefiner, målkube på høgst 500 × 500 × 500 mm, inga liming eller mekaniske festemiddel. I eit registrert valeksperiment skal alle genererte alternativ, kutt og steg vere arkiverte. To eller fleire vurderarar registrerer individuelle estimat før ein av tre regelbundne avgjerdsordningar vert randomisert, innan etisk og praktisk forsvarlege grenser. Alle har uendra reell rett til å reservere seg; innverknad er ikkje identisk med moralsk legitimitet.
 
-**Førehandsutleiinga:** §6.676 gjev ei eksakt odds-endring ved endring av vekter når kandidatenes eigenskapar og genereringsgrunnlag er faste. §6.665 gjev rangvilkår for å skilje agentbidraga. Ei vidare §6.667-prøve kan undersøkje linearitet ved kontrollert seleksjonsstyrke når det er operasjonelt definert. Faktisk brot og montering kan i tillegg etterprøvast med eksplisitte steg, medan bruksprøver med last, slitasje og langtidseffekt må gjennomførast separat.
+**Førehandsutleiinga:** §6.676 gjev ei eksakt odds-endring ved endring av vekter når kandidatenes eigenskapar og genereringsgrunnlag er faste. §6.665 gjev rangvilkår for å skilje agentbidraga. §6.667 kan prøve linearitet ved kontrollert seleksjonsstyrke når det er operasjonelt definert. Faktisk brot og montering kan i tillegg etterprøvast med eksplisitte steg, medan bruksprøver med last, slitasje og langtidseffekt må gjennomførast separat.
 
 **Lik konkurranse:** la C–K forklare kunnskaps- og konseptutvikling; formgrammatikk forklare genererbarheit; ein enkel logistisk valmodell forklare val; og den samankopla Formlæra få prøve **om ho gjev eit betre og meir føreseieleg samsvar mellom desse prosessane**. Ingen konkurrent skal straffast for ikkje å vere utvikla til ei anna oppgåve enn si eiga.
 
