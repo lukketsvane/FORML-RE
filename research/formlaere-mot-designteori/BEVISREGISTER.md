@@ -24,6 +24,8 @@ Ingen av desse nivåa impliserer automatisk dei andre.
 | Samme observerte P kan kome av fleire grunnfordelingar og landskap | Invarians ved omparametrisering §6.662 | Kva faktisk kjelde til variasjon som verka i ein historisk sak | F |
 | Sterkare seleksjon flyttar P i KL frå fast generator; Shannon-entropy kan likevel auke | Utleiing §6.663, numerisk motdøme | At historisk formmangfald alltid minkar med seleksjon | F |
 | Ingen endeleg prøvd, tillaten form har null sannsyn ved positiv mu og endeleg energi | §6.664 | At ikkje-observerte former er umoglege | F |
+| Same stasjonære formfordeling kan kome frå ulike stegkjerner med ulik framkomsttid | Utleiing av \(T_\alpha=(1-\alpha)I+\alpha T\) i §6.666 og syntetiske overgangskontrollar | Kva for ein faktisk produksjonsprosess som verka | F |
+| Ved uendra kandidatrom, grunnvekt og vurderingar endrar relative log-odds seg lineært med seleksjonsstyrken | §6.667, tre syntetiske kontrollar | Kontrollerte, reelle intervensjonar der \(\beta\) er operasjonelt målt | F |
 | Agentvekter kan identifiserast frå val berre ved tilstrekkeleg rang i uavhengige vurderingsskilnader | §6.665 og fire syntetiske rangprøver | Kausalt legitim makt eller faktisk agentinnverknad i eit prosjekt | F |
 | Ein på førehand registrert vektflytting gir ein eksakt endring i log-odds mellom to alternativ | §6.676 og syntetisk kontroll | At effekten er empirisk observert og betre predikert enn rivalar | F |
 | Feilestimat kan gjere den faktiske skaden større når prioriteringa vert sterkare | §6.674 og synthetic negative-Kovarians-kontroll | Om, kvar og kor ofte dette skjer i designpraksis | F |
@@ -41,11 +43,11 @@ Ingen av desse nivåa impliserer automatisk dei andre.
 
 **Formell kjerne:** §§1.542, 6.6–6.665, 6.673–6.676. Proposisjonar som er avhengige av eksponentialfamilien, er gyldige berre når D, mu, Φ og dei relevante variablane held dei oppgjevne vilkåra.
 
-**Syntetiske matematiske programtestar:** [test_6_6.py](test_6_6.py), [test_identifiserbarheit.py](test_identifiserbarheit.py), [test_identifisering.py](test_identifisering.py), [test_informasjon.py](test_informasjon.py), [test_choice_benchmark.py](test_choice_benchmark.py), 5 + 7 + 4 + 5 + 14 = **35** kontrollerte tilfelle. Dette er ikkje 35 eksperiment med designarar.
+**Syntetiske matematiske programtestar:** [test_6_6.py](test_6_6.py), [test_identifiserbarheit.py](test_identifiserbarheit.py), [test_identifisering.py](test_identifisering.py), [test_informasjon.py](test_informasjon.py), [test_choice_benchmark.py](test_choice_benchmark.py), [test_dynamisk_identitet.py](test_dynamisk_identitet.py), 5 + 7 + 4 + 5 + 14 + 6 = **41** kontrollerte tilfelle. Dette er ikkje 35 eksperiment med designarar.
 
 **Empiriske kjelder:** [STOLAR-resultatet](STOLAR_EMPIRI_20261107.md), [reproduksjon av grunnanalysen](stolar_heldut.py), [placebo og tidsmotprøve](stolar_kontroll.py). Fleire utforskande held-ut-evalueringar er ikkje det same som eit uavhengig prospektivt replikasjonsforsøk.
 
-**Kjeldenær teoriinnlemming:** [C–K-originalsamanlikning](CK_DIREKTE_PROEVE.md) og [første originaltekstpilot](MOTPROVER_01.md). Bødker–Kyng (2018), Saad-Sulonen mfl. (2018), Raptis mfl. (2017), Baskerville–Pries-Heje (2014) og Fiore (2020) er lesne på originalnivå i ein innleiande pilot. Dette er ikkje ei uttømmande systematisk oversikt.
+**Kjeldenær teoriinnlemming:** [22 teoriar med eksplisitte bevisplikter](TEORIMATRISE_22.md), [operasjonalisering av §6.66-figuren](FIGUR_666_TESTPLAN.md), [kritisk revisjon av P1–P10-proxyar](P1_P10_VALIDITET.md) og [C–K-originalsamanlikning](CK_DIREKTE_PROEVE.md) og [første originaltekstpilot](MOTPROVER_01.md). Bødker–Kyng (2018), Saad-Sulonen mfl. (2018), Raptis mfl. (2017), Baskerville–Pries-Heje (2014) og Fiore (2020) er lesne på originalnivå i ein innleiande pilot. Dette er ikkje ei uttømmande systematisk oversikt.
 
 **Meta-forsking på litteratur:** Eldre [datastatus](../nordisk-designforsking/results/RAPPORT.md), [sannsynsutval på 600](../nordisk-designforsking/results/UTVALSPLAN.md), [siteringsmotprøver](../nordisk-designforsking/results/MOTPROVER.md) og [konkrete motdøme med empirisk forsking](../nordisk-designforsking/results/KJELDEKRITISK_PILOT.md). Desse er eldre, tidsstempla uttrekk; dei kan ikkje kombinerast ukritisk med den nyare main-versjonen av designteori-korpuset. Dei manuelle fulltekstkodane i 600-utvalet var ikkje ferdige ved siste kontroll.
 
