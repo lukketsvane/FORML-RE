@@ -1796,6 +1796,30 @@ Dersom agentane sine estimat ikkje gjev lineært uavhengige skilnader mellom alt
 Dette er eit vilkår for statistisk identifisering, ikkje prov på at ei estimert vekt er legitim eller kausalt utøvd. Endelege utval krev usikkerheitsmål, og endringar i makt krev eigne undersøkingar av avgjerdsprosessen.
 \end{formproposition}
 
+\begin{formproposition}{6.666}{t}
+Ei stasjonær fordeling fastset ikkje farten i stegprosessen (6.64). Lat \(P\) vere stasjonær for ein overgangskjerne \(T\) på endeleg \(D\). For \(0<\alpha\leq1\) har kjernen
+\[
+T_\alpha=(1-\alpha)I+\alpha T
+\]
+same stasjonære fordeling \(P\). Ein kan difor observere same fordelinga av former etter lang tid, men heilt ulik rørsle mellom dei.
+
+Frå ein start utanfor ei målmengd \(B\), når den forventa treffetida er endeleg, er
+\(\mathbb E[\tau_B(T_\alpha)]=\mathbb E[\tau_B(T)]/\alpha\).
+Stasjonært samsvar er difor ikkje bevis for at modellen har fanga den historiske eller materielle stegprosessen. Overgangar, tid og faktisk utføring må undersøkast særskilt.
+\end{formproposition}
+
+\begin{formproposition}{6.667}{t}
+Når \(D\), \(\mu_{\mathrm{SG}}\) og \(\Phi\) står faste og to tillatne former \(x,y\) har positiv grunnvekt, gjev fordelingsmodellen i 6.6
+\[
+\log\frac{P_{\beta_2}(x)P_{\beta_1}(y)}
+{P_{\beta_2}(y)P_{\beta_1}(x)}
+=-(\beta_2-\beta_1)\bigl(\Phi(x)-\Phi(y)\bigr).
+\]
+Ei kontrollert endring i seleksjonsstyrke gjev såleis ein lineær endring i relative log-odds mellom faste alternativ. Grunnfordelinga og normaliseringa fell bort i differansen.
+
+Dette er prøvbart berre dersom styrken kan gjerast og målast om utan at kandidatar, estimat og genereringsgrunnlag endrar seg. Eit brot på lineariteten under slike vilkår avviser den faste fordelingsmodellen. Uten slike kontrollar kan brotet òg skuldast at vilkåra ikkje stod faste.
+\end{formproposition}
+
 \begin{formproposition}{6.67}{d}
 Den samla effektive prioriteringa langs omsyn k er \(W_{k}\) \(=\) \(∑_{i}\) \(w_{i}\) \(ω_{k}\)(\(A_{i}\)), med \(ω_{k}\) \(=\) 0 utanfor lyskjegla til agenten. \(W_{k}\) måler ei vekt i valprosessen, ikkje kjensle eller gjennomføringskraft.
 \end{formproposition}
