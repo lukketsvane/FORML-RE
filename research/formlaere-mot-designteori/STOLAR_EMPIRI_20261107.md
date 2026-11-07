@@ -89,6 +89,19 @@ Tren på 1900+ (550), test på før-1900 (1 048):
 
 Dette er ein **tydeleg motprøve mot naiv tidsinvarians** for akkurat den valde polynommodellen. Polynom-ekstrapolasjon, utvalsskifte, målepraksis, materiale og produksjonsteknikk kan alle bidra. Det er ikkje eit bevis på skifte i formgrammatikk, og heller ikkje ei motbevising av Formlæra §6.6.
 
+## 4b. Ikkje-lineær sensitivitet med like dataskilje
+
+For å kontrollere om materialsignalet berre skuldast den valde tredjegradspolynommodellen, har eg også prøvd **histogram-basert gradient boosting** (80 iterasjonar, 10 maks bladnoder, læringsrate 0,05, L2-regulering 2,0, fast frø 20261107). Tre uavhengige regressorar lærer høgd/breidd, breidd/djupn og log-storleik. Modellane får dei same 12 gruppevise 75/25-splittane som over og elles same datavask.
+
+| Ikkje-lineær modell | Normalisert MSE |
+|---|---:|
+| Årstal | 0,94038 |
+| Årstal + materialkategoriar | **0,88522** |
+
+Materialtillegget forbetra estimatet i **12 av 12 overlappande held-ut-splittar**, med absolutt gjennomsnittleg skilnad 0,05516. Kode: [stolar_nonlinear_sensitivity.py](stolar_nonlinear_sensitivity.py).
+
+Dette er ein sterkare *sensitivitetskontroll av assosiasjonen* enn berre ridge-modellen. Men verken gradient boosting eller ridge skil mellom om materialar **produserer** form, om begge vert valde av ein tredje faktor, eller om museumsutvalet har selektert materialar og mål samtidig. Splittane er ikkje 12 uavhengige replikasjonar. Ingen av modellane er ei operasjonalisering av agentane og den registrerte grammatikken i den fulle §6.6-forma.
+
 ## 5. Kva resultata støttar
 
 **Støttar som observasjon:** materiale og produksjonsår ber informasjon om grov geometrisk form utover eit globalt gjennomsnitt, og det kan gje betre held-ut-prognosar i den analyserte museumsprøva. Stil ber òg informasjon i det selekterte, stilmerkte underutvalet.
