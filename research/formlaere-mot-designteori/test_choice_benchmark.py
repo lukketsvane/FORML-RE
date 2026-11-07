@@ -70,7 +70,7 @@ class BenchmarkTests(unittest.TestCase):
         rows = synthetic_rows("form")
         for row in rows[:4]:
             row["w1"] = "0.8"
-        with self.assertRaisesRegex(ValueError, "summere til éin"):
+        with self.assertRaisesRegex(ValueError, "Prioriteringane"):
             rows_to_cases(rows)
 
     def test_probabilities_normalize_for_each_model(self):
