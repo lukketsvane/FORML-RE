@@ -106,7 +106,7 @@ class IndependentDataTests(unittest.TestCase):
     def test_after_the_fact_rating_is_rejected(self):
         p=self.get_file(self.roster[0],"agent1")
         self.edit_file(p,lambda d: d["answers"][0].update(recorded_at=(AFTER+timedelta(hours=1)).isoformat()))
-        with self.assertRaisesRegex(ValueError,"Etterpåvurdering"):
+        with self.assertRaisesRegex(ValueError,"oppdaga"):
             compile_data(self.m,self.roster,self.folder)
 
     def test_conflicting_manifest_is_rejected(self):
@@ -118,7 +118,7 @@ class IndependentDataTests(unittest.TestCase):
     def test_role_conflict_is_rejected(self):
         p=self.get_file(self.roster[0],"agent2")
         self.edit_file(p,lambda d: d.update(actor_id=self.roster[0]["panel_id"]+"-agent1"))
-        with self.assertRaisesRegex(ValueError,"Tre ulike aktørar"):
+        with self.assertRaisesRegex(ValueError,"krevst"):
             compile_data(self.m,self.roster,self.folder)
 
     def test_cross_panel_actor_leakage_is_rejected(self):
