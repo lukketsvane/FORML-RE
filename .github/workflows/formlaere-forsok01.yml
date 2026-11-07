@@ -1,0 +1,51 @@
+name: Formlæra: Forsøk 01 og matematiske kontrollar
+
+on:
+  pull_request:
+    paths:
+      - 'research/formlaere-mot-designteori/**'
+      - 'traktat/tekst/formlaere.tex'
+      - '.github/workflows/formlaere-forsok01.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pilot-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install mathematical test dependencies
+        run: python -m pip install numpy scipy
+      - name: Test synthetic identities and collector boundaries
+        run: python -m unittest discover -s research/formlaere-mot-designteori -p 'test_*.py' -v
+      - name: Verify survey JavaScript parses
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page=Path('research/formlaere-mot-designteori/forsok01.html').read_text(encoding='utf8')
+          assert page.count('<script>')==1 and page.count('</script>')==1
+          js=page.split('<script>')[1].split('</script>')[0]
+          Path('/tmp/formlaere-forsok01.js').write_text(js,encoding='utf8')
+          PY
+          node --check /tmp/formlaere-forsok01.js
+      - name: Proposition uniqueness and balanced environments
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          text=Path('traktat/tekst/formlaere.tex').read_text(encoding='utf8')
+          ids=re.findall(r'\\begin{formproposition}{([^}]+)}{[^}]+}',text)
+          assert len(ids)==len(set(ids)), 'duplicate proposition IDs'
+          assert len(ids)==text.count('\\end{formproposition}'), 'unbalanced environments'
+          assert all(n in ids for n in ('1.542','6.661','6.662','6.663','6.664','6.665','6.666','6.667','6.668','6.676'))
+          print('PASS:',len(ids),'distinct propositions')
+          PY
