@@ -43,6 +43,17 @@ Intervallet for 1900+ omfattar null. Bootstrap resamplar testgrupper gitt dei va
 
 Ein separat gruppevis kontroll heldt alle objekt frå same namngjevne formgjevar saman. Kopiar med likt år/mål/materiale vart òg haldne samla, medan alle med «ukjent» formgjevar ikkje vart lagde i éi kunstig fellesgruppe. Etter tid, teknikk og produksjonsstad gav materiale ein ekstra MSE-reduksjon på 0,0304 i heile utvalet (12/12), 0,0367 før 1900 (12/12) og 0,0174 etter 1900 (9/12). Det motverkar nokre former for lekasje, men ikkje ukjend slektskap mellom objekt.
 
+## Ikkje-lineær rival
+
+Ein separat robustheitskontroll vart køyrd med ein fleksibel histogram-basert gradientboosting-regresjon i staden for ridge, og med dei same førehandstilgjengelege metadataa. Seks gruppesplittar, felles seed 20261107, 60 iterasjonar, høgst 10 blad per tre, læringsrate 0,05, L2-regularisering 2.0. Kode: [stolar_ikkjelinear.py](stolar_ikkjelinear.py).
+
+| Utval | År + teknikk + produksjonsstad | Desse pluss materiale | Positivt i splittar |
+|---|---:|---:|---:|
+| Heile N=1598 | 0,92156 | 0,90790 | 6/6 |
+| Frå 1900, N=550 | 0,93768 | 0,93122 | 5/6 |
+
+Forbetringa i heile utvalet (0,01366) er **mindre** enn ved ridge (0,02974 etter geografikontroll). Ein del av materialets ekstra prognosekraft i dei lineære modellane kan altså kome av at ein meir fleksibel grunnmodell tilpassar historisk kontekst betre. Seks overlappande splittar gir ikkje ei sjølvstendig signifikansprøve, og ein kan ikkje vurdere hypotesane som førehandsregistrerte.
+
 ## Validitet og negative funn
 
 - Stil er oppgjeve berre for 326 av 1598. Tidlegare delanalyse viste at stil har sjølvstendig geometrisk signal, men det er ikkje representativt for alle objekta.
