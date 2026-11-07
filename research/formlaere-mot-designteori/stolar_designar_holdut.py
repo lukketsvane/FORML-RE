@@ -31,7 +31,8 @@ def artist_clusters(data):
     first = {}
     unknown = {"", "unknown", "ukjent", "ikkje registrert", "anonymous", "anonym"}
     for i, (_, row) in enumerate(rows.iterrows()):
-        maker = str(row.get("designer") or "").strip().lower()
+        raw_maker = row.get("designer")
+        maker = raw_maker.strip().lower() if isinstance(raw_maker, str) else ""
         keys = ["family:" + row["family_group"]]
         if maker not in unknown:
             keys.append("maker:" + maker)
