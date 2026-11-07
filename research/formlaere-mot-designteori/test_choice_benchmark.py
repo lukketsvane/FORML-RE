@@ -4,7 +4,10 @@ Alle forsøksutfall er syntetiske. Dei testar kodens reglar og evna
 til å motbevise Formlæra, ikkje empirisk sanningsverdi.
 """
 from copy import deepcopy
+from dataclasses import replace
+from math import log
 import unittest
+import numpy as np
 
 from choice_benchmark import (
     benchmark, bootstrap_difference, probs, rows_to_cases, synthetic_rows
@@ -82,6 +85,26 @@ class BenchmarkTests(unittest.TestCase):
         ]:
             p = probs(case, name, **params)
             self.assertAlmostEqual(sum(p), 1.0, places=12)
+
+    def test_influence_transfer_log_odds_identity(self):
+        case = rows_to_cases(synthetic_rows("form"))[0]
+        beta, delta = 2.0, 0.1
+        new = replace(case, agent_weights=case.agent_weights + np.array([delta, -delta]))
+        initial, changed = probs(case, "form", beta=beta), probs(new, "form", beta=beta)
+        diff = log(changed[0] / changed[1]) - log(initial[0] / initial[1])
+        agent_gap_0 = case.deviations[0, 0] - case.deviations[0, 1]
+        agent_gap_1 = case.deviations[1, 0] - case.deviations[1, 1]
+        expected = -beta * delta * (agent_gap_0 - agent_gap_1)
+        self.assertAlmostEqual(diff, expected, places=12)
+
+    def test_equal_agent_disagreement_predicts_no_change(self):
+        case = rows_to_cases(synthetic_rows("form"))[0]
+        dev = np.array([[1.0, 0.5], [2.0, 1.5], [3.0, 2.5], [4.0, 3.5]])
+        initial = replace(case, deviations=dev)
+        changed = replace(initial, agent_weights=initial.agent_weights + np.array([0.1, -0.1]))
+        p0, p1 = probs(initial, "form", beta=1.9), probs(changed, "form", beta=1.9)
+        self.assertAlmostEqual(float(np.log(p0[0] / p0[1])),
+                               float(np.log(p1[0] / p1[1])), places=12)
 
     def test_cluster_bootstrap_counts_independent_groups(self):
         outcome = bootstrap_difference(
