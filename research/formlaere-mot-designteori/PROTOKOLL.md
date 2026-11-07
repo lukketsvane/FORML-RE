@@ -1,6 +1,6 @@
 # Formlære mot designteori: innlemming, motprøver og målbar tilleggskraft
 
-*Forskingsprotokoll 0.1, 7. november 2026. Arbeidsdokument, ikkje eit stadfesta resultat.*
+*Forskingsprotokoll 0.2, 7. november 2026. Arbeidsdokument, ikkje eit stadfesta resultat. Tala nedanfor høyrer til eit tidsstempla eldre korpusuttrekk; [MOTPROVER_01.md](MOTPROVER_01.md) dokumenterer nyare uttrekk, motprøver og eit kjeldeintegritetsproblem.*
 
 ## 1. Påstanden som skal prøvast
 
@@ -62,7 +62,7 @@ Dei fem kjeldene er identifiserte i korpuset og kontrollerte i lokalt lagra orig
 | W2791285506 | Saad-Sulonen mfl. (2018), *Unfolding Participation over Time*, DOI [10.1080/15710882.2018.1426773](https://doi.org/10.1080/15710882.2018.1426773) | Fem tidslinser: fase, framvekst, tilbakesyn, framsyn og langtidsverknad | \(A_i(t)\), oppdatering av \(\Pi\), tidsavhengige kjerner, §6.641 | Vis kva ved deltaking som held fram og endrar makta etter prosjektperioden |
 | W2624621937 | Raptis mfl. (2017), *Aesthetic, Functional and Conceptual Provocation in Research Through Design*, DOI [10.1145/3064663.3064739](https://doi.org/10.1145/3064663.3064739) | Feltstudie med fire familiar, ein provoserande prototype, utforsking av endra førestillingar og praksis | Endring i \(\Pi\), mål og landskap etter materiell intervensjon, §§3.11 og 6.4 | Formaliser korleis eit grep **endrar spørsmålet**, ikkje berre optimaliserer eitt fast mål |
 | W144692220 | Baskerville & Pries-Heje (2014), *Design Theory Projectability*, DOI [10.1007/978-3-662-45708-5_14](https://doi.org/10.1007/978-3-662-45708-5_14) | Projectability og entrenchment som kjenneteikn ved overførbar teknologisk kunnskap | Invarians i mekanismar ved byte av formrom og kontekst | Prøv prediksjon på nye prosjekt med førehandsvalde omsetjingar og mål |
-| W3004790496 | Fiore (2020), *Ethics of Technology and Design Ethics in Socio-Technical Systems*, DOI [10.7577/formakademisk.2201](https://doi.org/10.7577/formakademisk.2201) | Verdiorientert design og krav/ytelse-tenking anvendt på tilkopla produkt | Harde plikter i V, graderte omsyn i \(\Lambda\), ansvar hos agentar | Skil normativ rettferd frå deskriptive prioriteringsvekter |
+| W3004790496 | Fiore (2020), *Ethics of Technology and Design Ethics in Socio-Technical Systems*, DOI [10.7577/formakademisk.2201](https://doi.org/10.7577/formakademisk.2201) | Verdiorientert design og krav/ytelse-tenking anvendt på tilkopla produkt | Materielle veto i V; **etisk uaksept kan ikkje likestillast med materiell umoglegheit**. Normativ avgjerdsmakt må dokumenterast særskilt, og gradert prioritering i \(\Lambda\) er ikkje ei etisk grunngjeving. | Skil normativ rettferd frå deskriptive prioriteringsvekter |
 
 Raptis mfl. er eit konkret motdøme til absoluttpåstanden om at empirisk undersøking ikkje skjer i designforsking. Baskerville & Pries-Heje er eit motdøme til påstanden om at spørsmålet om overførbar designteori ikkje har vore handsama. Desse døma seier ikkje kor vanleg slike praksisar er i heile faget.
 
@@ -76,7 +76,7 @@ Raptis mfl. er eit konkret motdøme til absoluttpåstanden om at empirisk unders
 
 **Forsking gjennom design:** Dokumenter kva prototypen konkret gjer synleg som ikkje var kjent før. Skil tolking og lokalt situert innsikt frå generelle årsakspåstandar. Ei casebasert innsikt kan vere verdifull sjølv om ho ikkje er eit estimat av ein universell effekt.
 
-**Etikk:** V må ha ein etterprøvbar normativ grunngjeving. Å setje høg verdi på noko er ein psykologisk eller institusjonell faktaopplysning; å ha rett til vern er ei anna type utsegn. Desse må ikkje likestillast ved normalisering av vektene.
+**Etikk:** V i §1.42 er berre dei **materielt utelukka** regionane. Eit eventuelt normativt godkjenningsfilter må førast separat frå dette, og kven som har rett og makt til å håndheve det må dokumenterast. Å setje høg vekt på eit omsyn er ikkje ei moralsk grunngjeving. Jamfør [MOTPROVER_01.md](MOTPROVER_01.md).
 
 ## 6. Førehandsbestemd testprotokoll
 
@@ -112,7 +112,7 @@ Gje statusen *uavklart* når noko ikkje er dokumentert. Revider ikkje gamle koda
 
 - **Gjennomgått:** den gjeldande formelle kjernen i Formlæra §§6.6–6.674 og innleiande delar av fem originaltekstar frå det lokale PDF-korpuset.
 - **Verifisert i kode:** syntetiske matematiske kontrollar av normalisering, veto, fortegnet i kovariansidentiteten og detaljert balanse ved symmetrisk forslag. Sjå test_6_6.py.
-- **Ikkje påvist:** at Formlæra er empirisk meir treffsikker enn dei fem kjeldene, at kvar kjelde er fullt innlemma, eller at heile designteorien manglar kumulativ vitskap.
+- **Ikkje påvist:** at Formlæra er empirisk meir treffsikker enn dei fem kjeldene, at kvar kjelde er fullt innlemma, eller at heile designteorien manglar kumulativ vitskap. I tillegg viser [MOTPROVER_01.md](MOTPROVER_01.md) at den statiske §6.6-modellen er metta når \(\Phi\) er heilt fri, og at vald sannsynsfordeling åleine ikkje identifiserer mekanismen.
 - **Prinsipp:** Dette arbeidet høyrer til i FORML-RE. Det publiserte nordiske korpuset i designteori skal halde fram som ein uavhengig og allment brukbar forskingsressurs.
 
 **Føremålet er ikkje å telje kor mange teoriar me kan erklære underordna, men å finne kva frå dei som faktisk overlever ei streng omsetjing, og kva ekstra Formlæra kan vise når omsetjinga kan fellast.**
