@@ -50,6 +50,7 @@ def write_roles(manifest, roster, folder):
                 "study_id":manifest["study_id"],
                 "manifest_sha256":manifest["manifest_sha256"],
                 "panel_id":panel,"actor_id":actor,"role":role,
+                "voluntary":True,"consent_confirmed_at":BEFORE.isoformat(),
                 "answers":[],
             }
             for c in manifest["sets"]:
@@ -126,6 +127,12 @@ class IndependentDataTests(unittest.TestCase):
         p=self.get_file(self.roster[1],"agent1")
         self.edit_file(p,lambda d: d.update(actor_id=other))
         with self.assertRaisesRegex(ValueError,"fleire train/test-panel"):
+            compile_data(self.m,self.roster,self.folder)
+
+    def test_missing_consent_rejected(self):
+        p=self.get_file(self.roster[0],"agent1")
+        self.edit_file(p,lambda d: d.update(voluntary=False))
+        with self.assertRaisesRegex(ValueError,"samtykke"):
             compile_data(self.m,self.roster,self.folder)
 
     def test_missing_rating_rejected(self):
