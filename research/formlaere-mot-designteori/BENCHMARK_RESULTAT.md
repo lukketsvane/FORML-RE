@@ -68,7 +68,7 @@ Dette er eit **strengare datakrav** enn dei fleste studiar som berre dokumentere
 
 Brukaren sitt historiske STOLAR-materiale er nyttig for å prøve **morfologiske hypotesar**, ikkje i seg sjølv agens- og valmodellen. Dei eksisterande forskingsnotata rapporterer svake samband mellom stil-etikettar og geometriske klynger, og variasjon i formrommet over tid. Desse resultata må kontrollerast mot rådata og dataproveniens før dei vert førte som nytt resultat.
 
-Eit Drive-arkiv for STOLAR inneheld ei CSV-fil og eit eldre api.json som er generert 19. mars 2026. I den arkiverte JSON-fila er det 2300 registreringar, men ikkje alle er unike eller faktiske stolar; berre 524 registreringar har stilfelt. Ei annan deskriptiv forskingsutgåve omtalar 2048 stolar. Dataversjonar, datering og inklusjon må samordnast før ei ny statistisk prøve. Eit morfologisk samband kan ikkje utan vidare forklare kva designarar trudde, eller kva alternativ dei såg.
+Eit Drive-arkiv for STOLAR inneheld ei CSV-fil og eit eldre api.json som er generert 19. mars 2026. I den arkiverte JSON-fila er det 2 300 registreringsrader og 2 048 unike objekt-ID-ar. 181 ID-ar har fleire rader (117 grupper med identiske oppføringar og 64 grupper med ulikt innhald). JSON-fila har ikkje eige felt for stil eller 3D-morfometri. Ei anna deskriptiv forskingsutgåve omtalar 2 048 stolar, men dette åleine dokumenterer ikkje at alle 2 048 ID-ane er designobjekt. Deduplisering, inklusjon, kjeldegeometri og dataversjon må avklarast før ein ny statistisk prøve. Eit morfologisk samband kan ikkje utan vidare forklare kva designarar trudde, eller kva alternativ dei såg.
 
 ## Neste verkelege komparatorprøve
 
