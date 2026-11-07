@@ -54,10 +54,10 @@ def classify(title, first_pages):
 def inspect(corpus, *, sample=220, seed=20261107, max_pages=3):
     pub = {r["id"]: r for r in json.loads((corpus / "docs/data/publications.json").read_text(encoding="utf8"))}
     manifest = json.loads((corpus / "pdf/manifest.json").read_text(encoding="utf8"))["items"]
-    eligible = sorted(
+    eligible = [
         x for x in manifest if x in pub and
         (corpus / manifest[x]["file"]).is_file()
-    )
+    ]
     if sample <= 0 or sample >= len(eligible):
         selected = eligible
     else:
