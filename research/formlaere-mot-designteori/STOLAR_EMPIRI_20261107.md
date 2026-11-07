@@ -102,6 +102,19 @@ Materialtillegget forbetra estimatet i **12 av 12 overlappande held-ut-splittar*
 
 Dette er ein sterkare *sensitivitetskontroll av assosiasjonen* enn berre ridge-modellen. Men verken gradient boosting eller ridge skil mellom om materialar **produserer** form, om begge vert valde av ein tredje faktor, eller om museumsutvalet har selektert materialar og mål samtidig. Splittane er ikkje 12 uavhengige replikasjonar. Ingen av modellane er ei operasjonalisering av agentane og den registrerte grammatikken i den fulle §6.6-forma.
 
+## 4c. Kontroll for produksjonsteknikk
+
+Ei ny, fast modellsamanlikning brukar teknikkfeltet i same arkiverte data. Etter tilsvarande 12 gruppevise held-ut-splittar har ikkje-lineær gradient boosting (same parametrar som i 4b) følgjande gjennomsnittlege normaliserte testfeil:
+
+| Dataval | Årstal + teknikk | Årstal + teknikk + materiale | Forskjell |
+|---|---:|---:|---:|
+| Alle gyldige geometriobjekt, N=1 598 | 0,88867 | **0,86083** | 0,02784 |
+| Berre objekt med registrert teknikk, N=663 | 0,82069 | **0,81403** | 0,00666 |
+
+Forbetringa kom i 11 av 12 overlappande splittar for heile utvalet og 8 av 12 for teknikkmerkte objekt. Den lågare forbetringa i teknikkmerkte objekt viser at ein del av materialeffekten kan bere informasjon som også ligg i registrerte produksjonsprosessar. Men utvalet med dokumentert teknikk er ikkje tilfeldig trekt, og desse to forbetringstala er ikkje eit kausalt medieringseksperiment. At materialtillegget har liten nytte i eit delutval, viser ikkje at material ikkje spelar ei fysisk rolle.
+
+Reproduserbar kode: [teknikk_sensitivitet.py](teknikk_sensitivitet.py). Desse resultata ligg nærare **SG, operativ tilgjenge og materiell praksis** enn ein rein material-/stilklassifikasjon, men gir enno ikkje heile SG og ikkje grunnfordelinga i §6.6.
+
 ## 5. Kva resultata støttar
 
 **Støttar som observasjon:** materiale og produksjonsår ber informasjon om grov geometrisk form utover eit globalt gjennomsnitt, og det kan gje betre held-ut-prognosar i den analyserte museumsprøva. Stil ber òg informasjon i det selekterte, stilmerkte underutvalet.
