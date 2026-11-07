@@ -144,7 +144,7 @@ Eitt **stadfesta feilkopla dokument** står framleis i den nye manifesten:
 - Tilordna PDF: https://winbev.pbworks.com/f/LS-1988.pdf, med tittelen *Learning and Teaching Styles in Engineering Education* av Richard M. Felder og Linda K. Silverman, publisert 1988. Innhaldet er feil kjelde.
 - Issue [designteori #4](https://github.com/lukketsvane/designteori/issues/4) oppretta; inga fil vart endra i Antigravity si arbeidsmappe.
 
-Ei reproduserbar, førehandssådd kontrollprøve av **220 av 1 378** lokale OpenAlex-PDF-ar i den nye manifesten gav 205 eksakte titlar i dei tre første sidene, 10 sterke ikkje-eksakte teksttreff, 2 tvitydige og 3 mistenkelege. Desse automatiske flagga er **ikkje** manuell validering eller måling av kor mange PDF-ar som er feil. Minst éin av dei mistenkelege hadde øydelagt tekstuttrekk; eit anna dokument inneheldt konferanseproceedings framfor ein enkelt artikkel. Feilkoplinga ovanfor vart funnen ved særskild manuell originalkontroll og låg ikkje i den tilfeldige 220-prøva.
+Ei reproduserbar, førehandssådd kontrollprøve av **220 av 1 378** lokale OpenAlex-PDF-ar i den nye manifesten gav 205 eksakte titlar i dei tre første sidene, 10 sterke ikkje-eksakte teksttreff, 2 tvitydige, 2 mistenkelege og 1 uleseleg tekstuttrekk. Klassifiseringa er reprodusert med [audit_pdf_manifest.py](audit_pdf_manifest.py), utvalsfro 20261107. Desse automatiske flagga er **ikkje** manuell validering eller måling av kor mange PDF-ar som er feil. Minst éin av dei mistenkelege hadde øydelagt tekstuttrekk; eit anna dokument inneheldt konferanseproceedings framfor ein enkelt artikkel. Feilkoplinga ovanfor vart funnen ved særskild manuell originalkontroll og låg ikkje i den tilfeldige 220-prøva.
 
 ## 8. Kva som faktisk kan stå som hovudresultat no
 
