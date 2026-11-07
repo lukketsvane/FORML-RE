@@ -4,7 +4,7 @@ Flaggar moglege feilkoplingar. Utgjeving av 'suspect' er aldri det same
 som ein stadfesta feil. Skriptet skriv ikkje til korpus eller PDF-mapper.
 
 Køyr:
-  python audit_pdf_manifest.py C:\Users\Iver\Documents\github\designteori --sample 220
+  python audit_pdf_manifest.py C:/Users/Iver/Documents/github/designteori --sample 220
 Krev PyMuPDF: pip install pymupdf
 """
 from __future__ import annotations
