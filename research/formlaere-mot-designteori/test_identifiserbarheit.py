@@ -86,7 +86,7 @@ class StructuralCountertests(unittest.TestCase):
         self.assertEqual(p_decision[2], 0.0)
         # Alternativ 2 forsvann frå vedtaket, ikkje frå naturens moglegheiter.
 
-    def test_stasjonær_gammal_grammatikk_kan_ikkje_gje_sannsyn_til_ny_form(self):
+    def test_stasjonaer_gammal_grammatikk_kan_ikkje_gje_sannsyn_til_ny_form(self):
         old_distribution = gibbs((1.0, 1.0), (0.0, 0.0), 1.0)
         self.assertEqual(len(old_distribution), 2)
         new_distribution = gibbs((1.0, 1.0, 1.0), (0.0, 0.0, -1.0), 1.0)
