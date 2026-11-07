@@ -1829,13 +1829,12 @@ Eit indirekte vern er difor eit føreseieleg samband mellom omsyn, ikkje eit unn
 \begin{formproposition}{6.676}{t}
 For to faste alternativ \(x,y\in D\), under vilkåra i 6.6 med uendra grunnfordeling, seleksjonsstyrke og agentestimat, lat innverknaden flyttast med \(\delta\) frå agent \(j\) til agent \(i\): \(w_i'=w_i+\delta\) og \(w_j'=w_j-\delta\), slik at begge vektene framleis er ikkje-negative.
 
-Då er endringa i dei relative log-odda eksakt
+Set \(\Delta_{ij}(z)=\hat{\Lambda}_i(z)-\hat{\Lambda}_j(z)\). Då er endringa i dei relative log-odda eksakt:
 \[
-\log\frac{P_\delta(x)/P_\delta(y)}{P_0(x)/P_0(y)}
-=-\beta\delta\bigl[
-(\hat{\Lambda}_i(x)-\hat{\Lambda}_j(x))
--(\hat{\Lambda}_i(y)-\hat{\Lambda}_j(y))
-\bigr].
+\begin{gathered}
+\log\frac{P_\delta(x)P_0(y)}{P_\delta(y)P_0(x)}\\
+=-\beta\delta\bigl(\Delta_{ij}(x)-\Delta_{ij}(y)\bigr).
+\end{gathered}
 \]
 
 Endringa er null når skilnaden mellom agentane sine vurderingar er den same for dei to alternativa. Ei endring av innverknad gjev difor ikkje automatisk eit anna val. Dersom alternativa, vurderingane eller grunnfordelinga endrar seg samstundes, kan ikkje vektflyttinga åleine forklare utfallet.
