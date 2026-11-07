@@ -1820,6 +1820,19 @@ Ei kontrollert endring i seleksjonsstyrke gjev såleis ein lineær endring i rel
 Dette er prøvbart berre dersom styrken kan gjerast og målast om utan at kandidatar, estimat og genereringsgrunnlag endrar seg. Eit brot på lineariteten under slike vilkår avviser den faste fordelingsmodellen. Uten slike kontrollar kan brotet òg skuldast at vilkåra ikkje stod faste.
 \end{formproposition}
 
+\begin{formproposition}{6.668}{t}
+Ei registrert samling er ikkje det same som fordelinga av realiserte former. Lat \(P(x)\) vere fordelinga over realiserte former i eit endeleg \(D\), og lat \(r(x)\in[0,1]\) vere sannsynet for at ei realisering av \(x\) kjem med i observasjonen. Dersom registreringa verkar uavhengig for kvar realisering, vil fordelinga i arkivet vere
+\[
+Q(x)=\frac{r(x)P(x)}{\sum_{y\in D}r(y)P(y)}
+=\frac{r(x)\mu_{\mathrm{SG}}(x)e^{-\beta\Phi(x)}}
+{\sum_{y\in D}r(y)\mu_{\mathrm{SG}}(y)e^{-\beta\Phi(y)}}.
+\]
+Når \(\beta>0\) og \(r(x)>0\) over heile \(D\), kan dette skrivast med det tilsynelatande landskapet
+\(\Phi_{\mathrm{obs}}(x)=\Phi(x)-\beta^{-1}\log r(x)\). Arkivutval kan såleis sjå ut som formseleksjon utan å vere det. Når \(r(x)=0\), kan ei realiserbar form heilt mangle i arkivet, sjølv om ho har positivt sannsyn i verda.
+
+Utan uavhengig kunnskap om registreringa kan ein ikkje skilje desse årsakene frå den observerte fordelinga åleine (6.662, 6.664). Kjenner ein positive registreringssannsyn, kan fordelinga korrigerast ved å vekte observasjonane med \(1/r(x)\). Fråvær av ei slik kjelde må vere uttrykkeleg når historiske former vert brukte til å prøve læra.
+\end{formproposition}
+
 \begin{formproposition}{6.67}{d}
 Den samla effektive prioriteringa langs omsyn k er \(W_{k}\) \(=\) \(∑_{i}\) \(w_{i}\) \(ω_{k}\)(\(A_{i}\)), med \(ω_{k}\) \(=\) 0 utanfor lyskjegla til agenten. \(W_{k}\) måler ei vekt i valprosessen, ikkje kjensle eller gjennomføringskraft.
 \end{formproposition}
