@@ -113,6 +113,33 @@ jobs:
             console.log('STEP_FUNCTIONS_URL',page.url());
             console.log('STEP_FUNCTIONS_TEXT',(await page.locator('body').innerText()).slice(0,9000));
             console.log('STEP_FUNCTIONS_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,300)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
+            await page.getByLabel('Description - optional').fill('Six-month project workflow orchestration: average 5,000 Standard workflow starts/month over the calculator 12-month horizon, with two state transitions per workflow; project runs for six months.');
+            await page.locator('input[aria-label="Workflow requests Value"]:visible').first().fill('5000');
+            await page.locator('input[aria-label^="State transitions per workflow"]:visible').first().fill('2');
+            await page.locator('input[aria-label^="State transitions per workflow"]:visible').first().press('Tab');
+            await page.waitForTimeout(900);
+            const sftext=await page.locator('body').innerText();
+            console.log('STEP_FUNCTIONS_ENTERED',JSON.stringify({
+              requests:await page.locator('input[aria-label="Workflow requests Value"]:visible').first().inputValue(),
+              transitions:await page.locator('input[aria-label^="State transitions per workflow"]:visible').first().inputValue()
+            }));
+            console.log('STEP_FUNCTIONS_COST',sftext.split('\n').filter(x=>/Monthly cost|Upfront cost|Total 12 months|USD/.test(x)).slice(-10));
+            console.log('STEP_FUNCTIONS_ERRORS',sftext.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-10));
+            await page.getByRole('button',{name:'Save and add service',exact:true}).click();
+            await page.waitForTimeout(1000);
+            await page.getByRole('searchbox',{name:'Find Service'}).fill('DynamoDB');
+            await page.waitForTimeout(700);
+            console.log('DYNAMO_SEARCH_TEXT',(await page.locator('body').innerText()).slice(0,6500));
+            console.log('DYNAMO_MATCHING_CARDS',JSON.stringify(await page.locator('li').evaluateAll(es=>es.map((e,i)=>({i,text:(e.innerText||'').trim().slice(0,400)})).filter(x=>/Dynamo/i.test(x.text)))));
+            const dtext=page.getByText('Amazon DynamoDB',{exact:true}).first();
+            console.log('DYNAMO_TITLE_COUNT',await dtext.count());
+            const dcard=dtext.locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await dcard.getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(2600);
+            console.log('DYNAMO_FORM_URL',page.url());
+            console.log('DYNAMO_FORM_TEXT',(await page.locator('body').innerText()).slice(0,9500));
+            console.log('DYNAMO_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,280)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
+
 
           }finally{await browser.close();}
           JS
