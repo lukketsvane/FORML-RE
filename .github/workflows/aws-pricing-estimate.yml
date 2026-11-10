@@ -29,7 +29,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Inspect the public AWS Pricing Calculator UI
+      - name: Inspect the service catalogue
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -40,12 +40,15 @@ jobs:
             page.on('requestfailed', req => console.log('REQUEST_FAILED', req.method(), req.url(), req.failure()?.errorText));
             page.on('pageerror', err => console.log('PAGE_ERROR', err.message));
             await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 120000 });
-            await page.waitForTimeout(18000);
+            await page.waitForTimeout(5000);
+            const createButtons = page.getByRole('button', { name: 'Create estimate' });
+            console.log('CREATE_BUTTON_COUNT', await createButtons.count());
+            await createButtons.last().click();
+            await page.waitForTimeout(10000);
             console.log('PAGE_TITLE', await page.title());
             console.log('PAGE_URL', page.url());
-            console.log('BODY_TEXT', (await page.locator('body').innerText()).slice(0, 16000));
+            console.log('BODY_TEXT', (await page.locator('body').innerText()).slice(0, 18000));
             console.log('BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('LINKS', JSON.stringify(await page.locator('a').evaluateAll(els => els.map(a => ({ text: a.innerText.trim(), href: a.href })).slice(0, 100))));
             console.log('INPUTS', JSON.stringify(await page.locator('input').evaluateAll(els => els.map(x => ({ type: x.type, placeholder: x.placeholder, aria: x.getAttribute('aria-label'), name: x.name, value: x.value })))));
             console.log('SELECTS', JSON.stringify(await page.locator('select').evaluateAll(els => els.map(x => ({ aria: x.getAttribute('aria-label'), value: x.value, options: [...x.options].map(o => o.text).slice(0, 30) })))));
           } finally {
