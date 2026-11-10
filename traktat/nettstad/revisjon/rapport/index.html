@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nn" xml:lang="nn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FORML��RE ��� redaksjonell og matematisk revisjonsrapport</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="/revisjon/style.css" />
+</head>
+<body>
+<nav class="sitebar" aria-label="Navigasjon"><a href="/">formlære</a><span class="links"><a href="/traktat/formlaere.pdf">Gjeldande PDF</a><a href="/revisjon/rapport/">Revisjonsrapport</a></span></nav>
+<header id="title-block-header">
+<h1 class="title">FORML��RE ��� redaksjonell og matematisk
+revisjonsrapport</h1>
+</header>
+<h1 id="formlære">FORMLÆRE</h1>
+<h2 id="redaksjonell-og-matematisk-revisjonsrapport">Redaksjonell og
+matematisk revisjonsrapport</h2>
+<p><strong>Arbeidsrapport · 10. november 2026</strong><br />
+<strong>Grunnlag:</strong> 85-siders PDF-utgåve, 70-siders
+Word-omskriving, litteraturgjennomgang 10. november 2026 og
+implementeringsgrunnlag 1. november 2026.</p>
+<h2 id="samandrag">1. Samandrag</h2>
+<p>Denne revisjonen har eitt mål: å gjere proposisjonssystemet i
+FORMLÆRE så presist, samanhengande og prøvbart som kjeldematerialet
+tillèt, utan å gjere teksten større berre fordi nye teoriar er
+interessante. Arbeidet har difor kombinert tre operasjonar:
+gjenoppretting av matematiske uttrykk, presisering av logiske vilkår og
+redaksjonell reduksjon av dobbeltføring.</p>
+<p>Resultatet er ei <strong>revidert arbeidsutgåve av
+proposisjonane</strong>, ikkje ein endeleg publiseringsklar traktat. Den
+opphavlege PDF-en er urørt. Eg har ikkje endra noko GitHub-repo eller
+produksjonsside. Den autoritative LaTeX-kjelda og det korrekte
+FORMLÆRE-repoet var ikkje tilgjengelege i denne økta; difor kan ikkje
+alle gjenoppretta uttrykk stadfestast mot den opphavlege satsfila.</p>
+<h3 id="resultat-i-tal">Resultat i tal</h3>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kontroll</th>
+<th style="text-align: right;">Tal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Opphavlege proposisjonar i PDF/Word-grunnlaget</td>
+<td style="text-align: right;">377</td>
+</tr>
+<tr class="even">
+<td>Opphavlege proposisjonar som er bevarte</td>
+<td style="text-align: right;">376</td>
+</tr>
+<tr class="odd">
+<td>Eksisterande proposisjonar som er slått saman/fjerna som
+dobbeltføring</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>Nye proposisjonar</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td>Proposisjonar i revidert utgåve</td>
+<td style="text-align: right;"><strong>394</strong></td>
+</tr>
+<tr class="even">
+<td>Dupliserte adresser i revisjonen</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>Proposisjonar utan statusmarkør</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p>Den eine fjerna adressa er <strong>4.01</strong>. Innhaldet er teke
+inn i 4.3, der det høyrer naturleg saman med landskapet sitt minne og
+stiavhengigheit. Dei 18 nye proposisjonane tilfører sjølvstendige
+definisjonar, overgangsvilkår eller prøver; dei er ikkje ei generell
+utviding av kvar kapittelinndeling.</p>
+<h2 id="tekstgrunnlag-og-kjeldekritikk">2. Tekstgrunnlag og
+kjeldekritikk</h2>
+<p>Revisjonen byggjer på fire dokument:</p>
+<ol type="1">
+<li><strong><code>formlære.pdf</code></strong>, 85 sider. Dette er
+tekstleg hovudgrunnlag og kontrollkjelde for proposisjonsadresser,
+definisjonar og matematiske uttrykk.</li>
+<li><strong><code>formlaere_omskrive.docx</code></strong>, 70 sider.
+Denne versjonen er brukt som språkleg samanlikningsgrunnlag, ikkje som
+matematisk fasit. Fleire symbol og delar av uttrykka er skadde i
+konverteringa.</li>
+<li><strong><code>formlaere_litteraturgjennomgang_2026-11-10.md</code></strong>.
+Notatet samanfattar ei første gjennomgang av meir enn 110 fulltekstar
+frå designteori. Korpuset omfattar ulike dokumenttypar og metodiske
+styrkar; det er ikkje korrekt å omtale alle som empiriske
+forskingsartiklar.</li>
+<li><strong><code>FORMLAERE_IMPLEMENTERINGSGRUNNLAG_2026-11-01.md</code></strong>.
+Dette registrerer tidlegare satsfeil, proposisjonsadressekollisjonar,
+symboltap og krav til seinare byggkontroll.</li>
+</ol>
+<p>Den visuelle PDF-kontrollen er brukt der tekstuttrekk og
+Word-konvertering var tvitydige. Proposisjonsadressa og statusmarkøren
+er sette som separate maskinlesbare felt i arbeidsutgåva, til dømes
+<code>1.1 [a]</code>, ikkje som ein heva glyf som kan lesast som eit
+ekstra desimalsiffer.</p>
+<h3 id="avgrensing">Avgrensing</h3>
+<p>Dokumentet som er levert, omfattar proposisjonane i kapittel 1–7 og
+eit kort redaksjonelt etterord. Det omfattar <strong>ikkje</strong> ei
+fullstendig nyutgåve av føreord, figurar, figurtekstar, ordliste,
+sluttnotar eller bibliografi. Desse delane må seinare kryssrefererast
+mot det same kanoniske proposisjonsregisteret. Referansenummer frå
+originalen er ikkje rekonstruerte som ei ny fullstendig bibliografisk
+apparat.</p>
+<h2 id="redaksjonelle-avgjerder-kva-er-fjerna-kva-er-halde">3.
+Redaksjonelle avgjerder: kva er fjerna, kva er halde</h2>
+<h3 id="fjerna-eller-slått-saman">3.1 Fjerna eller slått saman</h3>
+<p><strong>4.01 er fjerna som eiga adresse.</strong> Påstanden om at
+kvar realisering endrar landskapet, gjentok det som alt ligg i 3.4 og i
+4.3. Han er no uttrykt éin gong i 4.3, saman med minne, busett posisjon
+og stiavhengigheit. Dette er den einaste opphavlege proposisjonen som er
+teken ut som dobbeltføring.</p>
+<p><strong>7.262 og 7.263 frå eit tidlegare arbeidsutkast er ikkje førte
+vidare som eigne proposisjonar.</strong> Innhaldet om målendring og svar
+frå den som lever med forma, er samla i 7.25. Innhaldet om tomt
+levedyktig rom er samla i 6.127. Dei var ikkje opphavlege
+proposisjonsadresser i 85-siders-PDF-en.</p>
+<h3 id="medvite-ikkje-fjerna">3.2 Medvite ikkje fjerna</h3>
+<p><strong>1.3211 og 7.34 er begge haldne.</strong> Dei deler
+kart-/fjell-biletet, men har ulike funksjonar: den første avgrensar
+korleis ein modell representerer verda; den siste fører biletet tilbake
+som avslutning på sjølvkritikken. Lik ordlyd åleine er ikkje
+tilstrekkeleg grunn til å fjerne ei tematisk ramme.</p>
+<p>Definisjonar og seinare følgjer som brukar same omgrep, er heller
+ikkje fjerna berre fordi dei liknar. Ei definisjon fastset kva eit
+omgrep tyder; ei følgje viser kva som kjem av det under vilkår; ei
+seinare prøve gjer det operativt. Slik repetisjon er strukturell, ikkje
+nødvendigvis overflødig.</p>
+<h3 id="forslag-som-ikkje-vart-gjorde-til-nye-proposisjonar">3.3 Forslag
+som ikkje vart gjorde til nye proposisjonar</h3>
+<ul>
+<li>Ei generell ny definisjon av «overgangsform» ved 1.03 vart ikkje
+lagd til. 1.13, 1.54, 1.63 og kapittel 4 gjev allereie grunnlag for å
+analysere overgang, tid og stiavhengigheit.</li>
+<li>Ein eigen U→C-proposisjon ved 1.5411 vart ikkje lagd til. Han kunne
+feilaktig tyde direkte tilgang til det utanfor agenten sitt tenkjelege
+rom. 1.53, 1.541 og 1.63 gjev eit meir presist skilje: ein operasjon kan
+endre kva agenten kan tenkje, utan at agenten ser over grensa til
+U.</li>
+<li>Ei ny generell typologi over sjølvvalde avgrensingar vart utsett. Ho
+bør berre inn dersom ein konkret empirisk modell treng eigne variablar
+for slike avgrensingar.</li>
+<li>Ei generell proposisjon om distribuert indre modell vart ikkje lagd
+til; ho ville krevje eit eige kriterium for korleis kropp, verktøy,
+materiale eller sosial koordinering inngår i observasjons- og
+politikkstrukturen.</li>
+<li>Eit større knippe metodereglar vart ikkje lagt til etter 7.153.
+7.151 og 7.153 har alt eit prøveregime; det nye 7.154–7.155 legg berre
+til to manglande presiseringar om representasjon og
+prototypeevidens.</li>
+</ul>
+<h2 id="nye-proposisjonar">4. Nye proposisjonar</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kapittel</th>
+<th>Nye adresser</th>
+<th>Funksjon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4</td>
+<td>4.31–4.32</td>
+<td>Skilje mellom eit spor som vert verande, tilgang til sporet og
+aktivering i eit seinare forløp.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>5.1112</td>
+<td>Skilje kausal påverknad, teknisk regulerande agens, oppleving og
+moralsk ansvar.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5.202–5.203</td>
+<td>Relasjonell omhug: registrering, måltruskap, prioritering,
+kapasitet, tilbakemelding og uavhengig prøving av utfall.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>5.224–5.225</td>
+<td>Skilje kognitiv lyskjegle, kontrafaktisk påverknadsområde og robust
+kapasitet.</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>6.124–6.1241</td>
+<td>Endeleg-horisont levedyktigheitskjerne og robust tilbakekopling
+under delvis observasjon.</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>6.125–6.127</td>
+<td>Skilje genererbar frå levedyktig form; endring av grammatikken på
+metanivå; tom levedyktigheitsmengd.</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>6.633–6.634</td>
+<td>Avgrense additivitet som modellvilkår og definere kondisjonering på
+levedyktige alternativ.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>7.1522</td>
+<td>Stokastisk sviktrisiko som utviding av den deterministiske
+risikodefinisjonen.</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>7.154–7.155</td>
+<td>Representasjon av prosessen og prototype som prøvingsobjekt;
+avgrensing av kva evidens eit case gjev.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>7.261</td>
+<td>Ikkje-kompensasjon som vilkårsbunden følgje av eksplisitt inklusjon
+og fastsette kritiske haldegrenser.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="matematiske-og-logiske-rettingar">5. Matematiske og logiske
+rettingar</h2>
+<h3 id="formrom-ck-og-formgrammatikk">5.1 Formrom, C–K og
+formgrammatikk</h3>
+<p><strong>1.5 og 1.54</strong> gjer den epistemiske delinga eksplisitt
+relativ til agent, omsyn, prøvevilkår og tidspunkt. Det akselause
+utanfor kartet vert ikkje lagt inn som ei fjerde mengd i kvar akse. Dei
+fire retningane C→C, C→K, K→C og K→K er definerte, samstundes som det
+vert sagt tydeleg at C–K-teorien sitt K-rom av kunnskapsutsegner ikkje
+er identisk med FORMLÆRE sitt rom av kjende formposisjonar under eit
+kriterium.</p>
+<p><strong>1.61–1.63</strong> gjenopprettar regeloperasjonen i
+formgrammatikken og skil mellom generering og materiell prøving. Ei
+grammatikkoperasjon kan gjere eit alternativ tenkjeleg; ho avgjer ikkje
+om det verkar. Realisering er ei C→K-rørsle berre for det kriteriet og
+dei prøvevilkåra ho faktisk avgjer.</p>
+<p><strong>1.223</strong> presiserer at ny objektdeling, nivåskifte
+eller nye relasjonar kan utvide det operative formrommet, utan at dette
+åleine provar at det ontologisk moglege har endra seg.</p>
+<h3 id="seleksjonstrykk-og-additivitet">5.2 Seleksjonstrykk og
+additivitet</h3>
+<p><strong>3.01–3.1</strong> uttrykkjer den multiplikative samansetjinga
+av trykk og den logaritmiske summen eksplisitt. Additivitet følgjer
+berre når trykka kan faktoriserast slik modellen føreset. Dersom dei
+samverkar ikkje-multiplikativt, må samspelsledd førast opp eller
+modellen avgrensast. Ei additiv energifunksjon vert ikkje framstilt som
+ei universell lov om all komposisjon eller estetisk form.</p>
+<h3 id="agent-omhug-påverknad-og-kapasitet">5.3 Agent, omhug, påverknad
+og kapasitet</h3>
+<p><strong>5.11</strong> skil mål-avvik frå prediksjonsfeil. God
+prediksjon er ikkje det same som at systemet held målet sitt.</p>
+<p><strong>5.21 og 5.231</strong> skil kapasitet langs kvar akse frå
+kapasitet til å halde fleire aksar samstundes under éin og same
+politikk. Individuell kapasitet kan ikkje summerast til eit samtidig
+hald utan vidare.</p>
+<p><strong>5.22, 5.224 og 5.225</strong> skil tre domene:</p>
+<ul>
+<li>lyskjegla
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Γ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Gamma(A)</annotation></semantics></math>:
+kva agenten kan ta som mål;</li>
+<li>påverknadsområdet
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℛ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>;</mo><msub><mi>z</mi><mn>0</mn></msub><mo>,</mo><mi>T</mi><mo>,</mo><mi>𝒟</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathcal R(A;z_0,T,\mathcal D)</annotation></semantics></math>:
+kva agenten kan gjere ein kontrafaktisk skilnad for under fast
+starttilstand og forstyrring;</li>
+<li>kapasiteten
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>;</mo><mi>T</mi><mo>,</mo><mi>𝒟</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\kappa(A;T,\mathcal D)</annotation></semantics></math>:
+kva agenten kan halde robust under dei oppgjevne forstyrringane.</li>
+</ul>
+<p>Desse tre domena kan vere ulike. Kva agenten bryr seg om, kva han kan
+påverke, og kva han kan halde, er ikkje same spørsmål.</p>
+<p><strong>5.202–5.203</strong> gjer omhug relasjonell utan å redusere
+han til ein enkelt skår. Observasjonsordninga må prøvast for treff,
+oversette avvik og falske alarmar; representasjonen av den andre må ha
+ein oppgjeven samanlikningsgrunn dersom måltruskap skal talfestast.
+Prioritering, kapasitet og tilbakekoplingskanal vert haldne frå
+kvarandre, og faktisk utfall vert prøvd uavhengig. Ein berar av følgjer
+treng ikkje sjølv oppfylle den tekniske agentdefinisjonen. Dersom den
+som lever med forma kan svare, må svaret kunne endre modellen og
+arbeidet.</p>
+<p><strong>5.4–5.403</strong> held fast ved materialet som motstand,
+resonans, veto og materiell verknad. «Agent av nullte orden» er
+presisert som ei nemning for kausal verknad, ikkje som ein påstand om at
+materialet oppfyller agentdefinisjonen i 5.11.</p>
+<h3 id="overgangskjernar-og-fordelingsmodell">5.4 Overgangskjernar og
+fordelingsmodell</h3>
+<p><strong>5.7</strong> gjer overgangskjerna og Hastings-korreksjonen
+eksplisitte. Påstanden om lokal drift mot
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mi>β</mi><mi>∇</mi><msub><mi>Φ</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">-\beta\nabla\Phi_A</annotation></semantics></math>
+er avgrensa til små, symmetriske, lokalt isotrope steg i eit glatt og
+tilgjengeleg område med lokalt flat grunnfordeling. Ved endeleg
+seleksjonsstyrke kan politikken framleis godta steg oppover.</p>
+<p><strong>6.6</strong> vert ståande som ein vilkårsbunden valmodell med
+fast domene, grunnfordeling, estimat og vekter. Ho vert ikkje opphøgd
+til ei full forklaring av alle interaksjonar eller materielle prosessar.
+<strong>6.633</strong> seier uttrykkeleg at additivitet er ei føresetnad
+for den aktuelle klassen, ikkje ein allmenn eigenskap ved form.</p>
+<p><strong>6.64–6.642</strong> skil mellom stasjonær fordelingsmodell og
+faktisk tidsleg utvikling. I det endelege tilfellet er detaljert
+balanse, positiv støtte på dei gjensidig tillatne stega, samanheng i
+overgangsgrafen og positivt sannsyn for å bli ståande relevante for
+konvergens til den eine stasjonære fordelinga. Tidsavhengige vekter,
+estimat eller steg krev ei eiga dynamisk forklaring. Den materielle
+kjernen treng ikkje vere reversibel.</p>
+<p><strong>6.672</strong> gjer den lokale Gauss-tilnærminga avhengig av
+eit indre modus og positiv effektiv krumming i heile målvekta:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi></mrow></msub><mo>=</mo><mi>β</mi><msup><mi>∇</mi><mn>2</mn></msup><mi>Φ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msup><mi>∇</mi><mn>2</mn></msup><mo>log</mo><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>x</mi><mo>*</mo></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mo>Cov</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≈</mo><msubsup><mi>H</mi><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi></mrow><mrow><mi>−</mi><mn>1</mn></mrow></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H_{\mathrm{eff}}=\beta\nabla^2\Phi(x^*)-\nabla^2\log\mu_{SG}(x^*),
+\qquad
+\operatorname{Cov}(X)\approx H_{\mathrm{eff}}^{-1}.
+</annotation></semantics></math></p>
+<p>Den enklare ein-dimensjonale forma krev i tillegg separerbar spenning
+og lokalt flat grunnfordeling. Hessianen i formrommet må ikkje blandast
+saman med Hessianen av log-normaliseringa med omsyn til
+modellparameterar; den siste uttrykkjer kovarians/identifiserbarheit,
+ikkje landskapskrumming.</p>
+<p><strong>6.673–6.675</strong> held fast ved skiljet mellom estimert og
+faktisk avvik. Auka prioritering reduserer det estimerte avviket i
+middel under den faste eksponentialmodellen, men betrar faktisk utfall
+berre når kovariansen mellom faktisk avvik og estimat har rett teikn. Ei
+endring i ein normalisert omhugsprofil må dessutan skiljast frå ei
+partiell endring av ein fri parameter i den statistiske familien.</p>
+<h3 id="levedyktigheit-og-fleirskala-design">5.5 Levedyktigheit og
+fleirskala design</h3>
+<p><strong>6.124</strong> definerer ei robust, endeleg-horisont
+levedyktigheitskjerne. Ho gjeld berre for ei eksplisitt mengd inkluderte
+berarar av følgjer, kritiske haldegrenser, tilgjengelege
+grammatikkhandlingar og ei oppgjeven forstyrringsmengd. Under full
+tilstandsobservasjon vert mengda rekna baklengs frå dei tilstandane som
+tilfredsstiller grensene.</p>
+<p><strong>6.1241</strong> erstattar føresetnaden om full informasjon
+med ein mengdebasert informasjonstilstand: politikken må velje same
+handling for alle faktiske tilstandar som er foreinlege med
+informasjonen, og kvar mogleg oppdatert informasjonstilstand må framleis
+vere levedyktig. Ein stokastisk observasjonsmodell krev eigne sannsyns-
+og risikovilkår.</p>
+<p><strong>6.125–6.127</strong> skil mellom genererbar og levedyktig
+form, viser korleis endring av grammatikk, observasjonsstruktur eller
+kapasitet kan endre levedyktigheitskjernen, og behandlar eit tomt
+levedyktig rom som eit resultat som må forklarast. Det kan ikkje
+skjulast ved å endre vektene.</p>
+<p><strong>6.634</strong> avgrensar valmodellen til startformer som har
+minst éin levedyktig vidareveg, men presiserer no at slik kondisjonering
+åleine ikkje garanterer eit levedyktig faktisk forløp. Den realiserte
+politikken må velje mellom handlingar som held seg i
+levedyktigheitskjernen. Under delvis observasjon må handlingane vere
+levedyktige for alle tilstandar som er foreinlege med
+informasjonstilstanden. Dersom same form kan svare til ulike relevante
+historiespor eller agenttilstandar, må ein modellere det utvida
+tilstands- eller forløpsrommet.</p>
+<h3 id="risiko-og-metodisk-prøving">5.6 Risiko og metodisk prøving</h3>
+<p><strong>7.1522</strong> utvidar sviktrisikoen frå deterministiske
+følgjer til stokastiske konsekvensar:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>Pr</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>k</mi></msub><mo>&gt;</mo><msub><mi>ε</mi><mi>k</mi></msub><mo>∣</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>R</mi><mi>k</mi></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>x</mi><mo>∈</mo><mi>D</mi></mrow></munder><mi>P</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>q</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+q_k(x)=\Pr(E_k&gt;\varepsilon_k\mid x),
+\qquad
+R_k=\sum_{x\in D}P(x)q_k(x).
+</annotation></semantics></math></p>
+<p>Den deterministiske risikodefinisjonen er særtilfellet der
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>q</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q_k(x)</annotation></semantics></math>
+berre er 0 eller 1. Konsekvensmodellen må prøvast uavhengig av
+valmodellen.</p>
+<p><strong>7.154–7.155</strong> presiserer at prosessrepresentasjonen
+sjølv påverkar kva som vert synleg, og at ein prototype berre gjev
+evidens for dei eigenskapane og vilkåra han faktisk prøver.</p>
+<h2 id="omsorg-og-etikk-den-presise-påstanden">6. Omsorg og etikk: den
+presise påstanden</h2>
+<p>Den nye arkitekturen gjer ikkje krav på å bevise moral frå deskriptiv
+matematikk. Det ville vere ein ugyldig slutning. <strong>7.26 vert
+ståande som eit eksplisitt fagleg og normativt
+inklusjonsprinsipp:</strong> dei som ber vesentlege følgjer av ei form,
+skal telje i vurderinga.</p>
+<p>Når berarane er inkluderte og kritiske haldegrenser er fastsette,
+følgjer <strong>7.261</strong>: ein gevinst hjå éin part kan ikkje
+kompensere for brot på ei slik grense hjå ein annan. Dette er ei
+matematisk følgje av inklusjons- og grensevilkåra, ikkje eit
+sjølvstendig bevis for kven som skal inkluderast eller kva grenser som
+er rette.</p>
+<p>Dette er den sterkaste haldbare forma av ambisjonen om at omsorg skal
+vere innebygd i modellen, ikkje eit laust moralsk tillegg.
+Inklusjonsvilkåret er synleg; dei vidare konsekvensane vert utleidde frå
+den formelle arkitekturen.</p>
+<h2 id="kva-er-framleis-uavklart">7. Kva er framleis uavklart</h2>
+<ol type="1">
+<li><strong>LaTeX-kjelda:</strong> alle gjenoppretta uttrykk må
+samanliknast maskinelt med den autoritative <code>.tex</code>-kjelda når
+ho er tilgjengeleg.</li>
+<li><strong>Full bibliografi og notar:</strong> referansar, DOI,
+sidetal, sluttnotar og figurkrediteringar må normaliserast og
+kryssrefererast.</li>
+<li><strong>Figurar og systemskisse:</strong> innhaldet i figurane er
+ikkje bygd om i denne proposisjonsutgåva. Særleg systemskissa i
+5.724/6.66 må genererast frå same kanoniske symbolregister.</li>
+<li><strong>Uavhengig matematisk kontroll:</strong> 6.124–6.1241 krev
+kontroll av informasjonsoppdatering, forstyrringsmodell og presise
+observasjonsføresetnader. Dette er eit formelt framlegg, ikkje eit
+ferdig verifisert bevis for alle dynamiske system.</li>
+<li><strong>Empiriske stresstestar:</strong> prøv arkitekturen på minst
+(a) ei materiell produktform med prototyping og måling, (b) eit
+tidsleg/interaktivt forløp og (c) ei sosial eller økologisk intervensjon
+med fleire skalaer.</li>
+<li><strong>Motdøme:</strong> test lokal–global konflikt, målendring
+under påverknad, omhug utan kapasitet og stressreduksjon gjennom
+dominans.</li>
+<li><strong>Kanonisk kjelde:</strong> PDF, Word og nettlesarutgåve bør
+byggjast frå eitt proposisjonsregister, med separate felt for adresse,
+status, tekst og kryssreferansar.</li>
+</ol>
+<h2 id="syntetisk-stresstest-av-levedyktigheitsmodellen">8. Syntetisk
+stresstest av levedyktigheitsmodellen</h2>
+<p>Det er gjennomført ein liten, endeleg tilstandsmodell for å
+undersøkje om 6.124–6.127 og 7.261 gjev andre prediksjonar enn den
+additive valmodellen åleine. Modellen er medvite syntetisk; han viser at
+skilja er operative i eit kontrollert døme, ikkje at dei er empirisk
+stadfesta for biologiske, sosiale eller designmessige system.</p>
+<h3 id="to-lokale-berarar-og-éin-felles-ressurs">8.1 To lokale berarar
+og éin felles ressurs</h3>
+<p>To lokale berarar, A og B, treng minst tre ressurs-einingar kvar for
+å halde sine kritiske tilstandar. Det finst sju einingar totalt. Den
+eksisterande grammatikken kan fordele dei mellom dei to, men inneheld
+ingen bufferregel. Eit forstyrringssett inneheld to moglege
+éin-einingssjokk: eitt råkar A, eitt råkar B. Begge må reknast som
+moglege i den robuste prøva.</p>
+<p>Dei lokalt akseptable startfordelingane er berre
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(3,4)</annotation></semantics></math>
+og
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,3)</annotation></semantics></math>.
+For å vere robust levedyktig før og etter begge sjokka må kvar berar ha
+minst fire einingar. Det krev åtte einingar, så den robuste
+levedyktigheitskjernen er tom under den eksisterande grammatikken.</p>
+<h3 id="samanlikning-med-vekta-seleksjon">8.2 Samanlikning med vekta
+seleksjon</h3>
+<p>Som ein avgrensa valmodell er det estimert eit agentvektet sviktavvik
+for dei to alternativa. A har vekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.9</mn><annotation encoding="application/x-tex">0.9</annotation></semantics></math>,
+B vekt
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.1</mn><annotation encoding="application/x-tex">0.1</annotation></semantics></math>,
+og den illustrative seleksjonsstyrken er
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\beta=10</annotation></semantics></math>.
+Med uniformt grunnmål over dei to alternativa får den eksponentielle
+valmodellen:</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Startfordeling</th>
+<th style="text-align: right;">Risiko A</th>
+<th style="text-align: right;">Risiko B</th>
+<th style="text-align: right;">Vekta avvik</th>
+<th style="text-align: right;">Valssannsyn ved
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\beta=10</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,3)</annotation></semantics></math></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.9820</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(3,4)</annotation></semantics></math></td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.0180</td>
+</tr>
+</tbody>
+</table>
+<p>Under denne modellen vert
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,3)</annotation></semantics></math>
+nesten alltid valt. Den forventa sviktrisikoen vert om lag
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.009</mn><annotation encoding="application/x-tex">0.009</annotation></semantics></math>
+for A og
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.491</mn><annotation encoding="application/x-tex">0.491</annotation></semantics></math>
+for B. Vekta summering gjer dermed B sitt tap lite synleg i den samla
+målverdien. Dette er ikkje ein feil i sannsynsrekninga; det viser
+avgrensinga ved å bruke ein kompenserande scalar som einaste
+kriterium.</p>
+<h3 id="metaoperasjon-opnar-ein-ny-levedyktig-region">8.3 Metaoperasjon
+opnar ein ny levedyktig region</h3>
+<p>Ei metaoperasjon endrar grammatikken ved å innføre ein felles
+éin-einingsbuffer som fangar eitt av dei to sjokka før det råkar dei
+lokale reservene. Total ressursbruk er framleis sju einingar. Den nye
+grammatikken opnar fordelinga
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(3,3,1)</annotation></semantics></math>:
+tre einingar til kvar berar og éi til bufferen. Begge sjokk vert no
+absorbert utan brot på dei kritiske grensene.</p>
+<p>Den nye regelen gjer den robuste levedyktigheitskjernen ikkje-tom.
+Det er ei konkret prøve av skiljet mellom (a) å vekte alternativa
+innanfor eit fast formrom og (b) å endre grammatikken slik at eit nytt
+levedyktig alternativ vert genererbart.</p>
+<h3 id="delvis-observasjon-og-målendring">8.4 Delvis observasjon og
+målendring</h3>
+<p>Ei separat to-tilstands-prøve viser at to ulike trugsmål kan vere
+foreinlege med same observasjon. Dersom A treng den eine ekstra
+ressurs-eininga i den eine tilstanden og B treng henne i den andre,
+finst det eit trygt val under full observasjon, men ikkje éi felles
+handling som er trygg for begge tilstandane når observasjonen ikkje skil
+dei. Ein sensor som skil tilstandane, opnar igjen ein levedyktig
+politikk. Dette støttar behovet for informasjonstilstandsformuleringa i
+6.1241.</p>
+<p>Eit siste motdøme viser måltrugsmål: Ved fordelinga
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,3)</annotation></semantics></math>
+fører eit sjokk mot B til
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mo>,</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(4,2)</annotation></semantics></math>,
+som bryt den opphavlege grensa på tre. Dersom den rapporterte målgrensa
+vert senka til to utan at B sjølv har revidert henne, ser avviket ut til
+å forsvinne. Resultatet viser kvifor 5.203 og 7.25 må skilje faktisk
+målrevisjon frå ei endring i måle- eller rapporteringskriteriet.</p>
+<h3 id="avgrensingar">8.5 Avgrensingar</h3>
+<p>Modellen har berre éin tidsperiode. Ved gjentekne sjokk må bufferen
+kunne fyllast opp att, eller dynamikken må innehalde fleire
+buffer-einingar og ein eksplisitt gjenopprettingsregel. Kritiske
+grenser, inklusjon av A og B, sjokksettet og vektene er føresetnader i
+dømet; dei vert ikkje utleidde av modellen. Simuleringa er difor ein
+logisk og berekningsmessig stresstest, ikkje empirisk evidens eller eit
+universelt bevis.</p>
+<p>Den reproduserbare testen ligg i
+<code>formlaere_levedyktigheitstest.py</code>, med resultat i
+<code>FORMLAERE_levedyktigheitstest_resultat.json</code>.</p>
+<h2 id="nye-sentrale-kjelder-for-den-teoretiske-utvidinga">9. Nye
+sentrale kjelder for den teoretiske utvidinga</h2>
+<ul>
+<li>Aubin, J.-P. (2009). <em>Viability Theory</em>. Birkhäuser. DOI: <a
+href="https://doi.org/10.1007/978-0-8176-4910-4">10.1007/978-0-8176-4910-4</a>.
+Levedyktigheitskjerner, tilstandskrav og regulering under
+avgrensingar.</li>
+<li>Aubin, J.-P. (1990). A survey of viability theory. <em>SIAM Journal
+on Control and Optimization</em>. DOI: <a
+href="https://doi.org/10.1137/0328044">10.1137/0328044</a>. Formell
+bakgrunn for kontrollert levedyktigheit under tilstandskrav.</li>
+<li>Hatchuel, A. &amp; Weil, B. (2009). C-K design theory: An advanced
+formulation. <em>Research in Engineering Design</em>, 19, 181–192. DOI:
+<a
+href="https://doi.org/10.1007/s00163-008-0043-4">10.1007/s00163-008-0043-4</a>.
+Skiljet mellom konsept- og kunnskapsrom.</li>
+<li>Knight, T. W. &amp; Stiny, G. (2015). Making grammars: From
+computing with shapes to computing with things. <em>Design Studies</em>,
+41(A), 8–28. DOI: <a
+href="https://doi.org/10.1016/j.destud.2015.08.006">10.1016/j.destud.2015.08.006</a>.
+Grammatikk kopla til handling og materiale.</li>
+<li>Doctor, T., Witkowski, O., Colognese, P., Ishihara, Y. &amp; Levin,
+M. (2022). Biology, Buddhism, and AI: Care as the Driver of
+Intelligence. <em>Entropy</em>, 24(5), 710. DOI: <a
+href="https://doi.org/10.3390/e24050710">10.3390/e24050710</a>. Care
+light cone, fysisk rekkevidd og stress/omsorg.</li>
+<li>Witkowski, O. et al. (2023). Toward an Ethics of Autopoietic
+Technology: Stress, Care, and Intelligence. <em>Biosystems</em>, 231,
+104964. DOI: <a
+href="https://doi.org/10.1016/j.biosystems.2023.104964">10.1016/j.biosystems.2023.104964</a>.
+SCI-sløyfa og fleirskala stressoverføring.</li>
+<li>Levin, M. &amp; Resnik, D. (2026). Mind Everywhere: A Framework for
+Conceptualizing Goal-Directedness in Biology and Other Domains—Part Two.
+<em>Biological Theory</em>. DOI: <a
+href="https://doi.org/10.1007/s13752-025-00524-5">10.1007/s13752-025-00524-5</a>.
+TAME, graderte former for agens og skiljet mot moral.</li>
+<li>Levin, M. &amp; Lyons, D. (2026). Cognitive glues are shared models
+of relative scarcities. <em>Philosophical Transactions of the Royal
+Society A</em>. DOI: <a
+href="https://doi.org/10.1098/rsta.2024.0528">10.1098/rsta.2024.0528</a>.
+Koordinering og kompatibilisering av planar på tvers av nivå.</li>
+<li>Le Masson, P., Carvajal-Perez, D., Harlé, H., Hatchuel, A., Jibet,
+N., Taupin, L. &amp; Weil, B. (2026). Design creativity for transitions:
+C-K/Topos, an advanced design theory for creative preservation.
+<em>Design Science</em>, 12, e6. DOI: <a
+href="https://doi.org/10.1017/dsj.2025.10045">10.1017/dsj.2025.10045</a>.
+C–K/Topos og kreativ bevaring av relasjonar under overgang.</li>
+<li>Subramanian, J. &amp; Mahajan, A. (2019). Approximate information
+state for partially observed systems. <em>2019 IEEE 58th Conference on
+Decision and Control</em>, 1629–1636. DOI: <a
+href="https://doi.org/10.1109/CDC40024.2019.9029898">10.1109/CDC40024.2019.9029898</a>.
+Informasjonstilstandar og dynamisk programmering under delvis
+observasjon.</li>
+<li>Dave, A., Venkatesh, N. &amp; Malikopoulos, A. A. (2023).
+Approximate Information States for Worst-Case Control and Learning in
+Uncertain Systems. arXiv:2301.05089. DOI: <a
+href="https://doi.org/10.48550/arXiv.2301.05089">10.48550/arXiv.2301.05089</a>.
+Førebels manuskript om informasjonstilstandar og robust kontroll ved
+delvis observasjon og usikkerheit; ført opp som preprint, ikkje som
+fagfellevurdert publikasjon.</li>
+</ul>
+<p>Desse kjeldene er førte opp som arbeidsreferansar i rapporten. Dei er
+ikkje sette inn i den fullstendige bibliografien til traktaten;
+nummerering og referanseformat må kontrollerast samla.</p>
+<hr />
+<p><strong>Redaksjonell konklusjon:</strong> FORMLÆRE treng ikkje ein
+parallell teori som konkurrerer med proposisjonssystemet. Ho treng
+skarpare skilje mellom form, overgang, minne, mål, påverknad, kapasitet
+og levedyktigheit. Denne revisjonen integrerer dei nye ledda der dei
+faktisk utfører eit nødvendig arbeid, og fjernar den eine klare
+dobbeltføringa utan å fjerne premiss som seinare slutningar byggjer på.
+Original-PDF og kjelderepo er urørte.</p>
+</body>
+</html>
