@@ -83,6 +83,15 @@ jobs:
             await page.waitForTimeout(2000);
             console.log('S3_CONFIG_TEXT',(await page.locator('body').innerText()).slice(-14000));
             console.log('S3_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({i,aria:x.getAttribute('aria-label'),placeholder:x.placeholder,value:x.value,type:x.type,disabled:x.disabled,visible:!!x.offsetParent})).filter(x=>x.visible))));
+            console.log('S3_INPUT_LAYOUT',JSON.stringify(await page.locator('input:visible').evaluateAll(els=>els.map((x,i)=>{
+              const chain=[];let p=x;for(let k=0;p&&k<7;k++,p=p.parentElement)chain.push({tag:p.tagName,cls:String(p.className).slice(0,80),text:(p.innerText||'').trim().slice(0,500)});
+              const id=x.id;const labels=id?[...document.querySelectorAll('label[for="'+id+'"]')].map(l=>l.innerText.trim()):[];
+              return {i,aria:x.getAttribute('aria-label'),type:x.type,value:x.value,labels,chain};
+            }))));
+            console.log('S3_CHECKBOX_LABELS',JSON.stringify(await page.locator('input[type="checkbox"]:visible').evaluateAll(els=>els.map((x,i)=>{
+              const id=x.id;const labels=id?[...document.querySelectorAll('label[for="'+id+'"]')].map(l=>l.innerText.trim()):[];
+              return {i,checked:x.checked,labels,near:(x.parentElement?.innerText||'').trim().slice(0,300),grand:(x.parentElement?.parentElement?.innerText||'').trim().slice(0,400)};
+            }))));
             console.log('S3_SELECTS',JSON.stringify(await page.locator('select').evaluateAll(els=>els.map(x=>({aria:x.getAttribute('aria-label'),value:x.value,options:[...x.options].map(o=>o.text)})))));
             console.log('S3_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
           }finally{await browser.close();}
