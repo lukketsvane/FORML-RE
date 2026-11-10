@@ -73,5 +73,29 @@ jobs:
             console.log('FABLE_VISIBLE', await page.getByText(/Fable/i).count());
             console.log('MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"],[role="menuitem"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
             console.log('MODEL_DROPDOWN_TEXT', (await page.locator('body').innerText()).slice(-12000));
+            await page.keyboard.press('Escape');
+            const globalButtons = await page.getByRole('button').evaluateAll(bs => bs.map((b,i)=>({i,text:(b.innerText||'').trim()})).filter(x=>x.text==='Global'));
+            console.log('GLOBAL_ROUTE_BUTTONS', JSON.stringify(globalButtons));
+            if (globalButtons.length) {
+              await page.getByRole('button').nth(globalButtons[0].i).click();
+              await page.waitForTimeout(500);
+              console.log('ROUTE_MENU_OPTIONS', JSON.stringify(await page.locator('[role="option"],[role="menuitem"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
+              console.log('ROUTE_MENU_TAIL', (await page.locator('body').innerText()).slice(-5000));
+              const inRegion = page.getByText('In Region',{exact:true});
+              console.log('IN_REGION_TEXT_COUNT', await inRegion.count());
+              if (await inRegion.count()) {
+                await inRegion.last().click();
+                await page.waitForTimeout(900);
+                const modelBtns = await page.getByRole('button').evaluateAll(bs=>bs.map((b,i)=>({i,text:(b.innerText||'').trim()})).filter(x=>x.text.includes('Anthropic: Claude')));
+                console.log('IN_REGION_MODEL_BUTTONS', JSON.stringify(modelBtns));
+                if (modelBtns.length) {
+                  await page.getByRole('button').nth(modelBtns[0].i).click();
+                  await page.waitForTimeout(700);
+                  console.log('IN_REGION_MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"],[role="menuitem"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
+                  console.log('IN_REGION_FABLE_TEXT', (await page.locator('body').innerText()).slice(-7000));
+                  console.log('IN_REGION_FABLE_52_COUNT', await page.getByText(/Fable 5\\.2/i).count());
+                }
+              }
+            }
           } finally { await browser.close(); }
           JS
