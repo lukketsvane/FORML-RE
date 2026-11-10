@@ -121,3 +121,44 @@ AWS documentation for sharing an estimate explains that a unique public URL is g
 - Bedrock eligibility: clarification requested from programme team; not yet confirmed.
 - Saved Pricing Calculator URL: **not yet available**.
 - Official application form: **not submitted**.
+
+
+## Revised cost model — 10 November 2026
+
+The AWS Bedrock public offer rate card was read directly through the AWS Bedrock API on 10 November 2026. The current US standard dimensions are:
+- US East input: `USE1_input_tokens_standard` = USD 8.80 per million tokens.
+- US East output: `USE1_output_tokens_standard` = USD 44.00 per million tokens.
+The Global standard dimensions are USD 8 / million input and USD 40 / million output; this proposal deliberately budgets against the higher US regional rate because the existing pilot uses the US inference profile.
+
+### Bounded six-month inference envelope
+
+- Input tokens: 400,000,000 × USD 8.80 / 1,000,000 = **USD 3,520**
+- Output tokens: 10,000,000 × USD 44.00 / 1,000,000 = **USD 440**
+- Total Bedrock estimate: **USD 3,960**
+
+### Supporting AWS services allocation
+
+- Lambda orchestration and bounded document/metadata processing: USD 333 allowance (up to approximately 20 million GB-seconds at the published x86 on-demand rate; actual memory, duration and free-tier assumptions must be checked in the calculator).
+- Step Functions: USD 3 allowance for bounded state transitions.
+- S3: USD 15 allowance for project-appropriate permitted inputs and structured outputs (at current S3 Standard storage rates, 100 GB held for six months is approximately USD 13.80 before requests).
+- DynamoDB: USD 5 allowance for run metadata and evaluation status.
+- CloudWatch: USD 60 allowance for bounded log ingestion, storage and queries.
+- Network transfer, requests and limited operational overhead: USD 24 allowance.
+- Supporting-service subtotal: **USD 440**.
+- Contingency (subject to AWS calculator validation): **USD 600**.
+
+**Total requested credit cap: USD 5,000** (USD 3,960 estimated model inference + USD 440 supporting services + USD 600 bounded contingency).
+
+These are planning assumptions and a credit ceiling, not a vendor quote or guarantee that every line item will be eligible. The official AWS Pricing Calculator must be used to produce the required saved share link. The Bedrock model price is independently confirmed by the AWS Bedrock offer rate card; the infrastructure allowances must be entered and validated in the public calculator. The application should explicitly ask AWS to confirm Bedrock/Fable eligibility because a promotional credit may be designated for specific eligible services.
+
+### Application submission requirement — not bypassed
+
+AWS's live application page confirms that the following are required: institutional email, telephone, country, industry, area of study, intended research purpose, **Save and Share URL from Pricing Calculator**, requested amount, proposal description and personal/business-interest selection. The calculator URL field is starred as required.
+
+AWS Pricing Calculator's public user guide states that no public calculator API is available. A public share link is generated only after creating an estimate in the browser, selecting Share, agreeing to the public-server acknowledgement and choosing Copy public link:
+- Apply form: https://pages.awscloud.com/aws-cloud-credit-for-research.html
+- Public calculator: https://calculator.aws/#/
+- AWS sharing instructions: https://docs.aws.amazon.com/pricing-calculator/latest/userguide/save-share-estimate.html
+- AWS guide on public calculator/API availability: https://docs.aws.amazon.com/pricing-calculator/latest/userguide/getting-started.html
+
+The calculator share URL is a real outstanding dependency, not something to synthesize. The official form has not been submitted. No email has been sent to AHO; the only clarification sent was to AWS Research Credits.
