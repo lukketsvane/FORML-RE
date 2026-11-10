@@ -144,21 +144,28 @@ jobs:
             );
 
             console.log('ALL_SERVICES_ADDED',page.url());
-            console.log('PRE_SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-9000));
-            const summaryBtn=page.getByRole('button',{name:'Save and view summary',exact:true});
-            console.log('SUMMARY_BUTTON_COUNT',await summaryBtn.count());
-            await summaryBtn.click();
-            await page.waitForTimeout(3500);
+            console.log('ADD_PAGE_BOTTOM_TEXT',(await page.locator('body').innerText()).slice(-3000));
+            console.log('ADD_PAGE_CONTROLS',JSON.stringify(await page.locator('button,[role="button"],a').evaluateAll(els=>els.map((e,i)=>({
+              i,tag:e.tagName,role:e.getAttribute('role'),text:(e.innerText||'').trim().replace(/\\s+/g,' '),
+              aria:e.getAttribute('aria-label'),href:e.getAttribute('href'),html:e.outerHTML.slice(0,800)
+            })).filter(x=>/summary|share|estimate/i.test([x.text,x.aria,x.href].join(' ')))));
+            const summaryText=page.getByText('View summary',{exact:true}).last();
+            console.log('VIEW_SUMMARY_COUNT',await page.getByText('View summary',{exact:true}).count());
+            console.log('VIEW_SUMMARY_HTML',await summaryText.evaluate(e=>e.outerHTML));
+            await summaryText.click();
+            await page.waitForTimeout(3000);
             console.log('SUMMARY_URL',page.url());
-            console.log('SUMMARY_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-14000));
-            console.log('SUMMARY_LINKS',JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.href.includes('calculator.aws')))));
-            const shareControls=page.locator('button,[role="button"],a').filter({hasText:/^Share( estimate)?$/i});
-            console.log('SHARE_CONTROL_COUNT',await shareControls.count());
-            if(await shareControls.count()) {
-              await shareControls.first().click();
+            console.log('SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-16000));
+            console.log('SUMMARY_CONTROLS',JSON.stringify(await page.locator('button,[role="button"],a').evaluateAll(els=>els.map((e,i)=>({
+              i,tag:e.tagName,role:e.getAttribute('role'),text:(e.innerText||'').trim().replace(/\\s+/g,' '),
+              aria:e.getAttribute('aria-label'),href:e.getAttribute('href'),html:e.outerHTML.slice(0,800)
+            })).filter(x=>/share|save|estimate|copy|public/i.test([x.text,x.aria,x.href].join(' ')))));
+            const shareControl=page.locator('button,[role="button"],a').filter({hasText:/Share/i}).first();
+            console.log('SHARE_CONTROL_COUNT',await page.locator('button,[role="button"],a').filter({hasText:/Share/i}).count());
+            if(await page.locator('button,[role="button"],a').filter({hasText:/Share/i}).count()) {
+              await shareControl.click();
               await page.waitForTimeout(1200);
-              console.log('SHARE_DIALOG_TEXT',(await page.locator('body').innerText()).slice(-7000));
+              console.log('SHARE_DIALOG_TEXT',(await page.locator('body').innerText()).slice(-8000));
               console.log('SHARE_DIALOG_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
               console.log('SHARE_DIALOG_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map(x=>({aria:x.getAttribute('aria-label'),value:x.value,placeholder:x.placeholder})).filter(x=>x.value||x.placeholder))));
               console.log('SHARE_DIALOG_LINKS',JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.href.includes('calculator.aws')))));
