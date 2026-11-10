@@ -71,6 +71,25 @@ def load_manifest(path: Path) -> dict:
     return items
 
 
+
+def load_work_metadata(pdf_root: Path) -> dict[str, dict]:
+    """Join the PDF manifest to the corpus' published work metadata."""
+    metadata: dict[str, dict] = {}
+    data_dir = pdf_root / "docs" / "data"
+    for filename in ("publications.json", "nordic_additions.json"):
+        path = data_dir / filename
+        if not path.is_file():
+            continue
+        try:
+            rows = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(rows, list):
+            for row in rows:
+                if isinstance(row, dict) and row.get("id"):
+                    metadata[str(row["id"])] = row
+    return metadata
+
 def read_pages(path: Path) -> list[str]:
     try:
         import pymupdf
@@ -171,6 +190,7 @@ def main() -> int:
 
     rights = load_rights_review(args.rights_review_csv)
     manifest = load_manifest(args.manifest)
+    work_metadata = load_work_metadata(args.pdf_root)
     selected = []
     skipped = {"not_rights_reviewed": 0, "missing_path": 0, "already_processed": 0}
     for work_id in sorted(manifest):
@@ -239,10 +259,10 @@ def main() -> int:
             "record_type": "formlaere_fable_batch_v1",
             "work_id": work_id,
             "bibliographic_metadata": {
-                "title": record.get("title"),
-                "authors": record.get("authors"),
-                "year": record.get("year"),
-                "doi": record.get("doi"),
+                "title": work_metadata.get(work_id, {}).get("title", record.get("title")),
+                "authors": work_metadata.get(work_id, {}).get("authors", record.get("authors")),
+                "year": work_metadata.get(work_id, {}).get("year", record.get("year")),
+                "doi": work_metadata.get(work_id, {}).get("doi", record.get("doi")),
                 "source_url": record.get("source_url"),
             },
             "provenance": {
