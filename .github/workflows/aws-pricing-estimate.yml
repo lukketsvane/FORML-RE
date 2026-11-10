@@ -15,9 +15,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  inspect-visible-bedrock-fields:
+  build-public-estimate:
     runs-on: ubuntu-24.04
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -27,14 +27,15 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
-      - name: Inspect visible form fields
+      - name: Build and save Bedrock workload estimate
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
           const browser = await chromium.launch({headless:true});
           try {
             const page=await browser.newPage({viewport:{width:1440,height:1200}});
-            page.setDefaultTimeout(10000);
+            page.setDefaultTimeout(12000);
+            page.on('pageerror',e=>console.log('PAGE_ERROR',e.message));
             await page.goto('https://calculator.aws/#/',{waitUntil:'domcontentloaded',timeout:90000});
             await page.waitForTimeout(2500);
             await page.getByRole('button',{name:'Create estimate'}).last().click();
@@ -54,13 +55,27 @@ jobs:
             await page.getByRole('button').filter({hasText:'Anthropic: Claude Haiku 4.5'}).first().click();
             await page.waitForTimeout(400);
             await page.locator('[role="option"]').filter({hasText:'Anthropic: Claude Fable 5.1'}).first().click();
-            await page.waitForTimeout(900);
-            const fields=await page.locator('input[type="text"]').evaluateAll(els=>els.map((x,i)=>{
-              const cs=getComputedStyle(x);const r=x.getBoundingClientRect();
-              const ancestors=[];let p=x;for(let k=0;p&&k<5;k++,p=p.parentElement)ancestors.push({tag:p.tagName,cls:String(p.className).slice(0,100),display:getComputedStyle(p).display,visibility:getComputedStyle(p).visibility,ariaHidden:p.getAttribute('aria-hidden')});
-              return {i,aria:x.getAttribute('aria-label'),value:x.value,display:cs.display,visibility:cs.visibility,offset:!!x.offsetParent,rect:{w:r.width,h:r.height,x:r.x,y:r.y},ancestors};
-            }).filter(x=>x.aria));
-            console.log('VISIBLE_FIELDS',JSON.stringify(fields));
-            console.log('VISIBLE_COUNTS',JSON.stringify(await page.locator('input[aria-label="Average requests per minute"]').evaluateAll(els=>els.map((x,i)=>({i,visible:!!x.offsetParent,rect:x.getBoundingClientRect().toJSON(),parents:[x.parentElement?.innerText,x.parentElement?.parentElement?.innerText].map(t=>(t||'').slice(0,300))})))));
+            await page.waitForTimeout(800);
+            await page.getByLabel('Description - optional').fill('FORMLÆRE — 6-month research benchmark. Calculator uses Claude Fable 5.1 Global as a conservative pricing proxy because Fable 5.2 is not yet in the calculator catalogue. The actual Fable 5.2 US-geo Bedrock offer ($8.80/M input; $44/M output) is documented separately; 400M input + 10M output = $3,960.');
+            const req=page.locator('input[aria-label="Average requests per minute"]:visible').first();
+            const hours=page.locator('input[aria-label="Hours per day at this rate"]:visible').first();
+            const inp=page.locator('input[aria-label="Average input tokens per request"]:visible').first();
+            const out=page.locator('input[aria-label="Average output tokens per request"]:visible').first();
+            console.log('VISIBLE_INPUT_COUNTS',JSON.stringify({req:await req.count(),hours:await hours.count(),input:await inp.count(),output:await out.count()}));
+            await req.fill('1.1574074');
+            await hours.fill('8');
+            await inp.fill('4000');
+            await out.fill('100');
+            await out.press('Tab');
+            await page.waitForTimeout(1800);
+            console.log('ENTERED_VALUES',JSON.stringify({req:await req.inputValue(),hours:await hours.inputValue(),input:await inp.inputValue(),output:await out.inputValue()}));
+            console.log('BEDROCK_COST_LINES',(await page.locator('body').innerText()).split('\n').filter(x=>/Total (Monthly|Upfront)|USD/.test(x)).slice(-12));
+            console.log('ESTIMATE_FORM_TEXT',(await page.locator('body').innerText()).slice(-2500));
+            await page.getByRole('button',{name:'Save and view summary',exact:true}).click();
+            await page.waitForTimeout(2500);
+            console.log('SUMMARY_URL',page.url());
+            console.log('SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-12000));
+            console.log('SUMMARY_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('SUMMARY_LINKS',JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.text||x.href).slice(-60))));
           }finally{await browser.close();}
           JS
