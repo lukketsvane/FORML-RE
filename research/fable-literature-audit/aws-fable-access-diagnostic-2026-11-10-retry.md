@@ -102,3 +102,19 @@ AWS documentation defines `PENDING` as agreement provisioning still in progress;
 ### Follow-up
 
 The hourly Fable access check has been re-enabled. It should run a single synthetic Converse test only after agreement availability is `AVAILABLE`, then record exact response, timestamp and token usage in this branch. If status becomes `ERROR`, record AWS's error message rather than retrying invocations.
+
+
+## Runtime verification retry — 10 November 2026
+
+After the retention changes and successful agreement creation:
+
+- `GetFoundationModelAvailability` returned `AVAILABLE` for the foundation model in `us-east-1`, `us-east-2`, and `us-west-2`.
+- The `us.anthropic.claude-fable-5-2` inference profile remained `ACTIVE` in all three Regions.
+- Account retention remained `aws_review` in all three Regions.
+- `GetFoundationModel` confirms `inferenceTypesSupported=["INFERENCE_PROFILE"]`; the profile ID is required.
+- The first runtime attempt in `us-east-1` returned `AccessDeniedException: anthropic.claude-fable-5-2 is not available for this account.`
+- A second minimal runtime attempt in `us-east-2` returned the explicit AWS message: `Your account is currently being verified. Verification normally takes less than 2 hours. Until your account is verified, you may not have access to this operation.`
+
+The successful control-plane agreement and the failed runtime verification are distinct states. The model is not yet usable through Converse. No PDFs, manuscript content, or private source documents have been submitted. Only short synthetic prompts were used, and both failed before a model response was returned.
+
+**Current state:** retention configured; usage agreement accepted; regional model availability reports AVAILABLE; AWS runtime account verification remains the blocking condition. Continue the hourly verification check and make only one small synthetic call per run once the model agreement remains AVAILABLE. Do not alter retention, billing, or agreement settings again.
