@@ -162,3 +162,47 @@ A fresh single synthetic Converse call after phone verification (2026-11-10T04:5
 `AccessDeniedException: anthropic.claude-fable-5-2 is not available for this account.`
 
 Thus phone verification is completed, but it did not clear the Bedrock runtime entitlement restriction. AWS account verification needs manual review through Account & Billing Support. The AWS Support API currently returns `SubscriptionRequiredException` for DescribeCases/DescribeServices, consistent with no premium technical-support entitlement; Account & Billing case creation remains available through the console for Basic Support customers. The next step is to open an Account & Billing case through the signed-in AWS Support Center, not to alter model agreements or retention.
+
+
+## Account-level entitlement and quota diagnosis — 10 November 2026
+
+### Fable-specific Service Quotas
+
+AWS Service Quotas `GetServiceQuota` returned an effective value of **0 tokens/minute** for the adjustable quota:
+
+`Cross-region model inference tokens per minute for Anthropic Claude Fable 5.2` (`L-7358FD01`)
+
+This was confirmed in:
+- `us-east-2`: value `0`, adjustable `true`
+- `us-west-2`: value `0`, adjustable `true`
+
+The corresponding Global cross-region Fable 5.2 quota (`L-0B3FA11F`) is also `0` in both Regions. No quota-increase requests were pending.
+
+AWS's default quota for the US cross-region Fable 5.2 tokens/minute limit is 10,000,000 in both checked Regions. A conservative attempted quota request for 100,000 was rejected by AWS because Service Quotas requires a requested increase above the default value of 10,000,000. **No quota increase was submitted.** A request above 10 million tokens/minute would be disproportionate for the initial research pilot and would not be a responsible workaround for an account entitlement block.
+
+AWS re:Post identifies zero Bedrock quotas for an affected model as an indicator of an account-level restriction. AWS's model-access documentation says some models require additional per-account access after all ordinary prerequisites are satisfied; where the exact `not available for this account` error persists, the additional access must be handled by AWS Sales / Support. This cannot be corrected by another IAM policy, another model agreement, or changing the inference profile.
+
+### Contact attempts
+
+A detailed message with account ID, phone verification state, model agreement state, retention configuration, error messages, and test timestamps was sent from the AWS account email to `aws-verification@amazon.com`.
+
+AWS automatically replied that this is **not a monitored email address** and directed the account owner to:
+`https://support.aws.amazon.com/#/contacts/aws-account-verification`
+
+No human support case has been created. The AWS Support API returned `SubscriptionRequiredException` for DescribeCases/DescribeServices, so the programmatic AWS Support API is not available on the account's current support plan. AWS documentation distinguishes Account & Billing support (available with Basic Support through the console) from technical-support cases (which require a paid support plan).
+
+### Current state and next action
+
+- Contact phone: `VERIFIED`
+- Account state: `ACTIVE`
+- Anthropic use-case authorization: `AUTHORIZED`
+- Fable 5.2 agreement: `AVAILABLE`
+- Retention: `aws_review` in all three US profile Regions
+- Active US inference profile: `us.anthropic.claude-fable-5-2`
+- Fable 5.2 cross-region token quota: `0`
+- Fable 5.2 global token quota: `0`
+- Runtime inference: still denied with account-level `not available for this account`
+
+The hourly automation is now configured to check the Fable-specific cross-region token quota before making any inference call. It will not repeatedly invoke Fable while the quota remains zero. Once the quota becomes positive, it will perform one minimal synthetic test, record the result, and stop after success.
+
+**Required external action:** AWS must clear the account-level Fable 5.2 entitlement restriction or explicitly grant the model quota. The official route is AWS account verification/support and AWS Sales as indicated by the exact runtime error. No additional account, billing, payment, quota, retention, or model-agreement changes should be made until AWS responds.
