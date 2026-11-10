@@ -88,3 +88,36 @@ The Amazon Bedrock Fable public offer rate card retrieved in `us-east-1` lists s
 - [ ] Record application confirmation and send any requested follow-up to `aws-research-credit@amazon.com`
 
 **Important separation:** a research-credit award does not itself clear the separate account-level Bedrock Fable quota / entitlement case. AWS must still approve the pending quota request before the Fable smoke test can succeed. Research credits also cannot be assumed to pay previously incurred charges; they apply only to eligible charges under the applicable promotional-credit terms.
+
+
+## Eligibility confirmation and submission blocker — 10 November 2026
+
+### Institution
+
+NOKUT's current list of Norwegian higher-education institutions places **The Oslo School of Architecture and Design** under specialised university colleges. This supports the accredited-institution criterion in AWS's research-credit FAQ:
+- NOKUT list: https://www.nokut.no/en/higher-education/higher-education-institutions/
+- AHO appears explicitly in the specialised universities list.
+
+### Programme team contacted
+
+A pre-submission clarification email was sent to `aws-research-credit@amazon.com` on 10 November 2026 from the connected account. Gmail thread ID: `1a1c3ec113fbc7a3`.
+
+The message asks whether Bedrock inference (including Claude Fable 5.2) can be explicitly designated as eligible, how to represent Bedrock token usage if the pricing calculator cannot model it, and what workaround is accepted while the account's Pricing Calculator API returns `DataUnavailableException`.
+
+This is **not** an application submission or an award. Await written guidance before claiming Bedrock credit eligibility or declaring the application submitted.
+
+### Pricing Calculator attempt
+
+AWS's current Pricing Calculator API is documented under `bcm-pricing-calculator`. AWS Core calls to `ListWorkloadEstimates`, `GetPreferences`, and `CreateWorkloadEstimate` returned `DataUnavailableException: Data is not available. Please try to adjust the time period. If just enabled Cost Explorer, data might not be ingested yet`. The attempted `CreateWorkloadEstimate` did not create an estimate. No public calculator share URL exists yet.
+
+AWS documentation for sharing an estimate explains that a unique public URL is generated only after an estimate is created and shared: https://docs.aws.amazon.com/pricing-calculator/latest/userguide/save-share-estimate.html
+
+### Current completion state
+
+- Proposal text and project milestones: prepared.
+- Student eligibility and AHO accreditation evidence: checked.
+- AWS account number: verified.
+- Required institution-issued AHO email is known from previous correspondence; no personal contact details are stored in this public repository file.
+- Bedrock eligibility: clarification requested from programme team; not yet confirmed.
+- Saved Pricing Calculator URL: **not yet available**.
+- Official application form: **not submitted**.
