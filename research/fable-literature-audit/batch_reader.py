@@ -231,8 +231,6 @@ def main() -> int:
         parser.error("Billable run requires --confirm-aws-review-retention")
     if not args.confirm_paid_inference:
         parser.error("Billable run requires --confirm-paid-inference")
-    if not os.environ.get("AWS_BEARER_TOKEN_BEDROCK"):
-        parser.error("AWS_BEARER_TOKEN_BEDROCK is not set in this local shell")
     if not selected:
         print("No rights-reviewed, unprocessed work is eligible.")
         return 0
@@ -243,7 +241,24 @@ def main() -> int:
         raise RuntimeError("Install boto3: python -m pip install boto3") from exc
 
     prompt = PROMPT_FILE.read_text(encoding="utf-8")
-    client = boto3.client("bedrock-runtime", region_name=args.region)
+    profile_name = os.environ.get("AWS_PROFILE")
+    session = boto3.Session(profile_name=profile_name) if profile_name else boto3.Session()
+    control = session.client("bedrock", region_name=args.region)
+    try:
+        retention = control.get_account_data_retention().get("mode", "inherit")
+    except Exception as exc:
+        raise RuntimeError(
+            "Could not read Bedrock data-retention setting. Ensure the SSO role "
+            "has bedrock:GetAccountDataRetention and that AWS CLI SSO login is active."
+        ) from exc
+    if retention not in {"aws_review", "provider_data_share"}:
+        parser.error(
+            f"Bedrock retention mode is {retention!r}. Fable 5.2 requires "
+            "aws_review or legacy provider_data_share. After considering this "
+            "account-level setting, run: aws bedrock put-account-data-retention "
+            f"--region {args.region} --mode aws_review --profile {profile_name or 'default'}"
+        )
+    client = session.client("bedrock-runtime", region_name=args.region)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     total_segments_sent = 0
 
@@ -284,6 +299,8 @@ def main() -> int:
                 "rights_review": rights_record,
                 "model_id": MODEL_ID,
                 "region": args.region,
+                "aws_profile": profile_name or "default",
+                "retention_mode": retention,
                 "timestamp_utc": datetime.now(timezone.utc).isoformat(),
             },
             "segments": [],
