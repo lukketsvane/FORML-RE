@@ -21,7 +21,7 @@ from datetime import datetime, timezone
 MODEL_ID = "global.anthropic.claude-fable-5-2"
 PROMPT_FILE = Path(__file__).with_name("fable-extraction-prompt.md")
 DEFAULT_OUTPUT = Path.home() / ".cache" / "formlaere-fable-audit"
-MAX_CHARS_PER_CHUNK = 70_000
+MAX_CHARS_PER_CHUNK = 25_000
 MAX_PDF_BYTES = 20_000_000
 
 
@@ -178,7 +178,9 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--max-documents", type=int, required=True, help="Hard cap for this run; use a small pilot first")
     parser.add_argument("--region", default="us-east-1")
-    parser.add_argument("--max-tokens", type=int, default=3500)
+    parser.add_argument("--max-tokens", type=int, default=2500)
+    parser.add_argument("--max-total-chunks", type=int, default=5, help="Hard cap on billable request segments for this invocation")
+    parser.add_argument("--confirm-paid-inference", action="store_true", help="Confirm that you accept billable model inference")
     parser.add_argument("--execute", action="store_true", help="Actually invoke Bedrock; otherwise dry-run only")
     parser.add_argument("--confirm-aws-review-retention", action="store_true", help="Confirm that Bedrock retention is set to aws_review/provider_data_share and you accept AWS review")
     args = parser.parse_args()
@@ -187,6 +189,8 @@ def main() -> int:
         parser.error("--max-documents must be at least 1")
     if args.max_tokens < 500 or args.max_tokens > 8000:
         parser.error("--max-tokens must be between 500 and 8000")
+    if args.max_total_chunks < 1:
+        parser.error("--max-total-chunks must be at least 1")
 
     rights = load_rights_review(args.rights_review_csv)
     manifest = load_manifest(args.manifest)
@@ -225,6 +229,8 @@ def main() -> int:
         return 0
     if not args.confirm_aws_review_retention:
         parser.error("Billable run requires --confirm-aws-review-retention")
+    if not args.confirm_paid_inference:
+        parser.error("Billable run requires --confirm-paid-inference")
     if not os.environ.get("AWS_BEARER_TOKEN_BEDROCK"):
         parser.error("AWS_BEARER_TOKEN_BEDROCK is not set in this local shell")
     if not selected:
@@ -239,6 +245,7 @@ def main() -> int:
     prompt = PROMPT_FILE.read_text(encoding="utf-8")
     client = boto3.client("bedrock-runtime", region_name=args.region)
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    total_segments_sent = 0
 
     for index, (work_id, record, rights_record) in enumerate(selected, start=1):
         relative = record["file"]
@@ -255,6 +262,9 @@ def main() -> int:
 
         pages = read_pages(pdf_path)
         chunks = page_chunks(pages)
+        if total_segments_sent + len(chunks) > args.max_total_chunks:
+            print(f"STOP before {work_id}: complete paper needs {len(chunks)} more segments; request cap is {args.max_total_chunks}.")
+            break
         output = {
             "record_type": "formlaere_fable_batch_v1",
             "work_id": work_id,
@@ -270,6 +280,7 @@ def main() -> int:
                 "pdf_sha256": actual_hash,
                 "pages_total": len(pages),
                 "chunks_total": len(chunks),
+                "complete_document_reading": True,
                 "rights_review": rights_record,
                 "model_id": MODEL_ID,
                 "region": args.region,
@@ -288,6 +299,7 @@ def main() -> int:
                 "stop_reason": (response.get("stopReason") or response.get("stop_reason")),
             }
             output["segments"].append(segment)
+            total_segments_sent += 1
             # Checkpoint after every segment. Full extracted PDF text is never written.
             destination = args.output_dir / f"{work_id.replace(':', '_')}.json"
             temporary = destination.with_suffix(".json.tmp")
@@ -295,7 +307,7 @@ def main() -> int:
             temporary.replace(destination)
         print(f"Saved analysis record: {destination}")
 
-    print("Finished. Check outputs manually against the original PDFs before using them in the book.")
+    print(f"Finished: {total_segments_sent} billable segments sent. Check outputs manually against the original PDFs before using them in the book.")
     return 0
 
 
