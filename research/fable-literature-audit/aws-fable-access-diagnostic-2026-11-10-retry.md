@@ -262,3 +262,19 @@ References:
 - Service Quotas increase workflow: https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html
 - AWS Support API limitation: https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html
 - Basic support case instructions: https://docs.aws.amazon.com/accounts/latest/reference/access-aws-support.html
+
+
+## AWS quota cases opened — 10 November 2026, 05:02 UTC
+
+Both quota requests moved from `PENDING` to **`CASE_OPENED`**. `GetRequestedServiceQuotaChange` now returns AWS support case IDs:
+
+| Region | Request ID | AWS case ID | Status |
+|---|---|---|---|
+| us-east-2 | `dc5c3a63f8aa4a5789243e50455869e4fh36oETV` | `179428694200752` | `CASE_OPENED` |
+| us-west-2 | `0e22cd5cdcd940b9b824511a6f4ddcb944EIzid8` | `179428694200903` | `CASE_OPENED` |
+
+Each case is associated with the request for 10,000,001 TPM for the Claude Fable 5.2 US cross-region inference quota (`L-7358FD01`). At the time of this check, the applied quota values were still zero; no inference test should be run until they become positive.
+
+These are AWS-created case records produced through the Service Quotas workflow. This path succeeded even though the separate AWS Support API is unavailable on the current support plan. The user does not need to create duplicate cases.
+
+The hourly automation continues to poll both request IDs and will perform a synthetic inference test only when both are approved and applied.
