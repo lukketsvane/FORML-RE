@@ -11,13 +11,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: aws-credit-estimate-builder-${{ github.sha }}
+  group: aws-credit-estimate-${{ github.sha }}
   cancel-in-progress: true
 
 jobs:
-  build-and-share-estimate:
+  inspect-s3-section:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 8
     steps:
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -29,145 +29,45 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
 
-      - name: Build six-month AWS supporting-services estimate
+      - name: Inspect S3 Standard section
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
-          const browser = await chromium.launch({ headless: true });
-          try {
-            const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
-            page.setDefaultTimeout(15000);
-            page.on('pageerror', e => console.log('PAGE_ERROR', e.message));
-            page.on('requestfailed', r => console.log('REQUEST_FAILED', r.method(), r.url(), r.failure()?.errorText));
-            await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 90000 });
-            await page.waitForTimeout(2500);
-            await page.getByRole('button', { name: 'Create estimate' }).last().click();
-            await page.waitForURL(/addService/, { timeout: 30000 });
+          const browser=await chromium.launch({headless:true});
+          try{
+            const page=await browser.newPage({viewport:{width:1440,height:1200}});
+            page.setDefaultTimeout(10000);
+            await page.goto('https://calculator.aws/#/',{waitUntil:'domcontentloaded',timeout:90000});
+            await page.waitForTimeout(2200);
+            await page.getByRole('button',{name:'Create estimate'}).last().click();
+            await page.waitForURL(/addService/,{timeout:30000});
             await page.waitForTimeout(1000);
-            await page.getByRole('button', { name: 'US East (Ohio)' }).click();
-            await page.waitForTimeout(300);
-            await page.getByText('US East (N. Virginia)', { exact: true }).last().click();
-            await page.waitForTimeout(500);
-
-            async function configure(name, pattern, key, fillFields, beforeSave) {
-              await page.locator('input[placeholder="Search for a service"]').fill(name);
-              await page.waitForTimeout(700);
-              const cards = await page.locator('li').evaluateAll((els, p) => els.map((el,i)=>({
-                i, text:(el.innerText||'').trim()
-              })).filter(x => new RegExp(p,'i').test(x.text)), pattern);
-              console.log(key+'_CARDS', JSON.stringify(cards.slice(0,5)));
-              if (!cards.length) throw new Error('Could not find service '+name);
-              const card = page.locator('li').nth(cards[0].i);
-              await card.getByRole('button', { name:'Configure' }).click();
-              await page.waitForTimeout(1800);
-              if (beforeSave) await beforeSave();
-              for (const [selector,value] of fillFields) {
-                const locator = page.locator(selector).first();
-                if (await locator.count() !== 1) throw new Error(key+' missing input '+selector);
-                await locator.fill(String(value));
-              }
-              await page.waitForTimeout(500);
-              const body = await page.locator('body').innerText();
-              console.log(key+'_INPUT_VALUES', JSON.stringify(await page.locator('input:visible').evaluateAll(els=>els.map(x=>({
-                aria:x.getAttribute('aria-label'),value:x.value
-              })).filter(x=>x.aria))));
-              console.log(key+'_TOTALS',body.split('\n').filter(x=>/Total (Monthly|Upfront)|USD/.test(x)).slice(-8));
-              console.log(key+'_VALIDATION',body.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-12));
-              await page.getByRole('button',{name:'Save and add service',exact:true}).click();
-              await page.waitForURL(/addService/, { timeout: 20000 });
-              await page.waitForTimeout(500);
-            }
-
-            await configure(
-              'AWS Lambda','AWS Lambda','LAMBDA',
-              [
-                ['input[aria-label="Number of requests Value"]:visible',166667],
-                ['input[aria-label^="Duration of each request (in ms)"]:visible',20000],
-                ['input[aria-label="Amount of memory allocated Value"]:visible',1024]
-              ],
-              async () => {
-                await page.locator('input[type="radio"][value="lambdaWithoutFreeTier"]').check({force:true});
-                await page.locator('input[aria-label="Description - optional"]').fill(
-                  'FORMLÆRE six-month benchmark upper-bound execution envelope: up to 166,667 bounded worker invocations/month, 20 seconds per invocation, 1,024 MB. Free Tier excluded. Actual use will be monitored and constrained.'
-                );
-              }
-            );
-
-            await configure(
-              'AWS Step Functions','AWS Step Functions','STEP',
-              [
-                ['input[aria-label="Workflow requests Value"]:visible',2500],
-                ['input[aria-label^="State transitions per workflow"]:visible',8]
-              ]
-            );
-
-            await configure(
-              'S3','Amazon Simple Storage Service','S3',
-              [
-                ['input[aria-label="S3 Standard storage Value"]:visible',100],
-                ['input[aria-label^="PUT, COPY, POST, LIST requests to S3 Standard"]:visible',10000],
-                ['input[aria-label^="GET, SELECT, and all other requests from S3 Standard"]:visible',50000]
-              ]
-            );
-
-            await configure(
-              'DynamoDB','Amazon DynamoDB','DDB',
-              [
-                ['input[aria-label="Data storage size Value"]:visible',2],
-                ['input[aria-label="Number of writes Value"]:visible',0.1],
-                ['input[aria-label="Number of reads Value"]:visible',0.5]
-              ],
-              async () => {
-                const inputs=page.locator('input[type="checkbox"]');
-                await inputs.evaluateAll(els=>{
-                  for(const i of els) {
-                    const id=i.getAttribute('aria-labelledby');
-                    const label=id?document.getElementById(id)?.innerText.trim():'';
-                    if(label==='DynamoDB on-demand capacity'&&!i.checked)i.click();
-                    if(label==='DynamoDB provisioned capacity'&&i.checked)i.click();
-                  }
-                });
-                await page.waitForTimeout(700);
-              }
-            );
-
-            await configure(
-              'CloudWatch','Amazon CloudWatch','CW',
-              [
-                ['input[aria-label^="Number of Metrics (includes detailed and custom metrics)"]:visible',5],
-                ['input[aria-label^="Number of other API requests"]:visible',10000],
-                ['input[aria-label="Standard Logs: Data Ingested Value"]:visible',5]
-              ],
-              async () => {
-                const logsHeader=page.getByRole('button',{name:/^Logs\s+Info$/});
-                console.log('CW_LOGS_HEADER_COUNT',await logsHeader.count());
-                if(await logsHeader.count()!==1) throw new Error('Expected one CloudWatch Logs section header');
-                await logsHeader.click();
-                await page.waitForTimeout(700);
-                console.log('CW_LOG_FIELD_VISIBLE',await page.locator('input[aria-label="Standard Logs: Data Ingested Value"]:visible').count());
-              }
-            );
-
-            console.log('ALL_SERVICES_ADDED',page.url());
-            console.log('PRE_SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-9000));
-            const summaryBtn=page.getByRole('button',{name:'Save and view summary',exact:true});
-            console.log('SUMMARY_BUTTON_COUNT',await summaryBtn.count());
-            await summaryBtn.click();
-            await page.waitForTimeout(3500);
-            console.log('SUMMARY_URL',page.url());
-            console.log('SUMMARY_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-14000));
-            console.log('SUMMARY_LINKS',JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.href.includes('calculator.aws')))));
-            const shareControls=page.locator('[role="button"],button,a').filter({hasText:/^Share( estimate)?$/i});
-            console.log('SHARE_CONTROL_COUNT',await shareControls.count());
-            if(await shareControls.count()) {
-              await shareControls.first().click();
-              await page.waitForTimeout(1200);
-              console.log('SHARE_DIALOG_TEXT',(await page.locator('body').innerText()).slice(-7000));
-              console.log('SHARE_DIALOG_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map(x=>({aria:x.getAttribute('aria-label'),value:x.value,placeholder:x.placeholder})).filter(x=>x.value||x.placeholder))));
-              console.log('SHARE_DIALOG_LINKS',JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.href.includes('calculator.aws')))));
-            }
-          } finally {
-            await browser.close();
-          }
+            await page.getByRole('button',{name:'US East (Ohio)'}).click();
+            await page.waitForTimeout(250);
+            await page.getByText('US East (N. Virginia)',{exact:true}).last().click();
+            await page.waitForTimeout(400);
+            await page.locator('input[placeholder="Search for a service"]').fill('S3');
+            await page.waitForTimeout(600);
+            const cards=await page.locator('li').evaluateAll(els=>els.map((el,i)=>({i,text:(el.innerText||'').trim()})).filter(x=>x.text.startsWith('Amazon Simple Storage Service')));
+            await page.locator('li').nth(cards[0].i).getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(1400);
+            const storage=page.locator('input[aria-label="S3 Standard storage Value"]');
+            console.log('S3_STORAGE_VISIBLE',await storage.isVisible());
+            console.log('S3_STORAGE_ANCESTORS',JSON.stringify(await storage.evaluate(x=>{
+              const out=[];let n=x;
+              for(let i=0;n&&i<10;i++,n=n.parentElement)out.push({
+                tag:n.tagName,role:n.getAttribute('role'),cls:String(n.className).slice(0,180),
+                text:(n.innerText||'').slice(0,500),html:n.outerHTML.slice(0,1400)
+              });
+              return out;
+            })));
+            console.log('S3_ROLES',JSON.stringify(await page.locator('[role="button"][aria-expanded]').evaluateAll(els=>els.map((x,i)=>({
+              i,expanded:x.getAttribute('aria-expanded'),text:(x.innerText||'').trim().slice(0,180),
+              id:x.id,controls:x.getAttribute('aria-controls'),html:x.outerHTML.slice(0,600)
+            }))));
+            console.log('S3_TITLES',JSON.stringify(await page.locator('h2,h3,h4').evaluateAll(els=>els.map(x=>({text:x.innerText,cls:String(x.className).slice(0,100)})))));
+            console.log('S3_INPUTS_VISIBLE',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
+              i,aria:x.getAttribute('aria-label'),value:x.value,visible:!!x.offsetParent
+            })).filter(x=>/S3 Standard|Data transfer/i.test(x.aria||'')))));
+          }finally{await browser.close();}
           JS
