@@ -383,3 +383,22 @@ AWS must reconcile the October 30 Free Plan email against the actual AWS Account
 - correct the notice / restore the credit if it was intended for account `092509667825`.
 
 For funding Fable 5.2 on Bedrock, the appropriate application is AWS Activate rather than assuming the generic Free Plan credit covers an AWS Marketplace model.
+
+
+## Correction: Free Tier API state for this legacy AWS account
+
+The earlier interpretation of `freetier:GetAccountPlanState` returning `ResourceNotFoundException: Missing data for account 092509667825` as evidence that the October 30 email must belong to a different account was too strong.
+
+AWS's current Free Tier documentation states that the credit-based Free Tier (launched July 15, 2025) applies only to AWS accounts created on or after that date. Accounts created before July 15, 2025 remain on the legacy Free Tier model. This account was created on `2023-01-05`, so the Free Tier API having no plan-state record is expected for a legacy account and does not alone establish a separate account.
+
+AWS's current FAQ also says existing AWS accounts are not eligible for the new Free Plan. The October 30 2026 email does not include an account ID, and the current account's Credits page still shows zero credits. The correct conclusion is:
+- The account is a legacy 2023 AWS account.
+- The new Free Plan API has no plan data for it by design.
+- The October 30 email's association to this AWS account remains unverified.
+- The new Free Plan's $100 is not established as applicable to this 2023 account; AWS must clarify whether the message was misdirected or refers to a separate account.
+- Do not upgrade or create a new AWS account solely to chase this email without evaluating continuity and payment impacts.
+
+Official sources:
+- AWS Free Tier FAQ: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-FAQ.html
+- AWS Free Tier transition details: https://repost.aws/knowledge-center/aws-free-tier-account-start-expire
+- Choosing a plan: https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-plans.html
