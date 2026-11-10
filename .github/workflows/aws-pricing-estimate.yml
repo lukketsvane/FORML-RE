@@ -181,5 +181,25 @@ jobs:
             console.log('CLOUDWATCH_FORM_TEXT',cwBody.slice(0,11500));
             console.log('CLOUDWATCH_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,280)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
             console.log('CLOUDWATCH_BUTTONS',JSON.stringify((await page.getByRole('button').allTextContents()).slice(-35)));
+            console.log('CLOUDWATCH_FIELD_DESCRIPTIONS',JSON.stringify(await page.locator('input:visible').evaluateAll(es=>es.filter(e=>e.getAttribute('aria-label')&&/Number of Metrics|Standard Logs: Data Ingested/.test(e.getAttribute('aria-label'))).map(e=>({aria:e.getAttribute('aria-label'),placeholder:e.placeholder,description:e.getAttribute('aria-describedby')?document.getElementById(e.getAttribute('aria-describedby'))?.innerText:'',parent:(e.parentElement?.parentElement?.innerText||'').slice(0,500)})))));
+            await page.getByLabel('Description - optional').fill('Six-month FORMLÆRE benchmark: five metrics and 5 GB/month standard logs during the six active months; represented as a 12-month average of five metrics and 2.5 GB/month.');
+            await page.locator('input[aria-label^="Number of Metrics (includes detailed and custom metrics)"]:visible').first().fill('5');
+            await page.locator('input[aria-label="Standard Logs: Data Ingested Value"]:visible').first().fill('2.5');
+            await page.locator('input[aria-label="Standard Logs: Data Ingested Value"]:visible').first().press('Tab');
+            await page.waitForTimeout(1000);
+            const cwtext=await page.locator('body').innerText();
+            console.log('CLOUDWATCH_ENTERED',JSON.stringify({
+              metrics:await page.locator('input[aria-label^="Number of Metrics (includes detailed and custom metrics)"]:visible').first().inputValue(),
+              standardLogsGBMonthlyAverage:await page.locator('input[aria-label="Standard Logs: Data Ingested Value"]:visible').first().inputValue()
+            }));
+            console.log('CLOUDWATCH_COST',cwtext.split('\n').filter(x=>/Monthly cost|Upfront cost|Total 12 months|USD/.test(x)).slice(-10));
+            console.log('CLOUDWATCH_ERRORS',cwtext.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-10));
+            await page.getByRole('button',{name:'Save and view summary',exact:true}).click();
+            await page.waitForTimeout(2200);
+            console.log('ESTIMATE_SUMMARY_URL',page.url());
+            console.log('ESTIMATE_SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-9000));
+            console.log('ESTIMATE_SUMMARY_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('ESTIMATE_SUMMARY_LINKS',JSON.stringify(await page.locator('a').evaluateAll(es=>es.map(e=>({text:e.innerText.trim(),href:e.href})).filter(x=>x.text||x.href))));
+
           }finally{await browser.close();}
           JS
