@@ -206,3 +206,37 @@ No human support case has been created. The AWS Support API returned `Subscripti
 The hourly automation is now configured to check the Fable-specific cross-region token quota before making any inference call. It will not repeatedly invoke Fable while the quota remains zero. Once the quota becomes positive, it will perform one minimal synthetic test, record the result, and stop after success.
 
 **Required external action:** AWS must clear the account-level Fable 5.2 entitlement restriction or explicitly grant the model quota. The official route is AWS account verification/support and AWS Sales as indicated by the exact runtime error. No additional account, billing, payment, quota, retention, or model-agreement changes should be made until AWS responds.
+
+
+## Minimal Fable 5.2 runtime quota requests submitted — 10 November 2026
+
+The Service Quotas API clarified why the initial 100,000 TPM requests failed:
+
+- AWS default cross-region Fable 5.2 quota: `10,000,000` TPM.
+- Account-applied cross-region Fable 5.2 quota: `0` TPM.
+- The API rejects a desired quota below or equal to the AWS default value for an increase request.
+
+A minimal technically valid request of `10,000,001` TPM (one token/minute above the AWS default) was submitted for the **US cross-region runtime quota** in both destination Regions:
+
+| Region | Quota code | Request ID | Desired TPM | Status |
+|---|---|---|---:|---|
+| us-east-2 | `L-7358FD01` | `dc5c3a63f8aa4a5789243e50455869e4fh36oETV` | 10,000,001 | PENDING |
+| us-west-2 | `L-7358FD01` | `0e22cd5cdcd940b9b824511a6f4ddcb944EIzid8` | 10,000,001 | PENDING |
+
+Both requests were accepted by `RequestServiceQuotaIncrease`. A follow-up `GetRequestedServiceQuotaChange` check confirmed both remain `PENDING`; applied values remain zero. No inference test was made after submitting the requests, because AWS has not approved and applied them yet.
+
+The separate Global profile quotas (`L-0B3FA11F`) were also observed at zero but were not modified; the literature pilot will use the US geographic profile for regional data-boundary control.
+
+The quota request is not a purchase or a commitment to use tokens. It only asks AWS to assign an account-level inference capacity limit. The requested value is deliberately the smallest value above AWS's default threshold accepted by the API.
+
+AWS states smaller quota increase requests are often automatically approved; larger ones are routed to Support and can take time. Request IDs are retained here for exact status checks.
+
+## AWS email contact correction
+
+A message sent to `aws-verification@amazon.com` was returned with an automated notice that the mailbox is not monitored. The official reply directed the account owner to:
+
+`https://support.aws.amazon.com/#/contacts/aws-account-verification`
+
+The AWS Support API is not enabled for the current support plan (`SubscriptionRequiredException`); AWS documentation confirms that the Support API requires Business, Enterprise On-Ramp, or Enterprise Support. Basic Support Account & Billing contact is through the authenticated Support Center / AWS Settings console.
+
+The hourly Fable automation now checks these two exact quota request IDs, and will not try inference until they are approved and applied.
