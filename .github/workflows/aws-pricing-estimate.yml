@@ -29,28 +29,34 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Inspect the service catalogue
+      - name: Inspect Bedrock service configuration
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
           const browser = await chromium.launch({ headless: true });
           try {
-            const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
-            page.setDefaultTimeout(20000);
+            const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+            page.setDefaultTimeout(25000);
             page.on('requestfailed', req => console.log('REQUEST_FAILED', req.method(), req.url(), req.failure()?.errorText));
             page.on('pageerror', err => console.log('PAGE_ERROR', err.message));
             await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 120000 });
-            await page.waitForTimeout(5000);
-            const createButtons = page.getByRole('button', { name: 'Create estimate' });
-            console.log('CREATE_BUTTON_COUNT', await createButtons.count());
-            await createButtons.last().click();
-            await page.waitForTimeout(10000);
-            console.log('PAGE_TITLE', await page.title());
-            console.log('PAGE_URL', page.url());
-            console.log('BODY_TEXT', (await page.locator('body').innerText()).slice(0, 18000));
-            console.log('BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('INPUTS', JSON.stringify(await page.locator('input').evaluateAll(els => els.map(x => ({ type: x.type, placeholder: x.placeholder, aria: x.getAttribute('aria-label'), name: x.name, value: x.value })))));
-            console.log('SELECTS', JSON.stringify(await page.locator('select').evaluateAll(els => els.map(x => ({ aria: x.getAttribute('aria-label'), value: x.value, options: [...x.options].map(o => o.text).slice(0, 30) })))));
+            await page.waitForTimeout(4000);
+            await page.getByRole('button', { name: 'Create estimate' }).last().click();
+            await page.waitForURL(/addService/, { timeout: 30000 });
+            await page.waitForTimeout(4000);
+            const target = page.getByText('Amazon Bedrock', { exact: true }).first();
+            console.log('BEDROCK_ANCESTORS', JSON.stringify(await target.evaluate(el => {
+              const out = [];
+              let n = el;
+              for (let i = 0; n && i < 7; i++, n = n.parentElement) {
+                out.push({ tag: n.tagName, cls: String(n.className).slice(0, 180), role: n.getAttribute('role'), text: (n.innerText || '').slice(0, 500), html: n.outerHTML.slice(0, 1800) });
+              }
+              return out;
+            })));
+            console.log('REGION_BUTTONS', JSON.stringify((await page.getByRole('button').allTextContents()).slice(0, 12)));
+            const regionButtons = page.getByRole('button', { name: 'US East (Ohio)' });
+            console.log('OHIO_REGION_COUNT', await regionButtons.count());
+            console.log('CURRENT_URL', page.url());
           } finally {
             await browser.close();
           }
