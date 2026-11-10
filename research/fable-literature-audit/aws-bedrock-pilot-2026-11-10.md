@@ -139,3 +139,74 @@ No account-wide retention, billing, payment or model-access settings were change
 ### Next action
 
 Resolve model entitlement with AWS Bedrock / AWS Sales using the account and exact error above. Once AWS confirms access, retry one public/synthetic Converse request against the US profile. Do not start corpus processing until that succeeds.
+
+
+## Account-level entitlement diagnosis — 10 November 2026, 04:57–05:00 UTC
+
+### Current read-only control-plane state
+
+At 2026-11-10T04:57:30.900545Z, AWS Core checked account `092509667825`:
+
+- STS identity: `arn:aws:iam::092509667825:root`
+- Account state: `ACTIVE` (confirmed separately through Account `GetAccountInformation` at 04:59:17Z)
+- Primary contact verification: `VERIFIED` (Account `GetContactInformation`, 04:59:17Z)
+- Base model: `anthropic.claude-fable-5-2`, lifecycle `ACTIVE`
+- `GetFoundationModelAvailability`: `agreementAvailability.status=AVAILABLE`, `authorizationStatus=AUTHORIZED`, `entitlementAvailability=AVAILABLE`, `regionAvailability=AVAILABLE` in each of `us-east-1`, `us-east-2`, and `us-west-2`
+- US inference profile: `us.anthropic.claude-fable-5-2`, `ACTIVE`, system-defined; routes across the three US regions
+- Account `GetUseCaseForModelAccess`: stored Anthropic first-time-use form exists
+- `GetAccountDataRetention`: `aws_review` in all three US destination regions
+
+Retention snapshots and their reported update times:
+- `us-east-1`: `aws_review`, updated `2026-11-10T04:36:46.958Z`
+- `us-east-2`: `aws_review`, updated `2026-11-10T04:36:47.625Z`
+- `us-west-2`: `aws_review`, updated `2026-11-10T04:36:47.704Z`
+
+### Retention change audit — important
+
+CloudTrail `LookupEvents` found one `PutAccountDataRetention` write in each region at 04:36:46–04:36:47Z. All three events record:
+- principal: account root (`092509667825`)
+- invoker / source: `aws-mcp.amazonaws.com`
+- requested mode: `aws_review`
+- event names: `PutAccountDataRetention`
+
+This investigation did **not** make these writes. CloudTrail attributes them to a root session invoked through AWS MCP, but does not identify which earlier conversation or automation initiated them. This is a material correction to the earlier snapshot showing `inherit`. AWS documents that Fable prompts and outputs under `aws_review` may be retained within AWS for up to 30 days and may be reviewed by AWS; they are not shared with Anthropic. Do not make any further retention changes without explicit direction.
+
+### One correctly configured runtime test — 10 November 2026, 04:57:51.885810 UTC
+
+Exactly one small synthetic Converse request was made in `us-east-1` using:
+- model ID: `us.anthropic.claude-fable-5-2`
+- operation: `bedrock-runtime:Converse`
+- maxTokens: `900`
+- temperature: `1.0` (Fable 5.2-compatible setting)
+- prompt: `Reply with exactly this string and nothing else: FABLE_52_SMOKE_OK`
+
+Exact AWS error:
+```
+AccessDeniedException: An error occurred (AccessDeniedException) when calling the Converse operation: anthropic.claude-fable-5-2 is not available for this account. You can explore other available models on Amazon Bedrock. For additional access options, contact AWS Sales at https://aws.amazon.com/contact-us/sales-support/
+```
+
+Status: **BLOCKED — additional account-level entitlement required**.
+- Input tokens: none reported (request rejected)
+- Output tokens: none
+- Total tokens: none
+- Response: none
+- Temperature was corrected to the model's supported value; the same account-level denial persisted.
+- No PDFs, manuscript material, or corpus text was processed.
+
+### AWS support route findings
+
+- AWS's Bedrock troubleshooting guidance says this exact `AccessDeniedException` wording with “contact AWS Sales” indicates an account-level restriction. It is not resolved by IAM policy edits, SCP changes, or toggling model access in the Bedrock console. AWS directs customers who meet the prerequisites but still receive this error to AWS Support / Sales.
+- The account Support API `DescribeServices`, `DescribeSeverityLevels`, and `DescribeCases` each returned `SubscriptionRequiredException: Amazon Web Services Premium Support Subscription is required to use this service.` No support plan or billing setting was changed.
+- A message previously sent to `aws-verification@amazon.com` bounced: AWS says that address is not monitored. The bounce directs account-verification enquiries to `https://support.aws.amazon.com/#/contacts/aws-account-verification`.
+- The public AWS Sales Support form is at `https://aws.amazon.com/contact-us/sales-support/`. It is the available escalation path for the additional account-level Bedrock model entitlement. Do not purchase a paid support plan or alter payment settings as part of this work.
+
+### Required next step
+
+Submit an AWS Sales / account-verification escalation with:
+1. Account ID `092509667825`.
+2. Model `anthropic.claude-fable-5-2` and profile `us.anthropic.claude-fable-5-2`.
+3. The fact that the account is `ACTIVE`, contact is `VERIFIED`, model agreement/authorization/entitlement/region states are all `AVAILABLE`, and the three US regions return `aws_review`.
+4. The exact 04:57:51Z Converse denial above.
+5. A request to identify and clear the remaining account-level restriction, or confirm the eligibility criteria and exact action required.
+
+Do not retry Converse repeatedly while AWS's account-level restriction remains. Continue only the existing scheduled single-check process. Do not change retention, billing, payment, or model-access settings. Do not process designteori PDFs until a successful synthetic Converse response is committed.
