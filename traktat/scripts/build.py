@@ -287,6 +287,11 @@ def build_web(doc: dict) -> None:
         shutil.copyfile(ROOT / "nettstad" / "kortversjon.css", stage / "kortversjon.css")
         for name in ("reader.css", "reader.js"):
             shutil.copyfile(ROOT / "nettstad" / name, stage / name)
+        # Publish the separately versioned 394-proposition review without
+        # replacing the canonical reader or its PDF.
+        revision = ROOT / "nettstad" / "revisjon"
+        if revision.is_dir():
+            shutil.copytree(revision, stage / "revisjon")
         data = stage / "traktat"
         data.mkdir()
         write_json(data / "document.json", doc)
@@ -311,7 +316,8 @@ def build_web(doc: dict) -> None:
         for name in ("index.html", "scroll.html"):
             (data / name).write_text(legacy)
         precache = ["/", "/kort/", "/kortversjon/", "/kortversjon.css", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
-                    "/traktat/formlaere.pdf", *["/icons/" + p.name for p in sorted((stage / "icons").glob("*.png"))],
+                    "/traktat/formlaere.pdf", "/revisjon/", "/revisjon/rapport/", "/revisjon/style.css",
+                    *["/icons/" + p.name for p in sorted((stage / "icons").glob("*.png"))],
                     *["/traktat/illustrations/" + figure["file"] for figure in doc["figures"]]]
         worker = (pwa / "service-worker.template.js").read_text(encoding="utf-8")
         worker = worker.replace("__SOURCE_HASH__", doc["sourceHash"]).replace("__PRECACHE_ASSETS__", json.dumps(precache))
