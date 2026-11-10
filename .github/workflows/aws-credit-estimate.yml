@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  inspect-service-catalogue:
+  inspect-supporting-forms:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
@@ -29,7 +29,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
 
-      - name: Find exact supporting service names
+      - name: Inspect supporting service forms
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -46,14 +46,32 @@ jobs:
             await page.waitForTimeout(250);
             await page.getByText('US East (N. Virginia)', { exact: true }).last().click();
             await page.waitForTimeout(400);
-            for (const [query,key] of [['S3','S3'],['DynamoDB','DDB'],['CloudWatch','CW']]) {
-              await page.locator('input[placeholder="Search for a service"]').fill(query);
-              await page.waitForTimeout(650);
-              const matches = await page.locator('li').evaluateAll(els => els.map((el,i)=>({
-                i, text:(el.innerText||'').trim().slice(0,500),
-                buttons:[...el.querySelectorAll('button')].map(b=>b.innerText.trim())
-              })).filter(x=>x.text && /S3|Storage|DynamoDB|CloudWatch/i.test(x.text)));
-              console.log(key+'_MATCHES', JSON.stringify(matches.slice(0,30)));
+
+            async function inspect(query, pattern, key) {
+              const search=page.locator('input[placeholder="Search for a service"]');
+              await search.fill(query);
+              await page.waitForTimeout(600);
+              const cards=await page.locator('li').evaluateAll((els, reSource)=>els.map((el,i)=>({
+                i,text:(el.innerText||'').trim()
+              })).filter(x=>new RegExp(reSource,'i').test(x.text)),pattern);
+              console.log(key+'_CARDS',JSON.stringify(cards.slice(0,10)));
+              if(!cards.length) return;
+              const card=page.locator('li').nth(cards[0].i);
+              await card.getByRole('button',{name:'Configure'}).click();
+              await page.waitForTimeout(1400);
+              console.log(key+'_URL',page.url());
+              console.log(key+'_TEXT',(await page.locator('body').innerText()).slice(-9500));
+              console.log(key+'_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
+                i,type:x.type,aria:x.getAttribute('aria-label'),placeholder:x.placeholder,
+                value:x.value,checked:x.checked,disabled:x.disabled,
+                label:x.getAttribute('aria-labelledby')?document.getElementById(x.getAttribute('aria-labelledby'))?.innerText.trim():''
+              })).filter(x=>x.aria||x.label||x.type==='number'||x.type==='checkbox'||x.type==='radio'))));
+              console.log(key+'_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
+              await page.getByRole('button',{name:'Cancel',exact:true}).last().click();
+              await page.waitForTimeout(500);
             }
+            await inspect('S3','Amazon Simple Storage Service','S3');
+            await inspect('DynamoDB','Amazon DynamoDB','DDB');
+            await inspect('CloudWatch','Amazon CloudWatch','CW');
           } finally { await browser.close(); }
           JS
