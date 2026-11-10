@@ -49,9 +49,10 @@ re-reading and recalibration before they can support FORMLÆRE.
 
 ## Fable 5.2 invocation and data handling
 
-The batch reader in this directory is a local research utility. It reads
-`AWS_BEARER_TOKEN_BEDROCK` from the environment; it never contains or asks for
-a key in a prompt, file, command-line argument or Git commit.
+The batch reader in this directory is a local research utility. It uses the
+standard Boto3 credential chain, preferably an AWS IAM Identity Center SSO
+profile. No Bedrock API key is needed. It never accepts credentials in a
+prompt, file, command-line argument or Git commit.
 
 **Do not use a credential pasted into chat or any other exposed credential.**
 Revoke it and create a fresh, least-privilege credential locally. Fable 5.2
@@ -94,12 +95,12 @@ python batch_reader.py \
   --max-documents 3
 ```
 
-A billable run requires all of the following: a fresh credential in the local
-environment, a rights-reviewed work list, a small explicit document limit,
-`--execute`, and `--confirm-aws-review-retention`:
+A billable run uses the locally configured SSO profile, a rights-reviewed
+work list, a small explicit document limit, `--execute`,
+`--confirm-paid-inference`, and `--confirm-aws-review-retention`.
 
 ```sh
-export AWS_BEARER_TOKEN_BEDROCK='set-this-locally; never paste it into chat'
+export AWS_PROFILE=formlaere
 python batch_reader.py \
   --manifest /path/to/designteori/pdf/manifest.json \
   --pdf-root /path/to/designteori \
