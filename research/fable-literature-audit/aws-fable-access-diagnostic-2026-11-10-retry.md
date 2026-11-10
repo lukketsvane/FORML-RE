@@ -325,3 +325,61 @@ Official recovery documentation:
 - https://repost.aws/knowledge-center/retry-unsuccessful-payment
 
 **Outstanding user-authenticated step:** complete the 3-D Secure payment authentication for invoice `EUINNO26-202129` in the AWS Payments console. The assistant must not bypass or impersonate the cardholder's bank authentication.
+
+
+## $100 AWS Free Plan email vs actual account credit state — 10 November 2026
+
+### Evidence from account email
+
+The connected AWS mailbox contains an official AWS Billing and Cost Management email:
+
+- Subject: `Welcome to AWS - Your Account with Free Plan is Ready`
+- Sender: `billing-subscriptions@aws.com`
+- Date: `2026-10-30T02:57:24Z`
+- Text: `Your AWS free plan is active`
+- Promised starter credit: `USD $100`
+- Email-stated Free Plan expiry: `30 Apr 2027`
+- It also says up to another `USD $100` can be earned by completing activities.
+
+The notification body does not include an AWS Account ID, so its account association is not established by the email itself.
+
+### Actual currently connected AWS account
+
+- Current AWS account: `092509667825`
+- `GetAccountInformation`: account creation date `2023-01-05T01:22:32Z`
+- User screenshot of AWS Billing → Credits (2026-11-10): `$0.00` remaining, `$0.00` used, zero inactive credits, and `No credits` / `You don't have any redeemable credits`.
+- AWS Free Tier API `freetier:GetAccountPlanState` in `us-east-1` returned `ResourceNotFoundException: Missing data for account: 092509667825` at `2026-11-10T05:18:21Z`. There is no Free Plan state recorded for this account through that API.
+
+### Interpretation — unresolved account/offer mismatch
+
+The user's expectation is supported by the official October 30 AWS welcome email. However, the welcome email does not contain the account ID, while the connected 2023 account has no Free Tier plan state and no credits on the Credits page.
+
+AWS's current Free Tier FAQ says the Free Plan / Free Tier credits are only for new AWS customers and existing or previously-used AWS accounts are ineligible. The connected account was created in 2023, before the new Free Plan signup experience. The following possibilities remain:
+1. The October 30 welcome email relates to a different AWS account associated with the same email address.
+2. AWS sent an erroneous or mis-associated Free Plan activation notice.
+3. AWS has an internal provisioning issue that needs manual reconciliation.
+
+Do not claim the $100 is present on account `092509667825` until AWS confirms the account ID associated with the October 30 notice and resolves the missing Free Tier state.
+
+### Important distinction: this Free Plan is not a reliable Fable 5.2 funding route
+
+AWS's Free Plan documentation says certain AWS Marketplace offers are unavailable on the Free Plan, and AWS Promotional Credit terms generally exclude AWS Marketplace charges unless explicitly authorized. Claude Fable 5.2 Bedrock Edition is an Anthropic AWS Marketplace product. An ordinary Free Plan $100 grant therefore must not be assumed to cover Fable 5.2 usage.
+
+AWS separately states that AWS Activate Credits may be applied to AWS Marketplace charges specifically for third-party foundation-model usage on Amazon Bedrock. AWS Activate Founders is for qualifying self-funded startups and currently begins at $1,000; Portfolio awards require an Activate Provider Org ID. Current published eligibility requires a Paid Tier AWS account and startup founded within the last 10 years. The connected mailbox also contains an October 29 AWS for Startups welcome email; this is an invitation to apply, **not** confirmation that Activate credits were awarded.
+
+### Separate Anthropic $100 API credit
+
+The mailbox also contains an official Anthropic email dated `2026-10-17` with subject `$100 USD in API credits was added`. It says `cygnus’s Individual Org`, the API organization linked to the user's Claude Max plan, received `$100 USD`. That email explicitly says:
+- It applies only to Claude API, Claude Managed Agents, Claude Agent SDK, and Playground.
+- It cannot be used for Claude Code sessions or extra usage in Claude apps.
+- It expired on `2026-11-04`.
+
+This is not an AWS credit and cannot pay for Amazon Bedrock. The email arrived before expiry, but the grant is expired as of 10 November 2026.
+
+### Next account-level resolution
+
+AWS must reconcile the October 30 Free Plan email against the actual AWS Account ID and either:
+- identify the account on which the $100 Free Plan credit was activated, or
+- correct the notice / restore the credit if it was intended for account `092509667825`.
+
+For funding Fable 5.2 on Bedrock, the appropriate application is AWS Activate rather than assuming the generic Free Plan credit covers an AWS Marketplace model.
