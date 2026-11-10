@@ -111,5 +111,16 @@ jobs:
             console.log('SHARE_DIALOG_TEXT',(await page.locator('body').innerText()).slice(-9000));
             console.log('SHARE_DIALOG_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
             console.log('SHARE_DIALOG_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map(x=>({aria:x.getAttribute('aria-label'),value:x.value,placeholder:x.placeholder,type:x.type,visible:!!x.offsetParent})).filter(x=>x.visible))));
+            await page.getByRole('button',{name:'Agree and continue',exact:true}).click();
+            await page.waitForTimeout(1500);
+            console.log('SHARE_AFTER_CONSENT_TEXT',(await page.locator('body').innerText()).slice(-9000));
+            console.log('SHARE_AFTER_CONSENT_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('SHARE_AFTER_CONSENT_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map(x=>({aria:x.getAttribute('aria-label'),value:x.value,placeholder:x.placeholder,type:x.type,readonly:x.readOnly,visible:!!x.offsetParent})).filter(x=>x.visible))));
+            console.log('SHARE_LINKS',JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.href.includes('calculator.aws')||x.text.toLowerCase().includes('copy')))));
+            try {
+              await page.context().grantPermissions(['clipboard-read','clipboard-write']);
+              console.log('CLIPBOARD_TEXT',await page.evaluate(async()=>await navigator.clipboard.readText()));
+            } catch(e) { console.log('CLIPBOARD_READ_ERROR',e.message); }
+
           }finally{await browser.close();}
           JS
