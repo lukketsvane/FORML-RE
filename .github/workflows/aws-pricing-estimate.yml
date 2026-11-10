@@ -87,5 +87,32 @@ jobs:
             console.log('S3_FORM_TEXT',(await page.locator('body').innerText()).slice(-12000));
             console.log('S3_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),placeholder:e.placeholder,value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,350)})))));
             console.log('S3_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
+            await page.getByLabel('Description - optional').fill('Six-month FORMLÆRE project: 100 GB S3 Standard storage held for six months, represented as 50 GB/month over the calculator 12-month horizon; modest metadata and evaluation input/output requests.');
+            await page.locator('input[aria-label="S3 Standard storage Value"]:visible').first().fill('50');
+            await page.locator('input[aria-label^="PUT, COPY, POST, LIST requests to S3 Standard"]:visible').first().fill('500');
+            await page.locator('input[aria-label^="GET, SELECT, and all other requests from S3 Standard"]:visible').first().fill('5000');
+            await page.locator('input[aria-label^="GET, SELECT, and all other requests from S3 Standard"]:visible').first().press('Tab');
+            await page.waitForTimeout(1200);
+            const s3text=await page.locator('body').innerText();
+            console.log('S3_ENTERED',JSON.stringify({
+              storage:await page.locator('input[aria-label="S3 Standard storage Value"]:visible').first().inputValue(),
+              put:await page.locator('input[aria-label^="PUT, COPY, POST, LIST requests to S3 Standard"]:visible').first().inputValue(),
+              get:await page.locator('input[aria-label^="GET, SELECT, and all other requests from S3 Standard"]:visible').first().inputValue()
+            }));
+            console.log('S3_COST_LINES',s3text.split('\n').filter(x=>/Monthly cost|Upfront cost|USD|Total 12 months/.test(x)).slice(-10));
+            console.log('S3_ERRORS',s3text.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-10));
+            await page.getByRole('button',{name:'Save and add service',exact:true}).click();
+            await page.waitForTimeout(1100);
+            await page.getByRole('searchbox',{name:'Find Service'}).fill('AWS Step Functions');
+            await page.waitForTimeout(700);
+            const sfText=page.getByText('AWS Step Functions',{exact:true}).first();
+            console.log('STEP_FUNCTIONS_TITLE_COUNT',await sfText.count());
+            const sfcard=sfText.locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await sfcard.getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(2400);
+            console.log('STEP_FUNCTIONS_URL',page.url());
+            console.log('STEP_FUNCTIONS_TEXT',(await page.locator('body').innerText()).slice(0,9000));
+            console.log('STEP_FUNCTIONS_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,300)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
+
           }finally{await browser.close();}
           JS
