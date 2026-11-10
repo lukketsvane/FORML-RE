@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  inspect-supporting-forms:
+  inspect-dynamodb-on-demand:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
@@ -29,49 +29,43 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
 
-      - name: Inspect supporting service forms
+      - name: Inspect DynamoDB on-demand inputs
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
           const browser = await chromium.launch({ headless: true });
           try {
-            const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+            const page = await browser.newPage({ viewport:{width:1440,height:1200} });
             page.setDefaultTimeout(10000);
-            await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 90000 });
+            await page.goto('https://calculator.aws/#/',{waitUntil:'domcontentloaded',timeout:90000});
             await page.waitForTimeout(2200);
-            await page.getByRole('button', { name: 'Create estimate' }).last().click();
-            await page.waitForURL(/addService/, { timeout: 30000 });
+            await page.getByRole('button',{name:'Create estimate'}).last().click();
+            await page.waitForURL(/addService/,{timeout:30000});
             await page.waitForTimeout(1000);
-            await page.getByRole('button', { name: 'US East (Ohio)' }).click();
+            await page.getByRole('button',{name:'US East (Ohio)'}).click();
             await page.waitForTimeout(250);
-            await page.getByText('US East (N. Virginia)', { exact: true }).last().click();
+            await page.getByText('US East (N. Virginia)',{exact:true}).last().click();
             await page.waitForTimeout(400);
-
-            async function inspect(query, pattern, key) {
-              const search=page.locator('input[placeholder="Search for a service"]');
-              await search.fill(query);
-              await page.waitForTimeout(600);
-              const cards=await page.locator('li').evaluateAll((els, reSource)=>els.map((el,i)=>({
-                i,text:(el.innerText||'').trim()
-              })).filter(x=>new RegExp(reSource,'i').test(x.text)),pattern);
-              console.log(key+'_CARDS',JSON.stringify(cards.slice(0,10)));
-              if(!cards.length) return;
-              const card=page.locator('li').nth(cards[0].i);
-              await card.getByRole('button',{name:'Configure'}).click();
-              await page.waitForTimeout(1400);
-              console.log(key+'_URL',page.url());
-              console.log(key+'_TEXT',(await page.locator('body').innerText()).slice(-9500));
-              console.log(key+'_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
-                i,type:x.type,aria:x.getAttribute('aria-label'),placeholder:x.placeholder,
-                value:x.value,checked:x.checked,disabled:x.disabled,
-                label:x.getAttribute('aria-labelledby')?document.getElementById(x.getAttribute('aria-labelledby'))?.innerText.trim():''
-              })).filter(x=>x.aria||x.label||x.type==='number'||x.type==='checkbox'||x.type==='radio'))));
-              console.log(key+'_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
-              await page.getByRole('button',{name:'Cancel',exact:true}).last().click();
-              await page.waitForTimeout(500);
-            }
-            await inspect('S3','Amazon Simple Storage Service','S3');
-            await inspect('DynamoDB','Amazon DynamoDB','DDB');
-            await inspect('CloudWatch','Amazon CloudWatch','CW');
-          } finally { await browser.close(); }
+            await page.locator('input[placeholder="Search for a service"]').fill('DynamoDB');
+            await page.waitForTimeout(600);
+            const cards=await page.locator('li').evaluateAll(els=>els.map((el,i)=>({i,text:(el.innerText||'').trim()})).filter(x=>x.text.startsWith('Amazon DynamoDB')));
+            console.log('DDB_CARDS',JSON.stringify(cards));
+            await page.locator('li').nth(cards[0].i).getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(1300);
+            await page.locator('input[type="checkbox"]').evaluateAll(inputs=>{
+              for(const i of inputs){
+                const id=i.getAttribute('aria-labelledby');
+                const label=id?document.getElementById(id)?.innerText.trim():'';
+                if(label==='DynamoDB on-demand capacity'&&!i.checked)i.click();
+                if(label==='DynamoDB provisioned capacity'&&i.checked)i.click();
+              }
+            });
+            await page.waitForTimeout(800);
+            console.log('DDB_ONDEMAND_TEXT',(await page.locator('body').innerText()).slice(-8000));
+            console.log('DDB_ONDEMAND_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
+              i,type:x.type,aria:x.getAttribute('aria-label'),value:x.value,checked:x.checked,
+              disabled:x.disabled,visible:!!x.offsetParent,
+              label:x.getAttribute('aria-labelledby')?document.getElementById(x.getAttribute('aria-labelledby'))?.innerText.trim():''
+            })).filter(x=>x.visible&&(x.aria||x.label||x.type==='checkbox')))));
+          } finally {await browser.close();}
           JS
