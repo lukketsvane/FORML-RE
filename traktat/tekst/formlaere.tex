@@ -1035,11 +1035,15 @@ Omhug viser seg i prioritering av arbeid. Kunnskap åleine endrar ikkje det kjen
 \begin{formproposition}{5.202}{d}
 Omhug frå agent \(i\) mot agent \(j\) langs omsyn \(k\) er ein relasjon, ikkje ein eigenskap ved \(i\) åleine. Han kan skildrast ved
 \[
-\mathscr C_{i\rightarrow j,k}=
+\mathcal C_{i\rightarrow j,k}=
 (O_{ij,k},\eta_{i\rightarrow j},\omega_{i\rightarrow j,k},
 \chi_{i\rightarrow j,k},F_{j\rightarrow i,k}).
 \]
-\(O\) viser kor påliteleg avvik hjå \(j\) vert registrert; \(\eta\) er feilen i agent \(i\) si framstilling \(\widehat G_{i\rightarrow j}\) av \(j\) sin målregion \(G_j\), når ein relevant avstand kan fastsetjast; \(\omega\) er prioriteringa av arbeidet; \(\chi=1\) når omsynet ligg innanfor kapasiteten \(\kappa(A_i;T,\mathcal D)\) under dei oppgjevne prøvevilkåra, og elles \(0\); \(F\) er kanalen som let svar frå \(j\) rette modellen og arbeidet. Den relasjonelle prioriteringa må spesifisere korleis arbeidet er fordelt innanfor den samla omhugsprofilen i 5.2; ho kan ikkje leggjast oppå henne som ei ekstra, uavhengig vekt.
+\(O\) viser kor påliteleg avvik hjå \(j\) vert registrert; \(\eta\) er feilen i agent \(i\) si framstilling \(\widehat G_{i\rightarrow j}\) av \(j\) sin målregion \(G_j\), når ein relevant avstand kan fastsetjast; \(\omega\) er prioriteringa av arbeidet; \(\chi=1\) når omsynet ligg innanfor kapasiteten \(\kappa(A_i;T,\mathcal D)\) under dei oppgjevne prøvevilkåra, og elles \(0\); \(F\) er kanalen som let svar frå \(j\) rette modellen og arbeidet. Den relasjonelle prioriteringa må spesifisere korleis arbeidet er fordelt innanfor den samla omhugsprofilen i 5.2; ho kan ikkje leggjast oppå henne som ei ekstra, uavhengig vekt. Når prioriteringa vert fordelt additivt over ei mengd modellerte mottakarar \(\mathcal J_i\), må
+\[
+\sum_{j\in\mathcal J_i}\omega_{i\rightarrow j,k}\leq\omega_k(A_i).
+\]
+Ufordelt prioritet kan gå til andre omsyn eller mottakarar som ikkje er med i den aktuelle relasjonsmodellen.
 
 Komponentane har ulike typar. Dei dannar ikkje éin skalar eller ein homogen tensor. Det faktiske utfallet hjå \(j\) vert målt separat; høg prioritering viser ikkje i seg sjølv at omsynet vart halde.\\kjelder{166}
 \end{formproposition}
@@ -1648,7 +1652,7 @@ z_{t+1}=F_{SG_t}(z_t,a_t,d_t).
 På metanivå kan systemet som genererer og regulerer form, sjølv endrast:
 \[
 (SG_{t+1},\mathcal O_{t+1},\kappa_{t+1})=
-\mathfrak M(SG_t,\mathcal O_t,\kappa_t;b_t),
+\mathcal M(SG_t,\mathcal O_t,\kappa_t;b_t),
 \]
 der \(\mathcal O_t\) er observasjonsstrukturen, \(\kappa_t\) reguleringskapasiteten og \(b_t\) eit føreslege metainngrep. C–K-prosessen kan utvikle konsept for slike endringar; metainngrepet vert del av det operative systemet først når det er realisert og prøvd. Dette er ei utviding av C–K mot endring av sjølve vilkåra for formgenerering.\\kjelder{16,17,168}
 \end{formproposition}
