@@ -210,3 +210,42 @@ Submit an AWS Sales / account-verification escalation with:
 5. A request to identify and clear the remaining account-level restriction, or confirm the eligibility criteria and exact action required.
 
 Do not retry Converse repeatedly while AWS's account-level restriction remains. Continue only the existing scheduled single-check process. Do not change retention, billing, payment, or model-access settings. Do not process designteori PDFs until a successful synthetic Converse response is committed.
+
+
+## Service Quotas finding and AWS case — 10 November 2026, 05:04–05:06 UTC
+
+### Fable cross-region quota is zero
+
+Service Quotas `GetServiceQuota` in `us-east-1` returned the applied account value for:
+
+- Quota: `Cross-region model inference tokens per minute for Anthropic Claude Fable 5`
+- Quota code: `L-9B258944`
+- Applied account value: `0`
+- AWS default value (`GetAWSDefaultServiceQuota`): `4,000,000`
+- Adjustable: `true`
+- Applied at: `ACCOUNT`
+
+This is consistent with the runtime entitlement denial. The name is for the Fable 5 model family and the account is attempting to use Fable 5.2. Two additional Bedrock Mantle endpoint Fable 5 quotas were also read as zero (input TPM quota `L-0F6BA833`, default 2,000,000; output TPM quota `L-D67748AD`, default 200,000); these are not the quota used by the current `bedrock-runtime` Converse smoke test, so no request was made for those Mantle quotas.
+
+### Quota request submitted
+
+An initial request for 10,000 tokens/minute was rejected by Service Quotas because the desired value must exceed the default quota of 4,000,000. No quota change resulted from that failed request.
+
+The smallest valid request was then submitted:
+
+- Service: `bedrock`
+- Region: `us-east-1`
+- Quota code: `L-9B258944`
+- Desired value: `4,000,001`
+- Submitted: `2026-11-10T05:05:45.632215Z`
+- Request ID: `0dd2f2b07df043379f3d3dba610f288crtAaX3mW`
+- AWS support case ID: `179428714700181`
+- Latest request status read at `2026-11-10T05:06:00.626139Z`: `CASE_OPENED`
+
+This does **not** mean quota/access has been granted. The request is with AWS for review. No inference retry was made after the earlier 04:57:51Z denial.
+
+### Scheduled check updated
+
+The existing hourly Fable access check is still enabled. Its prompt now gates any future synthetic inference on all existing US regional quota cases being approved and all applied quota values being non-zero, in addition to model authorization, entitlement, regional availability and `aws_review` checks. It will not repeatedly invoke while the quota requests remain pending. It still must stop and notify only after a successful synthetic Converse result is committed.
+
+No account-wide data-retention setting, billing setting, payment setting or model agreement was changed by this investigation. No designteori PDFs or manuscript material were processed.
