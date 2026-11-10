@@ -51,26 +51,19 @@ jobs:
             const cards=await page.locator('li').evaluateAll(els=>els.map((el,i)=>({i,text:(el.innerText||'').trim()})).filter(x=>x.text.startsWith('Amazon Simple Storage Service')));
             await page.locator('li').nth(cards[0].i).getByRole('button',{name:'Configure'}).click();
             await page.waitForTimeout(1400);
-            const storage=page.locator('input[aria-label="S3 Standard storage Value"]');
-            console.log('S3_STORAGE_VISIBLE',await storage.isVisible());
-            console.log('S3_STORAGE_ANCESTORS',JSON.stringify(await storage.evaluate(x=>{
-              const out=[];let n=x;
-              for(let i=0;n&&i<10;i++,n=n.parentElement)out.push({
-                tag:n.tagName,role:n.getAttribute('role'),cls:String(n.className).slice(0,180),
-                text:(n.innerText||'').slice(0,500),html:n.outerHTML.slice(0,1400)
-              });
-              return out;
-            })));
+            const storageCount=await page.locator('input[aria-label="S3 Standard storage Value"]').count();
+            console.log('S3_STORAGE_COUNT',storageCount);
+            const inputStates=await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
+              i,aria:x.getAttribute('aria-label'),value:x.value,visible:!!x.offsetParent,
+              label:x.getAttribute('aria-labelledby')?document.getElementById(x.getAttribute('aria-labelledby'))?.innerText.trim():''
+            })).filter(x=>/S3 Standard|Data transfer/i.test((x.aria||'')+' '+(x.label||''))));
+            console.log('S3_INPUT_STATES',JSON.stringify(inputStates));
             const roles=await page.locator('[role="button"][aria-expanded]').evaluateAll(els=>els.map((x,i)=>({
               i,expanded:x.getAttribute('aria-expanded'),text:(x.innerText||'').trim().slice(0,180),
-              id:x.id,controls:x.getAttribute('aria-controls'),html:x.outerHTML.slice(0,600)
+              id:x.id,controls:x.getAttribute('aria-controls')
             })));
             console.log('S3_ROLES',JSON.stringify(roles));
             const titles=await page.locator('h2,h3,h4').evaluateAll(els=>els.map(x=>({text:x.innerText,cls:String(x.className).slice(0,100)})));
             console.log('S3_TITLES',JSON.stringify(titles));
-            const inputStates=await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
-              i,aria:x.getAttribute('aria-label'),value:x.value,visible:!!x.offsetParent
-            })).filter(x=>/S3 Standard|Data transfer/i.test(x.aria||'')));
-            console.log('S3_INPUTS_VISIBLE',JSON.stringify(inputStates));
           }finally{await browser.close();}
           JS
