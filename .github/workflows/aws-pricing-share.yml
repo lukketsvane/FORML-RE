@@ -1,21 +1,17 @@
 name: AWS Pricing Calculator combined estimate helper
-
 on:
   push:
     branches:
       - research/fable-literature-audit-2026-11
     paths:
       - .github/workflows/aws-pricing-share.yml
-
 permissions:
   contents: read
-
 concurrency:
   group: aws-pricing-share-${{ github.sha }}
   cancel-in-progress: true
-
 jobs:
-  configure-combined-estimate:
+  inspect-s3-config:
     runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
@@ -26,7 +22,7 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
-      - name: Configure Bedrock, Lambda, and inspect S3
+      - name: Configure Bedrock and Lambda then inspect S3 fields
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -34,78 +30,60 @@ jobs:
           try {
             const page=await browser.newPage({viewport:{width:1440,height:1200}});
             page.setDefaultTimeout(12000);
-            page.on('pageerror',e=>console.log('PAGE_ERROR',e.message));
             await page.goto('https://calculator.aws/#/',{waitUntil:'domcontentloaded',timeout:90000});
-            await page.waitForTimeout(2200);
+            await page.waitForTimeout(2000);
             await page.getByRole('button',{name:'Create estimate'}).last().click();
             await page.waitForURL(/addService/,{timeout:30000});
-            await page.waitForTimeout(1000);
+            await page.waitForTimeout(900);
             await page.getByRole('button',{name:'US East (Ohio)'}).click();
             await page.waitForTimeout(250);
             await page.getByText('US East (N. Virginia)',{exact:true}).last().click();
             await page.waitForTimeout(400);
-
-            // Bedrock: explicit conservative proxy, not a false claim that Fable 5.1 is 5.2.
             let card=page.getByText('Amazon Bedrock',{exact:true}).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
             await card.getByRole('button',{name:'Configure'}).click();
-            await page.waitForTimeout(2100);
+            await page.waitForTimeout(2000);
             await page.locator('input[type="checkbox"]').evaluateAll(inputs=>{
-              for(const i of inputs){
-                const id=i.getAttribute('aria-labelledby');
-                const label=id?document.getElementById(id)?.innerText.trim():'';
-                if(label==='AI21 Labs'&&i.checked)i.click();
-                if(label==='Anthropic'&&!i.checked)i.click();
-              }
+              for(const i of inputs){const id=i.getAttribute('aria-labelledby');const label=id?document.getElementById(id)?.innerText.trim():'';if(label==='AI21 Labs'&&i.checked)i.click();if(label==='Anthropic'&&!i.checked)i.click();}
             });
-            await page.waitForTimeout(650);
+            await page.waitForTimeout(600);
             await page.getByRole('button').filter({hasText:'Anthropic: Claude Haiku 4.5'}).first().click();
             await page.waitForTimeout(350);
             await page.locator('[role="option"]').filter({hasText:'Anthropic: Claude Fable 5.1'}).first().click();
-            await page.waitForTimeout(700);
-            await page.getByLabel('Description - optional').fill('FORMLÆRE — 6-month research benchmark. Pricing Calculator currently lists Fable 5.1 Global, used as a conservative proxy. The intended Fable 5.2 US-geo offer is documented separately at $8.80/M input and $44/M output; target 400M input + 10M output = $3,960.');
+            await page.waitForTimeout(650);
+            await page.getByLabel('Description - optional').fill('FORMLÆRE — 6-month research benchmark. Pricing Calculator lists Fable 5.1 Global as a conservative proxy; actual Fable 5.2 US-geo rates $8.80/M input and $44/M output; 400M + 10M tokens = $3,960.');
             await page.locator('input[aria-label="Average requests per minute"]:visible').first().fill('1');
             await page.locator('input[aria-label="Hours per day at this rate"]:visible').first().fill('8');
             await page.locator('input[aria-label="Average input tokens per request"]:visible').first().fill('4629');
             await page.locator('input[aria-label="Average output tokens per request"]:visible').first().fill('116');
             await page.locator('input[aria-label="Average output tokens per request"]:visible').first().press('Tab');
-            await page.waitForTimeout(900);
-            console.log('BEDROCK_MONTHLY', (await page.locator('body').innerText()).split('\n').filter(x=>/Total Monthly|Total Upfront/.test(x)).slice(-4));
+            await page.waitForTimeout(800);
             await page.getByRole('button',{name:'Save and add service',exact:true}).click();
             await page.waitForURL(/addService/,{timeout:20000});
-            await page.waitForTimeout(1200);
-
-            // Lambda: 166,667 monthly requests, 20 seconds, 1 GB RAM, no free-tier offset.
-            const search=page.getByRole('searchbox',{name:'Find Service'});
-            await search.fill('AWS Lambda');
-            await page.waitForTimeout(900);
-            const matches=await page.locator('li').evaluateAll(els=>els.map((e,i)=>({i,text:(e.innerText||'').trim().slice(0,300)})).filter(x=>/Lambda/i.test(x.text)));
-            console.log('LAMBDA_MATCHES',JSON.stringify(matches));
+            await page.waitForTimeout(1000);
+            await page.getByRole('searchbox',{name:'Find Service'}).fill('AWS Lambda');
+            await page.waitForTimeout(750);
             card=page.locator('li').filter({hasText:'AWS Lambda'}).first();
             await card.getByRole('button',{name:'Configure'}).click();
-            await page.waitForTimeout(1700);
+            await page.waitForTimeout(1600);
             await page.locator('input[type="radio"][value="lambdaWithoutFreeTier"]').check({force:true});
             await page.locator('input[aria-label="Number of requests Value"]:visible').first().fill('166667');
             await page.locator('input[aria-label^="Duration of each request"]:visible').first().fill('20000');
             await page.locator('input[aria-label="Amount of memory allocated Value"]:visible').first().fill('1024');
-            await page.getByLabel('Description - optional').fill('Six-month FORMLÆRE benchmark: 166,667 invocations/month × 20 seconds × 1,024 MB; approx. 20 million GB-seconds over six months. Free Tier excluded.');
+            await page.getByLabel('Description - optional').fill('Six-month benchmark: 166,667 requests/month × 20 seconds × 1,024 MB ≈ 20 million GB-seconds; free tier excluded.');
             await page.locator('input[aria-label="Amount of memory allocated Value"]:visible').first().press('Tab');
-            await page.waitForTimeout(900);
-            const lambdaText=await page.locator('body').innerText();
-            console.log('LAMBDA_FIELDS',JSON.stringify({
-              requests:await page.locator('input[aria-label="Number of requests Value"]:visible').first().inputValue(),
-              duration:await page.locator('input[aria-label^="Duration of each request"]:visible').first().inputValue(),
-              memory:await page.locator('input[aria-label="Amount of memory allocated Value"]:visible').first().inputValue(),
-              tier:await page.locator('input[type="radio"][value="lambdaWithoutFreeTier"]').isChecked()
-            }));
-            console.log('LAMBDA_TOTALS',lambdaText.split('\n').filter(x=>/Total Monthly|Total Upfront|USD/.test(x)).slice(-10));
-            console.log('LAMBDA_ERRORS',lambdaText.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-10));
+            await page.waitForTimeout(700);
+            console.log('LAMBDA_COST',(await page.locator('body').innerText()).split('\n').filter(x=>/Total Monthly|Total Upfront/.test(x)).slice(-4));
             await page.getByRole('button',{name:'Save and add service',exact:true}).click();
             await page.waitForURL(/addService/,{timeout:20000});
-            await page.waitForTimeout(1100);
-
+            await page.waitForTimeout(700);
             await page.getByRole('searchbox',{name:'Find Service'}).fill('S3');
-            await page.waitForTimeout(1100);
-            console.log('S3_SEARCH_TEXT',(await page.locator('body').innerText()).slice(0,8000));
-            console.log('S3_MATCHING_CARDS',JSON.stringify(await page.locator('li').evaluateAll(els=>els.map((e,i)=>({i,text:(e.innerText||'').trim().slice(0,450),buttons:[...e.querySelectorAll('button')].map(b=>b.innerText.trim())})).filter(x=>/S3|Simple Storage/i.test(x.text)))));
+            await page.waitForTimeout(900);
+            card=page.locator('li').filter({hasText:'Amazon Simple Storage Service (S3)'}).first();
+            await card.getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(2000);
+            console.log('S3_CONFIG_TEXT',(await page.locator('body').innerText()).slice(-14000));
+            console.log('S3_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({i,aria:x.getAttribute('aria-label'),placeholder:x.placeholder,value:x.value,type:x.type,disabled:x.disabled,visible:!!x.offsetParent})).filter(x=>x.visible))));
+            console.log('S3_SELECTS',JSON.stringify(await page.locator('select').evaluateAll(els=>els.map(x=>({aria:x.getAttribute('aria-label'),value:x.value,options:[...x.options].map(o=>o.text)})))));
+            console.log('S3_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
           }finally{await browser.close();}
           JS
