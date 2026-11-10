@@ -78,8 +78,14 @@ jobs:
             await page.waitForTimeout(700);
             await page.getByRole('searchbox',{name:'Find Service'}).fill('S3');
             await page.waitForTimeout(900);
-            console.log('S3_SEARCH_TEXT',(await page.locator('body').innerText()).slice(-6500));
-            console.log('S3_TITLE_MATCHES',JSON.stringify(await page.getByText(/S3/i).evaluateAll(es=>es.slice(0,40).map(e=>({tag:e.tagName,text:e.innerText.trim().slice(0,180),cls:String(e.className).slice(0,100)})))));
-            console.log('S3_BUTTONS',JSON.stringify((await page.getByRole('button').allTextContents()).slice(-45)));
+
+            const s3card=page.getByText('Amazon Simple Storage Service (S3)',{exact:true}).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            console.log('S3_CARD_TEXT',(await s3card.innerText()).slice(0,600));
+            await s3card.getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(2800);
+            console.log('S3_FORM_URL',page.url());
+            console.log('S3_FORM_TEXT',(await page.locator('body').innerText()).slice(-12000));
+            console.log('S3_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),placeholder:e.placeholder,value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,350)})))));
+            console.log('S3_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
           }finally{await browser.close();}
           JS
