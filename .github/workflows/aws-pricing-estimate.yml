@@ -81,10 +81,11 @@ jobs:
               await page.waitForTimeout(500);
               console.log('ROUTE_MENU_OPTIONS', JSON.stringify(await page.locator('[role="option"],[role="menuitem"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
               console.log('ROUTE_MENU_TAIL', (await page.locator('body').innerText()).slice(-5000));
-              const inRegion = page.getByText('In Region',{exact:true});
-              console.log('IN_REGION_TEXT_COUNT', await inRegion.count());
+              const inRegion = page.getByRole('option',{name:'In Region',exact:true});
+              console.log('IN_REGION_OPTION_COUNT', await inRegion.count());
+              console.log('IN_REGION_OPTION_HTML', await inRegion.first().evaluate(el=>el.outerHTML));
               if (await inRegion.count()) {
-                await inRegion.last().click();
+                await inRegion.click();
                 await page.waitForTimeout(900);
                 const modelBtns = await page.getByRole('button').evaluateAll(bs=>bs.map((b,i)=>({i,text:(b.innerText||'').trim()})).filter(x=>x.text.includes('Anthropic: Claude')));
                 console.log('IN_REGION_MODEL_BUTTONS', JSON.stringify(modelBtns));
