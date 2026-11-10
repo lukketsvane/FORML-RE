@@ -1,4 +1,4 @@
-name: AWS Pricing Calculator browser helper
+name: AWS Pricing Calculator support-services estimate
 
 on:
   push:
@@ -11,23 +11,22 @@ permissions:
   contents: read
 
 concurrency:
-  group: aws-pricing-estimate-helper-${{ github.sha }}
+  group: aws-support-estimate
   cancel-in-progress: true
 
 jobs:
-  build-public-estimate:
+  inspect-lambda:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 8
     steps:
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install Playwright and Chromium
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
-      - name: Build and save Bedrock workload estimate
+      - name: Inspect Lambda calculator form
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -35,46 +34,27 @@ jobs:
           try {
             const page=await browser.newPage({viewport:{width:1440,height:1200}});
             page.setDefaultTimeout(12000);
-            page.on('pageerror',e=>console.log('PAGE_ERROR',e.message));
             await page.goto('https://calculator.aws/#/',{waitUntil:'domcontentloaded',timeout:90000});
             await page.waitForTimeout(2200);
             await page.getByRole('button',{name:'Create estimate'}).last().click();
             await page.waitForURL(/addService/,{timeout:30000});
-            await page.waitForTimeout(1000);
+            await page.waitForTimeout(1100);
             await page.getByRole('button',{name:'US East (Ohio)'}).click();
             await page.waitForTimeout(300);
             await page.getByText('US East (N. Virginia)',{exact:true}).last().click();
-            await page.waitForTimeout(400);
-            const card=page.getByText('Amazon Bedrock',{exact:true}).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await page.waitForTimeout(600);
+            const search=page.getByRole('searchbox',{name:'Find Service'});
+            await search.fill('AWS Lambda');
+            await page.waitForTimeout(900);
+            const card=page.getByText('AWS Lambda',{exact:true}).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            console.log('LAMBDA_CARD', (await card.innerText()).slice(0,800));
             await card.getByRole('button',{name:'Configure'}).click();
-            await page.waitForTimeout(2100);
-            await page.locator('input[type="checkbox"]').evaluateAll(inputs=>{
-              for(const i of inputs){const id=i.getAttribute('aria-labelledby');const label=id?document.getElementById(id)?.innerText.trim():'';if(label==='AI21 Labs'&&i.checked)i.click();if(label==='Anthropic'&&!i.checked)i.click();}
-            });
-            await page.waitForTimeout(700);
-            await page.getByRole('button').filter({hasText:'Anthropic: Claude Haiku 4.5'}).first().click();
-            await page.waitForTimeout(400);
-            await page.locator('[role="option"]').filter({hasText:'Anthropic: Claude Fable 5.1'}).first().click();
-            await page.waitForTimeout(800);
-            await page.getByLabel('Description - optional').fill('FORMLÆRE — 6-month research benchmark. Pricing Calculator lists Fable 5.1 Global, used here as a conservative cost proxy because Fable 5.2 is not yet in the calculator model catalogue. The intended Fable 5.2 US-geo Bedrock offer is priced separately at $8.80/M input and $44/M output; 400M input + 10M output = $3,960.');
-            const req=page.locator('input[aria-label="Average requests per minute"]:visible').first();
-            const hours=page.locator('input[aria-label="Hours per day at this rate"]:visible').first();
-            const inp=page.locator('input[aria-label="Average input tokens per request"]:visible').first();
-            const out=page.locator('input[aria-label="Average output tokens per request"]:visible').first();
-            await req.fill('1');
-            await hours.fill('8');
-            await inp.fill('4629');
-            await out.fill('116');
-            await out.press('Tab');
-            await page.waitForTimeout(1500);
-            console.log('ENTERED_VALUES',JSON.stringify({req:await req.inputValue(),hours:await hours.inputValue(),input:await inp.inputValue(),output:await out.inputValue()}));
-            const formText=await page.locator('body').innerText();
-            console.log('FORM_COST_LINES',formText.split('\n').filter(x=>/Total (Monthly|Upfront)|USD/.test(x)).slice(-12));
-            console.log('FORM_ERRORS',formText.split('\n').filter(x=>/cannot be|error|invalid/i.test(x)).slice(-12));
-            await page.getByRole('button',{name:'Save and view summary',exact:true}).click();
-            await page.waitForTimeout(3000);
-            console.log('SUMMARY_URL',page.url());
-            console.log('SUMMARY_TEXT',(await page.locator('body').innerText()).slice(-10000));
-            console.log('SUMMARY_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
-          }finally{await browser.close();}
+            await page.waitForTimeout(3500);
+            console.log('FORM_URL',page.url());
+            console.log('FORM_TEXT',(await page.locator('body').innerText()).slice(-15000));
+            console.log('FORM_BUTTONS',JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('FORM_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),placeholder:e.placeholder,value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,450)})))));
+            console.log('FORM_SELECTS',JSON.stringify(await page.locator('select').evaluateAll(es=>es.map(e=>({aria:e.getAttribute('aria-label'),value:e.value,options:[...e.options].map(o=>({text:o.text,value:o.value})).slice(0,80)})))));
+            console.log('FORM_COMBOBOXES',JSON.stringify(await page.getByRole('combobox').evaluateAll(es=>es.map(e=>({text:e.innerText,aria:e.getAttribute('aria-label'),outer:e.outerHTML.slice(0,800)})))));
+          } finally {await browser.close();}
           JS
