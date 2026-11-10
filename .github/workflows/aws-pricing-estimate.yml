@@ -29,7 +29,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Open Bedrock configuration
+      - name: Inspect Bedrock service controls
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -44,17 +44,21 @@ jobs:
             await page.getByRole('button', { name: 'Create estimate' }).last().click();
             await page.waitForURL(/addService/, { timeout: 30000 });
             await page.waitForTimeout(3000);
-            const target = page.getByText('Amazon Bedrock', { exact: true }).first();
-            const root = target.locator('xpath=ancestor::div[contains(@class,"awsui_root_")][1]');
-            console.log('BEDROCK_CARD_BUTTONS', JSON.stringify(await root.getByRole('button').allTextContents()));
-            await root.getByRole('button', { name: 'Configure' }).click();
-            await page.waitForTimeout(7000);
-            console.log('CONFIG_URL', page.url());
-            console.log('CONFIG_TEXT', (await page.locator('body').innerText()).slice(0, 18000));
-            console.log('CONFIG_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('CONFIG_INPUTS', JSON.stringify(await page.locator('input').evaluateAll(els => els.map(x => ({type:x.type,placeholder:x.placeholder,aria:x.getAttribute('aria-label'),name:x.name,value:x.value,outer:x.outerHTML.slice(0,500)})))));
-            console.log('CONFIG_SELECTS', JSON.stringify(await page.locator('select').evaluateAll(els => els.map(x => ({aria:x.getAttribute('aria-label'),name:x.name,value:x.value,options:[...x.options].map(o=>({text:o.text,value:o.value})).slice(0,100)})))));
-            console.log('CONFIG_COMBOBOXES', JSON.stringify(await page.getByRole('combobox').evaluateAll(els => els.map(x => ({text:x.innerText,aria:x.getAttribute('aria-label'),outer:x.outerHTML.slice(0,1000)})))));
+            const result = await page.getByRole('button', { name: 'Configure' }).evaluateAll(btns => btns.map((b,i) => {
+              const parents = [];
+              let n = b;
+              for (let k=0; n && k<9; k++, n=n.parentElement) {
+                parents.push({tag:n.tagName, cls:String(n.className).slice(0,120), text:(n.innerText||'').slice(0,240)});
+              }
+              return {i, parents};
+            }));
+            console.log('CONFIGURE_BUTTON_ANCESTORS', JSON.stringify(result));
+            const chain = await page.getByText('Amazon Bedrock', { exact: true }).first().evaluate(el => {
+              const out=[]; let n=el;
+              for(let k=0;n&&k<12;k++,n=n.parentElement) out.push({tag:n.tagName,cls:String(n.className).slice(0,160),text:(n.innerText||'').slice(0,320),buttons:[...n.querySelectorAll('button')].map(b=>b.innerText.trim())});
+              return out;
+            });
+            console.log('BEDROCK_PARENT_CHAIN', JSON.stringify(chain));
           } finally {
             await browser.close();
           }
