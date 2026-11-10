@@ -29,7 +29,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Inspect Anthropic model catalogue
+      - name: Inspect Anthropic models
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -40,27 +40,32 @@ jobs:
             page.on('requestfailed', req => console.log('REQUEST_FAILED', req.method(), req.url(), req.failure()?.errorText));
             page.on('pageerror', err => console.log('PAGE_ERROR', err.message));
             await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 120000 });
-            await page.waitForTimeout(4000);
+            await page.waitForTimeout(3500);
             await page.getByRole('button', { name: 'Create estimate' }).last().click();
             await page.waitForURL(/addService/, { timeout: 30000 });
             await page.waitForTimeout(2500);
             await page.getByRole('button', { name: 'US East (Ohio)' }).click();
-            await page.waitForTimeout(700);
+            await page.waitForTimeout(500);
             await page.getByText('US East (N. Virginia)', { exact: true }).last().click();
-            await page.waitForTimeout(900);
-            const target = page.getByText('Amazon Bedrock', { exact: true }).first();
-            const card = target.locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await page.waitForTimeout(800);
+            const card = page.getByText('Amazon Bedrock', { exact: true }).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
             await card.getByRole('button', { name: 'Configure' }).click();
             await page.waitForTimeout(4500);
-            const provider = page.getByText('Anthropic', { exact: true }).first();
-            console.log('ANTHROPIC_COUNT', await page.getByText('Anthropic', { exact: true }).count());
-            console.log('PROVIDER_LABELS_BEFORE', JSON.stringify(await page.locator('label').evaluateAll(els => els.map(x => x.innerText.trim()).filter(Boolean))));
-            await provider.click();
-            await page.waitForTimeout(1500);
-            console.log('AFTER_PROVIDER_TEXT', (await page.locator('body').innerText()).slice(0, 9500));
-            console.log('AFTER_PROVIDER_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('AFTER_PROVIDER_LABELS', JSON.stringify(await page.locator('label').evaluateAll(els => els.map(x => x.innerText.trim()).filter(Boolean))));
-            console.log('AFTER_PROVIDER_INPUTS', JSON.stringify(await page.locator('input').evaluateAll(els => els.filter(x => x.type === 'checkbox').map(x => ({id:x.id,checked:x.checked,disabled:x.disabled,label:x.getAttribute('aria-labelledby') ? document.getElementById(x.getAttribute('aria-labelledby'))?.innerText : ''})))));
+            const ai21 = page.getByLabel('AI21 Labs', { exact: true });
+            const anth = page.getByLabel('Anthropic', { exact: true });
+            console.log('AI21_CHECKED', await ai21.isChecked(), 'ANTHROPIC_CHECKED', await anth.isChecked());
+            if (await ai21.isChecked()) await ai21.uncheck();
+            if (!(await anth.isChecked())) await anth.check();
+            await page.waitForTimeout(1300);
+            console.log('ANTHROPIC_MODEL_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
+            const model = page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).first();
+            console.log('MODEL_SELECTOR_COUNT', await page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).count());
+            await model.click();
+            await page.waitForTimeout(1000);
+            console.log('MODEL_MENU_TEXT', (await page.locator('body').innerText()).slice(0, 12000));
+            console.log('MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"]').evaluateAll(els => els.map(x => x.innerText.trim()))));
+            console.log('MODEL_MENU_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('FABLE_VISIBLE', await page.getByText(/Fable/i).count());
           } finally {
             await browser.close();
           }
