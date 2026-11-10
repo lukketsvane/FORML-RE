@@ -278,3 +278,50 @@ Each case is associated with the request for 10,000,001 TPM for the Claude Fable
 These are AWS-created case records produced through the Service Quotas workflow. This path succeeded even though the separate AWS Support API is unavailable on the current support plan. The user does not need to create duplicate cases.
 
 The hourly automation continues to poll both request IDs and will perform a synthetic inference test only when both are approved and applied.
+
+
+## Billing authentication found as likely account-verification trigger — 10 November 2026
+
+A search of the connected AWS account email found an AWS Payment notification from 2026-11-08 02:44:51 UTC:
+
+Subject: `Action required – Your AWS account is past due`
+
+Exact notice details:
+- Account: `092509667825`
+- Outstanding invoice ID: `EUINNO26-202129`
+- AWS attempted to charge the default card ending `6755`.
+- The card charge failed because it requires additional authentication (strong customer authentication / 3-D Secure).
+- AWS explicitly says the account still has a past-due balance and may be suspended if payment cannot be processed.
+- The notice directs the owner to Payments / Payments due to complete the card authentication.
+
+AWS Invoicing `ListInvoiceSummaries` independently returned this invoice for October 2026:
+- Issued: `2026-11-02T00:59:24Z`
+- Due: `2026-11-01T17:27:10Z`
+- Payment currency amount: `0.23 USD`
+- Tax currency amount: `2.12 NOK` (includes 0.46 NOK VAT; currency conversion rate 9.2302 NOK/USD)
+- Invoicing entity: Amazon Web Services EMEA SARL
+- Invoice type: recurring invoice; tax authority status issued.
+
+The same inbox contains an AWS Advance Pay Registration Confirmed message dated 2026-11-10 03:54:17 UTC. It says only that Advance Pay is enabled and funds may now be added; it is **not** a receipt showing any funds added or the overdue invoice paid.
+
+The old guest checkout link embedded in the 2026-11-08 past-due notice expired on 2026-11-10 03:24:50 UTC; do not reuse it. A fresh authenticated Payments console attempt is required.
+
+AWS's documented recovery procedure is:
+1. Open Billing and Cost Management → Payments.
+2. Under Payments due, select invoice `EUINNO26-202129`.
+3. Choose Complete payment.
+4. Confirm the payment method or choose Change.
+5. Choose Verify and pay, then complete the bank's 3-D Secure / strong customer authentication.
+
+AWS documentation confirms that if the card issuer requires 3DS, the user must complete that authentication flow. It is not possible for an automation to approve the cardholder's bank challenge. The exact payment amount is only 0.23 USD, but no charge has been initiated by the assistant.
+
+### Evidence and likely causality
+
+The past-due notice is a direct AWS statement. The AWS invoice amount is independently confirmed by the Invoicing API. This makes failed card authentication / past due the strongest concrete explanation so far for the recurring account-verification/Bedrock runtime restriction. It is not yet confirmed that settling the invoice alone will automatically remove the Fable quota restriction; the two Service Quotas cases remain open and must still be checked after payment.
+
+Official recovery documentation:
+- https://docs.aws.amazon.com/en_en/awsaccountbilling/latest/aboutv2/manage-emea-cc-verification.html
+- https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-making-a-payment.html
+- https://repost.aws/knowledge-center/retry-unsuccessful-payment
+
+**Outstanding user-authenticated step:** complete the 3-D Secure payment authentication for invoice `EUINNO26-202129` in the AWS Payments console. The assistant must not bypass or impersonate the cardholder's bank authentication.
