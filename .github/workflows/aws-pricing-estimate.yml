@@ -29,7 +29,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
 
-      - name: Inspect Anthropic model selector
+      - name: Open Anthropic model dropdown
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -49,11 +49,6 @@ jobs:
             const card = page.getByText('Amazon Bedrock', { exact: true }).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
             await card.getByRole('button', { name: 'Configure' }).click();
             await page.waitForTimeout(3000);
-            const state = await page.locator('input[type="checkbox"]').evaluateAll(inputs => inputs.map(i => {
-              const id=i.getAttribute('aria-labelledby');
-              return {id:i.id, checked:i.checked, label:id?document.getElementById(id)?.innerText.trim():''};
-            }).filter(x => ['AI21 Labs','Anthropic'].includes(x.label)));
-            console.log('PROVIDER_CHECKS_BEFORE', JSON.stringify(state));
             await page.locator('input[type="checkbox"]').evaluateAll(inputs => {
               for (const i of inputs) {
                 const id=i.getAttribute('aria-labelledby');
@@ -62,21 +57,21 @@ jobs:
                 if (label==='Anthropic' && !i.checked) i.click();
               }
             });
-            await page.waitForTimeout(1000);
-            console.log('PROVIDER_CHECKS_AFTER', JSON.stringify(await page.locator('input[type="checkbox"]').evaluateAll(inputs => inputs.map(i => {
-              const id=i.getAttribute('aria-labelledby');
-              return {checked:i.checked,label:id?document.getElementById(id)?.innerText.trim():''};
-            }).filter(x => ['AI21 Labs','Anthropic'].includes(x.label)))));
-            console.log('MODEL_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            const model = page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).first();
-            console.log('MODEL_BUTTON_COUNT', await page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).count());
-            if (await page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).count()) {
-              console.log('MODEL_BUTTON_HTML', await model.evaluate(el=>el.outerHTML));
-              try { await model.click({timeout:4000}); console.log('MODEL_MENU_OPEN', true); } catch(e) { console.log('MODEL_MENU_CLICK_ERROR', e.message); }
+            await page.waitForTimeout(900);
+            const matches = await page.getByRole('button').evaluateAll(bs => bs.map((b,i) => ({
+              i, text:(b.innerText||'').trim(), aria:b.getAttribute('aria-label'),
+              title:b.getAttribute('title'), labelledby:b.getAttribute('aria-labelledby'),
+              html:b.outerHTML.slice(0,1200)
+            })).filter(x=>x.text.includes('Anthropic: Claude')));
+            console.log('MODEL_BUTTON_DETAILS', JSON.stringify(matches));
+            if (matches.length) {
+              const modelIndex=matches[0].i;
+              try { await page.getByRole('button').nth(modelIndex).click({timeout:5000}); console.log('MODEL_FIRST_BUTTON_CLICKED',true); }
+              catch(e) { console.log('MODEL_FIRST_BUTTON_ERROR',e.message); }
             }
-            await page.waitForTimeout(700);
-            console.log('FABLE_COUNT', await page.getByText(/Fable/i).count());
-            console.log('MODEL_MENU_TEXT', (await page.locator('body').innerText()).slice(-9000));
-            console.log('MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
+            await page.waitForTimeout(800);
+            console.log('FABLE_VISIBLE', await page.getByText(/Fable/i).count());
+            console.log('MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"],[role="menuitem"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
+            console.log('MODEL_DROPDOWN_TEXT', (await page.locator('body').innerText()).slice(-12000));
           } finally { await browser.close(); }
           JS
