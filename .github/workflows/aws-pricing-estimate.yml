@@ -1,0 +1,54 @@
+name: AWS Pricing Calculator browser helper
+
+on:
+  push:
+    branches:
+      - research/fable-literature-audit-2026-11
+    paths:
+      - .github/workflows/aws-pricing-estimate.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aws-pricing-estimate-helper
+  cancel-in-progress: true
+
+jobs:
+  inspect-public-calculator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Inspect the public AWS Pricing Calculator UI
+        run: |
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({ headless: true });
+          try {
+            const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+            page.setDefaultTimeout(20000);
+            page.on('requestfailed', req => console.log('REQUEST_FAILED', req.method(), req.url(), req.failure()?.errorText));
+            page.on('pageerror', err => console.log('PAGE_ERROR', err.message));
+            await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 120000 });
+            await page.waitForTimeout(18000);
+            console.log('PAGE_TITLE', await page.title());
+            console.log('PAGE_URL', page.url());
+            console.log('BODY_TEXT', (await page.locator('body').innerText()).slice(0, 16000));
+            console.log('BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('LINKS', JSON.stringify(await page.locator('a').evaluateAll(els => els.map(a => ({ text: a.innerText.trim(), href: a.href })).slice(0, 100))));
+            console.log('INPUTS', JSON.stringify(await page.locator('input').evaluateAll(els => els.map(x => ({ type: x.type, placeholder: x.placeholder, aria: x.getAttribute('aria-label'), name: x.name, value: x.value })))));
+            console.log('SELECTS', JSON.stringify(await page.locator('select').evaluateAll(els => els.map(x => ({ aria: x.getAttribute('aria-label'), value: x.value, options: [...x.options].map(o => o.text).slice(0, 30) })))));
+          } finally {
+            await browser.close();
+          }
+          JS
