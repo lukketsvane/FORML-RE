@@ -15,69 +15,52 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-public-estimate:
+  inspect-visible-bedrock-fields:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 8
     steps:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Install Playwright and Chromium
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install chromium
-
-      - name: Configure Bedrock workload and inspect summary
+      - name: Inspect visible form fields
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
-          const browser = await chromium.launch({ headless: true });
+          const browser = await chromium.launch({headless:true});
           try {
-            const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+            const page=await browser.newPage({viewport:{width:1440,height:1200}});
             page.setDefaultTimeout(10000);
-            page.on('pageerror', e => console.log('PAGE_ERROR',e.message));
-            await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 90000 });
+            await page.goto('https://calculator.aws/#/',{waitUntil:'domcontentloaded',timeout:90000});
             await page.waitForTimeout(2500);
-            await page.getByRole('button', { name: 'Create estimate' }).last().click();
-            await page.waitForURL(/addService/, { timeout: 30000 });
+            await page.getByRole('button',{name:'Create estimate'}).last().click();
+            await page.waitForURL(/addService/,{timeout:30000});
             await page.waitForTimeout(1200);
-            await page.getByRole('button', { name: 'US East (Ohio)' }).click();
+            await page.getByRole('button',{name:'US East (Ohio)'}).click();
             await page.waitForTimeout(300);
-            await page.getByText('US East (N. Virginia)', { exact: true }).last().click();
+            await page.getByText('US East (N. Virginia)',{exact:true}).last().click();
             await page.waitForTimeout(500);
-            const card = page.getByText('Amazon Bedrock', { exact: true }).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
-            await card.getByRole('button', { name: 'Configure' }).click();
+            const card=page.getByText('Amazon Bedrock',{exact:true}).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await card.getByRole('button',{name:'Configure'}).click();
             await page.waitForTimeout(2200);
-            await page.locator('input[type="checkbox"]').evaluateAll(inputs => {
-              for (const i of inputs) {
-                const id=i.getAttribute('aria-labelledby');
-                const label=id?document.getElementById(id)?.innerText.trim():'';
-                if (label==='AI21 Labs' && i.checked) i.click();
-                if (label==='Anthropic' && !i.checked) i.click();
-              }
+            await page.locator('input[type="checkbox"]').evaluateAll(inputs=>{
+              for(const i of inputs){const id=i.getAttribute('aria-labelledby');const label=id?document.getElementById(id)?.innerText.trim():'';if(label==='AI21 Labs'&&i.checked)i.click();if(label==='Anthropic'&&!i.checked)i.click();}
             });
             await page.waitForTimeout(700);
-            const modelButton = page.getByRole('button').filter({hasText:'Anthropic: Claude Haiku 4.5'}).first();
-            await modelButton.click();
+            await page.getByRole('button').filter({hasText:'Anthropic: Claude Haiku 4.5'}).first().click();
             await page.waitForTimeout(400);
             await page.locator('[role="option"]').filter({hasText:'Anthropic: Claude Fable 5.1'}).first().click();
             await page.waitForTimeout(900);
-            const desc = page.getByLabel('Description - optional');
-            await desc.fill('FORMLÆRE — 6-month research benchmark. Calculator uses Fable 5.1 Global as a conservative proxy because Fable 5.2 is not yet listed; exact Fable 5.2 US-geo offer pricing is documented separately.');
-            await page.getByLabel('Average requests per minute').first().fill('1.1574074');
-            await page.getByLabel('Hours per day at this rate').first().fill('8');
-            await page.getByLabel('Average input tokens per request').first().fill('4000');
-            await page.getByLabel('Average output tokens per request').first().fill('100');
-            await page.waitForTimeout(1500);
-            console.log('BEDROCK_ESTIMATE_TEXT', (await page.locator('body').innerText()).slice(-5000));
-            console.log('BEDROCK_ESTIMATE_TOTALS', (await page.locator('body').innerText()).split('\n').filter(x=>/Total (Monthly|Upfront)|USD/.test(x)).slice(-12));
-            await page.getByRole('button', {name:'Save and view summary', exact:true}).click();
-            await page.waitForTimeout(2500);
-            console.log('SUMMARY_URL', page.url());
-            console.log('SUMMARY_TEXT', (await page.locator('body').innerText()).slice(-12000));
-            console.log('SUMMARY_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            console.log('SUMMARY_LINKS', JSON.stringify(await page.locator('a').evaluateAll(els=>els.map(a=>({text:a.innerText.trim(),href:a.href})).filter(x=>x.text||x.href).slice(-60))));
-          } finally { await browser.close(); }
+            const fields=await page.locator('input[type="text"]').evaluateAll(els=>els.map((x,i)=>{
+              const cs=getComputedStyle(x);const r=x.getBoundingClientRect();
+              const ancestors=[];let p=x;for(let k=0;p&&k<5;k++,p=p.parentElement)ancestors.push({tag:p.tagName,cls:String(p.className).slice(0,100),display:getComputedStyle(p).display,visibility:getComputedStyle(p).visibility,ariaHidden:p.getAttribute('aria-hidden')});
+              return {i,aria:x.getAttribute('aria-label'),value:x.value,display:cs.display,visibility:cs.visibility,offset:!!x.offsetParent,rect:{w:r.width,h:r.height,x:r.x,y:r.y},ancestors};
+            }).filter(x=>x.aria));
+            console.log('VISIBLE_FIELDS',JSON.stringify(fields));
+            console.log('VISIBLE_COUNTS',JSON.stringify(await page.locator('input[aria-label="Average requests per minute"]').evaluateAll(els=>els.map((x,i)=>({i,visible:!!x.offsetParent,rect:x.getBoundingClientRect().toJSON(),parents:[x.parentElement?.innerText,x.parentElement?.parentElement?.innerText].map(t=>(t||'').slice(0,300))})))));
+          }finally{await browser.close();}
           JS
