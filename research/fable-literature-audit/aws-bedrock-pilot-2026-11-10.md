@@ -99,3 +99,43 @@ This is not a model ID, IAM permissions or inference-profile discovery failure. 
 6. Commit only structured analysis records and source revisions to this FORMLÆRE research branch. Do not commit PDFs, credentials, raw extracted full text or private rights-review notes.
 7. Revise the canonical LaTeX source only after evidence and counterevidence are verified; build PDF and website together.
 
+
+
+## Scheduled smoke-test retry — 10 November 2026, 04:33:40 UTC
+
+A single public/synthetic Converse smoke test was attempted through AWS Core.
+
+- Account: `092509667825` (AWS Core connection previously verified as root)
+- Region: `us-east-1`
+- Requested inference profile: `us.anthropic.claude-fable-5-2`
+- Underlying model ID in AWS error: `anthropic.claude-fable-5-2`
+- Operation: `bedrock-runtime:Converse`
+- Requested `maxTokens`: `900`
+- Temperature: `0.1`
+- Prompt: public synthetic methodological comparison question; no PDFs or corpus material
+- Timestamp: `2026-11-10T04:33:40.485111+00:00`
+
+### Exact AWS result
+
+```
+AccessDeniedException:
+anthropic.claude-fable-5-2 is not available for this account.
+You can explore other available models on Amazon Bedrock.
+For additional access options, contact AWS Sales at
+https://aws.amazon.com/contact-us/sales-support/
+```
+
+Status: **BLOCKED — model not available for this account**.
+
+This differs from the prior response, which said the account was currently being verified. The inference profile had previously appeared as ACTIVE in Bedrock control-plane discovery, but an ACTIVE profile does not establish that this account is entitled to invoke the model. This run did not produce a model response.
+
+- Input tokens: unavailable (request rejected)
+- Output tokens: unavailable (no response)
+- Total tokens: unavailable
+- Inference charge: no successful inference occurred; billing data may update asynchronously.
+
+No account-wide retention, billing, payment or model-access settings were changed. No designteori PDFs were processed.
+
+### Next action
+
+Resolve model entitlement with AWS Bedrock / AWS Sales using the account and exact error above. Once AWS confirms access, retry one public/synthetic Converse request against the US profile. Do not start corpus processing until that succeeds.
