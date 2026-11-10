@@ -146,3 +146,19 @@ References:
 - AWS announcement: https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/
 
 Hourly check remains enabled to detect a change, but no further settings or agreements should be modified.
+
+
+## Primary contact phone verified — 10 November 2026
+
+The user completed AWS's console SMS verification. The supplied screenshots show the AWS console success message, and a subsequent live call to `account:GetContactInformation` independently returned:
+
+- `PhoneNumber`: updated primary contact number (redacted from this report)
+- `VerificationStatus`: `VERIFIED`
+
+`account:GetAccountInformation` confirms `AccountState=ACTIVE`.
+
+A fresh single synthetic Converse call after phone verification (2026-11-10T04:50:05 UTC) still returned:
+
+`AccessDeniedException: anthropic.claude-fable-5-2 is not available for this account.`
+
+Thus phone verification is completed, but it did not clear the Bedrock runtime entitlement restriction. AWS account verification needs manual review through Account & Billing Support. The AWS Support API currently returns `SubscriptionRequiredException` for DescribeCases/DescribeServices, consistent with no premium technical-support entitlement; Account & Billing case creation remains available through the console for Basic Support customers. The next step is to open an Account & Billing case through the signed-in AWS Support Center, not to alter model agreements or retention.
