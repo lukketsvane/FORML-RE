@@ -60,6 +60,9 @@ jobs:
       - name: Build and validate the complete edition
         run: make all
 
+      - name: Run the multiscale viability contract tests
+        run: python3 -m unittest discover -s tests -p 'test_viability_model.py' -v
+
       - name: Compile the portable LaTeX bundle independently
         run: |
           portable_dir="$RUNNER_TEMP/formlaere-portable"
