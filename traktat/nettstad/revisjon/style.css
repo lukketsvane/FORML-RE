@@ -1,0 +1,35 @@
+:root{color-scheme:light;--paper:#f8f7f3;--ink:#171715;--muted:#67665f;--rule:#d8d5cc;--accent:#8a6840;--panel:#efede6}
+*{box-sizing:border-box}
+html{background:var(--paper);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+.sitebar{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:14px clamp(18px,5vw,64px);border-bottom:1px solid var(--rule);font:12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em}
+.sitebar a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent}.sitebar a:hover{border-color:var(--accent)}
+.sitebar .links{display:flex;gap:1.2rem;flex-wrap:wrap}
+main{max-width:860px;margin:0 auto;padding:clamp(28px,6vw,76px) clamp(18px,4vw,42px) 100px}
+.revision-notice{margin:0 0 42px;padding:18px 22px;border:1px solid var(--rule);border-left:3px solid var(--accent);background:var(--panel);font-size:14px;line-height:1.55}
+.revision-notice strong{display:block;margin-bottom:4px;font:600 11px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3,h4{font-weight:400;line-height:1.18;letter-spacing:-.025em}
+h1{font-size:clamp(40px,7vw,66px);margin:0 0 12px;line-height:1.04}
+h2{font-size:clamp(27px,4vw,38px);margin:3.2em 0 .8em;padding-top:1.1em;border-top:1px solid var(--rule)}
+h3{font-size:23px;margin:2.2em 0 .65em}
+h4{font:600 12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+p{margin:.85em 0}
+strong{font-weight:700}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+blockquote{margin:1.6em 0;padding:14px 20px;background:var(--panel);border-left:2px solid var(--accent);color:#42413b}
+ul,ol{padding-left:1.3em}
+li{padding-left:.15em;margin:.25em 0}
+table{width:100%;border-collapse:collapse;margin:1.5em 0;font-size:.9em;line-height:1.5;display:block;overflow-x:auto}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--rule);min-width:120px}
+th{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--rule);margin:3em 0}
+code{font: .85em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--panel);padding:.08em .25em;border-radius:2px;overflow-wrap:anywhere}
+pre{overflow-x:auto;padding:18px;background:var(--panel);font-size:13px;line-height:1.5}
+.math,math{font-size:1em}
+.math.display{display:block;overflow-x:auto;max-width:100%;margin:1.35em auto;text-align:center;padding:.35em 0}
+figure{margin:2em 0}
+.caption,figcaption{font-size:13px;color:var(--muted)}
+#title-block-header{margin-bottom:2.5em}
+#title-block-header .subtitle{font-size:15px;color:var(--muted);margin-top:0}
+#title-block-header .date{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted)}
+@media(max-width:600px){body{font-size:16px}.sitebar{align-items:flex-start}.sitebar .links{gap:.7rem}main{padding-top:28px}h2{margin-top:2.5em}table{font-size:14px}}
