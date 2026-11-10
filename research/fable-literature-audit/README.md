@@ -54,13 +54,11 @@ standard Boto3 credential chain, preferably an AWS IAM Identity Center SSO
 profile. No Bedrock API key is needed. It never accepts credentials in a
 prompt, file, command-line argument or Git commit.
 
-**Do not use a credential pasted into chat or any other exposed credential.**
-Revoke it and create a fresh, least-privilege credential locally. Fable 5.2
-requires the Bedrock retention mode `aws_review`: AWS retains inputs and
-outputs inside its boundary for human review. Do not send confidential,
-personal, sensitive or unpublished material through this workflow. Keep the
-first run small, sequential and rights-cleared. AWS bills model usage; the
-script has no price guarantee and must not be treated as a free batch job.
+Fable 5.2 requires the Bedrock retention mode `aws_review`. AWS retains
+inputs and outputs inside its boundary for human review. Do not send
+confidential, personal or sensitive material through this workflow. Keep the
+first run small, sequential and rights-cleared. AWS bills model usage; this
+workflow is not a free batch job.
 
 The model identifier defaults to `global.anthropic.claude-fable-5-2`.
 Set the account/project retention mode through the AWS Bedrock data-retention
@@ -72,6 +70,10 @@ for a first pilot; increasing them requires a deliberate edit or explicit CLI
 argument.
 
 ## First run
+
+Follow [AWS-SSO-SETUP.md](./AWS-SSO-SETUP.md) to sign in using your existing
+AWS console session with temporary CLI credentials, check the retention mode
+and run the local pilot. You do not need a Bedrock API key.
 
 Clone `lukketsvane/designteori` locally so its PDFs and manifest are available.
 Install the local dependencies:
