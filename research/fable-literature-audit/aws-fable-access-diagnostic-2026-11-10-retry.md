@@ -118,3 +118,31 @@ After the retention changes and successful agreement creation:
 The successful control-plane agreement and the failed runtime verification are distinct states. The model is not yet usable through Converse. No PDFs, manuscript content, or private source documents have been submitted. Only short synthetic prompts were used, and both failed before a model response was returned.
 
 **Current state:** retention configured; usage agreement accepted; regional model availability reports AVAILABLE; AWS runtime account verification remains the blocking condition. Continue the hourly verification check and make only one small synthetic call per run once the model agreement remains AVAILABLE. Do not alter retention, billing, or agreement settings again.
+
+
+## Live recheck — 10 November 2026, 04:42 UTC
+
+A fresh direct AWS Core check reconfirmed all preconditions across all three US routing Regions:
+
+| Region | Agreement | Authorization | Entitlement | Region | Retention |
+|---|---|---|---|---|---|
+| us-east-1 | AVAILABLE | AUTHORIZED | AVAILABLE | AVAILABLE | aws_review |
+| us-east-2 | AVAILABLE | AUTHORIZED | AVAILABLE | AVAILABLE | aws_review |
+| us-west-2 | AVAILABLE | AUTHORIZED | AVAILABLE | AVAILABLE | aws_review |
+
+The `us.anthropic.claude-fable-5-2` profile remains ACTIVE. One new synthetic Converse attempt was made through the documented US profile from `us-east-1`, with `maxTokens=128` and `temperature=1.0`. It failed at 2026-11-10T04:42:31 UTC:
+
+`AccessDeniedException: anthropic.claude-fable-5-2 is not available for this account. You can explore other available models on Amazon Bedrock.`
+
+No model response or token usage was returned. No source corpus or manuscript data was sent.
+
+### Interpretation
+
+The official AWS model-access guide defines `agreementAvailability=AVAILABLE` as access existing. The model card confirms the model ID and geo profile are correct, identifies `bedrock-runtime` as a supported endpoint, and requires `aws_review` retention. These checks are now all satisfied. Nevertheless the runtime is still denying the account. This is an AWS-side entitlement/account restriction not explained by the currently visible Bedrock control-plane state. AWS Support should inspect the account's Fable 5.2 runtime entitlement and verification status; do not keep repeatedly attempting inference.
+
+References:
+- AWS model access: https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html
+- AWS Claude Fable 5.2 model card: https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5-2.html
+- AWS announcement: https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/
+
+Hourly check remains enabled to detect a change, but no further settings or agreements should be modified.
