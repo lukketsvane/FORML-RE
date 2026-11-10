@@ -27,13 +27,29 @@ jobs:
       - name: Install Playwright
         run: |
           npm install --no-save playwright@1.56.1
-          npx playwright install --with-deps chromium
+          if command -v google-chrome-stable >/dev/null 2>&1; then
+            echo "CHROME_BIN=$(command -v google-chrome-stable)" >> "$GITHUB_ENV"
+            google-chrome-stable --version
+          elif command -v google-chrome >/dev/null 2>&1; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+            google-chrome --version
+          elif command -v chromium >/dev/null 2>&1; then
+            echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
+            chromium --version
+          else
+            echo "No system Chrome found; install Playwright Chromium"
+            npx playwright install chromium
+          fi
 
       - name: Inspect Fable availability in model selector
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
-          const browser = await chromium.launch({ headless: true });
+          const browser = await chromium.launch({
+            headless: true,
+            ...(process.env.CHROME_BIN ? { executablePath: process.env.CHROME_BIN } : {}),
+            args: ['--no-sandbox']
+          });
           try {
             const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
             page.setDefaultTimeout(10000);
