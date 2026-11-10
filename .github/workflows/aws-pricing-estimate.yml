@@ -152,9 +152,34 @@ jobs:
             await page.waitForTimeout(700);
             console.log('DYNAMO_CAPACITY_STATE',JSON.stringify(await page.locator('input[type="checkbox"]').evaluateAll(inputs=>inputs.map(i=>{const id=i.getAttribute('aria-labelledby');const label=id?document.getElementById(id)?.innerText.trim():'';return {label,checked:i.checked};}).filter(x=>x.label.includes('DynamoDB')))));
 
-            const body=await page.locator('body').innerText();
-            console.log('DYNAMO_ONDEMAND_TEXT',body.slice(0,12500));
-            console.log('DYNAMO_ONDEMAND_INPUT_CONTEXT',JSON.stringify(await page.locator('input:visible').evaluateAll(es=>es.filter(e=>e.getAttribute('aria-label')&&!['Description - optional'].includes(e.getAttribute('aria-label'))).map(e=>({aria:e.getAttribute('aria-label'),value:e.value,placeholder:e.placeholder,context:(e.closest('div.awsui_root_')?.innerText||e.parentElement?.parentElement?.innerText||'').slice(0,450)})))));
-            console.log('DYNAMO_ONDEMAND_COST',body.split('\n').filter(x=>/Monthly cost|Upfront cost|Total 12 months|USD/.test(x)).slice(-8));
+
+            await page.getByLabel('Description - optional').fill('Six-month FORMLÆRE benchmark metadata, on-demand billing. Project-active workload: 2 GB table/index storage; 100,000 standard writes/month; 500,000 eventually consistent reads/month. This is represented on the calculator 12-month horizon at half-average usage.');
+            await page.locator('input[aria-label="Data storage size Value"]:visible').first().fill('1');
+            await page.locator('input[aria-label="Number of writes Value"]:visible').first().fill('0.05');
+            await page.locator('input[aria-label="Number of reads Value"]:visible').first().fill('0.25');
+            await page.locator('input[aria-label="Number of reads Value"]:visible').first().press('Tab');
+            await page.waitForTimeout(900);
+            const dyntext=await page.locator('body').innerText();
+            console.log('DYNAMO_ENTERED',JSON.stringify({
+              storage12mo:await page.locator('input[aria-label="Data storage size Value"]:visible').first().inputValue(),
+              writesMillions12mo:await page.locator('input[aria-label="Number of writes Value"]:visible').first().inputValue(),
+              readsMillions12mo:await page.locator('input[aria-label="Number of reads Value"]:visible').first().inputValue()
+            }));
+            console.log('DYNAMO_COST',dyntext.split('\n').filter(x=>/Monthly cost|Upfront cost|Total 12 months|USD/.test(x)).slice(-10));
+            console.log('DYNAMO_ERRORS',dyntext.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-10));
+            await page.getByRole('button',{name:'Save and add service',exact:true}).click();
+            await page.waitForTimeout(950);
+            await page.getByRole('searchbox',{name:'Find Service'}).fill('CloudWatch');
+            await page.waitForTimeout(750);
+            const ctext=page.getByText('Amazon CloudWatch',{exact:true}).first();
+            console.log('CLOUDWATCH_TITLE_COUNT',await ctext.count());
+            const ccard=ctext.locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await ccard.getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(2400);
+            const cwBody=await page.locator('body').innerText();
+            console.log('CLOUDWATCH_FORM_URL',page.url());
+            console.log('CLOUDWATCH_FORM_TEXT',cwBody.slice(0,11500));
+            console.log('CLOUDWATCH_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,280)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
+            console.log('CLOUDWATCH_BUTTONS',JSON.stringify((await page.getByRole('button').allTextContents()).slice(-35)));
           }finally{await browser.close();}
           JS
