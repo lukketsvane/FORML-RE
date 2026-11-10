@@ -11,87 +11,72 @@ permissions:
   contents: read
 
 concurrency:
-  group: aws-pricing-estimate-helper
+  group: aws-pricing-estimate-helper-${{ github.sha }}
   cancel-in-progress: true
 
 jobs:
   inspect-public-calculator:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 8
     steps:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install Playwright
+      - name: Install Playwright and Chromium
         run: |
           npm install --no-save playwright@1.56.1
-          if command -v google-chrome-stable >/dev/null 2>&1; then
-            echo "CHROME_BIN=$(command -v google-chrome-stable)" >> "$GITHUB_ENV"
-            google-chrome-stable --version
-          elif command -v google-chrome >/dev/null 2>&1; then
-            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
-            google-chrome --version
-          elif command -v chromium >/dev/null 2>&1; then
-            echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
-            chromium --version
-          else
-            echo "No system Chrome found; install Playwright Chromium"
-            npx playwright install chromium
-          fi
+          npx playwright install chromium
 
-      - name: Inspect Fable availability in model selector
+      - name: Inspect Anthropic model selector
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
-          const browser = await chromium.launch({
-            headless: true,
-            ...(process.env.CHROME_BIN ? { executablePath: process.env.CHROME_BIN } : {}),
-            args: ['--no-sandbox']
-          });
+          const browser = await chromium.launch({ headless: true });
           try {
             const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
             page.setDefaultTimeout(10000);
-            page.on('requestfailed', req => console.log('REQUEST_FAILED', req.method(), req.url(), req.failure()?.errorText));
-            page.on('pageerror', err => console.log('PAGE_ERROR', err.message));
-            await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 120000 });
+            await page.goto('https://calculator.aws/#/', { waitUntil: 'domcontentloaded', timeout: 90000 });
             await page.waitForTimeout(3000);
             await page.getByRole('button', { name: 'Create estimate' }).last().click();
             await page.waitForURL(/addService/, { timeout: 30000 });
-            await page.waitForTimeout(1800);
+            await page.waitForTimeout(1500);
             await page.getByRole('button', { name: 'US East (Ohio)' }).click();
             await page.waitForTimeout(400);
             await page.getByText('US East (N. Virginia)', { exact: true }).last().click();
             await page.waitForTimeout(600);
             const card = page.getByText('Amazon Bedrock', { exact: true }).first().locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
             await card.getByRole('button', { name: 'Configure' }).click();
-            await page.waitForTimeout(3500);
-            await page.locator('input[type="checkbox"]').evaluateAll(els => {
-              for (const x of els) {
-                const id=x.getAttribute('aria-labelledby');
-                const label=id ? document.getElementById(id)?.innerText.trim() : '';
-                if (label==='AI21 Labs' && x.checked) x.click();
-                if (label==='Anthropic' && !x.checked) x.click();
+            await page.waitForTimeout(3000);
+            const state = await page.locator('input[type="checkbox"]').evaluateAll(inputs => inputs.map(i => {
+              const id=i.getAttribute('aria-labelledby');
+              return {id:i.id, checked:i.checked, label:id?document.getElementById(id)?.innerText.trim():''};
+            }).filter(x => ['AI21 Labs','Anthropic'].includes(x.label)));
+            console.log('PROVIDER_CHECKS_BEFORE', JSON.stringify(state));
+            await page.locator('input[type="checkbox"]').evaluateAll(inputs => {
+              for (const i of inputs) {
+                const id=i.getAttribute('aria-labelledby');
+                const label=id?document.getElementById(id)?.innerText.trim():'';
+                if (label==='AI21 Labs' && i.checked) i.click();
+                if (label==='Anthropic' && !i.checked) i.click();
               }
             });
-            await page.waitForTimeout(1200);
-            console.log('PROVIDER_STATES', JSON.stringify(await page.locator('input[type="checkbox"]').evaluateAll(els => els.map(x => {
-              const id=x.getAttribute('aria-labelledby'); return {label:id?document.getElementById(id)?.innerText.trim():'',checked:x.checked};
-            }).filter(x=>x.label))));
-            console.log('ANTHROPIC_MODEL_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
-            const modelButtons = page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true });
-            console.log('MODEL_BUTTON_COUNT', await modelButtons.count());
-            if (await modelButtons.count()) {
-              console.log('MODEL_BUTTON_HTML', await modelButtons.first().evaluate(el => el.outerHTML));
-              try { await modelButtons.first().click({timeout:5000}); console.log('MODEL_MENU_OPEN', true); }
-              catch (err) { console.log('MODEL_MENU_OPEN_ERROR', err.message); }
+            await page.waitForTimeout(1000);
+            console.log('PROVIDER_CHECKS_AFTER', JSON.stringify(await page.locator('input[type="checkbox"]').evaluateAll(inputs => inputs.map(i => {
+              const id=i.getAttribute('aria-labelledby');
+              return {checked:i.checked,label:id?document.getElementById(id)?.innerText.trim():''};
+            }).filter(x => ['AI21 Labs','Anthropic'].includes(x.label)))));
+            console.log('MODEL_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
+            const model = page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).first();
+            console.log('MODEL_BUTTON_COUNT', await page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).count());
+            if (await page.getByRole('button', { name: 'Anthropic: Claude Haiku 4.5', exact: true }).count()) {
+              console.log('MODEL_BUTTON_HTML', await model.evaluate(el=>el.outerHTML));
+              try { await model.click({timeout:4000}); console.log('MODEL_MENU_OPEN', true); } catch(e) { console.log('MODEL_MENU_CLICK_ERROR', e.message); }
             }
-            await page.waitForTimeout(800);
-            console.log('FABLE_VISIBLE', await page.getByText(/Fable/i).count());
-            console.log('MODEL_MENU_TEXT', (await page.locator('body').innerText()).slice(0, 11000));
-            console.log('MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"]').evaluateAll(els => els.map(x => x.innerText.trim()))));
-          } finally {
-            await browser.close();
-          }
+            await page.waitForTimeout(700);
+            console.log('FABLE_COUNT', await page.getByText(/Fable/i).count());
+            console.log('MODEL_MENU_TEXT', (await page.locator('body').innerText()).slice(-9000));
+            console.log('MODEL_OPTIONS', JSON.stringify(await page.locator('[role="option"]').evaluateAll(els=>els.map(x=>x.innerText.trim()))));
+          } finally { await browser.close(); }
           JS
