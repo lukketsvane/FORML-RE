@@ -240,3 +240,25 @@ A message sent to `aws-verification@amazon.com` was returned with an automated n
 The AWS Support API is not enabled for the current support plan (`SubscriptionRequiredException`); AWS documentation confirms that the Support API requires Business, Enterprise On-Ramp, or Enterprise Support. Basic Support Account & Billing contact is through the authenticated Support Center / AWS Settings console.
 
 The hourly Fable automation now checks these two exact quota request IDs, and will not try inference until they are approved and applied.
+
+
+## Cross-check against launch documentation and alternate endpoint — 10 November 2026
+
+The model is not a naming or discovery error. Anthropic announced Claude Fable 5.2 on 9 November 2026, and AWS announced it on Amazon Bedrock the same day. AWS's announcement says Fable 5.2 is available through US Geo CRIS and Global CRIS inference profiles. The model card reports Active lifecycle, inference profile use, and required `aws_review` retention. This confirms the model ID and intended access path used in the smoke tests.
+
+- Anthropic launch: https://www.anthropic.com/claude-fable-and-mythos-5-2
+- AWS launch: https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/
+- AWS model card: https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5-2.html
+- AWS What's New: https://aws.amazon.com/about-aws/whats-new/2026/11/claude-fable-5-2-aws/
+
+The AWS Bedrock quotas documentation confirms that `bedrock-runtime` and `bedrock-mantle` have separate per-model quotas. The account's mantle quota catalogue currently contains Fable 5 and Fable 5.1 entries (with applied value 0) but no specific Fable 5.2 mantle quota entry. Consequently, switching to mantle is not a known available bypass for Fable 5.2. The supported path remains Bedrock Runtime with the US Geo CRIS inference profile and its Fable 5.2 cross-region token quota.
+
+AWS quota documentation also confirms that account-applied quota values may be lower than published default quotas based on regional factors, account usage history, payment history, fraud checks, and quota approval. The current state (default 10,000,000; applied 0) is therefore consistent with an account-level provisioning restriction rather than a bad model identifier.
+
+AWS Basic Support provides Account & Billing assistance in the Support Center / AWS Settings console, even though the programmatic AWS Support API requires a paid Business / Enterprise support plan. The Support API's `SubscriptionRequiredException` therefore does not mean all support is unavailable. The remaining manual route is an Account & Billing case through the authenticated console if the Service Quotas requests remain pending or are rejected.
+
+References:
+- Bedrock quotas: https://docs.aws.amazon.com/bedrock/latest/userguide/quotas.html
+- Service Quotas increase workflow: https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html
+- AWS Support API limitation: https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CreateCase.html
+- Basic support case instructions: https://docs.aws.amazon.com/accounts/latest/reference/access-aws-support.html
