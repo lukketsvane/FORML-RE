@@ -55,7 +55,7 @@ The offer's support term stated **No refunds**. A foundation-model agreement is 
 
 Bedrock `GetAccountDataRetention` returned `{"mode":"inherit"}`.
 
-Fable 5.2 requires `aws_review` or another explicitly qualifying mode. The `inherit` setting does not itself establish that this requirement is met. Setting `aws_review` is account-wide at this scope and allows AWS personnel to review prompts/responses retained within AWS for up to 30 days. Do not change this setting without explicit user authorization.
+Fable 5.2 requires `aws_review` or another explicitly qualifying mode. The `inherit` setting does not itself establish that this requirement is met. Retention is configured at the account level separately in each AWS Region. For this profile, all three destination Regions must be checked and configured. `aws_review` permits AWS review, with eligible Fable prompts and outputs retained within AWS for up to 30 days; content is not shared with Anthropic.
 
 ## No inference result
 
@@ -63,11 +63,42 @@ The second Converse smoke test did not return a model response. No research PDFs
 
 ## Required next actions
 
-1. Obtain explicit approval for the usage-based model agreement and its token charges.
-2. Obtain explicit approval to set account-wide retention to `aws_review` (or confirm a higher inherited scope already provides it).
-3. Create the agreement using the current offer token only after approval.
-4. Set the retention mode only after approval.
-5. Re-check `GetFoundationModelAvailability`; expect `agreementAvailability=AVAILABLE`.
-6. Invoke one small synthetic test with a conservative `maxTokens` setting.
-7. Save the response, timestamp and token usage in this research branch.
-8. Only then begin rights-cleared, public-PDF literature batches.
+The user has approved both the usage-based agreement and regional `aws_review` retention. The agreement and retention updates have now been applied; see the dated execution record below.
+
+
+---
+
+## Approved activation actions — 10 November 2026
+
+The user explicitly approved both the usage-based Fable agreement and the AWS review retention setting.
+
+### Retention update completed
+
+AWS `PutAccountDataRetention(mode="aws_review")` succeeded in all three destinations of the active US inference profile:
+
+| Region | Result |
+|---|---|
+| `us-east-1` | `aws_review` |
+| `us-east-2` | `aws_review` |
+| `us-west-2` | `aws_review` |
+
+All three settings were re-read with `GetAccountDataRetention` and confirmed as `aws_review`. These are account-level settings per Region, not one worldwide/global switch. AWS states that eligible Fable prompts and outputs may be retained within AWS for up to 30 days and may be reviewed by AWS; they are not sent to Anthropic for that review.
+
+### Model agreement request completed
+
+A fresh offer was retrieved and `CreateFoundationModelAgreement(modelId="anthropic.claude-fable-5-2", offerToken=<fresh offer token>)` returned success. Offer token deliberately not recorded.
+
+### Availability remains pending
+
+At 2026-11-10 04:37:23 UTC and again at 04:37:42 UTC, `GetFoundationModelAvailability` returned:
+
+- `agreementAvailability.status = PENDING`
+- `authorizationStatus = AUTHORIZED`
+- `entitlementAvailability = AVAILABLE`
+- `regionAvailability = AVAILABLE`
+
+AWS documentation defines `PENDING` as agreement provisioning still in progress; invocations can return AccessDenied until it changes to `AVAILABLE`. An inference call was therefore **not** attempted while pending. No PDFs or manuscript material were submitted.
+
+### Follow-up
+
+The hourly Fable access check has been re-enabled. It should run a single synthetic Converse test only after agreement availability is `AVAILABLE`, then record exact response, timestamp and token usage in this branch. If status becomes `ERROR`, record AWS's error message rather than retrying invocations.
