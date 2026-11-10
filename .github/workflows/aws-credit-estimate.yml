@@ -61,13 +61,16 @@ jobs:
               });
               return out;
             })));
-            console.log('S3_ROLES',JSON.stringify(await page.locator('[role="button"][aria-expanded]').evaluateAll(els=>els.map((x,i)=>({
+            const roles=await page.locator('[role="button"][aria-expanded]').evaluateAll(els=>els.map((x,i)=>({
               i,expanded:x.getAttribute('aria-expanded'),text:(x.innerText||'').trim().slice(0,180),
               id:x.id,controls:x.getAttribute('aria-controls'),html:x.outerHTML.slice(0,600)
-            }))));
-            console.log('S3_TITLES',JSON.stringify(await page.locator('h2,h3,h4').evaluateAll(els=>els.map(x=>({text:x.innerText,cls:String(x.className).slice(0,100)})))));
-            console.log('S3_INPUTS_VISIBLE',JSON.stringify(await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
+            })));
+            console.log('S3_ROLES',JSON.stringify(roles));
+            const titles=await page.locator('h2,h3,h4').evaluateAll(els=>els.map(x=>({text:x.innerText,cls:String(x.className).slice(0,100)})));
+            console.log('S3_TITLES',JSON.stringify(titles));
+            const inputStates=await page.locator('input').evaluateAll(els=>els.map((x,i)=>({
               i,aria:x.getAttribute('aria-label'),value:x.value,visible:!!x.offsetParent
-            })).filter(x=>/S3 Standard|Data transfer/i.test(x.aria||'')))));
+            })).filter(x=>/S3 Standard|Data transfer/i.test(x.aria||'')));
+            console.log('S3_INPUTS_VISIBLE',JSON.stringify(inputStates));
           }finally{await browser.close();}
           JS
