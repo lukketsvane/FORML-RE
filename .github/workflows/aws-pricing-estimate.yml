@@ -140,12 +140,44 @@ jobs:
             console.log('DYNAMO_FORM_TEXT',(await page.locator('body').innerText()).slice(0,9500));
             console.log('DYNAMO_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,280)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
 
-            const onDemand=page.getByText('DynamoDB on-demand capacity',{exact:true}).first();
-            const provisioned=page.getByText('DynamoDB provisioned capacity',{exact:true}).first();
-            console.log('DYNAMO_ONDEMAND_ANCESTORS',JSON.stringify(await onDemand.evaluate(el=>{const out=[];let n=el;for(let k=0;n&&k<6;k++,n=n.parentElement)out.push({tag:n.tagName,role:n.getAttribute('role'),cls:String(n.className).slice(0,160),text:(n.innerText||'').slice(0,260),html:n.outerHTML.slice(0,1400)});return out;})));
-            console.log('DYNAMO_PROVISIONED_ANCESTORS',JSON.stringify(await provisioned.evaluate(el=>{const out=[];let n=el;for(let k=0;n&&k<6;k++,n=n.parentElement)out.push({tag:n.tagName,role:n.getAttribute('role'),cls:String(n.className).slice(0,160),text:(n.innerText||'').slice(0,260),html:n.outerHTML.slice(0,1400)});return out;})));
-            console.log('DYNAMO_CHECKS',JSON.stringify(await page.locator('input[type="checkbox"],input[type="radio"]').evaluateAll(es=>es.map(e=>{const id=e.getAttribute('aria-labelledby');const label=id?document.getElementById(id)?.innerText.trim():'';return {type:e.type,id:e.id,value:e.value,checked:e.checked,disabled:e.disabled,label};}))));
-            console.log('DYNAMO_VISIBLE_INPUTS',JSON.stringify(await page.locator('input:visible').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,placeholder:e.placeholder})).filter(e=>e.aria))));
-            console.log('DYNAMO_TOGGLE_OPTIONS',JSON.stringify(await page.locator('[role]').evaluateAll(es=>es.filter(e=>/DynamoDB on-demand capacity|DynamoDB provisioned capacity/.test(e.innerText||'')).map(e=>({role:e.getAttribute('role'),text:e.innerText.trim(),aria:e.getAttribute('aria-checked'),html:e.outerHTML.slice(0,1600)})))));
+
+            await page.locator('input[type="checkbox"]').evaluateAll(inputs=>{
+              for(const i of inputs){
+                const id=i.getAttribute('aria-labelledby');
+                const label=id?document.getElementById(id)?.innerText.trim():'';
+                if(label==='DynamoDB on-demand capacity'&&!i.checked)i.click();
+                if(label==='DynamoDB provisioned capacity'&&i.checked)i.click();
+              }
+            });
+            await page.waitForTimeout(700);
+            console.log('DYNAMO_CAPACITY_STATE',JSON.stringify(await page.locator('input[type="checkbox"]').evaluateAll(inputs=>inputs.map(i=>{const id=i.getAttribute('aria-labelledby');const label=id?document.getElementById(id)?.innerText.trim():'';return {label,checked:i.checked};}).filter(x=>x.label.includes('DynamoDB')))));
+            console.log('DYNAMO_ONDEMAND_VISIBLE_INPUTS',JSON.stringify(await page.locator('input:visible').evaluateAll(es=>es.map(e=>({aria:e.getAttribute('aria-label'),value:e.value,placeholder:e.placeholder})).filter(x=>x.aria))));
+            await page.getByLabel('Description - optional').fill('Six-month FORMLÆRE benchmark metadata, on-demand billing: 2 GB table/index storage, 100,000 standard writes and 500,000 eventually consistent reads per month over the calculator 12-month horizon.');
+            await page.locator('input[aria-label="Data storage size Value"]:visible').first().fill('2');
+            await page.locator('input[aria-label="Number of writes Value"]:visible').first().fill('100000');
+            await page.locator('input[aria-label="Number of reads Value"]:visible').first().fill('500000');
+            await page.locator('input[aria-label="Number of reads Value"]:visible').first().press('Tab');
+            await page.waitForTimeout(900);
+            const dyntext=await page.locator('body').innerText();
+            console.log('DYNAMO_ENTERED',JSON.stringify({
+              storage:await page.locator('input[aria-label="Data storage size Value"]:visible').first().inputValue(),
+              writes:await page.locator('input[aria-label="Number of writes Value"]:visible').first().inputValue(),
+              reads:await page.locator('input[aria-label="Number of reads Value"]:visible').first().inputValue()
+            }));
+            console.log('DYNAMO_COST',dyntext.split('\n').filter(x=>/Monthly cost|Upfront cost|Total 12 months|USD/.test(x)).slice(-10));
+            console.log('DYNAMO_ERRORS',dyntext.split('\n').filter(x=>/error|invalid|required|cannot be/i.test(x)).slice(-10));
+            await page.getByRole('button',{name:'Save and add service',exact:true}).click();
+            await page.waitForTimeout(950);
+            await page.getByRole('searchbox',{name:'Find Service'}).fill('CloudWatch');
+            await page.waitForTimeout(750);
+            console.log('CLOUDWATCH_MATCHES',JSON.stringify(await page.locator('li').evaluateAll(es=>es.map((e,i)=>({i,text:(e.innerText||'').trim().slice(0,420)})).filter(x=>/CloudWatch/i.test(x.text)))));
+            const ctext=page.getByText('Amazon CloudWatch',{exact:true}).first();
+            console.log('CLOUDWATCH_TITLE_COUNT',await ctext.count());
+            const ccard=ctext.locator('xpath=ancestor::li[contains(@class,"awsui_card_")][1]');
+            await ccard.getByRole('button',{name:'Configure'}).click();
+            await page.waitForTimeout(2400);
+            console.log('CLOUDWATCH_URL',page.url());
+            console.log('CLOUDWATCH_FORM_TEXT',(await page.locator('body').innerText()).slice(0,10500));
+            console.log('CLOUDWATCH_INPUTS',JSON.stringify(await page.locator('input').evaluateAll(es=>es.map(e=>({type:e.type,aria:e.getAttribute('aria-label'),value:e.value,checked:e.checked,disabled:e.disabled,outer:e.outerHTML.slice(0,260)})).filter(x=>x.aria&&!['Description - optional'].includes(x.aria)))));
           }finally{await browser.close();}
           JS
