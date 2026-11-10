@@ -29,7 +29,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Inspect Bedrock service configuration
+      - name: Open Bedrock configuration
         run: |
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
@@ -43,20 +43,18 @@ jobs:
             await page.waitForTimeout(4000);
             await page.getByRole('button', { name: 'Create estimate' }).last().click();
             await page.waitForURL(/addService/, { timeout: 30000 });
-            await page.waitForTimeout(4000);
+            await page.waitForTimeout(3000);
             const target = page.getByText('Amazon Bedrock', { exact: true }).first();
-            console.log('BEDROCK_ANCESTORS', JSON.stringify(await target.evaluate(el => {
-              const out = [];
-              let n = el;
-              for (let i = 0; n && i < 7; i++, n = n.parentElement) {
-                out.push({ tag: n.tagName, cls: String(n.className).slice(0, 180), role: n.getAttribute('role'), text: (n.innerText || '').slice(0, 500), html: n.outerHTML.slice(0, 1800) });
-              }
-              return out;
-            })));
-            console.log('REGION_BUTTONS', JSON.stringify((await page.getByRole('button').allTextContents()).slice(0, 12)));
-            const regionButtons = page.getByRole('button', { name: 'US East (Ohio)' });
-            console.log('OHIO_REGION_COUNT', await regionButtons.count());
-            console.log('CURRENT_URL', page.url());
+            const root = target.locator('xpath=ancestor::div[contains(@class,"awsui_root_")][1]');
+            console.log('BEDROCK_CARD_BUTTONS', JSON.stringify(await root.getByRole('button').allTextContents()));
+            await root.getByRole('button', { name: 'Configure' }).click();
+            await page.waitForTimeout(7000);
+            console.log('CONFIG_URL', page.url());
+            console.log('CONFIG_TEXT', (await page.locator('body').innerText()).slice(0, 18000));
+            console.log('CONFIG_BUTTONS', JSON.stringify(await page.getByRole('button').allTextContents()));
+            console.log('CONFIG_INPUTS', JSON.stringify(await page.locator('input').evaluateAll(els => els.map(x => ({type:x.type,placeholder:x.placeholder,aria:x.getAttribute('aria-label'),name:x.name,value:x.value,outer:x.outerHTML.slice(0,500)})))));
+            console.log('CONFIG_SELECTS', JSON.stringify(await page.locator('select').evaluateAll(els => els.map(x => ({aria:x.getAttribute('aria-label'),name:x.name,value:x.value,options:[...x.options].map(o=>({text:o.text,value:o.value})).slice(0,100)})))));
+            console.log('CONFIG_COMBOBOXES', JSON.stringify(await page.getByRole('combobox').evaluateAll(els => els.map(x => ({text:x.innerText,aria:x.getAttribute('aria-label'),outer:x.outerHTML.slice(0,1000)})))));
           } finally {
             await browser.close();
           }
