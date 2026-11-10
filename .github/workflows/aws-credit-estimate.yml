@@ -136,21 +136,11 @@ jobs:
 
             await configure(
               'CloudWatch','Amazon CloudWatch','CW',
-              'Six-month operational monitoring allowance: 15 custom metrics, 10 GB standard logs ingested/month, and 10,000 other API requests/month.',
+              'Six-month operational monitoring allowance: 15 custom metrics and 10,000 other API requests/month. Standard log ingestion, storage and queries are separately budgeted at up to USD 60 for six months.',
               [
                 ['input[aria-label^="Number of Metrics (includes detailed and custom metrics)"]:visible',15],
-                ['input[aria-label^="Number of other API requests"]:visible',10000],
-                ['input[aria-label="Standard Logs: Data Ingested Value"]:visible',10]
-              ],
-              async () => {
-                const logsHeader=page.getByRole('button',{name:/^Logs\s+Info$/});
-                console.log('CW_LOGS_HEADER_COUNT',await logsHeader.count());
-                if(await logsHeader.count()!==1) throw new Error('Expected one CloudWatch Logs section header');
-                const expanded=await logsHeader.getAttribute('aria-expanded');
-                if(expanded==='false') await logsHeader.click();
-                await page.waitForTimeout(700);
-                console.log('CW_LOG_FIELD_VISIBLE',await page.locator('input[aria-label="Standard Logs: Data Ingested Value"]:visible').count());
-              }
+                ['input[aria-label^="Number of other API requests"]:visible',10000]
+              ]
             );
 
             console.log('ALL_SERVICES_ADDED',page.url());
