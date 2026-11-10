@@ -492,6 +492,12 @@ Dette er retningar i kunnskapsarbeidet, ikkje fire materielle operasjonar. Berre
 Tanken veks innanfrå: frå det tenkte (C\(→\)C) eller frå det kjende (K\(→\)C). Det som kjem inn frå U, kjem ikkje ved at nokon ser over grensa (1.53).
 \end{formproposition}
 
+\begin{formproposition}{1.542}{t}
+Den epistemiske delinga i 1.5 klassifiserer formposisjonar etter kva som er avgjort under oppgjevne kriterium. Ei utsegn om ein genereringsregel er ikkje sjølv ein formposisjon. Når kunnskap om regelen endrar kva som kan genererast, kan også \(SG\) og det operative formrommet endrast (1.223, 1.62).
+
+Å flytte ein posisjon mellom K og C under fast rom, og å endre sjølve rommet gjennom ny kunnskap, er ulike operasjonar. Ei forklaring som bind dei saman, må oppgje korleis utsegnene verkar på grammatikk og formrom.
+\end{formproposition}
+
 \begin{formproposition}{1.55}{d}
 Den delen av \(C_k\) som ligg i det nærliggande moglege, er fronten langs \(X_k\): tilgjengeleg og tenkt, men ikkje kjend. Der kan det tenkte prøvast (1.52) og bli kjent.
 
@@ -1026,6 +1032,28 @@ Omhug er ein profil over omsyn, ikkje eitt tal for kor mykje agenten bryr seg om
 Omhug viser seg i prioritering av arbeid. Kunnskap åleine endrar ikkje det kjende; omhug åleine gjer ikkje eit feil estimat rett. Innsats, handlag og utfall må difor prøvast kvar for seg.
 \end{formproposition}
 
+\begin{formproposition}{5.202}{d}
+Omhug frå agent \(i\) mot agent \(j\) langs omsyn \(k\) er ein relasjon, ikkje ein eigenskap ved \(i\) åleine. Han kan skildrast ved
+\[
+\mathcal C_{i\rightarrow j,k}=
+(O_{ij,k},\eta_{i\rightarrow j},\omega_{i\rightarrow j,k},
+\chi_{i\rightarrow j,k},F_{j\rightarrow i,k}).
+\]
+\(O\) viser kor påliteleg avvik hjå \(j\) vert registrert; \(\eta\) er feilen i agent \(i\) si framstilling \(\widehat G_{i\rightarrow j}\) av \(j\) sin målregion \(G_j\), når ein relevant avstand kan fastsetjast; \(\omega\) er prioriteringa av arbeidet; \(\chi=1\) når omsynet ligg innanfor kapasiteten \(\kappa(A_i;T,\mathcal D)\) under dei oppgjevne prøvevilkåra, og elles \(0\); \(F\) er kanalen som let svar frå \(j\) rette modellen og arbeidet. Den relasjonelle prioriteringa må spesifisere korleis arbeidet er fordelt innanfor den samla omhugsprofilen i 5.2; ho kan ikkje leggjast oppå henne som ei ekstra, uavhengig vekt. Når prioriteringa vert fordelt additivt over ei mengd modellerte mottakarar \(\mathcal J_i\), må
+\[
+\sum_{j\in\mathcal J_i}\omega_{i\rightarrow j,k}\leq\omega_k(A_i).
+\]
+Ufordelt prioritet kan gå til andre omsyn eller mottakarar som ikkje er med i den aktuelle relasjonsmodellen.
+
+Komponentane har ulike typar. Dei dannar ikkje éin skalar eller ein homogen tensor. Det faktiske utfallet hjå \(j\) vert målt separat; høg prioritering viser ikkje i seg sjølv at omsynet vart halde.\\kjelder{166}
+\end{formproposition}
+
+\begin{formproposition}{5.203}{t}
+Målet til den andre og framstillinga ein agent har av det, må haldast frå kvarandre: \(G_j\neq\widehat G_{i\rightarrow j}\) kan vere tilfelle. Når \(j\) kan svare, må svaret kunne endre framstillinga og rette arbeidet. Når direkte svar ikkje er mogleg, krev måltruskap uavhengige signal og uttrykkeleg uvissheit; fråvær av svar er ikkje null avvik.
+
+At avviket minkar fordi \(i\) endrar framstillinga av \(G_j\), er ikkje åleine prov på at tilstanden hjå \(j\) er betra.\\kjelder{166}
+\end{formproposition}
+
 \begin{formproposition}{5.21}{d}
 Kapasiteten \(\kappa(A)\) er dei omsyna agenten har ein tilgjengeleg politikk for å halde innanfor toleransen, over eit oppgjeve tidsrom og under oppgjevne forstyrringar.\kjelder{21,86}
 
@@ -1083,6 +1111,23 @@ Den delen av dei som er felles for heile klassen, er affordansestrukturen i 2.14
 
 \begin{formproposition}{5.2231}{t}
 Utviding av lyskjegla aktualiserer latente affordansar; innsnevring deaktiverer reelle.\kjelder{55,70}
+\end{formproposition}
+
+\begin{formproposition}{5.224}{d}
+Påverknadsområdet \(\mathcal R(A;T,\mathcal D)\) er mengda av omsynsaksar der eit val mellom politikkar agenten faktisk har tilgang til, kan endre forløpet under same starttilstand og same forstyrring. I ein deterministisk prøve kan det skrivast
+\[
+\mathcal R(A;T,\mathcal D)=
+\{X_k:\exists\pi_1,\pi_0\in\mathcal P_A,\ 
+\exists x_0,\ d\in\mathcal D,\ t\in T:
+x_k(t;\pi_1,d\mid x_0)\neq x_k(t;\pi_0,d\mid x_0)\}.
+\]
+For stokastiske forløp må skilnaden prøvast mellom dei vilkårsfordelingane politikkane gjev. Påverknad seier ikkje i kva retning endringa går, om ho er ønskt, eller om ho kan haldast.
+\end{formproposition}
+
+\begin{formproposition}{5.225}{t}
+Lyskjegla \(\Gamma(A)\), påverknadsområdet \(\mathcal R(A;T,\mathcal D)\) og kapasiteten \(\kappa(A;T,\mathcal D)\) svarar på ulike spørsmål: kva agenten prioriterer, kva han kan påverke, og kva han kan halde innanfor toleransen (5.21–5.22, 5.224). Dei treng ikkje falle saman.
+
+Omsyn i \(\Gamma(A)\) utanfor \(\mathcal R(A;T,\mathcal D)\) krev samarbeid, delegering eller endra vilkår for å kunne påverka. Påverknad utanfor \(\Gamma(A)\) er makt utan omhug langs dette omsynet. Påverknad utan kapasitet kan endre ein tilstand utan å kunne halde han.\\kjelder{23,166}
 \end{formproposition}
 
 \begin{formproposition}{5.23}{t}
@@ -1241,7 +1286,7 @@ Evna til å navigere hopar seg opp som strukturert informasjon.\kjelder{64}
 \end{formproposition}
 
 \begin{formproposition}{5.51}{d}
-Læring er ei endring i agenten sin modell eller politikk som følgje av røynsle, og som gjer ein skilnad i ny navigasjon. Læring kan utvide, snevre inn eller omfordele kapasiteten. Det som vert bevart i eit felles arkiv, treng ikkje verte bevart i kvar agent.
+Læring er at røynsle endrar modellen eller politikken ein agent nyttar i seinare navigasjon. Endringa kan auke eller minske kapasiteten. Ei realisering vert verande i det historiske arkivet; det agenten har lært, kan gå tapt.
 \end{formproposition}
 
 \begin{formproposition}{5.511}{t}
@@ -1249,7 +1294,7 @@ Læring kan utvide det tilgjengelege: eit nytt hald opnar nye steg. Kvar realise
 \end{formproposition}
 
 \begin{formproposition}{5.52}{t}
-Læring kan utvide \(\kappa(A)\), men garanterer ikkje omhug. Agenten kan få fleire tilgjengelege måtar å halde noko på utan å prioritere dei (5.21–5.23).
+Læring kan utvide \(κ\)(A), men garanterer korkje større kapasitet eller omhug. Agenten kan kjenne fleire aksar utan å halde dei (5.23); eit innøvd svar kan òg fortrengje andre svar (5.5212).
 \end{formproposition}
 
 \begin{formproposition}{5.521}{t}
@@ -1279,11 +1324,11 @@ Det kjende verkar difor sjølv som trykk (1.52, 3.4) på det som kjem etter.
 \end{formproposition}
 
 \begin{formproposition}{5.6}{d}
-Liv kallar eg den sjølvhaldande prosessen som opprettheld vilkåra for si eiga vidare målretta regulering, og dermed for si eiga lyskjegle.\kjelder{85,89} Kjegla kan vidast ut, men utviding er ikkje eit vilkår for liv. Eit system med mål som vert halde heilt av andre, oppfyller ikkje denne definisjonen ved målet åleine (5.115–5.116).
+Liv er den vedvarande prosessen der eit system gjennom eiga regulering held vilkåra for si vidare verksemd oppe, og med dei ei ikkje-tom lyskjegle. Utviding av lyskjegla er mogleg, men ikkje eit krav.\kjelder{85,89}
 \end{formproposition}
 
 \begin{formproposition}{5.61}{t}
-Det levande motverkar at vilkåra for eiga vidare regulering bryt saman. Kor sterkt sjølvhaldet er, må prøvast under forstyrring. Breidda på lyskjegla åleine er ikkje eit mål på om systemet lever.
+Kor sjølvstendig systemet held desse vilkåra, kan variere. At ei lyskjegle er stor eller veks, er ikkje i seg sjølv eit mål på liv; det avgjerande er sjølvhaldet gjennom forstyrring (5.021).
 \end{formproposition}
 
 \begin{formproposition}{5.62}{t}
@@ -1291,11 +1336,11 @@ Det levande utøver sjølvhald (5.115) og er difor eit sjølv sett utanfrå, ogs
 \end{formproposition}
 
 \begin{formproposition}{5.63}{d}
-Død er eit irreversibelt samanbrot i evna til å halde den same levande avgrensinga ved lag. Når denne prosessen ikkje kan takast opp att, fell også lyskjegla til dette sjølvet bort.
+Død er det irreversible opphøyret av den sjølvhaldne organiseringa som bar eit bestemt levande system si vidare verksemd. At lyskjegla då ikkje lenger vert halden av dette systemet, er ei følgje, ikkje ei tilstrekkeleg prøve på død.
 \end{formproposition}
 
 \begin{formproposition}{5.631}{t}
-Fråvær av synleg målretta rørsle i eit tidsrom viser ikkje at lyskjegla er tapt. Ein må skilje ein kvilande prosess frå ein irreversibelt opphøyrd. Døden ligg på grensa for det sjølvhaldet som definerer liv (5.6).
+Ei tom lyskjegle gjev ingen målretta agens etter 5.11. Men fråvær av registrert målretta svar i ei avgrensa prøve viser ikkje åleine at sjølvhaldet er irreversibelt tapt. Død krev den sterkare prøva i 5.63.
 \end{formproposition}
 
 \begin{formproposition}{5.632}{t}
@@ -1539,6 +1584,81 @@ Når ei kopling som bar eit felles sjølvhald, brest, kan delane halde fram utan
 Når ei samling agentar oppfyller 5.11 som heilskap, er ho éin agent.
 
 Det er eit skalasprang når heilskapen held det ingen del held: ein akse utanfor lyskjeglene til alle delane, eller ein lengre horisont enn nokon av delane.
+Ei slik klassifisering er eit operasjonelt kriterium for denne modellen, ikkje ei påstand om at system som ikkje oppfyller han, manglar all agens. Vurderinga av målretta agens på tvers av skalaer er gradert og kan vere feilbarleg.\\kjelder{167}
+\end{formproposition}
+
+\begin{formproposition}{6.124}{d}
+Gjeve ei mengd inkluderte berarar av følgjer \(\mathcal I\), kritiske haldegrenser for kvar berar, ei formgrammatikk og ei mengd forstyrringar, er den robuste levedyktigheitskjernen mengda av tilstandar som kan haldast innanfor desse grensene gjennom den oppgjevne tidshorisonten. Kven som inngår i \(\mathcal I\), og kva grenser som er kritiske, vert fastsett ope etter prinsippet i 7.26.
+
+Lat \(z=(x,s_1,\ldots,s_n)\) vere samla tilstand, med formkonfigurasjonen \(x\) og relevante tilstandar \(s_j\) for berarane av følgjer. Lat \(\mathcal X_j^{\mathrm{krit}}\) vere dei kritiske omsynsaksane for berar \(j\), \(e_{jk}(z)\) avviket og \(\varepsilon_{jk}\) toleransen. Mengda av tilstandar som held grensene, er
+\[
+\mathcal S_{\mathcal I}=
+\{z:e_{jk}(z)\leq\varepsilon_{jk}
+\ \text{for alle }j\in\mathcal I,\ k\in\mathcal X_j^{\mathrm{krit}}\}.
+\]
+Lat \(\mathcal A_{SG_t}(z)\) vere tillatne grammatikkhandlingar og \(F_t(z,a,d)\) overgangen under handling \(a\) og forstyrring \(d\). For ein endeleg horisont \(H\) definerer me
+\[
+\mathcal W_H=\mathcal S_{\mathcal I},
+\qquad
+\mathcal W_t=
+\{z\in\mathcal S_{\mathcal I}:
+\exists a\in\mathcal A_{SG_t}(z)\
+\forall d\in\mathcal D,\ F_t(z,a,d)\in\mathcal W_{t+1}\}.
+\]
+Dette er ei robust, endeleg-horisont-definisjon under full tilstandsobservasjon: handlinga må veljast før forstyrringa er kjend, og alle mellomtilstandar må halde grensene. Byggjemåten følgjer levedyktigheitsteorien, men den valde mengda av berarar, grenser og forstyrringar er spesifikk for prøva.\\kjelder{165}
+\end{formproposition}
+
+\begin{formproposition}{6.1241}{d}
+Ved delvis observasjon kan fleire faktiske tilstandar vere foreinlege med same informasjon. Lat \(\mathcal Z\) vere tilstandsrommet, \(\mathcal Y\) observasjonsrommet, \(B\subseteq\mathcal Z\) ei ikkje-tom informasjonstilstand og \(h_{t+1}:\mathcal Z\to\mathcal Y\) observasjonsavbildinga. For handling \(a\) er mengda av moglege neste observasjonar
+\[
+Y_t(B,a)=\{h_{t+1}(F_t(z,a,d)):z\in B,\ d\in\mathcal D\}.
+\]
+Etter observasjonen \(y\) vert informasjonstilstanden oppdatert til
+\[
+B_t^+(B,a,y)=
+\{F_t(z,a,d):z\in B,\ d\in\mathcal D,\
+h_{t+1}(F_t(z,a,d))=y\}.
+\]
+Ein robust politikk må velje same handling for alle tilstandar som er foreinlege med \(B\), og halde kvar mogleg oppdatert informasjonstilstand levedyktig:
+\[
+\mathcal W_H^{\mathrm{obs}}=
+\{B\subseteq\mathcal Z:B\neq\varnothing,\ B\subseteq\mathcal S_{\mathcal I}\},
+\]
+\[
+\mathcal W_t^{\mathrm{obs}}=
+\{B\in\mathcal W_H^{\mathrm{obs}}:
+\exists a\in\bigcap_{z\in B}\mathcal A_{SG_t}(z),\
+\forall y\in Y_t(B,a),\
+B_t^+(B,a,y)\in\mathcal W_{t+1}^{\mathrm{obs}}\}.
+\]
+Dette er ei mengdebasert robust formulering; uvissa vert ikkje erstatta med eit gjennomsnitt. Måleforstyrring må inngå i observasjonsmodellen. For stokastiske observasjonar må sannsynsfordeling og akseptabel risiko oppgjevast særskilt.\\kjelder{165}
+\end{formproposition}
+
+\begin{formproposition}{6.125}{t}
+Ei form kan vere genererbar utan å ha ein levedyktig vidareveg. Dei genererbare og levedyktige alternativa er difor ulike mengder. Ved tilstand \(z\) er dei levedyktige førstehandlingane
+\[
+\mathcal A_t^{\mathrm{viab}}(z)=
+\{a\in\mathcal A_{SG_t}(z):
+\forall d\in\mathcal D,\ F_t(z,a,d)\in\mathcal W_{t+1}\}.
+\]
+Ein valmodell som 6.6 kan beskrive preferansar mellom alternativ innanfor det levedyktige rommet; han kan ikkje gjere ei handling som bryt ei kritisk haldegrense, tillaten berre fordi ho får låg samla spenning.
+\end{formproposition}
+
+\begin{formproposition}{6.126}{t}
+Levedyktigheita kan endrast ved å endre grammatikken, observasjonsstrukturen eller reguleringskapasiteten. På objektnivå kan formovergangen skrivast
+\[
+z_{t+1}=F_{SG_t}(z_t,a_t,d_t).
+\]
+På metanivå kan systemet som genererer og regulerer form, sjølv endrast:
+\[
+(SG_{t+1},\mathcal O_{t+1},\kappa_{t+1})=
+\mathcal M(SG_t,\mathcal O_t,\kappa_t;b_t),
+\]
+der \(\mathcal O_t\) er observasjonsstrukturen, \(\kappa_t\) reguleringskapasiteten og \(b_t\) eit føreslege metainngrep. C–K-prosessen kan utvikle konsept for slike endringar; metainngrepet vert del av det operative systemet først når det er realisert og prøvd. Dette er ei utviding av C–K mot endring av sjølve vilkåra for formgenerering.\\kjelder{16,17,168}
+\end{formproposition}
+
+\begin{formproposition}{6.127}{t}
+Når levedyktigheitskjernen er tom, finst det inga løysing innanfor dei oppgjevne reglane, grensene, kapasitetane og forstyrringane. Ei vidareføring krev at minst eitt operativt vilkår vert endra, eller at ei grense vert vurdert på nytt med ei uttrykkeleg grunngjeving. Kven som er inkludert, og kva kritiske grenser som gjeld, kan ikkje lempast på i det stille; endringa må vurderast ope mot 7.26. Eit tomt rom er eit resultat som skal forklarast, ikkje skjulast ved omvekting.\\kjelder{165}
 \end{formproposition}
 
 \begin{formproposition}{6.13}{t}
@@ -1741,9 +1861,92 @@ Grensetilfella frå 5.72 kan prøvast i fordelingsmodellen:\kjelder{92}
 \end{formproposition}
 
 \begin{formproposition}{6.66}{t}
-Den allmenne modellen bind det genererbare, det vurderte og det gjennomførte til eitt sett med prøver. Han kan forklare meir enn ei rein beskriving av formene berre dersom dei faste stega, estimata og vektene gjev betre føreseiingar om nye utfall.
+Den allmenne forma bind det genererbare, det vurderte og det gjennomførte til eit felles forklaringskrav. Stegutleiinga og følgjene av vektinga gjer dette kravet matematisk prøvbart.
 
-Samanbindinga er eit forskingsprogram, ikkje ei oppdaga universallov. Han må tole samanlikning med enklare alternativ.
+Samanbindinga er eit forskingsprogram, ikkje ei oppdaga universallov. Prøvinga krev at grammatikken, estimata og vektene vert fastsette uavhengig av dei nye utfalla, og at modellen toler samanlikning med enklare alternativ.
+\end{formproposition}
+
+\begin{formproposition}{6.661}{t}
+Når \(D\) er endeleg og ikkje tomt, \(\mu_{\mathrm{SG}}(x)>0\) i heile \(D\), og \(\beta>0\), kan fordelingsforma i 6.6 representere kvar strengt positiv målfordeling \(P^*\) dersom \(\Phi\) får veljast fritt. Set \(\Phi^*(x)=-\beta^{-1}\log(P^*(x)/\mu_{\mathrm{SG}}(x))\). Då er \(Z=1\) og \(P=P^*\).
+
+Dette er ei representasjonssetning, ikkje ei utleiing av kvifor fordelinga vart til. Eit landskap valt etter at formene er observerte, forklarer ikkje åleine desse formene (3.11). Ei prøve krev at grammatikken, grunnvekta, estimata og vektene vert fastsette uavhengig av dei nye utfalla.
+\end{formproposition}
+
+\begin{formproposition}{6.662}{t}
+Den observerte fordelinga åleine fastset ikkje kor mykje som kom frå generering og kor mykje frå seleksjon. For eit endeleg \(D\), \(\beta>0\), og ei vilkårleg endeleg funksjon \(h(x)\), gjev \(\mu'_{\mathrm{SG}}(x)=c^{-1}\mu_{\mathrm{SG}}(x)e^{h(x)}\) og \(\Phi'(x)=\Phi(x)+h(x)/\beta\) same normaliserte fordeling som \(\mu_{\mathrm{SG}}\) og \(\Phi\), der \(c=\sum_{x\in D}\mu_{\mathrm{SG}}(x)e^{h(x)}\). Om grunnfordelingane høyrer til ulike stegprosessar, kan ikkje vala åleine avgjere kva for ein som verka.
+
+Heller ikkje \(\beta\) og skalaen til eit ukjent \(\Phi\) kan skiljast frå vala åleine. Det som gjer modellen prøvbar, er uavhengig kunnskap om stega, vurderingane og gjennomføringa. Identiske fordelingar kan ha ulike årsaker og ulike følgjer.
+\end{formproposition}
+
+\begin{formproposition}{6.663}{t}
+For eit endeleg \(D\) med normalisert \(\mu_{\mathrm{SG}}>0\), fast, endeleg \(\Phi\) og \(\beta\geq0\), er \(\mathbb E_\beta[\Phi]\) ikkje-aukande med seleksjonsstyrken:
+\[
+\frac{d\mathbb E_\beta[\Phi]}{d\beta}
+=-\operatorname{Var}_\beta(\Phi)\leq0.
+\]
+Mål avstanden frå genereringsgrunnlaget med den relative entropien \(D_{\mathrm{KL}}(P_\beta\Vert\mu_{\mathrm{SG}})\). Sidan han er \(-\beta\mathbb E_\beta[\Phi]-\log Z_\beta\), vert
+\[
+\frac{d D_{\mathrm{KL}}}{d\beta}
+=\beta\operatorname{Var}_\beta(\Phi)\geq0.
+\]
+Sterkare seleksjon flyttar fordelinga bort frå grunnfordelinga eller lèt henne stå. Det tyder ikkje at det vanlege Shannon-mangfaldet må minke: det kan også auke når grunnfordelinga er skeiv. Divergensen seier heller ikkje om det faktiske utfallet vert betre (6.674).
+\end{formproposition}
+
+\begin{formproposition}{6.664}{t}
+Når \(D\) er endeleg, \(\mu_{\mathrm{SG}}(x)>0\) på \(D\), og \(\beta\) og \(\Phi\) er endelege, er \(P(x)>0\) for kvar \(x\in D\). Ei form som ikkje finst i eit avgrensa historisk utval, er difor ikkje av den grunn materielt umogleg.
+
+Å hevde at ei form ligg utanfor \(D\), krev eiga kunnskap om kva grammatikken og dei materielle stega faktisk tillèt. Fråvær i eit arkiv kan òg komme av lågt sannsyn, selektiv innsamling eller manglande registrering. Desse forklaringane skal ikkje blandast med veto.
+\end{formproposition}
+
+\begin{formproposition}{6.665}{t}
+Når grunnfordelinga, agentestimata og dei valde alternativa er kjende uavhengig av vala, kan ein prøve om seleksjonsstyrke og agentvekter er identifiserbare. For eit endeleg \(D\) med \(P(x)>0\), vel ein referanse \(x_0\in D\). Set \(\mu=\mu_{\mathrm{SG}}\), \(X_{xi}=\hat\Lambda_i(x)-\hat\Lambda_i(x_0)\) og
+\[
+g_x=-\log\frac{P(x)\mu(x_0)}{P(x_0)\mu(x)}.
+\]
+Då er \(g=X\theta\), der \(\theta_i=\beta w_i\geq0\). Har \(X\) full kolonnerang, er \(\theta\) eintydig bestemt av den nøyaktige fordelinga. Når \(\beta=\sum_i\theta_i>0\), følgjer \(w_i=\theta_i/\beta\) av normaliseringa i 6.61.
+
+Dersom agentane sine estimat ikkje gjev lineært uavhengige skilnader mellom alternativa, kan vektene i alminnelegheit ikkje skiljast. Minst éin fleire valbar posisjon enn talet på agentvekter er nødvendig for full rang. Ved \(\beta=0\) kan ikkje vektene identifiserast frå vala.
+
+Dette er eit vilkår for statistisk identifisering, ikkje prov på at ei estimert vekt er legitim eller kausalt utøvd. Endelege utval krev usikkerheitsmål, og endringar i makt krev eigne undersøkingar av avgjerdsprosessen.
+\end{formproposition}
+
+\begin{formproposition}{6.666}{t}
+Ei stasjonær fordeling fastset ikkje farten i stegprosessen (6.64). Lat \(P\) vere stasjonær for ein overgangskjerne \(T\) på endeleg \(D\). For \(0<\alpha\leq1\) har kjernen
+\[
+T_\alpha=(1-\alpha)I+\alpha T
+\]
+same stasjonære fordeling \(P\). Ein kan difor observere same fordelinga av former etter lang tid, men heilt ulik rørsle mellom dei.
+
+Frå ein start utanfor ei målmengd \(B\), når den forventa treffetida er endeleg, er
+\(\mathbb E[\tau_B(T_\alpha)]=\mathbb E[\tau_B(T)]/\alpha\).
+Stasjonært samsvar er difor ikkje bevis for at modellen har fanga den historiske eller materielle stegprosessen. Overgangar, tid og faktisk utføring må undersøkast særskilt.
+\end{formproposition}
+
+\begin{formproposition}{6.667}{t}
+Når \(D\), \(\mu_{\mathrm{SG}}\) og \(\Phi\) står faste og to tillatne former \(x,y\) har positiv grunnvekt, gjev fordelingsmodellen i 6.6
+\[
+\log\frac{P_{\beta_2}(x)P_{\beta_1}(y)}
+{P_{\beta_2}(y)P_{\beta_1}(x)}
+=-(\beta_2-\beta_1)\bigl(\Phi(x)-\Phi(y)\bigr).
+\]
+Ei kontrollert endring i seleksjonsstyrke gjev såleis ein lineær endring i relative log-odds mellom faste alternativ. Grunnfordelinga og normaliseringa fell bort i differansen.
+
+Dette er prøvbart berre dersom styrken kan gjerast og målast om utan at kandidatar, estimat og genereringsgrunnlag endrar seg. Eit brot på lineariteten under slike vilkår avviser den faste fordelingsmodellen. Utan slike kontrollar kan brotet òg skuldast at vilkåra ikkje stod faste.
+\end{formproposition}
+
+\begin{formproposition}{6.668}{t}
+Ei registrert samling er ikkje det same som fordelinga av realiserte former. Lat \(P(x)\) vere fordelinga over realiserte former i eit endeleg \(D\), og lat \(r(x)\in[0,1]\) vere sannsynet for at ei realisering av \(x\) kjem med i observasjonen. Dersom registreringa verkar uavhengig for kvar realisering, vil fordelinga i arkivet vere
+\[
+Q(x)=\frac{r(x)P(x)}{\sum_{y\in D}r(y)P(y)}
+=\frac{r(x)\mu_{\mathrm{SG}}(x)e^{-\beta\Phi(x)}}
+{\sum_{y\in D}r(y)\mu_{\mathrm{SG}}(y)e^{-\beta\Phi(y)}}.
+\]
+Når \(\beta>0\) og \(r(x)>0\) over heile \(D\), kan dette skrivast med det tilsynelatande landskapet
+\(\Phi_{\mathrm{obs}}(x)=\Phi(x)-\beta^{-1}\log r(x)\). Arkivutval kan såleis sjå ut som formseleksjon utan å vere det. Når \(r(x)=0\), kan ei realiserbar form heilt mangle i arkivet, sjølv om ho har positivt sannsyn i verda.
+
+For kvart par av strengt positive fordelingar \(P,Q\) på det endelege \(D\), vel \(0<c\leq\min_{x\in D}P(x)/Q(x)\) og set \(r(x)=cQ(x)/P(x)\). Då er \(0<r(x)\leq1\), og registreringa gjev nøyaktig \(Q\). Dette er eit identifiserbarheitsproblem, ikkje berre ei feilkjelde i ei bestemt samling.
+
+Utan uavhengig kunnskap om registreringa kan ein ikkje skilje desse årsakene frå den observerte fordelinga åleine (6.662, 6.664). Kjenner ein positive registreringssannsyn, kan fordelinga korrigerast ved å vekte observasjonane med \(1/r(x)\). Fråvær av ei slik kjelde må vere uttrykkeleg når historiske former vert brukte til å prøve læra.
 \end{formproposition}
 
 \begin{formproposition}{6.67}{d}
@@ -1806,6 +2009,20 @@ Omhug og kunnskap er difor ulike verkemåtar også i likninga: prioriteringa end
 Auka prioritering av eitt omsyn kan verne eller skade eit anna gjennom samvariasjonen i 6.674. Det gjeld også omsyn utan eiga vekt.
 
 Eit indirekte vern er difor eit føreseieleg samband mellom omsyn, ikkje eit unntak frå at omhug verkar gjennom bestemte steg.
+\end{formproposition}
+
+\begin{formproposition}{6.676}{t}
+For to faste alternativ \(x,y\in D\), under vilkåra i 6.6 med uendra grunnfordeling, seleksjonsstyrke og agentestimat, lat innverknaden flyttast med \(\delta\) frå agent \(j\) til agent \(i\): \(w_i'=w_i+\delta\) og \(w_j'=w_j-\delta\), slik at begge vektene framleis er ikkje-negative.
+
+Set \(\Delta_{ij}(z)=\hat{\Lambda}_i(z)-\hat{\Lambda}_j(z)\). Då er endringa i dei relative log-odda eksakt:
+\[
+\begin{gathered}
+\log\frac{P_\delta(x)P_0(y)}{P_\delta(y)P_0(x)}\\
+=-\beta\delta\bigl(\Delta_{ij}(x)-\Delta_{ij}(y)\bigr).
+\end{gathered}
+\]
+
+Endringa er null når skilnaden mellom agentane sine vurderingar er den same for dei to alternativa. Ei endring av innverknad gjev difor ikkje automatisk eit anna val. Dersom alternativa, vurderingane eller grunnfordelinga endrar seg samstundes, kan ikkje vektflyttinga åleine forklare utfallet.
 \end{formproposition}
 
 \begin{formproposition}{6.68}{t}
@@ -1979,13 +2196,17 @@ Ei sterk vekt i valmodellen er eit mål på innverknad, ikkje eit prov på rett.
 \begin{formproposition}{7.25}{t}
 Omhugen kan rette seg sjølv gjennom prøver, men kan ikkje gje seg sjølv endeleg stadfesting på vegner av den andre. Svaret frå den som lever med forma, kan endre både målet, modellen og det som må haldast.
 
-Å lukke sløyfa er å la dette svaret endre arbeidet.
+Å lukke sløyfa er å la dette svaret endre arbeidet. Ei endring i framstillinga av den andre sitt mål er ikkje i seg sjølv ei endring i målet eller tilstanden hjå den andre (5.203).
 \end{formproposition}
 
 \begin{formproposition}{7.26}{a}
 Design som fag forpliktar seg til at dei som ber vesentlege følgjer av ei form, skal telje i vurderinga av henne. Dei kan ikkje reknast bort fordi dei manglar makt til å setje krava.
 
 Dette er eit fagleg grunnprinsipp, ikkje ei følgje av sannsynsrekninga. Det krev at ein gjer synleg kven som valde måla, kven som ber risikoen, kven som kan rette arbeidet, og korleis ein svarar for dei som ikkje kan svare sjølve.
+\end{formproposition}
+
+\begin{formproposition}{7.261}{t}
+Når dei kritiske haldegrensene og berarane av følgjer er fastsette etter 7.26, kan ein gevinst hjå éin part ikkje kompensere for brot på ei slik grense hjå ein annan. Dette følgjer av at brotet gjer overgangen ikkje-levedyktig (6.124–6.125), ikkje av ei ny vekt i fordelingsmodellen. Kravet gjeld relativt til dei uttrykkeleg valde grensene; det avgjer ikkje åleine kven som skal inkluderast.\\kjelder{165}
 \end{formproposition}
 
 \begin{formproposition}{7.27}{t}
