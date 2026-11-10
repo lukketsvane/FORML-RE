@@ -414,6 +414,24 @@
       ]
     },
     {
+      "id": "levedyktigheitskjerne",
+      "term": "Levedyktigheitskjerne",
+      "definition": "Mengda av tilstandar i eit dynamisk system der minst éin tillaten politikk kan halde fastsette grenser gjennom den oppgjevne tidshorisonten og forstyrringane.",
+      "propositions": [
+        "6.124",
+        "6.125",
+        "6.127"
+      ],
+      "sources": [
+        "165"
+      ],
+      "fields": [
+        "Dynamiske system",
+        "Reguleringsteori"
+      ],
+      "connection": "I FORMLÆRE avgrensar kjernen kva grammatikksteg som har ein haldbar vidareveg. Ho er eit vilkår for admissibilitet, ikkje ein samla nytte- eller omhugsvekt."
+    },
+    {
       "id": "maksimalentropiprinsippet",
       "term": "Maksimalentropiprinsippet",
       "fields": [
