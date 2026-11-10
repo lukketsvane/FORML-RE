@@ -767,6 +767,42 @@
       "url": "https://www.med.uio.no/imb/english/research/about/biological-anthropology-collection/collection/sami.html",
       "verified_on": "2026-11-01",
       "verification_note": "UiO stadfestar innsamlingshistoria, koplinga til raseforsking og lokal motstand."
+    },
+    {
+      "id": "165",
+      "citation": "Aubin, J.-P. (1991). Viability Theory. Birkhäuser Boston, Systems & Control: Foundations & Applications.",
+      "year": "1991",
+      "doi": "10.1007/978-0-8176-4910-4",
+      "url": "https://link.springer.com/book/10.1007/978-0-8176-4910-4",
+      "verified_on": "2026-11-10",
+      "verification_note": "Birkhäuser fører opp originalutgåva frå 1991; Springer-DOI-en identifiserer den elektroniske utgåva. Brukt her for omgrepet levedyktigheitskjerne; grensene og kontrollmengda er fastsette i FORMLÆRE."
+    },
+    {
+      "id": "166",
+      "citation": "Witkowski, O., Doctor, T., Solomonova, E., Duane, B. & Levin, M. (2023). Toward an ethics of autopoietic technology: Stress, care, and intelligence. Biosystems, 231, 104964.",
+      "year": "2023",
+      "doi": "10.1016/j.biosystems.2023.104964",
+      "url": "https://doi.org/10.1016/j.biosystems.2023.104964",
+      "verified_on": "2026-11-10",
+      "verification_note": "Forfattarliste, tidsskrift, volum, artikkelnummer og DOI kontrollert mot PubMed og ScienceDirect."
+    },
+    {
+      "id": "167",
+      "citation": "Levin, M. & Resnik, D. B. (2026). Mind Everywhere: A Framework for Conceptualizing Goal-Directedness in Biology and Other Domains—Part Two. Biological Theory, 21(3), 263–277.",
+      "year": "2026",
+      "doi": "10.1007/s13752-025-00524-5",
+      "url": "https://doi.org/10.1007/s13752-025-00524-5",
+      "verified_on": "2026-11-10",
+      "verification_note": "Forfattarar, publiseringsdato, volum, sidetal og DOI kontrollert mot Springer."
+    },
+    {
+      "id": "168",
+      "citation": "Le Masson, P., Carvajal-Perez, D., Harlé, H., Hatchuel, A., Jibet, N., Taupin, L. & Weil, B. (2026). Design creativity for transitions: C-K/Topos, an advanced design theory for creative preservation. Design Science, 12, e6.",
+      "year": "2026",
+      "doi": "10.1017/dsj.2025.10045",
+      "url": "https://doi.org/10.1017/dsj.2025.10045",
+      "verified_on": "2026-11-10",
+      "verification_note": "Forfattarar, online-publisering 2. februar 2026, volum, artikkelnummer og DOI kontrollert mot Cambridge University Press."
     }
   ],
   "notes": [
