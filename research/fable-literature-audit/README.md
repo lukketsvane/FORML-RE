@@ -63,8 +63,12 @@ script has no price guarantee and must not be treated as a free batch job.
 
 The model identifier defaults to `global.anthropic.claude-fable-5-2`.
 Set the account/project retention mode through the AWS Bedrock data-retention
-control plane before invocation. The script's explicit confirmation flag is a
-second guard, not a substitute for configuring or understanding that setting.
+control plane before invocation. The script requires separate confirmations for AWS review retention and paid
+inference, and caps each invocation at five document segments by default.
+These are second guards, not a substitute for configuring or understanding
+those account settings. The character and segment caps are intentionally small
+for a first pilot; increasing them requires a deliberate edit or explicit CLI
+argument.
 
 ## First run
 
@@ -101,7 +105,9 @@ python batch_reader.py \
   --pdf-root /path/to/designteori \
   --rights-review-csv /path/to/rights-review.csv \
   --max-documents 3 \
+  --max-total-chunks 5 \
   --execute \
+  --confirm-paid-inference \
   --confirm-aws-review-retention
 ```
 
