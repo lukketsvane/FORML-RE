@@ -1,6 +1,6 @@
 # Revisjon 11. november 2026: stigen, omsorg og forskingsprogram
 
-Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 487 proposisjonar, 105 notat, 133 kjelder, 38 ordlisteoppslag og elleve figurar. Alle dei 377 tidlegare adressene finst framleis; 110 er nye.
+Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 492 proposisjonar, 105 notat, 150 kjelder, 38 ordlisteoppslag og elleve figurar. Alle dei 377 tidlegare adressene finst framleis; 115 er nye.
 
 Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som kan fellast, og omsorg skal vere eit formelt omgrep i den same arkitekturen som forklarer form og val. Forma skal vere ein stige: éin tanke per trinn, og kvart trinn skal følgje av dei føregåande.
 
@@ -29,6 +29,19 @@ Proposisjonane seier no kva som er tilfelle. 123 stader er endra:
 - På nett er kjelde- og notemerka usynlege til proposisjonen er aktiv.
 
 Dei mest utsette nye formuleringane: 3.12 («Eit landskap har fleire lokale minimum»), 5.6 («Eit system med mål som vert halde heilt av andre, lever ikkje»), 6.022 (cella oppfyller designkriteriet), 6.66 («Samanbindinga forklarer berre det ho føreseier») og 6.755 (krympinga finst i verkstader, føretak og fag).
+
+## Kjeldene i proposisjonane
+
+Tala i teksten viser kvar andre fag har kome fram til det same omgrepet. Dei står synlege i leselinja; notemerka er skjulte til proposisjonen er aktiv.
+
+- 119 proposisjonar ber kjeldetal (før: 85). Døme: 5.113 (Rosenblueth, Wiener og Ashby), 1.412 og 4.33 (Arthur), 1.01 og 5.223 (Bateson), 3.401 (nisjekonstruksjon), 1.432 (Kauffman 2000).
+- Sytten kjelder som var tekne ut i kjeldeoppryddinga, er henta inn att med dei gamle nummera sine: Turing (6), Blackiston (27), NOAA (28), Biswas (36), Vandenberg (37), Shomrat (38), Fankhauser (39), Kriegman (40), Gumuskaya (41), Fultot og Turvey (57), Rajan (98), Boisseau (99), Netea (100), Pavlov (102), Friston og Frith (103), Kuhn (105) og Wigner (106).
+- Tre nye observasjonar viser konvergensen i sjølve stigen: 3.102 (tre fag har teikna same landskap), 5.1105 (fire tradisjonar har kome fram til agentstrukturen) og 5.5101 (læring frå genregulatoriske nettverk til vitskapane). 5.5102 og 6.661 seier kva det tyder: eitt omgrep held på alle skalaer, og læra er ein heuristikk.
+- Plasseringa av dei nye tilvisingane er gjord frå kjennskap til verka og etter den eldre utgåva. Ho er ikkje kontrollert mot fulltekst.
+
+## Frå den eldre utgåva
+
+Desse formuleringane er henta tilbake frå utgåva frå juni 2026, der dei framleis er sanne i modellen: 2.112 (heile rommet for design), 3.302 og 3.303 (ingen har sett ein stil), 4.1 (trykka kviler aldri), 4.101, 5.521 (systematisk blindskap), 5.722 (manglar eit lag), 6.0201, 6.113, 6.13, 6.5, 7.13 (arkivet er eit faktum) og 7.15 (katalogiserer). Føreordet opnar igjen med «Denne boka er eit drastisk tiltak».
 
 ## Figurar
 

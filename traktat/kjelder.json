@@ -32,6 +32,11 @@
       "year": "1948"
     },
     {
+      "id": "6",
+      "citation": "Turing, A. M. (1950). Computing machinery and intelligence. Mind, 59(236), 433–460.",
+      "year": "1950"
+    },
+    {
       "id": "7",
       "citation": "Ashby, W. R. (1956). An Introduction to Cybernetics. Chapman & Hall.",
       "year": "1956"
@@ -144,6 +149,50 @@
       "year": "1968"
     },
     {
+      "id": "27",
+      "citation": "Blackiston, D. J., Casey, E. S. & Bhatt, A. L. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? PLoS ONE, 3(3), e1736.",
+      "year": "2008"
+    },
+    {
+      "id": "28",
+      "citation": "NOAA Marine Debris Program (2024). Estimated decomposition rates of common marine debris items. National Oceanic and Atmospheric Administration.",
+      "year": "2024"
+    },
+    {
+      "id": "36",
+      "citation": "Biswas, S., Manicka, S., Hoel, E. & Levin, M. (2021). Gene regulatory networks exhibit several kinds of memory: Quantification of memory in biological and random transcriptional networks. iScience, 24(3), 102131.",
+      "year": "2021",
+      "url": "https://doi.org/10.1016/j.isci.2021.102131",
+      "doi": "10.1016/j.isci.2021.102131",
+      "verification_note": "Retta feil år, volum, hefte og artikkelnummer. Full publisert artikkel ligg i PMC: https://pmc.ncbi.nlm.nih.gov/articles/PMC7970124/ . Studien analyserer GRN-modellar; ikkje framstill alle resultata som direkte våtlabforsøk.",
+      "verified_on": "2026-11-01"
+    },
+    {
+      "id": "37",
+      "citation": "Vandenberg, L. N., Adams, D. S. & Levin, M. (2012). Normalized shape and location of perturbed craniofacial structures in the Xenopus tadpole reveal an innate ability to achieve correct morphology. Developmental Dynamics, 241(5), 863–878.",
+      "year": "2012"
+    },
+    {
+      "id": "38",
+      "citation": "Shomrat, T. & Levin, M. (2013). An automated training paradigm reveals long-term memory in planarians and its persistence through head regeneration. Journal of Experimental Biology, 216(20), 3799–3810.",
+      "year": "2013"
+    },
+    {
+      "id": "39",
+      "citation": "Fankhauser, G. (1945). The effects of changes in chromosome number on amphibian development. Quarterly Review of Biology, 20(1), 20–78.",
+      "year": "1945"
+    },
+    {
+      "id": "40",
+      "citation": "Kriegman, S., Blackiston, D., Levin, M. & Bongard, J. (2021). Kinematic self-replication in reconfigurable organisms. Proceedings of the National Academy of Sciences, 118(49), e2112672118.",
+      "year": "2021"
+    },
+    {
+      "id": "41",
+      "citation": "Gumuskaya, G., Srivastava, P., Cooper, B. G., Lesser, H., Semegran, B., Garber, S. & Levin, M. (2023). Motile living biobots self-construct from adult human somatic progenitor seed cells. Advanced Science, 10(34), 2303575.",
+      "year": "2023"
+    },
+    {
       "id": "53",
       "citation": "Riegl, A. (1893). Stilfragen: Grundlegungen zu einer Geschichte der Ornamentik. George Siemens.",
       "year": "1893"
@@ -166,6 +215,11 @@
       "doi": "10.31269/triplec.v5i2.59",
       "verification_note": "Tidsskriftets primærside stadfestar at forfattaren er John Pickering, ikkje Søren Brier, og at år/volum/hefte var feil. Kjeldeapparatet sine tekstnotar må òg rette namnet Brier der dei meiner denne artikkelen.",
       "verified_on": "2026-11-01"
+    },
+    {
+      "id": "57",
+      "citation": "Fultot, M. & Turvey, M. T. (2019). Von Uexküll's theory of meaning and Gibson's organism–environment reciprocity. Ecological Psychology, 31(4), 289–315.",
+      "year": "2019"
     },
     {
       "id": "58",
@@ -387,6 +441,21 @@
       "verified_on": "2026-11-01"
     },
     {
+      "id": "98",
+      "citation": "Rajan, D., Makushok, T., Kalantari, A. et al. (2023). Single-cell analysis of habituation in Stentor coeruleus. Current Biology, 33, 241–251.",
+      "year": "2023"
+    },
+    {
+      "id": "99",
+      "citation": "Boisseau, R. P., Vogel, D. & Dussutour, A. (2016). Habituation in non-neural organisms: Evidence from slime moulds. Proceedings of the Royal Society B, 283, 20160446.",
+      "year": "2016"
+    },
+    {
+      "id": "100",
+      "citation": "Netea, M. G., Joosten, L. A. B., Latz, E. et al. (2016). Trained immunity: A program of innate immune memory in health and disease. Science, 352(6284), aaf1098.",
+      "year": "2016"
+    },
+    {
       "id": "101",
       "citation": "Kandel, E. R. (2001). The molecular biology of memory storage: A dialogue between genes and synapses. Science, 294(5544), 1030–1038.",
       "year": "2001",
@@ -394,11 +463,31 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/11691980/"
     },
     {
+      "id": "102",
+      "citation": "Pavlov, I. P. (1927). Conditioned Reflexes. Oxford University Press.",
+      "year": "1927"
+    },
+    {
+      "id": "103",
+      "citation": "Friston, K. & Frith, C. (2015). A duet for one. Consciousness and Cognition, 36, 390–405.",
+      "year": "2015"
+    },
+    {
       "id": "104",
       "citation": "March, J. G. (1991). Exploration and exploitation in organizational learning. Organization Science, 2(1), 71–87.",
       "year": "1991",
       "url": "https://doi.org/10.1287/orsc.2.1.71",
       "verified_on": "2026-11-01"
+    },
+    {
+      "id": "105",
+      "citation": "Kuhn, T. S. (1962). The Structure of Scientific Revolutions. University of Chicago Press.",
+      "year": "1962"
+    },
+    {
+      "id": "106",
+      "citation": "Wigner, E. P. (1960). The unreasonable effectiveness of mathematics in the natural sciences. Communications on Pure and Applied Mathematics, 13(1), 1–14.",
+      "year": "1960"
     },
     {
       "citation": "Kauffman, S. A. (2000). Investigations. Oxford University Press.",
