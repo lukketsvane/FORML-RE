@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "cf9e44ff49346d455a89cdccb7e5266cdebf59fde2b96135356f80f7579401a3",
+  "sourceHash": "353a1fd0de3a9ebb84847759c25cc25c8e1607994c54efcce08457a7a33f5be5",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
-    "figurar.json": "9e18c579dbec3772acbeda8e56b2ed15060a5daf0df75d0f04696e4216e2ab12",
+    "figurar.json": "0d78dde9e9f3829b9b55aebeab05dd93acab53626d0d3c5c176312a2f7d1acd3",
     "kjelder.json": "7fceb0a70e100c84d32ce7c4956d8182a24a4f88ab07a435ef68884ddf092a5b",
     "layout/authoring.tex": "0ac14df9ba935c57df5270b10ed30ddb61be09016c483f7966e7315360031279",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
@@ -18,15 +18,15 @@
     "nettstad/illustrations/agens-strata-20261103.jpg": "bd0c601d9be8ff7d552db318097631d7062d1d2b7f22f01f7c496809e2edfb3a",
     "nettstad/illustrations/agent-scales-20261101.svg": "88851cbc81bef5ef196fca7cd2c301b71fb403e579c66b36673a416571782474",
     "nettstad/illustrations/formgrammatikk-20261101.png": "9b16de6d7019d1bd1215262f89422e0c049b03ca17e8ab981a679d7086722794",
-    "nettstad/illustrations/lyskjegle-20261105.svg": "a45883e74d75446926490d57644a8ff84ba462ac7a59608fe9710d771689b6a1",
+    "nettstad/illustrations/lyskjegle-20261111.svg": "3274020c9daefcf757af77284035fb0e2a1ec840aa8038f541b5739b5dcb36cf",
     "nettstad/illustrations/model-overview-20261101.svg": "d9b9abb9ca818e0ad1f4b1ffb53ff731df71a12a15b177ac8821145574b67bec",
     "nettstad/illustrations/scan-20261031-p11-busette-opne-forbodne.png": "73ccfe947557cfc0e659f944a59f5c24c4f858461d078bccf5e07185e6382192",
     "nettstad/illustrations/scan-20261031-p16-royrstol-utvikling.png": "81fc638b6981e98d5d4300488d1c4c166de3e0c340403877f95db541bbf33092",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/kort.html": "3345a653bff1dbf02c4a2eaffdd965232dcc05f64984fdc724551d632d8cc5f9",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
-    "nettstad/kortversjon.html": "40b6a4abaca9fe119d98e365736ef72b94735e7885d7b57d8ff5e55121321535",
-    "nettstad/kortversjon.tex": "3ef9e46ca17f046f2002962ba25205681724408286c1bbfb0cad9ece258255e0",
+    "nettstad/kortversjon.html": "a7105edf4c3ea3b7272aca5faeec626f66b7db37eb085634e46810feac9eda6f",
+    "nettstad/kortversjon.tex": "7f56a66e41075c6e316fc65407911b883422e6b90b0bd6a1b959b2dc028ff99e",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
@@ -43,12 +43,12 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "c62a1a5d78666c7bc88a503f0f41ef7586d1f9d84acdb7f22ef3ff8f06d75b3e",
+    "tekst/formlaere.tex": "26f3a1425ea0cfaa0c3699ec1b305c88afb10f9a24f7f23c03ab6dbbc4687920",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "4563b4cfb0864110b3a65172656205b203bfdf8f8216b5f8331345751ed38df4",
-    "formlaere-latex.zip": "8d5690a32beeda1f94953657d47ae7f97cac75120824a1961b05d8a3dab061a7"
+    "formlaere.pdf": "3901144fe8caf1af2bcbf95199ad10117451ea2103e2b64081a0956612ddf3fe",
+    "formlaere-latex.zip": "cfa76ec58d9ce5a3ea88887c609e3cf57710bd69105d21dc5d086d703562e691"
   },
   "quality": {
     "pages": 92,
