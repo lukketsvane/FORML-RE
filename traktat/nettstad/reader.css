@@ -94,7 +94,7 @@ body{
 .prop.active .n{color:var(--fg)}
 
 /* Book drawings live in the normal text stream, never in a floating overlay. */
-.figure-set{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;width:100%;max-width:100%;min-width:0;margin:.5rem 0 1.65rem 0;padding:0}
+.figure-set{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;width:calc(100% - 4.15rem);max-width:100%;min-width:0;margin:.5rem 0 1.65rem 4.15rem;padding:0}
 .tractate-figure{margin:0;padding:0;max-width:100%;width:100%;text-align:left}
 .figure-open{display:block;color:inherit}
 .figure-open:focus-visible{outline:1px solid var(--dim);outline-offset:3px}
@@ -192,5 +192,6 @@ body{
   :root{--page-gutter:clamp(16px,4vw,20px)}
   .plain-paragraph,.prop .t{text-align:left;hyphens:auto;-webkit-hyphens:auto}
   .prop{grid-template-columns:3.4rem minmax(0,1fr);gap:0 .5rem}
+  .figure-set{width:calc(100% - 3.9rem);margin-left:3.9rem}
   .math-display{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 }

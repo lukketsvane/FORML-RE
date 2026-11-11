@@ -1,6 +1,6 @@
 # Revisjon 11. november 2026: stigen, omsorg og forskingsprogram
 
-Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 491 proposisjonar, 96 notat, 133 kjelder, 38 ordlisteoppslag og seks figurar. Alle dei 377 tidlegare adressene finst framleis; 114 er nye.
+Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 489 proposisjonar, 98 notat, 133 kjelder, 38 ordlisteoppslag og elleve figurar. Alle dei 377 tidlegare adressene finst framleis; 112 er nye.
 
 Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som kan fellast, og omsorg skal vere eit formelt omgrep i den same arkitekturen som forklarer form og val. Forma skal vere ein stige: éin tanke per trinn, og kvart trinn skal følgje av dei føregåande.
 
@@ -8,14 +8,34 @@ Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som 
 
 | Mål | Før | No | Tractatus (norsk utgåve) |
 | --- | --- | --- | --- |
-| Median lengd per proposisjon (teikn) | 191 | 148 | 97 |
+| Median lengd per proposisjon (teikn) | 191 | 141 | 97 |
 | Lengste proposisjon (teikn) | 1410 | 401 | |
 | Tilvisingar i parentes i proposisjonane | 307 | 0 | 0 |
 
 - **Tilvisingane er ute av proposisjonane.** Nummeret viser alt kva eit trinn kviler på. Nokre få tilvisingar står att der setninga sjølv treng dei («definisjonen i 5.11»).
 - **Lange proposisjonar er delte.** Hovudtrinnet seier påstanden; undertrinna ber det som før stod i andre og tredje avsnitt. Døme: 5.11 (agenten) har fått 5.1101–5.1104, 5.7 (kjernelikninga) 5.701–5.704, 6.6 (valmodellen) 6.601–6.602, 4.3 (minnet i landskapet) 4.31–4.33.
-- **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 96). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
+- **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 98). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
 - **Dei formelle setningane står samla i kortversjonen** (`nettstad/kortversjon.tex`): målvekt, svarkurve, kanalgrense, rekkjevidd og skala, og registeret over føreseiingar. Lesekoden seier dette.
+
+## Figurar
+
+- Figurane står i tekstspalta, både på nett og i PDF, og har ikkje bilettekst. Atterhalda frå bilettekstane står i notata til 1.54, 1.61, 5.22, 6.66 og 7.012.
+- Fem nye skjematiske figurar: landskapet med grunn og djup dal (etter 3.121), omhug og kapasitet som tabell (5.232), svarkurva (6.711), omsorgsvandringa (6.732) og dei tre horisontane (7.143).
+- Verknadskjegla er teikna om og flytta til 7.012. Det skraverte området heiter no «verknad utan mål»; det uhaldne og det uverna er delar av det.
+- I lyskjeglefiguren kryssar ikkje linjene lenger tekstmerka.
+
+## Gjentakingar
+
+Eit likskapssøk over alle par av proposisjonar fann desse gjentakingane. Dei er strokne eller korta:
+
+- Dei fire grensetilfella stod både i 5.72 og 6.65. 6.65 ber no berre det som er nytt der.
+- Vurderinga var definert to gonger (5.701 og 6.61). 6.61 viser no til kjernelikninga.
+- «Grammatikken avgrensar det genererbare» stod i 5.301, 5.703 og 6.63. Det står att i 5.301.
+- 6.66 brukte «forskingsprogram» før 7.17 definerer ordet.
+- 6.0211 viste til eit «fagleg ansvarsprinsipp» som ikkje lenger finst i teksten.
+- Korta: 1.2342, 5.023, 5.1103, 5.2311, 5.2611, 5.2612, 5.641, 6.02, 6.024, 6.025, 6.1211, 6.612, 7.13 og 7.271. Strokne: 6.0221 og det tidlegare 6.6101.
+
+Refrenga er uendra med vilje: «Fjellet er ikkje i kartet» (1.3211, 7.34) og «sett utanfrå» (1.2351, 5.62, 7.031).
 
 ## Omsorg
 
@@ -72,8 +92,7 @@ Tidlegare analysar av stolmaterialet er gjorde på dei same formene som stilkate
 
 1. **Kor langt delinga skal gå.** Om lag 60 proposisjonar frå den opphavlege teksten har framleis to eller tre korte avsnitt. Dei les godt slik, og er ikkje delte. Skal medianen ned mot Tractatus, er det desse som må delast.
 2. **«Det utenkjelege».** U er det som verken er kjent eller tenkt. Strengt teke er det «det utenkte». Termen er uendra.
-3. **Figuren til 7.013** merkjer heile den delen av verknadskjegla som ligg utanfor lyskjegla, som «det uverna». Etter 7.013 er området berre utan vekt for denne agenten. Figuren er skjematisk og uendra.
-4. **Rasesamanlikninga i føreordet** er det mest utsette punktet. Ho er uendra.
+3. **Rasesamanlikninga i føreordet** er det mest utsette punktet. Ho er uendra.
 
 ## Det som ikkje er gjort
 

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-labelledby="landskap-title landskap-desc">
+  <title id="landskap-title">Tilpassingslandskapet</title>
+  <desc id="landskap-desc">Ei kurve over formrommet med spenning på den loddrette aksen. Kurva har ein grunn dal til venstre, ein rygg i midten og ein djup dal til høgre. Ein prikk ligg i botnen av den grunne dalen.</desc>
+  <rect x="0" y="0" width="1000" height="660" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M110 580 H912"/>
+    <path d="M110 580 V104"/>
+  </g>
+  <g fill="#080808">
+    <path d="M930 580 l-19 -9 5 9 -5 9 Z"/>
+    <path d="M110 86 l-9 19 9 -5 9 5 Z"/>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M130 150 C215 150 250 390 330 390 S440 250 520 250 S640 480 735 480 S860 170 925 170"/>
+  </g>
+  <circle cx="330" cy="377" r="11" fill="#080808"/>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="134" y="100" font-size="38" text-anchor="start">spenning</text>
+    <text x="930" y="632" font-size="38" text-anchor="end">formrom</text>
+    <text x="330" y="446" font-size="38" text-anchor="middle">grunn dal</text>
+    <text x="520" y="224" font-size="38" text-anchor="middle">rygg</text>
+    <text x="735" y="536" font-size="38" text-anchor="middle">djup dal</text>
+  </g>
+</svg>

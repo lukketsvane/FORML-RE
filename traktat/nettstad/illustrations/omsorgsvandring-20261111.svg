@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" role="img" aria-labelledby="omsorgsvandring-title omsorgsvandring-desc">
+  <title id="omsorgsvandring-title">Omsorga må ende i eit eige omsyn</title>
+  <desc id="omsorgsvandring-desc">Til venstre tre agentar A, B og C. Piler går frå A til B og frå B til C, og frå kvar agent ned til ei rute som står for eit eige omsyn: vandringa endar i eit eige omsyn. Til høgre to agentar med piler berre til kvarandre og ingen ruter: ingen eigne omsyn, inga vurdering.</desc>
+  <rect x="0" y="0" width="1000" height="470" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.5">
+    <circle cx="130" cy="130" r="44"/>
+    <circle cx="330" cy="130" r="44"/>
+    <circle cx="530" cy="130" r="44"/>
+    <circle cx="760" cy="130" r="44"/>
+    <circle cx="920" cy="130" r="44"/>
+    <rect x="100" y="270" width="60" height="60"/>
+    <rect x="300" y="270" width="60" height="60"/>
+    <rect x="500" y="270" width="60" height="60"/>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M174 130 H268"/>
+    <path d="M374 130 H468"/>
+    <path d="M130 174 V252"/>
+    <path d="M330 174 V252"/>
+    <path d="M530 174 V252"/>
+    <path d="M803 118 H859"/>
+    <path d="M877 142 H821"/>
+  </g>
+  <g fill="#080808">
+    <path d="M286 130 l-19 -9 5 9 -5 9 Z"/>
+    <path d="M486 130 l-19 -9 5 9 -5 9 Z"/>
+    <path d="M130 270 l-9 -19 9 5 9 -5 Z"/>
+    <path d="M330 270 l-9 -19 9 5 9 -5 Z"/>
+    <path d="M530 270 l-9 -19 9 5 9 -5 Z"/>
+    <path d="M877 118 l-19 -9 5 9 -5 9 Z"/>
+    <path d="M803 142 l19 -9 -5 9 5 9 Z"/>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 12">
+    <path d="M645 60 V440"/>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="130" y="142" font-size="36" text-anchor="middle" font-style="italic">A</text>
+    <text x="330" y="142" font-size="36" text-anchor="middle" font-style="italic">B</text>
+    <text x="530" y="142" font-size="36" text-anchor="middle" font-style="italic">C</text>
+    <text x="760" y="142" font-size="36" text-anchor="middle" font-style="italic">A</text>
+    <text x="920" y="142" font-size="36" text-anchor="middle" font-style="italic">B</text>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="330" y="394" font-size="28" text-anchor="middle">vandringa endar</text>
+    <text x="330" y="432" font-size="28" text-anchor="middle">i eit eige omsyn</text>
+    <text x="840" y="394" font-size="28" text-anchor="middle">ingen eigne omsyn:</text>
+    <text x="840" y="432" font-size="28" text-anchor="middle">inga vurdering</text>
+  </g>
+</svg>

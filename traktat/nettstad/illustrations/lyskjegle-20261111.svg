@@ -27,6 +27,8 @@
     <path d="M945 616 l-22 -11 5 11 -5 11 Z"/>
     <circle cx="580" cy="617" r="8"/>
   </g>
+  <rect x="588" y="573" width="164" height="36" fill="#fff"/>
+  <rect x="945" y="588" width="372" height="48" fill="#fff"/>
   <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
     <text x="579" y="108" font-size="44" text-anchor="middle">framtid</text>
     <text x="579" y="1160" font-size="44" text-anchor="middle">fortid</text>

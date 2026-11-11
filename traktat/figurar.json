@@ -4,42 +4,57 @@
     {
       "after": "1.54",
       "file": "tankerom-kunnskapsrom-20261101.png",
-      "alt": "C–K-skjema: kunnskap opnar konsept; konsept vert delte i nye greiner og kan avgjerast som kunnskap.",
-      "printWidth": "wide",
-      "caption": "Tanke og kunnskap flyttar seg i fire retningar (1.54). C og K viser her statusen til formposisjonar langs eitt oppgjeve omsyn, ikkje dei to romma i den historiske C–K-teorien utan vidare. K→K-rørsla er ikkje teikna."
+      "alt": "C–K-skjema: kunnskap opnar konsept; konsept vert delte i nye greiner og kan avgjerast som kunnskap."
     },
     {
       "after": "1.61",
       "file": "formgrammatikk-20261101.png",
-      "alt": "Tre formgrammatikkreglar: A vert delt i C og B, B får eit høgre utspring, og C får eit venstre innsnitt. Sluttforma kombinerer dei to.",
-      "printWidth": "wide",
-      "caption": "Tre reglar og ei avleiing, med bokstavmerke til venstre og punktmerke til høgre. Atomlaus innleiring er presisert i 1.611."
+      "alt": "Tre formgrammatikkreglar: A vert delt i C og B, B får eit høgre utspring, og C får eit venstre innsnitt. Sluttforma kombinerer dei to."
     },
     {
-      "after": "5.22",
-      "file": "lyskjegle-20261111.svg",
-      "alt": "Den kognitive lyskjegla Γ(A), teikna som to spisse kjegler over og under punktet «her og no». Pilene peikar mot framtid, fortid og romleg rekkjevidd. Tre ellipsar ligg rundt midtplanet; bakre kant på kjegla er stipla.",
-      "printWidth": "wide",
-      "caption": "Lyskjegla Γ(A) viser skjematisk kor langt måla til ein agent rekk gjennom tid. «Romleg rekkjevidd» er ein projeksjon i figuren, ikkje ei fysisk grense for sansing eller handling (5.22)."
+      "after": "3.121",
+      "file": "landskap-20261111.svg",
+      "alt": "Ei kurve over formrommet med spenning på den loddrette aksen. Kurva har ein grunn dal til venstre, ein rygg i midten og ein djup dal til høgre. Ein prikk ligg i botnen av den grunne dalen."
     },
     {
       "after": "5.125",
       "file": "agens-strata-20261103.jpg",
-      "alt": "Handteikna skjema med termostat, tre, koloni, pattedyr og designar i fem lag.",
-      "printWidth": "wide"
+      "alt": "Handteikna skjema med termostat, tre, koloni, pattedyr og designar i fem lag."
+    },
+    {
+      "after": "5.22",
+      "file": "lyskjegle-20261111.svg",
+      "alt": "Den kognitive lyskjegla Γ(A), teikna som to spisse kjegler over og under punktet «her og no». Pilene peikar mot framtid, fortid og romleg rekkjevidd. Tre ellipsar ligg rundt midtplanet; bakre kant på kjegla er stipla."
+    },
+    {
+      "after": "5.232",
+      "file": "omhug-kapasitet-20261111.svg",
+      "alt": "Ein tabell med to rader og to kolonnar. Med omhug og med kapasitet: hald. Med omhug, utan kapasitet: avmakt. Utan omhug, med kapasitet: likegyldigheit. Utan begge: blindskap."
     },
     {
       "after": "6.66",
       "file": "model-overview-20261101.svg",
-      "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala",
-      "caption": "Fem ledd i modellen: formrom, kunnskapsstand, grammatikk, landskap og agentar. Pilene viser ulike verkemåtar, ikkje éi lineær årsakskjede (6.66)."
+      "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala"
     },
     {
-      "after": "7.013",
+      "after": "6.711",
+      "file": "svarkurve-20261111.svg",
+      "alt": "To diagram med biletet av avviket på den vassrette aksen og det faktiske avviket på den loddrette. I det venstre stig kurva: meir omsorg kan ikkje skade. I det høgre fell kurva: meir omsorg kan ikkje hjelpe."
+    },
+    {
+      "after": "6.732",
+      "file": "omsorgsvandring-20261111.svg",
+      "alt": "Til venstre tre agentar A, B og C. Piler går frå A til B og frå B til C, og frå kvar agent ned til ei rute som står for eit eige omsyn: vandringa endar i eit eige omsyn. Til høgre to agentar med piler berre til kvarandre og ingen ruter: ingen eigne omsyn, inga vurdering."
+    },
+    {
+      "after": "7.012",
       "file": "verknadskjegle-20261111.svg",
-      "alt": "To kjegler stig frå punktet der forma vert realisert: lyskjegla til agenten og verknadskjegla til forma. Dei overlappar delvis. Den delen av verknadskjegla som ligg utanfor lyskjegla, er skravert og merkt «det uverna».",
-      "printWidth": "wide",
-      "caption": "Lyskjegla er det agenten har som mål; verknadskjegla er det forma verkar på. Det uverna ligg i verknadskjegla utan å vere halde eller verna (7.011–7.013). Skjematisk."
+      "alt": "To kjegler stig frå same punkt, der forma vert realisert. Den venstre er lyskjegla til agenten, den høgre verknadskjegla til forma. Dei overlappar delvis. Den delen av lyskjegla som ligg utanfor verknadskjegla, er merkt mål utan verknad. Den delen av verknadskjegla som ligg utanfor lyskjegla, er skravert og merkt verknad utan mål."
+    },
+    {
+      "after": "7.143",
+      "file": "horisontar-20261111.svg",
+      "alt": "Ei tidsline frå no. Tre vassrette strekar viser kor langt agenten føreseier, kor langt måla hans rekk, og kor lenge han kan halde. Streken for å føreseie er lengst, streken for å halde kortast. Ei stipla loddrett line viser når følgja kjem: innanfor det agenten føreseier og har som mål, men etter at haldet er slutt."
     }
   ]
 }
