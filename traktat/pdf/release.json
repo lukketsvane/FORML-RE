@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "b172aa665339df1ea09b2a3bf18232ee48454ed7bc4e9fec314ac1c3619632c7",
+  "sourceHash": "37c090ebce311903debc9783d8028027bd3a82d2ca5c83821b6bf6cf3c0094a3",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
-    "kjelder.json": "f89a3807bbd8b6a48001bf6bffcb974146bebeb844ec927cfc60f1429e522795",
+    "kjelder.json": "b83314e90964d963e84241ee982fe6aaa3aad410c230b4a71503ce2ea47da35a",
     "layout/authoring.tex": "0ac14df9ba935c57df5270b10ed30ddb61be09016c483f7966e7315360031279",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
     "layout/fonts/EBGaramond08-Italic.otf": "c9717f40d3d87bbcd874cbd31fca568f9e27cbaf68ac1d8886ad9c2122fc488f",
@@ -38,9 +38,9 @@
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "2e89c62f5dd6ee8ac82b94c6cd67148036ce1a63c71a59706217e35d395a4a2e",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "1f8fa0bd4d5237959b1cfbe7913c424f7f4b72becaad596b6e4cdd3735a4a047",
+    "nettstad/reader.css": "d186e02fc15275fa795675bcba5c8e93389df34072a7e44caf8460332874d0bb",
     "nettstad/reader.html": "e7fcf009d721af191bb5a0d9b071496b1bdfb16117ca5c9e353d70764d6bb85b",
-    "nettstad/reader.js": "cb6a6691363c5a21e14a75576ffbf4ac3fdaab29af794ba3fa3e81c0fc466e4d",
+    "nettstad/reader.js": "8b644e465b61c54fac506e990db2b6044d2c25240ee0505697fdd37a3ea17cf7",
     "ordliste.json": "d478b64016e85ab6e8bdf115c1ce87ff9f2af1de97695e3453d2f9ea9924f798",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "2a99d16c259cc2eaab5340f69f1d887f8e8f61628798ccae5edb88289bbdf4aa",
@@ -49,18 +49,18 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "95366ebeba5092ee19c4194539376f121f61f7770e63147b381167f0cd704de6",
+    "tekst/formlaere.tex": "3538288fe5de79bd1e3fc7fd69389651840f010cf997e2253a2cd243fca9d9f3",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "a1fe63f131452186395c3b43b1d6ba83129308845ae42ad98e07025dfa43f581",
-    "formlaere-latex.zip": "97ec373e50c992d8dce82a5d9717ccb90154876d86291bb89c65b7bb8ded415d"
+    "formlaere.pdf": "adf47eeb545424f7fd59977a5398d3911b3415c1bb8d97b118ad17cb1ec4ced4",
+    "formlaere-latex.zip": "f20c157d8815f65adc63b846225c79ca980eb1e4c50a1b9346cf539a9da27e69"
   },
   "quality": {
-    "pages": 103,
-    "destinations": 759,
-    "propositions": 489,
-    "notes": 98,
+    "pages": 102,
+    "destinations": 764,
+    "propositions": 487,
+    "notes": 105,
     "references": 133,
     "figures": 11,
     "glossary": 38

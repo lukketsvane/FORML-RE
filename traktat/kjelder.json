@@ -1174,7 +1174,7 @@
       "id": "prop-5-401",
       "proposition": "5.401",
       "section": null,
-      "note": "Hartl, Risi og Levin undersøkjer arva startkonfigurasjonar og reglar i ein simulert nevral celleautomat. Resultata gjeld denne modellen. Avgjerder under støy endrar avveginga mellom struktur og kompetanse; dei viser ikkje at meir kompetanse alltid er betre.",
+      "note": "Hartl, Risi og Levin undersøkjer arva startkonfigurasjonar og reglar i ein simulert nevral celleautomat. Resultata gjeld denne modellen. Avgjerder under støy endrar avveginga mellom struktur og kompetanse; dei viser ikkje at meir kompetanse alltid er betre. Observasjonen gjeld bestemte simuleringar, ikkje alle materiale.",
       "sources": [
         "92"
       ],
@@ -1337,7 +1337,7 @@
       "id": "prop-2-202",
       "proposition": "2.202",
       "section": null,
-      "note": "Riegl er stilhistorisk bakgrunn, ikkje dokumentasjon av den statistiske samanlikninga. Hypotesen krev same utval og målbare aksar, uavhengig fastsette stilkategoriar og prøving utanfor materialet modellane er tilpassa til. Elles kan stilnamnet berre kode formene ein prøver å forklare.",
+      "note": "Riegl er stilhistorisk bakgrunn, ikkje dokumentasjon av den statistiske samanlikninga. Hypotesen krev same utval og målbare aksar, uavhengig fastsette stilkategoriar og prøving utanfor materialet modellane er tilpassa til. Elles kan stilnamnet berre kode formene ein prøver å forklare. Utval, aksar, stilklassifikasjon og grunnmodell må fastsetjast før prøva.",
       "sources": [
         "53"
       ],
@@ -1893,6 +1893,62 @@
       "note": "Figuren er skjematisk. Det uhaldne og det uverna i 7.013 er delar av det skraverte området, ikkje heile.",
       "sources": [],
       "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-1-241",
+      "proposition": "1.241",
+      "section": null,
+      "note": "Postulatet tilskriv verken feltet som heilskap ei utside eller kvart utskilt mønster eit eige sjølv.",
+      "sources": [],
+      "relation": "avgrensing"
+    },
+    {
+      "id": "prop-5-0281",
+      "proposition": "5.0281",
+      "section": null,
+      "note": "Samvariasjonen viser ikkje at oppleving berre finst i hjernen, eller at samvariasjonen forklarer henne.",
+      "sources": [],
+      "relation": "avgrensing"
+    },
+    {
+      "id": "prop-5-2001",
+      "proposition": "5.2001",
+      "section": null,
+      "note": "For å samanlikne styrken mellom agentar eller omsyn må både eininga for avviket og kva som tel som arbeid, vere fastsett.",
+      "sources": [],
+      "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-5-232",
+      "proposition": "5.232",
+      "section": null,
+      "note": "Blindskap er ei operativ nemning: ho seier at agenten verken svarar eller kan halde, ikkje at han manglar all kunnskap om aksen.",
+      "sources": [],
+      "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-5-271",
+      "proposition": "5.271",
+      "section": null,
+      "note": "Dei to verknadene kan prøvast ved å endre den eine medan den andre vert halden fast.",
+      "sources": [],
+      "relation": "prøveopplegg"
+    },
+    {
+      "id": "prop-5-61",
+      "proposition": "5.61",
+      "section": null,
+      "note": "Kor sterkt sjølvhaldet er, vert prøvd under forstyrring.",
+      "sources": [],
+      "relation": "prøveopplegg"
+    },
+    {
+      "id": "prop-6-211",
+      "proposition": "6.211",
+      "section": null,
+      "note": "Det som står att å forklare, er korleis den felles reguleringa vert halden, og kva tilgang den nye avgrensinga gjev.",
+      "sources": [],
+      "relation": "avgrensing"
     }
   ],
   "aliases": {
