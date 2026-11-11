@@ -311,9 +311,25 @@ test('scrubbing the visible bottom of a short branch reaches its last propositio
   const stem = descendants(tree).find(node => node.classList.contains('stem'));
   const [, x, , bottom] = stem.getAttribute('d').match(/^M([\d.]+) ([\d.]+) V([\d.]+)$/).map(Number);
   tree.dispatch('pointerdown', { pointerId: 1, clientX: x, clientY: bottom });
+  assert.equal(app.byId('1.1111').scrolls, 0, 'A press waits: it may become a long press');
+  tree.dispatch('pointerup', { pointerId: 1, clientX: x, clientY: bottom });
   app.flushFrames();
   assert.equal(app.byId('1.1111').scrolls, 1, 'The full member range fits the actual drawn stem');
   assert.ok(app.byId('1.1111').classList.contains('active'));
+});
+
+test('pinching the propositions limits how deep the tree is shown', async () => {
+  const app = await reader();
+  const read = app.byId('read');
+  const touches = gap => [{ clientX: 100, clientY: 300 }, { clientX: 100 + gap, clientY: 300 }];
+  read.dispatch('touchstart', { touches: touches(300) });
+  const move = read.dispatch('touchmove', { cancelable: true, touches: touches(30) });
+  assert.equal(move.defaultPrevented, true, 'The pinch does not zoom the page');
+  assert.equal(app.byId('1').hidden, false, 'Main propositions always stay');
+  assert.equal(app.byId('1.1111').hidden, true, 'Pinched together, only main propositions show');
+  assert.equal(descendants(app.byId('tree')).filter(node => node.classList.contains('stem')).length, 0);
+  read.dispatch('touchmove', { cancelable: true, touches: touches(300) });
+  assert.equal(app.byId('1.1111').hidden, false, 'Spread again, the full depth returns');
 });
 
 
