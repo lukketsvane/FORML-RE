@@ -16,7 +16,7 @@ Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som 
 - **Tilvisingane er ute av proposisjonane.** Nummeret viser alt kva eit trinn kviler på. Nokre få tilvisingar står att der setninga sjølv treng dei («definisjonen i 5.11»).
 - **Lange proposisjonar er delte.** Hovudtrinnet seier påstanden; undertrinna ber det som før stod i andre og tredje avsnitt. Døme: 5.11 (agenten) har fått 5.1101–5.1104, 5.7 (kjernelikninga) 5.701–5.704, 6.6 (valmodellen) 6.601–6.602, 4.3 (minnet i landskapet) 4.31–4.33.
 - **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 105). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
-- **Føreordet** er ordrett det same som før revisjonen. Éi tilvising er flytta (7.26 → 7.25).
+- **Føreordet** er henta attende slik det stod før 5. november (før commit `7ac5091`), med to tilvisingar retta etter gjeldande adresser og eit kort sluttavsnitt.
 - **Dei formelle setningane står samla i kortversjonen** (`nettstad/kortversjon.tex`): målvekt, svarkurve, kanalgrense, rekkjevidd og skala, og registeret over føreseiingar. Lesekoden seier dette.
 
 ## Røysta
@@ -118,7 +118,7 @@ Tidlegare analysar av stolmaterialet er gjorde på dei same formene som stilkate
 
 1. **Kor langt delinga skal gå.** Om lag 60 proposisjonar frå den opphavlege teksten har framleis to eller tre korte avsnitt. Dei les godt slik, og er ikkje delte. Skal medianen ned mot Tractatus, er det desse som må delast.
 2. **«Det utenkjelege».** U er det som verken er kjent eller tenkt. Strengt teke er det «det utenkte». Termen er uendra.
-3. **Rasesamanlikninga i føreordet** er det mest utsette punktet. Ho er uendra.
+3. **Rasesamanlikninga i føreordet** er det mest utsette punktet. Ho står no utan atterhald, slik ho stod før 5. november.
 
 ## Det som ikkje er gjort
 
