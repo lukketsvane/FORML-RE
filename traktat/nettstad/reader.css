@@ -162,9 +162,9 @@ body{
 .source-ref{font-family:var(--mono);font-size:.63em;line-height:0;vertical-align:super;text-decoration:none;padding:0 .1em}
 .source-ref .xref{display:inline-block;line-height:1;padding:.2em .1em;margin:-.2em 0}
 .note-ref{display:inline-block;margin-left:.3em;color:var(--dim);font-family:var(--mono);font-size:.62em;line-height:1;vertical-align:super}
-/* The reading line stays clean: sources and notes show on the current proposition only. */
-.prop .source-ref,.prop .note-ref{opacity:0;transition:opacity .15s}
-.prop.active .source-ref,.prop.active .note-ref,.prop:hover .source-ref,.prop:hover .note-ref,.prop:focus-within .source-ref,.prop:focus-within .note-ref{opacity:1}
+/* Source numbers stay in the line: they show where other fields reached the same concept. Notes show on the current proposition only. */
+.prop .note-ref{opacity:0;transition:opacity .15s}
+.prop.active .note-ref,.prop:hover .note-ref,.prop:focus-within .note-ref{opacity:1}
 @media print{
   @page{margin:16mm 14mm}
   :root{--bg:#fff;--fg:#000;--dim:#555;--line:#bbb;--hair:#ddd}
