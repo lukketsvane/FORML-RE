@@ -198,7 +198,7 @@ body{
 .math-display{display:block;max-width:100%;overflow-x:auto;padding:.65em 0}
 
 /* Small screens need legible text without large justification gaps. */
-@media(max-width:420px){
+@media(max-width:480px){
   :root{--page-gutter:clamp(16px,4vw,20px)}
   .plain-paragraph,.prop .t{text-align:left;hyphens:auto;-webkit-hyphens:auto}
   .prop{grid-template-columns:3.4rem minmax(0,1fr);gap:0 .5rem}
