@@ -26,7 +26,7 @@ Proposisjonane seier no kva som er tilfelle. 123 stader er endra:
 - «kan» er bytt med indikativ der det berre uttrykte forsiktigheit. Det står der moglegheit er sjølve saka: formrom, affordans, kapasitet.
 - Setningar som berre åtvarar eller fortel korleis noko skal prøvast, er strokne eller flytta til notata (sju nye notat).
 - Ingen teorem er gjort sterkare enn vilkåra sine.
-- På nett er kjelde- og notemerka usynlege til proposisjonen er aktiv.
+- På nett er notemerka usynlege til proposisjonen er aktiv. Kjeldetala står synlege.
 
 Dei mest utsette nye formuleringane: 3.12 («Eit landskap har fleire lokale minimum»), 5.6 («Eit system med mål som vert halde heilt av andre, lever ikkje»), 6.022 (cella oppfyller designkriteriet), 6.66 («Samanbindinga forklarer berre det ho føreseier») og 6.755 (krympinga finst i verkstader, føretak og fag).
 
