@@ -102,8 +102,7 @@
       "fields": [
         "Dynamiske system",
         "Utviklingsbiologi"
-      ],
-      "connection": "Små endringar i vilkåra kan endre kva forløp som er stabile, og gjev teksten eit språk for at nye former kan kome brått; sjølve bifurkasjonen er ei kvalitativ endring i dynamikken."
+      ]
     },
     {
       "id": "blandingstid",
@@ -607,7 +606,6 @@
         "Nevrovitskap"
       ],
       "definition": "Ein regel eller strategi for å velje handling ut frå ein tilstand eller observasjon, kalla policy på engelsk. Han kan gje éi handling eller sannsyn for fleire moglege handlingar.",
-      "connection": "Iver Raknes Finne nyttar π om politikken i agensdefinisjonen sin. Brytaren i termostaten viser kor enkel ein slik regel kan vere.",
       "propositions": [
         "5.11",
         "5.113",
