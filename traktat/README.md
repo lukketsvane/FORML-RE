@@ -48,9 +48,9 @@ Eit proposisjonsnotat vert knytt til den stabile adressa i `kjelder.json`. Notat
 
 Alle aktive kjelder skal vere brukte i teksten, notata eller ordlista. `requireReferencedSources` i `edition.json` gjer dette til ein byggjekontroll. Dublettar kan få eit direkte alias i `kjelder.json`, til dømes `"aliases": {"63": "19"}`. Gamle lenkjer og PDF-anker vert då bevarte utan ei ekstra bibliografioppføring. Kjelder som vert tekne ut, vert arkiverte med opphavleg metadata og grunn for uttaket.
 
-Det historiske migreringsgrunnlaget i arkivet har 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala høyrer til arkivprøva, ikkje den gjeldande utgåva eller ei fast grense i lesaren. LaTeX-migreringa bevarer alle dei 377 proposisjonsadressene i den gjeldande teksten. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
+Det historiske migreringsgrunnlaget i arkivet har 375 proposisjonar, 41 notat, 108 referansar og seks figurar. Desse tala høyrer til arkivprøva, ikkje den gjeldande utgåva eller ei fast grense i lesaren. LaTeX-migreringa bevarte alle dei 377 proposisjonsadressene. Revisjonen 11. november 2026 held dei 377 adressene fast og legg til 64 nye; sjå `endringsnotat-2026-11-11.md`. Nye, gyldige proposisjonar krev inga endring av ein teljekonstant.
 
-Det publiserte føreordet er bevart ordrett. Kjelde-ID `108` er utelaten med vilje og skal ikkje brukast på nytt. Utelatne ID-ar gjev ikkje hòl i den synlege referanselista.
+Føreordet og lesekoden vart reviderte 11. november 2026. Kjelde-ID `108` er utelaten med vilje og skal ikkje brukast på nytt. Utelatne ID-ar gjev ikkje hòl i den synlege referanselista.
 
 ## Ordliste
 
