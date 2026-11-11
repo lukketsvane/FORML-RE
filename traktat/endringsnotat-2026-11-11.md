@@ -1,6 +1,6 @@
 # Revisjon 11. november 2026: stigen, omsorg og forskingsprogram
 
-Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 492 proposisjonar, 105 notat, 150 kjelder, 38 ordlisteoppslag og elleve figurar. Alle dei 377 tidlegare adressene finst framleis; 115 er nye.
+Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 491 proposisjonar, 105 notat, 150 kjelder, 38 ordlisteoppslag og elleve figurar. Av dei 377 tidlegare adressene finst 376 framleis (7.4 er stroken etter ønske frå forfattaren); 115 er nye.
 
 Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som kan fellast, og omsorg skal vere eit formelt omgrep i den same arkitekturen som forklarer form og val. Forma skal vere ein stige: éin tanke per trinn, og kvart trinn skal følgje av dei føregåande.
 
@@ -102,7 +102,7 @@ Begge dei gamle formuleringane ligg i git-historia og kan setjast inn att.
 
 Sjeldne og gamalmodige ord er bytte til moderne nynorsk: likesæle → likegyldigheit, hjå → hos, attende → tilbake, somme → nokre, røynsle → erfaring, røyndom → verkelegheit, korkje → verken, inkje → ingenting, kring → rundt, sams → felles, stoda → situasjonen, synt → vist, prov → bevis, utsegn → påstand, framlegg → forslag, høve → moglegheit, trugsmål → trussel, «i den mon» → «i den grad», «di … di» → «jo … jo», lekamar → volum, liner → linjer, stratifisert → lagdelt.
 
-Med vilje uendra: omhug, blindskap, hinne, busett, tyder, difor, åleine, me, og «Forma stoggar. Verknaden held fram.»
+Med vilje uendra: omhug, blindskap, hinne, busett, tyder, difor, åleine og me.
 
 ## Framgang og tap
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "689288977dbcb4beb8af0845e50e15c2b10ff233a3ecfe8e34c8aa0a8f3956e5",
+  "sourceHash": "1d1cce60723eece2e63016ecd01c5c2bf0d233cef4629517e1d1ddb023ac7714",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
@@ -29,7 +29,7 @@
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
-    "nettstad/kort.html": "600a88b36857aa9db99c7b3600ee3fd70eb74f352d8b7b82dab24874a76f5c60",
+    "nettstad/kort.html": "dc9ebe53e4d33f9d2f44a52b16ae8e4c23d1b47d811925f71c34e39c1e815da1",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
     "nettstad/kortversjon.html": "094a7825045852f96a51ab2707c0583004391acdb3107cfe61172c89b9693b98",
     "nettstad/kortversjon.tex": "974ca369958fe133159525440d3fcc13614b27dbee5b502289aea88d8d2fcaf4",
@@ -49,17 +49,17 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "66fbae8bb0752b60b25d25204562e1806961a84e13a9e992f7bd3b126fa9625d",
+    "tekst/formlaere.tex": "a5bb04f59ad79d20ae359bdaf4e7aabd03e9a0a98b582ee5b182fd394c8e7e2c",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "94d3d5e798e7bc69801dd97f9a7b0810388b5c5a055bd0c71716e1fe4902c46c",
-    "formlaere-latex.zip": "76fdf304869bf8c0f028124dcace1cbbbcdf7f62ca4d18573e0971fbd9ec5daf"
+    "formlaere.pdf": "500e2e283044ceb0f020043d70d10ec64e5c73a57065b5f89edfb0af861538dd",
+    "formlaere-latex.zip": "9c3e2634d9bb1d5150e95d37d38f04219089168543648930c401d0691fd81caa"
   },
   "quality": {
     "pages": 105,
-    "destinations": 786,
-    "propositions": 492,
+    "destinations": 785,
+    "propositions": 491,
     "notes": 105,
     "references": 150,
     "figures": 11,
