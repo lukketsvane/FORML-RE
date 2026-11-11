@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "3bba975b1e621b5215d7ffaf0a1f6dc0941d09357fa98c7a5824769318b6b034",
+  "sourceHash": "0aee0308e02b19a4e65ac83542079ea2f14ca3f9ec74eac3efdb2f5760e0af70",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
@@ -49,15 +49,15 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "26ac11f32d242574774fe59feb7259fae70fa42f29a3218f66a6b40089e6f8a1",
+    "tekst/formlaere.tex": "37b398d19a3db8d2258b32cb802c752e24d526c8ef82a0af8e20904651e07e02",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "7374acae6e03dd062a4ac3eb1cf5a5dd20e11208e53b43b7bd6fc11bc7761f12",
-    "formlaere-latex.zip": "d02089e689fcc35bb487a3a1a5b44496333d5037885ced33a49e7e838be658b2"
+    "formlaere.pdf": "06959f602eb5baf80be5c7676101ace7255c90a4328472d4268d9ee94d733ee5",
+    "formlaere-latex.zip": "9da233af04f75824eac0bfba2fce847f49e655187141fb4a154a209aca816e37"
   },
   "quality": {
-    "pages": 104,
+    "pages": 105,
     "destinations": 786,
     "propositions": 492,
     "notes": 105,
@@ -71,6 +71,11 @@
       "tex": "(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>𝕄</mi><mo>,</mo><mi>Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi>Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
+    },
+    "eda37e0925574725780227d1": {
+      "tex": "A=(m,\\pi,G,\\varepsilon)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon)</annotation></semantics></math>"
     },
     "c9f3d29ea25ac2c51c52ab1f": {
       "tex": "=",
