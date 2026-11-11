@@ -69,7 +69,7 @@
         "Dynamiske system",
         "Nevrovitskap"
       ],
-      "connection": "Eit stabilt mønster kan vere både ei form som går att, og ei regulering som finn attende etter forstyrring; dalbiletet lèt teksten samanlikne desse skalaene."
+      "connection": "Eit stabilt mønster kan vere både ei form som går att, og ei regulering som finn tilbake etter forstyrring; dalbiletet lèt teksten samanlikne desse skalaene."
     },
     {
       "id": "bayesiansk-inferens",
@@ -90,7 +90,7 @@
     {
       "id": "bifurkasjon",
       "term": "Bifurkasjon",
-      "definition": "Ei kvalitativ endring i oppførselen til eit dynamisk system når ein styringsparameter passerer ein kritisk verdi. Til dømes kan ein stabil kviletilstand forsvinne eller bli ustabil.",
+      "definition": "Ei kvalitativ endring i oppførselen til eit dynamisk system når ein styringsparameter passerer ein kritisk verdi. Til dømes kan ein stabil kviletilstand forsvinne eller verte ustabil.",
       "propositions": [
         "4.12",
         "4.21",
@@ -125,7 +125,7 @@
     {
       "id": "c-k-teori",
       "term": "C–K-teori",
-      "definition": "Hatchuel og Weil sin designteori om samspelet mellom konsept og kunnskap. Eit konsept er eit framlegg som den tilgjengelege kunnskapen enno ikkje kan avgjere; design utviklar både framlegga og kunnskapen som kan avgjere dei.",
+      "definition": "Hatchuel og Weil sin designteori om samspelet mellom konsept og kunnskap. Eit konsept er eit forslag som den tilgjengelege kunnskapen enno ikkje kan avgjere; design utviklar både forslaga og kunnskapen som kan avgjere dei.",
       "propositions": [
         "1.5",
         "1.54",
@@ -140,7 +140,7 @@
         "Designteori",
         "Innovasjonsforsking"
       ],
-      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, omsyn, prøvevilkår og tidspunkt. Det er ei operasjonell tilpassing av C–K, ikkje ei identifisering av kunnskapsutsegner med geometriske former. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna; det utenkjelege U_k markerer per omsyn k at ein kunnskapsstand òg har ei grense han ikkje kan sjå innanfrå."
+      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, omsyn, prøvevilkår og tidspunkt. Det er ei operasjonell tilpassing av C–K, ikkje ei identifisering av kunnskapspåstandar med geometriske former. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna; det utenkjelege U_k markerer per omsyn k at ein kunnskapsstand òg har ei grense han ikkje kan sjå innanfrå."
     },
     {
       "id": "distribuert-kognisjon",
@@ -164,12 +164,14 @@
     {
       "id": "eksponentialfamilie",
       "term": "Eksponentialfamilie",
-      "definition": "Ei familie sannsynsfordelingar der parameterane vektar faste statistiske storleikar i ein eksponent, med ein normaliseringsfaktor som avheng av parameterane.",
+      "definition": "Ein familie sannsynsfordelingar der parameterane vektar faste statistiske storleikar i ein eksponent, med ein normaliseringsfaktor som avheng av parameterane.",
       "propositions": [
         "6.6",
         "6.673",
         "6.674",
-        "7.1521"
+        "7.1521",
+        "6.6711",
+        "6.711"
       ],
       "sources": [
         "113",
@@ -227,11 +229,30 @@
       "propositions": [
         "6.12",
         "6.123",
-        "6.211"
+        "6.211",
+        "6.75"
       ],
       "sources": [
         "87"
       ]
+    },
+    {
+      "id": "forskingsprogram",
+      "term": "Forskingsprogram",
+      "definition": "Lakatos sitt omgrep for ei rekkje teoriar som deler ein hard kjerne av grunnpåstandar, omgjevne av hjelpehypotesar som kan endrast. Programmet er progressivt når endringane føreseier nye fakta, og degenererande når dei berre vernar kjernen mot motdøme.",
+      "propositions": [
+        "7.17",
+        "7.171",
+        "7.172",
+        "7.173"
+      ],
+      "sources": [
+        "165"
+      ],
+      "fields": [
+        "Vitskapsteori"
+      ],
+      "connection": "Læra ordnar seg sjølv etter denne inndelinga og fører eit register over føreseiingar som kan fellast. Kva som høyrer til kjernen, er teksten si eiga avgjerd."
     },
     {
       "id": "fri-energi-prinsippet",
@@ -280,7 +301,8 @@
       "propositions": [
         "6.6",
         "6.61",
-        "6.64"
+        "6.64",
+        "6.613"
       ],
       "sources": [
         "110",
@@ -357,7 +379,7 @@
         "Utviklingsbiologi",
         "Dynamiske system"
       ],
-      "connection": "Det robuste utviklingsforløpet møter formhistoria i biletet av dalvegger: forstyrringar kan endre eit forløp utan å endre mønsteret det vender attende til."
+      "connection": "Det robuste utviklingsforløpet møter formhistoria i biletet av dalveggar: forstyrringar kan endre eit forløp utan å endre mønsteret det vender tilbake til."
     },
     {
       "id": "kl-divergens",
@@ -383,8 +405,8 @@
         "Evolusjonsbiologi",
         "Formhistorie"
       ],
-      "definition": "At liknande trekk utviklar seg uavhengig i ulike utviklingsliner. Likskap i resultatet kan oppstå gjennom ulike genetiske eller utviklingsmessige mekanismar.",
-      "connection": "Uavhengige tradisjonar som nærmar seg liknande former, gjev teksten ein parallell til biologisk konvergens; sams resultat kan vise sams vilkår sjølv når vegane fram er ulike.",
+      "definition": "At liknande trekk utviklar seg uavhengig i ulike utviklingslinjer. Likskap i resultatet kan oppstå gjennom ulike genetiske eller utviklingsmessige mekanismar.",
+      "connection": "Uavhengige tradisjonar som nærmar seg liknande former, gjev teksten ein parallell til biologisk konvergens; felles resultat kan vise felles vilkår sjølv når vegane fram er ulike.",
       "propositions": [
         "3.41",
         "4.2"
@@ -401,7 +423,7 @@
         "Biologi",
         "Kognisjonsvitskap"
       ],
-      "definition": "Fagtradisjon som undersøker styring, kommunikasjon og tilbakekopling i dyr, menneske og maskiner.",
+      "definition": "Fagtradisjon som undersøkjer styring, kommunikasjon og tilbakekopling i dyr, menneske og maskiner.",
       "connection": "Termostaten, cella og mennesket kan samanliknast gjennom mål, avvik og justering; teksten les denne strukturen vidare innanfrå når reguleringa høyrer til eit sjølv.",
       "propositions": [
         "5.1",
@@ -422,7 +444,7 @@
         "Inferens"
       ],
       "definition": "Ein metode for å velje sannsynsfordeling ut frå avgrensa kunnskap: blant fordelingar som oppfyller dei kjende vilkåra, vel ein den med størst entropi.",
-      "connection": "Eksponentiell vekting kan kome både frå ein slik inferensregel og frå dynamikk som i 6.64; same fordeling kan såleis ha ulike tilblivingsprosessar.",
+      "connection": "Eksponentiell vekting kan kome både frå ein slik inferensregel og frå dynamikk som i 6.64; same fordeling kan dermed ha ulikt opphav.",
       "propositions": [
         "5.112",
         "6.6"
@@ -434,7 +456,7 @@
     {
       "id": "markov-teppe",
       "term": "Markov-teppe",
-      "definition": "Ei gruppe variablar som gjev ei statistisk grense mellom to delar av ein modell. Når desse variablane er kjende, gjev opplysningar om utsida ikkje meir informasjon om innsida; grensa treng ikkje vere ei fysisk hinne.",
+      "definition": "Ei gruppe variablar som gjev ei statistisk grense mellom to delar av ein modell. Når desse variablane er kjende, gjev opplysningar om utsida ikkje meir informasjon om innsida; grensa treng ikkje vere ein fysisk membran.",
       "propositions": [
         "5.02"
       ],
@@ -454,7 +476,8 @@
       "propositions": [
         "5.7",
         "6.64",
-        "6.641"
+        "6.641",
+        "6.633"
       ],
       "sources": [
         "110",
@@ -464,7 +487,7 @@
         "Sannsynsteori",
         "Statistikk"
       ],
-      "connection": "Her skil metoden ei prøvbar hypotese om lokale val frå vilkåra for ei Gibbs-likevekt. Einsretta materiell realisering treng ei eiga dynamisk skildring."
+      "connection": "Her skil metoden ein prøvbar hypotese om lokale val frå vilkåra for ei Gibbs-likevekt. Einsretta materiell realisering treng ei eiga dynamisk skildring."
     },
     {
       "id": "morforom",
@@ -522,6 +545,41 @@
       ]
     },
     {
+      "id": "naer-dekomponerbarheit",
+      "term": "Nær-dekomponerbarheit",
+      "definition": "Simon sitt omgrep for system der koplingane er sterke innanfor delsystem og svake mellom dei. På kort sikt kan kvart delsystem skildrast for seg; på lang sikt verkar dei på kvarandre berre som heilskapar.",
+      "propositions": [
+        "6.742"
+      ],
+      "sources": [
+        "119",
+        "172"
+      ],
+      "fields": [
+        "Systemteori",
+        "Økonomi"
+      ],
+      "connection": "Omsorg som er sterk innanfor grupper og svak mellom dei, gjev tilnærma dei same likningane på neste skala. Det gjeld vurderinga, ikkje evna til å halde noko nytt."
+    },
+    {
+      "id": "omsorgsetikk",
+      "term": "Omsorgsetikk",
+      "definition": "Retning i etikken som tek utgangspunkt i relasjonar og avhengigheit framfor reglar mellom uavhengige partar. Fisher og Tronto skil mellom å bry seg om, å ta ansvar for, å gje omsorg og å ta imot omsorg.",
+      "propositions": [
+        "5.28",
+        "5.283",
+        "7.241"
+      ],
+      "sources": [
+        "68",
+        "179"
+      ],
+      "fields": [
+        "Etikk"
+      ],
+      "connection": "Dei fire fasane har motstykke i vekt, bilete, hald og svar. Teksten gjev vilkåra for at omsorga skal verke; plikta til omsorg vert ikkje utleidd, men sett som forplikting."
+    },
+    {
       "id": "paretooptimalitet",
       "term": "Paretooptimalitet",
       "fields": [
@@ -529,12 +587,13 @@
         "Økonomi",
         "Design"
       ],
-      "definition": "Ei løysing er Paretooptimal når ingen annan mogleg løysing gjer minst eitt mål betre utan å gjere noko anna mål dårlegare.",
+      "definition": "Ei løysing er paretooptimal når ingen annan mogleg løysing gjer minst eitt mål betre utan å gjere noko anna mål dårlegare.",
       "connection": "Trykk som strir mot kvarandre, gjer formgjeving til ei avveging mellom fleire mål; Paretoomgrepet skil mellom sjølve kompromisset og spørsmålet om det framleis kan betrast.",
       "propositions": [
         "2.13",
         "2.131",
-        "5.141"
+        "5.141",
+        "6.72"
       ],
       "sources": [
         "115",
@@ -598,6 +657,22 @@
       ]
     },
     {
+      "id": "valaksiomet",
+      "term": "Uavhengigheit av irrelevante alternativ",
+      "definition": "Eigenskap ved nokre valmodellar: forholdet mellom sannsyna for to alternativ er det same uansett kva andre alternativ som finst. Eigenskapen følgjer av Luce sitt valaksiom og er ofte broten i menneskelege val.",
+      "propositions": [
+        "6.614"
+      ],
+      "sources": [
+        "170"
+      ],
+      "fields": [
+        "Valteori",
+        "Statistikk"
+      ],
+      "connection": "Valmodellen i 6.6 har denne eigenskapen. Teksten gjer han til ei prøve modellen kan falle på."
+    },
+    {
       "id": "variasjonell-inferens",
       "term": "Variasjonell inferens",
       "fields": [
@@ -606,7 +681,7 @@
         "Nevrovitskap"
       ],
       "definition": "Å erstatte ei vanskeleg utreknbar sannsynsfordeling med ei enklare tilnærming, vald ved optimering. I vanleg variasjonell inferens vert KL-divergensen frå tilnærminga til den ønskte fordelinga minimert.",
-      "connection": "Optimering av ein modell og navigasjon i eit landskap får eit sams matematisk språk; her er det sannsynsfordelinga som vert tilpassa, medan formgjeving også endrar det modellen handlar om.",
+      "connection": "Optimering av ein modell og navigasjon i eit landskap får eit felles matematisk språk; her er det sannsynsfordelinga som vert tilpassa, medan formgjeving også endrar det modellen handlar om.",
       "propositions": [
         "5.112"
       ],

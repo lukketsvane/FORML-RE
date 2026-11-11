@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1254" height="940" viewBox="0 0 1254 940" role="img" aria-labelledby="cones-title cones-desc">
+  <title id="cones-title">Lyskjegle og verknadskjegle</title>
+  <desc id="cones-desc">To kjegler stig frå same punkt, der forma vert realisert. Den venstre er lyskjegla til agenten, den høgre verknadskjegla til forma. Dei overlappar delvis. Den delen av verknadskjegla som ligg utanfor lyskjegla, er skravert og merkt det uverna.</desc>
+  <rect x="0" y="0" width="1254" height="940" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="1.2">
+    <!-- The part of the consequence cone that the light cone does not cover. -->
+    <path d="M690.6 252 H969.2"/>
+    <path d="M686.9 276 H952.7"/>
+    <path d="M683.3 300 H936.2"/>
+    <path d="M679.6 324 H919.7"/>
+    <path d="M675.9 348 H903.3"/>
+    <path d="M672.3 372 H886.8"/>
+    <path d="M668.6 396 H870.3"/>
+    <path d="M665.0 420 H853.8"/>
+    <path d="M661.3 444 H837.4"/>
+    <path d="M657.6 468 H820.9"/>
+    <path d="M654.0 492 H804.4"/>
+    <path d="M650.3 516 H787.9"/>
+    <path d="M646.7 540 H771.5"/>
+    <path d="M643.0 564 H755.0"/>
+    <path d="M639.3 588 H738.5"/>
+    <path d="M635.7 612 H722.1"/>
+    <path d="M632.0 636 H705.6"/>
+    <path d="M628.4 660 H689.1"/>
+    <path d="M624.7 684 H672.6"/>
+    <path d="M621.0 708 H656.2"/>
+    <path d="M617.4 732 H639.7"/>
+    <path d="M613.7 756 H623.2"/>
+  </g>
+  <rect x="640" y="442" width="330" height="56" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M205 210 L600 800 L690 210"/>
+    <path d="M520 210 L600 800 L1005 210"/>
+    <ellipse cx="447.5" cy="210" rx="242.5" ry="36"/>
+    <ellipse cx="762.5" cy="210" rx="242.5" ry="36"/>
+  </g>
+  <g stroke="#080808" stroke-width="2.1" fill="none">
+    <path d="M96 800 V236"/>
+  </g>
+  <g fill="#080808">
+    <path d="M96 210 l-10 21 10 -5 10 5 Z"/>
+    <circle cx="600" cy="800" r="8"/>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="96" y="186" font-size="36" text-anchor="middle">tid</text>
+    <text x="377.5" y="136" font-size="38" text-anchor="middle">lyskjegla</text>
+    <text x="832.5" y="136" font-size="38" text-anchor="middle">verknadskjegla</text>
+    <text x="815" y="482" font-size="36" text-anchor="middle">det uverna</text>
+    <text x="600" y="868" font-size="34" text-anchor="middle">forma vert realisert</text>
+  </g>
+</svg>

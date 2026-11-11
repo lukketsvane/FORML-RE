@@ -55,7 +55,7 @@ footer a{color:inherit}
 <header class="intro">
   <h1>formlære</h1>
   <p class="subtitle">Ei kort framstilling · Oslo, 2026</p>
-  <p class="lead">Form er ei ordning av skilnader, realisert mellom moglege alternativ under samtidige trykk, gjennom agentar med avgrensa omhug og kapasitet.</p>
+  <p class="lead">Form er ei ordning av skilnader, realisert mellom moglege alternativ under samtidige trykk, gjennom agentar med avgrensa omhug, omsorg og kapasitet.</p>
   <p class="source-note">Eit konsentrert utval frå same manuskript som fullutgåva. Proposisjonane er viste med sine opphavlege nummer; vel nummeret for å lese dei i samanheng. Kjeldetilvisingar og notemarkørar er utelatne her.</p>
 </header>
 <div id="chapters" class="chapters" aria-live="polite"><p>Lastar kortversjonen …</p></div>
@@ -65,7 +65,7 @@ footer a{color:inherit}
 <script>
 (async function(){
 "use strict";
-const groups = [["Skilnad, struktur og substans",["1","1.01","1.02","1.1","1.212","1.22","1.23","1.234","1.24"]],["Formrom, moglegheit og grammatikk",["1.31","1.4","1.43","1.5","1.501","1.55","1.61","1.62"]],["Trykk og tilpassingslandskap",["2.1","2.12","2.13","2.211","3.1","3.12","4.3"]],["Hinne, agens, omhug og kapasitet",["5.02","5.11","5.14","5.2","5.21","5.22","5.231","5.234"]],["Formgjeving og design",["5.7","6.02","6.11","6.6","6.67"]],["Svikt, prøving og ansvar",["7.03","7.1","7.14","7.25","7.26","7.4"]]];
+const groups = [["Skilnad, struktur og substans",["1","1.01","1.02","1.1","1.212","1.22","1.23","1.234","1.24"]],["Formrom, moglegheit og grammatikk",["1.31","1.4","1.43","1.5","1.501","1.55","1.61","1.62"]],["Trykk og tilpassingslandskap",["2.1","2.12","2.13","2.211","3.1","3.12","4.3"]],["Hinne, agens, omhug og kapasitet",["5.02","5.11","5.14","5.2","5.21","5.22","5.231","5.234"]],["Omsorg og skala",["5.28","5.282","6.02","6.7","6.711","6.73","6.731","6.75","6.76"]],["Formgjeving og val",["5.7","6.11","6.6","6.67"]],["Svikt, prøving og ansvar",["7.011","7.03","7.1","7.14","7.17","7.174","7.25","7.26","7.264","7.28","7.4"]]];
 const host=document.getElementById("chapters");
 const response=await fetch("/traktat/document.json",{cache:"no-cache"});
 if(!response.ok)throw new Error("Dokumentet er ikkje tilgjengeleg");

@@ -33,6 +33,13 @@
       "file": "model-overview-20261101.svg",
       "alt": "Formrommet 𝕄, kunnskapsstanden Π={Πₖ} med ei deling (Kₖ,Cₖ,Uₖ) per omsyn, grammatikken SG=(S,R,s₀), landskapet Λ og agentane med estimat som vektar vala",
       "caption": "Fem ledd i modellen: formrom, kunnskapsstand, grammatikk, landskap og agentar. Pilene viser ulike verkemåtar, ikkje éi lineær årsakskjede (6.66)."
+    },
+    {
+      "after": "7.013",
+      "file": "verknadskjegle-20261111.svg",
+      "alt": "To kjegler stig frå punktet der forma vert realisert: lyskjegla til agenten og verknadskjegla til forma. Dei overlappar delvis. Den delen av verknadskjegla som ligg utanfor lyskjegla, er skravert og merkt «det uverna».",
+      "printWidth": "wide",
+      "caption": "Lyskjegla er det agenten har som mål; verknadskjegla er det forma verkar på. Det uverna ligg i verknadskjegla utan å vere halde eller verna (7.011–7.013). Skjematisk."
     }
   ]
 }
