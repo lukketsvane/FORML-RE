@@ -407,7 +407,7 @@
         propositionSection.appendChild(propositionStrip);
         stream.appendChild(propositionSection);
       }
-      const row=make("article","prop depth"+Math.min(byNum.get(tok.n).depth,4));row.dataset.n=tok.n;row.id=tok.n;
+      const row=make("article","prop depth"+Math.min(byNum.get(tok.n).depth,4)+(tok.n.length>5?" long":""));row.dataset.n=tok.n;row.id=tok.n;
       const n=make("span","n",tok.n);const marker=make("span","status","["+tok.status+"]");n.appendChild(document.createTextNode(" "));n.appendChild(marker);
       const body=make("div","t");for(const para of tok.paragraphs){const p=make("p","prop-paragraph");rich(p,para);body.appendChild(p);}
       addNoteLinks(body.lastElementChild,tok.notes);

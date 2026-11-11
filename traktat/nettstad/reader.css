@@ -85,6 +85,8 @@ body{
 .prop{position:relative;display:grid;grid-template-columns:3.6rem minmax(0,1fr);gap:0 .55rem;align-items:start;width:100%;min-width:0;font-size:.98rem;line-height:1.55;font-weight:400;padding:.18rem 0;scroll-margin-top:calc(var(--tree-height,0px) + 12px)}
 .prop .n{font:inherit;color:var(--fg);font-weight:400;white-space:nowrap;text-align:left}
 .prop .status{font-size:.6em;font-style:italic;margin-left:.2em;font-weight:400;color:var(--dim)}
+/* Long addresses keep the text edge: the status letter moves under the number. */
+.prop.long .status{display:block;margin-left:0;line-height:1.3}
 .prop .t{font:inherit;min-width:0;width:100%;letter-spacing:0;text-align:justify;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word;-webkit-user-select:text;user-select:text}
 .prop-paragraph{white-space:pre-line;margin:0;max-width:none}.prop-paragraph+.prop-paragraph{margin-top:.8em}
 /* One fixed left edge for every proposition. Depth is communicated by
@@ -160,6 +162,9 @@ body{
 .source-ref{font-family:var(--mono);font-size:.63em;line-height:0;vertical-align:super;text-decoration:none;padding:0 .1em}
 .source-ref .xref{display:inline-block;line-height:1;padding:.2em .1em;margin:-.2em 0}
 .note-ref{display:inline-block;margin-left:.3em;color:var(--dim);font-family:var(--mono);font-size:.62em;line-height:1;vertical-align:super}
+/* The reading line stays clean: sources and notes show on the current proposition only. */
+.prop .source-ref,.prop .note-ref{opacity:0;transition:opacity .15s}
+.prop.active .source-ref,.prop.active .note-ref,.prop:hover .source-ref,.prop:hover .note-ref,.prop:focus-within .source-ref,.prop:focus-within .note-ref{opacity:1}
 @media print{
   @page{margin:16mm 14mm}
   :root{--bg:#fff;--fg:#000;--dim:#555;--line:#bbb;--hair:#ddd}

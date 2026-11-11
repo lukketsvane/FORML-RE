@@ -1,6 +1,6 @@
 # Revisjon 11. november 2026: stigen, omsorg og forskingsprogram
 
-Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 489 proposisjonar, 98 notat, 133 kjelder, 38 ordlisteoppslag og elleve figurar. Alle dei 377 tidlegare adressene finst framleis; 112 er nye.
+Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 487 proposisjonar, 105 notat, 133 kjelder, 38 ordlisteoppslag og elleve figurar. Alle dei 377 tidlegare adressene finst framleis; 110 er nye.
 
 Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som kan fellast, og omsorg skal vere eit formelt omgrep i den same arkitekturen som forklarer form og val. Forma skal vere ein stige: éin tanke per trinn, og kvart trinn skal følgje av dei føregåande.
 
@@ -8,15 +8,27 @@ Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som 
 
 | Mål | Før | No | Tractatus (norsk utgåve) |
 | --- | --- | --- | --- |
-| Median lengd per proposisjon (teikn) | 191 | 141 | 97 |
+| Median lengd per proposisjon (teikn) | 191 | 132 | 97 |
+| Proposisjonar med «kan» | 40 % | 28 % | |
 | Lengste proposisjon (teikn) | 1410 | 401 | |
 | Tilvisingar i parentes i proposisjonane | 307 | 0 | 0 |
 
 - **Tilvisingane er ute av proposisjonane.** Nummeret viser alt kva eit trinn kviler på. Nokre få tilvisingar står att der setninga sjølv treng dei («definisjonen i 5.11»).
 - **Lange proposisjonar er delte.** Hovudtrinnet seier påstanden; undertrinna ber det som før stod i andre og tredje avsnitt. Døme: 5.11 (agenten) har fått 5.1101–5.1104, 5.7 (kjernelikninga) 5.701–5.704, 6.6 (valmodellen) 6.601–6.602, 4.3 (minnet i landskapet) 4.31–4.33.
-- **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 98). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
+- **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 105). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
 - **Føreordet er skrive om.** Det er kort og påståeleg og svarar ikkje på innvendingar på førehand. Kjeldene står i notatet, ikkje i teksten.
 - **Dei formelle setningane står samla i kortversjonen** (`nettstad/kortversjon.tex`): målvekt, svarkurve, kanalgrense, rekkjevidd og skala, og registeret over føreseiingar. Lesekoden seier dette.
+
+## Røysta
+
+Proposisjonane seier no kva som er tilfelle. 123 stader er endra:
+
+- «kan» er bytt med indikativ der det berre uttrykte forsiktigheit. Det står der moglegheit er sjølve saka: formrom, affordans, kapasitet.
+- Setningar som berre åtvarar eller fortel korleis noko skal prøvast, er strokne eller flytta til notata (sju nye notat).
+- Ingen teorem er gjort sterkare enn vilkåra sine.
+- På nett er kjelde- og notemerka usynlege til proposisjonen er aktiv.
+
+Dei mest utsette nye formuleringane: 3.12 («Eit landskap har fleire lokale minimum»), 5.6 («Eit system med mål som vert halde heilt av andre, lever ikkje»), 6.022 (cella oppfyller designkriteriet), 6.66 («Samanbindinga forklarer berre det ho føreseier») og 6.755 (krympinga finst i verkstader, føretak og fag).
 
 ## Figurar
 
