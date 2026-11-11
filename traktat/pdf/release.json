@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "32b0ed6c65d1d234b5ccbab1e16dfae8e690645dfa240fccb716113e9df929ee",
+  "sourceHash": "b20cd0acbb3fc1544ad8b68e36381dd7b92e24205dc7543e9babb6295e586b37",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
@@ -38,7 +38,7 @@
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "2e89c62f5dd6ee8ac82b94c6cd67148036ce1a63c71a59706217e35d395a4a2e",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "595874618efdc70da32072cfd44ea70d6c48890d9ffdc7661ae588974b39e8ff",
+    "nettstad/reader.css": "c80c8c3689f1529325ca97fbaa2d3c6742e0424f26c85f9ccc6ce9e269fa8a6a",
     "nettstad/reader.html": "e7fcf009d721af191bb5a0d9b071496b1bdfb16117ca5c9e353d70764d6bb85b",
     "nettstad/reader.js": "92c14ecd76cc0f9353bb9dc0e3a1695a643f5378d584c882aca1fa568dbdd5de",
     "ordliste.json": "e0352340999991a7c5b01b0bbafb18052933bb8615441c562c14c32b17522758",
@@ -49,12 +49,12 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "7792ff8f2c06fa07e1366cfa1df808eb75e23a9b853bd7ce4d322a5c334efc1b",
+    "tekst/formlaere.tex": "e2c3e4ed65ab2b4014bb4225ab08ac76b18f62dc069400ab846431cdcacb73e4",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "6efa3acd0bebeb26d0201898350ddf6f3f87c759be7103e85d3eb09f918f07e0",
-    "formlaere-latex.zip": "0f3ad273b8ef3fb890d1bf7652199f2bfec83b3250d3c29175008406e0346b0f"
+    "formlaere.pdf": "f4252878dbba0991b02e342d180bc65511edef491fcab3ee8706f69e427a5d4f",
+    "formlaere-latex.zip": "ace350db72be0fc289147c754647c6ee2ac5b125e5506c8cef5099c65df9c4b6"
   },
   "quality": {
     "pages": 105,
@@ -186,11 +186,6 @@
       "tex": "\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>ρ</mi><mi>k</mi></msub><mo>=</mo><msub><mi>Δ</mi><mi>k</mi></msub><mi>/</mi><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup></mrow><annotation encoding=\"application/x-tex\">\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}</annotation></semantics></math>"
-    },
-    "c9f3d29ea25ac2c51c52ab1f": {
-      "tex": "=",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mo>=</mo><annotation encoding=\"application/x-tex\">=</annotation></semantics></math>"
     },
     "91215f522db3d9ac470065c1": {
       "tex": "𝕄",
@@ -341,6 +336,11 @@
       "tex": "Λ",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Λ</mi><annotation encoding=\"application/x-tex\">Λ</annotation></semantics></math>"
+    },
+    "c9f3d29ea25ac2c51c52ab1f": {
+      "tex": "=",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mo>=</mo><annotation encoding=\"application/x-tex\">=</annotation></semantics></math>"
     },
     "faeb083c3cf5b0cbd3fc7467": {
       "tex": "∑_{j}",
