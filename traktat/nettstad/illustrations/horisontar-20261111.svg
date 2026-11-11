@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="horisontar-title horisontar-desc">
+  <title id="horisontar-title">Tre horisontar</title>
+  <desc id="horisontar-desc">Ei tidsline frå no. Tre vassrette strekar viser kor langt agenten føreseier, kor langt måla hans rekk, og kor lenge han kan halde. Streken for å føreseie er lengst, streken for å halde kortast. Ei stipla loddrett line viser når følgja kjem: innanfor det agenten føreseier og har som mål, men etter at haldet er slutt.</desc>
+  <rect x="0" y="0" width="1000" height="420" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M250 110 H880"/>
+    <path d="M250 190 H700"/>
+    <path d="M250 270 H470"/>
+    <path d="M880 97 V123"/>
+    <path d="M700 177 V203"/>
+    <path d="M470 257 V283"/>
+    <path d="M250 84 V352"/>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M250 352 H912"/>
+  </g>
+  <g fill="#080808">
+    <path d="M930 352 l-19 -9 5 9 -5 9 Z"/>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 11">
+    <path d="M600 74 V352"/>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="228" y="121" font-size="34" text-anchor="end">føreseier</text>
+    <text x="228" y="201" font-size="34" text-anchor="end">har som mål</text>
+    <text x="228" y="281" font-size="34" text-anchor="end">kan halde</text>
+    <text x="600" y="52" font-size="34" text-anchor="middle">følgja kjem</text>
+    <text x="250" y="398" font-size="34" text-anchor="middle">no</text>
+    <text x="930" y="398" font-size="34" text-anchor="end">tid</text>
+  </g>
+</svg>

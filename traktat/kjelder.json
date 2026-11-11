@@ -1131,7 +1131,7 @@
       "id": "prop-5-22",
       "proposition": "5.22",
       "section": null,
-      "note": "Kognitive lyskjegler namngjev grenser for kva mål eit system kan arbeide mot. Den aksevise og tidslege definisjonen her er teksten si presisering.",
+      "note": "Kognitive lyskjegler namngjev grenser for kva mål eit system kan arbeide mot. Den aksevise og tidslege definisjonen her er teksten si presisering. I figuren er «romleg rekkjevidd» ein projeksjon, ikkje ei fysisk grense for sansing eller handling.",
       "sources": [
         "21",
         "22",
@@ -1309,7 +1309,7 @@
       "id": "prop-1-54",
       "proposition": "1.54",
       "section": null,
-      "note": "Dei fire retningane C→C, C→K, K→C og K→K er henta frå C–K-teorien. Koplinga til materielle regionar og U er utvikla her, med forkorta notasjon for dei kriteriumbundne partisjonane i 1.5. Ho er ikkje ei identifisering av det opphavlege kunnskapsrommet med ei mengd geometriske posisjonar.",
+      "note": "Dei fire retningane C→C, C→K, K→C og K→K er henta frå C–K-teorien. Koplinga til materielle regionar og U er utvikla her, med forkorta notasjon for dei kriteriumbundne partisjonane i 1.5. Ho er ikkje ei identifisering av det opphavlege kunnskapsrommet med ei mengd geometriske posisjonar. I figuren viser C og K statusen til formposisjonar langs eitt oppgjeve omsyn; K→K-rørsla er ikkje teikna.",
       "sources": [
         "16",
         "17"
@@ -1320,7 +1320,7 @@
       "id": "prop-1-61",
       "proposition": "1.61",
       "section": null,
-      "note": "Innleiring lèt ei delform utløyse ein regel utan at delinga var fastsett på førehand. Dette er sentralt i Stiny sin formgrammatikk.",
+      "note": "Innleiring lèt ei delform utløyse ein regel utan at delinga var fastsett på førehand. Dette er sentralt i Stiny sin formgrammatikk. Figuren viser tre reglar og ei avleiing, med bokstavmerke til venstre og punktmerke til høgre.",
       "sources": [
         "18"
       ],
@@ -1639,7 +1639,7 @@
       "id": "prop-6-61",
       "proposition": "6.61",
       "section": null,
-      "note": "Estimatet kan avhenge av heile konfigurasjonen. Innverknadene og omhugsvektene er ikkje-negative; ved tom lyskjegle er vurderinga og innverknaden sette til null. Vektene, dei toleranseskalerte estimata og β er dimensjonslause og må fastsetjast før modellen vert prøvd; kva vala åleine kan fastsetje, står i 6.6731. Grunnfordelinga kjem frå både grammatikken og den oppgjevne stegprosessen.",
+      "note": "Vurderinga er definert i 5.701. Estimatet kan avhenge av heile konfigurasjonen. Innverknadene og omhugsvektene er ikkje-negative; ved tom lyskjegle er vurderinga og innverknaden sette til null. Vektene, dei toleranseskalerte estimata og β er dimensjonslause og må fastsetjast før modellen vert prøvd; kva vala åleine kan fastsetje, står i 6.6731. Grunnfordelinga kjem frå både grammatikken og den oppgjevne stegprosessen.",
       "sources": [],
       "relation": "vilkår"
     },
@@ -1687,7 +1687,7 @@
       "id": "prop-6-65",
       "proposition": "6.65",
       "section": null,
-      "note": "(ii) føreset éin agent og ei samla vurdering som er 0 i K⁺ og 1 elles, og samanliknar former med same grunnvekt. Det er ei føreseiing om val, ikkje ei utleiing av tanke-kunnskapsrørsla. (iii) Ein gradientprosess krev fleire vilkår om stega. (iv) seier ikkje kor raskt dei beste posisjonane vert nådde.",
+      "note": "Føreseiinga føreset éin agent og ei samla vurdering som er 0 i K⁺ og 1 elles, og samanliknar former med same grunnvekt. Det er ei føreseiing om val, ikkje ei utleiing av tanke-kunnskapsrørsla. Dei andre grensetilfella står i 5.72 og 6.612.",
       "sources": [],
       "relation": "vilkår"
     },
@@ -1868,6 +1868,22 @@
       "proposition": "7.23",
       "section": null,
       "note": "Både haldne og uhaldne aksar kan liggje i sviktrommet. Eit omsyn kan vere verna gjennom eit anna (6.675). Når vern manglar, kan grunnen vere feil estimat, utelaten prioritering, utilstrekkeleg kapasitet, konflikt eller endra vilkår. Sjølv når alle veit kva form som vil svikte, står risikoen att så lenge den forma har positivt valsannsyn (7.152).",
+      "sources": [],
+      "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-6-66",
+      "proposition": "6.66",
+      "section": null,
+      "note": "I figuren viser pilene ulike verkemåtar, ikkje éi lineær årsakskjede.",
+      "sources": [],
+      "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-7-012",
+      "proposition": "7.012",
+      "section": null,
+      "note": "Figuren er skjematisk. Det uhaldne og det uverna i 7.013 er delar av det skraverte området, ikkje heile.",
       "sources": [],
       "relation": "operasjonell presisering"
     }

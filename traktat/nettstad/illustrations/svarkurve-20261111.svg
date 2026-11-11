@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="550" viewBox="0 0 1000 550" role="img" aria-labelledby="svarkurve-title svarkurve-desc">
+  <title id="svarkurve-title">Svarkurva</title>
+  <desc id="svarkurve-desc">To diagram med biletet av avviket på den vassrette aksen og det faktiske avviket på den loddrette. I det venstre stig kurva: meir omsorg kan ikkje skade. I det høgre fell kurva: meir omsorg kan ikkje hjelpe.</desc>
+  <rect x="0" y="0" width="1000" height="550" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M120 380 H432"/>
+    <path d="M120 380 V108"/>
+    <path d="M600 380 H912"/>
+    <path d="M600 380 V108"/>
+  </g>
+  <g fill="#080808">
+    <path d="M450 380 l-19 -9 5 9 -5 9 Z"/>
+    <path d="M120 90 l-9 19 9 -5 9 5 Z"/>
+    <path d="M930 380 l-19 -9 5 9 -5 9 Z"/>
+    <path d="M600 90 l-9 19 9 -5 9 5 Z"/>
+  </g>
+  <g fill="none" stroke="#080808" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M140 350 C230 340 330 230 430 120"/>
+    <path d="M632 138 C725 240 820 340 910 350"/>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="142" y="104" font-size="28" text-anchor="start">faktisk avvik</text>
+    <text x="622" y="104" font-size="28" text-anchor="start">faktisk avvik</text>
+    <text x="450" y="424" font-size="28" text-anchor="end">biletet</text>
+    <text x="930" y="424" font-size="28" text-anchor="end">biletet</text>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="285" y="478" font-size="32" text-anchor="middle">svarkurva stig</text>
+    <text x="765" y="478" font-size="32" text-anchor="middle">svarkurva fell</text>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="285" y="522" font-size="28" text-anchor="middle">meir omsorg kan ikkje skade</text>
+    <text x="765" y="522" font-size="28" text-anchor="middle">meir omsorg kan ikkje hjelpe</text>
+  </g>
+</svg>

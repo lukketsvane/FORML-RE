@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="460" viewBox="0 0 1000 460" role="img" aria-labelledby="omhug-kapasitet-title omhug-kapasitet-desc">
+  <title id="omhug-kapasitet-title">Omhug og kapasitet</title>
+  <desc id="omhug-kapasitet-desc">Ein tabell med to rader og to kolonnar. Med omhug og med kapasitet: hald. Med omhug, utan kapasitet: avmakt. Utan omhug, med kapasitet: likegyldigheit. Utan begge: blindskap.</desc>
+  <rect x="0" y="0" width="1000" height="460" fill="#fff"/>
+  <g fill="none" stroke="#080808" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M330 120 H930 V420 H330 Z"/>
+    <path d="M630 120 V420"/>
+    <path d="M330 270 H930"/>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="480" y="92" font-size="32" text-anchor="middle">med kapasitet</text>
+    <text x="780" y="92" font-size="32" text-anchor="middle">utan kapasitet</text>
+    <text x="306" y="207" font-size="32" text-anchor="end">med omhug</text>
+    <text x="306" y="357" font-size="32" text-anchor="end">utan omhug</text>
+  </g>
+  <g fill="#080808" font-family="DejaVu Serif, EB Garamond, Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="480" y="207" font-size="36" text-anchor="middle">hald</text>
+    <text x="780" y="207" font-size="36" text-anchor="middle">avmakt</text>
+    <text x="480" y="357" font-size="36" text-anchor="middle">likegyldigheit</text>
+    <text x="780" y="357" font-size="36" text-anchor="middle">blindskap</text>
+  </g>
+</svg>
