@@ -110,8 +110,7 @@
       "term": "Blandingstid",
       "definition": "Kor mange steg ein tilfeldig prosess treng før fordelinga over moglege tilstandar ligg tilstrekkeleg nær ei stasjonær fordeling. Ei slik fordeling held seg uendra når prosessen tek eitt steg til.",
       "propositions": [
-        "6.64",
-        "6.641"
+        "6.64"
       ],
       "sources": [
         "110"
@@ -567,8 +566,7 @@
       "definition": "Retning i etikken som tek utgangspunkt i relasjonar og avhengigheit framfor reglar mellom uavhengige partar. Fisher og Tronto skil mellom å bry seg om, å ta ansvar for, å gje omsorg og å ta imot omsorg.",
       "propositions": [
         "5.28",
-        "5.283",
-        "7.241"
+        "5.282"
       ],
       "sources": [
         "68",
@@ -577,7 +575,7 @@
       "fields": [
         "Etikk"
       ],
-      "connection": "Dei fire fasane har motstykke i vekt, bilete, hald og svar. Teksten gjev vilkåra for at omsorga skal verke; plikta til omsorg vert ikkje utleidd, men sett som forplikting."
+      "connection": "Dei fire fasane har motstykke i vekt, bilete, hald og svar. Teksten gjev vilkåra for at omsorga skal verke; ei plikt til omsorg vert ikkje utleidd."
     },
     {
       "id": "paretooptimalitet",

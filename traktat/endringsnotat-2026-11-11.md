@@ -1,78 +1,84 @@
-# Revisjon 11. november 2026: omsorg, skala og forskingsprogram
+# Revisjon 11. november 2026: stigen, omsorg og forskingsprogram
 
-Den aktive kjelda er `tekst/formlaere.tex`. Revisjonen held dei 377 tidlegare adressene og dei sju hovuddelane fast, og legg til 64 nye proposisjonar. Utgåva har no 441 proposisjonar, 63 notat, 135 kjelder, 38 ordlisteoppslag og seks figurar.
+Den aktive kjelda er `tekst/formlaere.tex`. Utgåva har 491 proposisjonar, 96 notat, 133 kjelder, 38 ordlisteoppslag og seks figurar. Alle dei 377 tidlegare adressene finst framleis; 114 er nye.
 
-Målet er todelt: å gjere læra til eit forskingsprogram med påstandar som kan fellast, og å føre omsorg inn som eit formelt omgrep i den same arkitekturen som forklarer form og val.
+Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som kan fellast, og omsorg skal vere eit formelt omgrep i den same arkitekturen som forklarer form og val. Forma skal vere ein stige: éin tanke per trinn, og kvart trinn skal følgje av dei føregåande.
 
-## Kva er nytt?
+## Forma
+
+| Mål | Før | No | Tractatus (norsk utgåve) |
+| --- | --- | --- | --- |
+| Median lengd per proposisjon (teikn) | 191 | 148 | 97 |
+| Lengste proposisjon (teikn) | 1410 | 401 | |
+| Tilvisingar i parentes i proposisjonane | 307 | 0 | 0 |
+
+- **Tilvisingane er ute av proposisjonane.** Nummeret viser alt kva eit trinn kviler på. Nokre få tilvisingar står att der setninga sjølv treng dei («definisjonen i 5.11»).
+- **Lange proposisjonar er delte.** Hovudtrinnet seier påstanden; undertrinna ber det som før stod i andre og tredje avsnitt. Døme: 5.11 (agenten) har fått 5.1101–5.1104, 5.7 (kjernelikninga) 5.701–5.704, 6.6 (valmodellen) 6.601–6.602, 4.3 (minnet i landskapet) 4.31–4.33.
+- **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 96). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
+- **Dei formelle setningane står samla i kortversjonen** (`nettstad/kortversjon.tex`): målvekt, svarkurve, kanalgrense, rekkjevidd og skala, og registeret over føreseiingar. Lesekoden seier dette.
+
+## Omsorg
 
 | Stad | Innhald |
 | --- | --- |
-| 5.28–5.284 | **Omsorg** er omhug langs ein akse som høyrer til ein annan. Målregionen og toleransen er den andre sine; agenten har eit bilete og ei omsorgsvekt. Omsorgsvektene summerer seg til omsorgsdelen γ. Fire måtar aksen til ein annan kan falle utanfor på: blindskap, likegyldigheit, avmakt og formynderi. Avhengigheit er ikkje omsorg. |
-| 6.7–6.72 | **Omsorg i valmodellen.** Målvekt: den utan innverknad har vekt berre gjennom omsorga til andre. Omsorg kan målast i val. Forteiknet følgjer biletet. Svarkurva avheng ikkje av omsorgsvekta; fell ho ingen stad, kan meir omsorg ikkje skade i middel. Biletet kan ikkje følgje den andre finare enn svaret skil. Skade ingen vinn på, står berre att der målet er utan vekt. |
-| 6.73–6.742 | **Omsorg på tvers av skalaer.** Omsorga held fram gjennom den ho gjeld (ei vandring som endar i eit eige omsyn). Ein lukka krins utan eigne omsyn fastset ingenting. Skalakriterium: valet er uendra under omfordeling av innverknad innanfor samlinga. Delt spenning er grensa for gjensidig omsorg. Er omsorga sterk innanfor grupper og svak mellom dei, gjeld dei same likningane tilnærma på neste skala. |
-| 6.75–6.76 | Omsorg mellom delane er sjølvhald i heilskapen når heilskapen er avhengig av det delane held. Det omvende gjeld ikkje. Froskeforsøka er førte som observasjon, lesinga av svulsten som krympa målrom som hypotese, med ei prøvbar organisasjonshypotese ved sida av. Greina endar i vegsetninga: målet til den andre har vekt i forma viss og berre viss det går ein veg av omsorg til han frå nokon med innverknad. |
-| 7.001, 7.011–7.013 | Hovudsetning 7 gjeld omhugen som vart verksam. **Verknadskjegla** er alt valet av forma gjer skilnad for. Det uhaldne og det uverna er definerte mot henne. Ny figur. |
-| 7.17–7.174 | **Forskingsprogrammet:** hard kjerne, hjelpehypotesar, regel for framgang og tap, og eit register med tolv føreseiingar. |
-| 7.24–7.264 | **Etikken.** Læra seier ikkje kor mykje den andre bør telje. Ho seier kva omsorga må ha for å verke, at vekt ikkje er hald, og at målet til den andre ikkje må flyttast av forma. 7.26 er den eine forpliktinga: omsorga skal målast mot verknaden, ikkje mot bestillinga. Kriteriet er ein definisjon; rekkjevidda er forpliktinga. |
-| 7.271–7.277, 7.28 | Normer for kumulativ forsking, utleidde av læra sjølv, og faget som éin agent: etterprøving fører svikten tilbake for kunnskapen, ansvar for følgjene. |
-| 7.3–7.4 | Slutten er stramma. 7.4 står åleine. |
+| 5.28–5.285 | Omsorg er omhug langs ein akse der målet og toleransen er den andre sine. Å føreseie, bruke og ta inn som mål er tre ulike ting. Avhengigheit er ikkje omsorg. Arbeid for eit mål den andre ikkje har, er formynderi. |
+| 6.7–6.704 | Vurderinga med omsorg, og målvekta: omsorg flyttar vekt, ho lagar ikkje vekt. Den utan innverknad har vekt berre gjennom omsorga til andre. |
+| 6.71–6.714 | Omsorga verkar gjennom biletet. Svarkurva endrar seg ikkje når omsorga vert sterkare. Omsorga treng ikkje måle rett; ho må ordne alternativa rett. Ordninga kan ikkje sikrast innanfrå. |
+| 6.72–6.742 | Omsorga held fram gjennom den ho gjeld, og må ende i eit omsyn som er nokon sitt eige. Delt spenning er grensa for gjensidig omsorg. Omsorga har same form på kvar skala. |
+| 6.75–6.76 | Omsorg mellom delane er sjølvhald i heilskapen der heilskapen er avhengig av det delane held. Det omvende gjeld ikkje. Greina endar i 6.76: målet til den andre har vekt i forma viss og berre viss han sjølv har innverknad, eller det går ein veg av omsorg til han frå nokon som har. |
+| 7.011–7.013 | Verknadskjegla, det uhaldne og det uverna. Ny figur. |
 
-Nye bruer som manglar i den førre utgåva: 1.324 (kva eit omsyn er), 1.5311 (det felles kjende), 5.2811 (vekta til ein akse), 6.0232 (ingen er nøydd til å vere designar), 6.1231 (delt spenning er nødvendig, ikkje tilstrekkeleg), 6.613 (landskapet og valmodellen), 6.614 (forholdet mellom to former), 6.633 (kva innverknad er), 6.6711, 6.6722 (spreiing ved avstandsmål), 6.6732 (kva vala kan fastsetje).
+## Etikken
 
-## Kva er retta i den eksisterande teksten?
+Etter ønske frå forfattaren seier teksten no lite om etikk. Det som står att, er skildrande: 7.21, 7.22, 7.24 («Kor mykje den andre talde, viser forma»), 7.241 («Vekt er ikkje hald»), 7.25 og 7.26.
 
-- **Hovudsetningane.** 2 og 4 er stramma. 5 er merkt `a` (at det finst agentar, følgjer ikkje av 1–4). 6 ber no tesen: forma oppstår i samspelet mellom grammatikk, kunnskap og agens på fleire skalaer. 7 står ordrett.
-- **Lag og ledd.** «Dei tre laga» hadde to tydingar. No er laga generative grammatikkar, kunnskapsutvikling og agens på fleire skalaer (5.721–5.722), og ledda er generering, vekting og gjennomføring (5.7231). 5.724 er retta etter dette.
-- **Reelle feil.** 4.3 sa allment det 3.4 og 4.01 berre seier kan hende. 3.411 definerte «reell» utan at ordet stod i 3.41. 7.02 tok hovudsetning 7 tilbake i staden for å gje vilkåret hennar. 7.152 er ein definisjon og har fått status `d`. 6.111 er ein hypotese (`a`), 5.221 og 7.33 er illustrasjonar (`i`).
-- **Matematikk.** Alle formlane heldt under dei oppgjevne vilkåra. Presiseringar: drifta i 5.7 har fått konstant og gyldigheitsområde; 6.672 krev eit glatt estimat; kovarianssetningane held for kvar endeleg endring når estimatet ordnar formene rett (6.674, 7.1521); prøva i 7.153 gjeld storleik, ikkje berre forteikn.
-- **Føreord og lesekode.** Føreordet seier no kva boka er (eit forslag til eit forskingsprogram), fører inn omsorg, og er kortare der det svara på innvendingar på førehand. Lesekoden forklarer kva desimalane tyder, og skil postulat frå hypotese.
-- **Figur.** Lyskjeglefiguren fekk feil skrift og eit avkutta merke i PDF-en. Det er retta.
+Dette er teke ut eller korta ned frå den førre utgåva:
+
+- **7.24** sa at modellen ikkje kan avgjere kor mykje noko bør telje. No står éi setning.
+- **7.26** var postulatet om at design som fag forpliktar seg til dei som ber følgjene. No står den skildrande kjernen, med status `t`: «Den som ikkje har makt til å setje krava, ber følgjene like fullt.»
+- Setninga om at designkriteriet ikkje tilskriv cella moralsk ansvar (6.022), står i notatet.
+
+Begge dei gamle formuleringane ligg i git-historia og kan setjast inn att.
+
+## Forskingsprogrammet
+
+7.17–7.174 ordnar læra etter Lakatos: hard kjerne, hjelpehypotesar, regel for framgang og tap, og eit register over tolv føreseiingar. Registeret står i notatet til 7.174 og i kortversjonen, ikkje i proposisjonen. 7.271–7.275 er normer for kumulativ forsking, og 7.28 seier når eit fag er éin agent.
+
+## Rettingar i den eksisterande teksten
+
+- **Hovudsetningane.** 2 og 4 er stramma. 5 er merkt `a`. 6 ber tesen om samspelet mellom grammatikk, kunnskap og agens på fleire skalaer.
+- **Lag og ledd.** Laga er generative grammatikkar, kunnskapsutvikling og agens på fleire skalaer (5.721). Ledda er generering, vekting og gjennomføring (5.7231–5.72312).
+- **Statusar.** 6.111 er ein hypotese (`a`), 5.221 og 7.33 illustrasjonar (`i`), 7.152 ein definisjon (`d`).
+- **Matematikk.** Ein uavhengig kontroll rekna etter alle identitetane som står i teksten. Tre feil frå omskrivinga er retta: 6.754 sa meir enn formelen viser, 5.7 talde forslagssannsynet to gonger, og 6.742 gjeld tilnærma.
+- **Figur.** Lyskjeglefiguren hadde feil skrift og eit avkutta merke i PDF-en.
 
 ## Ordval
 
-Etter ønske frå forfattaren er sjeldne og gamalmodige ord bytte til moderne nynorsk: likesæle → likegyldigheit, hjå → hos, attende → tilbake, somme → nokre, røynsle → erfaring, røyndom → verkelegheit, korkje → verken, inkje → ingenting, kring → rundt, sams → felles, stoda → situasjonen, synt → vist, prov → bevis, utsegn → påstand, framlegg → forslag, høve → moglegheit, trugsmål → trussel, «i den mon» → «i den grad», «di … di» → «jo … jo», lekamar → volum, liner → linjer, stratifisert → lagdelt. Tretten samsvarsfeil er retta.
+Sjeldne og gamalmodige ord er bytte til moderne nynorsk: likesæle → likegyldigheit, hjå → hos, attende → tilbake, somme → nokre, røynsle → erfaring, røyndom → verkelegheit, korkje → verken, inkje → ingenting, kring → rundt, sams → felles, stoda → situasjonen, synt → vist, prov → bevis, utsegn → påstand, framlegg → forslag, høve → moglegheit, trugsmål → trussel, «i den mon» → «i den grad», «di … di» → «jo … jo», lekamar → volum, liner → linjer, stratifisert → lagdelt.
 
 Med vilje uendra: omhug, blindskap, hinne, busett, tyder, difor, åleine, me, og «Forma stoggar. Verknaden held fram.»
-
-## Svar på dei ti manglane (P1–P10)
-
-Korpusgranskinga i `designteori`-repoet var høvet for revisjonen. Ho er **ikkje sitert som bevis** i traktaten: indikatorane er automatiske ordsøk som ikkje er prøvde mot manuell koding eller samanlikna med andre fag. Diagnosen i føreordet kviler i staden på Cash (2018).
-
-| Mangel | Svar i traktaten |
-| --- | --- |
-| P1 samordna program, felles kjerne, revisjon | 7.17–7.174, 7.28 |
-| P2 kumulativitet, etterprøving | 7.271 |
-| P3 presise hypotesar, førehandsregistrering | 7.174, 7.151, 7.153 |
-| P4 bruk i andre fag | 7.277 |
-| P5 verknad framfor prosess, negative funn | 7.275, 7.271 |
-| P6 uavhengigheit frå bestillaren | 7.275 |
-| P7 avhandlingar som byggjer på kvarandre | 7.271 |
-| P8 open, uavhengig etterprøving | 7.272, 7.273, 7.28 |
-| P9 etikk og ansvar for følgjer | 7.276, 7.26, 7.28 |
-| P10 validerte måleinstrument, opne data | 7.274, 7.272, 6.6732 |
 
 ## Framgang og tap
 
 Regelen i 7.173 krev at skifte i hjelpehypotesane vert førte opp. Dette er hovudboka.
 
-| Dato | Føreseiing (7.174) | Prøve | Utfall |
+| Dato | Føreseiing (notat til 7.174) | Prøve | Utfall |
 | --- | --- | --- | --- |
 | 2026-11-11 | (i)–(xii) | Ingen er prøvd etter regelen i 7.151. | Ope |
 
-Tidlegare analysar av stolmaterialet (gjensidig informasjon mellom stil, materiale og form) er gjorde på dei same formene som stilkategoriane er fastsette på. Dei tel difor ikkje som prøve av (xi).
+Tidlegare analysar av stolmaterialet er gjorde på dei same formene som stilkategoriane er fastsette på. Dei tel difor ikkje som prøve av (xi).
 
 ## Opne avgjerder for forfattaren
 
-1. **Kven forpliktinga gjeld.** 5.11 gjer termostatar og føretak til agentar. Skal 7.26 gjelde alle agentar, eller berre sjølv som kjenner avviket innanfrå (5.144)? Teksten let det stå ope.
-2. **«Det utenkjelege».** U er definert som det som verken er kjent eller tenkt, og eit alternativ forlèt U i det det vert tenkt. Det er strengt teke «det utenkte». Termen er uendra.
-3. **«stoggar».** Ein av to språkgranskarar tilrådde «stansar». Signaturlina er uendra.
+1. **Kor langt delinga skal gå.** Om lag 60 proposisjonar frå den opphavlege teksten har framleis to eller tre korte avsnitt. Dei les godt slik, og er ikkje delte. Skal medianen ned mot Tractatus, er det desse som må delast.
+2. **«Det utenkjelege».** U er det som verken er kjent eller tenkt. Strengt teke er det «det utenkte». Termen er uendra.
+3. **Figuren til 7.013** merkjer heile den delen av verknadskjegla som ligg utanfor lyskjegla, som «det uverna». Etter 7.013 er området berre utan vekt for denne agenten. Figuren er skjematisk og uendra.
 4. **Rasesamanlikninga i føreordet** er det mest utsette punktet. Ho er uendra.
 
 ## Det som ikkje er gjort
 
-- Ingen av dei tolv føreseiingane er prøvde. Inntil måleinstrumenta finst, er dei oppgåver (7.274).
+- Ingen av dei tolv føreseiingane er prøvde.
+- Språket i dei nye og delte proposisjonane er lese av éin, ikkje kontrollert av ein uavhengig språkgranskar.
 - 6.742 er vist i grensa og prøvd numerisk, ikkje bevist i full allmenn form.
 - Den engelske utgåva i `traktat-en/` er ikkje oppdatert.
-- Rivalteoriane (FBS, aksiomatisk design, deltakande design) er ikkje gjennomgått på nytt.
 - Kjeldene er kontrollerte mot forlags- og indekspostar, ikkje mot fulltekst.

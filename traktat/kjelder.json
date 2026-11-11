@@ -882,20 +882,6 @@
       "year": "1990",
       "verified_on": "2026-11-11",
       "verification_note": "Forfattarar, tittel, redaktørar, forlag og år kontrollerte 11. november 2026. Sidetalet er ikkje stadfesta og er difor utelate."
-    },
-    {
-      "id": "180",
-      "citation": "Enoch, D. (2006). Agency, shmagency: Why normativity won't come from what is constitutive of action. The Philosophical Review, 115(2), 169–198.",
-      "year": "2006",
-      "verified_on": "2026-11-11",
-      "verification_note": "Tidsskrift, årgang og sidetal kontrollerte 11. november 2026."
-    },
-    {
-      "id": "181",
-      "citation": "Korsgaard, C. M. (2009). Self-Constitution: Agency, Identity, and Integrity. Oxford University Press.",
-      "year": "2009",
-      "verified_on": "2026-11-11",
-      "verification_note": "Forlag og år kontrollerte 11. november 2026."
     }
   ],
   "notes": [
@@ -991,7 +977,7 @@
       "id": "prop-1-5",
       "proposition": "1.5",
       "section": null,
-      "note": "Den materielle delinga er skild frå den aksevise delinga mellom det kjende K_k, det tenkte C_k og det utenkjelege U_k. Dette er ei operasjonell tilpassing av C–K-teorien. Hos Hatchuel og Weil er K eit rom av kunnskapspåstandar; her vert statusen til eit spørsmål om ei form ført som ein partisjon relativ til agent, omsyn, prøvevilkår og tidspunkt. Ei kjend bereevne avgjer ikkje andre verknader av den same forma.",
+      "note": "Den materielle delinga er skild frå den aksevise delinga mellom det kjende K_k, det tenkte C_k og det utenkjelege U_k. Dette er ei operasjonell tilpassing av C–K-teorien. Hos Hatchuel og Weil er K eit rom av kunnskapspåstandar; her vert statusen til eit spørsmål om ei form ført som ein partisjon relativ til agent, omsyn, prøvevilkår og tidspunkt. Ei kjend bereevne avgjer ikkje andre verknader av den same forma. Delinga gjeld under oppgjevne prøvevilkår, og tidshorisonten høyrer til prøvevilkåra. Mengdene er parvis disjunkte og dekkjer det oppgjevne formrommet. Det akselause er ikkje ei fjerde delmengd i den aksevise partisjonen.",
       "sources": [
         "16",
         "17"
@@ -1049,7 +1035,7 @@
       "id": "prop-3-1",
       "proposition": "3.1",
       "section": null,
-      "note": "Det adaptive landskapet og det epigenetiske landskapet har ulik historisk bruk. formlære fører dei saman i eit formrom; det er ikkje ei uendra overtaking av éin modell.",
+      "note": "Det adaptive landskapet og det epigenetiske landskapet har ulik historisk bruk. formlære fører dei saman i eit formrom; det er ikkje ei uendra overtaking av éin modell. Summen gjeld under additivitetsvilkåret i 3.01; indeksen j omfattar både einskildtrykk og særskilt oppgjevne samspelsledd. Vert aksane skalerte om, endrar gradientretninga seg; verdiane av Λ gjer det ikkje. Ved diskrete steg vert verdiane i naboane samanlikna.",
       "sources": [
         "3",
         "8",
@@ -1134,7 +1120,7 @@
       "id": "prop-5-21",
       "proposition": "5.21",
       "section": null,
-      "note": "Kompetanse og navigasjon i rom er kjeldegrunnlaget. Terskelmengda κ(A) og familien av samstundes haldbare aksemengder er operasjonelle definisjonar i teksten. Kvart omsyn kan ha sin politikk utan at éin politikk held dei samla.",
+      "note": "Kompetanse og navigasjon i rom er kjeldegrunnlaget. Terskelmengda κ(A) og familien av samstundes haldbare aksemengder er operasjonelle definisjonar i teksten. Kvart omsyn kan ha sin politikk utan at éin politikk held dei samla. Prøva har eit tidsrom T og ei mengd forstyrringar D; starttilstanden og ei eventuell innstillingstid må vere fastsette før prøva. X_k ∈ κ er det same som {X_k} ∈ κ_samla, medan S ⊆ κ ikkje åleine gjev S ∈ κ_samla.",
       "sources": [
         "21",
         "86"
@@ -1204,7 +1190,7 @@
       "id": "prop-5-7",
       "proposition": "5.7",
       "section": null,
-      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val, med r_A som korreksjon ved reversibel utforsking. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane. Kjernen må knytast til eit oppgjeve tilstandsrom: reversibel prøving på representasjonar og einsretta materialsteg krev ikkje same overgangsregel.",
+      "note": "Stiny og Gips skildrar formgrammatikk, Hatchuel og Weil samspelet mellom konsept og kunnskap, og Fields og Levin kompetanse i navigasjon. Overgangsregelen nyttar ei kjend Metropolis-form som ein hypotese om val, med r_A som korreksjon ved reversibel utforsking. Samanbindinga med grammatikksteg og prioriteringar er modellforslaget her; akseptregelen er ikkje utleidd frå dei tre designtradisjonane. Kjernen må knytast til eit oppgjeve tilstandsrom: reversibel prøving på representasjonar og einsretta materialsteg krev ikkje same overgangsregel. Resten av overgangssannsynet vert verande i x. Korreksjonen i 5.702 gjeld forslag med positivt sannsyn begge vegar. Med r_A = 1 er det ikkje åleine gjeve ei kjend stasjonær fordeling.",
       "sources": [
         "11",
         "17",
@@ -1287,7 +1273,7 @@
       "id": "prop-6-6",
       "proposition": "6.6",
       "section": null,
-      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. Jaynes gjev maksimalentropigrunnlaget, her nytta relativt til grunnfordelinga, og Levin og Peres gjev vilkår for konvergens i Markov-kjeder. Kjeldene om kompetanse og persistente system gjev bakgrunn for tolkinga av grunnvekt, estimerte avvik og agentinnverknad. formlære si syntese må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet.",
+      "note": "Den eksponentielle familien og normaliseringa er kjende statistiske verkemiddel. Jaynes gjev maksimalentropigrunnlaget, her nytta relativt til grunnfordelinga, og Levin og Peres gjev vilkår for konvergens i Markov-kjeder. Kjeldene om kompetanse og persistente system gjev bakgrunn for tolkinga av grunnvekt, estimerte avvik og agentinnverknad. formlære si syntese må prøvast mot alternative modellar; ei kjend fordelingsform etablerer ikkje åleine empirisk forklaringskraft eller originalitet. Modellen føreset ei ikkje-tom mengd D, positiv grunnvekt på D og faste estimat og vekter. For eit endeleg D maksimerer fordelinga den relative entropien −Σ P(x) log(P(x)/μ_SG(x)) under ei øvre grense for det forventa vekta avviket Φ. β ≥ 0 er multiplikatoren til grensa; når ho ikkje bind, er β = 0, og grensa ved minimumet vert nådd som β → ∞.",
       "sources": [
         "86",
         "89",
@@ -1378,7 +1364,7 @@
       "id": "prop-5-152",
       "proposition": "5.152",
       "section": null,
-      "note": "Chis-Ciure og Levin drøftar intelligens i ulike slag system. I formlære vert kompetanse prøvd ved å samanlikne med blind leiting. Målet i 5.152 krev at samanlikninga vert fastsett for den aktuelle oppgåva.",
+      "note": "Chis-Ciure og Levin drøftar intelligens i ulike slag system. I formlære vert kompetanse prøvd ved å samanlikne med blind leiting. Målet i 5.152 krev at samanlikninga vert fastsett for den aktuelle oppgåva. Forventingane gjeld same fordeling av utgangspunkt og forstyrringar, same stegeining og same avbrotsgrense, og må vere endelege og positive.",
       "sources": [
         "86",
         "88"
@@ -1418,7 +1404,7 @@
       "id": "prop-6-64",
       "proposition": "6.64",
       "section": null,
-      "note": "Metropolis–Hastings er ein standardkonstruksjon for ei oppgjeven stasjonær fordeling. Detaljert balanse gjev invarians; samanheng og aperiodisitet gjev konvergens i det endelege tilfellet. Ein einsretta produksjonsprosess vert ikkje reversibel ved å skrive inn korreksjonen: forslag utan motsett overgang vert avviste. Fordelinga er eit betinga, lokalt valbilete når grunnmål, estimat og alternative steg står faste; ho er ikkje ei stasjonær lov for den irreversible produksjonshistoria.",
+      "note": "Metropolis–Hastings er ein standardkonstruksjon for ei oppgjeven stasjonær fordeling. Detaljert balanse gjev invarians; samanheng og aperiodisitet gjev konvergens i det endelege tilfellet. Ein einsretta produksjonsprosess vert ikkje reversibel ved å skrive inn korreksjonen: forslag utan motsett overgang vert avviste. Fordelinga er eit betinga, lokalt valbilete når grunnmål, estimat og alternative steg står faste; ho er ikkje ei stasjonær lov for den irreversible produksjonshistoria. Vilkåra er eit endeleg D, positiv grunnvekt på D og endelege ledd som står faste under utforskinga. Forslag utanfor D vert avviste; når q(x′, x) = 0, er aksepten null, og resten av sannsynet vert verande i x. Konvergens krev i tillegg positivt sannsyn for å verte ståande i kvar posisjon. Tida det tek å kome nær fordelinga med oppgjeven presisjon, er blandingstida. Ved β = 0 bevarer prosessen grunnfordelinga.",
       "sources": [
         "110",
         "121"
@@ -1429,7 +1415,7 @@
       "id": "prop-6-673",
       "proposition": "6.673",
       "section": null,
-      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. formlære nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ei ny matematisk oppdaging. Deriverten gjeld ein fri parameter i eksponentialfamilien. Normaliserte omhugsvekter kan ikkje endrast éi om gongen utan at andre vekter vert endra.",
+      "note": "Derivasjon av forventingar i ein eksponentialfamilie gjev kovariansidentitetar; sjå Wainwright og Jordan, del 3.5. formlære nyttar dette kjende resultatet til å skilje prioriteringsvekt, estimat og faktisk følgje. Bruken er eit modellforslag som krev empirisk prøving; sjølve identiteten er ikkje ei ny matematisk oppdaging. Deriverten gjeld ein fri parameter i eksponentialfamilien. Normaliserte omhugsvekter kan ikkje endrast éi om gongen utan at andre vekter vert endra. Identiteten gjeld for eit endeleg D når D, grunnfordelinga og alle estimata står faste; forventing og kovarians vert tekne under den same fordelinga P. Med omsorg er vekta β w_i (1 − γ_i) ω_k(A_i) for eigne omsyn og β w_A c for biletet av ein annan.",
       "sources": [
         "122"
       ],
@@ -1439,7 +1425,7 @@
       "id": "prop-7-14",
       "proposition": "7.14",
       "section": null,
-      "note": "Prediksjons-, mål- og haldshorisonten må fastsetjast relativt til same starttid, omsyn og prøvevilkår. Ingen minimumsformel for dei tre er føresett: eit førebyggjande vern kan verke utan at kvar seinare følgje vert føresagd.",
+      "note": "Prediksjons-, mål- og haldshorisonten må fastsetjast relativt til same starttid, omsyn og prøvevilkår. Ingen minimumsformel for dei tre er føresett: eit førebyggjande vern kan verke utan at kvar seinare følgje vert føresagd. Sviktlatensen er definert når prediksjonshorisonten er positiv. Ligg følgja innanfor prediksjonshorisonten, men utanfor målhorisonten, er det likegyldigheit i tid når eit vern er tilgjengeleg, og blindskap når både mål og kapasitet manglar. Ligg ho innanfor målhorisonten, men utanfor haldshorisonten, er det avmakt i tid (5.2322). Utanfor prediksjonshorisonten kan lokal tilbakekopling eller eit vern sett i verk no likevel halde omsynet når følgja kjem.",
       "sources": [],
       "relation": "operasjonell presisering"
     },
@@ -1457,7 +1443,7 @@
       "id": "prop-5-28",
       "proposition": "5.28",
       "section": null,
-      "note": "Doctor og medforfattarar skildrar omsorg som det som set eit system i arbeid for å lette uro, og lèt målrommet vekse til å femne andre. Tronto gjev den omsorgsetiske bakgrunnen. At omsorg er omhug langs aksane til andre, med omsorgsvekter og omsorgsdel, er formaliseringa i denne teksten.",
+      "note": "Doctor og medforfattarar skildrar omsorg som det som set eit system i arbeid for å lette uro, og lèt målrommet vekse til å femne andre. Tronto gjev den omsorgsetiske bakgrunnen. At omsorg er omhug langs aksane til andre, med omsorgsvekter og omsorgsdel (6.701), er formaliseringa i denne teksten.",
       "sources": [
         "23",
         "68",
@@ -1469,22 +1455,11 @@
       "id": "prop-6-0211",
       "proposition": "6.0211",
       "section": null,
-      "note": "Løgstrup skriv at den einskilde aldri har med eit anna menneske å gjere utan å halde noko av livet til den andre i handa si, og lèt ei etisk fordring springe ut av dette. Teksten tek opp faktumet, ikkje utleiinga: fordringa står som forplikting i 7.26.",
+      "note": "Løgstrup skriv at den einskilde aldri har med eit anna menneske å gjere utan å halde noko av livet til den andre i handa si. Teksten tek opp faktumet, ikkje fordringa han lèt springe ut av det.",
       "sources": [
         "177"
       ],
       "relation": "omgrepsleg parallell"
-    },
-    {
-      "id": "prop-6-0232",
-      "proposition": "6.0232",
-      "section": null,
-      "note": "Korsgaard grunngjev normer frå det som er konstitutivt for handling. Enoch innvender at ein alltid kan spørje kvifor ein skal vere ein slik aktør. Teksten gjev innvendinga rett for design: ingen er nøydd til å vere designar. Definisjonen i 6.02 gjev difor sanningsvilkår for eit krav på namnet, ikkje ei plikt.",
-      "sources": [
-        "180",
-        "181"
-      ],
-      "relation": "avgrensing"
     },
     {
       "id": "prop-6-121",
@@ -1511,7 +1486,7 @@
       "id": "prop-6-633",
       "proposition": "6.633",
       "section": null,
-      "note": "At uavhengige godkjenningar gjev eit produkt av dei einskilde vektingane, er ein standardkonstruksjon. Lesinga av innverknad som del av den samla seleksjonsstyrken er teksten sitt forslag.",
+      "note": "At uavhengige godkjenningar gjev eit produkt av dei einskilde vektingane, er ein standardkonstruksjon. Lesinga av innverknad som del av den samla seleksjonsstyrken er teksten sitt forslag. Vilkåra er at agentane prøver det same forslaget frå ein felles forslagskjerne, at forslaget først vert godteke med sannsyn min{1, r}, at agent i deretter godtek med sannsyn min{1, exp(−β_i[L_i(x′) − L_i(x)])}, der L_i er vurderinga hans, og at vilkåra i 6.64 held. Kjeda har då detaljert balanse med P(x) ∝ μ_SG(x) exp(−Σ_i β_i L_i(x)). Den vekta summen er ein hypotese om korleis agentane avgjer saman, ikkje berre om kor mykje kvar tel.",
       "sources": [
         "121"
       ],
@@ -1521,7 +1496,7 @@
       "id": "prop-6-711",
       "proposition": "6.711",
       "section": null,
-      "note": "At ei eksponentiell vekting med ein funksjon ikkje endrar fordelinga innanfor nivåmengdene til funksjonen, er eit standardresultat for eksponentialfamiliar. Tolkinga som svarkurve og lukka sløyfe er teksten sitt forslag og må prøvast.",
+      "note": "At ei eksponentiell vekting med ein funksjon ikkje endrar fordelinga innanfor nivåmengdene til funksjonen, er eit standardresultat for eksponentialfamiliar. Tolkinga som svarkurve og lukka sløyfe er teksten sitt forslag og må prøvast. Innanfor kvar verdi av biletet står fordelinga fast (6.6711). Difor avheng svarkurva ikkje av vekta, og ∂E[e]/∂θ = −Cov(h(ê), ê). Resultatet gjeld når berre vekta til biletet endrar seg. Er svarkurva flat, endrar omsorga ingenting for den andre.",
       "sources": [
         "122"
       ],
@@ -1531,7 +1506,7 @@
       "id": "prop-6-73",
       "proposition": "6.73",
       "section": null,
-      "note": "Likningssystemet er kjent frå økonomisk teori om velvilje mellom aktørar; Bergstrom gjev vilkåra for at det har éi løysing. Bruken på omsorg i valmodellen er teksten sitt forslag.",
+      "note": "Likningssystemet er kjent frå økonomisk teori om velvilje mellom aktørar; Bergstrom gjev vilkåra for at det har éi løysing. Bruken på omsorg i valmodellen er teksten sitt forslag. Likninga er grensetilfellet der A kjenner vurderinga til B utan feil; med eit bilete av henne legg feila seg saman langs vegen. Løysinga finst og er eintydig når kvar agent anten har eigne omsyn, γ < 1, eller ein omsorgsveg til ein som har det. I den samla vurderinga tel B då med innverknaden Σ_A w_A χ_AB.",
       "sources": [
         "110",
         "171"
@@ -1542,7 +1517,7 @@
       "id": "prop-6-742",
       "proposition": "6.742",
       "section": null,
-      "note": "Simon og Ando viser at system med sterk kopling innanfor grupper og svak mellom dei på lang sikt kan skildrast med éin variabel per gruppe. Overføringa til omsorgsvekter gjeld i grensa der eigenandelane og omsorga mellom gruppene er små. Ho er prøvd numerisk, ikkje bevist i full allmenn form.",
+      "note": "Simon og Ando viser at system med sterk kopling innanfor grupper og svak mellom dei på lang sikt kan skildrast med éin variabel per gruppe. Overføringa til omsorgsvekter gjeld i grensa der eigenandelane og omsorga mellom gruppene er små. Ho er prøvd numerisk, ikkje bevist i full allmenn form. Kvar gruppe Q vurderer tilnærma som éin agent, og gruppene har omsorg for kvarandre med vektene c(Q, Q′) = u(Q, Q′) / (s(Q) + Σ u(Q, Q″)), med summen over dei andre gruppene, der s er eigenandelen og u omsorga ut, begge vekta med den stasjonære fordelinga i gruppa. På neste skala tel ikkje kor sterk omsorga er innanfor gruppa, berre forholdet mellom det gruppa gjev ut og det ho held for seg sjølv. Dette gjeld vurderinga: ein akse ingen del har i lyskjegla si, kjem ikkje av omsorg mellom delane åleine.",
       "sources": [
         "119",
         "172"
@@ -1553,7 +1528,7 @@
       "id": "prop-6-75",
       "proposition": "6.75",
       "section": null,
-      "note": "At mål vert større når delar vert kopla saman, og at uro kan delast, er kjeldegrunnlaget. Identiteten mellom omsorg på éin skala og sjølvhald på neste, med avhengigheita som vilkår, er teksten si eiga samanbinding.",
+      "note": "At mål vert større når delar vert kopla saman, og at uro kan delast, er kjeldegrunnlaget. Identiteten mellom omsorg på éin skala og sjølvhald på neste, med avhengigheita som vilkår, er teksten si eiga samanbinding. Vilkåret er avhengigheita. Omsorg for ein som heilskapen ikkje er avhengig av, er framleis omsorg, men ikkje sjølvhald i denne heilskapen.",
       "sources": [
         "22",
         "23",
@@ -1565,7 +1540,7 @@
       "id": "prop-6-752",
       "proposition": "6.752",
       "section": null,
-      "note": "Forsøka er gjorde i embryo av klofrosken Xenopus laevis. Chernet og Levin viser at membranpotensialet varslar og påverkar svulstliknande vekst. Chernet, Fields og Levin finn at broten kopling gjennom kanalane mellom cellene gav færre slike danningar. Aasen og medforfattarar gjev eit oversyn over det skiftande sambandet mellom slike kanalar og kreft.",
+      "note": "Forsøka er gjorde i embryo av klofrosken Xenopus laevis. Chernet og Levin viser at membranpotensialet varslar og påverkar svulstliknande vekst. Chernet, Fields og Levin finn at broten kopling gjennom kanalane mellom cellene gav færre slike danningar. Aasen og medforfattarar gjev eit oversyn over det skiftande sambandet mellom slike kanalar og kreft. Celler som eit kreftgen driv mot svulstliknande vekst, får eit avvikande membranpotensial før veksten er synleg. Vert potensialet tvinga tilbake, vert det færre slike danningar, endå genet framleis er uttrykt. Sambandet mellom kanalane og svulstar er ikkje eintydig: det skiftar med svulsttype og stadium. Det er ikkje vist at svulstar allment kjem av tapt kopling.",
       "sources": [
         "174",
         "175",
@@ -1577,7 +1552,7 @@
       "id": "prop-7-011",
       "proposition": "7.011",
       "section": null,
-      "note": "Jonas held fram at teknisk handling når lenger i rom og tid enn ein etikk for dei nære, og at ansvaret for dei som kjem etter, ikkje kan kvile på gjensidigheit. Verknadskjegla gjev denne rekkjevidda ei operasjonell form. Jonas si eiga grunngjeving av plikta vert ikkje teken opp.",
+      "note": "Jonas held fram at teknisk handling når lenger i rom og tid enn ein etikk for dei nære, og at ansvaret for dei som kjem etter, ikkje kan kvile på gjensidigheit. Verknadskjegla gjev denne rekkjevidda ei operasjonell form. Jonas si eiga grunngjeving av plikta vert ikkje teken opp. Kjegla er gjeven ved følgjene, ikkje ved kva nokon veit om dei; det kjende utsnittet veks med prøvene. Ein skilnad er vesentleg når han er større enn ein del av toleransen til den som ber han, fastsett før prøva.",
       "sources": [
         "178"
       ],
@@ -1597,7 +1572,7 @@
       "id": "prop-7-174",
       "proposition": "7.174",
       "section": null,
-      "note": "Føreseiingane er førte opp før dei er prøvde. Der storleiken på ei endring i vekt ikkje er kjend, er prøva av (ii) forholdet mellom to responsar mot forholdet mellom to kovariansar. Forholdet i (i) er ofte brote i menneskelege val; eit brot er eit resultat, og ei retting tel som framgang berre om ho føreseier kva alternativ som flyttar forholdet, og kva veg. Flyttar estimatet seg når prioriteringa aukar, gjeld ikkje prøva av (iii) for det tilfellet.",
+      "note": "Registeret: (i) Forholdet mellom sannsyna for to former endrar seg ikkje når andre alternativ kjem til eller fell bort (6.614). (ii) Når éi fri vekt aukar litt, flyttar kvart estimert avvik seg i middel så mykje som kovariansen målt før endringa seier, agent for agent (6.673). (iii) Forteiknet på kovariansen mellom estimat og faktisk avvik, målt før valet, føreseier om meir prioritering minskar eller aukar den faktiske skaden (6.674). (iv) Spreiinga langs ein akse fell med prioriteringa etter ein eksponent som følgjer av avviksmålet og er oppgjeven før prøva (6.672, 6.6722). (v) Sannsynet for å godta eit steg oppover fell eksponentielt med den estimerte skilnaden og avheng ikkje av vegen fram til steget (5.7). (vi) Svikt kjem oftare langs aksar som på førehand er fastsette som uhaldne og uverna, enn langs haldne, og så ofte som sviktrisikoen seier (7.1, 7.152). (vii) Blindskap, likegyldigheit og avmakt vert retta av ulike inngrep: meir kapasitet rettar ikkje likegyldigheit, og meir prioritering rettar ikkje avmakt (5.232). (viii) Svarkurva flyttar seg ikkje når omsorgsvekta vert endra; stig ho, minskar meir omsorg det faktiske avviket hos den andre (6.711). (ix) Der spenninga er delt, endrar ikkje forma seg med kven som avgjer; der kanalen mellom delane vert broten, held kvar del sitt eige medan det felles haldet fell (6.74, 6.755). (x) Når steg, vurdering og hald er fastsette kvar for seg, gjev ikkje eit fjerde ledd betre føreseiingar om nye tilfelle (5.7231). (xi) Stilkategoriar som er fastsette utan å sjå på formmåla, føreseier nye former betre enn materialet, med like mange parametrar (2.202). (xii) Tradisjonar utan overføring, men under same vilkår, ligg nærare kvarandre enn tilfeldig vandring frå same start gjev (3.41). Føreseiingane er førte opp før dei er prøvde. Der storleiken på ei endring i vekt ikkje er kjend, er prøva av (ii) forholdet mellom to responsar mot forholdet mellom to kovariansar. Forholdet i (i) er ofte brote i menneskelege val; eit brot er eit resultat, og ei retting tel som framgang berre om ho føreseier kva alternativ som flyttar forholdet, og kva veg. Flyttar estimatet seg når prioriteringa aukar, gjeld ikkje prøva av (iii) for det tilfellet.",
       "sources": [
         "166",
         "170"
@@ -1605,26 +1580,296 @@
       "relation": "prøveopplegg"
     },
     {
-      "id": "prop-7-241",
-      "proposition": "7.241",
+      "id": "prop-3-01",
+      "proposition": "3.01",
       "section": null,
-      "note": "Fisher og Tronto skil fire fasar i omsorg: å bry seg om, å ta ansvar for, å gje omsorg og å ta imot omsorg. Dei fire vilkåra her overlappar med fasane utan å vere identiske med dei.",
-      "sources": [
-        "68",
-        "179"
-      ],
-      "relation": "overlapp, ikkje identitet"
+      "note": "Fordelinga føreset ei oppgjeven grunnvekt μ₀ på dei tillatne formene og at normaliseringa er mogleg. Dette er additivitetsvilkåret for landskapet. Der trykka samverkar ikkje-multiplikativt, må samspelsledda skiljast ut som eigne ledd i summen, eller faktorane definerast betinga av ei fastsett referanseordning.",
+      "sources": [],
+      "relation": "vilkår"
     },
     {
-      "id": "prop-7-26",
-      "proposition": "7.26",
+      "id": "prop-5-1102",
+      "proposition": "5.1102",
       "section": null,
-      "note": "Løgstrup og Jonas grunngjev ansvar for den andre og for dei som kjem etter. Teksten tek opp asymmetrien og rekkjevidda frå dei, ikkje grunngjevingane: forpliktinga er sett av læra og er ikkje utleidd.",
+      "note": "Avstanden og eininga må fastsetjast for kvart omsyn. Avviket for ei realisert form er det største over forstyrringane og tidsrommet i prøva.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-5-114",
+      "proposition": "5.114",
+      "section": null,
+      "note": "Prøva av haldshorisonten må fastsetje forstyrringane, starttilstanden og ei eventuell innstillingstid. Målhorisonten i 5.2201 vert rekna frå same starttid.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-5-704",
+      "proposition": "5.704",
+      "section": null,
+      "note": "Drifta gjeld til første orden for symmetriske forslag inne i eit glatt tilgjengeleg rom med lokalt flat grunnfordeling, når stega er små mot 1/(β|∇Φ_A|). Ved større steg eller brattare fall flatar drifta ut og veks ikkje lenger med β. Det er ei tilnærming, ikkje ei generell rørslelov.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-5-71",
+      "proposition": "5.71",
+      "section": null,
+      "note": "Med r_A = 1 gjev kjernen fordelinga i 6.6 når forslaga har detaljert balanse med grunnfordelinga og dei andre vilkåra i 6.64 held. Hastings-korreksjonen gjev same fordeling for fleire reversible forslag. Ingen av konstruksjonane gjer ei irreversibel materialhandling reversibel.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-5-7231",
+      "proposition": "5.7231",
+      "section": null,
+      "note": "Vektinga ligg i landskapet Λ, som agentane og vilkåra ber saman (6.613). Kvar kjend årsak får plassen sin i eitt ledd før prøva. Å flytte henne etter eit motdøme er eit tap i tydinga i 7.173.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-022",
+      "proposition": "6.022",
+      "section": null,
+      "note": "Kriteriet tilskriv ikkje cella menneskeleg moralsk ansvar.",
+      "sources": [],
+      "relation": "avgrensing"
+    },
+    {
+      "id": "prop-6-61",
+      "proposition": "6.61",
+      "section": null,
+      "note": "Estimatet kan avhenge av heile konfigurasjonen. Innverknadene og omhugsvektene er ikkje-negative; ved tom lyskjegle er vurderinga og innverknaden sette til null. Vektene, dei toleranseskalerte estimata og β er dimensjonslause og må fastsetjast før modellen vert prøvd; kva vala åleine kan fastsetje, står i 6.6731. Grunnfordelinga kjem frå både grammatikken og den oppgjevne stegprosessen.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-612",
+      "proposition": "6.612",
+      "section": null,
+      "note": "Når Φ når eit globalt minimum i D, samlar massen seg i grensa β → ∞ om dei globale minima, fordelte etter grunnvekta dersom fleire står likt. Sterk seleksjon er difor ikkje nødvendigvis eitt utfall.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-613",
+      "proposition": "6.613",
+      "section": null,
+      "note": "Samanhengen gjeld når grunnvekta μ₀ i 3.01 og fordelinga i 6.6 gjeld dei same formene D. Kvart par av agent og omsyn er då eitt trykk, og c er ein konstant.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-62",
+      "proposition": "6.62",
+      "section": null,
+      "note": "I eit teljeleg rom er Z endeleg når grunnfordelinga er ei sannsynsfordeling og Φ er avgrensa nedanfrå. Ein atomlaus formalgebra er ikkje i seg sjølv eit atomlaust sannsynsrom: for eit kontinuerleg operativt rom vert summen erstatta med eit integral mot eit oppgjeve grunnmål, med 0 < Z < ∞. Når ei ny objektdeling eller akse endrar D, må grunnmålet og koplinga mellom dei to formromma òg oppgjevast.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-641",
+      "proposition": "6.641",
+      "section": null,
+      "note": "Endrar vekter, estimat eller tilgjengelege steg seg før prosessen har blanda seg, er den stasjonære fordelinga ikkje nødvendigvis ei god skildring av utfalla. I eit historisk forløp må tilstanden ta med det minnet dei vidare overgangane krev. Fordelinga i 6.6 kan nyttast som eit lokalt valbilete berre der dei oppgjevne vilkåra ber det.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-642",
+      "proposition": "6.642",
+      "section": null,
+      "note": "Opphaldstida gjeld når alle nabostega ligg minst h > 0 høgare og r = 1. Historia og dei tilgjengelege stega avgjer om ein dal kan forlatast i tida prosessen har.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-65",
+      "proposition": "6.65",
+      "section": null,
+      "note": "(ii) føreset éin agent og ei samla vurdering som er 0 i K⁺ og 1 elles, og samanliknar former med same grunnvekt. Det er ei føreseiing om val, ikkje ei utleiing av tanke-kunnskapsrørsla. (iii) Ein gradientprosess krev fleire vilkår om stega. (iv) seier ikkje kor raskt dei beste posisjonane vert nådde.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-671",
+      "proposition": "6.671",
+      "section": null,
+      "note": "Avheng Φ berre av koordinatane dei vekta estimata avheng av, får dei andre den vilkårsfordelinga grunnfordelinga gjev når desse koordinatane og D er faste. Det gjev ikkje uavhengigheit mellom aksane: nettopp vilkårsfordelinga kan bere eit indirekte vern.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-672",
+      "proposition": "6.672",
+      "section": null,
+      "note": "Tilnærminga føreset separerbar spenning, lokalt flat grunnfordeling og eit estimat som er to gonger deriverbart ved eit ikkje-degenerert indre minimum, med β > 0, W_k > 0 og positiv krumming. Kryssledd i H koplar aksane. Ved varierande grunnvekt må krumminga av −log μ_SG reknast med. Seleksjonsstyrke, prioritering og krumming kan skiljast ved å endre eitt ledd medan dei andre står faste.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-6722",
+      "proposition": "6.6722",
+      "section": null,
+      "note": "Uttrykket gjeld når estimatet er avstanden |x_k − g_k| frå eit målpunkt, med separerbar spenning og flat grunnfordeling langt frå grensene til D. Har målregionen breidd L > 0 langs aksen, går variansen mot L²/12 når β → ∞, ikkje mot null. Spreiinga fell som 1/(βW_k) ved kvadratisk mål og som 1/(βW_k)² ved avstand.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-6731",
+      "proposition": "6.6731",
+      "section": null,
+      "note": "Lat D, grunnfordelinga og dei toleranseskalerte estimata vere fastsette uavhengig av vala. Då fastset valfordelinga vektene θ eintydig dersom og berre dersom kovariansmatrisa til estimata er positivt definitt. Frå θ følgjer β, innverknadene og omhugsvektene ved normaliseringa i 6.61, og med omsorg omsorgsdelen og omsorgsvektene. Er grunnfordelinga ikkje gjeven, er berre log μ_SG − βΦ fastsett. Er toleransen ikkje gjeven, er berre θ_k/ε_k fastsett. Deler to agentar same estimat langs eit omsyn, er berre summen av vektene deira fastsett.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-674",
+      "proposition": "6.674",
+      "section": null,
+      "note": "Det faktiske avviket må vere målt uavhengig av estimatet og stå fast under endringa. Den deriverte kan skrivast −corr(e_j, ê_k) σ(e_j) σ(ê_k), med absoluttverdi høgst σ(e_j) σ(ê_k). Ved null kovarians er førstederiverten null. For ei endeleg endring må samvariasjonen følgjast langs endringa. Er følgja uviss også for ei gjeven form, gjeld identiteten med middelverdien av avviket for kvar form. Endrar prioriteringa òg modellen, følgjene eller dei tilgjengelege alternativa, gjeld ikkje den partielle deriverte åleine.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-702",
+      "proposition": "6.702",
+      "section": null,
+      "note": "Når ingen lyskjegle er tom, summerer målvektene seg til 1.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-704",
+      "proposition": "6.704",
+      "section": null,
+      "note": "Lat x og x′ vere like i alle andre vekta estimat. Då er log P(x)/P(x′) = log μ_SG(x)/μ_SG(x′) − θ[b(x) − b(x′)], der b er biletet A har av avviket til B, og θ = β w_A c er vekta til biletet. Ved bruk fell skilnaden bort der avviket hos den andre ikkje lenger tener agenten sine eigne mål.",
+      "sources": [],
+      "relation": "måleforslag"
+    },
+    {
+      "id": "prop-6-71",
+      "proposition": "6.71",
+      "section": null,
+      "note": "Identiteten gjeld under vilkåra i 6.674. Flyttar A vekt frå eigne omsyn til omsorga, er den deriverte −β w_A Cov(e_B, b − Φ0_A), der b er biletet og Φ0_A vurderinga av eigne omsyn. Det A gjev opp, kan sjølv ha verna B (6.675).",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-713",
+      "proposition": "6.713",
+      "section": null,
+      "note": "I rekninga svarar det å lukke sløyfa til å setje h(ê) i staden for ê. Då er h(u) = u, den deriverte er −Var(ê), og E[e] = E[ê] for kvar vekt. Éi retting held så lenge berre omsorgsvekta endrar seg. Endrar andre vekter, estimat eller steg seg, må svaret hentast på nytt.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-714",
+      "proposition": "6.714",
+      "section": null,
+      "note": "Byggjer biletet på eit svar Y frå den andre, er |Cov(e, ê)| ≤ η σ(e) σ(ê), med η² = Var(E[e | Y]) / Var(e). Eit finare svar forklarer aldri mindre. Utan kanal er η = 0, og retninga på omsorga er uprøvd.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-72",
+      "proposition": "6.72",
+      "section": null,
+      "note": "Lat D vere endeleg. Når β → ∞, samlar massen seg på minimum av Φ. Har alle estimata og bileta positiv vekt, er kvart slikt minimum Pareto-optimalt for dei: inga form i D er minst like god langs alle og betre langs eitt. Har eit mål null vekt, kan eit minimum vere dominert, men berre langs mål utan vekt. Ei lita, positiv omsorgsvekt vel då, mellom formene som alt var best for dei andre, dei som er best for den som mangla vekt. Optimaliteten gjeld estimata; for dei faktiske avvika gjeld ho berre så langt estimata ordnar formene rett.",
       "sources": [
-        "177",
-        "178"
+        "115"
       ],
-      "relation": "omgrepsleg parallell"
+      "relation": "standardresultat og føreslått bruk"
+    },
+    {
+      "id": "prop-6-74",
+      "proposition": "6.74",
+      "section": null,
+      "note": "Lat Q vere ei samling agentar med positiv innverknad, og β > 0. Valfordelinga er uendra under kvar omfordeling av innverknaden innanfor Q dersom og berre dersom vurderingane deira er like på D opp til konstantar. Lik vurdering kan òg kome av like mål utan kopling. Prøva kan difor avkrefte delt spenning, ikkje stadfeste henne.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-741",
+      "proposition": "6.741",
+      "section": null,
+      "note": "I ein samanhengande krins, lat eigenandelane 1 − γ_A gå mot null i fast innbyrdes forhold s_A. Då går χ_AB for kvar A mot π_B s_B / Σ π_C s_C, der π er den stasjonære fordelinga til omsorgsvandringa. Grensa vert ikkje nådd: i sjølve grensa fastset krinsen inga vurdering (6.732).",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-751",
+      "proposition": "6.751",
+      "section": null,
+      "note": "Éin del kan styre vilkåra dei andre svarar på (6.111), bruke avvika deira for eigne mål (6.021), eller føre gevinsten ein del tek på det felles, tilbake til han som avvik (6.1213). At ein heilskap held seg, viser difor ikkje at delane har omsorg for kvarandre.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-753",
+      "proposition": "6.753",
+      "section": null,
+      "note": "Lesinga er ein hypotese i biologien. Ho skil seg frå tapt evne ved det ho føreseier: cella held sitt eige like godt eller betre (6.754), og vevet kan ta opp att forma når koplinga vert retta, utan at cella vert bytt ut. Der svulsten held fram med retta kopling, held ikkje lesinga for det tilfellet.",
+      "sources": [],
+      "relation": "hypotese i denne teksten"
+    },
+    {
+      "id": "prop-6-754",
+      "proposition": "6.754",
+      "section": null,
+      "note": "Skriv vurderinga som Φ_A = (1 − γ_A) Φ0_A + γ_A Ψ_A, og lat berre omsorgsdelen endre seg. Der Ψ_A og Φ0_A ikkje samvarierer positivt, fell det eigne avviket medan avviket hos dei andre stig.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-6-755",
+      "proposition": "6.755",
+      "section": null,
+      "note": "Fastset før brotet kva omsyn som er eigne og kva som er felles, og mål sviktrisikoen (7.152) langs begge, mot ei samling utan brot. Hypotesen fell dersom svikten aukar like mykje langs dei eigne omsyna; då er det evna som er tapt. Ho fell dersom det felles haldet står uendra, og dersom haldet ikkje kjem tilbake når kanalen vert sett inn att med dei same delane. Hypotesen gjeld kanalen som ber avvika, ikkje mengda samband: sterkare kopling er ikkje alltid betre.",
+      "sources": [],
+      "relation": "prøveopplegg"
+    },
+    {
+      "id": "prop-7-013",
+      "proposition": "7.013",
+      "section": null,
+      "note": "Det uhaldne er det som ligg i verknadskjegla utan å vere halde av nokon, heller ikkje av den som ber følgja. Det uverna er den delen som heller ikkje får vern gjennom eit anna omsyn (6.675) eller gjennom grunnfordelinga (6.671). Vernet gjennom eit anna omsyn er eit samband, ikkje eit hald: det kan snu når vilkåra endrar seg.",
+      "sources": [],
+      "relation": "operasjonell presisering"
+    },
+    {
+      "id": "prop-7-151",
+      "proposition": "7.151",
+      "section": null,
+      "note": "Fastset formrom, aksar, tillatne steg, grunnfordeling, mål, toleransar og forstyrringar. Registrer føreseiingane til modellen og estimata til agenten før valet. Prøv prioritering og kapasitet kvar for seg. Samanlikn dei føresagde vala og følgjene med det som faktisk skjer, og med ein enklare grunnmodell under same vilkår. Ei rett føresagd handling med feil følgje er ikkje same feilen som ei rett vurdering agenten ikkje kunne gjennomføre.",
+      "sources": [
+        "166"
+      ],
+      "relation": "prøveopplegg"
+    },
+    {
+      "id": "prop-7-152",
+      "proposition": "7.152",
+      "section": null,
+      "note": "Avviket er det faktiske avviket i ei uavhengig konsekvensprøve, målt mot den fastsette toleransen. Er følgja uviss også når forma er gjeven, står sannsynet for svikt i staden for indikatoren. I 7.1521 merkar j følgjeaksen og k eit par av agent og omsyn; vilkåra er dei same som i 6.674.",
+      "sources": [],
+      "relation": "vilkår"
+    },
+    {
+      "id": "prop-7-153",
+      "proposition": "7.153",
+      "section": null,
+      "note": "Kovariansen målt før inngrepet skal føreseie kor mykje middelverdien flyttar seg ved ei lita endring. Agentar med ulike vekter må prøvast kvar for seg: i ei blanding rommar den samla kovariansen òg skilnaden mellom agentane. Vert valet føresagt rett, men skaden feil, må konsekvensmodellen eller dei endra vilkåra granskast. Fell ein oppgjeven kapasitet under avtalte forstyrringar, held ikkje kapasitetsmålet.",
+      "sources": [],
+      "relation": "prøveopplegg"
+    },
+    {
+      "id": "prop-7-23",
+      "proposition": "7.23",
+      "section": null,
+      "note": "Både haldne og uhaldne aksar kan liggje i sviktrommet. Eit omsyn kan vere verna gjennom eit anna (6.675). Når vern manglar, kan grunnen vere feil estimat, utelaten prioritering, utilstrekkeleg kapasitet, konflikt eller endra vilkår. Sjølv når alle veit kva form som vil svikte, står risikoen att så lenge den forma har positivt valsannsyn (7.152).",
+      "sources": [],
+      "relation": "operasjonell presisering"
     }
   ],
   "aliases": {
