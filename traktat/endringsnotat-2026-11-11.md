@@ -15,6 +15,7 @@ Revisjonen har to mål. Læra skal vere eit forskingsprogram med påstandar som 
 - **Tilvisingane er ute av proposisjonane.** Nummeret viser alt kva eit trinn kviler på. Nokre få tilvisingar står att der setninga sjølv treng dei («definisjonen i 5.11»).
 - **Lange proposisjonar er delte.** Hovudtrinnet seier påstanden; undertrinna ber det som før stod i andre og tredje avsnitt. Døme: 5.11 (agenten) har fått 5.1101–5.1104, 5.7 (kjernelikninga) 5.701–5.704, 6.6 (valmodellen) 6.601–6.602, 4.3 (minnet i landskapet) 4.31–4.33.
 - **Vilkår og atterhald står i notane.** Kvar proposisjon som har mista eit vilkår, har eit notat som ber det (notata har auka frå 47 til 98). Fire vilkår som påstanden er usann utan, står framleis i sjølve proposisjonen (5.704, 6.64, 6.642, 6.72).
+- **Føreordet er skrive om.** Det er kort og påståeleg og svarar ikkje på innvendingar på førehand. Kjeldene står i notatet, ikkje i teksten.
 - **Dei formelle setningane står samla i kortversjonen** (`nettstad/kortversjon.tex`): målvekt, svarkurve, kanalgrense, rekkjevidd og skala, og registeret over føreseiingar. Lesekoden seier dette.
 
 ## Figurar
