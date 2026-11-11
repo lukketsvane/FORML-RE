@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "3d36f5aa63b26b293a228bcbc566a81f5457f22bae24b5782407ab7888867b19",
+  "sourceHash": "b172aa665339df1ea09b2a3bf18232ee48454ed7bc4e9fec314ac1c3619632c7",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
-    "kjelder.json": "b865310239ff79b9cc35eab263a67d992fcf09d0efc45e78ccd1866dce10f81c",
+    "kjelder.json": "f89a3807bbd8b6a48001bf6bffcb974146bebeb844ec927cfc60f1429e522795",
     "layout/authoring.tex": "0ac14df9ba935c57df5270b10ed30ddb61be09016c483f7966e7315360031279",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
     "layout/fonts/EBGaramond08-Italic.otf": "c9717f40d3d87bbcd874cbd31fca568f9e27cbaf68ac1d8886ad9c2122fc488f",
@@ -49,15 +49,15 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "80788e0b7d74e3b258c79b87dff50dbf4e9113ddd82f9beecbcfc7bf68ce8c70",
+    "tekst/formlaere.tex": "95366ebeba5092ee19c4194539376f121f61f7770e63147b381167f0cd704de6",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "68d4e3d05cf58809b65bda6cb2c7777e2b3f555687d02627f3985309c0502e78",
-    "formlaere-latex.zip": "aedc682c5a8f7d1e74b32989ea272facabf3dfd92c236f41da37cd3995c94cd9"
+    "formlaere.pdf": "a1fe63f131452186395c3b43b1d6ba83129308845ae42ad98e07025dfa43f581",
+    "formlaere-latex.zip": "97ec373e50c992d8dce82a5d9717ccb90154876d86291bb89c65b7bb8ded415d"
   },
   "quality": {
-    "pages": 104,
+    "pages": 103,
     "destinations": 759,
     "propositions": 489,
     "notes": 98,
@@ -71,11 +71,6 @@
       "tex": "(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>𝕄</mi><mo>,</mo><mi>Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi>Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
-    },
-    "eda37e0925574725780227d1": {
-      "tex": "A=(m,\\pi,G,\\varepsilon)",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon)</annotation></semantics></math>"
     },
     "c9f3d29ea25ac2c51c52ab1f": {
       "tex": "=",
