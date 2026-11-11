@@ -332,18 +332,19 @@
     const group=/\((\s*\d+(?:\.\d+)*(?:\s*[,;–—−-]\s*\d+(?:\.\d+)*)*\s*)\)/g;
     let start=0,m;
     while((m=group.exec(text))!==null){
-      appendMathText(el,text.slice(start,m.index)+"(");
-      const inner=m[1],numberPattern=/\d+(?:\.\d+)*/g;
+      appendMathText(el,text.slice(start,m.index));
+      const inner=m[1],numberPattern=/\d+(?:\.\d+)*/g,span=make("span","xref-group");
       let last=0,match;
+      appendMathText(span,"(");
       while((match=numberPattern.exec(inner))!==null){
-        appendMathText(el,inner.slice(last,match.index));
+        appendMathText(span,inner.slice(last,match.index));
         const n=match[0];
         if(byNum.has(n)){
-          el.appendChild(propositionLink(n));
-        }else el.appendChild(document.createTextNode(n));
+          span.appendChild(propositionLink(n));
+        }else span.appendChild(document.createTextNode(n));
         last=match.index+n.length;
       }
-      appendMathText(el,inner.slice(last)+")");
+      appendMathText(span,inner.slice(last)+")");el.appendChild(span);
       start=group.lastIndex;
     }
     appendMathText(el,text.slice(start));
