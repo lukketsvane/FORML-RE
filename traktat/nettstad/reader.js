@@ -572,6 +572,12 @@
   addressWindow.addEventListener("hashchange",()=>{clearTimeout(hashTimer);const n=hashNumber();if(byNum.has(n))setCurrent(n,false,true,"auto");else document.getElementById(n)?.scrollIntoView({block:"start"});});
 })().catch(err=>{const read=document.getElementById("read");if(read)read.textContent="Klarte ikkje laste formlære.";console.error(err);});
 
+if(window.matchMedia("(display-mode: standalone)").matches||navigator.standalone){
+  document.querySelector('meta[name="viewport"]').content+=",maximum-scale=1,user-scalable=no";
+  document.addEventListener("gesturestart",e=>e.preventDefault());
+  document.addEventListener("touchmove",e=>{if(e.touches.length>1&&e.cancelable)e.preventDefault();},{passive:false});
+}
+
 if('serviceWorker' in navigator && window.isSecureContext){
   window.addEventListener('load',()=>navigator.serviceWorker.register('/service-worker.js',{scope:'/',updateViaCache:'none'}).catch(()=>{}),{once:true});
 }

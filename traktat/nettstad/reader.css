@@ -74,6 +74,7 @@ body{
 
 /* ---- reading / continuous stream ---- */
 .read{min-width:0;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;padding:0 var(--page-gutter) calc(1.5rem + var(--bot));touch-action:pan-y pinch-zoom;scrollbar-width:none}
+@media (display-mode:standalone){html,.read{touch-action:pan-x pan-y}}
 .read::-webkit-scrollbar{display:none}
 .read:focus-visible{outline:1px solid var(--dim);outline-offset:-1px}
 .stream{padding:.375rem 0 1.25rem}
