@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "0c406890e23b78a3b980334d7cbd58c2f1a9139e883c91bd437d0e34788f5f13",
+  "sourceHash": "a36474560d045f3dcf5e017700d029e5e1c33b8bce56a12413169bffd9ea64aa",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
@@ -29,7 +29,7 @@
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
-    "nettstad/kort.html": "eedad98877d7afca54e687a97b5fcc9eb5bcab2dee5a01e28319a22644d78a7f",
+    "nettstad/kort.html": "600a88b36857aa9db99c7b3600ee3fd70eb74f352d8b7b82dab24874a76f5c60",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
     "nettstad/kortversjon.html": "094a7825045852f96a51ab2707c0583004391acdb3107cfe61172c89b9693b98",
     "nettstad/kortversjon.tex": "974ca369958fe133159525440d3fcc13614b27dbee5b502289aea88d8d2fcaf4",
@@ -38,9 +38,9 @@
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "2e89c62f5dd6ee8ac82b94c6cd67148036ce1a63c71a59706217e35d395a4a2e",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "abc05a6e6b2e516590aa9d85d9b77918729ae62c62b291cdd83d5cc3fde06538",
+    "nettstad/reader.css": "f2a3ab02bc890f7dccd66a71b75d5323ad7223f8991acd5346e7520839bc6ea7",
     "nettstad/reader.html": "e7fcf009d721af191bb5a0d9b071496b1bdfb16117ca5c9e353d70764d6bb85b",
-    "nettstad/reader.js": "aa3db062d875bff998e74d359cc30e75e659328d124dcd4974e686f3569b3d0d",
+    "nettstad/reader.js": "c301fda962c580d022e23dcad8d056264522404ecd0a16135738737787b0a44c",
     "ordliste.json": "d478b64016e85ab6e8bdf115c1ce87ff9f2af1de97695e3453d2f9ea9924f798",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "2a99d16c259cc2eaab5340f69f1d887f8e8f61628798ccae5edb88289bbdf4aa",
@@ -53,8 +53,8 @@
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "1d916905f009deeb6dcd3fcc41253edc7a4e6776bc684851e47a37f0485c8f9a",
-    "formlaere-latex.zip": "49b7251f912d144a6aef65f7d3f465a60c4bba49f0dedabc3ddbaae2e29b55ee"
+    "formlaere.pdf": "3e39ed061d2afae3024de78c8bb1d80e3ed8619fed5f4671735f757a832141fa",
+    "formlaere-latex.zip": "2b3376cf63e182a36e457b9d0387c835c488e63a26214e547e6dd4100aceda69"
   },
   "quality": {
     "pages": 105,
