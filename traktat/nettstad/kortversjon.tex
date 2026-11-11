@@ -171,7 +171,7 @@ Lat $D$ vere ei endeleg mengd former som kan nåast med tillatne steg, $\mu_{SG}
 \[
 P(x)=Z^{-1}\mu_{SG}(x)\,e^{-\beta\Phi(x)},\qquad Z=\sum_{x\in D}\mu_{SG}(x)\,e^{-\beta\Phi(x)},
 \]
-maksimerer den relative entropien til $\mu_{SG}$ under ei øvre grense for $\mathbb{E}[\Phi]$, og er for $\beta>0$ den eine fordelinga som minimerer $\mathbb{E}_Q[\Phi]+\beta^{-1}D_{\mathrm{KL}}(Q\,\|\,\mu_{SG})$. Metropolis--Hastings-kjeda med aksepten over har $P$ som stasjonær fordeling, og konvergerer mot henne når dei gjensidig tillatne stega bind $D$ saman. Prøver agentane det same forslaget og godtek uavhengig med styrke $\beta_i$, og steget krev at alle godtek, er $\beta=\sum_i\beta_i$ og $w_i=\beta_i/\beta$.
+maksimerer den relative entropien til $\mu_{SG}$ under ei øvre grense for $\mathbb{E}[\Phi]$, og er for $\beta>0$ den eine fordelinga som minimerer $\mathbb{E}_Q[\Phi]+\beta^{-1}D_{\mathrm{KL}}(Q\,\|\,\mu_{SG})$. Metropolis--Hastings-kjeda med aksepten over har $P$ som stasjonær fordeling, og konvergerer mot henne når dei gjensidig tillatne stega bind $D$ saman og kjeda kan verte ståande. Prøver agentane det same forslaget og godtek uavhengig med styrke $\beta_i$, og steget krev at alle godtek, er $\beta=\sum_i\beta_i$ og $w_i=\beta_i/\beta$.
 \end{teorem}
 
 \begin{folgje}[Odds og landskap]
@@ -179,7 +179,7 @@ For $x,y\in D$ er $\log P(x)/P(y)=\log\mu_{SG}(x)/\mu_{SG}(y)-\beta[\Phi(x)-\Phi
 \end{folgje}
 
 \begin{teorem}[Kovarians]
-Skriv $\beta\Phi=\sum_k\theta_k\hat e_k$ med frie vekter $\theta_k$ og faste, toleranseskalerte estimat $\hat e_k$. For kvar fast funksjon $f$ på $D$ og kvar retning $v$ i vektrommet er
+Skriv $\beta\Phi=\sum_k\theta_k\hat e_k$ med frie vekter $\theta_k$ og faste, toleranseskalerte estimat $\hat e_k$. For kvar fast funksjon $f$ på $D$ og kvar retning $v$ i vektrommet er, langs $\theta+sv$,
 \[
 \frac{d\,\mathbb{E}[f]}{ds}=-\operatorname{Cov}\bigl(f,\textstyle\sum_k v_k\hat e_k\bigr).
 \]
@@ -224,7 +224,7 @@ Tek kvar agent inn heile vurderinga til dei han har omsorg for, $\Phi_A=(1-\gamm
 med $\chi\geq 0$ og radsummar $1$. Ein lukka krins utan eigne omsyn fastset inga vurdering. Valfordelinga er uendra under kvar omfordeling av innverknad innanfor ei samling agentar dersom og berre dersom vurderingane deira er like opp til konstantar. Går eigenandelane i ein samanhengande krins mot null, fell vurderingane saman: delt spenning er grensa for gjensidig omsorg. Er omsorga sterk innanfor grupper og svak mellom dei, gjeld dei same likningane tilnærma mellom gruppene. Omsorga har same form på kvar skala. Dette gjeld vurderinga: ein akse ingen del har i lyskjegla si, kjem ikkje av omsorg mellom delane åleine.
 \end{teorem}
 
-\section{Verknadskjegle, forplikting og forskingsprogram}
+\section{Verknadskjegle og forskingsprogram}
 
 \begin{definisjon}[Verknadskjegle og det uverna]
 \emph{Verknadskjegla} til ei form er alt valet av henne gjer skilnad for: kvar agent, kvart omsyn og kvart tidsrom der avviket hadde vore eit anna under minst eitt av alternativa som stod opne. Lyskjegla er det agenten har som mål; verknadskjegla er det forma verkar på. Det som ligg i verknadskjegla utan å vere halde av nokon, er \emph{det uhaldne}; den delen som heller ikkje får vern gjennom eit anna omsyn eller gjennom grunnfordelinga, er \emph{det uverna}.
@@ -234,11 +234,7 @@ med $\chi\geq 0$ og radsummar $1$. Ein lukka krins utan eigne omsyn fastset inga
 Vurderinga $\Phi$ er ein sum, og i ein sum kan små gevinstar hos mange vege opp eit stort avvik hos éin. Haldet gjeld kvart avvik for seg, mot toleransen til den som ber det. Skal summen ikkje kunne vege opp eit slikt avvik, må forma vere stengd ute frå $D$, ikkje berre vekta ned.
 \end{folgje}
 
-\begin{postulat}[Forpliktinga]
-Denne læra set éi forplikting for design som fag: omsorga skal målast mot verknaden, ikkje mot bestillinga. Den som ber vesentlege følgjer av ei form, skal ha vekt i valet og ein veg tilbake for svaret sitt. Forpliktinga er ikkje ei følgje av rekninga og ikkje ein hypotese. Rekninga seier kva som må vere oppfylt for at ho skal gjelde i forma: vekt hos nokon med innverknad, eit bilete som ordnar alternativa rett, eit hald som kan gjennomførast, og eit svar som kan rette biletet.
-\end{postulat}
-
-Læra er eit forskingsprogram. Den harde kjernen er femtuppelet og påstandane som ber det: at generering, vekting og gjennomføring er ulike ledd og saman strekkjer til; at prioritering, estimat og kapasitet er ulike årsaker som sviktar på kvar sin måte; at val og følgje krev kvar si prøve; og at alt dette gjeld same kva agenten er laga av, og på kvar skala. Hjelpehypotesane (formrom og aksar, additivitet, kjernelikninga, grunnfordelinga og den eksponentielle valmodellen, måla for omhug, omsorg, kapasitet og avvik) kan fellast utan at kjernen fell. Eit skifte er framgang når det føreseier eit nytt utfall som så vert funne; eit skifte som berre bergar kjernen, vert ført opp som tap. Programmet står på desse føreseiingane, kvar fastsett før utfallet:
+Læra er eit forskingsprogram. Den harde kjernen er femtuppelet og påstandane som ber det: at generering, vekting og gjennomføring er ulike ledd; at prioritering, estimat og kapasitet er ulike årsaker som sviktar på kvar sin måte; at val og følgje krev kvar si prøve; og at alt dette gjeld same kva agenten er laga av, og på kvar skala. Hjelpehypotesane (formrom og aksar, additivitet, kjernelikninga, grunnfordelinga og den eksponentielle valmodellen, måla for omhug, omsorg, kapasitet og avvik) kan fellast utan at kjernen fell. Eit skifte er framgang når det føreseier eit nytt utfall som så vert funne; eit skifte som berre bergar kjernen, vert ført opp som tap. Programmet står på desse føreseiingane, kvar fastsett før utfallet:
 \begin{enumerate}
 \item Forholdet mellom sannsyna for to former endrar seg ikkje når andre alternativ kjem til eller fell bort.
 \item Når éi fri vekt aukar litt, flyttar kvart estimert avvik seg i middel så mykje som kovariansen målt før endringa seier, agent for agent.
