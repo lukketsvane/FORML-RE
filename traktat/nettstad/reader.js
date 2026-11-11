@@ -449,10 +449,9 @@
   }
   for(const b of branches)b.shown=b.members=DATA.filter(d=>ancestorBranch(d)?.n===b.n);
   function branchHeight(b){return 12+Math.min(UNIT-14,6*Math.sqrt(b.shown.length));}
-  let VH=0;
+  const VH=YROOT+Math.max(0,...branches.map(branchHeight))+5;
   function mk(tag,attrs){const e=document.createElementNS(NS,tag);for(const key in attrs)e.setAttribute(key,attrs[key]);return e;}
   function drawTree(){
-    VH=YROOT+Math.max(18,...branches.map(branchHeight))+5;
     svg.setAttribute("viewBox",`0 0 ${VW} ${VH}`);svg.innerHTML="";
     const sec=byNum.get(current)?.n[0]||"1",group=ancestorBranch(byNum.get(current));const g=mk("g",{});
     for(const r of roots){
