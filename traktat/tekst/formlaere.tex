@@ -974,7 +974,7 @@ Negativ tilbakekopling gjev ein agent når svaret er kopla til eit avvik frå de
 \end{formproposition}
 
 \begin{formproposition}{5.1131}{i}
-Termostaten har eit band rundt ein temperatur. Brytaren koplar målinga til varme som reduserer avviket.\kjelder{4,5,7} Han treng ikkje føreseie rommet langt fram for å halde det no.
+Termostaten har eit band rundt ein temperatur. Brytaren koplar målinga til varme som reduserer avviket.\kjelder{4,5,7} Termostaten treng ikkje føreseie rommet langt fram for å halde det no.
 \end{formproposition}
 
 \begin{formproposition}{5.114}{d}
@@ -1840,8 +1840,10 @@ Sterk seleksjon gjer ikkje eit feil estimat rett.
 Landskapet har ein del agentane ber gjennom vurderinga, og ein del grammatikken og substratet ber utan vurdering:
 
 \[
-\Lambda(x)=\beta\Phi(x)+\lambda_{SG}(x)+c,\quad
-\lambda_{SG}(x)=-\log\frac{\mu_{SG}(x)}{\mu_0(x)}.
+\begin{aligned}
+\Lambda(x)&=\beta\Phi(x)+\lambda_{SG}(x)+c,\\
+\lambda_{SG}(x)&=-\log\frac{\mu_{SG}(x)}{\mu_0(x)}.
+\end{aligned}
 \]
 
 Her er \(\mu_0\) grunnvekta og \(c\) ein konstant. Det som flyttar seg når prioriteringa vert endra, ligg i \(\Phi\). Det som står fast, ligg i \(\lambda_{SG}\).
@@ -1851,7 +1853,10 @@ Her er \(\mu_0\) grunnvekta og \(c\) ein konstant. Det som flyttar seg når prio
 Forholdet mellom sannsyna for to former avheng ikkje av kva andre former som finst:\kjelder{170}
 
 \[
-\log\frac{P(x)}{P(y)}=\log\frac{\mu_{SG}(x)}{\mu_{SG}(y)}-\beta[\Phi(x)-\Phi(y)].
+\begin{aligned}
+\log\frac{P(x)}{P(y)}={}&\log\frac{\mu_{SG}(x)}{\mu_{SG}(y)}\\
+&-\beta[\Phi(x)-\Phi(y)].
+\end{aligned}
 \]
 
 Flyttar eit nytt alternativ forholdet mellom to gamle, held ikkje modellen.
@@ -1876,7 +1881,7 @@ Fleire agentar kan få plass i same modell, men ein vekta sum er ikkje heile teo
 \end{formproposition}
 
 \begin{formproposition}{6.633}{t}
-Godtek kvar agent eit forslag uavhengig av dei andre, med sin eigen styrke \(\beta_i\), og steget krev at alle godtek, er \(\beta=\sum_i\beta_i\) og \(w_i=\beta_i/\beta\). Innverknaden til ein agent er hans del av den samla seleksjonsstyrken.
+Godtek kvar agent eit forslag uavhengig av dei andre, med sin eigen styrke \(\beta_i\), og steget krev at alle godtek, er \(\beta=\sum_i\beta_i\) og \(w_i=\beta_i/\beta\). Innverknaden til ein agent er delen hans av den samla seleksjonsstyrken.
 
 Avgjer éin agent kvart steg åleine, vert fordelinga ei anna.
 \end{formproposition}
@@ -1886,8 +1891,9 @@ Den same fordelinga kjem fram steg for steg. Eit forslag frå \(x\) til \(x'\) v
 
 \[
 \begin{aligned}
-\alpha(x,x')&=\min\{1,r(x,x')\exp(-\beta[\Phi(x')-\Phi(x)])\},\\
-r(x,x')&=\frac{\mu_{SG}(x')q(x',x)}{\mu_{SG}(x)q(x,x')}.
+\alpha(x,x')={}&\min\bigl\{1,\\
+& r(x,x')e^{-\beta[\Phi(x')-\Phi(x)]}\bigr\},\\
+r(x,x')={}&\frac{\mu_{SG}(x')q(x',x)}{\mu_{SG}(x)q(x,x')}.
 \end{aligned}
 \]
 
@@ -1995,7 +2001,7 @@ Omhug og kunnskap er ulike verkemåtar også i likninga: prioriteringa gjev styr
 \end{formproposition}
 
 \begin{formproposition}{6.6741}{t}
-Ordnar estimatet formene i same rekkjefølgje som det faktiske avviket, held betringa for kvar auke av vekta, stor eller lita.
+Ordnar estimatet formene i same rekkjefølgje som det faktiske avviket, held betringa for kvar auke av vekta, stor eller liten.
 \end{formproposition}
 
 \begin{formproposition}{6.6742}{t}
@@ -2035,7 +2041,10 @@ Med omsorg er vurderinga til \(A\)
 Den samla vekta på målet til \(B\) langs \(X_j\) er
 
 \[
-W_{B,j}=w_B(1-\gamma_B)\omega_j(B)+\sum_{A\ne B}w_Ac_{A\to B,j}.
+\begin{aligned}
+W_{B,j}={}&w_B(1-\gamma_B)\omega_j(B)\\
+&+\sum_{A\ne B}w_Ac_{A\to B,j}.
+\end{aligned}
 \]
 
 Omsorg flyttar vekt. Ho lagar ikkje vekt.
