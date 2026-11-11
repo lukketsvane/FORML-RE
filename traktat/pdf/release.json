@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "9b1affd7dc0e362059eaa9168da735c48bd599a52c87782ab13441ccf5d031e4",
+  "sourceHash": "32b0ed6c65d1d234b5ccbab1e16dfae8e690645dfa240fccb716113e9df929ee",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
@@ -38,9 +38,9 @@
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
     "nettstad/pwa/manifest.webmanifest": "2e89c62f5dd6ee8ac82b94c6cd67148036ce1a63c71a59706217e35d395a4a2e",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
-    "nettstad/reader.css": "f2a3ab02bc890f7dccd66a71b75d5323ad7223f8991acd5346e7520839bc6ea7",
+    "nettstad/reader.css": "595874618efdc70da32072cfd44ea70d6c48890d9ffdc7661ae588974b39e8ff",
     "nettstad/reader.html": "e7fcf009d721af191bb5a0d9b071496b1bdfb16117ca5c9e353d70764d6bb85b",
-    "nettstad/reader.js": "3a597e286105b0c5dc148f826ab049b5d39fa705867968dc8578c16ebba3ab4e",
+    "nettstad/reader.js": "92c14ecd76cc0f9353bb9dc0e3a1695a643f5378d584c882aca1fa568dbdd5de",
     "ordliste.json": "e0352340999991a7c5b01b0bbafb18052933bb8615441c562c14c32b17522758",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "2a99d16c259cc2eaab5340f69f1d887f8e8f61628798ccae5edb88289bbdf4aa",
@@ -49,12 +49,12 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "a5bb04f59ad79d20ae359bdaf4e7aabd03e9a0a98b582ee5b182fd394c8e7e2c",
+    "tekst/formlaere.tex": "7792ff8f2c06fa07e1366cfa1df808eb75e23a9b853bd7ce4d322a5c334efc1b",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "8a4963dfa014bac02f841ed097d2b940bc8b005d4cc6e1dc1ce6d7cbf8402055",
-    "formlaere-latex.zip": "022d4a877e48b79d9d2e9aa28c580cb5a04b774e139a6aca836a3d3daaac2f13"
+    "formlaere.pdf": "6efa3acd0bebeb26d0201898350ddf6f3f87c759be7103e85d3eb09f918f07e0",
+    "formlaere-latex.zip": "0f3ad273b8ef3fb890d1bf7652199f2bfec83b3250d3c29175008406e0346b0f"
   },
   "quality": {
     "pages": 105,
@@ -72,10 +72,120 @@
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>𝕄</mi><mo>,</mo><mi>Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi>Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
     },
+    "d9d320fb75c09a25cbf80b7b": {
+      "tex": "\\mathbb{M}",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝕄</mi><annotation encoding=\"application/x-tex\">\\mathbb{M}</annotation></semantics></math>"
+    },
+    "c2ba1854e73cc89853411d50": {
+      "tex": "\\Pi=(K,C,U)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Π</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>K</mi><mo>,</mo><mi>C</mi><mo>,</mo><mi>U</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\Pi=(K,C,U)</annotation></semantics></math>"
+    },
+    "6731383d01df6b434674b5c9": {
+      "tex": "SG",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mi>G</mi></mrow><annotation encoding=\"application/x-tex\">SG</annotation></semantics></math>"
+    },
+    "a6d19cca8886b6dd5eedfb28": {
+      "tex": "\\Lambda",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Λ</mi><annotation encoding=\"application/x-tex\">\\Lambda</annotation></semantics></math>"
+    },
+    "03e259b111e482e3a43d9a61": {
+      "tex": "\\{A_i\\}",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{A_i\\}</annotation></semantics></math>"
+    },
+    "bc3fed44ae5926200f8b15b7": {
+      "tex": "\\beta=0",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>β</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\beta=0</annotation></semantics></math>"
+    },
+    "3cfd34dd32edea3ed7f2fd47": {
+      "tex": "\\mu_{SG}",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><annotation encoding=\"application/x-tex\">\\mu_{SG}</annotation></semantics></math>"
+    },
+    "37326a45c2f6259b298538bf": {
+      "tex": "\\hat{e}_k=e_k",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo>=</mo><msub><mi>e</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\hat{e}_k=e_k</annotation></semantics></math>"
+    },
+    "3e0826ad572a021b66fddd72": {
+      "tex": "\\pi",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>π</mi><annotation encoding=\"application/x-tex\">\\pi</annotation></semantics></math>"
+    },
+    "e795689d9afb12bff39a68dd": {
+      "tex": "\\kappa_{\\text{samla}}",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>κ</mi><mtext mathvariant=\"normal\">samla</mtext></msub><annotation encoding=\"application/x-tex\">\\kappa_{\\text{samla}}</annotation></semantics></math>"
+    },
+    "59f7faae62053aa3628c51c0": {
+      "tex": "V",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>V</mi><annotation encoding=\"application/x-tex\">V</annotation></semantics></math>"
+    },
     "eda37e0925574725780227d1": {
       "tex": "A=(m,\\pi,G,\\varepsilon)",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon)</annotation></semantics></math>"
+    },
+    "fffd3060a3d2134cff063df0": {
+      "tex": "D_k",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>D</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">D_k</annotation></semantics></math>"
+    },
+    "3390861858523180b7702698": {
+      "tex": "e_k",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>e</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">e_k</annotation></semantics></math>"
+    },
+    "04d26c48bb713c18bff83e44": {
+      "tex": "\\omega(A)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ω</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\omega(A)</annotation></semantics></math>"
+    },
+    "8b6c44213a1ebe9c7d5a2c7f": {
+      "tex": "\\Gamma(A)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Γ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\Gamma(A)</annotation></semantics></math>"
+    },
+    "fe9b4165427ce5b7f7bc785c": {
+      "tex": "\\kappa(A)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>κ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\kappa(A)</annotation></semantics></math>"
+    },
+    "580228cb1e71c2ca562a3c24": {
+      "tex": "e_j",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>e</mi><mi>j</mi></msub><annotation encoding=\"application/x-tex\">e_j</annotation></semantics></math>"
+    },
+    "6aeee9a93d80af8245089985": {
+      "tex": "\\theta_k",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>θ</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">\\theta_k</annotation></semantics></math>"
+    },
+    "4ab4c1adca6232b2930109d1": {
+      "tex": "-\\operatorname{Cov}(e_j,\\hat{e}_k)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">-\\operatorname{Cov}(e_j,\\hat{e}_k)</annotation></semantics></math>"
+    },
+    "0d9a56fd61558c8d73b70dd0": {
+      "tex": "\\operatorname{Cov}(e_j,\\hat{e}_k)<0",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Cov}(e_j,\\hat{e}_k)&lt;0</annotation></semantics></math>"
+    },
+    "cd72da56e82c205abbc59314": {
+      "tex": "\\tau_k^{\\text{pred}},\\tau_k^\\Gamma,\\tau_k",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup><mo>,</mo><msubsup><mi>τ</mi><mi>k</mi><mi>Γ</mi></msubsup><mo>,</mo><msub><mi>τ</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\tau_k^{\\text{pred}},\\tau_k^\\Gamma,\\tau_k</annotation></semantics></math>"
+    },
+    "87573aa07f7a99bbaa1d4b10": {
+      "tex": "\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>ρ</mi><mi>k</mi></msub><mo>=</mo><msub><mi>Δ</mi><mi>k</mi></msub><mi>/</mi><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup></mrow><annotation encoding=\"application/x-tex\">\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}</annotation></semantics></math>"
     },
     "c9f3d29ea25ac2c51c52ab1f": {
       "tex": "=",
@@ -217,11 +327,6 @@
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>S</mi><mi>G</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><mi>s</mi><mo>∈</mo><mi>S</mi><mo>:</mo><msub><mi>s</mi><mn>0</mn></msub><msup><mo>→</mo><mo>*</mo></msup><mi>s</mi><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">L(SG)=\\{s\\in S:s_0\\to^{*}s\\}</annotation></semantics></math>"
     },
-    "6731383d01df6b434674b5c9": {
-      "tex": "SG",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mi>G</mi></mrow><annotation encoding=\"application/x-tex\">SG</annotation></semantics></math>"
-    },
     "a174f6a9e334905eba7c906c": {
       "tex": "\\mu(x)\\propto\\mu_0(x)\\prod_j f_j(x).",
       "display": true,
@@ -292,11 +397,6 @@
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>G</mi><annotation encoding=\"application/x-tex\">G</annotation></semantics></math>"
     },
-    "3e0826ad572a021b66fddd72": {
-      "tex": "\\pi",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>π</mi><annotation encoding=\"application/x-tex\">\\pi</annotation></semantics></math>"
-    },
     "31c9a47feeaff7b2fd2399c4": {
       "tex": "\\varepsilon",
       "display": false,
@@ -331,16 +431,6 @@
       "tex": "D_k=D_{\\mathrm{KL}}(p_{\\mathrm{obs}}\\Vert p_m)",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><msub><mi>D</mi><mrow><mi mathvariant=\"normal\">K</mi><mi mathvariant=\"normal\">L</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>p</mi><mrow><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">b</mi><mi mathvariant=\"normal\">s</mi></mrow></msub><mo stretchy=\"false\" form=\"postfix\">‖</mo><msub><mi>p</mi><mi>m</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">D_k=D_{\\mathrm{KL}}(p_{\\mathrm{obs}}\\Vert p_m)</annotation></semantics></math>"
-    },
-    "fffd3060a3d2134cff063df0": {
-      "tex": "D_k",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>D</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">D_k</annotation></semantics></math>"
-    },
-    "3390861858523180b7702698": {
-      "tex": "e_k",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>e</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">e_k</annotation></semantics></math>"
     },
     "09605a3c816279e1d8779cc8": {
       "tex": "τ_{k}",
@@ -401,11 +491,6 @@
       "tex": "ω_{k}",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>ω</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">ω_{k}</annotation></semantics></math>"
-    },
-    "fe9b4165427ce5b7f7bc785c": {
-      "tex": "\\kappa(A)",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>κ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\kappa(A)</annotation></semantics></math>"
     },
     "dbda4fbf8a5ceba8731e13f0": {
       "tex": "\\begin{aligned}\n\\kappa(A;T,\\mathcal D)=\\{X_k:\\ &\\exists\\pi\\in\\mathcal P_A\\;\\forall d\\in\\mathcal D,\\\\\n&\\forall t\\in T:\\ e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}",
@@ -517,11 +602,6 @@
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>r</mi><mi>A</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">r_A=1</annotation></semantics></math>"
     },
-    "3cfd34dd32edea3ed7f2fd47": {
-      "tex": "\\mu_{SG}",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><annotation encoding=\"application/x-tex\">\\mu_{SG}</annotation></semantics></math>"
-    },
     "11f266bf2722a6fe07950324": {
       "tex": "r_A(x,x')=\n\\frac{\\mu_{SG}(x')q_A(x',x)}\n{\\mu_{SG}(x)q_A(x,x')}.",
       "display": true,
@@ -571,16 +651,6 @@
       "tex": "\\Pi",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Π</mi><annotation encoding=\"application/x-tex\">\\Pi</annotation></semantics></math>"
-    },
-    "03e259b111e482e3a43d9a61": {
-      "tex": "\\{A_i\\}",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{A_i\\}</annotation></semantics></math>"
-    },
-    "a6d19cca8886b6dd5eedfb28": {
-      "tex": "\\Lambda",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Λ</mi><annotation encoding=\"application/x-tex\">\\Lambda</annotation></semantics></math>"
     },
     "da265305528d8d1cec247682": {
       "tex": "|",
@@ -826,11 +896,6 @@
       "tex": "\\partial\\mathbb E[\\hat e_k]/\\partial\\theta_k=-\\operatorname{Var}(\\hat e_k)\\leq0",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>∂</mi><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mi>/</mi><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub><mo>=</mo><mo>−</mo><mo>Var</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\partial\\mathbb E[\\hat e_k]/\\partial\\theta_k=-\\operatorname{Var}(\\hat e_k)\\leq0</annotation></semantics></math>"
-    },
-    "580228cb1e71c2ca562a3c24": {
-      "tex": "e_j",
-      "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>e</mi><mi>j</mi></msub><annotation encoding=\"application/x-tex\">e_j</annotation></semantics></math>"
     },
     "4df3657a65591ce42cc6a1f8": {
       "tex": "\\frac{\\partial\\mathbb E[e_j]}{\\partial\\theta_k}=-\\operatorname{Cov}(e_j,\\hat e_k).",

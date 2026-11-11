@@ -123,6 +123,7 @@ body{
   text-decoration-style:solid;text-decoration-color:var(--fg);
 }
 .xref:focus-visible{outline:1px solid var(--fg);outline-offset:2px}
+.xref-group{white-space:nowrap}
 .prop-preview{
   position:fixed;z-index:9999;box-sizing:border-box;
   width:min(302px,calc(100vw - 24px));padding:9px 11px;
