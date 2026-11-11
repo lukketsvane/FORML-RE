@@ -9,10 +9,11 @@
   for(const d of DATA){d.kids=[];let p=d.n.slice(0,-1);while(p&&!byNum.has(p))p=p.slice(0,-1);d.parent=p||null;}
   for(const d of DATA){if(d.parent)byNum.get(d.parent).kids.push(d);}
   function depthOf(d){return d.parent?1+depthOf(byNum.get(d.parent)):0;}
-  for(const d of DATA)d.depth=depthOf(d);
+  for(const d of DATA)d.depth=Math.min(4,depthOf(d));
   const roots=DATA.filter(d=>!d.parent),order=DATA.map(d=>d.n);
   const byRow=new Map(),read=document.getElementById("read"),stream=document.getElementById("stream"),svg=document.getElementById("tree"),NS="http://www.w3.org/2000/svg";
-  let current=order[0],hashTimer=0,scrollFrame=0,navUntil=0;
+  const MAXDEPTH=Math.min(4,Math.max(...DATA.map(d=>d.depth)));
+  let current=order[0],hashTimer=0,scrollFrame=0,navUntil=0,limit=MAXDEPTH;
   const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
   const catalog={sources:documentData.sources};
   const sources=new Map(documentData.sources.map(s=>[String(s.id),s]));
@@ -446,11 +447,12 @@
     while(d.parent&&byNum.get(d.parent)?.parent)d=byNum.get(d.parent);
     return d;
   }
-  for(const b of branches)b.members=DATA.filter(d=>ancestorBranch(d)?.n===b.n);
-  function branchHeight(b){return 12+Math.min(UNIT-14,6*Math.sqrt(b.members.length));}
-  const VH=YROOT+Math.max(0,...branches.map(branchHeight))+5;
+  for(const b of branches)b.shown=b.members=DATA.filter(d=>ancestorBranch(d)?.n===b.n);
+  function branchHeight(b){return 12+Math.min(UNIT-14,6*Math.sqrt(b.shown.length));}
+  let VH=0;
   function mk(tag,attrs){const e=document.createElementNS(NS,tag);for(const key in attrs)e.setAttribute(key,attrs[key]);return e;}
   function drawTree(){
+    VH=YROOT+Math.max(18,...branches.map(branchHeight))+5;
     svg.setAttribute("viewBox",`0 0 ${VW} ${VH}`);svg.innerHTML="";
     const sec=byNum.get(current)?.n[0]||"1",group=ancestorBranch(byNum.get(current));const g=mk("g",{});
     for(const r of roots){
@@ -458,10 +460,11 @@
       g.appendChild(mk("path",{d:`M${r.x0} ${YROOT} H${r.x1}`,class:"rbar"+(on?" on":"")}));
       const lab=mk("text",{x:(r.x0+r.x1)/2,y:YLAB,class:"rlab"+(on?" on":"")});lab.textContent=r.n;g.appendChild(lab);
       for(const b of r.kids){
+        if(!b.shown.length)continue;
         const isBranch=group&&group.n===b.n;
         const ht=branchHeight(b);
         g.appendChild(mk("path",{d:`M${b.x} ${YROOT} V${YROOT+ht}`,class:"stem"+(isBranch?" on":on?" sec":"")}));
-        if(isBranch){const i=b.members.findIndex(d=>d.n===current);if(i>=0){const cy=YROOT+5+(i+.5)/Math.max(1,b.members.length)*(ht-5);g.appendChild(mk("circle",{cx:b.x,cy,r:2.5,class:"dot"}));}}
+        if(isBranch){const i=b.shown.findIndex(d=>d.n===current);if(i>=0){const cy=YROOT+5+(i+.5)/Math.max(1,b.shown.length)*(ht-5);g.appendChild(mk("circle",{cx:b.x,cy,r:2.5,class:"dot"}));}}
       }
     }
     svg.appendChild(g);
@@ -475,8 +478,27 @@
     clearTimeout(hashTimer);
     hashTimer=setTimeout(()=>{try{addressWindow.history.replaceState(null,"","#"+current);}catch(e){}},220);
   }
+  function shown(n){let d=byNum.get(n);while(d.depth>limit)d=byNum.get(d.parent);return d.n;}
+  function applyDepth(v){
+    limit=v;
+    for(const [n,el] of byRow){
+      el.hidden=byNum.get(n).depth>limit;
+      const next=el.nextElementSibling;if(next?.classList.contains("figure-set"))next.hidden=el.hidden;
+    }
+    for(const b of branches)b.shown=b.members.filter(d=>d.depth<=limit);
+  }
+  function setDepth(v){
+    v=Math.max(0,Math.min(MAXDEPTH,v));if(v===limit)return;
+    const top=byRow.get(current).getBoundingClientRect().top;
+    applyDepth(v);current=shown(current);paint();hashWrite();
+    const row=byRow.get(current);
+    read.scrollTop+=row.getBoundingClientRect().top-top;
+    if(row.getBoundingClientRect().top<propositionStrip.getBoundingClientRect().bottom)row.scrollIntoView({block:"start"});
+    navUntil=performance.now()+80;
+  }
   function setCurrent(n,write=true,scroll=false,behavior="smooth"){
     if(!byNum.has(n))return;
+    if(byNum.get(n).depth>limit)applyDepth(byNum.get(n).depth);
     current=n;paint();if(write)hashWrite();
     if(scroll){const motion=reducedMotion.matches?"auto":behavior;navUntil=performance.now()+(motion==="smooth"?520:80);byRow.get(n)?.scrollIntoView({block:"start",behavior:motion});}
   }
@@ -496,7 +518,7 @@
       if(r.top<=line&&r.bottom>=line){candidate=n;break;}
       if(r.top>line){candidate=n;break;}
     }
-    if(!candidate)candidate=order[order.length-1];
+    if(!candidate)candidate=shown(order[order.length-1]);
     if(candidate!==current)setCurrent(candidate,false);
   }
   read.addEventListener("scroll",()=>{if(scrollFrame)return;scrollFrame=requestAnimationFrame(()=>{scrollFrame=0;currentFromScroll();});},{passive:true});
@@ -508,18 +530,41 @@
     let b=branches[0],dist=Infinity;
     for(const c of branches){const d=Math.abs(c.x-u);if(d<dist){dist=d;b=c;}}
     if(!b)return null;
-    if(v<YROOT)return b.parent;
+    if(v<YROOT||!b.shown.length)return b.parent;
     const t=Math.max(0,Math.min(1,(v-YROOT-5)/(branchHeight(b)-5)));
-    return (b.members[Math.min(b.members.length-1,Math.floor(t*b.members.length))]||b).n;
+    return (b.shown[Math.min(b.shown.length-1,Math.floor(t*b.shown.length))]||b).n;
   }
   function scrubTo(cx,cy){
     const n=atPoint(cx,cy);if(!n||n===current)return;
     pending=n;if(!raf)raf=requestAnimationFrame(()=>{raf=0;if(pending)go(pending,"auto");pending=null;});
   }
-  svg.addEventListener("pointerdown",e=>{scrubbing=true;svg.setPointerCapture(e.pointerId);scrubTo(e.clientX,e.clientY);e.preventDefault();});
-  svg.addEventListener("pointermove",e=>{if(scrubbing)scrubTo(e.clientX,e.clientY);});
-  svg.addEventListener("pointerup",()=>{scrubbing=false;});
-  svg.addEventListener("pointercancel",()=>{scrubbing=false;});
+  let hold=0,holdX=0,holdY=0,pinch=null;
+  function endHold(){clearTimeout(hold);hold=0;}
+  svg.addEventListener("pointerdown",e=>{
+    svg.setPointerCapture(e.pointerId);scrubbing=false;holdX=e.clientX;holdY=e.clientY;endHold();
+    hold=setTimeout(()=>{hold=0;setDepth(limit===MAXDEPTH?0:limit+1);},450);
+    e.preventDefault();
+  });
+  svg.addEventListener("pointermove",e=>{
+    if(hold&&Math.hypot(e.clientX-holdX,e.clientY-holdY)>6){endHold();scrubbing=true;}
+    if(scrubbing)scrubTo(e.clientX,e.clientY);
+  });
+  svg.addEventListener("pointerup",e=>{if(hold){endHold();scrubTo(e.clientX,e.clientY);}scrubbing=false;});
+  svg.addEventListener("pointercancel",()=>{endHold();scrubbing=false;});
+  svg.addEventListener("contextmenu",e=>e.preventDefault());
+  function span(e){return Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}
+  read.addEventListener("touchstart",e=>{
+    if(e.touches.length!==2||(window.visualViewport?.scale||1)>1.01)return;
+    const section=propositionSection.getBoundingClientRect(),view=read.getBoundingClientRect();
+    if(section.bottom>view.top&&section.top<view.bottom){endHold();pinch={span:span(e),limit};}
+  },{passive:true});
+  read.addEventListener("touchmove",e=>{
+    if(!pinch||e.touches.length!==2)return;
+    if(e.cancelable)e.preventDefault();
+    setDepth(pinch.limit+Math.round(Math.log(span(e)/pinch.span)/Math.log(1.3)));
+  },{passive:false});
+  for(const ev of ["touchend","touchcancel"])read.addEventListener(ev,()=>{pinch=null;},{passive:true});
+  read.addEventListener("gesturestart",e=>{if(pinch)e.preventDefault();});
   const h=hashNumber();if(byNum.has(h))current=h;
   paint();
   if(byNum.has(h))requestAnimationFrame(()=>go(h,"auto"));
