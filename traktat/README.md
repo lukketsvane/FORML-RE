@@ -13,6 +13,7 @@ LaTeX-manuskriptet er kjelda for både nettstaden og PDF-en. Begge vert bygde fr
 | `tekst/formlaere.tex` | Autoritativt LaTeX-manuskript: føreord, lesekode og alle proposisjonar, med matematikk, formatering og kjeldemarkørar. |
 | `kjelder.json` | Bibliografipostar og notat med stabile ID-ar og mål i teksten. |
 | `figurar.json` | Plassering, filnamn og alternativ tekst for figurar. |
+| `ressursar.json` | Lenkjene i menyen «ressursar» ved sida av tl;dr på alle sidene: `tittel` og `url` per lenkje. |
 | `edition.json` | Tittel, forfattar og reglar for utgåva, mellom anna utelatne kjelde-ID-ar. |
 | `ordliste.json` | Omgrep med stabile ID-ar, korte forklaringar og tilvisingar til proposisjonane dei byggjer på. |
 

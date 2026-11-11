@@ -36,6 +36,7 @@ class ReleaseStaging(unittest.TestCase):
             path.write_text('{"assets": []}' if name == "figurar.json" else "Original source.")
         for name in ("reader.html", "kort.html", "kortversjon.html"):
             (self.site / name).write_text("<!doctype html>@@SOURCE_HASH@@")
+        (self.root / "ressursar.json").write_text("[]")
         for name in ("reader.css", "reader.js", "kortversjon.css"):
             (self.site / name).write_text("Reader asset.")
         pwa = self.site / "pwa"

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from html import escape
 from io import BytesIO
 import json
 import os
@@ -264,6 +265,15 @@ def require_fresh_pdf(doc: dict) -> dict:
     return manifest
 
 
+def page(template: str, doc: dict) -> str:
+    links = "".join(
+        '<a href="' + escape(item["url"]) + '"' + (' target="_blank" rel="noopener"' if item["url"].startswith("http") else "") + ">" + escape(item["tittel"]) + "</a>"
+        for item in json.loads((ROOT / "ressursar.json").read_text(encoding="utf-8"))
+    )
+    menu = '<details class="resources"><summary>ressursar</summary><span class="resources-list">' + links + "</span></details>" if links else ""
+    return template.replace("@@SOURCE_HASH@@", doc["sourceHash"]).replace(">tl;dr</a>", ">tl;dr</a>" + menu, 1)
+
+
 def build_web(doc: dict) -> None:
     require_current_source(doc)
     manifest = require_fresh_pdf(doc)
@@ -273,17 +283,17 @@ def build_web(doc: dict) -> None:
         template = (ROOT / "nettstad" / "reader.html").read_text(encoding="utf-8")
         if template.count("@@SOURCE_HASH@@") != 1:
             raise ValueError("Reader source-hash placeholder is missing or duplicated")
-        (stage / "index.html").write_text(template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
+        (stage / "index.html").write_text(page(template, doc), encoding="utf-8")
         short_template = (ROOT / "nettstad" / "kort.html").read_text(encoding="utf-8")
         if short_template.count("@@SOURCE_HASH@@") != 1:
             raise ValueError("Short reader source-hash placeholder is missing or duplicated")
         (stage / "kort").mkdir()
-        (stage / "kort" / "index.html").write_text(short_template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
+        (stage / "kort" / "index.html").write_text(page(short_template, doc), encoding="utf-8")
         math_template = (ROOT / "nettstad" / "kortversjon.html").read_text(encoding="utf-8")
         if math_template.count("@@SOURCE_HASH@@") != 1:
             raise ValueError("MathML short reader source hash placeholder missing or duplicated")
         (stage / "kortversjon").mkdir()
-        (stage / "kortversjon" / "index.html").write_text(math_template.replace("@@SOURCE_HASH@@", doc["sourceHash"]), encoding="utf-8")
+        (stage / "kortversjon" / "index.html").write_text(page(math_template, doc), encoding="utf-8")
         shutil.copyfile(ROOT / "nettstad" / "kortversjon.css", stage / "kortversjon.css")
         for name in ("reader.css", "reader.js"):
             shutil.copyfile(ROOT / "nettstad" / name, stage / name)
