@@ -166,6 +166,25 @@ class ReleaseStaging(unittest.TestCase):
         self.assertEqual((self.dist / "traktat/formlaere.tex").read_bytes(), (self.root / "tekst/formlaere.tex").read_bytes())
         self.assertFalse(list(self.build.glob("web-*")))
 
+    def test_resource_pages_are_published_without_changing_the_source_fingerprint(self):
+        pages = self.root / "ressurssider"
+        pages.mkdir()
+        (pages / "stolen-i-profil.html").write_text('<!doctype html>@@SOURCE_HASH@@<a href="/kortversjon/">tl;dr</a>')
+        self.assertEqual(source_hash(self.root), self.doc["sourceHash"])
+        build.build_web(self.doc)
+        published = (self.dist / "stolen-i-profil" / "index.html").read_text()
+        self.assertIn(self.doc["sourceHash"], published)
+        self.assertIn("ressursar", published)
+        self.assertIn("/stolen-i-profil/", (self.dist / "service-worker.js").read_text())
+
+    def test_resource_page_without_source_placeholder_is_rejected(self):
+        pages = self.root / "ressurssider"
+        pages.mkdir()
+        (pages / "utan.html").write_text("<!doctype html>")
+        with self.assertRaisesRegex(ValueError, "Resource page source hash placeholder"):
+            build.build_web(self.doc)
+        self.assertEqual(self.files(self.dist), self.previous_web)
+
     def test_modified_pdf_during_copy_cannot_enter_the_website(self):
         copy = build.shutil.copyfile
         def change_print_before_copy(source, destination, **kwargs):
