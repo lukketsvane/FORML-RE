@@ -34,7 +34,7 @@ class ReleaseStaging(unittest.TestCase):
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text('{"assets": []}' if name == "figurar.json" else "Original source.")
-        for name in ("reader.html", "kort.html", "kortversjon.html"):
+        for name in ("reader.html", "kort.html", "kortversjon.html", "stol-db.html"):
             (self.site / name).write_text("<!doctype html>@@SOURCE_HASH@@")
         (self.root / "ressursar.json").write_text("[]")
         for name in ("reader.css", "reader.js", "kortversjon.css"):
