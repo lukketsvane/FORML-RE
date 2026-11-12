@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "1e8e6e4385f856e3d0c1f95c11c510da9134c03da22f0dc0d3471088fec7cf05",
+  "sourceHash": "8425b5e9ec354db9ec868a8f79cb61a5348ef4619eb44e5f13c677ffacc4b835",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
-    "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
+    "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
     "kjelder.json": "1c160d6bbc31167e15b1a2c505dc374a83aa10fffbbd22018dc50d119ea68c05",
     "layout/authoring.tex": "0ac14df9ba935c57df5270b10ed30ddb61be09016c483f7966e7315360031279",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
@@ -24,6 +24,7 @@
     "nettstad/illustrations/model-overview-20261101.svg": "d9b9abb9ca818e0ad1f4b1ffb53ff731df71a12a15b177ac8821145574b67bec",
     "nettstad/illustrations/omhug-kapasitet-20261111.svg": "45796befef603c2536799c3814d81ca879ee141b5f8c9f0df24f15b6e1cf0a8f",
     "nettstad/illustrations/omsorgsvandring-20261111.svg": "39b40846d9dc2729aa2f69876e927495aeb2245d7a96d8ac77a5e1c4b54dff01",
+    "nettstad/illustrations/omsyn-20261112.svg": "260b1499644d6f632fd8697626b21c52915dd2585ccc1878285f5b0d43182c1f",
     "nettstad/illustrations/scan-20261031-p11-busette-opne-forbodne.png": "73ccfe947557cfc0e659f944a59f5c24c4f858461d078bccf5e07185e6382192",
     "nettstad/illustrations/scan-20261031-p16-royrstol-utvikling.png": "81fc638b6981e98d5d4300488d1c4c166de3e0c340403877f95db541bbf33092",
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
@@ -54,8 +55,8 @@
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "434900333d7d25665a34b2b168791a2a4e76a8d94f9c901d7e5c0fea5ad14b1f",
-    "formlaere-latex.zip": "742bfd6305296a6f7f4629b444c00431a7fdc49161c89dbbcc6f28fed57c3ecf"
+    "formlaere.pdf": "4c3cf9dd83b51324e9e2050165349ff4b0d55c1cfcadf32dc1b9d978048bfe40",
+    "formlaere-latex.zip": "bcbefe038d1e8c6c6ea4f7d51bf2d2fd03044ec3e8835a4fc8fb07e732c2bc31"
   },
   "quality": {
     "pages": 105,
@@ -63,7 +64,7 @@
     "propositions": 491,
     "notes": 105,
     "references": 150,
-    "figures": 11,
+    "figures": 12,
     "glossary": 38
   },
   "engine": "XeLaTeX",

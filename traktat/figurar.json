@@ -2,6 +2,11 @@
   "version": 1,
   "assets": [
     {
+      "after": "1.324",
+      "file": "omsyn-20261112.svg",
+      "alt": "Ein vassrett akse merkt X med indeks k. Eit skravert intervall på aksen er målregionen. Ei stipla line står like langt frå målregionen på kvar side og markerer toleransen. Ein posisjon ligg som ein prikk på aksen til høgre, utanfor toleransen. Over aksen viser to mål frå kanten av målregionen: det korte, toleranse, går ut til den stipla lina, og det lange, avvik, går ut til posisjonen."
+    },
+    {
       "after": "1.54",
       "file": "tankerom-kunnskapsrom-20261101.png",
       "alt": "C–K-skjema: kunnskap opnar konsept; konsept vert delte i nye greiner og kan avgjerast som kunnskap."
