@@ -300,6 +300,17 @@ def build_web(doc: dict) -> None:
             raise ValueError("Chair database page source hash placeholder missing or duplicated")
         (stage / "stol-db").mkdir()
         (stage / "stol-db" / "index.html").write_text(page(chair_template, doc), encoding="utf-8")
+        # Resource pages live outside the fingerprinted source tree: they are not part of the edition,
+        # so their data can be refreshed without a new print release. Each becomes /<file stem>/.
+        resource_pages = []
+        resource_directory = ROOT / "ressurssider"
+        for resource_template in sorted(resource_directory.glob("*.html")) if resource_directory.is_dir() else []:
+            resource_text = resource_template.read_text(encoding="utf-8")
+            if resource_text.count("@@SOURCE_HASH@@") != 1:
+                raise ValueError("Resource page source hash placeholder missing or duplicated: " + resource_template.name)
+            (stage / resource_template.stem).mkdir()
+            (stage / resource_template.stem / "index.html").write_text(page(resource_text, doc), encoding="utf-8")
+            resource_pages.append("/" + resource_template.stem + "/")
         shutil.copyfile(ROOT / "nettstad" / "kortversjon.css", stage / "kortversjon.css")
         for name in ("reader.css", "reader.js"):
             shutil.copyfile(ROOT / "nettstad" / name, stage / name)
@@ -326,7 +337,7 @@ def build_web(doc: dict) -> None:
         (stage / "les" / "index.html").write_text(legacy)
         for name in ("index.html", "scroll.html"):
             (data / name).write_text(legacy)
-        precache = ["/", "/kort/", "/kortversjon/", "/stol-db/", "/kortversjon.css", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
+        precache = ["/", "/kort/", "/kortversjon/", "/stol-db/", *resource_pages, "/kortversjon.css", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
                     "/traktat/formlaere.pdf", *["/icons/" + p.name for p in sorted((stage / "icons").glob("*.png"))],
                     *["/traktat/illustrations/" + figure["file"] for figure in doc["figures"]]]
         worker = (pwa / "service-worker.template.js").read_text(encoding="utf-8")
