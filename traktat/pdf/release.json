@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "0040cbfd2e1adf54663ef233136435d6cc7cdcaefbb4803c50dc6603135575d4",
+  "sourceHash": "1e8e6e4385f856e3d0c1f95c11c510da9134c03da22f0dc0d3471088fec7cf05",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "3b378104f6db6ba8bb4d06d627128bd4e164867c5277c07a86f4072ba99c1e92",
@@ -29,9 +29,9 @@
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
-    "nettstad/kort.html": "4e5320b21f5712d27d9f5dfa0e4bbd7c1cff5e6730e1f4e4db00fc14a8d3118a",
+    "nettstad/kort.html": "dcb4fedfc86f49c4219c814f853f8047a6e54e40920d10c61bc76946ede7d5da",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
-    "nettstad/kortversjon.html": "263c8eaa446a0fe7aeba046952ee9510d2016e05bdb39cf38d79d96c3e33acfc",
+    "nettstad/kortversjon.html": "ca47146e4dbd9dee7ce31d58170219570189147db0c8ff31737ed20a84f00f07",
     "nettstad/kortversjon.tex": "fc5a859c2111f42748911f06fa67e2dd745872504244dc918f46831dae3d7374",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
@@ -39,22 +39,23 @@
     "nettstad/pwa/manifest.webmanifest": "2e89c62f5dd6ee8ac82b94c6cd67148036ce1a63c71a59706217e35d395a4a2e",
     "nettstad/pwa/service-worker.template.js": "c0ab6cafdcf6ff4d4ef08b56fe1642f36cf4d4094dbb92e4cb71cb209710fcc9",
     "nettstad/reader.css": "f287b843838f44b731c0cfdeb7eb503d673110d4c0e6b3ef94b8121d9d70d91a",
-    "nettstad/reader.html": "e7fcf009d721af191bb5a0d9b071496b1bdfb16117ca5c9e353d70764d6bb85b",
+    "nettstad/reader.html": "0f1e3841240d7a39b1d9968e2b794b70d89d9bf0bf0c8e551e195fe5c8203891",
     "nettstad/reader.js": "92c14ecd76cc0f9353bb9dc0e3a1695a643f5378d584c882aca1fa568dbdd5de",
+    "nettstad/stol-db.html": "5cbb7e49e166ae9cefd1664d54e647d914a510ae7874ea3370b4dc44cf2befdb",
     "ordliste.json": "e4947ae7407743bfc33828dcef6109718eeea326ae1761844ec8b802179897e8",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
-    "scripts/build.py": "947b533f71f001d3a4b987521a83d43f3d98e7f55a9e02b975ac07aa54731db4",
+    "scripts/build.py": "b4158885e45d3a09732786cb167ca6e9966b0715529bc6cff33c9e7624e0356c",
     "scripts/content.py": "9302578fed48d62ed1e8cf9a6fa0ed3fd70e094b4830322fb2dd16e615620365",
     "scripts/latex_source.py": "04900e16733416cc02dd7a21904b9f6d2c48a461a5656ffb1bd4ffb4d92a40e3",
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
-    "scripts/render_kortversjon.py": "ee9fd4b120d2d0ae1742aaea31d6aca84aa4f34eaf7a4e0e3b6b819a438f7f59",
+    "scripts/render_kortversjon.py": "57f9e72a91b212cecfe3658ce2eedeca0b019e4986bde4a9a8f826d204acc8b4",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
     "tekst/formlaere.tex": "d38a7ffbc98d55b63479bf71972be8c0f036d7639dcd64fcd9ffb89b65b0b85c",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "c4cd997e83bca5cfc37d0693431102a8bdde81d44eb45c81711ff9ba8f5ccaa5",
-    "formlaere-latex.zip": "8c5a1ad1a516426f769167c94e64f532dfef9544b6f3abb3ac7137de5665aa6d"
+    "formlaere.pdf": "434900333d7d25665a34b2b168791a2a4e76a8d94f9c901d7e5c0fea5ad14b1f",
+    "formlaere-latex.zip": "742bfd6305296a6f7f4629b444c00431a7fdc49161c89dbbcc6f28fed57c3ecf"
   },
   "quality": {
     "pages": 105,
