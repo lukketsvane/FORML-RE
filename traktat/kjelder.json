@@ -150,7 +150,7 @@
     },
     {
       "id": "27",
-      "citation": "Blackiston, D. J., Casey, E. S. & Bhatt, A. L. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? PLoS ONE, 3(3), e1736.",
+      "citation": "Blackiston, D. J., Silva Casey, E. & Weiss, M. R. (2008). Retention of memory through metamorphosis: Can a moth remember what it learned as a caterpillar? PLoS ONE, 3(3), e1736.",
       "year": "2008"
     },
     {
@@ -442,7 +442,7 @@
     },
     {
       "id": "98",
-      "citation": "Rajan, D., Makushok, T., Kalantari, A. et al. (2023). Single-cell analysis of habituation in Stentor coeruleus. Current Biology, 33, 241–251.",
+      "citation": "Rajan, D., Makushok, T., Kalish, A. et al. (2023). Single-cell analysis of habituation in Stentor coeruleus. Current Biology, 33, 241–251.",
       "year": "2023"
     },
     {
@@ -1582,7 +1582,7 @@
       "id": "prop-6-633",
       "proposition": "6.633",
       "section": null,
-      "note": "At uavhengige godkjenningar gjev eit produkt av dei einskilde vektingane, er ein standardkonstruksjon. Lesinga av innverknad som del av den samla seleksjonsstyrken er teksten sitt forslag. Vilkåra er at agentane prøver det same forslaget frå ein felles forslagskjerne, at forslaget først vert godteke med sannsyn min{1, r}, at agent i deretter godtek med sannsyn min{1, exp(−β_i[L_i(x′) − L_i(x)])}, der L_i er vurderinga hans, og at vilkåra i 6.64 held. Kjeda har då detaljert balanse med P(x) ∝ μ_SG(x) exp(−Σ_i β_i L_i(x)). Den vekta summen er ein hypotese om korleis agentane avgjer saman, ikkje berre om kor mykje kvar tel.",
+      "note": "At uavhengige godkjenningar gjev eit produkt av dei einskilde vektingane, er ein standardkonstruksjon. Lesinga av innverknad som del av den samla seleksjonsstyrken er teksten sitt forslag. Vilkåra er at agentane prøver det same forslaget frå ein felles forslagskjerne, at forslaget først vert godteke med sannsyn min{1, r}, at agent i deretter godtek med sannsyn min{1, exp(−β_i[Φ_i(x′) − Φ_i(x)])}, der Φ_i er vurderinga hans, og at vilkåra i 6.64 held. Kjeda har då detaljert balanse med P(x) ∝ μ_SG(x) exp(−Σ_i β_i Φ_i(x)). Den vekta summen er ein hypotese om korleis agentane avgjer saman, ikkje berre om kor mykje kvar tel.",
       "sources": [
         "121"
       ],
@@ -1863,7 +1863,7 @@
       "id": "prop-6-714",
       "proposition": "6.714",
       "section": null,
-      "note": "Byggjer biletet på eit svar Y frå den andre, er |Cov(e, ê)| ≤ η σ(e) σ(ê), med η² = Var(E[e | Y]) / Var(e). Eit finare svar forklarer aldri mindre. Utan kanal er η = 0, og retninga på omsorga er uprøvd.",
+      "note": "Byggjer biletet berre på eit svar Y frå den andre, er |Cov(e, ê)| ≤ η σ(e) σ(ê), med η² = Var(E[e | Y]) / Var(e). Eit finare svar forklarer aldri mindre. Utan kanal er η = 0, og retninga på omsorga er uprøvd.",
       "sources": [],
       "relation": "vilkår"
     },

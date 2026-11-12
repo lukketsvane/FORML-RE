@@ -34,7 +34,7 @@ Dei mest utsette nye formuleringane: 3.12 («Eit landskap har fleire lokale mini
 
 Tala i teksten viser kvar andre fag har kome fram til det same omgrepet. Dei står synlege i leselinja; notemerka er skjulte til proposisjonen er aktiv.
 
-- 119 proposisjonar ber kjeldetal (før: 85). Døme: 5.113 (Rosenblueth, Wiener og Ashby), 1.412 og 4.33 (Arthur), 1.01 og 5.223 (Bateson), 3.401 (nisjekonstruksjon), 1.432 (Kauffman 2000).
+- 120 proposisjonar ber kjeldetal (før: 85). Døme: 5.113 (Rosenblueth, Wiener og Ashby), 1.412 og 4.33 (Arthur), 1.01 og 5.223 (Bateson), 3.401 (nisjekonstruksjon), 1.432 (Kauffman 2000).
 - Sytten kjelder som var tekne ut i kjeldeoppryddinga, er henta inn att med dei gamle nummera sine: Turing (6), Blackiston (27), NOAA (28), Biswas (36), Vandenberg (37), Shomrat (38), Fankhauser (39), Kriegman (40), Gumuskaya (41), Fultot og Turvey (57), Rajan (98), Boisseau (99), Netea (100), Pavlov (102), Friston og Frith (103), Kuhn (105) og Wigner (106).
 - Tre nye observasjonar viser konvergensen i sjølve stigen: 3.102 (tre fag har teikna same landskap), 5.1105 (fire tradisjonar har kome fram til agentstrukturen) og 5.5101 (læring frå genregulatoriske nettverk til vitskapane). 5.5102 og 6.661 seier kva det tyder: eitt omgrep held på alle skalaer, og læra er ein heuristikk.
 - Plasseringa av dei nye tilvisingane er gjord frå kjennskap til verka og etter den eldre utgåva. Ho er ikkje kontrollert mot fulltekst.
