@@ -270,7 +270,8 @@ def page(template: str, doc: dict) -> str:
         '<a href="' + escape(item["url"]) + '"' + (' target="_blank" rel="noopener"' if item["url"].startswith("http") else "") + ">" + escape(item["tittel"]) + "</a>"
         for item in json.loads((ROOT / "ressursar.json").read_text(encoding="utf-8"))
     )
-    menu = '<details class="resources"><summary>ressursar</summary><span class="resources-list">' + links + "</span></details>" if links else ""
+    pdf = '<a href="/traktat/formlaere.pdf" download="formlære.pdf" type="application/pdf">formlære.pdf</a>'
+    menu = '<details class="resources"><summary>ressursar</summary><span class="resources-list">' + pdf + links + "</span></details>"
     return template.replace("@@SOURCE_HASH@@", doc["sourceHash"]).replace(">tl;dr</a>", ">tl;dr</a>" + menu, 1)
 
 
@@ -294,6 +295,11 @@ def build_web(doc: dict) -> None:
             raise ValueError("MathML short reader source hash placeholder missing or duplicated")
         (stage / "kortversjon").mkdir()
         (stage / "kortversjon" / "index.html").write_text(page(math_template, doc), encoding="utf-8")
+        chair_template = (ROOT / "nettstad" / "stol-db.html").read_text(encoding="utf-8")
+        if chair_template.count("@@SOURCE_HASH@@") != 1:
+            raise ValueError("Chair database page source hash placeholder missing or duplicated")
+        (stage / "stol-db").mkdir()
+        (stage / "stol-db" / "index.html").write_text(page(chair_template, doc), encoding="utf-8")
         shutil.copyfile(ROOT / "nettstad" / "kortversjon.css", stage / "kortversjon.css")
         for name in ("reader.css", "reader.js"):
             shutil.copyfile(ROOT / "nettstad" / name, stage / name)
@@ -320,7 +326,7 @@ def build_web(doc: dict) -> None:
         (stage / "les" / "index.html").write_text(legacy)
         for name in ("index.html", "scroll.html"):
             (data / name).write_text(legacy)
-        precache = ["/", "/kort/", "/kortversjon/", "/kortversjon.css", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
+        precache = ["/", "/kort/", "/kortversjon/", "/stol-db/", "/kortversjon.css", "/reader.css", "/reader.js", "/manifest.webmanifest", "/traktat/document.json",
                     "/traktat/formlaere.pdf", *["/icons/" + p.name for p in sorted((stage / "icons").glob("*.png"))],
                     *["/traktat/illustrations/" + figure["file"] for figure in doc["figures"]]]
         worker = (pwa / "service-worker.template.js").read_text(encoding="utf-8")

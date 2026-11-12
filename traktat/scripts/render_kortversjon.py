@@ -25,22 +25,16 @@ head = """<!doctype html>
 </head>
 <body class="short-version"><div class="app">
 <nav class="bar" aria-label="Dokument og nettstad">
-  <span class="document-links"><a href="/traktat/formlaere.pdf" download="formlære.pdf">formlære.pdf</a>
-  <a href="/kortversjon/" aria-current="page">tl;dr</a></span>
+  <span class="document-links"><a href="/kortversjon/" aria-current="page">tl;dr</a></span>
   <a href="/">heile teksten</a>
 </nav>
 <main class="read" tabindex="0" aria-label="formlære, kortversjonen">
 <article class="short-article">
-<header class="short-header">
-<p class="short-label">Kortversjon</p>
-<p class="short-byline">Iver Finne · Oslo, 2026</p>
-</header>
 """
 foot = """
 <footer class="short-footer">
 <a href="/">Les heile formlære</a>
 <a href="/kort/">Konsentrert proposisjonsutval</a>
-<a href="https://iverfinne.no">iverfinne.no</a>
 </footer>
 </article></main></div>
 <script>
