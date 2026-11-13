@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "8425b5e9ec354db9ec868a8f79cb61a5348ef4619eb44e5f13c677ffacc4b835",
+  "sourceHash": "794722fcf7ab40022d44bd60f0c908997502c11a8c3f54511d142cd99bada875",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -45,7 +45,7 @@
     "nettstad/stol-db.html": "5cbb7e49e166ae9cefd1664d54e647d914a510ae7874ea3370b4dc44cf2befdb",
     "ordliste.json": "e4947ae7407743bfc33828dcef6109718eeea326ae1761844ec8b802179897e8",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
-    "scripts/build.py": "b4158885e45d3a09732786cb167ca6e9966b0715529bc6cff33c9e7624e0356c",
+    "scripts/build.py": "55f3c3f057dbb2d3b3f8982d039aa205fb62a107f2f0ac9cc92b4f6e05c4701d",
     "scripts/content.py": "9302578fed48d62ed1e8cf9a6fa0ed3fd70e094b4830322fb2dd16e615620365",
     "scripts/latex_source.py": "04900e16733416cc02dd7a21904b9f6d2c48a461a5656ffb1bd4ffb4d92a40e3",
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
@@ -55,8 +55,8 @@
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "4c3cf9dd83b51324e9e2050165349ff4b0d55c1cfcadf32dc1b9d978048bfe40",
-    "formlaere-latex.zip": "bcbefe038d1e8c6c6ea4f7d51bf2d2fd03044ec3e8835a4fc8fb07e732c2bc31"
+    "formlaere.pdf": "a76ed2d5df49a0d0005e2be8ac2b63a598ad73ecfb1dcd4da466df64ccf3e48d",
+    "formlaere-latex.zip": "61a9a87d8ef111a22c1bc015bb5af55c17b31883b2a2e6805ef39c85e37c208c"
   },
   "quality": {
     "pages": 105,
