@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "794722fcf7ab40022d44bd60f0c908997502c11a8c3f54511d142cd99bada875",
+  "sourceHash": "548c415f33f076f57bd0c296b2c558f32e364335e291b7450d49d30a572f7fc8",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -42,7 +42,7 @@
     "nettstad/reader.css": "f287b843838f44b731c0cfdeb7eb503d673110d4c0e6b3ef94b8121d9d70d91a",
     "nettstad/reader.html": "0f1e3841240d7a39b1d9968e2b794b70d89d9bf0bf0c8e551e195fe5c8203891",
     "nettstad/reader.js": "92c14ecd76cc0f9353bb9dc0e3a1695a643f5378d584c882aca1fa568dbdd5de",
-    "nettstad/stol-db.html": "5cbb7e49e166ae9cefd1664d54e647d914a510ae7874ea3370b4dc44cf2befdb",
+    "nettstad/stol-db.html": "d9b728dc6c7408a8e1558d26c6388d2ba0432a7a7f3d0f0876755f1125becde9",
     "ordliste.json": "e4947ae7407743bfc33828dcef6109718eeea326ae1761844ec8b802179897e8",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "55f3c3f057dbb2d3b3f8982d039aa205fb62a107f2f0ac9cc92b4f6e05c4701d",
@@ -55,8 +55,8 @@
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "a76ed2d5df49a0d0005e2be8ac2b63a598ad73ecfb1dcd4da466df64ccf3e48d",
-    "formlaere-latex.zip": "61a9a87d8ef111a22c1bc015bb5af55c17b31883b2a2e6805ef39c85e37c208c"
+    "formlaere.pdf": "9d3fe96162dc4ec489706993c50f4921b64f17dce2f28bc7a3e7575b79575ca2",
+    "formlaere-latex.zip": "e1eae2eeeaf893366e5a77af6c0a954540830aedd504473ab1b05a53481de895"
   },
   "quality": {
     "pages": 105,
