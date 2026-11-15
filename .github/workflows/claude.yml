@@ -13,10 +13,12 @@ on:
 jobs:
   claude:
     if: |
+      github.actor == 'lukketsvane' && (
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -44,42 +46,63 @@ jobs:
             --header "x-api-key: $ANTHROPIC_API_KEY" \
             --header "anthropic-version: 2026-10-21" \
             --header "content-type: application/json" \
-            --data '{"model":"claude-opus-5-5","max_tokens":1024,"messages":[{"role":"user","content":"Hello, world"}]}')
+            --data '{"model":"claude-fable-5-2","max_tokens":1024,"messages":[{"role":"user","content":"Hello, world"}]}')
           if [ "$code" != 200 ]; then
             kind=$(jq -r '.error.type // "unknown_error"' "$RUNNER_TEMP/anthropic-smoke.json" 2>/dev/null || echo unknown_error)
             echo "::error::Anthropic API: HTTP $code ($kind)"
             exit 1
           fi
-          echo "Anthropic API: HTTP 200 for claude-opus-5-5"
+          echo "Anthropic API: HTTP 200 for claude-fable-5-2"
 
-      - name: Run Claude Code
-        id: claude
-        uses: anthropics/claude-code-action@v1
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          additional_permissions: |
-            actions: read
-          claude_args: |
-            --max-turns 35
-            --max-budget-usd 15
+      - name: Install Claude Code
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://claude.ai/install.sh | bash
 
-          # Optional: Customize the trigger phrase (default: @claude)
-          # trigger_phrase: "/claude"
-
-          # Optional: Trigger when specific user is assigned to an issue
-          # assignee_trigger: "claude-bot"
-
-          # Optional: Configure Claude's behavior with CLI arguments
-          # claude_args: |
-          #   --model claude-opus-4-1-20250805
-          #   --max-turns 10
-          #   --allowedTools "Bash(npm install),Bash(npm run build),Bash(npm run test:*),Bash(npm run lint:*)"
-          #   --system-prompt "Follow our coding standards. Ensure all new code has tests. Use TypeScript for new files."
-
-          # Optional: Advanced settings configuration
-          # settings: |
-          #   {
-          #     "env": {
-          #       "NODE_ENV": "test"
-          #     }
-          #   }
+      - name: Review with Claude Fable 5.2
+        shell: bash
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          number=$(jq -r '.issue.number // .pull_request.number // empty' "$GITHUB_EVENT_PATH")
+          test -n "$number"
+          body=$(gh api "repos/$GITHUB_REPOSITORY/issues/$number" --jq '.body // ""')
+          trigger=$(jq -r '.comment.body // .review.body // .issue.body // ""' "$GITHUB_EVENT_PATH")
+          branch="claude/issue-${number}-${GITHUB_RUN_ID}"
+          git switch -c "$branch"
+          {
+            printf 'Gransk GitHub-oppdrag #%s i %s.\n' "$number" "$GITHUB_REPOSITORY"
+            printf 'Les traktat/tekst/formlaere.tex og følg oppdraget. Kontroller alle 491 proposisjonane.\n'
+            printf 'Skriv funna på nynorsk i traktat/revisjon/kritisk-gransking-2026-11.md.\n'
+            printf 'Marker kva som ikkje er kontrollert; ikkje lat som om uferdig arbeid er fullført.\n'
+            printf 'Gjer berre dokumenterbare, kirurgiske rettingar i traktat/. Ikkje endre .github eller main.\n'
+            printf 'Ikkje opprett eller slå saman PR sjølv; workflowen opprettar PR etterpå.\n\n'
+            printf 'ISSUE:\n%s\n\nUTLØYSANDE MELDING:\n%s\n' "$body" "$trigger"
+          } > "$RUNNER_TEMP/claude-task.txt"
+          "$HOME/.local/bin/claude" -p "$(cat "$RUNNER_TEMP/claude-task.txt")" \
+            --model claude-fable-5-2 \
+            --effort high \
+            --max-turns 35 \
+            --max-budget-usd 15 \
+            --permission-mode bypassPermissions \
+            --tools "Bash,Read,Glob,Grep,Edit,Write,Agent" \
+            --disallowedTools "mcp__*" \
+            --output-format json > "$RUNNER_TEMP/claude-result.json"
+          if ! jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
+            echo '::error::Claude CLI completed with an error; raw output kept private'
+            exit 1
+          fi
+          jq -r '"Claude success; estimated API USD: \(.total_cost_usd // "unknown")"' "$RUNNER_TEMP/claude-result.json"
+          git add -A -- traktat/
+          if git diff --cached --quiet; then
+            echo 'No changed files to publish'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "Gransk FORMLÆRE frå issue #${number}"
+          git push origin "$branch"
+          if ! gh pr create --base main --head "$branch" --title "Kritisk gransking av FORMLÆRE (#${number})" --body "Gransking frå issue #${number}. Rettar ikkje main automatisk."; then
+            gh issue comment "$number" --body "Granskinga ligg på greina $branch. Opprett PR: https://github.com/$GITHUB_REPOSITORY/compare/main...$branch?expand=1"
+          fi
