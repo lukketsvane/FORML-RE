@@ -1,0 +1,134 @@
+name: FORMLÆRE AutoResearch
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 */3 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: formlaere-autoresearch
+  cancel-in-progress: false
+
+jobs:
+  experiment:
+    if: github.repository == 'lukketsvane/FORML-RE'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - name: Checkout research baseline
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: true
+          ref: research/autoloop-results-20261116
+
+      - name: Skip exhausted or unproductive experiments
+        id: preflight
+        run: |
+          if python -c "import sys; sys.path.insert(0, 'research/autoloop'); import control; s=control.read_state(); sys.exit(1 if s['complete'] or control.complete(s) else 0)"; then
+            echo 'active=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'active=false' >> "$GITHUB_OUTPUT"
+            echo 'Research budget or early-stop criterion reached.'
+          fi
+
+      - name: Python 3.13
+        if: steps.preflight.outputs.active == 'true'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Install benchmark requirements
+        if: steps.preflight.outputs.active == 'true'
+        run: |
+          python -m pip install --disable-pip-version-check numpy==2.5.5 pandas==2.3.3 scipy==1.18.1 scikit-learn==1.9.1
+
+      - name: Load frozen museum catalogue
+        if: steps.preflight.outputs.active == 'true'
+        run: |
+          curl --fail --location --silent --show-error --max-time 90 \
+            'https://raw.githubusercontent.com/lukketsvane/stolar-db/f9a87f52cb8e6e51e6ee12e1e2f9005bb489cf51/STOLAR/api.json' \
+            --output "$RUNNER_TEMP/stolar.json"
+          python - <<'PY'
+          import hashlib, os
+          from pathlib import Path
+          f = Path(os.environ['RUNNER_TEMP']) / 'stolar.json'
+          assert hashlib.sha256(f.read_bytes()).hexdigest() == 'b552be3f754865854481c6f2ee1d46f604c59a8b70127963f402c6f328dab24e'
+          print('Frozen STOLAR source verified')
+          PY
+
+      - name: Verify unchanged evaluation and baseline
+        if: steps.preflight.outputs.active == 'true'
+        run: |
+          python -m unittest discover -s research/autoloop -p 'test_*.py'
+          python -m unittest discover -s research/formlaere-mot-designteori -p 'test_*.py'
+          python research/autoloop/score.py "$RUNNER_TEMP/stolar.json" > "$RUNNER_TEMP/baseline.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          data = json.loads((Path(os.environ['RUNNER_TEMP']) / 'baseline.json').read_text())
+          assert data['included_objects'] == 1598
+          assert data['folds'] == 5
+          assert abs(data['baseline_mse'] - 0.9169902054418608) < 0.000001
+          print('Frozen validation baseline:', data['baseline_mse'])
+          PY
+
+      - name: Reserve budget
+        if: steps.preflight.outputs.active == 'true'
+        id: reserve
+        run: |
+          output=$(python research/autoloop/control.py reserve)
+          if [ "$output" = 'READY=1' ]; then
+            echo 'run=true' >> "$GITHUB_OUTPUT"
+            cp research/autoloop/state.json "$RUNNER_TEMP/state-reserved.json"
+            echo 'Up to $8 reserved for one experiment, $80 total research cap.'
+          else
+            echo 'run=false' >> "$GITHUB_OUTPUT"
+            echo 'Autoresearch stopped: budget, attempts or no-progress limit reached.'
+          fi
+
+      - name: Install Claude Code API client
+        if: steps.reserve.outputs.run == 'true'
+        run: curl -fsSL https://claude.ai/install.sh | bash
+
+      - name: Generate candidate with Claude Fable 5.2 API
+        if: steps.reserve.outputs.run == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          test -n "$ANTHROPIC_API_KEY"
+          set +e
+          "$HOME/.local/bin/claude" -p "$(cat research/autoloop/program.md)
+
+          THIS ITERATION: Make one evidence-based change to research/autoloop/candidate.py only.
+          You may Read research/autoloop/candidate.py and score.py, but do not edit any other file.
+          Do not run benchmarks, inspect unseen test data, or try to change evaluation parameters.
+          The runner will test the candidate on frozen grouped validation folds.
+          A failed experiment will be discarded automatically. Keep the model simple." \
+            --model claude-fable-5-2 \
+            --effort high \
+            --max-turns 12 \
+            --max-budget-usd 8 \
+            --permission-mode bypassPermissions \
+            --tools 'Read,Edit' \
+            --output-format json > "$RUNNER_TEMP/claude-result.json"
+          echo "CLAUDE_EXIT=$?" >> "$GITHUB_ENV"
+          exit 0
+
+      - name: Evaluate, accept or revert and persist provenance
+        if: steps.reserve.outputs.run == 'true'
+        run: |
+          python research/autoloop/control.py finish \
+            "$RUNNER_TEMP/stolar.json" "$RUNNER_TEMP/claude-result.json" "$RUNNER_TEMP/state-reserved.json"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/autoloop/state.json research/autoloop/candidate.py research/autoloop/history/
+          git diff --cached --check
+          git commit -m "AutoResearch: score and record experiment $GITHUB_RUN_ID"
+          git push origin HEAD:research/autoloop-results-20261116
+          cat research/autoloop/history/$(printf '%02d' "$(python -c 'import json; print(json.load(open("research/autoloop/state.json"))["attempts"])')").json >> "$GITHUB_STEP_SUMMARY"
