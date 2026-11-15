@@ -400,3 +400,20 @@ Lesne utan merknad (37): 7.01 [t], 7.011 [d], 7.012 [t], 7.021 [t], 7.03 [t], 7.
 4. Den engelske utgåva, figurane og dei genererte utgåvene.
 5. Byggjekontroll av patchen med XeLaTeX og Pandoc.
 6. Empirisk prøving. Ingen av dei tolv føreseiingane er prøvde, korkje her eller, så langt eg kan sjå av manuskriptet og notata, andre stader i `traktat/`. Mappene `research/`, `data-descriptor/` og `foundational-paper/` i rota er ikkje opna.
+
+---
+
+## 12. Tillegg 15. november 2026: oppdrag #27
+
+Oppdrag #27 bad om éin avgrensa forskingsiterasjon på eitt siteringspar, ikkje om ei ny gransking av traktaten. Dette tillegget er berre ein peikar; funna står i `autoresearch/experiments/0002-siteringspar-ikaheimonen-cash.md` med forsøkskortet `0002-siteringspar-ikaheimonen-cash.json`.
+
+**Kva som er gjort.** Begge artiklane i paret Ikäheimonen mfl. (2024, DOI 10.1080/09544828.2024.2396194) → Cash mfl. (2022, DOI 10.1016/j.destud.2021.101077) er lesne i forlagets versjon. Den nyare siterer den eldre tre gonger: som omgrepsramme (s. 2), som merkelapp på eige val av kasus (s. 5) og som peikar til vidare kvalitetsomsyn (s. 17). Ingen av siteringane prøver, replikerer, reviderer eller utvidar noko hos Cash mfl. Paret er difor ikkje eit motdøme til formuleringa i føreordet om manglande kumulativ, prøvbar kunnskap, og det er heller ikkje ei stadfesting av henne. Status er `needs-human-review`.
+
+**Kva som ikkje er gjort.**
+
+1. Dei 491 proposisjonane er ikkje kontrollerte på nytt. `autoresearch/harness.py status` tel 491 med fordelinga 118, 27, 20, 16, 145, 112, 53; det er ei strukturell teljing, ikkje ei vurdering. Dekningsoversikta i punkt 10 og restlista i punkt 11 står uendra.
+2. Ingenting i `traktat/tekst/formlaere.tex` eller elles i `traktat/` er endra, utanom dette tillegget.
+3. Kodinga er gjord av éin lesar utan uavhengig kontroll. Dei 149 andre kandidatpara er ikkje opna.
+4. Punkt 11.6 gjeld framleis: ingen av dei tolv føreseiingane i traktaten er prøvde. Denne runden prøvde ein påstand om faglitteraturen, ikkje ei føreseiing frå læra.
+
+**Framlegg til føreordet:** ingen.
