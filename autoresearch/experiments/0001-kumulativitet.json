@@ -6,6 +6,21 @@
   "falsifier": "Finn eit uavhengig dokumentert døme på at ein nyare publikasjon prøver eller reviderer ei spesifikk prediksjon frå ein eldre designteori, med kjelde, metodiske vilkår og sidetilvising.",
   "measurement": "Fulltekstlesing og uavhengig koding av C2–C5 frå research/nordisk-designforsking/CODEBOOK.md; rapporter også nullfunn og manglande tilgang.",
   "baseline": "Metadata og siteringslikskap aleine; ingen fulltekstbasert stadfesting.",
-  "status": "open",
-  "evidence": []
+  "status": "needs-human-review",
+  "evidence": [
+    {
+      "source_id": "W4402117710",
+      "source_url": "https://acris.aalto.fi/ws/portalfiles/portal/170077944/Replicability_and_reproducibility_of_data-intensive_design_research_using_workflows_-_example_in_facial_expression_synchrony_as_a_measure_of_empathy.pdf",
+      "page": "5",
+      "status": "fulltext-read",
+      "finding": "2024-artikkelen brukar Cash mfl. (2022) sitt skilje mellom målretta og tilgjengebasert utval til å skildre eige case. Dette er metodisk bruk, ikkje direkte replisering av eit resultat."
+    },
+    {
+      "source_id": "W4200106916",
+      "source_url": "https://pure.strath.ac.uk/ws/portalfiles/portal/131672164/Cash_etal_DS_2021_Sampling_in_design_research.pdf",
+      "page": "10",
+      "status": "fulltext-read",
+      "finding": "Cash mfl. (2022), utgjeve med 2021-DOI, definerer purposive utval ut frå forskingsføremål og convenience ut frå tilgjenge. Grunngjev metodekoplinga; ingen eigen utfallsprediksjon vert prøvd i 2024-siteringa."
+    }
+  ]
 }
