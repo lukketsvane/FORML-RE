@@ -82,6 +82,10 @@ jobs:
             printf 'Ikkje opprett eller slå saman PR sjølv; workflowen opprettar PR etterpå.\n\n'
             printf 'ISSUE:\n%s\n\nUTLØYSANDE MELDING:\n%s\n' "$body" "$trigger"
           } > "$RUNNER_TEMP/claude-task.txt"
+          mkdir -p "$HOME/.claude"
+          printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           "$HOME/.local/bin/claude" -p "$(cat "$RUNNER_TEMP/claude-task.txt")" \
             --model claude-fable-5-2 \
             --effort high \
