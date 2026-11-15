@@ -1,9 +1,7 @@
-# FORML-RE
+# FORMLÆRE
 
-formlære nyttar LaTeX-manuskriptet `traktat/tekst/formlaere.tex` som felles kjelde for nettstaden og PDF-en.
+Ei prøvbar lære om form, moglege alternativ og verknadene av val.
 
-Sjå [rettleiinga for redigering og bygging](traktat/README.md) før du endrar den gjeldande utgåva.
+[Les traktaten](https://traktat.iverfinne.no/) · [Last ned PDF](https://traktat.iverfinne.no/traktat/formlaere.pdf)
 
-Gjeldande utgåve vert vedlikehalden på `main`. Historiske oppsett ligg i `traktat/archive/`; unikt arbeid frå pensjonerte greiner er bevart i taggar under `archive/2026-11-01/`. Dei er arkiv, ikkje alternative kjelder til den publiserte teksten.
-
-[Les boka på nett](https://traktat.iverfinne.no/) · [Last ned PDF](https://traktat.iverfinne.no/traktat/formlaere.pdf)
+Kjelde: [`traktat/tekst/formlaere.tex`](traktat/tekst/formlaere.tex) · [Redigering og bygging](traktat/README.md)
