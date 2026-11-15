@@ -1,0 +1,132 @@
+{
+  "id": "0002-siteringspar-ikaheimonen-cash",
+  "date": "2026-11-15",
+  "iteration": "Éin avgrensa runde etter autoresearch/program.md; oppfølging av 0001-kumulativitet (issue #27).",
+  "proposition": "7.17",
+  "proposition_note": "Påstanden som vert prøvd står i føreordet (traktat/tekst/formlaere.tex, linje 11: faget har ikkje etablert eit forskingsprogram med kumulativ, prøvbar kunnskap). Føreordet har ikkje proposisjonsnummer; 7.17 er brukt som i 0001 fordi harness krev eit nummer.",
+  "claim": "For siteringsparet W4402117710 -> W4200106916 gjeld H: den nyare artikkelen (Ikäheimonen mfl. 2024) identifiserer ein spesifikk påstand eller tilråding i den eldre (Cash mfl. 2022) og prøver, replikerer, reviderer eller vidareutviklar han med eige materiale (L3–L7 i CODEBOOK tillegg 0.2 C). Dersom H held, er paret eit mogleg motdøme til fråværsformuleringa i føreordet.",
+  "rival": "R1: Siteringa er bakgrunn, omgrepsbruk eller metodebruk utan prøve (L0–L2); høg cosine (0,878) og treff på replikasjonsord kjem av at begge er metodenotat om forskingskvalitet i designforsking, ikkje av at den eine prøver den andre. R2: Den nyare artikkelen utvidar utvalsrammeverket til dataintensiv forsking (L3) utan å prøve det.",
+  "falsifier": "H vert styrkt berre av ein passasje i den nyare teksten som (a) namngjev ein bestemt påstand frå Cash mfl., (b) skildrar data eller prosedyre retta mot han og (c) rapporterer utfall. R2 krev ein passasje som endrar eller legg til noko i dei åtte omsyna, skjematypologien eller dobbeltsløyfa, og seier kva som er nytt. R1 vert styrkt dersom Cash mfl. berre er sitert som støtte for omgrep, merkelapp på eige val eller peikar til vidare lesing, utan data knytte til påstandane hans. Manglande fulltekst eller ulokalisert siteringsstad gjev uavgjort (LNA), ikkje R1.",
+  "measurement": "Fulltekstlesing av begge publiserte versjonar. Alle førekomstar av «Cash» i den nyare teksten er lokaliserte maskinelt og lesne i samanheng; kvar siteringsstad er koda L0–L7/LNA og halden mot den tilsvarande staden i den eldre teksten, med sidetal i begge. Éin lesar (språkmodell), inga dobbeltkoding.",
+  "baseline": "Kandidatlista åleine: prioritet 3,478, cosine 0,878, explicit_replication_words=True, direct_test_words=False; ingen fulltekstkontroll. Baseline kan ikkje skilje H frå R1/R2.",
+  "status": "needs-human-review",
+  "preregistration": "Ingen. Hypotese, rivalar og skiljeobservasjon følgjer oppdragsteksten og kodeboka, men vart skrivne ned i same økt som primærtekstane vart opna, og kortet vart fullført etter lesinga. Avgjerdsregelen (L0–L7) er henta uendra frå CODEBOOK tillegg 0.2 C, som låg på main før økta.",
+  "selection": {
+    "type": "formålsretta, ikkje representativt",
+    "how": "Paret er peika ut i issue #27 frå rad 12 i den prioriterte kandidatlista (150 par, sorterte etter cosine og ordtreff). Lista er sjølv eit ikkje-tilfeldig utval. Ingen frekvens, prosentdel eller intervall for feltet kan utleiast av eitt par.",
+    "n_pairs": 1
+  },
+  "frozen": {
+    "git_head": "fa49eccc55161b4806661f19d435e090d5a4917a",
+    "manuscript_sha256": "d38a7ffbc98d55b63479bf71972be8c0f036d7639dcd64fcd9ffb89b65b0b85c",
+    "candidate_sha256": "bb9e216bfb14361aeb8a4b6c715e82f39ce2a145fa9efdbde8c873764706ca58",
+    "codebook_sha256": "5ac500e93adbcbd4be364b14c8cc9a4edd4216179f085073cf4a31143b21bef6",
+    "harness_sha256": "f227e431f44fdc200bfb30e21bde767a3a095649d692fe36b48a6fb2b9a69698",
+    "designteori_korpus_sha256": "69a12dde2d8a4ad2c2af6df52e074e4cb8c14b7c19a6d1e344dfde5bf2605496",
+    "designteori_note": "docs/data/korpus.csv henta frå main 2026-11-15, 6432 postar. Berre W4200106916 finst der (DOI-søk); W4402117710 finst ikkje. Bibliografisk støtte, ikkje fulltekstbevis.",
+    "previous_experiment": "autoresearch/experiments/0001-kumulativitet.json (status open, tom evidensliste)"
+  },
+  "sources": [
+    {
+      "source_id": "W4402117710",
+      "reference": "Ikäheimonen, A., Li, J., Yao, K., Zuo, S., Aledavood, T. og Hölttä-Otto, K. «Replicability and reproducibility of data-intensive design research using workflows - example in facial expression synchrony as a measure of empathy». Journal of Engineering Design 36(12), 2183–2203. Publisert på nett 1. september 2024.",
+      "doi": "https://doi.org/10.1080/09544828.2024.2396194",
+      "version_read": "Forlagets versjon (version of record), nettfyrst-utgåva paginert 1–21, CC BY-NC-ND 4.0",
+      "retrieved_from": "https://aaltodoc.aalto.fi/handle/123456789/132938",
+      "file_url": "https://aaltodoc.aalto.fi/server/api/core/bitstreams/03fed585-2f7f-4690-a397-1b7c3bae7e3c/content",
+      "file_sha256": "5441cf6e9945c25ebbdad631650321290815c521223a898164657e9fe1e72bfc",
+      "pagination_note": "Sidetala i evidenslista er nettfyrst-sidene (1–21) slik dei står trykte i den lesne fila. Hefteutgåva har 2183–2203 (Crossref, Aaltodoc). Omrekninga side n -> 2182+n er ei utrekning, ikkje kontrollert mot hefte-PDF-en (tandfonline.com gav HTTP 403).",
+      "read_extent": "Brødtekst s. 1–17 lesen i si heilheit; referanseliste s. 18–21 berre søkt maskinelt."
+    },
+    {
+      "source_id": "W4200106916",
+      "reference": "Cash, P., Isaksson, O., Maier, A. og Summers, J. «Sampling in design research: Eight key considerations». Design Studies 78 (januar 2022), artikkel 101077, s. 1–21. På nett 2021.",
+      "doi": "https://doi.org/10.1016/j.destud.2021.101077",
+      "version_read": "Forlagssett versjon med botntekst «Design Studies 78 (2022) 101077», CC BY 4.0, trykte sidetal 1–21 (OpenAlex merkjer fila som acceptedVersion; fila sjølv er forlagssatsen)",
+      "retrieved_from": "https://strathprints.strath.ac.uk/78987/",
+      "file_url": "https://strathprints.strath.ac.uk/78987/1/Cash_etal_DS_2021_Sampling_in_design_research.pdf",
+      "file_sha256": "fb5d5b1e1aa81083cdf99b3f789c4bd586fb1d7aca1ea68acc32a85db5396016",
+      "read_extent": "Brødtekst s. 1–14 og 17 lesen; tabell 1 (s. 7) delvis; tabell 4 (s. 15–16), figurane og referanselista (s. 18–21) ikkje nærlesne."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "W4402117710",
+      "source_url": "https://aaltodoc.aalto.fi/handle/123456789/132938",
+      "page": "s. 2 (nettfyrst; utrekna 2184 i heftet), kap. 1 Introduction",
+      "status": "fulltext-read",
+      "citation_no": 1,
+      "what_is_cited": "Setninga «Data-intensive design research can contribute to either theory building (e.g. pattern identification) or testing (e.g. prediction) (Cash et al. 2022).»",
+      "counterpart_in_cited_work": "Cash mfl. s. 2 (avgrensing til studiar som bidreg til «theory building and/or theory testing», der Cash 2020 og Wallace 1971 er oppgjevne som opphav), s. 3–4 og tabell 1 s. 7.",
+      "code": "L1",
+      "assessment": "Omgrepsbruk. Skiljet byggje/prøve teori er lånt som ramme; ingen påstand vert prøvd. Skiljet er heller ikkje Cash mfl. sitt eige funn."
+    },
+    {
+      "source_id": "W4402117710",
+      "source_url": "https://aaltodoc.aalto.fi/handle/123456789/132938",
+      "page": "s. 5 (nettfyrst; utrekna 2187 i heftet), kap. 3 Case study background",
+      "status": "fulltext-read",
+      "citation_no": 2,
+      "what_is_cited": "Setninga «This case is a combination of purposeful and convenience sampling (Cash et al. 2022), as we sought a case that we have detailed information on beyond what is publicly reported but also one that is representative of other types of data-intensive research […]».",
+      "counterpart_in_cited_work": "Cash mfl. s. 10: ikkje-sannsynsutval delt i «purposive (purposeful, judgemental, selective or subjective)», «quota» og «convenience»; omsyn 6 (utvalsskjema); same side: få designstudiar rapporterer skjemaet eksplisitt.",
+      "code": "L2",
+      "assessment": "Typologien vert brukt til å setje namn på eige val av illustrasjonskasus (ikkje deltakarutval i ei ny datainnsamling). Det er i tråd med rapporteringstilrådinga hos Cash mfl., men prøver ingen påstand og endrar ikkje typologien. Grensa L1/L2 bør avgjerast av uavhengige kodarar."
+    },
+    {
+      "source_id": "W4402117710",
+      "source_url": "https://aaltodoc.aalto.fi/handle/123456789/132938",
+      "page": "s. 17 (nettfyrst; utrekna 2199 i heftet), kap. 5 Discussion",
+      "status": "fulltext-read",
+      "citation_no": 3,
+      "what_is_cited": "Setninga «In addition, other quality measures should be considered, including sampling (Cash et al. 2022), ensuring the link between theory and the intended context with the collected data (Crilly 2019).»",
+      "counterpart_in_cited_work": "Cash mfl. som heilskap (utval som kvalitetsomsyn); ingen bestemt påstand eller side er peika ut av den siterande teksten.",
+      "code": "L0",
+      "assessment": "Peikar til vidare kvalitetsomsyn utanfor artikkelen sitt eige bidrag. Bakgrunn."
+    },
+    {
+      "source_id": "W4200106916",
+      "source_url": "https://strathprints.strath.ac.uk/78987/",
+      "page": "s. 3, 10, 13–14, 17",
+      "status": "fulltext-read",
+      "what_is_cited": "Kva den eldre teksten sjølv hevdar: konseptuell syntese av rettleiing frå andre fag; «we do not carry out a systematic review» (s. 3); arbeidet «necessarily focused on conceptual development» og etterlyser systematisk oversyn over utvalspraksis, metaanalyse og evaluering av omsyna (s. 14); rammeverket er «a call to action» (s. 17). Empirisk farga påstand utan eige datagrunnlag: få designstudiar rapporterer utvalsskjema eksplisitt (s. 10).",
+      "code": "sjanger: metodeframlegg/forskingsnotat",
+      "assessment": "Den eldre teksten oppgjev sjølv kva som ville vore ei prøve av han (systematisk oversyn, metaanalyse, evaluering). Ikäheimonen mfl. gjer ingen av delane."
+    },
+    {
+      "source_id": "W4402117710",
+      "source_url": "https://aaltodoc.aalto.fi/handle/123456789/132938",
+      "page": "s. 2, 8, 15–16 (nettfyrst)",
+      "status": "fulltext-read",
+      "what_is_cited": "Kva den nyare teksten gjer i det heile: forskingsnotat som tilpassar ein arbeidsflyt frå datavitskap (CRISP-DM) og viser han på eit tidlegare kasus (46 intervju; metode vist til Salmi, Li og Hölttä-Otto 2023). Kasuset sitt spørsmål 1 «seeks to replicate and extend findings from earlier physiological studies on facial mimicry» (s. 8). Notatet rapporterer ikkje effektstorleikar eller utfall for spørsmåla; kode er delt, videodata ikkje (s. 15).",
+      "code": "sjanger: metodeframlegg/forskingsnotat",
+      "assessment": "Replikasjonsorda i tittel og samandrag gjeld emnet (reproduserbarheit) og ei replikasjonsavsikt retta mot fysiologiske mimikkstudiar, ikkje mot Cash mfl. Den avsikta er ikkje koda her; Salmi mfl. 2023 er ikkje lesen."
+    }
+  ],
+  "result": {
+    "pair_classification": "bakgrunn med avgrensa omgreps- og metodebruk (L0, L1, L2)",
+    "not_found": "Ingen L3 (metodeutviding av utvalsrammeverket), L4 (direkte test), L5 (replikasjon), L6 (motfunn) eller L7 (reproduksjon) retta mot Cash mfl.",
+    "in_text_citations_of_cited_work": 3,
+    "provisional_c_codes_for_this_pair": {"C1": "NA (sitert utan side eller presis påstand)", "C2": 0, "C3": 0, "C4": 0, "C5": 0},
+    "discrimination": "Observasjonane svarar til R1 og ikkje til H eller R2, for dette eine paret.",
+    "bearing_on_claim": "Paret er ikkje eit motdøme til fråværsformuleringa i føreordet. Det er heller ikkje stadfesting av henne: eitt formålsretta par seier ingenting om frekvens, og kandidatlista si rangering (cosine + ordtreff) gav her eit falskt positivt signal om replikasjon."
+  },
+  "not_checked": [
+    "Uavhengig dobbeltkoding; ingen menneskeleg lesar har kontrollert sitat, sidetal eller kodar.",
+    "Sidetal i hefteutgåva av Ikäheimonen mfl. (2183–2203) er utrekna, ikkje sette.",
+    "Cash mfl.: tabell 4 (s. 15–16), figur 1–3 og referanselista er ikkje nærlesne.",
+    "Salmi, Li og Hölttä-Otto (2023), Cash (2018) og dei fysiologiske mimikkstudiane er ikkje lesne.",
+    "Dei 149 andre kandidatpara er ikkje opna. Kandidat-CSV-en er ikkje endra.",
+    "Dei 491 proposisjonane er berre talde strukturelt av harness (491, fordeling 118/27/20/16/145/112/53); ingen er vurderte innhaldsmessig i denne runden."
+  ],
+  "access_log": [
+    "https://www.tandfonline.com/doi/pdf/10.1080/09544828.2024.2396194 -> HTTP 403",
+    "https://research.aalto.fi/files/170077944/… -> HTTP 403",
+    "https://www.sciencedirect.com/science/article/pii/S0142694X21000880/pdf -> HTTP 403",
+    "https://orbit.dtu.dk/files/265868352/1_s2.0_S0142694X21000880_main.pdf -> HTTP 403",
+    "nrl.northumbria.ac.uk -> DNS-feil; web.archive.org -> HTTP 429; api.core.ac.uk -> HTTP 429",
+    "Crossref: referanselista til 10.1080/09544828.2024.2396194 inneheld 10.1016/j.destud.2021.101077 (nøkkel e_1_3_2_11_1)",
+    "Semantic Scholar: referansen er registrert, men utan siteringskontekst (contexts: [])"
+  ],
+  "proposal_for_preface": "Ingen. Prøva krev ikkje revisjon av føreordet og gjev heller ikkje grunnlag for å skjerpe det.",
+  "reviewer": null
+}
