@@ -1,0 +1,11 @@
+{
+  "id": "0001-kumulativitet",
+  "proposition": "7.17",
+  "claim": "Den sterke påstanden i føreordet om at designfaget manglar kumulativt prøvbar teori, må testast mot konkrete, uavhengig dokumenterte vidareføringar av eldre teori.",
+  "rival": "Kumulativ teoriutvikling finst i faglitteraturen, men vert oversett av avgrensa søkjestrategiar, metadata og tittelklassifisering.",
+  "falsifier": "Finn eit uavhengig dokumentert døme på at ein nyare publikasjon prøver eller reviderer ei spesifikk prediksjon frå ein eldre designteori, med kjelde, metodiske vilkår og sidetilvising.",
+  "measurement": "Fulltekstlesing og uavhengig koding av C2–C5 frå research/nordisk-designforsking/CODEBOOK.md; rapporter også nullfunn og manglande tilgang.",
+  "baseline": "Metadata og siteringslikskap aleine; ingen fulltekstbasert stadfesting.",
+  "status": "open",
+  "evidence": []
+}
