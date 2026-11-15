@@ -22,7 +22,9 @@ class HarnessTests(unittest.TestCase):
         record = Path(__file__).parent / "experiments/0001-kumulativitet.json"
         result = harness.check(record)
         self.assertTrue(result["structurally_valid"])
-        self.assertEqual(result["evidence_items"], 0)
+        self.assertEqual(result["evidence_items"], 2)
+        self.assertEqual(json.loads(record.read_text(encoding="utf-8"))["status"], "needs-human-review")
+        self.assertTrue(all(item["status"] == "fulltext-read" for item in json.loads(record.read_text(encoding="utf-8"))["evidence"]))
 
     def test_reject_unfounded_verdict(self):
         record = json.loads((Path(__file__).parent / "experiments/0001-kumulativitet.json").read_text(encoding="utf-8"))
