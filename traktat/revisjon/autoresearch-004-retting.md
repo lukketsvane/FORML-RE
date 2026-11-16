@@ -1,6 +1,6 @@
 # AutoResearch 004: motprøvande retting av formlære
 
-**Merknad ved integrering 16.11.2026:** Fire av dei seks formuleringane var alt korrigerte i nyare main. Denne integreringa endrar berre 6.674 og 7.1521, og tek med heile den opphavlege forsøksrapporten og alle 25 testane. Andre rettingar er bevarte utan omskriving.
+**Merknad ved integrering 16.11.2026:** Fire av dei seks proposisjonane var alt presiserte i nyare main. Denne integreringa samordnar ordlyden i 6.614, 6.673, 6.674, 6.72 og 7.1521 med AutoResearch 004. Formuleringa i 6.711 var alt identisk. Dei andre 485 proposisjonane er urorte.
 
 Dato: 2026-11-15. Oppdrag: GitHub-sak #32. Éi køyring, tre interne rundar (A avkreft, B rett og test, C motles).
 Modell: Claude Fable 5.2. Status: **`needs-human-review`**. Ingenting er slått saman, og `main` er urørt.
