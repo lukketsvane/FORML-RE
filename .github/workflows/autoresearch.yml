@@ -1,163 +1,169 @@
-name: FORMLÆRE AutoResearch
+name: "FORMLÆRE AutoResearch: litterær redaksjon"
 
 on:
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
-  group: formlaere-autoresearch
+  group: formlaere-literary-autoresearch
   cancel-in-progress: false
 
 jobs:
-  experiment:
-    if: github.repository == 'lukketsvane/FORML-RE'
+  literary-editorial:
+    if: github.repository == 'lukketsvane/FORML-RE' && github.actor == 'lukketsvane'
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 80
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
+      SOURCE_DATE_EPOCH: '946684800'
+      FORCE_SOURCE_DATE: '1'
     steps:
-      - name: Checkout research baseline
+      - name: Checkout canonical manuscript
         uses: actions/checkout@v6
         with:
           persist-credentials: false
-          ref: research/autoloop-results-20261116
+          fetch-depth: 1
 
-      - name: Skip exhausted or unproductive experiments
-        id: preflight
+      - name: Prepare isolated literary branch and immutable baseline
+        id: prepare
+        shell: bash
         run: |
-          if python -c "import sys; sys.path.insert(0, 'research/autoloop'); import control; s=control.read_state(); sys.exit(1 if s['complete'] or control.complete(s) else 0)"; then
-            echo 'active=true' >> "$GITHUB_OUTPUT"
-          else
-            echo 'active=false' >> "$GITHUB_OUTPUT"
-            echo 'Research budget or early-stop criterion reached.'
-          fi
-
-      - name: Python 3.13
-        if: steps.preflight.outputs.active == 'true'
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.13'
-
-      - name: Install benchmark requirements
-        if: steps.preflight.outputs.active == 'true'
-        run: |
-          python -m pip install --disable-pip-version-check numpy==2.5.5 pandas==2.3.3 scipy==1.18.1 scikit-learn==1.9.1
-
-      - name: Load frozen museum catalogue
-        if: steps.preflight.outputs.active == 'true'
-        run: |
-          curl --fail --location --silent --show-error --max-time 90 \
-            'https://raw.githubusercontent.com/lukketsvane/stolar-db/f9a87f52cb8e6e51e6ee12e1e2f9005bb489cf51/STOLAR/api.json' \
-            --output "$RUNNER_TEMP/stolar.json"
-          python - <<'PY'
-          import hashlib, os
-          from pathlib import Path
-          f = Path(os.environ['RUNNER_TEMP']) / 'stolar.json'
-          assert hashlib.sha256(f.read_bytes()).hexdigest() == 'b552be3f754865854481c6f2ee1d46f604c59a8b70127963f402c6f328dab24e'
-          print('Frozen STOLAR source verified')
-          PY
-
-      - name: Verify unchanged evaluation and baseline
-        if: steps.preflight.outputs.active == 'true'
-        run: |
-          python -m unittest discover -s research/autoloop -p 'test_*.py'
-          python -m unittest discover -s research/formlaere-mot-designteori -p 'test_*.py'
-          python research/autoloop/score.py "$RUNNER_TEMP/stolar.json" > "$RUNNER_TEMP/baseline.json"
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          data = json.loads((Path(os.environ['RUNNER_TEMP']) / 'baseline.json').read_text())
-          assert data['included_objects'] == 1598
-          assert data['folds'] == 5
-          assert abs(data['baseline_mse'] - 0.9169902054418608) < 0.000001
-          print('Frozen validation baseline:', data['baseline_mse'])
-          PY
-
-      - name: Reserve budget
-        if: steps.preflight.outputs.active == 'true'
-        id: reserve
-        run: |
-          output=$(python research/autoloop/control.py reserve)
-          if [ "$output" = 'READY=1' ]; then
-            echo 'run=true' >> "$GITHUB_OUTPUT"
-            cp research/autoloop/state.json "$RUNNER_TEMP/state-reserved.json"
-            echo 'Up to $8 reserved for one experiment, $80 total research cap.'
-          else
-            echo 'run=false' >> "$GITHUB_OUTPUT"
-            echo 'Autoresearch stopped: budget, attempts or no-progress limit reached.'
-          fi
+          set -euo pipefail
+          branch="literary/autoresearch-$GITHUB_RUN_ID"
+          report="traktat/revisjon/litteraer-autoresearch-$GITHUB_RUN_ID.md"
+          git switch -c "$branch"
+          git show HEAD:traktat/tekst/formlaere.tex > "$RUNNER_TEMP/original-formlaere.tex"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "report=$report" >> "$GITHUB_OUTPUT"
 
       - name: Install Claude Code API client
-        if: steps.reserve.outputs.run == 'true'
-        run: curl -fsSL https://claude.ai/install.sh | bash
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://claude.ai/install.sh | bash
 
-      - name: Generate candidate with Claude Fable 5.2 API
-        if: steps.reserve.outputs.run == 'true'
+      - name: Adversarial literary redaction with Fable 5.2
+        shell: bash
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
         run: |
+          set -euo pipefail
           test -n "$ANTHROPIC_API_KEY"
+          task="$RUNNER_TEMP/literary-task.txt"
+          cat research/litteraer-autoresearch/program.md > "$task"
+          {
+            printf '\n\nEITT VERK, EITT REDAKSJONELT FORSØK.\n'
+            printf 'Les heile traktat/tekst/formlaere.tex før du skriv. Forskingsemnet er verket som litteratur.\n'
+            printf 'Les tråden i 491 proposisjonar, samanlikn fleire lesemåtar og motles kvar endring i heilskapen.\n'
+            printf 'Rediger berre traktat/tekst/formlaere.tex og opprett rapport på %s.\n' "$REPORT_PATH"
+            printf 'Skriv rapporten på nynorsk med seksjonane Behaldne, Forkasta, Heilskap og Uvisse.\n'
+            printf 'Ikkje endre kjelder, likningar, proposisjonsnummer, testkode eller workflow.\n'
+            printf 'Ikkje produser nye vurderingsmål. Ikkje la måling erstatte litterær dom.\n'
+            printf 'Ikkje opprett PR eller push sjølv. GitHub Actions publiserer gjennom ein separat kontroll.\n'
+          } >> "$task"
+          mkdir -p "$HOME/.claude"
+          printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
           set +e
-          "$HOME/.local/bin/claude" -p "$(cat research/autoloop/program.md)
-
-          THIS ITERATION: Make one evidence-based change to research/autoloop/candidate.py only.
-          You may Read candidate.py, score.py and prior history/*.json results, but Edit candidate.py only.
-          Do not run benchmarks, inspect unseen test data, or try to change evaluation parameters.
-          The runner will test the candidate on frozen grouped validation folds.
-          A failed experiment will be discarded automatically. Keep the model simple." \
+          "$HOME/.local/bin/claude" -p "$(cat "$task")" \
             --model claude-fable-5-2 \
             --effort high \
-            --max-turns 12 \
-            --max-budget-usd 8 \
+            --max-turns 50 \
+            --max-budget-usd 20 \
             --permission-mode bypassPermissions \
-            --tools 'Read,Edit' \
+            --tools "Read,Glob,Grep,Edit,Write,Agent" \
+            --disallowedTools "Bash,mcp__*" \
             --output-format stream-json --verbose \
             | tee "$RUNNER_TEMP/claude-events.jsonl" \
             | jq --unbuffered -r '
                 if .type == "assistant" then
-                  (.message.content[]? | select(.type == "tool_use") | "Claude: \(.name)")
+                  (.message.content[]? | select(.type == "tool_use") | "Fable: \(.name)")
                 elif .type == "result" then
-                  "Claude: ferdig"
+                  "Fable: redaksjonen er ferdig"
                 else empty end
               '
-          code=${PIPESTATUS[0]}
+          code=$?
+          set -e
           jq -s 'map(select(.type == "result")) | last // {"is_error":true}' \
             "$RUNNER_TEMP/claude-events.jsonl" > "$RUNNER_TEMP/claude-result.json"
-          echo "CLAUDE_EXIT=$code" >> "$GITHUB_ENV"
-          exit 0
+          jq -r '"Estimert API-kostnad USD: \(.total_cost_usd // "ukjent")"' "$RUNNER_TEMP/claude-result.json"
+          if [ "$code" -ne 0 ] || ! jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
+            echo "::error::Fable fullførte ikkje redaksjonen. Ingen manuskriptendring blir publisert."
+            exit 1
+          fi
 
-      - name: Evaluate, accept or revert and persist provenance
-        if: steps.reserve.outputs.run == 'true'
+      - name: Protect manuscript structure, mathematics and citations
+        id: verify
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
         run: |
-          if [ "${CLAUDE_EXIT:-1}" -ne 0 ]; then
-            printf '{"is_error":true,"total_cost_usd":8}\n' > "$RUNNER_TEMP/claude-result.json"
-          fi
-          unexpected=$(git diff --name-only | grep -Ev '^research/autoloop/(candidate.py|state.json)$' || true)
-          if [ -n "$unexpected" ]; then
-            printf 'Unexpected modified files: %s\n' "$unexpected"
-            git restore -- $unexpected
-            printf '{"is_error":true,"total_cost_usd":8}\n' > "$RUNNER_TEMP/claude-result.json"
-          fi
-          if ! cmp -s "$RUNNER_TEMP/state-reserved.json" research/autoloop/state.json; then
-            cp "$RUNNER_TEMP/state-reserved.json" research/autoloop/state.json
-            printf '{"is_error":true,"total_cost_usd":8}\n' > "$RUNNER_TEMP/claude-result.json"
-          fi
-          python research/autoloop/control.py finish \
-            "$RUNNER_TEMP/stolar.json" "$RUNNER_TEMP/claude-result.json" "$RUNNER_TEMP/state-reserved.json"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add research/autoloop/state.json research/autoloop/candidate.py research/autoloop/history/
-          git diff --cached --check
-          git commit -m "AutoResearch: score and record experiment $GITHUB_RUN_ID"
-          cat research/autoloop/history/$(printf '%02d' "$(python -c 'import json; print(json.load(open("research/autoloop/state.json"))["attempts"])')").json >> "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+          python3 research/litteraer-autoresearch/check.py \
+            "$RUNNER_TEMP/original-formlaere.tex" traktat/tekst/formlaere.tex "$REPORT_PATH"
+          python3 - "$REPORT_PATH" <<'PY'
+          import subprocess
+          import sys
+          import os
+          report = sys.argv[1]
+          modified = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
+          untracked = set(subprocess.check_output(["git", "ls-files", "--others", "--exclude-standard"], text=True).splitlines())
+          if modified - {"traktat/tekst/formlaere.tex"} or untracked != {report}:
+              raise SystemExit("Agent edited files outside the permitted manuscript and report")
+          changed = "traktat/tekst/formlaere.tex" in modified
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"manuscript_changed={str(changed).lower()}\n")
+          PY
 
-      - name: Publish vetted research result
-        if: steps.reserve.outputs.run == 'true'
+      - name: Set up Python for literary edition
+        if: steps.verify.outputs.manuscript_changed == 'true'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install edition dependencies
+        if: steps.verify.outputs.manuscript_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r traktat/requirements-build.txt
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            texlive-xetex texlive-latex-extra texlive-lang-european \
+            texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2 pandoc
+
+      - name: Build and test the complete edition
+        if: steps.verify.outputs.manuscript_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd traktat
+          make all
+          make check-generated
+
+      - name: Publish editable proposal, never main
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.prepare.outputs.branch }}
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
         run: |
+          set -euo pipefail
+          git add -- traktat/tekst/formlaere.tex "$REPORT_PATH"
+          if [ -f traktat/pdf/release.json ]; then
+            git add -- traktat/pdf/formlaere.pdf traktat/pdf/formlaere-latex.zip \
+              traktat/pdf/release.json traktat/nettstad/kortversjon.html
+          fi
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Litterær motlesing av FORMLÆRE ($GITHUB_RUN_ID)"
           gh auth setup-git
-          git push origin HEAD:research/autoloop-results-20261116
+          git push origin "HEAD:refs/heads/$BRANCH"
+          gh pr create --draft --base main --head "$BRANCH" \
+            --title "FORMLÆRE: adversariell litterær redaksjon ($GITHUB_RUN_ID)" \
+            --body "Litterær heilskapslesing av 491 proposisjonar med konkurrerande motlesingar. Rapport: $REPORT_PATH. Ingen automatisk litterær skår, ingen empirisk benchmark og inga automatisk samanslåing. Menneskeleg redaksjonell vurdering er nødvendig."
