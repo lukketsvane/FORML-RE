@@ -221,20 +221,20 @@ jobs:
           gh pr merge "$BRANCH" --squash --delete-branch
 
           balance="$(python3 - "$REPORT_PATH" <<'PY'
-import re
-import sys
-from decimal import Decimal
-from pathlib import Path
-files = sorted(Path("traktat/revisjon").glob("*.md"))
-used = Decimal("0")
-for path in files:
-    if path.name.startswith(("litteraer-autoresearch-", "foreword-afterword-")):
-        matches = re.findall(r"\*\*Estimert API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
-        if len(matches) != 1:
-            raise SystemExit(f"Missing unique API cost in {path}")
-        used += Decimal(matches[0])
-print(Decimal("109") - used)
-PY
+          import re
+          import sys
+          from decimal import Decimal
+          from pathlib import Path
+          files = sorted(Path("traktat/revisjon").glob("*.md"))
+          used = Decimal("0")
+          for path in files:
+              if path.name.startswith(("litteraer-autoresearch-", "foreword-afterword-")):
+                  matches = re.findall(r"\*\*Estimert API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
+                  if len(matches) != 1:
+                      raise SystemExit(f"Missing unique API cost in {path}")
+                  used += Decimal(matches[0])
+          print(Decimal("109") - used)
+          PY
           )"
           if python3 -c 'from decimal import Decimal; import sys; sys.exit(0 if Decimal(sys.argv[1]) > 0 else 1)' "$balance"; then
             echo "Neste litterære runde kan nytte inntil $balance USD av totalramma."
