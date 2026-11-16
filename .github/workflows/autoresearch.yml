@@ -16,7 +16,7 @@ jobs:
   literary-editorial:
     if: github.repository == 'lukketsvane/FORML-RE' && github.ref == 'refs/heads/main' && (github.actor == 'lukketsvane' || github.actor == 'github-actions[bot]')
     runs-on: ubuntu-24.04
-    timeout-minutes: 80
+    timeout-minutes: 130
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
@@ -64,7 +64,7 @@ jobs:
               if len(costs) != 1:
                   raise SystemExit(f"Missing API cost in {path}")
               used += Decimal(costs[0])
-          available = min(Decimal("20"), Decimal("109") - used)
+          available = min(Decimal("50"), Decimal("109") - used)
           if available <= 0:
               raise SystemExit("109 USD research budget exhausted")
           print(f"Used {used} USD; this run is limited to {available} USD")
@@ -105,7 +105,7 @@ jobs:
           "$HOME/.local/bin/claude" -p "$(cat "$task")" \
             --model claude-fable-5-2 \
             --effort high \
-            --max-turns 80 \
+            --max-turns 150 \
             --max-budget-usd "${{ steps.budget.outputs.max_usd }}" \
             --permission-mode bypassPermissions \
             --tools "Read,Glob,Grep,Edit,Write" \
@@ -160,10 +160,22 @@ jobs:
               output.write(f"edition_changed={str(changed).lower()}\n")
           PY
 
-      - name: Report no accepted improvements
+      - name: Record API cost even without accepted changes
         if: steps.verify.outputs.edition_changed != 'true'
         shell: bash
-        run: echo "Ingen redaksjonelle endringar overlevde motlesing. Ingen ny betalt runde blir starta." >> "$GITHUB_STEP_SUMMARY"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
+        run: |
+          set -euo pipefail
+          git add -- "$REPORT_PATH"
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Kostnad og kritisk dom for uendra FORMLÆRE ($GITHUB_RUN_ID)"
+          gh auth setup-git
+          git push origin HEAD:main
+          echo "Ingen godtekne manuskriptendringar. API-kostnaden er lagra i main; sløyfa stoppar." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Set up Python for literary edition
         if: steps.verify.outputs.edition_changed == 'true'
