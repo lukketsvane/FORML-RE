@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
 
@@ -13,7 +14,7 @@ concurrency:
 
 jobs:
   literary-editorial:
-    if: github.repository == 'lukketsvane/FORML-RE' && github.actor == 'lukketsvane'
+    if: github.repository == 'lukketsvane/FORML-RE' && github.ref == 'refs/heads/main' && (github.actor == 'lukketsvane' || github.actor == 'github-actions[bot]')
     runs-on: ubuntu-24.04
     timeout-minutes: 80
     env:
@@ -41,6 +42,7 @@ jobs:
           fi
           git switch -c "$branch"
           git show HEAD:traktat/tekst/formlaere.tex > "$RUNNER_TEMP/original-formlaere.tex"
+          grep -Fq '\section{Etterord}' traktat/tekst/formlaere.tex || { echo "::error::Etterordet må vere i main før neste litterære runde."; exit 1; }
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
           echo "report=$report" >> "$GITHUB_OUTPUT"
 
@@ -62,9 +64,9 @@ jobs:
               if len(costs) != 1:
                   raise SystemExit(f"Missing API cost in {path}")
               used += Decimal(costs[0])
-          available = min(Decimal("20"), Decimal("100") - used)
+          available = min(Decimal("20"), Decimal("109") - used)
           if available <= 0:
-              raise SystemExit("100 USD research budget exhausted")
+              raise SystemExit("109 USD research budget exhausted")
           print(f"Used {used} USD; this run is limited to {available} USD")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"max_usd={available}\n")
@@ -157,6 +159,11 @@ jobs:
               output.write(f"edition_changed={str(changed).lower()}\n")
           PY
 
+      - name: Report no accepted improvements
+        if: steps.verify.outputs.edition_changed != 'true'
+        shell: bash
+        run: echo "Ingen redaksjonelle endringar overlevde motlesing. Ingen ny betalt runde blir starta." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Set up Python for literary edition
         if: steps.verify.outputs.edition_changed == 'true'
         uses: actions/setup-python@v6
@@ -184,6 +191,7 @@ jobs:
           make check-generated
 
       - name: Publish and auto-merge verified literary edition
+        if: steps.verify.outputs.edition_changed == 'true'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -205,4 +213,32 @@ jobs:
           gh pr create --base main --head "$BRANCH" \
             --title "FORMLÆRE: litterær heilskapsrevisjon ($GITHUB_RUN_ID)" \
             --body "Automatisk redaksjon av hovudtraktat, tl;dr og kortutgåva. Rapport: $REPORT_PATH. Matematiske uttrykk, kjelder og proposisjonsstruktur er verna. Fullt bygg og testar har bestått. Estimert API-kostnad er loggført. Automatisk squash-merge etter kontroll."
+          current_base="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          if [ "$current_base" != "$(git rev-parse HEAD^)" ]; then
+            echo "::error::Main endra seg under byggjet. Ikkje merge eldre utgåve."
+            exit 1
+          fi
           gh pr merge "$BRANCH" --squash --delete-branch
+
+          balance="$(python3 - "$REPORT_PATH" <<'PY'
+import re
+import sys
+from decimal import Decimal
+from pathlib import Path
+files = sorted(Path("traktat/revisjon").glob("*.md"))
+used = Decimal("0")
+for path in files:
+    if path.name.startswith(("litteraer-autoresearch-", "foreword-afterword-")):
+        matches = re.findall(r"\*\*Estimert API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
+        if len(matches) != 1:
+            raise SystemExit(f"Missing unique API cost in {path}")
+        used += Decimal(matches[0])
+print(Decimal("109") - used)
+PY
+          )"
+          if python3 -c 'from decimal import Decimal; import sys; sys.exit(0 if Decimal(sys.argv[1]) > 0 else 1)' "$balance"; then
+            echo "Neste litterære runde kan nytte inntil $balance USD av totalramma."
+            gh workflow run autoresearch.yml --repo "$GITHUB_REPOSITORY" --ref main
+          else
+            echo "Forskinga stoppar ved den samla ramma på 109 USD." >> "$GITHUB_STEP_SUMMARY"
+          fi
