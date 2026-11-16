@@ -1,0 +1,94 @@
+﻿name: FORMLÆRE Fable 5.2 structure review
+
+on:
+  push:
+    branches:
+      - redesign/designar-konklusjon
+
+permissions:
+  contents: write
+
+jobs:
+  fable:
+    if: github.repository == 'lukketsvane/FORML-RE' && github.actor == 'lukketsvane'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - name: Check out structural draft
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Save source and install Fable
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp traktat/tekst/formlaere.tex "$RUNNER_TEMP/before.tex"
+          curl -fsSL https://claude.ai/install.sh | bash
+
+      - name: Fable 5.2 reworks the argument
+        shell: bash
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REPORT_PATH: "traktat/revisjon/fable-designar-${{ github.run_id }}.md"
+        run: |
+          set -euo pipefail
+          test -n "$ANTHROPIC_API_KEY"
+          cat research/architecture/fable-structural-brief.md > "$RUNNER_TEMP/task.txt"
+          printf '\nSkriv rapporten i %s.\n' "$REPORT_PATH" >> "$RUNNER_TEMP/task.txt"
+          mkdir -p "$HOME/.claude"
+          printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
+          set +e
+          "$HOME/.local/bin/claude" -p "$(cat "$RUNNER_TEMP/task.txt")" \
+            --model claude-fable-5-2 \
+            --effort high \
+            --max-turns 18 \
+            --max-budget-usd 2.50 \
+            --permission-mode bypassPermissions \
+            --tools "Read,Glob,Grep,Edit,Write" \
+            --disallowedTools "Bash,Agent,mcp__*" \
+            --output-format json > "$RUNNER_TEMP/result.json"
+          status=$?
+          set -e
+          jq -r '"Estimert Fable-kostnad: \(.total_cost_usd // "ukjent") USD"' "$RUNNER_TEMP/result.json"
+          if [ "$status" -ne 0 ] || ! jq -e '.is_error == false' "$RUNNER_TEMP/result.json" >/dev/null; then
+            echo "::error::Fable fullførte ikkje. Manuskriptet vert ikkje automatisk publisert."
+            exit 1
+          fi
+          if [ ! -f "$REPORT_PATH" ]; then
+            printf '# Fable 5.2\n\n### Behaldne\nIngen rapport.\n\n### Forkasta\nIngen rapport.\n\n### Heilskap\nIngen rapport.\n\n### Uvisse\nModelleinndata må prøvast.\n' > "$REPORT_PATH"
+          fi
+          printf '\n**Estimert API-kostnad:** %s USD.\n' "$(jq -r '.total_cost_usd' "$RUNNER_TEMP/result.json")" >> "$REPORT_PATH"
+
+      - name: Verify and commit isolated result
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_PATH: "traktat/revisjon/fable-designar-${{ github.run_id }}.md"
+        run: |
+          set -euo pipefail
+          python3 - "$RUNNER_TEMP/before.tex" traktat/tekst/formlaere.tex "$REPORT_PATH" <<'PY'
+          import re, subprocess, sys
+          from pathlib import Path
+          before, after, report = (Path(p) for p in sys.argv[1:])
+          a, b = before.read_text(encoding="utf8"), after.read_text(encoding="utf8")
+          props = re.compile(r"\\begin\{formproposition\}\{([\d.]+)\}\{([datio])\}")
+          assert len(props.findall(a)) == 491
+          assert props.findall(a) == props.findall(b), "Proposition numbers/types changed"
+          for rx in (r"\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)",r"\\(?:kjelder|notat)\{[^}]*\}"):
+              assert re.findall(rx,a) == re.findall(rx,b), "Mathematics/citations changed"
+          assert re.findall(r"\\section\{[^}]*\}",a) == re.findall(r"\\section\{[^}]*\}",b)
+          edited = set(subprocess.check_output(["git","diff","--name-only"],text=True).splitlines())
+          added = set(subprocess.check_output(["git","ls-files","--others","--exclude-standard"],text=True).splitlines())
+          assert edited <= {"traktat/tekst/formlaere.tex"}
+          assert added == {str(report)}
+          print("All 491 addresses and source/formula marks verified")
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- traktat/tekst/formlaere.tex "$REPORT_PATH"
+          git diff --cached --check
+          git commit -m "Fable 5.2: critical structural prose review"
+          gh auth setup-git
+          git push origin HEAD:refs/heads/redesign/designar-konklusjon
