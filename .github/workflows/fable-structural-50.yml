@@ -1,9 +1,11 @@
-﻿name: FORMLÆRE Fable 5.2 structure review
+name: FORMLÆRE Fable 5.2 major redaction 50 USD
 
 on:
   push:
     branches:
       - redesign/designar-konklusjon
+    paths:
+      - .github/workflows/fable-structural-50.yml
 
 permissions:
   contents: write
@@ -12,7 +14,7 @@ jobs:
   fable:
     if: github.repository == 'lukketsvane/FORML-RE' && github.actor == 'lukketsvane'
     runs-on: ubuntu-24.04
-    timeout-minutes: 55
+    timeout-minutes: 170
     steps:
       - name: Check out structural draft
         uses: actions/checkout@v6
@@ -35,7 +37,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$ANTHROPIC_API_KEY"
-          cat research/architecture/fable-structural-brief.md > "$RUNNER_TEMP/task.txt"
+          cat research/architecture/fable-50-brief.md > "$RUNNER_TEMP/task.txt"
           printf '\nSkriv rapporten i %s.\n' "$REPORT_PATH" >> "$RUNNER_TEMP/task.txt"
           mkdir -p "$HOME/.claude"
           printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
@@ -43,8 +45,8 @@ jobs:
           "$HOME/.local/bin/claude" -p "$(cat "$RUNNER_TEMP/task.txt")" \
             --model claude-fable-5-2 \
             --effort high \
-            --max-turns 18 \
-            --max-budget-usd 2.50 \
+            --max-turns 135 \
+            --max-budget-usd 50 \
             --permission-mode bypassPermissions \
             --tools "Read,Glob,Grep,Edit,Write" \
             --disallowedTools "Bash,Agent,mcp__*" \
@@ -56,9 +58,7 @@ jobs:
             echo "::error::Fable fullførte ikkje. Manuskriptet vert ikkje automatisk publisert."
             exit 1
           fi
-          if [ ! -f "$REPORT_PATH" ]; then
-            printf '# Fable 5.2\n\n### Behaldne\nIngen rapport.\n\n### Forkasta\nIngen rapport.\n\n### Heilskap\nIngen rapport.\n\n### Uvisse\nModelleinndata må prøvast.\n' > "$REPORT_PATH"
-          fi
+          test -f "$REPORT_PATH" || { echo "::error::Fable did not create an editorial report"; exit 1; }
           printf '\n**Estimert API-kostnad:** %s USD.\n' "$(jq -r '.total_cost_usd' "$RUNNER_TEMP/result.json")" >> "$REPORT_PATH"
 
       - name: Verify and commit isolated result
