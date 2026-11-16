@@ -11,9 +11,9 @@ PROPS = list(re.finditer(r"\\begin\{formproposition\}\{([\d.]+)\}\{([datio])\}",
 IDS = [m.group(1) for m in PROPS]
 
 class DesignerConclusion(unittest.TestCase):
-    def test_491_unique_and_new_order(self):
+    def test_488_unique_and_new_order(self):
         self.assertEqual(len(IDS), len(set(IDS)))
-        self.assertEqual(len(IDS), 491)
+        self.assertEqual(len(IDS), 488)
         self.assertEqual(IDS[IDS.index("6.01") + 1], "6.1")
         self.assertEqual(IDS[IDS.index("6.76") + 1], "6.8")
         self.assertEqual(IDS[IDS.index("6.87") + 1], "7")

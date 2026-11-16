@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "7775da6a19f2f02b7796597f97b0cc5a34af50a054ba2a272b21095813ea2fd8",
+  "sourceHash": "8757a0916456ff946b7e85d0d78b738a9a9a17b25528c5d55904323e498ddabb",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -32,7 +32,7 @@
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
     "nettstad/kort.html": "c75834292ae917b0a6498e3181ebf6a019695127247ddef34bed46bfb3e0a94a",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
-    "nettstad/kortversjon.html": "3185f5719ebecba02565327ea6912bcdd0cd0acf64a3d975e40ebd87086bb777",
+    "nettstad/kortversjon.html": "f6b77b66c31f88ed84f0ef55e413183b771990e61a0c7dac3359e141ed7cd20d",
     "nettstad/kortversjon.tex": "c2a37bd5ea3bbfadb82c9c9a4741f2eecb7d860add0856565c7ca2ceed09d49b",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
@@ -43,7 +43,7 @@
     "nettstad/reader.html": "0f1e3841240d7a39b1d9968e2b794b70d89d9bf0bf0c8e551e195fe5c8203891",
     "nettstad/reader.js": "d14a48ef68f42362c45b8b36f762c3c30be0e8a0faaee6ad3c0d3fbd2d8087a1",
     "nettstad/stol-db.html": "d9b728dc6c7408a8e1558d26c6388d2ba0432a7a7f3d0f0876755f1125becde9",
-    "ordliste.json": "a67500a9c696d5decf95a8787d5e69d63ac7fdf3db4127e548955ead46108d12",
+    "ordliste.json": "cc835152cc2ce4480754038453185e1994ba30e4afe4ae450c6d832ad706c5bb",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "55f3c3f057dbb2d3b3f8982d039aa205fb62a107f2f0ac9cc92b4f6e05c4701d",
     "scripts/content.py": "9302578fed48d62ed1e8cf9a6fa0ed3fd70e094b4830322fb2dd16e615620365",
@@ -51,17 +51,17 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "57f9e72a91b212cecfe3658ce2eedeca0b019e4986bde4a9a8f826d204acc8b4",
     "scripts/render_latex.py": "21431855b2973542de527718fc82a3a23f33564b59f02b663c6b6916f481a892",
-    "tekst/formlaere.tex": "5b0fedd1893bdd289828eb3da2cd8170f3d571cec2050733ad2ee6511a0bee85",
+    "tekst/formlaere.tex": "cda37addc73eca073693b1d808b6777ea2df0c4fe3f3716d907603596b990207",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "562e791849d813f065037521098055122d5a7a3d010bfa30cf54e0d59c86d48c",
-    "formlaere-latex.zip": "8d6609eb4dd0a56d9f0a8290dbe8c48a799f258225d94dd3d6d28097e434a8cb"
+    "formlaere.pdf": "b4f18c6fd3e79545d78a1223f9373f44500231a43565b6e75c544ca4b5a24342",
+    "formlaere-latex.zip": "1904e63bb45b17ff206c1b148bec965372189a56917c7b1ddbff0e9a7068789d"
   },
   "quality": {
     "pages": 104,
-    "destinations": 785,
-    "propositions": 491,
+    "destinations": 782,
+    "propositions": 488,
     "notes": 105,
     "references": 150,
     "figures": 12,
@@ -72,17 +72,17 @@
     "b80bcda71973ccf30373685a": {
       "tex": "(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>𝕄</mi><mo>,</mo><mi>Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi>Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><mi mathvariant=\"double-struck\">𝕄</mi><mo>,</mo><mi mathvariant=\"normal\">Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi mathvariant=\"normal\">Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb{M},\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
     },
     "d9d320fb75c09a25cbf80b7b": {
       "tex": "\\mathbb{M}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝕄</mi><annotation encoding=\"application/x-tex\">\\mathbb{M}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"double-struck\">𝕄</mi><annotation encoding=\"application/x-tex\">\\mathbb{M}</annotation></semantics></math>"
     },
     "c2ba1854e73cc89853411d50": {
       "tex": "\\Pi=(K,C,U)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Π</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>K</mi><mo>,</mo><mi>C</mi><mo>,</mo><mi>U</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\Pi=(K,C,U)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Π</mi><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>K</mi><mo>,</mo><mi>C</mi><mo>,</mo><mi>U</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\Pi=(K,C,U)</annotation></semantics></math>"
     },
     "6731383d01df6b434674b5c9": {
       "tex": "SG",
@@ -92,7 +92,7 @@
     "a6d19cca8886b6dd5eedfb28": {
       "tex": "\\Lambda",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Λ</mi><annotation encoding=\"application/x-tex\">\\Lambda</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"normal\">Λ</mi><annotation encoding=\"application/x-tex\">\\Lambda</annotation></semantics></math>"
     },
     "03e259b111e482e3a43d9a61": {
       "tex": "\\{A_i\\}",
@@ -132,7 +132,7 @@
     "eda37e0925574725780227d1": {
       "tex": "A=(m,\\pi,G,\\varepsilon)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon)</annotation></semantics></math>"
     },
     "fffd3060a3d2134cff063df0": {
       "tex": "D_k",
@@ -147,17 +147,17 @@
     "04d26c48bb713c18bff83e44": {
       "tex": "\\omega(A)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ω</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\omega(A)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>ω</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\omega(A)</annotation></semantics></math>"
     },
     "8b6c44213a1ebe9c7d5a2c7f": {
       "tex": "\\Gamma(A)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Γ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\Gamma(A)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Γ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\Gamma(A)</annotation></semantics></math>"
     },
     "fe9b4165427ce5b7f7bc785c": {
       "tex": "\\kappa(A)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>κ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\kappa(A)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>κ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\kappa(A)</annotation></semantics></math>"
     },
     "580228cb1e71c2ca562a3c24": {
       "tex": "e_j",
@@ -172,22 +172,22 @@
     "4ab4c1adca6232b2930109d1": {
       "tex": "-\\operatorname{Cov}(e_j,\\hat{e}_k)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">-\\operatorname{Cov}(e_j,\\hat{e}_k)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>−</mi><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">-\\operatorname{Cov}(e_j,\\hat{e}_k)</annotation></semantics></math>"
     },
     "0d9a56fd61558c8d73b70dd0": {
       "tex": "\\operatorname{Cov}(e_j,\\hat{e}_k)<0",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Cov}(e_j,\\hat{e}_k)&lt;0</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Cov}(e_j,\\hat{e}_k)&lt;0</annotation></semantics></math>"
     },
     "cd72da56e82c205abbc59314": {
       "tex": "\\tau_k^{\\text{pred}},\\tau_k^\\Gamma,\\tau_k",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup><mo>,</mo><msubsup><mi>τ</mi><mi>k</mi><mi>Γ</mi></msubsup><mo>,</mo><msub><mi>τ</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\tau_k^{\\text{pred}},\\tau_k^\\Gamma,\\tau_k</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup><mo>,</mo><msubsup><mi>τ</mi><mi>k</mi><mi mathvariant=\"normal\">Γ</mi></msubsup><mo>,</mo><msub><mi>τ</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\tau_k^{\\text{pred}},\\tau_k^\\Gamma,\\tau_k</annotation></semantics></math>"
     },
     "87573aa07f7a99bbaa1d4b10": {
       "tex": "\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>ρ</mi><mi>k</mi></msub><mo>=</mo><msub><mi>Δ</mi><mi>k</mi></msub><mi>/</mi><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup></mrow><annotation encoding=\"application/x-tex\">\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>ρ</mi><mi>k</mi></msub><mo>=</mo><msub><mi mathvariant=\"normal\">Δ</mi><mi>k</mi></msub><mi>/</mi><msubsup><mi>τ</mi><mi>k</mi><mtext mathvariant=\"normal\">pred</mtext></msubsup></mrow><annotation encoding=\"application/x-tex\">\\rho_k=\\Delta_k/\\tau_k^{\\text{pred}}</annotation></semantics></math>"
     },
     "91215f522db3d9ac470065c1": {
       "tex": "𝕄",
@@ -202,7 +202,7 @@
     "b3182af5410f2e83fad0aae8": {
       "tex": "\\Pi_{A,k,t}=(K_{A,k,t},\\,C_{A,k,t},\\,U_{A,k,t}).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>Π</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>K</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>,</mo><mspace width=\"0.167em\"></mspace><msub><mi>C</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>,</mo><mspace width=\"0.167em\"></mspace><msub><mi>U</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\Pi_{A,k,t}=(K_{A,k,t},\\,C_{A,k,t},\\,U_{A,k,t}).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">Π</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>K</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>,</mo><mspace width=\"0.167em\"></mspace><msub><mi>C</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo>,</mo><mspace width=\"0.167em\"></mspace><msub><mi>U</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi><mo>,</mo><mi>t</mi></mrow></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\Pi_{A,k,t}=(K_{A,k,t},\\,C_{A,k,t},\\,U_{A,k,t}).</annotation></semantics></math>"
     },
     "25184793cd178868c0b69584": {
       "tex": "K",
@@ -242,12 +242,12 @@
     "9f68329aff0ea453a6b66f94": {
       "tex": "\\Pi_k",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>Π</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">\\Pi_k</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi mathvariant=\"normal\">Π</mi><mi>k</mi></msub><annotation encoding=\"application/x-tex\">\\Pi_k</annotation></semantics></math>"
     },
     "02da99e8452ccc14affe21f4": {
       "tex": "\\Pi=\\{\\Pi_k\\}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Π</mi><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>Π</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\Pi=\\{\\Pi_k\\}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Π</mi><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi mathvariant=\"normal\">Π</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\Pi=\\{\\Pi_k\\}</annotation></semantics></math>"
     },
     "d8dad7ea038326b6d5a28641": {
       "tex": "C_j",
@@ -297,12 +297,12 @@
     "e2be8b118f8d8cd6dd5dbe8d": {
       "tex": "SG=(S,R,s_0)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mi>G</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>S</mi><mo>,</mo><mi>R</mi><mo>,</mo><msub><mi>s</mi><mn>0</mn></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">SG=(S,R,s_0)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mi>G</mi><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>S</mi><mo>,</mo><mi>R</mi><mo>,</mo><msub><mi>s</mi><mn>0</mn></msub><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">SG=(S,R,s_0)</annotation></semantics></math>"
     },
     "32b533af9949eb7090a6ea43": {
       "tex": "S\\subseteq\\mathbb{M}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>⊆</mo><mi>𝕄</mi></mrow><annotation encoding=\"application/x-tex\">S\\subseteq\\mathbb{M}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi><mo>⊆</mo><mi mathvariant=\"double-struck\">𝕄</mi></mrow><annotation encoding=\"application/x-tex\">S\\subseteq\\mathbb{M}</annotation></semantics></math>"
     },
     "5afd2a0b042919ef777bd711": {
       "tex": "R=\\{a_r\\to b_r\\}",
@@ -317,17 +317,17 @@
     "35f06022068036c093977887": {
       "tex": "s\\longrightarrow(s-\\theta(a_r))+\\theta(b_r),\\quad\\theta(a_r)\\leq s.",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>→</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>s</mi><mo>−</mo><mi>θ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>a</mi><mi>r</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>+</mo><mi>θ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>b</mi><mi>r</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>,</mo><mspace width=\"1.0em\"></mspace><mi>θ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>a</mi><mi>r</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≤</mo><mi>s</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">s\\longrightarrow(s-\\theta(a_r))+\\theta(b_r),\\quad\\theta(a_r)\\leq s.</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>s</mi><mo>→</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>s</mi><mo>−</mo><mi>θ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>a</mi><mi>r</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>+</mo><mi>θ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>b</mi><mi>r</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>,</mo><mspace width=\"1.0em\"></mspace><mi>θ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>a</mi><mi>r</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>≤</mo><mi>s</mi><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">s\\longrightarrow(s-\\theta(a_r))+\\theta(b_r),\\quad\\theta(a_r)\\leq s.</annotation></semantics></math>"
     },
     "82e8e9c8d8f6970815acc06d": {
       "tex": "L(SG)=\\{s\\in S:s_0\\to^{*}s\\}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>S</mi><mi>G</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><mi>s</mi><mo>∈</mo><mi>S</mi><mo>:</mo><msub><mi>s</mi><mn>0</mn></msub><msup><mo>→</mo><mo>*</mo></msup><mi>s</mi><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">L(SG)=\\{s\\in S:s_0\\to^{*}s\\}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>S</mi><mi>G</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><mi>s</mi><mo>∈</mo><mi>S</mi><mo>:</mo><msub><mi>s</mi><mn>0</mn></msub><msup><mo>→</mo><mo>*</mo></msup><mi>s</mi><mo stretchy=\"false\" form=\"postfix\">}</mo></mrow><annotation encoding=\"application/x-tex\">L(SG)=\\{s\\in S:s_0\\to^{*}s\\}</annotation></semantics></math>"
     },
     "a174f6a9e334905eba7c906c": {
       "tex": "\\mu(x)\\propto\\mu_0(x)\\prod_j f_j(x).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>μ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>∝</mo><msub><mi>μ</mi><mn>0</mn></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><munder><mo>∏</mo><mi>j</mi></munder><msub><mi>f</mi><mi>j</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\mu(x)\\propto\\mu_0(x)\\prod_j f_j(x).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>μ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>∝</mo><msub><mi>μ</mi><mn>0</mn></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><munder><mo>∏</mo><mi>j</mi></munder><msub><mi>f</mi><mi>j</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\mu(x)\\propto\\mu_0(x)\\prod_j f_j(x).</annotation></semantics></math>"
     },
     "815ea74317d9dd28a092f948": {
       "tex": "\\mu_0",
@@ -337,7 +337,7 @@
     "5fc1087e43a249b74c16d4f1": {
       "tex": "Λ",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Λ</mi><annotation encoding=\"application/x-tex\">Λ</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"normal\">Λ</mi><annotation encoding=\"application/x-tex\">Λ</annotation></semantics></math>"
     },
     "c9f3d29ea25ac2c51c52ab1f": {
       "tex": "=",
@@ -357,7 +357,7 @@
     "2bf854b151d3ea36e562573e": {
       "tex": "−",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mo>−</mo><annotation encoding=\"application/x-tex\">−</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>−</mi><annotation encoding=\"application/x-tex\">−</annotation></semantics></math>"
     },
     "33c71b4d18908f823340c6fa": {
       "tex": "f_{j}",
@@ -387,7 +387,7 @@
     "dd70b283208c1f5bf90b7e90": {
       "tex": "A=(m,\\pi,G,\\varepsilon).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>m</mi><mo>,</mo><mi>π</mi><mo>,</mo><mi>G</mi><mo>,</mo><mi>ε</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">A=(m,\\pi,G,\\varepsilon).</annotation></semantics></math>"
     },
     "f27b8f85ea89522eb99744ac": {
       "tex": "m",
@@ -407,7 +407,7 @@
     "43f03f114b179197bb60a0d8": {
       "tex": "e_k(t;\\pi,d)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>e</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">e_k(t;\\pi,d)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>e</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">e_k(t;\\pi,d)</annotation></semantics></math>"
     },
     "68131b026071c83c4f7f3dce": {
       "tex": "t",
@@ -427,12 +427,12 @@
     "bc3400935da94eee24996694": {
       "tex": "e_k(x)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>e</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">e_k(x)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>e</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">e_k(x)</annotation></semantics></math>"
     },
     "b7944681e373a283239bef83": {
       "tex": "D_k=D_{\\mathrm{KL}}(p_{\\mathrm{obs}}\\Vert p_m)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><msub><mi>D</mi><mrow><mi mathvariant=\"normal\">K</mi><mi mathvariant=\"normal\">L</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>p</mi><mrow><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">b</mi><mi mathvariant=\"normal\">s</mi></mrow></msub><mo stretchy=\"false\" form=\"postfix\">‖</mo><msub><mi>p</mi><mi>m</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">D_k=D_{\\mathrm{KL}}(p_{\\mathrm{obs}}\\Vert p_m)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>D</mi><mi>k</mi></msub><mo>=</mo><msub><mi>D</mi><mrow><mi mathvariant=\"normal\">K</mi><mi mathvariant=\"normal\">L</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>p</mi><mrow><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">b</mi><mi mathvariant=\"normal\">s</mi></mrow></msub><mo stretchy=\"false\" form=\"postfix\">‖</mo><msub><mi>p</mi><mi>m</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">D_k=D_{\\mathrm{KL}}(p_{\\mathrm{obs}}\\Vert p_m)</annotation></semantics></math>"
     },
     "09605a3c816279e1d8779cc8": {
       "tex": "τ_{k}",
@@ -452,7 +452,7 @@
     "a944e10d91354acceddb8603": {
       "tex": "\\tau^{\\mathrm{pred}}_k(A)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>τ</mi><mi>k</mi><mrow><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">d</mi></mrow></msubsup><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\tau^{\\mathrm{pred}}_k(A)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msubsup><mi>τ</mi><mi>k</mi><mrow><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">d</mi></mrow></msubsup><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\tau^{\\mathrm{pred}}_k(A)</annotation></semantics></math>"
     },
     "fd1dc79763c67375f324f461": {
       "tex": "σ_{k}",
@@ -497,12 +497,12 @@
     "dbda4fbf8a5ceba8731e13f0": {
       "tex": "\\begin{aligned}\n\\kappa(A;T,\\mathcal D)=\\{X_k:\\ &\\exists\\pi\\in\\mathcal P_A\\;\\forall d\\in\\mathcal D,\\\\\n&\\forall t\\in T:\\ e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>κ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>T</mi><mo>,</mo><mi>𝒟</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>X</mi><mi>k</mi></msub><mo>:</mo><mspace width=\"0.222em\"></mspace></mtd><mtd columnalign=\"left\"><mo>∃</mo><mi>π</mi><mo>∈</mo><msub><mi>𝒫</mi><mi>A</mi></msub><mspace width=\"0.278em\"></mspace><mo>∀</mo><mi>d</mi><mo>∈</mo><mi>𝒟</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>∀</mo><mi>t</mi><mo>∈</mo><mi>T</mi><mo>:</mo><mspace width=\"0.222em\"></mspace><msub><mi>e</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≤</mo><msub><mi>ε</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\kappa(A;T,\\mathcal D)=\\{X_k:\\ &amp;\\exists\\pi\\in\\mathcal P_A\\;\\forall d\\in\\mathcal D,\\\\\n&amp;\\forall t\\in T:\\ e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>κ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>T</mi><mo>,</mo><mi mathvariant=\"script\">𝒟</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>X</mi><mi>k</mi></msub><mo>:</mo><mspace width=\"0.222em\"></mspace></mtd><mtd columnalign=\"left\"><mo>∃</mo><mi>π</mi><mo>∈</mo><msub><mi mathvariant=\"script\">𝒫</mi><mi>A</mi></msub><mspace width=\"0.278em\"></mspace><mo>∀</mo><mi>d</mi><mo>∈</mo><mi mathvariant=\"script\">𝒟</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>∀</mo><mi>t</mi><mo>∈</mo><mi>T</mi><mo>:</mo><mspace width=\"0.222em\"></mspace><msub><mi>e</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>≤</mo><msub><mi>ε</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\kappa(A;T,\\mathcal D)=\\{X_k:\\ &amp;\\exists\\pi\\in\\mathcal P_A\\;\\forall d\\in\\mathcal D,\\\\\n&amp;\\forall t\\in T:\\ e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "2c86a50f2db34d1a7074d207": {
       "tex": "\\mathcal P_A",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>𝒫</mi><mi>A</mi></msub><annotation encoding=\"application/x-tex\">\\mathcal P_A</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi mathvariant=\"script\">𝒫</mi><mi>A</mi></msub><annotation encoding=\"application/x-tex\">\\mathcal P_A</annotation></semantics></math>"
     },
     "4dbf612f8197b20d598359f2": {
       "tex": "T",
@@ -512,22 +512,22 @@
     "7b216d163448aafabc3bef22": {
       "tex": "\\mathcal D",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝒟</mi><annotation encoding=\"application/x-tex\">\\mathcal D</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"script\">𝒟</mi><annotation encoding=\"application/x-tex\">\\mathcal D</annotation></semantics></math>"
     },
     "d9a332198cb8b2e92a8f65bc": {
       "tex": "\\mathcal X",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝒳</mi><annotation encoding=\"application/x-tex\">\\mathcal X</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"script\">𝒳</mi><annotation encoding=\"application/x-tex\">\\mathcal X</annotation></semantics></math>"
     },
     "cf44f309a6cffac79cc4cb57": {
       "tex": "\\begin{aligned}\n\\kappa_{\\mathrm{samla}}(A;T,\\mathcal D)=\\{S\\subseteq\\mathcal X:\\ &\\exists\\pi\\in\\mathcal P_A\\;\\forall X_k\\in S,\\\\\n&\\forall d\\in\\mathcal D\\;\\forall t\\in T:\\\\\n&e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>κ</mi><mrow><mi mathvariant=\"normal\">s</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">l</mi><mi mathvariant=\"normal\">a</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>T</mi><mo>,</mo><mi>𝒟</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><mi>S</mi><mo>⊆</mo><mi>𝒳</mi><mo>:</mo><mspace width=\"0.222em\"></mspace></mtd><mtd columnalign=\"left\"><mo>∃</mo><mi>π</mi><mo>∈</mo><msub><mi>𝒫</mi><mi>A</mi></msub><mspace width=\"0.278em\"></mspace><mo>∀</mo><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><mi>S</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>∀</mo><mi>d</mi><mo>∈</mo><mi>𝒟</mi><mspace width=\"0.278em\"></mspace><mo>∀</mo><mi>t</mi><mo>∈</mo><mi>T</mi><mo>:</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><msub><mi>e</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≤</mo><msub><mi>ε</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\kappa_{\\mathrm{samla}}(A;T,\\mathcal D)=\\{S\\subseteq\\mathcal X:\\ &amp;\\exists\\pi\\in\\mathcal P_A\\;\\forall X_k\\in S,\\\\\n&amp;\\forall d\\in\\mathcal D\\;\\forall t\\in T:\\\\\n&amp;e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>κ</mi><mrow><mi mathvariant=\"normal\">s</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">l</mi><mi mathvariant=\"normal\">a</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>T</mi><mo>,</mo><mi mathvariant=\"script\">𝒟</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><mi>S</mi><mo>⊆</mo><mi mathvariant=\"script\">𝒳</mi><mo>:</mo><mspace width=\"0.222em\"></mspace></mtd><mtd columnalign=\"left\"><mo>∃</mo><mi>π</mi><mo>∈</mo><msub><mi mathvariant=\"script\">𝒫</mi><mi>A</mi></msub><mspace width=\"0.278em\"></mspace><mo>∀</mo><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><mi>S</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>∀</mo><mi>d</mi><mo>∈</mo><mi mathvariant=\"script\">𝒟</mi><mspace width=\"0.278em\"></mspace><mo>∀</mo><mi>t</mi><mo>∈</mo><mi>T</mi><mo>:</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><msub><mi>e</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>≤</mo><msub><mi>ε</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\kappa_{\\mathrm{samla}}(A;T,\\mathcal D)=\\{S\\subseteq\\mathcal X:\\ &amp;\\exists\\pi\\in\\mathcal P_A\\;\\forall X_k\\in S,\\\\\n&amp;\\forall d\\in\\mathcal D\\;\\forall t\\in T:\\\\\n&amp;e_k(t;\\pi,d)\\leq\\varepsilon_k\\}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "c73724569f81969b8888980a": {
       "tex": "Γ",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Γ</mi><annotation encoding=\"application/x-tex\">Γ</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"normal\">Γ</mi><annotation encoding=\"application/x-tex\">Γ</annotation></semantics></math>"
     },
     "56cad6474073854372a1f6eb": {
       "tex": ">",
@@ -537,62 +537,62 @@
     "2b2f58c65bcb76605ce1b4d3": {
       "tex": "I_{Γ}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>I</mi><mi>Γ</mi></msub><annotation encoding=\"application/x-tex\">I_{Γ}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>I</mi><mi mathvariant=\"normal\">Γ</mi></msub><annotation encoding=\"application/x-tex\">I_{Γ}</annotation></semantics></math>"
     },
     "19873b4bf592c22973630149": {
       "tex": "τ^{Γ}_{k}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msubsup><mi>τ</mi><mi>k</mi><mi>Γ</mi></msubsup><annotation encoding=\"application/x-tex\">τ^{Γ}_{k}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msubsup><mi>τ</mi><mi>k</mi><mi mathvariant=\"normal\">Γ</mi></msubsup><annotation encoding=\"application/x-tex\">τ^{Γ}_{k}</annotation></semantics></math>"
     },
     "d6e1f52a993f488595bfd542": {
       "tex": "H_0(A)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">H_0(A)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">H_0(A)</annotation></semantics></math>"
     },
     "3a2be05f18ce1aebd7ca5c22": {
       "tex": "H_0(A)=\\{X_k\\in\\kappa(A):\\omega_k(A)>0\\}.",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><mi>κ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>:</mo><msub><mi>ω</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>&gt;</mo><mn>0</mn><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">H_0(A)=\\{X_k\\in\\kappa(A):\\omega_k(A)&gt;0\\}.</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>H</mi><mn>0</mn></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><mi>κ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>:</mo><msub><mi>ω</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>&gt;</mo><mn>0</mn><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">H_0(A)=\\{X_k\\in\\kappa(A):\\omega_k(A)&gt;0\\}.</annotation></semantics></math>"
     },
     "aa509debb8741ee8f2fa432d": {
       "tex": "\\pi\\in\\mathcal P_A",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>π</mi><mo>∈</mo><msub><mi>𝒫</mi><mi>A</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\pi\\in\\mathcal P_A</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>π</mi><mo>∈</mo><msub><mi mathvariant=\"script\">𝒫</mi><mi>A</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\pi\\in\\mathcal P_A</annotation></semantics></math>"
     },
     "bce07c0705318036a3226978": {
       "tex": "\\begin{aligned}\nH(A;\\pi)=\\{X_k\\in H_0(A):\\ &e_k(t;\\pi,d)\\leq\\varepsilon_k\\\\\n&\\text{for alle }d\\in\\mathcal D,\\ t\\in T\\}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>H</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>π</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><msub><mi>H</mi><mn>0</mn></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>:</mo><mspace width=\"0.222em\"></mspace></mtd><mtd columnalign=\"left\"><msub><mi>e</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≤</mo><msub><mi>ε</mi><mi>k</mi></msub></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mrow><mtext mathvariant=\"normal\">for alle </mtext><mspace width=\"0.333em\"></mspace></mrow><mi>d</mi><mo>∈</mo><mi>𝒟</mi><mo>,</mo><mspace width=\"0.222em\"></mspace><mi>t</mi><mo>∈</mo><mi>T</mi><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nH(A;\\pi)=\\{X_k\\in H_0(A):\\ &amp;e_k(t;\\pi,d)\\leq\\varepsilon_k\\\\\n&amp;\\text{for alle }d\\in\\mathcal D,\\ t\\in T\\}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>H</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>π</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><msub><mi>H</mi><mn>0</mn></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>:</mo><mspace width=\"0.222em\"></mspace></mtd><mtd columnalign=\"left\"><msub><mi>e</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>t</mi><mo>;</mo><mi>π</mi><mo>,</mo><mi>d</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>≤</mo><msub><mi>ε</mi><mi>k</mi></msub></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mrow><mtext mathvariant=\"normal\">for alle </mtext><mspace width=\"0.333em\"></mspace></mrow><mi>d</mi><mo>∈</mo><mi mathvariant=\"script\">𝒟</mi><mo>,</mo><mspace width=\"0.222em\"></mspace><mi>t</mi><mo>∈</mo><mi>T</mi><mo stretchy=\"false\" form=\"postfix\">}</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nH(A;\\pi)=\\{X_k\\in H_0(A):\\ &amp;e_k(t;\\pi,d)\\leq\\varepsilon_k\\\\\n&amp;\\text{for alle }d\\in\\mathcal D,\\ t\\in T\\}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "9e711cfef649d79f1f163874": {
       "tex": "H(A)=H(A;\\pi)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>H</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mi>H</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>π</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">H(A)=H(A;\\pi)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>H</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mi>H</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo>;</mo><mi>π</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">H(A)=H(A;\\pi)</annotation></semantics></math>"
     },
     "2802688c1a21218f9910e24a": {
       "tex": "x'",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>′</mi></mrow><annotation encoding=\"application/x-tex\">x&#39;</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>x</mi><mo>′</mo></msup><annotation encoding=\"application/x-tex\">x&#39;</annotation></semantics></math>"
     },
     "218677ad2a02099549f5b16e": {
       "tex": "q_A(x,x')",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>q</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">q_A(x,x&#39;)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>q</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">q_A(x,x&#39;)</annotation></semantics></math>"
     },
     "ff35d76be805b4d4627a9fae": {
       "tex": "\\begin{aligned}\nT_A(x,x')={}&q_A(x,x')\\min\\bigl\\{1,\\\\\n& r_A(x,x')e^{-\\beta[\\Phi_A(x')-\\Phi_A(x)]}\\bigr\\},\\\\\n&\\quad x'\\ne x .\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>T</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><msub><mi>q</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>min</mo><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">{</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><msub><mi>r</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msup><mi>e</mi><mrow><mo>−</mo><mi>β</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mi>Φ</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>−</mo><msub><mi>Φ</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow></mrow></msup><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mspace width=\"1.0em\"></mspace><mi>x</mi><mi>′</mi><mo>≠</mo><mi>x</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nT_A(x,x&#39;)={}&amp;q_A(x,x&#39;)\\min\\bigl\\{1,\\\\\n&amp; r_A(x,x&#39;)e^{-\\beta[\\Phi_A(x&#39;)-\\Phi_A(x)]}\\bigr\\},\\\\\n&amp;\\quad x&#39;\\ne x .\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>T</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><msub><mi>q</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mrow><mi mathvariant=\"normal\">min</mi><mo>&#8289;</mo></mrow><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">{</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><msub><mi>r</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>β</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>−</mo><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo stretchy=\"false\" form=\"postfix\">]</mo></mrow></msup><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mspace width=\"1.0em\"></mspace><msup><mi>x</mi><mo>′</mo></msup><mo>≠</mo><mi>x</mi><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nT_A(x,x&#39;)={}&amp;q_A(x,x&#39;)\\min\\bigl\\{1,\\\\\n&amp; r_A(x,x&#39;)e^{-\\beta[\\Phi_A(x&#39;)-\\Phi_A(x)]}\\bigr\\},\\\\\n&amp;\\quad x&#39;\\ne x .\n\\end{aligned}</annotation></semantics></math>"
     },
     "fd9ae07ae4f626199debc3e8": {
       "tex": "\\Phi_A",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>Φ</mi><mi>A</mi></msub><annotation encoding=\"application/x-tex\">\\Phi_A</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><annotation encoding=\"application/x-tex\">\\Phi_A</annotation></semantics></math>"
     },
     "c7aec2eb76bb6ec2e0ae502b": {
       "tex": "\\begin{aligned}\n\\Phi_A(x)&=\\sum_{k\\in I_\\Gamma(A)}\n  \\omega_k(A)\\hat\\Lambda_{A,k}(x),\\\\\n\\hat\\Lambda_{A,k}(x)&=\n  \\hat e_{A,k}(x)/\\varepsilon_{A,k}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>Φ</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mtd><mtd columnalign=\"left\"><mo>=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msub><mi>I</mi><mi>Γ</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow></munder><msub><mi>ω</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mtd><mtd columnalign=\"left\"><mo>=</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>/</mi><msub><mi>ε</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\Phi_A(x)&amp;=\\sum_{k\\in I_\\Gamma(A)}\n  \\omega_k(A)\\hat\\Lambda_{A,k}(x),\\\\\n\\hat\\Lambda_{A,k}(x)&amp;=\n  \\hat e_{A,k}(x)/\\varepsilon_{A,k}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mtd><mtd columnalign=\"left\"><mo>=</mo><munder><mo>∑</mo><mrow><mi>k</mi><mo>∈</mo><msub><mi>I</mi><mi mathvariant=\"normal\">Γ</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow></munder><msub><mi>ω</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mtd><mtd columnalign=\"left\"><mo>=</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>/</mi><msub><mi>ε</mi><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\Phi_A(x)&amp;=\\sum_{k\\in I_\\Gamma(A)}\n  \\omega_k(A)\\hat\\Lambda_{A,k}(x),\\\\\n\\hat\\Lambda_{A,k}(x)&amp;=\n  \\hat e_{A,k}(x)/\\varepsilon_{A,k}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "d96340e16ae17fce5e8659ec": {
       "tex": "\\beta\\geq0",
@@ -607,17 +607,17 @@
     "11f266bf2722a6fe07950324": {
       "tex": "r_A(x,x')=\n\\frac{\\mu_{SG}(x')q_A(x',x)}\n{\\mu_{SG}(x)q_A(x,x')}.",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>r</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msub><mi>q</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo>,</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msub><mi>q</mi><mi>A</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">r_A(x,x&#39;)=\n\\frac{\\mu_{SG}(x&#39;)q_A(x&#39;,x)}\n{\\mu_{SG}(x)q_A(x,x&#39;)}.</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>r</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><msub><mi>q</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo>,</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><msub><mi>q</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">r_A(x,x&#39;)=\n\\frac{\\mu_{SG}(x&#39;)q_A(x&#39;,x)}\n{\\mu_{SG}(x)q_A(x,x&#39;)}.</annotation></semantics></math>"
     },
     "c197c5abaf533a5a06d45065": {
       "tex": "\\Sigma_q",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>Σ</mi><mi>q</mi></msub><annotation encoding=\"application/x-tex\">\\Sigma_q</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi mathvariant=\"normal\">Σ</mi><mi>q</mi></msub><annotation encoding=\"application/x-tex\">\\Sigma_q</annotation></semantics></math>"
     },
     "347b57944ad492939b3d7613": {
       "tex": "-\\frac{\\beta}{2}\\Sigma_q\\nabla\\Phi_A",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mfrac><mi>β</mi><mn>2</mn></mfrac><msub><mi>Σ</mi><mi>q</mi></msub><mi>∇</mi><msub><mi>Φ</mi><mi>A</mi></msub></mrow><annotation encoding=\"application/x-tex\">-\\frac{\\beta}{2}\\Sigma_q\\nabla\\Phi_A</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>−</mi><mfrac><mi>β</mi><mn>2</mn></mfrac><msub><mi mathvariant=\"normal\">Σ</mi><mi>q</mi></msub><mi>∇</mi><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub></mrow><annotation encoding=\"application/x-tex\">-\\frac{\\beta}{2}\\Sigma_q\\nabla\\Phi_A</annotation></semantics></math>"
     },
     "65064c8722870e64bf6c54b3": {
       "tex": "\\beta",
@@ -632,27 +632,27 @@
     "a0ca7ddb2682418948ae6843": {
       "tex": "N(x)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">N(x)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>N</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">N(x)</annotation></semantics></math>"
     },
     "209dba1cd58842fa21231683": {
       "tex": "\\mu_{SG}(x)\\propto N(x)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>∝</mo><mi>N</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mu_{SG}(x)\\propto N(x)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>∝</mo><mi>N</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\mu_{SG}(x)\\propto N(x)</annotation></semantics></math>"
     },
     "beac944aa864b23980ab5cc4": {
       "tex": "\\mathbb M",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>𝕄</mi><annotation encoding=\"application/x-tex\">\\mathbb M</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"double-struck\">𝕄</mi><annotation encoding=\"application/x-tex\">\\mathbb M</annotation></semantics></math>"
     },
     "01b11aabcc691c7cfe33a13b": {
       "tex": "(\\mathbb M,\\Pi,SG,\\Lambda,\\{A_i\\})",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>𝕄</mi><mo>,</mo><mi>Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi>Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb M,\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><mi mathvariant=\"double-struck\">𝕄</mi><mo>,</mo><mi mathvariant=\"normal\">Π</mi><mo>,</mo><mi>S</mi><mi>G</mi><mo>,</mo><mi mathvariant=\"normal\">Λ</mi><mo>,</mo><mo stretchy=\"false\" form=\"prefix\">{</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">}</mo><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">(\\mathbb M,\\Pi,SG,\\Lambda,\\{A_i\\})</annotation></semantics></math>"
     },
     "0fcec9d4f0df9e8e0bab660b": {
       "tex": "\\Pi",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Π</mi><annotation encoding=\"application/x-tex\">\\Pi</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"normal\">Π</mi><annotation encoding=\"application/x-tex\">\\Pi</annotation></semantics></math>"
     },
     "da265305528d8d1cec247682": {
       "tex": "|",
@@ -667,7 +667,7 @@
     "e6f359755efb3cac22bb931d": {
       "tex": "Z^{-1}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>Z</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><annotation encoding=\"application/x-tex\">Z^{-1}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msup><mi>Z</mi><mrow><mi>−</mi><mn>1</mn></mrow></msup><annotation encoding=\"application/x-tex\">Z^{-1}</annotation></semantics></math>"
     },
     "f92db633284abe532c0a6362": {
       "tex": "μ_{\\mathrm{SG}}",
@@ -682,7 +682,7 @@
     "ecefd4720ffc3cd6dc543684": {
       "tex": "Φ",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Φ</mi><annotation encoding=\"application/x-tex\">Φ</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"normal\">Φ</mi><annotation encoding=\"application/x-tex\">Φ</annotation></semantics></math>"
     },
     "87cc1f262c81c34ac2641448": {
       "tex": "∈",
@@ -702,7 +702,7 @@
     "26f0bb191356ed791fcbf632": {
       "tex": "\\hat{Λ}_{i}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mi>i</mi></msub><annotation encoding=\"application/x-tex\">\\hat{Λ}_{i}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mi>i</mi></msub><annotation encoding=\"application/x-tex\">\\hat{Λ}_{i}</annotation></semantics></math>"
     },
     "7fafb2b4ba74b4389733ab55": {
       "tex": "w_i",
@@ -717,22 +717,22 @@
     "02c70640ee6163205253a7f1": {
       "tex": "\\hat\\Lambda_i",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mi>i</mi></msub><annotation encoding=\"application/x-tex\">\\hat\\Lambda_i</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mi>i</mi></msub><annotation encoding=\"application/x-tex\">\\hat\\Lambda_i</annotation></semantics></math>"
     },
     "656a7a762b1d1fbb4cbc90a6": {
       "tex": "\\Phi_{A_i}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>Φ</mi><msub><mi>A</mi><mi>i</mi></msub></msub><annotation encoding=\"application/x-tex\">\\Phi_{A_i}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi mathvariant=\"normal\">Φ</mi><msub><mi>A</mi><mi>i</mi></msub></msub><annotation encoding=\"application/x-tex\">\\Phi_{A_i}</annotation></semantics></math>"
     },
     "9ccd4d959227a16f40a347cf": {
       "tex": "\\hat\\Lambda_{ik}=\\hat e_{ik}/\\varepsilon_{ik}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo>=</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>k</mi></mrow></msub><mi>/</mi><msub><mi>ε</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub></mrow><annotation encoding=\"application/x-tex\">\\hat\\Lambda_{ik}=\\hat e_{ik}/\\varepsilon_{ik}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo>=</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>k</mi></mrow></msub><mi>/</mi><msub><mi>ε</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub></mrow><annotation encoding=\"application/x-tex\">\\hat\\Lambda_{ik}=\\hat e_{ik}/\\varepsilon_{ik}</annotation></semantics></math>"
     },
     "7ddfed9550d3b9cc067d7141": {
       "tex": "\\theta_{ik}=\\beta w_i\\omega_k(A_i)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>θ</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo>=</mo><mi>β</mi><msub><mi>w</mi><mi>i</mi></msub><msub><mi>ω</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\theta_{ik}=\\beta w_i\\omega_k(A_i)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>θ</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo>=</mo><mi>β</mi><msub><mi>w</mi><mi>i</mi></msub><msub><mi>ω</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>A</mi><mi>i</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\theta_{ik}=\\beta w_i\\omega_k(A_i)</annotation></semantics></math>"
     },
     "f65ccaf461905ada4d6a7530": {
       "tex": "k",
@@ -742,7 +742,7 @@
     "7a3040dd82d8cb41cd07372c": {
       "tex": "\\begin{aligned}\n\\Lambda(x)&=\\beta\\Phi(x)+\\lambda_{SG}(x)+c,\\\\\n\\lambda_{SG}(x)&=-\\log\\frac{\\mu_{SG}(x)}{\\mu_0(x)}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>Λ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mtd><mtd columnalign=\"left\"><mo>=</mo><mi>β</mi><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>+</mo><msub><mi>λ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>+</mo><mi>c</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"><msub><mi>λ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mtd><mtd columnalign=\"left\"><mo>=</mo><mo>−</mo><mo>log</mo><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><mrow><msub><mi>μ</mi><mn>0</mn></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\Lambda(x)&amp;=\\beta\\Phi(x)+\\lambda_{SG}(x)+c,\\\\\n\\lambda_{SG}(x)&amp;=-\\log\\frac{\\mu_{SG}(x)}{\\mu_0(x)}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi mathvariant=\"normal\">Λ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mtd><mtd columnalign=\"left\"><mo>=</mo><mi>β</mi><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>+</mo><msub><mi>λ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>+</mo><mi>c</mi><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"><msub><mi>λ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mtd><mtd columnalign=\"left\"><mo>=</mo><mi>−</mi><mrow><mi mathvariant=\"normal\">log</mi><mo>&#8289;</mo></mrow><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><mrow><msub><mi>μ</mi><mn>0</mn></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\Lambda(x)&amp;=\\beta\\Phi(x)+\\lambda_{SG}(x)+c,\\\\\n\\lambda_{SG}(x)&amp;=-\\log\\frac{\\mu_{SG}(x)}{\\mu_0(x)}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "5a36794de4c28a296f3a7360": {
       "tex": "c",
@@ -752,7 +752,7 @@
     "ba460ee6cbd0ae6963cb5267": {
       "tex": "\\Phi",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi>Φ</mi><annotation encoding=\"application/x-tex\">\\Phi</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mi mathvariant=\"normal\">Φ</mi><annotation encoding=\"application/x-tex\">\\Phi</annotation></semantics></math>"
     },
     "979be50e1fe609d769382393": {
       "tex": "\\lambda_{SG}",
@@ -762,17 +762,17 @@
     "f4f146082da762c170da879e": {
       "tex": "\\mu_{SG}(x)/\\mu_{SG}(y)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>/</mi><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\mu_{SG}(x)/\\mu_{SG}(y)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>/</mi><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\mu_{SG}(x)/\\mu_{SG}(y)</annotation></semantics></math>"
     },
     "360057c8c16e8ec14286a0b6": {
       "tex": "\\begin{aligned}\n\\log\\frac{P(x)}{P(y)}={}&\\log\\frac{\\mu_{SG}(x)}{\\mu_{SG}(y)}\\\\\n&-\\beta[\\Phi(x)-\\Phi(y)].\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mo>log</mo><mfrac><mrow><mi>P</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><mrow><mi>P</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow></mfrac><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mo>log</mo><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow></mfrac></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>−</mo><mi>β</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>−</mo><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\log\\frac{P(x)}{P(y)}={}&amp;\\log\\frac{\\mu_{SG}(x)}{\\mu_{SG}(y)}\\\\\n&amp;-\\beta[\\Phi(x)-\\Phi(y)].\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mrow><mi mathvariant=\"normal\">log</mi><mo>&#8289;</mo></mrow><mfrac><mrow><mi>P</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><mrow><mi>P</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow></mfrac><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mrow><mi mathvariant=\"normal\">log</mi><mo>&#8289;</mo></mrow><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow></mfrac></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mi>−</mi><mi>β</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>−</mo><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo stretchy=\"false\" form=\"postfix\">]</mo><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\log\\frac{P(x)}{P(y)}={}&amp;\\log\\frac{\\mu_{SG}(x)}{\\mu_{SG}(y)}\\\\\n&amp;-\\beta[\\Phi(x)-\\Phi(y)].\n\\end{aligned}</annotation></semantics></math>"
     },
     "8200931d695648ce4a2114b9": {
       "tex": "Z=\\sum_{x\\in D}\\mu_{\\mathrm{SG}}(x)\\exp(-\\beta\\Phi(x))",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Z</mi><mo>=</mo><msub><mo>∑</mo><mrow><mi>x</mi><mo>∈</mo><mi>D</mi></mrow></msub><msub><mi>μ</mi><mrow><mi mathvariant=\"normal\">S</mi><mi mathvariant=\"normal\">G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>exp</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mo>−</mo><mi>β</mi><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">Z=\\sum_{x\\in D}\\mu_{\\mathrm{SG}}(x)\\exp(-\\beta\\Phi(x))</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Z</mi><mo>=</mo><msub><mo>∑</mo><mrow><mi>x</mi><mo>∈</mo><mi>D</mi></mrow></msub><msub><mi>μ</mi><mrow><mi mathvariant=\"normal\">S</mi><mi mathvariant=\"normal\">G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mrow><mi mathvariant=\"normal\">exp</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>−</mi><mi>β</mi><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">Z=\\sum_{x\\in D}\\mu_{\\mathrm{SG}}(x)\\exp(-\\beta\\Phi(x))</annotation></semantics></math>"
     },
     "e2d2f7385569a29f25b1284f": {
       "tex": "D",
@@ -802,7 +802,7 @@
     "e5049d98a91558da9614068c": {
       "tex": "\\begin{aligned}\n\\alpha(x,x')={}&\\min\\bigl\\{1,\\\\\n& r(x,x')e^{-\\beta[\\Phi(x')-\\Phi(x)]}\\bigr\\},\\\\\nr(x,x')={}&\\frac{\\mu_{SG}(x')q(x',x)}{\\mu_{SG}(x)q(x,x')}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>α</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mo>min</mo><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">{</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mi>r</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msup><mi>e</mi><mrow><mo>−</mo><mi>β</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>−</mo><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow></mrow></msup><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"><mi>r</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>q</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo>,</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>q</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\alpha(x,x&#39;)={}&amp;\\min\\bigl\\{1,\\\\\n&amp; r(x,x&#39;)e^{-\\beta[\\Phi(x&#39;)-\\Phi(x)]}\\bigr\\},\\\\\nr(x,x&#39;)={}&amp;\\frac{\\mu_{SG}(x&#39;)q(x&#39;,x)}{\\mu_{SG}(x)q(x,x&#39;)}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><mi>α</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mrow><mi mathvariant=\"normal\">min</mi><mo>&#8289;</mo></mrow><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">{</mo><mn>1</mn><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mi>r</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><msup><mi>e</mi><mrow><mi>−</mi><mi>β</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>−</mo><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo stretchy=\"false\" form=\"postfix\">]</mo></mrow></msup><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">}</mo><mo>,</mo></mtd></mtr><mtr><mtd columnalign=\"right\"><mi>r</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mfrac><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>q</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo>,</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>q</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow></mfrac><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\alpha(x,x&#39;)={}&amp;\\min\\bigl\\{1,\\\\\n&amp; r(x,x&#39;)e^{-\\beta[\\Phi(x&#39;)-\\Phi(x)]}\\bigr\\},\\\\\nr(x,x&#39;)={}&amp;\\frac{\\mu_{SG}(x&#39;)q(x&#39;,x)}{\\mu_{SG}(x)q(x,x&#39;)}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "12402e4c841160a6368b5f66": {
       "tex": "P",
@@ -812,7 +812,7 @@
     "15a5233375ed9cca971961e7": {
       "tex": "p_{t+1}(x')=\\sum_x p_t(x)T_t(x,x').",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>p</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><munder><mo>∑</mo><mi>x</mi></munder><msub><mi>p</mi><mi>t</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msub><mi>T</mi><mi>t</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><mi>x</mi><mi>′</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">p_{t+1}(x&#39;)=\\sum_x p_t(x)T_t(x,x&#39;).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>p</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><munder><mo>∑</mo><mi>x</mi></munder><msub><mi>p</mi><mi>t</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><msub><mi>T</mi><mi>t</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo>,</mo><msup><mi>x</mi><mo>′</mo></msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">p_{t+1}(x&#39;)=\\sum_x p_t(x)T_t(x,x&#39;).</annotation></semantics></math>"
     },
     "fb78bb3b52e29aeab123b1d1": {
       "tex": "h",
@@ -842,12 +842,12 @@
     "d1085018bc2a318bec667c19": {
       "tex": "T(x)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">T(x)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">T(x)</annotation></semantics></math>"
     },
     "104872c629c727fc3c57f2d9": {
       "tex": "P(x\\,|\\,T)=\\mu_{SG}(x\\,|\\,T).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mspace width=\"0.167em\"></mspace><mo stretchy=\"false\" form=\"prefix\">|</mo><mspace width=\"0.167em\"></mspace><mi>T</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mspace width=\"0.167em\"></mspace><mo stretchy=\"false\" form=\"prefix\">|</mo><mspace width=\"0.167em\"></mspace><mi>T</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">P(x\\,|\\,T)=\\mu_{SG}(x\\,|\\,T).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mspace width=\"0.167em\"></mspace><mo stretchy=\"false\" form=\"prefix\">|</mo><mspace width=\"0.167em\"></mspace><mi>T</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mspace width=\"0.167em\"></mspace><mo stretchy=\"false\" form=\"prefix\">|</mo><mspace width=\"0.167em\"></mspace><mi>T</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">P(x\\,|\\,T)=\\mu_{SG}(x\\,|\\,T).</annotation></semantics></math>"
     },
     "a98b9b45f6052fda32d1ec69": {
       "tex": "x_{k}",
@@ -862,7 +862,7 @@
     "01dff019ea0288fc0c48bef2": {
       "tex": "\\hat{Λ}_{k}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><annotation encoding=\"application/x-tex\">\\hat{Λ}_{k}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><annotation encoding=\"application/x-tex\">\\hat{Λ}_{k}</annotation></semantics></math>"
     },
     "72c85005de257d09a747ad3f": {
       "tex": "″",
@@ -872,7 +872,7 @@
     "795efbe5e350fe4f98b187e5": {
       "tex": "\\operatorname{Cov}(x)\\approx(\\beta H)^{-1}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≈</mo><msup><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>β</mi><mi>H</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Cov}(x)\\approx(\\beta H)^{-1}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>≈</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>β</mi><mi>H</mi><msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mrow><mi>−</mi><mn>1</mn></mrow></msup></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Cov}(x)\\approx(\\beta H)^{-1}</annotation></semantics></math>"
     },
     "9a6b6f2010b443d96b8d7030": {
       "tex": "H",
@@ -882,37 +882,37 @@
     "d2e13753b75ecda1af9b6cd3": {
       "tex": "\\operatorname{Var}(x_k)=\\frac{2\\varepsilon_k^2}{(\\beta W_k)^2}.",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>Var</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mfrac><mrow><mn>2</mn><msubsup><mi>ε</mi><mi>k</mi><mn>2</mn></msubsup></mrow><msup><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>β</mi><msub><mi>W</mi><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mn>2</mn></msup></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Var}(x_k)=\\frac{2\\varepsilon_k^2}{(\\beta W_k)^2}.</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mrow><mi mathvariant=\"normal\">Var</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mfrac><mrow><mn>2</mn><msubsup><mi>ε</mi><mi>k</mi><mn>2</mn></msubsup></mrow><mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>β</mi><msub><mi>W</mi><mi>k</mi></msub><msup><mo stretchy=\"false\" form=\"postfix\">)</mo><mn>2</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\operatorname{Var}(x_k)=\\frac{2\\varepsilon_k^2}{(\\beta W_k)^2}.</annotation></semantics></math>"
     },
     "b1d49a485d1f0434a13b9b42": {
       "tex": "\\beta\\Phi(x)=\\sum_k\\theta_k\\hat e_k(x)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>β</mi><mi>Φ</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>θ</mi><mi>k</mi></msub><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\beta\\Phi(x)=\\sum_k\\theta_k\\hat e_k(x)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>β</mi><mi mathvariant=\"normal\">Φ</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><msub><mo>∑</mo><mi>k</mi></msub><msub><mi>θ</mi><mi>k</mi></msub><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\beta\\Phi(x)=\\sum_k\\theta_k\\hat e_k(x)</annotation></semantics></math>"
     },
     "115394dfa1448588b2fe452c": {
       "tex": "\\frac{\\partial P(x)}{\\partial\\theta_k}=-P(x)\\bigl(\\hat e_k(x)-\\mathbb E[\\hat e_k]\\bigr).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>P</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mo>−</mo><mi>P</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>−</mo><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial P(x)}{\\partial\\theta_k}=-P(x)\\bigl(\\hat e_k(x)-\\mathbb E[\\hat e_k]\\bigr).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>P</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mi>−</mi><mi>P</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>−</mo><mi mathvariant=\"double-struck\">𝔼</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">]</mo><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial P(x)}{\\partial\\theta_k}=-P(x)\\bigl(\\hat e_k(x)-\\mathbb E[\\hat e_k]\\bigr).</annotation></semantics></math>"
     },
     "79d86dc7fec4f7acc75936b7": {
       "tex": "\\partial\\mathbb E[\\hat e_j]/\\partial\\theta_k=-\\operatorname{Cov}(\\hat e_j,\\hat e_k)",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>∂</mi><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>j</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mi>/</mi><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub><mo>=</mo><mo>−</mo><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">\\partial\\mathbb E[\\hat e_j]/\\partial\\theta_k=-\\operatorname{Cov}(\\hat e_j,\\hat e_k)</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>∂</mi><mi mathvariant=\"double-struck\">𝔼</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>j</mi></msub><mo stretchy=\"false\" form=\"postfix\">]</mo><mi>/</mi><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub><mo>=</mo><mi>−</mi><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\partial\\mathbb E[\\hat e_j]/\\partial\\theta_k=-\\operatorname{Cov}(\\hat e_j,\\hat e_k)</annotation></semantics></math>"
     },
     "d09c923010bc657bddf01d9d": {
       "tex": "\\partial\\mathbb E[\\hat e_k]/\\partial\\theta_k=-\\operatorname{Var}(\\hat e_k)\\leq0",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>∂</mi><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mi>/</mi><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub><mo>=</mo><mo>−</mo><mo>Var</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>≤</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\partial\\mathbb E[\\hat e_k]/\\partial\\theta_k=-\\operatorname{Var}(\\hat e_k)\\leq0</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>∂</mi><mi mathvariant=\"double-struck\">𝔼</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">]</mo><mi>/</mi><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub><mo>=</mo><mi>−</mi><mrow><mi mathvariant=\"normal\">Var</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>≤</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">\\partial\\mathbb E[\\hat e_k]/\\partial\\theta_k=-\\operatorname{Var}(\\hat e_k)\\leq0</annotation></semantics></math>"
     },
     "4df3657a65591ce42cc6a1f8": {
       "tex": "\\frac{\\partial\\mathbb E[e_j]}{\\partial\\theta_k}=-\\operatorname{Cov}(e_j,\\hat e_k).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mi>e</mi><mi>j</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mo>−</mo><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial\\mathbb E[e_j]}{\\partial\\theta_k}=-\\operatorname{Cov}(e_j,\\hat e_k).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi mathvariant=\"double-struck\">𝔼</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mi>e</mi><mi>j</mi></msub><mo stretchy=\"false\" form=\"postfix\">]</mo></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mi>−</mi><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial\\mathbb E[e_j]}{\\partial\\theta_k}=-\\operatorname{Cov}(e_j,\\hat e_k).</annotation></semantics></math>"
     },
     "ff96ae6e2d8985f8869f50c7": {
       "tex": "-\\beta w_i\\operatorname{Cov}(e_j,\\hat\\Lambda_{ik}-\\hat\\Lambda_{im}).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mi>β</mi><msub><mi>w</mi><mi>i</mi></msub><mo>Cov</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo>−</mo><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>m</mi></mrow></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">-\\beta w_i\\operatorname{Cov}(e_j,\\hat\\Lambda_{ik}-\\hat\\Lambda_{im}).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>−</mi><mi>β</mi><msub><mi>w</mi><mi>i</mi></msub><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>e</mi><mi>j</mi></msub><mo>,</mo><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>k</mi></mrow></msub><mo>−</mo><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>i</mi><mi>m</mi></mrow></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">-\\beta w_i\\operatorname{Cov}(e_j,\\hat\\Lambda_{ik}-\\hat\\Lambda_{im}).</annotation></semantics></math>"
     },
     "1d2fea341ae44c0d25fbbda4": {
       "tex": "A",
@@ -922,12 +922,12 @@
     "00f20f6182c8541f4a7cee84": {
       "tex": "\\begin{aligned}\n\\Phi_A={}&(1-\\gamma_A)\\sum_k\\omega_k(A)\\hat\\Lambda_{A,k}\\\\\n&+\\sum_{B\\ne A}\\sum_j c_{A\\to B,j}\\hat\\Lambda_{A|B,j}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>Φ</mi><mi>A</mi></msub><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mn>1</mn><mo>−</mo><msub><mi>γ</mi><mi>A</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>ω</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>+</mo><munder><mo>∑</mo><mrow><mi>B</mi><mo>≠</mo><mi>A</mi></mrow></munder><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>c</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo stretchy=\"false\" form=\"prefix\">|</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\Phi_A={}&amp;(1-\\gamma_A)\\sum_k\\omega_k(A)\\hat\\Lambda_{A,k}\\\\\n&amp;+\\sum_{B\\ne A}\\sum_j c_{A\\to B,j}\\hat\\Lambda_{A|B,j}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><mo stretchy=\"false\" form=\"prefix\">(</mo><mn>1</mn><mo>−</mo><msub><mi>γ</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><munder><mo>∑</mo><mi>k</mi></munder><msub><mi>ω</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo>,</mo><mi>k</mi></mrow></msub></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mi>+</mi><munder><mo>∑</mo><mrow><mi>B</mi><mo>≠</mo><mi>A</mi></mrow></munder><munder><mo>∑</mo><mi>j</mi></munder><msub><mi>c</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo stretchy=\"false\" form=\"prefix\">|</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\n\\Phi_A={}&amp;(1-\\gamma_A)\\sum_k\\omega_k(A)\\hat\\Lambda_{A,k}\\\\\n&amp;+\\sum_{B\\ne A}\\sum_j c_{A\\to B,j}\\hat\\Lambda_{A|B,j}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "25d2e0249a8f368e8d79b180": {
       "tex": "\\hat\\Lambda_{A|B,j}",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo stretchy=\"false\" form=\"prefix\">|</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding=\"application/x-tex\">\\hat\\Lambda_{A|B,j}</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo stretchy=\"false\" form=\"prefix\">|</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding=\"application/x-tex\">\\hat\\Lambda_{A|B,j}</annotation></semantics></math>"
     },
     "d39745e54f64aeb35c78ad1a": {
       "tex": "X_j",
@@ -942,7 +942,7 @@
     "d63236ce29a519d95e54f2cf": {
       "tex": "\\begin{aligned}\nW_{B,j}={}&w_B(1-\\gamma_B)\\omega_j(B)\\\\\n&+\\sum_{A\\ne B}w_Ac_{A\\to B,j}.\n\\end{aligned}",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>W</mi><mrow><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><msub><mi>w</mi><mi>B</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mn>1</mn><mo>−</mo><msub><mi>γ</mi><mi>B</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msub><mi>ω</mi><mi>j</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>B</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mo>+</mo><munder><mo>∑</mo><mrow><mi>A</mi><mo>≠</mo><mi>B</mi></mrow></munder><msub><mi>w</mi><mi>A</mi></msub><msub><mi>c</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nW_{B,j}={}&amp;w_B(1-\\gamma_B)\\omega_j(B)\\\\\n&amp;+\\sum_{A\\ne B}w_Ac_{A\\to B,j}.\n\\end{aligned}</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mtable><mtr><mtd columnalign=\"right\"><msub><mi>W</mi><mrow><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>=</mo><mrow></mrow></mtd><mtd columnalign=\"left\"><msub><mi>w</mi><mi>B</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mn>1</mn><mo>−</mo><msub><mi>γ</mi><mi>B</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><msub><mi>ω</mi><mi>j</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>B</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mtd></mtr><mtr><mtd columnalign=\"right\"></mtd><mtd columnalign=\"left\"><mi>+</mi><munder><mo>∑</mo><mrow><mi>A</mi><mo>≠</mo><mi>B</mi></mrow></munder><msub><mi>w</mi><mi>A</mi></msub><msub><mi>c</mi><mrow><mi>A</mi><mo>→</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mi>.</mi></mtd></mtr></mtable><annotation encoding=\"application/x-tex\">\\begin{aligned}\nW_{B,j}={}&amp;w_B(1-\\gamma_B)\\omega_j(B)\\\\\n&amp;+\\sum_{A\\ne B}w_Ac_{A\\to B,j}.\n\\end{aligned}</annotation></semantics></math>"
     },
     "301775942e3d632a718ea273": {
       "tex": "w_B=0",
@@ -957,22 +957,22 @@
     "f841a65245e0551a6da8fa8f": {
       "tex": "\\frac{\\partial\\mathbb E[e_{B,j}]}{\\partial\\theta}=-\\operatorname{Cov}\\bigl(e_{B,j},\\hat\\Lambda_{A|B,j}\\bigr).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mi>e</mi><mrow><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow></mrow><mrow><mi>∂</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mo>−</mo><mo>Cov</mo><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>e</mi><mrow><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mover><mi>Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo stretchy=\"false\" form=\"prefix\">|</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial\\mathbb E[e_{B,j}]}{\\partial\\theta}=-\\operatorname{Cov}\\bigl(e_{B,j},\\hat\\Lambda_{A|B,j}\\bigr).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi mathvariant=\"double-struck\">𝔼</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mi>e</mi><mrow><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy=\"false\" form=\"postfix\">]</mo></mrow><mrow><mi>∂</mi><mi>θ</mi></mrow></mfrac><mo>=</mo><mi>−</mi><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">(</mo><msub><mi>e</mi><mrow><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>,</mo><msub><mover><mi mathvariant=\"normal\">Λ</mi><mo accent=\"true\">̂</mo></mover><mrow><mi>A</mi><mo stretchy=\"false\" form=\"prefix\">|</mo><mi>B</mi><mo>,</mo><mi>j</mi></mrow></msub><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial\\mathbb E[e_{B,j}]}{\\partial\\theta}=-\\operatorname{Cov}\\bigl(e_{B,j},\\hat\\Lambda_{A|B,j}\\bigr).</annotation></semantics></math>"
     },
     "5db292687dc2e0f0200848e5": {
       "tex": "h(u)=\\mathbb E[e\\,|\\,\\hat e=u].",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>h</mi><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>u</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><mi>𝔼</mi><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><mi>e</mi><mspace width=\"0.167em\"></mspace><mo stretchy=\"false\" form=\"prefix\">|</mo><mspace width=\"0.167em\"></mspace><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mo>=</mo><mi>u</mi><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">h(u)=\\mathbb E[e\\,|\\,\\hat e=u].</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>h</mi><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>u</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><mi mathvariant=\"double-struck\">𝔼</mi><mo stretchy=\"false\" form=\"prefix\">[</mo><mi>e</mi><mspace width=\"0.167em\"></mspace><mo stretchy=\"false\" form=\"prefix\">|</mo><mspace width=\"0.167em\"></mspace><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mo>=</mo><mi>u</mi><mo stretchy=\"false\" form=\"postfix\">]</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">h(u)=\\mathbb E[e\\,|\\,\\hat e=u].</annotation></semantics></math>"
     },
     "5d971287c29f50da7920de68": {
       "tex": "\\Phi_A=(1-\\gamma_A)\\Phi^0_A+\\sum_{B\\ne A}c_{AB}\\Phi_B,",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>Φ</mi><mi>A</mi></msub><mo>=</mo><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mn>1</mn><mo>−</mo><msub><mi>γ</mi><mi>A</mi></msub><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><msubsup><mi>Φ</mi><mi>A</mi><mn>0</mn></msubsup><mo>+</mo><munder><mo>∑</mo><mrow><mi>B</mi><mo>≠</mo><mi>A</mi></mrow></munder><msub><mi>c</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub><msub><mi>Φ</mi><mi>B</mi></msub><mo>,</mo></mrow><annotation encoding=\"application/x-tex\">\\Phi_A=(1-\\gamma_A)\\Phi^0_A+\\sum_{B\\ne A}c_{AB}\\Phi_B,</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><mo>=</mo><mo stretchy=\"false\" form=\"prefix\">(</mo><mn>1</mn><mo>−</mo><msub><mi>γ</mi><mi>A</mi></msub><mo stretchy=\"false\" form=\"postfix\">)</mo><msubsup><mi mathvariant=\"normal\">Φ</mi><mi>A</mi><mn>0</mn></msubsup><mo>+</mo><munder><mo>∑</mo><mrow><mi>B</mi><mo>≠</mo><mi>A</mi></mrow></munder><msub><mi>c</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub><msub><mi mathvariant=\"normal\">Φ</mi><mi>B</mi></msub><mo>,</mo></mrow><annotation encoding=\"application/x-tex\">\\Phi_A=(1-\\gamma_A)\\Phi^0_A+\\sum_{B\\ne A}c_{AB}\\Phi_B,</annotation></semantics></math>"
     },
     "b19dd398ba11e54125c4fc17": {
       "tex": "\\Phi^0_A",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msubsup><mi>Φ</mi><mi>A</mi><mn>0</mn></msubsup><annotation encoding=\"application/x-tex\">\\Phi^0_A</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msubsup><mi mathvariant=\"normal\">Φ</mi><mi>A</mi><mn>0</mn></msubsup><annotation encoding=\"application/x-tex\">\\Phi^0_A</annotation></semantics></math>"
     },
     "61aae5d2820c13247b6686ce": {
       "tex": "\\gamma_A=\\sum_Bc_{AB}",
@@ -992,7 +992,7 @@
     "aa9ea3fc67bf23438867006f": {
       "tex": "\\Phi_A=\\sum_B\\chi_{AB}\\Phi^0_B,",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>Φ</mi><mi>A</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>B</mi></munder><msub><mi>χ</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub><msubsup><mi>Φ</mi><mi>B</mi><mn>0</mn></msubsup><mo>,</mo></mrow><annotation encoding=\"application/x-tex\">\\Phi_A=\\sum_B\\chi_{AB}\\Phi^0_B,</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">Φ</mi><mi>A</mi></msub><mo>=</mo><munder><mo>∑</mo><mi>B</mi></munder><msub><mi>χ</mi><mrow><mi>A</mi><mi>B</mi></mrow></msub><msubsup><mi mathvariant=\"normal\">Φ</mi><mi>B</mi><mn>0</mn></msubsup><mo>,</mo></mrow><annotation encoding=\"application/x-tex\">\\Phi_A=\\sum_B\\chi_{AB}\\Phi^0_B,</annotation></semantics></math>"
     },
     "2e0474bf4b50374323c656b0": {
       "tex": "\\chi_{AB}",
@@ -1002,17 +1002,17 @@
     "8957b33510b4295304d692aa": {
       "tex": "\\frac{\\partial}{\\partial\\gamma_A}\\mathbb E\\bigl[\\Psi_A-\\Phi^0_A\\bigr]=-\\beta w_A\\operatorname{Var}\\bigl(\\Psi_A-\\Phi^0_A\\bigr)\\leq0,",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>∂</mi><mrow><mi>∂</mi><msub><mi>γ</mi><mi>A</mi></msub></mrow></mfrac><mi>𝔼</mi><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">[</mo><msub><mi>Ψ</mi><mi>A</mi></msub><mo>−</mo><msubsup><mi>Φ</mi><mi>A</mi><mn>0</mn></msubsup><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">]</mo><mo>=</mo><mo>−</mo><mi>β</mi><msub><mi>w</mi><mi>A</mi></msub><mo>Var</mo><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">(</mo><msub><mi>Ψ</mi><mi>A</mi></msub><mo>−</mo><msubsup><mi>Φ</mi><mi>A</mi><mn>0</mn></msubsup><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">)</mo><mo>≤</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial}{\\partial\\gamma_A}\\mathbb E\\bigl[\\Psi_A-\\Phi^0_A\\bigr]=-\\beta w_A\\operatorname{Var}\\bigl(\\Psi_A-\\Phi^0_A\\bigr)\\leq0,</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>∂</mi><mrow><mi>∂</mi><msub><mi>γ</mi><mi>A</mi></msub></mrow></mfrac><mi mathvariant=\"double-struck\">𝔼</mi><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">[</mo><msub><mi mathvariant=\"normal\">Ψ</mi><mi>A</mi></msub><mo>−</mo><msubsup><mi mathvariant=\"normal\">Φ</mi><mi>A</mi><mn>0</mn></msubsup><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">]</mo><mo>=</mo><mi>−</mi><mi>β</mi><msub><mi>w</mi><mi>A</mi></msub><mrow><mi mathvariant=\"normal\">Var</mi><mo>&#8289;</mo></mrow><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">(</mo><msub><mi mathvariant=\"normal\">Ψ</mi><mi>A</mi></msub><mo>−</mo><msubsup><mi mathvariant=\"normal\">Φ</mi><mi>A</mi><mn>0</mn></msubsup><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">)</mo><mo>≤</mo><mn>0</mn><mo>,</mo></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial}{\\partial\\gamma_A}\\mathbb E\\bigl[\\Psi_A-\\Phi^0_A\\bigr]=-\\beta w_A\\operatorname{Var}\\bigl(\\Psi_A-\\Phi^0_A\\bigr)\\leq0,</annotation></semantics></math>"
     },
     "3603bee4e768a340978f6a3b": {
       "tex": "\\Psi_A",
       "display": false,
-      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>Ψ</mi><mi>A</mi></msub><annotation encoding=\"application/x-tex\">\\Psi_A</annotation></semantics></math>"
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi mathvariant=\"normal\">Ψ</mi><mi>A</mi></msub><annotation encoding=\"application/x-tex\">\\Psi_A</annotation></semantics></math>"
     },
     "deb858c3e36a5f2d0ae2a919": {
       "tex": "\\rho_k(A)=\\Delta_k/\\tau^{\\mathrm{pred}}_k(A).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>ρ</mi><mi>k</mi></msub><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mo>=</mo><msub><mi>Δ</mi><mi>k</mi></msub><mi>/</mi><msubsup><mi>τ</mi><mi>k</mi><mrow><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">d</mi></mrow></msubsup><mrow><mo stretchy=\"true\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"true\" form=\"postfix\">)</mo></mrow><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\rho_k(A)=\\Delta_k/\\tau^{\\mathrm{pred}}_k(A).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>ρ</mi><mi>k</mi></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mo>=</mo><msub><mi mathvariant=\"normal\">Δ</mi><mi>k</mi></msub><mi>/</mi><msubsup><mi>τ</mi><mi>k</mi><mrow><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">r</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">d</mi></mrow></msubsup><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>A</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\rho_k(A)=\\Delta_k/\\tau^{\\mathrm{pred}}_k(A).</annotation></semantics></math>"
     },
     "bf928f81e7eb11772a5a8bca": {
       "tex": "ρ",
@@ -1037,7 +1037,7 @@
     "4495ec12ffb02f9b166a2f4e": {
       "tex": "\\frac{\\partial R_j}{\\partial\\theta_k}=-\\operatorname{Cov}\\bigl(\\mathbf 1[e_j>\\varepsilon_j],\\hat e_k\\bigr).",
       "display": true,
-      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><msub><mi>R</mi><mi>j</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mo>−</mo><mo>Cov</mo><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"prefix\">(</mo><mn>𝟏</mn><mrow><mo stretchy=\"true\" form=\"prefix\">[</mo><msub><mi>e</mi><mi>j</mi></msub><mo>&gt;</mo><msub><mi>ε</mi><mi>j</mi></msub><mo stretchy=\"true\" form=\"postfix\">]</mo></mrow><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo minsize=\"1.2\" maxsize=\"1.2\" stretchy=\"false\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial R_j}{\\partial\\theta_k}=-\\operatorname{Cov}\\bigl(\\mathbf 1[e_j&gt;\\varepsilon_j],\\hat e_k\\bigr).</annotation></semantics></math>"
+      "mathml": "<math display=\"block\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>∂</mi><msub><mi>R</mi><mi>j</mi></msub></mrow><mrow><mi>∂</mi><msub><mi>θ</mi><mi>k</mi></msub></mrow></mfrac><mo>=</mo><mi>−</mi><mrow><mi mathvariant=\"normal\">Cov</mi><mo>&#8289;</mo></mrow><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"prefix\">(</mo><mn mathvariant=\"bold\">𝟏</mn><mo stretchy=\"false\" form=\"prefix\">[</mo><msub><mi>e</mi><mi>j</mi></msub><mo>&gt;</mo><msub><mi>ε</mi><mi>j</mi></msub><mo stretchy=\"false\" form=\"postfix\">]</mo><mo>,</mo><msub><mover><mi>e</mi><mo accent=\"true\">̂</mo></mover><mi>k</mi></msub><mo minsize=\"120%\" maxsize=\"120%\" stretchy=\"true\" form=\"postfix\">)</mo><mi>.</mi></mrow><annotation encoding=\"application/x-tex\">\\frac{\\partial R_j}{\\partial\\theta_k}=-\\operatorname{Cov}\\bigl(\\mathbf 1[e_j&gt;\\varepsilon_j],\\hat e_k\\bigr).</annotation></semantics></math>"
     }
   }
 }

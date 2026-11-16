@@ -20,7 +20,7 @@ def proposition(number):
 
 class ClaimConsistency(unittest.TestCase):
     def test_cardinality(self):
-        self.assertEqual(SOURCE.count(r"\begin{formproposition}"), 491)
+        self.assertEqual(SOURCE.count(r"\begin{formproposition}"), 488)
 
     def test_6673_free_not_normalized(self):
         text = proposition("6.673")
