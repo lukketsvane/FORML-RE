@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "746ff4fca52b9d2db6accb2e8db31c7a4f4365c85f86d3f1b850dab977a720bc",
+  "sourceHash": "8757a0916456ff946b7e85d0d78b738a9a9a17b25528c5d55904323e498ddabb",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -43,7 +43,7 @@
     "nettstad/reader.html": "0f1e3841240d7a39b1d9968e2b794b70d89d9bf0bf0c8e551e195fe5c8203891",
     "nettstad/reader.js": "d14a48ef68f42362c45b8b36f762c3c30be0e8a0faaee6ad3c0d3fbd2d8087a1",
     "nettstad/stol-db.html": "d9b728dc6c7408a8e1558d26c6388d2ba0432a7a7f3d0f0876755f1125becde9",
-    "ordliste.json": "a67500a9c696d5decf95a8787d5e69d63ac7fdf3db4127e548955ead46108d12",
+    "ordliste.json": "cc835152cc2ce4480754038453185e1994ba30e4afe4ae450c6d832ad706c5bb",
     "requirements-build.txt": "6633e5ad1401cc1fbaae9f7b40640a441778946f653eba6b99486219e470c248",
     "scripts/build.py": "55f3c3f057dbb2d3b3f8982d039aa205fb62a107f2f0ac9cc92b4f6e05c4701d",
     "scripts/content.py": "9302578fed48d62ed1e8cf9a6fa0ed3fd70e094b4830322fb2dd16e615620365",
@@ -51,17 +51,17 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "57f9e72a91b212cecfe3658ce2eedeca0b019e4986bde4a9a8f826d204acc8b4",
     "scripts/render_latex.py": "21431855b2973542de527718fc82a3a23f33564b59f02b663c6b6916f481a892",
-    "tekst/formlaere.tex": "0d0b62ec49ffea11242a3bf060afb530a55f23ef00ddd7f90ea2c479fffaf4b7",
+    "tekst/formlaere.tex": "cda37addc73eca073693b1d808b6777ea2df0c4fe3f3716d907603596b990207",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "904c714e84884b7c15d5222210c50c37b433fe7fb5cb9a8a6ba1664798b9a09e",
-    "formlaere-latex.zip": "114e49b4f77696eaf4d59963bd545d3203db96e5653863df0101f8688a24f003"
+    "formlaere.pdf": "b4f18c6fd3e79545d78a1223f9373f44500231a43565b6e75c544ca4b5a24342",
+    "formlaere-latex.zip": "1904e63bb45b17ff206c1b148bec965372189a56917c7b1ddbff0e9a7068789d"
   },
   "quality": {
     "pages": 104,
-    "destinations": 785,
-    "propositions": 491,
+    "destinations": 782,
+    "propositions": 488,
     "notes": 105,
     "references": 150,
     "figures": 12,

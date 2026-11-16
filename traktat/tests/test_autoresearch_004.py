@@ -2,11 +2,12 @@
 """AutoResearch 004: frosne kontrollar for rettingane i formlaere.tex (sak #32).
 
 Fila vart skriven og køyrd mot urørt manuskript (commit ead4959) før nokon
-proposisjon vart endra. Kriteria under er ikkje justerte etterpå.
+proposisjon vart endra. Strukturkravet er seinare justert for strykinga av
+5.7221, 6.201 og 6.5111. Dei matematiske kontrollane er uendra.
 
 Tre slag kontrollar, haldne frå kvarandre:
 
-  STRUKTUR  491 adresser, type og rekkjefølgje. Matematiske likningar og
+  STRUKTUR  488 adresser, type og rekkjefølgje. Matematiske likningar og
             kjeldemerke i dei seks granska proposisjonane er uendra.
             Litterær revisjon av andre proposisjonar er tillaten.
   FELT      Setningar som kritisk gransking 2026-11 og AutoResearch 003 alt har
@@ -39,11 +40,11 @@ LIKNING = re.compile(r"\\\[.*?\\\]", re.S)
 KJELDE = re.compile(r"\\kjelder\{[^}]*\}")
 
 # ---------------------------------------------------------------- frosne verdiar
-TAL = 491
-FORDELING = {"1": 118, "2": 27, "3": 20, "4": 16, "5": 145, "6": 112, "7": 53}
+TAL = 488
+FORDELING = {"1": 118, "2": 27, "3": 20, "4": 16, "5": 144, "6": 110, "7": 53}
 OPNE = ("6.614", "6.673", "6.674", "6.711", "6.72", "7.1521")
 LEGACY_ADRESSE_SHA = "323dd4c1296bda31587c21584401193070fc6e0cb1182e48263617c254258d2a"
-ADRESSE_SHA = "94eee2e195dd239d754965173be035e7b551b1d51d9fa91889452e7d490ab663"
+ADRESSE_SHA = "4008319c21f850484dd62a02c6b42e31a535b8801150d52e560fb275ece1fee0"
 LIKNING_SHA = {
     "6.614": "02b9d35b7df25e77b268ce9cac11a74bfcc2edc152eadc4e5ffa700551367f56",
     "6.673": "1ab47a9a2c99d9c56a8f0a0b2a4e4b048fac67bd640fb8ad563e84f658038fcb",
@@ -149,7 +150,7 @@ class Struktur(unittest.TestCase):
         cls.props = proposisjonar(cls.tekst)
         cls.kropp = {n: k for n, _, k in cls.props}
 
-    def test_491_adresser_type_og_rekkjefolgje(self):
+    def test_488_adresser_type_og_rekkjefolgje(self):
         self.assertEqual(len(self.props), TAL)
         self.assertEqual(len(self.kropp), TAL)
         self.assertEqual(self.tekst.count("\\begin{formproposition}"), TAL)
