@@ -1,4 +1,4 @@
-# Kvalitetsgjennomgang av Carbon-utkastet
+﻿# Kvalitetsgjennomgang av Carbon-utkastet
 
 **Kjelde:** https://aistudio.google.com/prompts/1XbVeLZDspUaRJPUyoAfDDd-TYB8Jzhm (Google AI Studio, Gemini 4 Carbon, Antigravity Agent Preview).
 **Status:** Arbeidsutkast; inga innfletting eller publisering.
@@ -36,6 +36,10 @@ Carbon leverte eit sammenhengande alternativ frå proposisjon 1 til 7.34, i mots
 ## Kvifor automatisk Fable-sløyfe ikkje fungerte
 
 Fable fekk forbod mot å endre nummerhierarki, status, formlar og kjelder. Dei største alternative disposisjonane vart derfor skildra i rapportar, medan berre lokale inngrep kunne flettast. Dei formelle byggjetestane verifiserte ikkje litterær kvalitet. Modellen motlas ofte seg sjølv, og automatisk godkjenning ignorerte gjentekne tilrådingar om å stanse.
+
+## Konkret komposisjonseksperiment: Plan D
+
+Eg har òg gjennomført ei prøveflytting av dei elleve proposisjonane om designaren (6.02 til 6.027) til slutten av del 6, etter 6.76. Proposisjonane og kjeldemerka er bevarte i ei fullstendig arbeidskopi, men referansane må oppdaterast før nokon kan byggje henne som utgåve. Sjå PLAN_D_VURDERING.md, PLAN_D_REFERANSEKART.tsv og PLAN_D_ARBEIDSKOPI_491.tex.txt. Dette er eit reelt, men enno ikkje kvalitetsgodkjent ombyggingsforsøk.
 
 ## Neste fagleg forsvarlege arbeid
 
