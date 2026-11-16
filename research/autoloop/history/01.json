@@ -1,0 +1,32 @@
+{
+  "accepted": true,
+  "dev": {
+    "baseline_fold_mse": [
+      0.7742100452579086,
+      0.9153002695956555,
+      0.7176162641468258,
+      1.0650895812166445,
+      1.1127348669922692
+    ],
+    "baseline_mse": 0.9169902054418607,
+    "candidate_fold_mse": [
+      0.7366119099318857,
+      0.8836222688239768,
+      0.692813285016807,
+      1.0202010477809422,
+      1.0706962999170262
+    ],
+    "candidate_mse": 0.8807889622941275,
+    "folds": 5,
+    "heldout_groups": 256,
+    "included_objects": 1598,
+    "phase": "dev",
+    "scope": "Observed catalogue geometry only. Not a test of causal agency, choice, or design-theory superiority.",
+    "source_sha256": "b552be3f754865854481c6f2ee1d46f604c59a8b70127963f402c6f328dab24e",
+    "wins": 5
+  },
+  "estimated_usd": 0.2288426,
+  "reason": "Frozen validation MSE improved against baseline and best previous model",
+  "reserved_usd": 8.0,
+  "run_id": "43778388577"
+}

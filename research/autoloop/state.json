@@ -1,12 +1,12 @@
 {
-  "schema": 1,
-  "attempts": 0,
-  "accepted": 0,
-  "reserved_usd": 0,
-  "estimated_usd": 0,
+  "accepted": 1,
+  "attempts": 1,
+  "best_mse": 0.8807889622941275,
+  "complete": false,
+  "estimated_usd": 0.2288426,
   "initial_mse": 0.9169902054418608,
-  "best_mse": 0.9169902054418608,
+  "last_run_id": "43778388577",
   "no_gain": 0,
-  "last_run_id": null,
-  "complete": false
+  "reserved_usd": 8.0,
+  "schema": 1
 }
