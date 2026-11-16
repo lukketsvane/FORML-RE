@@ -288,7 +288,7 @@ class Renderer:
                     output.append(r"\entrymeta{" + tex_escape(" · ".join(entry["fields"])) + "}")
                 output.append(self.prose(entry["definition"]))
                 if entry.get("connection"):
-                    output.append(r"\par\nobreak\vspace{3pt}\nobreak\textit{I teksten:} " + self.prose(entry["connection"]))
+                    output.append(r"\par\nobreak\vspace{3pt}\nobreak " + self.prose(entry["connection"]))
                 links = []
                 for proposition in entry.get("propositions", []):
                     proposition = str(proposition)

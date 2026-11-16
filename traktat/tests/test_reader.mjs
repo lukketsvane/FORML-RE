@@ -247,7 +247,7 @@ test('glossary fields and scoped connections render without changing linked prev
   assert.equal(definition.children[0].className, 'endnote-meta');
   assert.equal(definition.children[0].textContent, 'Biologi · Dynamiske system');
   assert.equal(definition.children[1].textContent, 'Ei ordning av skilnader.');
-  assert.equal(definition.children[2].textContent, 'I teksten: Omgrepet knyter saman faglege perspektiv.');
+  assert.equal(definition.children[2].textContent, 'Omgrepet knyter saman faglege perspektiv.');
   const proposition = descendants(definition).find(node => node.href === '#1');
   proposition.dispatch('pointerenter', { pointerType: 'mouse' });
   assert.equal(app.preview.children[0].textContent, '1 · definisjon');
