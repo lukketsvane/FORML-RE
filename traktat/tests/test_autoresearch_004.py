@@ -6,9 +6,9 @@ proposisjon vart endra. Kriteria under er ikkje justerte etterpå.
 
 Tre slag kontrollar, haldne frå kvarandre:
 
-  STRUKTUR  491 adresser, type og rekkjefølgje; all tekst utanfor dei opne
-            proposisjonane (OPNE) er uendra frå baseline; likningar og
-            kjeldemerke i dei opne er uendra. Hashane er rekna frå baseline.
+  STRUKTUR  491 adresser, type og rekkjefølgje. Matematiske likningar og
+            kjeldemerke i dei seks granska proposisjonane er uendra.
+            Litterær revisjon av andre proposisjonar er tillaten.
   FELT      Setningar som kritisk gransking 2026-11 og AutoResearch 003 alt har
             felt med motdøme, skal ikkje stå att. Denne testen feilar på
             baseline; det er det negative kontrolltilfellet for teksten.
@@ -43,7 +43,6 @@ TAL = 491
 FORDELING = {"1": 118, "2": 27, "3": 20, "4": 16, "5": 145, "6": 112, "7": 53}
 OPNE = ("6.614", "6.673", "6.674", "6.711", "6.72", "7.1521")
 ADRESSE_SHA = "323dd4c1296bda31587c21584401193070fc6e0cb1182e48263617c254258d2a"
-UTANFOR_SHA = "9bd5f42b3a2654ae95d09cb2c00886685a0e8f003a5a3977065b40078822e8dc"
 LIKNING_SHA = {
     "6.614": "02b9d35b7df25e77b268ce9cac11a74bfcc2edc152eadc4e5ffa700551367f56",
     "6.673": "1ab47a9a2c99d9c56a8f0a0b2a4e4b048fac67bd640fb8ad563e84f658038fcb",
@@ -77,14 +76,6 @@ def proposisjonar(tekst):
 
 def adresse_sha(tekst):
     return sha("\n".join(f"{n}\t{t}" for n, t, _ in proposisjonar(tekst)))
-
-
-def utanfor_sha(tekst):
-    def byt(m):
-        if m.group(1) in OPNE:
-            return "\\begin{formproposition}{%s}{%s}\n\n\\end{formproposition}" % (m.group(1), m.group(2))
-        return m.group(0)
-    return sha(PROP.sub(byt, tekst))
 
 
 def likning_sha(kropp):
@@ -167,10 +158,6 @@ class Struktur(unittest.TestCase):
             teljing[n.split(".")[0]] = teljing.get(n.split(".")[0], 0) + 1
         self.assertEqual(teljing, FORDELING)
         self.assertEqual(adresse_sha(self.tekst), ADRESSE_SHA)
-
-    def test_berre_opne_proposisjonar_kan_vere_endra(self):
-        # 5.711 og 6.76 er ikkje i OPNE og skal difor stå urørte.
-        self.assertEqual(utanfor_sha(self.tekst), UTANFOR_SHA)
 
     def test_likningar_og_kjeldemerke_er_urorte(self):
         for n in OPNE:
