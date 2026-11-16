@@ -2,8 +2,6 @@ name: FORMLÆRE AutoResearch
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '10 */3 * * *'
 
 permissions:
   contents: write
@@ -24,7 +22,7 @@ jobs:
       - name: Checkout research baseline
         uses: actions/checkout@v6
         with:
-          persist-credentials: true
+          persist-credentials: false
           ref: research/autoloop-results-20261116
 
       - name: Skip exhausted or unproductive experiments
@@ -106,7 +104,7 @@ jobs:
           "$HOME/.local/bin/claude" -p "$(cat research/autoloop/program.md)
 
           THIS ITERATION: Make one evidence-based change to research/autoloop/candidate.py only.
-          You may Read research/autoloop/candidate.py and score.py, but do not edit any other file.
+          You may Read candidate.py, score.py and prior history/*.json results, but Edit candidate.py only.
           Do not run benchmarks, inspect unseen test data, or try to change evaluation parameters.
           The runner will test the candidate on frozen grouped validation folds.
           A failed experiment will be discarded automatically. Keep the model simple." \
@@ -116,13 +114,37 @@ jobs:
             --max-budget-usd 8 \
             --permission-mode bypassPermissions \
             --tools 'Read,Edit' \
-            --output-format json > "$RUNNER_TEMP/claude-result.json"
-          echo "CLAUDE_EXIT=$?" >> "$GITHUB_ENV"
+            --output-format stream-json --verbose \
+            | tee "$RUNNER_TEMP/claude-events.jsonl" \
+            | jq --unbuffered -r '
+                if .type == "assistant" then
+                  (.message.content[]? | select(.type == "tool_use") | "Claude: \(.name)")
+                elif .type == "result" then
+                  "Claude: ferdig"
+                else empty end
+              '
+          code=${PIPESTATUS[0]}
+          jq -s 'map(select(.type == "result")) | last // {"is_error":true}' \
+            "$RUNNER_TEMP/claude-events.jsonl" > "$RUNNER_TEMP/claude-result.json"
+          echo "CLAUDE_EXIT=$code" >> "$GITHUB_ENV"
           exit 0
 
       - name: Evaluate, accept or revert and persist provenance
         if: steps.reserve.outputs.run == 'true'
         run: |
+          if [ "${CLAUDE_EXIT:-1}" -ne 0 ]; then
+            printf '{"is_error":true,"total_cost_usd":8}\n' > "$RUNNER_TEMP/claude-result.json"
+          fi
+          unexpected=$(git diff --name-only | grep -Ev '^research/autoloop/(candidate.py|state.json)$' || true)
+          if [ -n "$unexpected" ]; then
+            printf 'Unexpected modified files: %s\n' "$unexpected"
+            git restore -- $unexpected
+            printf '{"is_error":true,"total_cost_usd":8}\n' > "$RUNNER_TEMP/claude-result.json"
+          fi
+          if ! cmp -s "$RUNNER_TEMP/state-reserved.json" research/autoloop/state.json; then
+            cp "$RUNNER_TEMP/state-reserved.json" research/autoloop/state.json
+            printf '{"is_error":true,"total_cost_usd":8}\n' > "$RUNNER_TEMP/claude-result.json"
+          fi
           python research/autoloop/control.py finish \
             "$RUNNER_TEMP/stolar.json" "$RUNNER_TEMP/claude-result.json" "$RUNNER_TEMP/state-reserved.json"
           git config user.name 'github-actions[bot]'
@@ -130,5 +152,12 @@ jobs:
           git add research/autoloop/state.json research/autoloop/candidate.py research/autoloop/history/
           git diff --cached --check
           git commit -m "AutoResearch: score and record experiment $GITHUB_RUN_ID"
-          git push origin HEAD:research/autoloop-results-20261116
           cat research/autoloop/history/$(printf '%02d' "$(python -c 'import json; print(json.load(open("research/autoloop/state.json"))["attempts"])')").json >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish vetted research result
+        if: steps.reserve.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh auth setup-git
+          git push origin HEAD:research/autoloop-results-20261116
