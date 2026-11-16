@@ -35,7 +35,7 @@
         "Økologisk psykologi",
         "Design"
       ],
-      "connection": "Handlingsmoglegheiter bind kropp og omgjevnad saman, medan omhugen gjev nokre av dei vekt: det eit sjølv kan gjere, og det som har noko å seie for det, møtest i dei haldne aksane."
+      "connection": "Handlingsmoglegheiter bind kropp og omgjevnad saman, medan omhugen gjev nokre av dei vekt."
     },
     {
       "id": "aktornettverk",
@@ -138,7 +138,7 @@
         "Designteori",
         "Innovasjonsforsking"
       ],
-      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, omsyn, prøvevilkår og tidspunkt. Det er ei operasjonell tilpassing av C–K, ikkje ei identifisering av kunnskapspåstandar med geometriske former. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna; det utenkjelege U_k markerer per omsyn k at ein kunnskapsstand òg har ei grense han ikkje kan sjå innanfrå."
+      "connection": "Her får kvart spørsmål om ei form ein kunnskapsstatus relativ til agent, omsyn, prøvevilkår og tidspunkt. Same form kan vere kjend langs eitt omsyn og uavgjord langs eit anna; det utenkjelege U_k markerer at ein kunnskapsstand òg har ei grense han ikkje kan sjå innanfrå."
     },
     {
       "id": "distribuert-kognisjon",
@@ -250,7 +250,7 @@
       "fields": [
         "Vitskapsteori"
       ],
-      "connection": "Læra ordnar seg sjølv etter denne inndelinga og fører eit register over føreseiingar som kan fellast. Kva som høyrer til kjernen, er teksten si eiga avgjerd."
+      "connection": "Læra ordnar seg sjølv etter denne inndelinga og fører eit register over føreseiingar som kan fellast."
     },
     {
       "id": "fri-energi-prinsippet",
@@ -267,7 +267,7 @@
         "Teoretisk nevrovitskap",
         "Informasjonsteori"
       ],
-      "connection": "I 5.112 gjeld fri energi kor godt modellen kan forklare det observerte. Eit sjølv kan føreseie ein fare presist og likevel mangle evne til å avverje han."
+      "connection": "I 5.112 gjeld fri energi kor godt modellen forklarer det observerte, ikkje kor nær utfallet ligg målet."
     },
     {
       "id": "generativ-modell",
@@ -485,7 +485,7 @@
         "Sannsynsteori",
         "Statistikk"
       ],
-      "connection": "Her skil metoden ein prøvbar hypotese om lokale val frå vilkåra for ei Gibbs-likevekt. Einsretta materiell realisering treng ei eiga dynamisk skildring."
+      "connection": "Her skil metoden ein prøvbar hypotese om lokale val frå vilkåra for ei Gibbs-likevekt."
     },
     {
       "id": "morforom",
