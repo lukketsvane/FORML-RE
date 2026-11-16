@@ -33,8 +33,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          branch="literary/autoresearch-$GITHUB_RUN_ID"
+          branch="literary/autoresearch"
           report="traktat/revisjon/litteraer-autoresearch-$GITHUB_RUN_ID.md"
+          if [ -n "$(git ls-remote --heads origin 'refs/heads/literary/autoresearch*')" ]; then
+            echo "::error::Førre litterære forslag er ikkje ferdig behandla. Flett inn og slett arbeidsgrena før ei ny betalt køyring."
+            exit 1
+          fi
           git switch -c "$branch"
           git show HEAD:traktat/tekst/formlaere.tex > "$RUNNER_TEMP/original-formlaere.tex"
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
@@ -91,6 +95,9 @@ jobs:
           jq -s 'map(select(.type == "result")) | last // {"is_error":true}' \
             "$RUNNER_TEMP/claude-events.jsonl" > "$RUNNER_TEMP/claude-result.json"
           jq -r '"Estimert API-kostnad USD: \(.total_cost_usd // "ukjent")"' "$RUNNER_TEMP/claude-result.json"
+          if [ "$code" -eq 0 ] && jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
+            printf '\n**Estimert API-kostnad:** %s USD.\n' "$(jq -r '.total_cost_usd // "ukjent"' "$RUNNER_TEMP/claude-result.json")" >> "$REPORT_PATH"
+          fi
           if [ "$code" -ne 0 ] || ! jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
             echo "::error::Fable fullførte ikkje redaksjonen. Ingen manuskriptendring blir publisert."
             exit 1
@@ -164,6 +171,9 @@ jobs:
           git commit -m "Litterær motlesing av FORMLÆRE ($GITHUB_RUN_ID)"
           gh auth setup-git
           git push origin "HEAD:refs/heads/$BRANCH"
-          gh pr create --draft --base main --head "$BRANCH" \
+          if ! gh pr create --draft --base main --head "$BRANCH" \
             --title "FORMLÆRE: adversariell litterær redaksjon ($GITHUB_RUN_ID)" \
-            --body "Litterær heilskapslesing av 491 proposisjonar med konkurrerande motlesingar. Rapport: $REPORT_PATH. Ingen automatisk litterær skår, ingen empirisk benchmark og inga automatisk samanslåing. Menneskeleg redaksjonell vurdering er nødvendig."
+            --body "Litterær heilskapslesing av 491 proposisjonar med konkurrerande motlesingar. Rapport: $REPORT_PATH. Ingen automatisk litterær skår, ingen empirisk benchmark og inga automatisk samanslåing. Menneskeleg redaksjonell vurdering er nødvendig."; then
+            echo "::warning::GitHub tillèt ikkje automatisk PR-oppretting. Forslaget er publisert på $BRANCH."
+            echo "Opprett PR: https://github.com/$GITHUB_REPOSITORY/compare/main...$BRANCH?expand=1" >> "$GITHUB_STEP_SUMMARY"
+          fi
