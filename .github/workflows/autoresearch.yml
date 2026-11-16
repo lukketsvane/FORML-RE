@@ -44,6 +44,30 @@ jobs:
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
           echo "report=$report" >> "$GITHUB_OUTPUT"
 
+      - name: Limit cumulative Claude API spending
+        id: budget
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from decimal import Decimal
+          from pathlib import Path
+
+          used = Decimal("0")
+          for path in sorted(Path("traktat/revisjon").glob("litteraer-autoresearch-*.md")):
+              costs = re.findall(r"\*\*Estimert API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
+              if len(costs) != 1:
+                  raise SystemExit(f"Missing API cost in {path}")
+              used += Decimal(costs[0])
+          available = min(Decimal("20"), Decimal("100") - used)
+          if available <= 0:
+              raise SystemExit("100 USD research budget exhausted")
+          print(f"Used {used} USD; this run is limited to {available} USD")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"max_usd={available}\n")
+          PY
+
       - name: Install Claude Code API client
         shell: bash
         run: |
@@ -64,11 +88,11 @@ jobs:
             printf '\n\nEITT VERK, EITT REDAKSJONELT FORSØK.\n'
             printf 'Les heile traktat/tekst/formlaere.tex før du skriv. Forskingsemnet er verket som litteratur.\n'
             printf 'Les tråden i 491 proposisjonar, samanlikn fleire lesemåtar og motles kvar endring i heilskapen.\n'
-            printf 'Rediger berre traktat/tekst/formlaere.tex og opprett rapport på %s.\n' "$REPORT_PATH"
+            printf 'Rediger berre traktat/tekst/formlaere.tex, traktat/nettstad/kortversjon.tex, traktat/nettstad/kort.html og rapporten på %s.\n' "$REPORT_PATH"
             printf 'Skriv rapporten på nynorsk med seksjonane Behaldne, Forkasta, Heilskap og Uvisse.\n'
             printf 'Ikkje endre kjelder, likningar, proposisjonsnummer, testkode eller workflow.\n'
             printf 'Ikkje produser nye vurderingsmål. Ikkje la måling erstatte litterær dom.\n'
-            printf 'Ikkje opprett PR eller push sjølv. GitHub Actions publiserer gjennom ein separat kontroll.\n'
+            printf 'Ikkje opprett PR eller push sjølv. Etter fullført bygg og test flettar GitHub Actions endringane automatisk i main.\n'
           } >> "$task"
           mkdir -p "$HOME/.claude"
           printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
@@ -77,7 +101,7 @@ jobs:
             --model claude-fable-5-2 \
             --effort high \
             --max-turns 50 \
-            --max-budget-usd 20 \
+            --max-budget-usd "${{ steps.budget.outputs.max_usd }}" \
             --permission-mode bypassPermissions \
             --tools "Read,Glob,Grep,Edit,Write,Agent" \
             --disallowedTools "Bash,mcp__*" \
@@ -119,21 +143,26 @@ jobs:
           report = sys.argv[1]
           modified = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
           untracked = set(subprocess.check_output(["git", "ls-files", "--others", "--exclude-standard"], text=True).splitlines())
-          if modified - {"traktat/tekst/formlaere.tex"} or untracked != {report}:
-              raise SystemExit("Agent edited files outside the permitted manuscript and report")
-          changed = "traktat/tekst/formlaere.tex" in modified
+          allowed = {
+              "traktat/tekst/formlaere.tex",
+              "traktat/nettstad/kortversjon.tex",
+              "traktat/nettstad/kort.html",
+          }
+          if modified - allowed or untracked != {report}:
+              raise SystemExit("Agent edited files outside the three allowed texts and report")
+          changed = bool(modified & allowed)
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write(f"manuscript_changed={str(changed).lower()}\n")
+              output.write(f"edition_changed={str(changed).lower()}\n")
           PY
 
       - name: Set up Python for literary edition
-        if: steps.verify.outputs.manuscript_changed == 'true'
+        if: steps.verify.outputs.edition_changed == 'true'
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
       - name: Install edition dependencies
-        if: steps.verify.outputs.manuscript_changed == 'true'
+        if: steps.verify.outputs.edition_changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -144,7 +173,7 @@ jobs:
             texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2 pandoc
 
       - name: Build and test the complete edition
-        if: steps.verify.outputs.manuscript_changed == 'true'
+        if: steps.verify.outputs.edition_changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -152,7 +181,7 @@ jobs:
           make all
           make check-generated
 
-      - name: Publish editable proposal, never main
+      - name: Publish and auto-merge verified literary edition
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -160,7 +189,7 @@ jobs:
           REPORT_PATH: ${{ steps.prepare.outputs.report }}
         run: |
           set -euo pipefail
-          git add -- traktat/tekst/formlaere.tex "$REPORT_PATH"
+          git add -- traktat/tekst/formlaere.tex traktat/nettstad/kortversjon.tex traktat/nettstad/kort.html "$REPORT_PATH"
           if [ -f traktat/pdf/release.json ]; then
             git add -- traktat/pdf/formlaere.pdf traktat/pdf/formlaere-latex.zip \
               traktat/pdf/release.json traktat/nettstad/kortversjon.html
@@ -171,9 +200,7 @@ jobs:
           git commit -m "Litterær motlesing av FORMLÆRE ($GITHUB_RUN_ID)"
           gh auth setup-git
           git push origin "HEAD:refs/heads/$BRANCH"
-          if ! gh pr create --draft --base main --head "$BRANCH" \
-            --title "FORMLÆRE: adversariell litterær redaksjon ($GITHUB_RUN_ID)" \
-            --body "Litterær heilskapslesing av 491 proposisjonar med konkurrerande motlesingar. Rapport: $REPORT_PATH. Ingen automatisk litterær skår, ingen empirisk benchmark og inga automatisk samanslåing. Menneskeleg redaksjonell vurdering er nødvendig."; then
-            echo "::warning::GitHub tillèt ikkje automatisk PR-oppretting. Forslaget er publisert på $BRANCH."
-            echo "Opprett PR: https://github.com/$GITHUB_REPOSITORY/compare/main...$BRANCH?expand=1" >> "$GITHUB_STEP_SUMMARY"
-          fi
+          gh pr create --base main --head "$BRANCH" \
+            --title "FORMLÆRE: litterær heilskapsrevisjon ($GITHUB_RUN_ID)" \
+            --body "Automatisk redaksjon av hovudtraktat, tl;dr og kortutgåva. Rapport: $REPORT_PATH. Matematiske uttrykk, kjelder og proposisjonsstruktur er verna. Fullt bygg og testar har bestått. Estimert API-kostnad er loggført. Automatisk squash-merge etter kontroll."
+          gh pr merge "$BRANCH" --auto --squash --delete-branch
