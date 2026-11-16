@@ -18,7 +18,11 @@ Les særleg forholdet mellom fyrste skilnad, formrommet, seleksjonslandskapet, a
 
 ## Vidareføring utan repetisjon
 
-Etter at du har laga ditt eige arbeidskart, les nyaste rapport i `traktat/revisjon/litteraer-autoresearch-*.md`. Ikkje betal med nye modellsteg for å kome fram til same inngrep ein gong til. Undersøk i staden dei opne problema rapporten peikar på, særleg føreordet, 5.72–5.724 og 6.6–6.675. Prøv om ein annan komposisjon kan få teksten til å demonstrere teorien gjennom forma si. Desse stadene er hypotesar, ikkje endringskvotar. Behald originalen dersom alternativa er svakare.
+Lag fyrst eit eige arbeidskart utan å lese gamle dommar. Les deretter dei nyaste rapportane i `traktat/revisjon/litteraer-autoresearch-*.md` og `traktat/revisjon/foreword-afterword-*.md`. Føreordet og etterordet er no ein del av same verk og må vurderast mot delane mellom dei. Ikkje betal med nye modellsteg for å kome fram til dei same inngrepa ein gong til.
+
+**Målet for denne runden er vesentleg litterær framgang, ikkje kosmetisk korrektur.** Prøv også djervare kompositoriske alternativ: forskyv vekt mellom passasjar, skjer bort større blokker med forklaring som held lesaren tilbake, gje motiv nye funksjonar i seinare delar, og finn stader der ein kortare eller meir uventa formulering endrar tydinga av eit heilt kapittel. Prøv mot minst eitt verkeleg radikalt alternativ før du vel. Du kan omarbeide fleire samanhengande avsnitt eller proposisjonar når det er fagleg og litterært forsvarleg, men aldri endre nummer, type, rekkjefølgje, formlar eller kjeldemarkeringar.
+
+Undersøk om `tl;dr` og den matematiske kortversjonen fører den reviderte tanken vidare. **Forkast ei endring som ikkje er ei betring**, også om ho kostar tid eller er teknisk gyldig. Null aksepterte endringar er eit legitimt resultat og skal stoppe neste betalte runde. I rapporten må kvart inngrep knytast til konkrete før/etter-stader, kva det lèt lesaren erfare annleis, kva som går tapt, og ei motlesing som kunne ha felt det. Kall aldri fleire endra ord i seg sjølv framgang.
 
 ## Tre konkurrerande lesemåtar
 
@@ -73,4 +77,4 @@ Kva gjer verket no med ein lesar som det ikkje gjorde før? Vis med konkrete for
 
 Kva i denne vurderinga er subjektivt, kva treng ei verkeleg nærlesing av ein annan person, og kva kan seinare arbeid øydeleggje? Kall ikkje litterær vurdering eit objektivt prov.
 
-Ikkje skryt av eigne endringar. Skriv presist om kva dei faktisk gjer, og la lesaren avgjere om dei er betre. Arbeidet skal dokumenterast i ein eigen PR som vert fletta automatisk etter beståtte tekniske kontrollar. I rapporten skal du tydeleg vise både gevinstane og dei skjønsmessige innvendingane, også når det berre er tl;dr som vert revidert.
+Ikkje skryt av eigne endringar. Skriv presist om kva dei faktisk gjer, og la lesaren avgjere om dei er betre. Arbeidet skal dokumenterast i ein eigen PR som vert fletta automatisk etter beståtte tekniske kontrollar. I rapporten skal du tydeleg vise både gevinstane og dei skjønsmessige innvendingane, også når det berre er tl;dr som vert revidert. Oppgje eksplisitt om den reviderte utgåva er verd å publisere; dersom ingen inngrep overlever kritisk motlesing, skal manuskriptet og kortutgåvene stå urørte og den automatiske forskingssløyfa stanse.
