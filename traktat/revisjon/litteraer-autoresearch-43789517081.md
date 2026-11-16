@@ -81,3 +81,5 @@ Det som ikkje er endra: føreordet fortel framleis boka på førehand, 6.6 til 6
 - Eg har ikkje køyrt bygg eller testar. Kontrollen i arbeidsflyten avgjer om struktur, matematikk og kjelder er urørte.
 - Seinare arbeid kan øydeleggje lina: om ordlyden i 1.01 vert endra, fell ekkoet i 7.31. Om «sløyfa» vert teken ut av 7.25, mister 7.32 det opne rommet sitt.
 - Innvendingane mot 7.24, 5.5102, 7.3 og føreordet er ikkje avviste som feil. Dei er lagde til sides i denne runden og bør avgjerast av ein redaktør som kjenner kva forfattaren vil med kvar stad.
+
+**Estimert API-kostnad:** 9.1159212 USD.
