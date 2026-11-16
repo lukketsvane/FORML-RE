@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "565905b419de1e38860dd31c611b27a4933bb28ef9a0d7284051ccd3e8abaccd",
+  "sourceHash": "0f8b1cee5f26a347b3facc7d859d4762b433a75d2e9cb6a4a20bad9943470e09",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
-    "kjelder.json": "1c160d6bbc31167e15b1a2c505dc374a83aa10fffbbd22018dc50d119ea68c05",
+    "kjelder.json": "b9f3286f31d3aa2ecc886df187c0680a4b2e524ed650ef4dc40c4763bd67298a",
     "layout/authoring.tex": "0ac14df9ba935c57df5270b10ed30ddb61be09016c483f7966e7315360031279",
     "layout/cover-stolar.png": "d36c004dc82d20f8897adacea5f2a0ad6846dba151e4d581ec44bc24c838545f",
     "layout/fonts/EBGaramond08-Italic.otf": "c9717f40d3d87bbcd874cbd31fca568f9e27cbaf68ac1d8886ad9c2122fc488f",
@@ -30,7 +30,7 @@
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
-    "nettstad/kort.html": "0884617524823f515ffe89f84bbff0885bb3023cce1d2a29c428dc9e471d9f5e",
+    "nettstad/kort.html": "c75834292ae917b0a6498e3181ebf6a019695127247ddef34bed46bfb3e0a94a",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
     "nettstad/kortversjon.html": "f6e894a4e275d24c06fb4663334c109860f19109b6c858ee51e5e0ca623d14d8",
     "nettstad/kortversjon.tex": "8aa946f8f15b20a84b856085165fe58406b20630fe80829a1c2a12185f509234",
@@ -51,15 +51,15 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "57f9e72a91b212cecfe3658ce2eedeca0b019e4986bde4a9a8f826d204acc8b4",
     "scripts/render_latex.py": "21431855b2973542de527718fc82a3a23f33564b59f02b663c6b6916f481a892",
-    "tekst/formlaere.tex": "484d995133f4716f1840d54484b3276606bc1aba323766cfb801307b9ab5dbe6",
+    "tekst/formlaere.tex": "9c049050df0f5c0d9bd6fa79b57acc6040930823172451688f0137a10e043065",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "db806bf39e6d617135b9541f1d2e8fcc6e62156766347ea9bb5ea261e93db8cf",
-    "formlaere-latex.zip": "dd802f1674177dc4ca77155f036545967b332ae2601ea7946a9e249e884a4344"
+    "formlaere.pdf": "010583e07baf085b51a3609fd2ebe763e30383a2e667a4776f0978e7287cbcf3",
+    "formlaere-latex.zip": "b0f5bebdb66cba2943c84d8f298fee841f7a65582f2ea95571eac3cbc4d1ec46"
   },
   "quality": {
-    "pages": 105,
+    "pages": 107,
     "destinations": 785,
     "propositions": 491,
     "notes": 105,
