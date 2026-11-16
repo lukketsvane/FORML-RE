@@ -72,7 +72,7 @@ jobs:
               if carbon_costs:
                   used += Decimal(carbon_costs[0])
           remaining = Decimal("109") - used
-          carbon_reserved = min(Decimal("1.5"), remaining / 2) if os.environ.get("CARBON_ENABLED") == "true" else Decimal("0")
+          carbon_reserved = min(Decimal("1.5"), remaining / 2) if os.environ.get("CARBON_ENABLED", "").lower() == "true" else Decimal("0")
           available = min(Decimal("20") - carbon_reserved, remaining - carbon_reserved)
           if available <= 0:
               raise SystemExit("109 USD research budget exhausted")
