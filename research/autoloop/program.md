@@ -19,7 +19,7 @@ Dette gjeld **observerte katalogmål**, ikkje kva designarar valde eller kvifor 
 ## Kvar runde
 
 1. Claude Fable 5.2 skal leggje fram ein ny, enkel hypotese om kva informasjon eller transformasjon som kan føreseie kataloggeometri betre.
-2. Endre berre `research/autoloop/candidate.py`, funksjonen `predict(features, y_train)`.
+2. Les førre resultat i `research/autoloop/history/` om dei finst. Ikkje gjenta ei tidlegare forkasta løysing utan ei ny grunngjeving. Endre berre `research/autoloop/candidate.py`, funksjonen `predict(features, y_train)`.
 3. Bruk berre eigenskapane frå dei fire frosne matrisene `features`. Ikkje les rådata, skjulte testmål eller andre filer frå kandidatfunksjonen. Ikkje bruk objekt-ID, namn, målvariablane eller framtidige etikettar til prediksjon.
 4. Prøv kandidatten mot fast utviklingsskår. Tek sløyfa ikkje steget framover, gjenopprett førre versjon automatisk.
 5. Registrer faktiske resultat og kostnad, også negative. Etter to mislukka rundar på rad stoppar forsøket automatisk.

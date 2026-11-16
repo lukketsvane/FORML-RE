@@ -41,6 +41,19 @@ class BudgetTests(unittest.TestCase):
     def test_reference_candidate_is_allowed(self):
         control.candidate_is_safe()
 
+    def test_workflow_requires_manual_trigger(self):
+        workflow = (control.ROOT / ".github/workflows/autoresearch.yml").read_text(encoding="utf-8")
+        self.assertIn("workflow_dispatch:", workflow)
+        self.assertNotIn("schedule:", workflow)
+        self.assertIn("persist-credentials: false", workflow)
+        self.assertNotIn("HEAD:main", workflow)
+
+    def test_credentials_not_present_during_evaluation(self):
+        workflow = (control.ROOT / ".github/workflows/autoresearch.yml").read_text(encoding="utf-8")
+        evaluation = workflow.split("      - name: Evaluate, accept or revert and persist provenance")[1]
+        evaluation = evaluation.split("      - name: Publish vetted research result")[0]
+        self.assertNotIn("GH_TOKEN", evaluation)
+
 
 if __name__ == "__main__":
     unittest.main()
