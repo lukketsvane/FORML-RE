@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "5ef2ed2ae45ad974f9539d98c314f1058d98ebb4f3a1c544f47519b6dec3157e",
+  "sourceHash": "f29357e18aa30a53ea27647ba0cd12b2d70446fa5ffc4b579d8637de360a8aa7",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -51,15 +51,15 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "57f9e72a91b212cecfe3658ce2eedeca0b019e4986bde4a9a8f826d204acc8b4",
     "scripts/render_latex.py": "a9adb2d7385d876dc3158bf9facdc10edf3a90b8715a4d31f862ab52adf2f5c1",
-    "tekst/formlaere.tex": "9f22169d8f1b72fa648e6bd97fdbc055c8ac3ccc6b568dec4974371dcfbf720e",
+    "tekst/formlaere.tex": "172c4d63cb245670903e4e6dbdae15076d1efe88ff6cd228342e0679d117f9e0",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "5ce2f18b3e3d9aa210d13b90c291ef40e3a772269404447de45b67138c47d3f1",
-    "formlaere-latex.zip": "2aa36bdc6c4aedfc9c8c3a43f457441dc909d2ba1b80822cffbc7ba7fb80324d"
+    "formlaere.pdf": "99d16704d0f48c1563065790d33f790da28682b4df2312f0d580a8a09f897355",
+    "formlaere-latex.zip": "a695a39c609da813113cb23091d75eda7d38c82e17debc01c8b176d48a340178"
   },
   "quality": {
-    "pages": 104,
+    "pages": 105,
     "destinations": 785,
     "propositions": 491,
     "notes": 105,
@@ -758,6 +758,11 @@
       "tex": "\\lambda_{SG}",
       "display": false,
       "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><msub><mi>λ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><annotation encoding=\"application/x-tex\">\\lambda_{SG}</annotation></semantics></math>"
+    },
+    "f4f146082da762c170da879e": {
+      "tex": "\\mu_{SG}(x)/\\mu_{SG}(y)",
+      "display": false,
+      "mathml": "<math display=\"inline\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>x</mi><mo stretchy=\"false\" form=\"postfix\">)</mo><mi>/</mi><msub><mi>μ</mi><mrow><mi>S</mi><mi>G</mi></mrow></msub><mo stretchy=\"false\" form=\"prefix\">(</mo><mi>y</mi><mo stretchy=\"false\" form=\"postfix\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\mu_{SG}(x)/\\mu_{SG}(y)</annotation></semantics></math>"
     },
     "360057c8c16e8ec14286a0b6": {
       "tex": "\\begin{aligned}\n\\log\\frac{P(x)}{P(y)}={}&\\log\\frac{\\mu_{SG}(x)}{\\mu_{SG}(y)}\\\\\n&-\\beta[\\Phi(x)-\\Phi(y)].\n\\end{aligned}",
