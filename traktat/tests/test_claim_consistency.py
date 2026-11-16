@@ -25,8 +25,9 @@ class ClaimConsistency(unittest.TestCase):
     def test_6673_free_not_normalized(self):
         text = proposition("6.673")
         self.assertIn("Meir fri vekt", text)
-        self.assertIn("sum 1", text)
-        self.assertIn("6.6742", text)
+        self.assertIn("Summerer omhugsvektene seg til 1", text)
+        self.assertIn("kovariansen mellom estimatet og skilnaden", text)
+        self.assertIn("kan stige", text)
         self.assertNotIn("Meir prioritering kan ikkje", text)
 
     def test_6711_free_not_care_transfer(self):
@@ -36,13 +37,15 @@ class ClaimConsistency(unittest.TestCase):
 
     def test_6614_fixed_base_distribution(self):
         text = proposition("6.614")
-        self.assertIn("Ved fast grunnfordeling", text)
-        self.assertIn("utan å endre grunnvektene", text)
+        self.assertIn(r"forholdet mellom grunnvektene \(\mu_{SG}(x)/\mu_{SG}(y)\) står fast", text)
+        self.assertIn("annleis enn det flyttar forholdet mellom grunnvektene deira", text)
 
     def test_672_predicted_not_actual_harm(self):
         text = proposition("6.72")
         self.assertIn("estimert skade", text)
-        self.assertIn("6.674", text)
+        self.assertIn("langs estimat eller bilete utan vekt", text)
+        self.assertIn("Faktisk skade kan stå att", text)
+        self.assertIn("når estimatet ordnar formene feil", text)
 
     def test_normalized_weight_counterexample(self):
         def expected(weight):
