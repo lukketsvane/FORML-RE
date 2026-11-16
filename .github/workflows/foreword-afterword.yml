@@ -1,0 +1,224 @@
+name: "FORMLÆRE: føreord og etterord"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: formlaere-foreword-afterword
+  cancel-in-progress: false
+
+jobs:
+  foreword-afterword:
+    if: github.repository == 'lukketsvane/FORML-RE' && github.actor == 'lukketsvane'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+      SOURCE_DATE_EPOCH: '946684800'
+      FORCE_SOURCE_DATE: '1'
+    steps:
+      - name: Checkout canonical manuscript
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+          fetch-depth: 8
+
+      - name: Prepare isolated literary branch and immutable baseline
+        id: prepare
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="literary/foreword-afterword-$GITHUB_RUN_ID"
+          report="traktat/revisjon/foreword-afterword-$GITHUB_RUN_ID.md"
+          git switch -c "$branch"
+          git show HEAD:traktat/tekst/formlaere.tex > "$RUNNER_TEMP/original-formlaere.tex"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "report=$report" >> "$GITHUB_OUTPUT"
+
+      - name: Limit cumulative Claude API spending
+        id: budget
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from decimal import Decimal
+          from pathlib import Path
+
+          used = Decimal("0")
+          for path in sorted(Path("traktat/revisjon").glob("*.md")):
+              if not path.name.startswith(("litteraer-autoresearch-", "foreword-afterword-")):
+                  continue
+              costs = re.findall(r"\*\*Estimert API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
+              if len(costs) != 1:
+                  raise SystemExit(f"Missing API cost in {path}")
+              used += Decimal(costs[0])
+          available = min(Decimal("15"), Decimal("100") - used - Decimal("20"))
+          if available <= 0:
+              raise SystemExit("100 USD research budget exhausted")
+          print(f"Used {used} USD; this run is limited to {available} USD")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"max_usd={available}\n")
+          PY
+
+      - name: Install Claude Code API client
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://claude.ai/install.sh | bash
+
+      - name: Fable 5.2 reviderer føreord og skriv etterord
+        shell: bash
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
+        run: |
+          set -euo pipefail
+          test -n "$ANTHROPIC_API_KEY"
+          task="$RUNNER_TEMP/literary-task.txt"
+          cat research/litteraer-autoresearch/foreword_afterword_program.md > "$task"
+          printf '\n\nSkriv rapporten på %s. Ingen endringar utanfor føreordet og nytt etterord.\n' "$REPORT_PATH" >> "$task"
+          mkdir -p "$HOME/.claude"
+          printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
+          set +e
+          "$HOME/.local/bin/claude" -p "$(cat "$task")" \
+            --model claude-fable-5-2 \
+            --effort high \
+            --max-turns 50 \
+            --max-budget-usd "${{ steps.budget.outputs.max_usd }}" \
+            --permission-mode bypassPermissions \
+            --tools "Read,Glob,Grep,Edit,Write,Agent" \
+            --disallowedTools "Bash,mcp__*" \
+            --output-format stream-json --verbose \
+            | tee "$RUNNER_TEMP/claude-events.jsonl" \
+            | jq --unbuffered -r '
+                if .type == "assistant" then
+                  (.message.content[]? | select(.type == "tool_use") | "Fable: \(.name)")
+                elif .type == "result" then
+                  "Fable: redaksjonen er ferdig"
+                else empty end
+              '
+          code=$?
+          set -e
+          jq -s 'map(select(.type == "result")) | last // {"is_error":true}' \
+            "$RUNNER_TEMP/claude-events.jsonl" > "$RUNNER_TEMP/claude-result.json"
+          jq -r '"Estimert API-kostnad USD: \(.total_cost_usd // "ukjent")"' "$RUNNER_TEMP/claude-result.json"
+          if [ "$code" -eq 0 ] && jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
+            printf '\n**Estimert API-kostnad:** %s USD.\n' "$(jq -r '.total_cost_usd // "ukjent"' "$RUNNER_TEMP/claude-result.json")" >> "$REPORT_PATH"
+          fi
+          if [ "$code" -ne 0 ] || ! jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
+            echo "::error::Fable fullførte ikkje redaksjonen. Ingen manuskriptendring blir publisert."
+            exit 1
+          fi
+
+      - name: Preserve all 491 propositions, mathematics and citations
+        id: verify
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
+        run: |
+          set -euo pipefail
+          python3 research/litteraer-autoresearch/check_foreword_afterword.py \
+            "$RUNNER_TEMP/original-formlaere.tex" traktat/tekst/formlaere.tex "$REPORT_PATH"
+          python3 - "$REPORT_PATH" <<'PY'
+          import subprocess
+          import sys
+          import os
+          report = sys.argv[1]
+          modified = set(subprocess.check_output(["git", "diff", "--name-only"], text=True).splitlines())
+          untracked = set(subprocess.check_output(["git", "ls-files", "--others", "--exclude-standard"], text=True).splitlines())
+          allowed = {"traktat/tekst/formlaere.tex"}
+          if modified - allowed or untracked != {report}:
+              raise SystemExit("Agent edited files outside the foreword/afterword manuscript and report")
+          changed = bool(modified & allowed)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"edition_changed={str(changed).lower()}\n")
+          PY
+
+      - name: Reconcile with latest main before building
+        id: sync
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- traktat/tekst/formlaere.tex "$REPORT_PATH"
+          git diff --cached --check
+          git commit -m "Litterært føreord og etterord ($GITHUB_RUN_ID)"
+          gh auth setup-git
+          git fetch origin main
+          conflict=false
+          if ! git rebase origin/main; then
+            git rebase --abort
+            conflict=true
+            echo "::warning::Main endra seg parallelt. Framlegget vert bevart utan automatisk merge."
+          fi
+          echo "conflict=$conflict" >> "$GITHUB_OUTPUT"
+          echo "tested_base=$(git rev-parse origin/main)" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python for literary edition
+        if: steps.verify.outputs.edition_changed == 'true'
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install edition dependencies
+        if: steps.verify.outputs.edition_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r traktat/requirements-build.txt
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            texlive-xetex texlive-latex-extra texlive-lang-european \
+            texlive-fonts-recommended fonts-dejavu-core poppler-utils libcairo2 pandoc
+
+      - name: Build and test the complete edition
+        if: steps.verify.outputs.edition_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd traktat
+          make all
+          make check-generated
+
+      - name: Publish and merge verified foreword and afterword
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.prepare.outputs.branch }}
+          REPORT_PATH: ${{ steps.prepare.outputs.report }}
+          CONFLICT: ${{ steps.sync.outputs.conflict }}
+          TESTED_BASE: ${{ steps.sync.outputs.tested_base }}
+        run: |
+          set -euo pipefail
+          git add -- traktat/tekst/formlaere.tex "$REPORT_PATH"
+          if [ -f traktat/pdf/release.json ]; then
+            git add -- traktat/pdf/formlaere.pdf traktat/pdf/formlaere-latex.zip \
+              traktat/pdf/release.json traktat/nettstad/kortversjon.html
+          fi
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Bygg nytt etterord som PDF og nettutgåve ($GITHUB_RUN_ID)"
+          gh auth setup-git
+          git push origin "HEAD:refs/heads/$BRANCH"
+          draft=""
+          if [ "$CONFLICT" = "true" ]; then draft="--draft"; fi
+          gh pr create $draft --base main --head "$BRANCH" \
+            --title "FORMLÆRE: nyskrive føreord og etterord ($GITHUB_RUN_ID)" \
+            --body "Eiga Fable 5.2-redaksjon av føreordet og nytt etterord. Alle 491 proposisjonar, matematikk og kjeldetilvisingar er verna. PDF og nettside bygde og testa. Rapport: $REPORT_PATH. Ved konflikt med parallell hovudrevisjon vert PR-en ståande utan automatisk merge."
+          current_base="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          if [ "$CONFLICT" = "true" ] || [ "$current_base" != "$TESTED_BASE" ]; then
+            echo "::warning::Ny main sidan byggjet. Bevar PR og ikkje flett utan ny kontroll."
+            exit 0
+          fi
+          gh pr merge "$BRANCH" --squash --delete-branch
