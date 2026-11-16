@@ -6,7 +6,7 @@ permissions:
 jobs:
   seal:
     if: github.actor == 'lukketsvane'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     timeout-minutes: 5
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
