@@ -46,9 +46,11 @@ jobs:
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
           echo "report=$report" >> "$GITHUB_OUTPUT"
 
-      - name: Limit cumulative Claude API spending
+      - name: Limit cumulative model API spending
         id: budget
         shell: bash
+        env:
+          CARBON_ENABLED: ${{ secrets.GEMINI_API_KEY != '' }}
         run: |
           python3 - <<'PY'
           import os
@@ -64,13 +66,31 @@ jobs:
               if len(costs) != 1:
                   raise SystemExit(f"Missing API cost in {path}")
               used += Decimal(costs[0])
-          available = min(Decimal("20"), Decimal("109") - used)
+              carbon_costs = re.findall(r"\*\*Estimert Gemini Carbon API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
+              if len(carbon_costs) > 1:
+                  raise SystemExit(f"Duplicate Carbon cost in {path}")
+              if carbon_costs:
+                  used += Decimal(carbon_costs[0])
+          remaining = Decimal("109") - used
+          carbon_reserved = min(Decimal("1.5"), remaining / 2) if os.environ.get("CARBON_ENABLED") == "true" else Decimal("0")
+          available = min(Decimal("20") - carbon_reserved, remaining - carbon_reserved)
           if available <= 0:
               raise SystemExit("109 USD research budget exhausted")
           print(f"Used {used} USD; this run is limited to {available} USD")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"max_usd={available}\n")
+              output.write(f"carbon_usd={carbon_reserved}\n")
           PY
+
+      - name: Gemini 4 Carbon HIGH writes independent alternatives
+        shell: bash
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CARBON_MAX_USD: ${{ steps.budget.outputs.carbon_usd }}
+        run: |
+          set -euo pipefail
+          python3 research/litteraer-autoresearch/carbon_writer.py \
+            "$RUNNER_TEMP/carbon-suggestions.md" "$RUNNER_TEMP/carbon-cost.txt"
 
       - name: Install Claude Code API client
         shell: bash
@@ -98,6 +118,10 @@ jobs:
             printf 'Ikkje produser nye vurderingsmål. Ikkje la måling erstatte litterær dom.\n'
             printf 'Ikkje opprett PR eller push sjølv. Etter fullført bygg og test flettar GitHub Actions endringane automatisk i main.\n'
           } >> "$task"
+          if [ -s "$RUNNER_TEMP/carbon-suggestions.md" ]; then
+            printf '\n\nUAVHENGIGE GEMINI CARBON HIGH-FORSLAG. Prøv dei kritisk, ikkje kopier blindt. Forkast alt som ikkje styrkjer verket.\n' >> "$task"
+            cat "$RUNNER_TEMP/carbon-suggestions.md" >> "$task"
+          fi
           mkdir -p "$HOME/.claude"
           printf '%s\n' '{"attribution":false}' > "$HOME/.claude/settings.json"
           set +e
@@ -125,6 +149,9 @@ jobs:
           jq -r '"Estimert API-kostnad USD: \(.total_cost_usd // "ukjent")"' "$RUNNER_TEMP/claude-result.json"
           if [ "$code" -eq 0 ] && jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
             printf '\n**Estimert API-kostnad:** %s USD.\n' "$(jq -r '.total_cost_usd // "ukjent"' "$RUNNER_TEMP/claude-result.json")" >> "$REPORT_PATH"
+            if [ -s "$RUNNER_TEMP/carbon-suggestions.md" ]; then
+              printf '\n**Estimert Gemini Carbon API-kostnad:** %s USD.\n' "$(cat "$RUNNER_TEMP/carbon-cost.txt")" >> "$REPORT_PATH"
+            fi
           fi
           if [ "$code" -ne 0 ] || ! jq -e '.is_error == false' "$RUNNER_TEMP/claude-result.json" >/dev/null; then
             echo "::error::Fable fullførte ikkje redaksjonen. Ingen manuskriptendring blir publisert."
@@ -233,6 +260,11 @@ jobs:
                   if len(matches) != 1:
                       raise SystemExit(f"Missing unique API cost in {path}")
                   used += Decimal(matches[0])
+                  carbon = re.findall(r"\*\*Estimert Gemini Carbon API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
+                  if len(carbon) > 1:
+                      raise SystemExit(f"Duplicate Carbon cost in {path}")
+                  if carbon:
+                      used += Decimal(carbon[0])
           print(Decimal("109") - used)
           PY
           )"
