@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "923df42019284457e8f8e6df87a36907521cdf7cfe7fbf2bd2544cf79bd0c751",
+  "sourceHash": "f0ecac68e3891439a044ccfa5a587e648b8103c45bbbe3c4a70f8e0c9323af14",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -30,7 +30,7 @@
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
-    "nettstad/kort.html": "bebc54a57e6d0d154e4c011ead1a74bd81e2295e504030f8d399a7ca15374fe7",
+    "nettstad/kort.html": "0884617524823f515ffe89f84bbff0885bb3023cce1d2a29c428dc9e471d9f5e",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
     "nettstad/kortversjon.html": "27ba50235e0b3d86d3697da43cf185e29751b7769abcda41712e01b0ef9f9da3",
     "nettstad/kortversjon.tex": "8aa946f8f15b20a84b856085165fe58406b20630fe80829a1c2a12185f509234",
@@ -51,12 +51,12 @@
     "scripts/migrate_published.py": "7efb66855e457797c72f4172e7c2b5dd50ceedc206753bb506cc9426982ed019",
     "scripts/render_kortversjon.py": "57f9e72a91b212cecfe3658ce2eedeca0b019e4986bde4a9a8f826d204acc8b4",
     "scripts/render_latex.py": "21431855b2973542de527718fc82a3a23f33564b59f02b663c6b6916f481a892",
-    "tekst/formlaere.tex": "6bb3040869f671f27675cfd94dcfca74ec318646736e96bf2fc826be2cf4ade8",
+    "tekst/formlaere.tex": "78e86804371e7f96873402e3f0edabee2a472b568c7fc611b547f653a452910f",
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "76640431bab2cf4dd2cccf829499877e6c48230da5b87893f454d5a660784cd9",
-    "formlaere-latex.zip": "6d46e590d7229eecc33437fb0c24856faaacb5081078e2fe55de500a0978a911"
+    "formlaere.pdf": "affe559f32a528f500d8676deeeaefdfd0e06ec3a22b628bd235bb199db1925b",
+    "formlaere-latex.zip": "bb13703e0de0759f27299a7cb50f89213e20b0fe9e75f272feb193fef41946b2"
   },
   "quality": {
     "pages": 106,
