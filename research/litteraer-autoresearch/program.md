@@ -6,7 +6,7 @@ Dette er ein adversariell redaksjon, ikkje ein statistisk optimalisator. Ingen a
 
 ## Heilskap før setning
 
-Les heile den autoritative traktat/tekst/formlaere.tex, inkludert føreord, lesekode og alle sju hovuddelane, før du endrar noko. Lag eit arbeidskart over:
+Les heile den autoritative `traktat/tekst/formlaere.tex`, inkludert føreord, lesekode og alle sju hovuddelane, før du endrar noko. Les òg `traktat/nettstad/kortversjon.tex` og `traktat/nettstad/kort.html`. Den matematiske kortversjonen er ei eiga utlegging av same teori, medan `/kort/` er eit kuratert proposisjonsutval. Lag eit arbeidskart over:
 
 - Kva kvar del først lèt lesaren tru, og korleis seinare delar endrar tydinga av det tidlegare.
 - Kvar eit omgrep, bilete, fråvær eller gjenteke ord vender tilbake og har fått ein annan funksjon.
@@ -45,13 +45,13 @@ Arbeid gjerne med gjentaking, omkved, brot, uventa forskyvingar, fleire meininga
 
 - Nynorsk, bruk **me** der teksten treng fyrsteperson fleirtal. Ingen em dash.
 - Verket er ein traktat, ikkje ein vanleg akademisk rapport. Hald nummerhierarki, setningskraft og gåter der dei arbeider.
-- Bevar dei 491 proposisjonsadressene, typane og rekkjefølgja gjennom denne fyrste runden. I rapporten kan du foreslå større flytting av delar, men utfør henne ikkje no.
-- Formlar, matematiske uttrykk, kjeldemarkeringar og proposisjonstypane er låste i denne runden. Matematikk er berre ei tryggingssperre mot utilsikta feil, ikkje den litterære målestokken.
-- Du kan endre føreord, setningsrytme, metaforbruk, gjentakingar, overgangar og ikkje-formelle formuleringar i proposisjonane. Ikkje skriv om heile boka automatisk.
+- Bevar dei 491 proposisjonsadressene, typane og rekkjefølgja i den automatiske redaksjonen. Du kan foreslå større omstruktureringar i rapporten.
+- Formlar, matematiske uttrykk, kjeldemarkeringar og proposisjonstypar i hovudtraktaten er verna av struktursjekken. Ikkje endre dei automatisk. I den matematiske kortversjonen skal alle endringar byggje på dei same faglege påstandane og kontrollane.
+- Du kan revidere føreord, setningsrytme, metaforbruk, gjentakingar, overgangar og ikkje-formelle formuleringar i alle delar. Du kan òg redigere `traktat/nettstad/kortversjon.tex` og `traktat/nettstad/kort.html`, slik at tl;dr og dei to korte nettutgåvene får same presisjon som traktaten. Ikkje skriv om tekst berre for å produsere endringar.
 - Prøv helst ei distribuert rekkje inngrep på tvers av fleire delar, slik at komposisjonen faktisk endrar seg, men ikkje tving fram kvotar. Den gode setninga kan vere den som ikkje vart skriven.
 - Ikkje gjer teksten flat ved å leggje inn nye atterhald for kvar tvityding. Skil mellom nødvendig opne rom og faktisk utilsikta feil.
 - Ikkje bruk datakorpus, prediksjonsfeil eller statistiske benchmarkar til å grunngje ei litterær avgjerd.
-- Ikkje endre byggjesystem, workflow, testfiler, referanselister eller andre filer. Ikkje merge eller push til main.
+- Endre berre dei tre nemnde tekstkjeldene og rapportfila. Ikkje endre byggjesystem, CSS, JavaScript, workflow, testar, referanselister eller genererte HTML- og PDF-filer direkte. Ikkje push eller merge sjølv; arbeidsflyten byggjer, prøver og flettar automatisk når alle kontrollar består.
 
 ## Rapport: konkurrerande redaksjon, ikkje sjølvros
 
@@ -73,4 +73,4 @@ Kva gjer verket no med ein lesar som det ikkje gjorde før? Vis med konkrete for
 
 Kva i denne vurderinga er subjektivt, kva treng ei verkeleg nærlesing av ein annan person, og kva kan seinare arbeid øydeleggje? Kall ikkje litterær vurdering eit objektivt prov.
 
-Ikkje skryt av eigne endringar. Skriv presist om kva dei faktisk gjer, og la lesaren avgjere om dei er betre. Arbeidet skal leggjast fram som ein eigen PR for menneskeleg redaksjonell dom.
+Ikkje skryt av eigne endringar. Skriv presist om kva dei faktisk gjer, og la lesaren avgjere om dei er betre. Arbeidet skal dokumenterast i ein eigen PR som vert fletta automatisk etter beståtte tekniske kontrollar. I rapporten skal du tydeleg vise både gevinstane og dei skjønsmessige innvendingane, også når det berre er tl;dr som vert revidert.
