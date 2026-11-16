@@ -16,6 +16,10 @@ Les heile den autoritative traktat/tekst/formlaere.tex, inkludert føreord, lese
 
 Les særleg forholdet mellom fyrste skilnad, formrommet, seleksjonslandskapet, agenten, omsorga, svikten, den sjølvkritiske slutten og siste biletet. Slutten må verke attende på byrjinga.
 
+## Vidareføring utan repetisjon
+
+Etter at du har laga ditt eige arbeidskart, les nyaste rapport i `traktat/revisjon/litteraer-autoresearch-*.md`. Ikkje betal med nye modellsteg for å kome fram til same inngrep ein gong til. Undersøk i staden dei opne problema rapporten peikar på, særleg føreordet, 5.72–5.724 og 6.6–6.675. Prøv om ein annan komposisjon kan få teksten til å demonstrere teorien gjennom forma si. Desse stadene er hypotesar, ikkje endringskvotar. Behald originalen dersom alternativa er svakare.
+
 ## Tre konkurrerande lesemåtar
 
 Bruk om mogleg tre uavhengige Agent-lesarar med same kjeldetekst, utan å la dei sjå kvarandre sine dommar før dei er ferdige:
