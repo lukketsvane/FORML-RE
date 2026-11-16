@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceHash": "5a707a305be2bf0cce343158e90983b970c1dd439f40eff0e364889246deb7a5",
+  "sourceHash": "ef6237023e56a64f1481af02bd866916d8376ed3045232ef201e8cadb6af8b64",
   "inputs": {
     "edition.json": "d5af50384e1bb28881f3fda669dd86108fafab4c8320be4e7e5ec3f302053615",
     "figurar.json": "90acc772fc900a229770312c7ae371fbc792d81d7a2c45068bd2384f9af32c99",
@@ -30,10 +30,10 @@
     "nettstad/illustrations/svarkurve-20261111.svg": "c2c571dd28442699380504a8b676032c2896ef24824e71fb9be0abbe47eb7435",
     "nettstad/illustrations/tankerom-kunnskapsrom-20261101.png": "d68a6c768cb897270de954caa26f51002c71a774a8b182d6b73610b102da6e01",
     "nettstad/illustrations/verknadskjegle-20261111.svg": "e3175e9b8a6973922739c914d54f78991f9d5b921199bee95a1e82fa008c63aa",
-    "nettstad/kort.html": "dcb4fedfc86f49c4219c814f853f8047a6e54e40920d10c61bc76946ede7d5da",
+    "nettstad/kort.html": "2b9a3abf514ce14610c273846dc8e9c257b9cb615ea85b29a3d12380a831aa18",
     "nettstad/kortversjon.css": "17eb5d6ef95e2e9deab9917f6da4e19fd65575702f8e6434754ba367863573a2",
-    "nettstad/kortversjon.html": "ca47146e4dbd9dee7ce31d58170219570189147db0c8ff31737ed20a84f00f07",
-    "nettstad/kortversjon.tex": "fc5a859c2111f42748911f06fa67e2dd745872504244dc918f46831dae3d7374",
+    "nettstad/kortversjon.html": "27ba50235e0b3d86d3697da43cf185e29751b7769abcda41712e01b0ef9f9da3",
+    "nettstad/kortversjon.tex": "8aa946f8f15b20a84b856085165fe58406b20630fe80829a1c2a12185f509234",
     "nettstad/pwa/apple-touch-icon.png": "367810fbf52e87c0a9955c5cf384147f13e0d66801e5e0bdaff5963d2350e17b",
     "nettstad/pwa/icon-192.png": "459090bc3e9a669ebd4f06ff2a2adbf135621d1facd1aba83f16fa379ff6bef9",
     "nettstad/pwa/icon-512.png": "f2c16a0c685455ed685114e895250269fe0c7d1d019dd6b2e0371663a4b450ea",
@@ -55,8 +55,8 @@
     "vercel.json": "486eb3b93b98cf6c8795127bed0822161e4dc062cf56da247f049964430574f8"
   },
   "outputs": {
-    "formlaere.pdf": "f4ebb112eaa30cb8e631e65616268d5c6e86ff4f0f9a6858fd2c622fdfc50edd",
-    "formlaere-latex.zip": "315b97ff8a509e33bf42f335d736689f6566ecda5768972edf40741df8cac188"
+    "formlaere.pdf": "0986a414c66265f0316c94369f5bd10854e9b1051983f248925ed337aa2ab8f9",
+    "formlaere-latex.zip": "12bbd85cf7ce18572a225e6c49bbed9d2069c5b8959ce4eeb42e2fc86c48ba68"
   },
   "quality": {
     "pages": 105,
