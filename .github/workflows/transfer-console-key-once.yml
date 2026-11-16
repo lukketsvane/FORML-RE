@@ -1,0 +1,43 @@
+name: One-time local Console credential bridge
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  seal:
+    if: github.actor == 'lukketsvane'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Encrypt existing secret for CYGNUS only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$ANTHROPIC_API_KEY"
+          umask 077
+          cat > "$RUNNER_TEMP/local-public.pem" <<'PUBLICKEY'
+          -----BEGIN PUBLIC KEY-----
+          MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAqqx0VzOsdMmUMYlreVYu
+          UiqTSbDfYoRTDWNlLYlbj1rh94eXAxKwtgir1d5VkpswSj7KIcND6yidZ9VJch5M
+          2IDKT8ih359Onrk161G8mO73/O0hQfe6RZSSJ9ZEqHW5/E9gBrWlwLfcVfRRixCV
+          rsBipg7nc1CCDwGDMyxGFKdF+A651+1LVA/hYXjatbGCpfVu/8jQf5DhT6OzGkgf
+          xkX9SbTzKdZXpE4Nl1+h7CDA8Gp/08cw7aZj7L2ZNSs3e2ahZM4HdvMJeYtZ3bbN
+          Vn0m7ic9QCazN+pDs/RvdAgm6h+wa88h2rcFErdSTz6U0VHnwIdfuB1dZPZNNOWl
+          k2tsPV0+Zc2xGVqBkI9QDM/lCX3xXOVtfBbbOb4N412yTZmMU3S5hTpWK3CYC2mt
+          EJ3ddldTP9M2OoCVOxQ++61QtYC2mjY6flk80qKaK/cG7lgZMqlDM8DDZew3H4fE
+          R6UoFAwp+ziHZe4S7OaqzUNDLE+RnhZhmUo9FQCfoZZTAgMBAAE=
+          -----END PUBLIC KEY-----
+          PUBLICKEY
+          printf '%s' "$ANTHROPIC_API_KEY" | openssl pkeyutl -encrypt -pubin -inkey "$RUNNER_TEMP/local-public.pem" -pkeyopt rsa_padding_mode:oaep -pkeyopt rsa_oaep_md:sha256 -out "$RUNNER_TEMP/anthropic-console.sealed"
+          test "$(stat -c '%s' "$RUNNER_TEMP/anthropic-console.sealed")" -eq 384
+          echo "Sealed key for the one-time local recipient"
+      - name: Upload one-day encrypted artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: console-credential-to-cygnus-once
+          path: ${{ runner.temp }}/anthropic-console.sealed
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
