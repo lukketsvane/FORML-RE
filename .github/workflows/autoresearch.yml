@@ -55,7 +55,9 @@ jobs:
           from pathlib import Path
 
           used = Decimal("0")
-          for path in sorted(Path("traktat/revisjon").glob("litteraer-autoresearch-*.md")):
+          for path in sorted(Path("traktat/revisjon").glob("*.md")):
+              if not path.name.startswith(("litteraer-autoresearch-", "foreword-afterword-")):
+                  continue
               costs = re.findall(r"\*\*Estimert API-kostnad:\*\*\s*([0-9]+(?:\.[0-9]+)?)\s*USD", path.read_text(encoding="utf-8"))
               if len(costs) != 1:
                   raise SystemExit(f"Missing API cost in {path}")
@@ -203,4 +205,4 @@ jobs:
           gh pr create --base main --head "$BRANCH" \
             --title "FORMLÆRE: litterær heilskapsrevisjon ($GITHUB_RUN_ID)" \
             --body "Automatisk redaksjon av hovudtraktat, tl;dr og kortutgåva. Rapport: $REPORT_PATH. Matematiske uttrykk, kjelder og proposisjonsstruktur er verna. Fullt bygg og testar har bestått. Estimert API-kostnad er loggført. Automatisk squash-merge etter kontroll."
-          gh pr merge "$BRANCH" --auto --squash --delete-branch
+          gh pr merge "$BRANCH" --squash --delete-branch
